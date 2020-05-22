@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace DataProvPosOffLine.InfraEstructura
+{
+    
+    public interface IPendiente
+    {
+
+        OOB.Resultado Pendiente_DejarCtaEnPendiente(OOB.LibVenta.PosOffline.Pendiente.DejarEnPendiente.Agregar ficha);
+        OOB.ResultadoLista<OOB.LibVenta.PosOffline.Pendiente.Ficha> Pendiente_Lista();
+        OOB.Resultado Pendiente_AbrirCta(int id);
+        OOB.Resultado Pendiente_EliminarCta(int id);
+
+    }
+
+}

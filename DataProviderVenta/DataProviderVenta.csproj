@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C3F299C-365B-43E1-A993-865E8F34FBE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataProviderVenta</RootNamespace>
+    <AssemblyName>DataProviderVenta</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DtoLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CompraVenta\DtoLib\bin\Debug\DtoLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DtoLibVenta, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CompraVenta\DtoLibVenta\bin\Debug\DtoLibVenta.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceVenta">
+      <HintPath>..\..\CompraVentaService\ServiceVenta\bin\Debug\ServiceVenta.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Cliente.cs" />
+    <Compile Include="Data\Cobrador.cs" />
+    <Compile Include="Data\Configuracion.cs" />
+    <Compile Include="Data\DataProvider.cs" />
+    <Compile Include="Data\Deposito.cs" />
+    <Compile Include="Data\Existencia.cs" />
+    <Compile Include="Data\Fiscal.cs" />
+    <Compile Include="Data\MovInvConcepto.cs" />
+    <Compile Include="Data\Permiso.cs" />
+    <Compile Include="Data\PosOffLine\Permiso.cs" />
+    <Compile Include="Data\PosOffLine\Producto.cs" />
+    <Compile Include="Data\PosOffLine\Sistema.cs" />
+    <Compile Include="Data\PosOffLine\Usuario.cs" />
+    <Compile Include="Data\Precio.cs" />
+    <Compile Include="Data\Producto.cs" />
+    <Compile Include="Data\Series.cs" />
+    <Compile Include="Data\Sucursal.cs" />
+    <Compile Include="Data\Transporte.cs" />
+    <Compile Include="Data\Vendedor.cs" />
+    <Compile Include="Data\Venta.cs" />
+    <Compile Include="Infra\ICliente.cs" />
+    <Compile Include="Infra\ICobrador.cs" />
+    <Compile Include="Infra\IConfiguracion.cs" />
+    <Compile Include="Infra\IData.cs" />
+    <Compile Include="Infra\IDeposito.cs" />
+    <Compile Include="Infra\IExistencia.cs" />
+    <Compile Include="Infra\IFiscal.cs" />
+    <Compile Include="Infra\IMovInvConcepto.cs" />
+    <Compile Include="Infra\IPermiso.cs" />
+    <Compile Include="Infra\IPos.cs" />
+    <Compile Include="Infra\IPrecio.cs" />
+    <Compile Include="Infra\IProducto.cs" />
+    <Compile Include="Infra\ISeries.cs" />
+    <Compile Include="Infra\ISucursal.cs" />
+    <Compile Include="Infra\ITransporte.cs" />
+    <Compile Include="Infra\IVendedor.cs" />
+    <Compile Include="Infra\IVenta.cs" />
+    <Compile Include="Infra\PosOffLine\IOffLine.cs" />
+    <Compile Include="Infra\PosOffLine\IPermiso.cs" />
+    <Compile Include="Infra\PosOffLine\IProducto.cs" />
+    <Compile Include="Infra\PosOffLine\IUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OOB\OOB.csproj">
+      <Project>{e2d2a709-86b4-4801-adfe-d16ce6b272a5}</Project>
+      <Name>OOB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

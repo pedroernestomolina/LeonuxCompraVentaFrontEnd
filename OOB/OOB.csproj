@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2D2A709-86B4-4801-ADFE-D16CE6B272A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OOB</RootNamespace>
+    <AssemblyName>OOB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerados.cs" />
+    <Compile Include="LibVenta\PosOffline\Cliente\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\Cliente\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Cobrador\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\ClaveAcceso\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Cobrador\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Deposito\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Enumerados.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\MedioCobro\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\MedioCobro\Medio.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\ModoPos\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Repesaje\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Serie\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Sucursal\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Transporte\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\Vendedor\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Deposito\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Fiscal\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Item\Actualizar.cs" />
+    <Compile Include="LibVenta\PosOffline\Item\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\Item\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\MedioCobro\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\AgregarItem.cs" />
+    <Compile Include="LibVenta\PosOffline\Pendiente\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Enumerados.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Pos\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Pos\Permiso.cs" />
+    <Compile Include="LibVenta\PosOffline\Precio\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Producto\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Serie\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Transporte\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Usuario\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Vendedor\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\AgregarItem.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\AgregarItemEliminar.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\AgregarMetodoPago.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\Enumerados.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Cliente\AgregarEventual.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Cliente\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Cliente\Enumerados.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Cliente\Filtro.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Cliente\PorCobrar.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Cobrador\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Deposito\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Fiscal\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Inventario\Enumerados.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Inventario\Existencia\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Inventario\Precio\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Inventario\Producto\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Inventario\Producto\Filtro.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\MovInventario\Concepto\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Permiso\Enumerados.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Permiso\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Series\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Sistema\Enumerados.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Sucursal\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Transporte\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Usuario\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Vendedor\Ficha.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Enumerados.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\Agregar.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarActProductoDeposito.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarCuerpo.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarCxc.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarEncabezado.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarFormaPago.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarKardex.cs" />
+    <Compile Include="LibVenta\VentaAdministrativa\Venta\Generar\AgregarTotal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resultado.cs" />
+    <Compile Include="ResultadoAuto.cs" />
+    <Compile Include="ResultadoEntidad.cs" />
+    <Compile Include="ResultadoId.cs" />
+    <Compile Include="ResultadoLista.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

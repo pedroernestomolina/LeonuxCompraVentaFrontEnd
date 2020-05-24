@@ -15,7 +15,6 @@ namespace ModPos.Configuracion
     public partial class ConfigurarFrm : Form
     {
 
-
         private BindingSource bs_Deposito;
         private BindingSource bs_Cobrador;
         private BindingSource bs_Vendedor;
@@ -39,6 +38,8 @@ namespace ModPos.Configuracion
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioDivisa;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioElectronico;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioOtro;
+
+        private OOB.LibVenta.PosOffline.Configuracion.Actual.Ficha _cnfActual;
 
 
         public ConfigurarFrm()
@@ -149,12 +150,13 @@ namespace ModPos.Configuracion
             LSerieNotaCredito.Clear();
             LSerieNotaCredito.AddRange(r06.Lista);
 
-            //var r07 = Sistema.MyData2.ConfiguracionActual();
-            //if (r07.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(r07.Mensaje);
-            //    return rt;
-            //}
+            var r07 = Sistema.MyData2.Configuracion_ActualCargar();
+            if (r07.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r07.Mensaje);
+                return rt;
+            }
+            _cnfActual = r07.Entidad;
 
             rt = true;
             return rt;
@@ -221,6 +223,28 @@ namespace ModPos.Configuracion
         private void ConfigurarFrm_Load(object sender, EventArgs e)
         {
             Inicializar();
+
+            CB_MEDIO_EFECTIVO.SelectedValue = _cnfActual.AutoMedioEfectivo;
+            CB_MEDIO_DIVISA.SelectedValue = _cnfActual.AutoMedioDivisa;
+            CB_MEDIO_ELECTRONICO.SelectedValue = _cnfActual.AutoMedioElectronico;
+            CB_MEDIO_OTRO.SelectedValue = _cnfActual.AutoMedioOtro;
+
+            CB_DEPOSITO.SelectedValue = _cnfActual.AutoDeposito;
+            CB_TRANSPORTE.SelectedValue = _cnfActual.AutoTransporte;
+            CB_COBRADOR.SelectedValue = _cnfActual.AutoCobrador;
+            CB_VENDEDOR.SelectedValue = _cnfActual.AutoVendedor;
+
+            CB_FACTURA.SelectedValue = _cnfActual.SerieFactura;
+            CB_NOTA_CREDITO.SelectedValue = _cnfActual.SerieNotaCredito;
+            CB_NOTA_DEBITO.SelectedValue = _cnfActual.SerieNotaDebito;
+
+            RB_BUSQUEDA_DESCRIPCION_NO.Checked = true;
+            TB_CODIGO_SUCURSAL.Text = _cnfActual.CodigoSucursal;
+            TB_LIMITE_INFERIOR.Text = _cnfActual.LimiteInferiorRepesaje.ToString("n2");
+            TB_LIMITE_SUPERIOR.Text = _cnfActual.LimiteSuperiorRepesaje.ToString("n2");
+            CHB_REPESAJE.Checked = _cnfActual.ActivarRepesaje;
+            RB_BUSQUEDA_DESCRIPCION_SI.Checked = _cnfActual.ActivarBusquedaPorDescripcion;
+            CB_CLAVE.SelectedIndex = _cnfActual.ClavePos - 1;
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)

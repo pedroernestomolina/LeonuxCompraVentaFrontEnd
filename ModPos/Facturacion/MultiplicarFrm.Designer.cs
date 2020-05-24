@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel9 = new System.Windows.Forms.Panel();
+            this.BT_SALIDA = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BT_SALIDA = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.TB_CANTIDAD = new System.Windows.Forms.TextBox();
             this.TB_OK = new System.Windows.Forms.Button();
+            this.TB_CANTIDAD = new ModPos.Lib.Controles.Numero.NumeroEntero();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -58,6 +58,19 @@
             this.panel9.Padding = new System.Windows.Forms.Padding(2);
             this.panel9.Size = new System.Drawing.Size(299, 36);
             this.panel9.TabIndex = 2;
+            // 
+            // BT_SALIDA
+            // 
+            this.BT_SALIDA.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_SALIDA.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIDA.Location = new System.Drawing.Point(210, 2);
+            this.BT_SALIDA.Name = "BT_SALIDA";
+            this.BT_SALIDA.Size = new System.Drawing.Size(87, 32);
+            this.BT_SALIDA.TabIndex = 0;
+            this.BT_SALIDA.Text = "Salida";
+            this.BT_SALIDA.UseVisualStyleBackColor = true;
+            this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
             // 
             // panel1
             // 
@@ -131,40 +144,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // BT_SALIDA
-            // 
-            this.BT_SALIDA.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_SALIDA.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_SALIDA.Location = new System.Drawing.Point(210, 2);
-            this.BT_SALIDA.Name = "BT_SALIDA";
-            this.BT_SALIDA.Size = new System.Drawing.Size(87, 32);
-            this.BT_SALIDA.TabIndex = 0;
-            this.BT_SALIDA.Text = "Salida";
-            this.BT_SALIDA.UseVisualStyleBackColor = true;
-            this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
-            // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.TB_OK);
             this.panel4.Controls.Add(this.TB_CANTIDAD);
+            this.panel4.Controls.Add(this.TB_OK);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 61);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(2);
             this.panel4.Size = new System.Drawing.Size(299, 185);
             this.panel4.TabIndex = 0;
-            // 
-            // TB_CANTIDAD
-            // 
-            this.TB_CANTIDAD.BackColor = System.Drawing.Color.Yellow;
-            this.TB_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CANTIDAD.Location = new System.Drawing.Point(40, 46);
-            this.TB_CANTIDAD.MaxLength = 3;
-            this.TB_CANTIDAD.Name = "TB_CANTIDAD";
-            this.TB_CANTIDAD.Size = new System.Drawing.Size(134, 80);
-            this.TB_CANTIDAD.TabIndex = 0;
-            this.TB_CANTIDAD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TB_OK
             // 
@@ -176,6 +165,19 @@
             this.TB_OK.Text = "Ok";
             this.TB_OK.UseVisualStyleBackColor = true;
             this.TB_OK.Click += new System.EventHandler(this.TB_OK_Click);
+            // 
+            // TB_CANTIDAD
+            // 
+            this.TB_CANTIDAD.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CANTIDAD.Location = new System.Drawing.Point(52, 46);
+            this.TB_CANTIDAD.MaxLength = 3;
+            this.TB_CANTIDAD.Name = "TB_CANTIDAD";
+            this.TB_CANTIDAD.Size = new System.Drawing.Size(122, 80);
+            this.TB_CANTIDAD.TabIndex = 0;
+            this.TB_CANTIDAD.Text = "0";
+            this.TB_CANTIDAD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_CANTIDAD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_CANTIDAD_KeyDown);
             // 
             // MultiplicarFrm
             // 
@@ -214,7 +216,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BT_SALIDA;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox TB_CANTIDAD;
         private System.Windows.Forms.Button TB_OK;
+        private Lib.Controles.Numero.NumeroEntero TB_CANTIDAD;
     }
 }

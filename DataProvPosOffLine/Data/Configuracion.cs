@@ -310,6 +310,44 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.Actual.Ficha> Configuracion_ActualCargar()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.Actual.Ficha>();
+
+            var r01 = MyData.Configuracion_ActualCargar();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var e = r01.Entidad;
+            var nr = new OOB.LibVenta.PosOffline.Configuracion.Actual.Ficha()
+            {
+                ActivarBusquedaPorDescripcion = e.ActivarBusquedaPorDescripcion,
+                ActivarRepesaje = e.ActivarRepesaje,
+                AutoCobrador = e.AutoCobrador,
+                AutoDeposito = e.AutoDeposito,
+                AutoMedioDivisa = e.AutoMedioDivisa,
+                AutoMedioEfectivo = e.AutoMedioEfectivo,
+                AutoMedioElectronico = e.AutoMedioElectronico,
+                AutoMedioOtro = e.AutoMedioOtro,
+                AutoTransporte = e.AutoTransporte,
+                AutoVendedor = e.AutoVendedor,
+                ClavePos = e.ClavePos,
+                CodigoSucursal = e.CodigoSucursal,
+                LimiteInferiorRepesaje = e.LimiteInferiorRepesaje,
+                LimiteSuperiorRepesaje = e.LimiteSuperiorRepesaje,
+                SerieFactura = e.SerieFactura,
+                SerieNotaCredito = e.SerieNotaCredito,
+                SerieNotaDebito = e.SerieNotaDebito,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

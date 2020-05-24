@@ -50,6 +50,13 @@ namespace ModPos.Facturacion.ProductoLista
             DGV.MultiSelect = false;
             DGV.ReadOnly = true;
 
+            var c0 = new DataGridViewTextBoxColumn();
+            c0.DataPropertyName = "Auto";
+            c0.Name = "Auto";
+            c0.HeaderText = "Auto";
+            c0.Visible = false;
+            c0.Width = 10;
+
             var c1 = new DataGridViewTextBoxColumn();
             c1.DataPropertyName = "CodigoPrd";
             c1.HeaderText = "Código";
@@ -79,7 +86,7 @@ namespace ModPos.Facturacion.ProductoLista
             c4.DataPropertyName = "IsActivo";
             c4.Visible = false;
 
-            //DGV.Columns.Add(c1);
+            DGV.Columns.Add(c0);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
@@ -175,6 +182,49 @@ namespace ModPos.Facturacion.ProductoLista
                     _isProductoSelected = true;
                     Salida();
                 }
+            }
+        }
+
+        private void DGV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (DGV.CurrentRow != null)
+                {
+                    if (DGV.CurrentRow.Index > -1)
+                    {
+                        var row = DGV.CurrentRow;
+                        var auto = (string)row.Cells[0].Value;
+                        var r01 = Sistema.MyData2.Producto(auto);
+                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+
+                        _productoSelected = r01.Entidad;
+                        _isProductoSelected = true;
+                        Salida();
+                    }
+                }
+            }
+        }
+
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)
+            {
+                var _prd= (OOB.LibVenta.PosOffline.Producto.Ficha)bs.Current;
+                var r01 = Sistema.MyData2.Producto(_prd.Auto);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                _productoSelected = r01.Entidad;
+                _isProductoSelected = true;
+                Salida();
             }
         }
      

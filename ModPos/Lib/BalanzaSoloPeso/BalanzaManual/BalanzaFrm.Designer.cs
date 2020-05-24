@@ -39,10 +39,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.TB_PESO = new System.Windows.Forms.TextBox();
             this.BT_ACEPTAR = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.TB_PESO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,8 +51,8 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -191,16 +191,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 208);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.TB_PESO);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(4);
-            this.panel6.Size = new System.Drawing.Size(320, 98);
-            this.panel6.TabIndex = 0;
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.BT_ACEPTAR);
@@ -210,18 +200,6 @@
             this.panel7.Padding = new System.Windows.Forms.Padding(4);
             this.panel7.Size = new System.Drawing.Size(320, 98);
             this.panel7.TabIndex = 1;
-            // 
-            // TB_PESO
-            // 
-            this.TB_PESO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TB_PESO.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_PESO.Location = new System.Drawing.Point(61, 25);
-            this.TB_PESO.MaxLength = 8;
-            this.TB_PESO.Name = "TB_PESO";
-            this.TB_PESO.Size = new System.Drawing.Size(252, 62);
-            this.TB_PESO.TabIndex = 0;
-            this.TB_PESO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // BT_ACEPTAR
             // 
@@ -235,6 +213,29 @@
             this.BT_ACEPTAR.Text = "Aceptar";
             this.BT_ACEPTAR.UseVisualStyleBackColor = true;
             this.BT_ACEPTAR.Click += new System.EventHandler(this.BT_ACEPTAR_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.TB_PESO);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(4);
+            this.panel6.Size = new System.Drawing.Size(320, 98);
+            this.panel6.TabIndex = 0;
+            // 
+            // TB_PESO
+            // 
+            this.TB_PESO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_PESO.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_PESO.Location = new System.Drawing.Point(73, 17);
+            this.TB_PESO.MaxLength = 8;
+            this.TB_PESO.Name = "TB_PESO";
+            this.TB_PESO.Size = new System.Drawing.Size(238, 62);
+            this.TB_PESO.TabIndex = 0;
+            this.TB_PESO.Text = "0";
+            this.TB_PESO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_PESO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_PESO_KeyDown);
             // 
             // BalanzaFrm
             // 
@@ -258,9 +259,9 @@
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -280,7 +281,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox TB_PESO;
         private System.Windows.Forms.Button BT_ACEPTAR;
+        private Controles.Numero.NumeroDecimal TB_PESO;
     }
 }

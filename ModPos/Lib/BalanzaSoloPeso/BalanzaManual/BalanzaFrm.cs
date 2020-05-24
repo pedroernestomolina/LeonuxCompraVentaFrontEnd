@@ -63,6 +63,14 @@ namespace ModPos.Lib.BalanzaSoloPeso.BalanzaManual
             TB_PESO.Focus();
         }
 
+        private void TB_PESO_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
     }
 
 }

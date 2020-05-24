@@ -24,6 +24,8 @@ namespace ModPos.Facturacion.Pago
         private bool _otro_Changed;
         private string _cliente;
         private bool _pagoIsOk;
+        private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
+        private ClaveSeguridad.Seguridad _seguridad;
 
 
         public bool PagoIsOk
@@ -48,8 +50,10 @@ namespace ModPos.Facturacion.Pago
             InitializeComponent();
         }
 
-        public void Inicializa(CtrCliente cliente, Venta venta) 
+        public void Inicializa(CtrCliente cliente, Venta venta, OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso, ClaveSeguridad.Seguridad seguridad) 
         {
+            _permisos = permiso;
+            _seguridad = seguridad;
             _pago = new Pago();
             _pago.setMontoPagar(venta.MontoNacional);
             _pago.setTasaCambio(venta.TasaCambio);
@@ -304,10 +308,18 @@ namespace ModPos.Facturacion.Pago
 
         private void DarDescuento()
         {
-            _pago.DarDescuento();
-            ActualizarMonto();
-            ActualizaMontoResta();
-            IrFocoPrincipal();
+            var seguir = true;
+            if (_permisos.DarDesctoGlobal.RequiereClave)
+            {
+                seguir = _seguridad.SolicitarClave();
+            }
+            if (seguir)
+            {
+                _pago.DarDescuento();
+                ActualizarMonto();
+                ActualizaMontoResta();
+                IrFocoPrincipal();
+            }
         }
 
         private void ActualizarMonto()
@@ -329,24 +341,32 @@ namespace ModPos.Facturacion.Pago
 
         private void DarCredito()
         {
-            if (_pago.setDocumentoCredito())
+            var seguir = true;
+            if (_permisos.CtaCredito.RequiereClave)
             {
-                LimpiarPago();
-                ActualizaMontoResta();
-                if (_pago.ProcesarCredito())
+                seguir = _seguridad.SolicitarClave();
+            }
+            if (seguir)
+            {
+                if (_pago.setDocumentoCredito())
                 {
-                    _pagoIsOk = true;
-                    this.Close();
+                    LimpiarPago();
+                    ActualizaMontoResta();
+                    if (_pago.ProcesarCredito())
+                    {
+                        _pagoIsOk = true;
+                        this.Close();
+                    }
+                    else
+                    {
+                        ActualizaMontoResta();
+                        IrFocoPrincipal();
+                    }
                 }
                 else
                 {
-                    ActualizaMontoResta();
                     IrFocoPrincipal();
                 }
-            }
-            else 
-            {
-                IrFocoPrincipal();
             }
         }
 

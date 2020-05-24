@@ -15,7 +15,6 @@ namespace ModPos.Facturacion
     public partial class PosVenta : Form
     {
 
-
         private bool _permitirBusquedaPorDescripcion;
         private Enumerados.EnumModoOperacionPos _modoOperacionPos;
         private bool _activarRepesaje;
@@ -28,6 +27,7 @@ namespace ModPos.Facturacion
         private Venta _venta;
         private OOB.LibVenta.PosOffline.Configuracion.Vendedor.Ficha _vendedor;
         private OOB.LibVenta.PosOffline.Configuracion.Deposito.Ficha _deposito;
+        private ClaveSeguridad.Seguridad _seguridad;
 
      
         public PosVenta()
@@ -39,6 +39,7 @@ namespace ModPos.Facturacion
             _ctrItem = new CtrItem();
             _ctrItem.PrdAcutalCambioOk+=_ctrItem_PrdAcutalCambioOk;
             _ctrCliente = new CtrCliente();
+            _seguridad = new ClaveSeguridad.Seguridad();
             _vendedor = null;
             _deposito = null;
 
@@ -56,7 +57,7 @@ namespace ModPos.Facturacion
         private void _venta_ProcesarOk(object sender, EventArgs e)
         {
             _ctrCliente.Limpiar();
-            _ctrItem.Limpiar(false);
+            _ctrItem.Limpiar();
             ActualizarCliente();
             ActualizarTotal();
             IrFoco();
@@ -206,7 +207,10 @@ namespace ModPos.Facturacion
                 Helpers.Msg.Error(r0e.Mensaje);
                 return false;
             }
+            _ctrItem.setPermiso(r0e.Entidad);
+            _ctrItem.setSeguridad(_seguridad);
             _venta.setPermiso(r0e.Entidad);
+            _venta.setSeguridad(_seguridad);
 
             return rt;
         }
@@ -438,7 +442,7 @@ namespace ModPos.Facturacion
             {
                 if (TB_BUSCAR.Text == "")
                 {
-                    IncrementarItem(1);
+                    IncrementarItem();
                     e.Handled = true;
                 }
             }
@@ -463,25 +467,33 @@ namespace ModPos.Facturacion
 
         private void BT_SUMAR_Click(object sender, EventArgs e)
         {
-            IncrementarItem(1);
-            IrFoco();
+            IncrementarItem();
         }
 
-        private void IncrementarItem(int p)
+        private void IncrementarItem()
         {
-            _ctrItem.IncrementarItem(p);
+            _ctrItem.IncrementarItem();
+            IrFoco();
         }
 
         private void AnularVenta()
         {
-            var msg = MessageBox.Show("Anular Venta ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == System.Windows.Forms.DialogResult.Yes) 
+            if (_ctrItem.AnularVenta())
             {
                 _ctrCliente.Limpiar();
-                _ctrItem.Limpiar();
                 ActualizarCliente();
                 ActualizarTotal();
             }
+
+            //var msg = MessageBox.Show("Anular Venta ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            //if (msg == System.Windows.Forms.DialogResult.Yes) 
+            //{
+            //    _ctrCliente.Limpiar();
+            //    _ctrItem.Limpiar();
+            //    ActualizarCliente();
+            //    ActualizarTotal();
+            //}
+
             IrFoco();
         }
 

@@ -22,6 +22,7 @@ namespace ModPos.Facturacion
         private OOB.LibVenta.PosOffline.Configuracion.Transporte.Ficha _transporte;
         private OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Ficha _medioCobro;
         private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
+        private ClaveSeguridad.Seguridad _seguridad;
         private CtrCliente _ctrCliente;
         private CtrItem _ctrItem;
 
@@ -121,6 +122,11 @@ namespace ModPos.Facturacion
             _permisos = ficha;
         }
 
+        public void setSeguridad (ClaveSeguridad.Seguridad seguridad)
+        {
+            _seguridad = seguridad;
+        }
+
 
         Pago.PagoFrm procesarFrm; 
         public void Procesar() 
@@ -147,7 +153,7 @@ namespace ModPos.Facturacion
             }
 
             procesarFrm = new Facturacion.Pago.PagoFrm();
-            procesarFrm.Inicializa(_ctrCliente, this);
+            procesarFrm.Inicializa(_ctrCliente, this, _permisos, _seguridad);
             procesarFrm.ShowDialog();
             if (procesarFrm.PagoIsOk)
             {

@@ -15,6 +15,14 @@ namespace OOB.LibVenta.PosOffline.Serie
         public string Serie { get; set; }
         public string Control { get; set; }
 
+        public string Nombre 
+        {
+            get 
+            {
+                return "("+Serie.Trim().ToUpper() + "), " + Control.Trim().ToUpper();
+            }
+        }
+
     }
 
 }

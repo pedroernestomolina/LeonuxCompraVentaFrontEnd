@@ -275,6 +275,41 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.Resultado Configuracion_GuardarCambio(OOB.LibVenta.PosOffline.Configuracion.Guardar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibPosOffLine.Configuracion.Guardar.Ficha()
+            {
+                ActivarBusquedaPorDescripcion=ficha.ActivarBusquedaPorDescripcion,
+                ActivarRepesaje=ficha.ActivarRepesaje,
+                AutoCobrador=ficha.AutoCobrador,
+                AutoDeposito=ficha.AutoDeposito,
+                AutoMedioDivisa=ficha.AutoMedioDivisa,
+                AutoMedioEfectivo=ficha.AutoMedioEfectivo,
+                AutoMedioElectronico=ficha.AutoMedioElectronico,
+                AutoMedioOtro=ficha.AutoMedioOtro,
+                AutoTransporte=ficha.AutoTransporte,
+                AutoVendedor=ficha.AutoVendedor,
+                ClavePos=ficha.ClavePos,
+                CodigoSucursal=ficha.CodigoSucursal,
+                LimiteInferiorRepesaje=ficha.LimiteInferiorRepesaje,
+                LimiteSuperiorRepesaje=ficha.LimiteSuperiorRepesaje,
+                SerieFactura=ficha.SerieFactura,
+                SerieNotaCredito=ficha.SerieNotaCredito,
+                SerieNotaDebito=ficha.SerieNotaDebito,
+            };
+            var r01 = MyData.Configuracion_Actualizar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

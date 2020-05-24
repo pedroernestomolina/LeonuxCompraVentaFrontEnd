@@ -34,6 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.BT_CONFIGURACION = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BT_POS
@@ -48,10 +49,10 @@
             // 
             // BT_SALIDA
             // 
-            this.BT_SALIDA.Location = new System.Drawing.Point(12, 164);
+            this.BT_SALIDA.Location = new System.Drawing.Point(12, 193);
             this.BT_SALIDA.Name = "BT_SALIDA";
             this.BT_SALIDA.Size = new System.Drawing.Size(75, 23);
-            this.BT_SALIDA.TabIndex = 5;
+            this.BT_SALIDA.TabIndex = 6;
             this.BT_SALIDA.Text = "SALIDA";
             this.BT_SALIDA.UseVisualStyleBackColor = true;
             this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
@@ -86,19 +87,29 @@
             // 
             // BT_CONFIGURACION
             // 
-            this.BT_CONFIGURACION.Location = new System.Drawing.Point(12, 135);
+            this.BT_CONFIGURACION.Location = new System.Drawing.Point(12, 164);
             this.BT_CONFIGURACION.Name = "BT_CONFIGURACION";
             this.BT_CONFIGURACION.Size = new System.Drawing.Size(181, 23);
-            this.BT_CONFIGURACION.TabIndex = 4;
+            this.BT_CONFIGURACION.TabIndex = 5;
             this.BT_CONFIGURACION.Text = "CONFIGURAR SISTEMA";
             this.BT_CONFIGURACION.UseVisualStyleBackColor = true;
             this.BT_CONFIGURACION.Click += new System.EventHandler(this.BT_CONFIGURACION_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(181, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "ADMINISTRADOR DOC";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BT_CONFIGURACION);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -120,6 +131,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button BT_CONFIGURACION;
+        private System.Windows.Forms.Button button1;
     }
 }
 

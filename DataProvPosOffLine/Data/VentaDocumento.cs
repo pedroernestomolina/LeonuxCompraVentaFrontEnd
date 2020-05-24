@@ -171,6 +171,48 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibVenta.PosOffline.VentaDocumento.Ficha> VentaDocumento_Lista(OOB.LibVenta.PosOffline.VentaDocumento.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibVenta.PosOffline.VentaDocumento.Ficha>();
+
+            var filtroDTO = new DtoLibPosOffLine.VentaDocumento.Lista.Filtro();
+            var r01 = MyData.VentaDocumento_Lista(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibVenta.PosOffline.VentaDocumento.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibVenta.PosOffline.VentaDocumento.Ficha()
+                        {
+                            CiRif = s.CiRif,
+                            Control = s.Control,
+                            Documento = s.Documento,
+                            FechaEmision = s.FechaEmision,
+                            HoraEmision = s.HoraEmision,
+                            Id = s.Id,
+                            IsActivo = s.IsActivo,
+                            Monto = s.Monto,
+                            NombreRazonSocial = s.NombreRazonSocial,
+                            Signo = s.Signo,
+                            TipoDocumento = (OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento) s.TipoDocumento,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

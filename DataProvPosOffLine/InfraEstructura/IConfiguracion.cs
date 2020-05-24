@@ -23,6 +23,7 @@ namespace DataProvPosOffLine.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Ficha> Configuracion_MedioCobro();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.ClaveAcceso.Ficha> Configuracion_ClavePos();
         OOB.ResultadoEntidad<bool> Configuracion_ActivarBusquedaPorDescripcion();
+        OOB.Resultado Configuracion_GuardarCambio(OOB.LibVenta.PosOffline.Configuracion.Guardar.Ficha ficha);
 
     }
 

@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 
 namespace OOB.LibVenta.PosOffline.VentaDocumento
 {
-
-    public class Enumerados
+    
+    public class Filtro
     {
-
-        public enum EnumTipoDocumento { SinDefinir = -1, Factura = 1, NotaDebito, NotaCredito };
-
     }
 
 }

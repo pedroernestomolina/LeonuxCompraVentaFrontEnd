@@ -43,81 +43,81 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.CB_MEDIO_OTRO = new System.Windows.Forms.ComboBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.CB_MEDIO_ELECTRONICO = new System.Windows.Forms.ComboBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CB_MEDIO_DIVISA = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CB_MEDIO_EFECTIVO = new System.Windows.Forms.ComboBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel15 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.CB_TRANSPORTE = new System.Windows.Forms.ComboBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.CB_VENDEDOR = new System.Windows.Forms.ComboBox();
             this.panel19 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.CB_COBRADOR = new System.Windows.Forms.ComboBox();
             this.panel21 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.CB_DEPOSITO = new System.Windows.Forms.ComboBox();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel24 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel26 = new System.Windows.Forms.Panel();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
+            this.CB_NOTA_DEBITO = new System.Windows.Forms.ComboBox();
             this.panel27 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.CB_NOTA_CREDITO = new System.Windows.Forms.ComboBox();
             this.panel29 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel30 = new System.Windows.Forms.Panel();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
+            this.CB_FACTURA = new System.Windows.Forms.ComboBox();
             this.panel31 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel32 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel33 = new System.Windows.Forms.Panel();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.CB_CLAVE = new System.Windows.Forms.ComboBox();
             this.panel34 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RB_BUSQUEDA_DESCRIPCION_NO = new System.Windows.Forms.RadioButton();
+            this.RB_BUSQUEDA_DESCRIPCION_SI = new System.Windows.Forms.RadioButton();
             this.panel36 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel37 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.numeroDecimal2 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.numeroDecimal1 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CHB_REPESAJE = new System.Windows.Forms.CheckBox();
             this.panel38 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel39 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TB_CODIGO_SUCURSAL = new System.Windows.Forms.TextBox();
             this.panel40 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BT_GUARDAR = new System.Windows.Forms.Button();
+            this.TB_LIMITE_INFERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_LIMITE_SUPERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -363,7 +363,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.comboBox4);
+            this.panel13.Controls.Add(this.CB_MEDIO_OTRO);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(124, 97);
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
@@ -372,17 +372,17 @@
             this.panel13.Size = new System.Drawing.Size(207, 30);
             this.panel13.TabIndex = 7;
             // 
-            // comboBox4
+            // CB_MEDIO_OTRO
             // 
-            this.comboBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(2, 2);
-            this.comboBox4.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(203, 28);
-            this.comboBox4.TabIndex = 1;
+            this.CB_MEDIO_OTRO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_MEDIO_OTRO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MEDIO_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_MEDIO_OTRO.FormattingEnabled = true;
+            this.CB_MEDIO_OTRO.Location = new System.Drawing.Point(2, 2);
+            this.CB_MEDIO_OTRO.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_MEDIO_OTRO.Name = "CB_MEDIO_OTRO";
+            this.CB_MEDIO_OTRO.Size = new System.Drawing.Size(203, 28);
+            this.CB_MEDIO_OTRO.TabIndex = 1;
             // 
             // panel12
             // 
@@ -408,7 +408,7 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.comboBox3);
+            this.panel11.Controls.Add(this.CB_MEDIO_ELECTRONICO);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(124, 65);
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
@@ -417,17 +417,17 @@
             this.panel11.Size = new System.Drawing.Size(207, 30);
             this.panel11.TabIndex = 5;
             // 
-            // comboBox3
+            // CB_MEDIO_ELECTRONICO
             // 
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(2, 2);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(203, 28);
-            this.comboBox3.TabIndex = 1;
+            this.CB_MEDIO_ELECTRONICO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_MEDIO_ELECTRONICO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MEDIO_ELECTRONICO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_MEDIO_ELECTRONICO.FormattingEnabled = true;
+            this.CB_MEDIO_ELECTRONICO.Location = new System.Drawing.Point(2, 2);
+            this.CB_MEDIO_ELECTRONICO.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_MEDIO_ELECTRONICO.Name = "CB_MEDIO_ELECTRONICO";
+            this.CB_MEDIO_ELECTRONICO.Size = new System.Drawing.Size(203, 28);
+            this.CB_MEDIO_ELECTRONICO.TabIndex = 1;
             // 
             // panel10
             // 
@@ -453,7 +453,7 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.comboBox2);
+            this.panel9.Controls.Add(this.CB_MEDIO_DIVISA);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(124, 33);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
@@ -462,17 +462,17 @@
             this.panel9.Size = new System.Drawing.Size(207, 30);
             this.panel9.TabIndex = 3;
             // 
-            // comboBox2
+            // CB_MEDIO_DIVISA
             // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(2, 2);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(203, 28);
-            this.comboBox2.TabIndex = 1;
+            this.CB_MEDIO_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_MEDIO_DIVISA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MEDIO_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_MEDIO_DIVISA.FormattingEnabled = true;
+            this.CB_MEDIO_DIVISA.Location = new System.Drawing.Point(2, 2);
+            this.CB_MEDIO_DIVISA.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_MEDIO_DIVISA.Name = "CB_MEDIO_DIVISA";
+            this.CB_MEDIO_DIVISA.Size = new System.Drawing.Size(203, 28);
+            this.CB_MEDIO_DIVISA.TabIndex = 1;
             // 
             // panel8
             // 
@@ -498,7 +498,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.comboBox1);
+            this.panel7.Controls.Add(this.CB_MEDIO_EFECTIVO);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(124, 1);
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
@@ -507,17 +507,17 @@
             this.panel7.Size = new System.Drawing.Size(207, 30);
             this.panel7.TabIndex = 1;
             // 
-            // comboBox1
+            // CB_MEDIO_EFECTIVO
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(2, 2);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(203, 28);
-            this.comboBox1.TabIndex = 0;
+            this.CB_MEDIO_EFECTIVO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_MEDIO_EFECTIVO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MEDIO_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_MEDIO_EFECTIVO.FormattingEnabled = true;
+            this.CB_MEDIO_EFECTIVO.Location = new System.Drawing.Point(2, 2);
+            this.CB_MEDIO_EFECTIVO.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_MEDIO_EFECTIVO.Name = "CB_MEDIO_EFECTIVO";
+            this.CB_MEDIO_EFECTIVO.Size = new System.Drawing.Size(203, 28);
+            this.CB_MEDIO_EFECTIVO.TabIndex = 0;
             // 
             // panel14
             // 
@@ -594,7 +594,7 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.comboBox5);
+            this.panel16.Controls.Add(this.CB_TRANSPORTE);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.Location = new System.Drawing.Point(124, 97);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
@@ -603,17 +603,17 @@
             this.panel16.Size = new System.Drawing.Size(207, 30);
             this.panel16.TabIndex = 7;
             // 
-            // comboBox5
+            // CB_TRANSPORTE
             // 
-            this.comboBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(2, 2);
-            this.comboBox5.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(203, 28);
-            this.comboBox5.TabIndex = 1;
+            this.CB_TRANSPORTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_TRANSPORTE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_TRANSPORTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_TRANSPORTE.FormattingEnabled = true;
+            this.CB_TRANSPORTE.Location = new System.Drawing.Point(2, 2);
+            this.CB_TRANSPORTE.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_TRANSPORTE.Name = "CB_TRANSPORTE";
+            this.CB_TRANSPORTE.Size = new System.Drawing.Size(203, 28);
+            this.CB_TRANSPORTE.TabIndex = 1;
             // 
             // panel17
             // 
@@ -639,7 +639,7 @@
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.comboBox6);
+            this.panel18.Controls.Add(this.CB_VENDEDOR);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(124, 65);
             this.panel18.Margin = new System.Windows.Forms.Padding(1);
@@ -648,17 +648,17 @@
             this.panel18.Size = new System.Drawing.Size(207, 30);
             this.panel18.TabIndex = 5;
             // 
-            // comboBox6
+            // CB_VENDEDOR
             // 
-            this.comboBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(2, 2);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(203, 28);
-            this.comboBox6.TabIndex = 1;
+            this.CB_VENDEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_VENDEDOR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_VENDEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_VENDEDOR.FormattingEnabled = true;
+            this.CB_VENDEDOR.Location = new System.Drawing.Point(2, 2);
+            this.CB_VENDEDOR.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_VENDEDOR.Name = "CB_VENDEDOR";
+            this.CB_VENDEDOR.Size = new System.Drawing.Size(203, 28);
+            this.CB_VENDEDOR.TabIndex = 1;
             // 
             // panel19
             // 
@@ -684,7 +684,7 @@
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.comboBox7);
+            this.panel20.Controls.Add(this.CB_COBRADOR);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(124, 33);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
@@ -693,17 +693,17 @@
             this.panel20.Size = new System.Drawing.Size(207, 30);
             this.panel20.TabIndex = 3;
             // 
-            // comboBox7
+            // CB_COBRADOR
             // 
-            this.comboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(2, 2);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(203, 28);
-            this.comboBox7.TabIndex = 1;
+            this.CB_COBRADOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_COBRADOR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_COBRADOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_COBRADOR.FormattingEnabled = true;
+            this.CB_COBRADOR.Location = new System.Drawing.Point(2, 2);
+            this.CB_COBRADOR.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_COBRADOR.Name = "CB_COBRADOR";
+            this.CB_COBRADOR.Size = new System.Drawing.Size(203, 28);
+            this.CB_COBRADOR.TabIndex = 1;
             // 
             // panel21
             // 
@@ -729,7 +729,7 @@
             // 
             // panel22
             // 
-            this.panel22.Controls.Add(this.comboBox8);
+            this.panel22.Controls.Add(this.CB_DEPOSITO);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel22.Location = new System.Drawing.Point(124, 1);
             this.panel22.Margin = new System.Windows.Forms.Padding(1);
@@ -738,17 +738,17 @@
             this.panel22.Size = new System.Drawing.Size(207, 30);
             this.panel22.TabIndex = 1;
             // 
-            // comboBox8
+            // CB_DEPOSITO
             // 
-            this.comboBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(2, 2);
-            this.comboBox8.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(203, 28);
-            this.comboBox8.TabIndex = 0;
+            this.CB_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_DEPOSITO.FormattingEnabled = true;
+            this.CB_DEPOSITO.Location = new System.Drawing.Point(2, 2);
+            this.CB_DEPOSITO.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_DEPOSITO.Name = "CB_DEPOSITO";
+            this.CB_DEPOSITO.Size = new System.Drawing.Size(203, 28);
+            this.CB_DEPOSITO.TabIndex = 0;
             // 
             // panel23
             // 
@@ -822,7 +822,7 @@
             // 
             // panel26
             // 
-            this.panel26.Controls.Add(this.comboBox10);
+            this.panel26.Controls.Add(this.CB_NOTA_DEBITO);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel26.Location = new System.Drawing.Point(130, 65);
             this.panel26.Margin = new System.Windows.Forms.Padding(1);
@@ -831,17 +831,17 @@
             this.panel26.Size = new System.Drawing.Size(207, 30);
             this.panel26.TabIndex = 5;
             // 
-            // comboBox10
+            // CB_NOTA_DEBITO
             // 
-            this.comboBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(2, 2);
-            this.comboBox10.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(203, 28);
-            this.comboBox10.TabIndex = 1;
+            this.CB_NOTA_DEBITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_NOTA_DEBITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_NOTA_DEBITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_NOTA_DEBITO.FormattingEnabled = true;
+            this.CB_NOTA_DEBITO.Location = new System.Drawing.Point(2, 2);
+            this.CB_NOTA_DEBITO.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_NOTA_DEBITO.Name = "CB_NOTA_DEBITO";
+            this.CB_NOTA_DEBITO.Size = new System.Drawing.Size(203, 28);
+            this.CB_NOTA_DEBITO.TabIndex = 1;
             // 
             // panel27
             // 
@@ -867,7 +867,7 @@
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.comboBox11);
+            this.panel28.Controls.Add(this.CB_NOTA_CREDITO);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel28.Location = new System.Drawing.Point(130, 33);
             this.panel28.Margin = new System.Windows.Forms.Padding(1);
@@ -876,17 +876,17 @@
             this.panel28.Size = new System.Drawing.Size(207, 30);
             this.panel28.TabIndex = 3;
             // 
-            // comboBox11
+            // CB_NOTA_CREDITO
             // 
-            this.comboBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(2, 2);
-            this.comboBox11.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(203, 28);
-            this.comboBox11.TabIndex = 1;
+            this.CB_NOTA_CREDITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_NOTA_CREDITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_NOTA_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_NOTA_CREDITO.FormattingEnabled = true;
+            this.CB_NOTA_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.CB_NOTA_CREDITO.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_NOTA_CREDITO.Name = "CB_NOTA_CREDITO";
+            this.CB_NOTA_CREDITO.Size = new System.Drawing.Size(203, 28);
+            this.CB_NOTA_CREDITO.TabIndex = 1;
             // 
             // panel29
             // 
@@ -912,7 +912,7 @@
             // 
             // panel30
             // 
-            this.panel30.Controls.Add(this.comboBox12);
+            this.panel30.Controls.Add(this.CB_FACTURA);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel30.Location = new System.Drawing.Point(130, 1);
             this.panel30.Margin = new System.Windows.Forms.Padding(1);
@@ -921,17 +921,17 @@
             this.panel30.Size = new System.Drawing.Size(207, 30);
             this.panel30.TabIndex = 1;
             // 
-            // comboBox12
+            // CB_FACTURA
             // 
-            this.comboBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Location = new System.Drawing.Point(2, 2);
-            this.comboBox12.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(203, 28);
-            this.comboBox12.TabIndex = 0;
+            this.CB_FACTURA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_FACTURA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_FACTURA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_FACTURA.FormattingEnabled = true;
+            this.CB_FACTURA.Location = new System.Drawing.Point(2, 2);
+            this.CB_FACTURA.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_FACTURA.Name = "CB_FACTURA";
+            this.CB_FACTURA.Size = new System.Drawing.Size(203, 28);
+            this.CB_FACTURA.TabIndex = 0;
             // 
             // panel31
             // 
@@ -1007,7 +1007,7 @@
             // 
             // panel33
             // 
-            this.panel33.Controls.Add(this.comboBox9);
+            this.panel33.Controls.Add(this.CB_CLAVE);
             this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel33.Location = new System.Drawing.Point(144, 162);
             this.panel33.Margin = new System.Windows.Forms.Padding(1);
@@ -1016,17 +1016,21 @@
             this.panel33.Size = new System.Drawing.Size(193, 30);
             this.panel33.TabIndex = 7;
             // 
-            // comboBox9
+            // CB_CLAVE
             // 
-            this.comboBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(2, 2);
-            this.comboBox9.Margin = new System.Windows.Forms.Padding(1);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(189, 28);
-            this.comboBox9.TabIndex = 1;
+            this.CB_CLAVE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_CLAVE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_CLAVE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_CLAVE.FormattingEnabled = true;
+            this.CB_CLAVE.Items.AddRange(new object[] {
+            "Clave 1",
+            "Clave 2",
+            "Clave 3"});
+            this.CB_CLAVE.Location = new System.Drawing.Point(2, 2);
+            this.CB_CLAVE.Margin = new System.Windows.Forms.Padding(1);
+            this.CB_CLAVE.Name = "CB_CLAVE";
+            this.CB_CLAVE.Size = new System.Drawing.Size(189, 28);
+            this.CB_CLAVE.TabIndex = 1;
             // 
             // panel34
             // 
@@ -1052,8 +1056,8 @@
             // 
             // panel35
             // 
-            this.panel35.Controls.Add(this.radioButton2);
-            this.panel35.Controls.Add(this.radioButton1);
+            this.panel35.Controls.Add(this.RB_BUSQUEDA_DESCRIPCION_NO);
+            this.panel35.Controls.Add(this.RB_BUSQUEDA_DESCRIPCION_SI);
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel35.Location = new System.Drawing.Point(144, 115);
             this.panel35.Margin = new System.Windows.Forms.Padding(1);
@@ -1062,29 +1066,29 @@
             this.panel35.Size = new System.Drawing.Size(193, 45);
             this.panel35.TabIndex = 5;
             // 
-            // radioButton2
+            // RB_BUSQUEDA_DESCRIPCION_NO
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(52, 10);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 24);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RB_BUSQUEDA_DESCRIPCION_NO.AutoSize = true;
+            this.RB_BUSQUEDA_DESCRIPCION_NO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RB_BUSQUEDA_DESCRIPCION_NO.Location = new System.Drawing.Point(52, 10);
+            this.RB_BUSQUEDA_DESCRIPCION_NO.Name = "RB_BUSQUEDA_DESCRIPCION_NO";
+            this.RB_BUSQUEDA_DESCRIPCION_NO.Size = new System.Drawing.Size(47, 24);
+            this.RB_BUSQUEDA_DESCRIPCION_NO.TabIndex = 1;
+            this.RB_BUSQUEDA_DESCRIPCION_NO.TabStop = true;
+            this.RB_BUSQUEDA_DESCRIPCION_NO.Text = "No";
+            this.RB_BUSQUEDA_DESCRIPCION_NO.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // RB_BUSQUEDA_DESCRIPCION_SI
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(5, 10);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(41, 24);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Si";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RB_BUSQUEDA_DESCRIPCION_SI.AutoSize = true;
+            this.RB_BUSQUEDA_DESCRIPCION_SI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RB_BUSQUEDA_DESCRIPCION_SI.Location = new System.Drawing.Point(5, 10);
+            this.RB_BUSQUEDA_DESCRIPCION_SI.Name = "RB_BUSQUEDA_DESCRIPCION_SI";
+            this.RB_BUSQUEDA_DESCRIPCION_SI.Size = new System.Drawing.Size(41, 24);
+            this.RB_BUSQUEDA_DESCRIPCION_SI.TabIndex = 0;
+            this.RB_BUSQUEDA_DESCRIPCION_SI.TabStop = true;
+            this.RB_BUSQUEDA_DESCRIPCION_SI.Text = "Si";
+            this.RB_BUSQUEDA_DESCRIPCION_SI.UseVisualStyleBackColor = true;
             // 
             // panel36
             // 
@@ -1112,9 +1116,9 @@
             // 
             this.panel37.Controls.Add(this.label17);
             this.panel37.Controls.Add(this.label18);
-            this.panel37.Controls.Add(this.numeroDecimal2);
-            this.panel37.Controls.Add(this.numeroDecimal1);
-            this.panel37.Controls.Add(this.checkBox1);
+            this.panel37.Controls.Add(this.TB_LIMITE_INFERIOR);
+            this.panel37.Controls.Add(this.TB_LIMITE_SUPERIOR);
+            this.panel37.Controls.Add(this.CHB_REPESAJE);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel37.Location = new System.Drawing.Point(144, 33);
             this.panel37.Margin = new System.Windows.Forms.Padding(1);
@@ -1126,7 +1130,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(118, 51);
+            this.label17.Location = new System.Drawing.Point(118, 56);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(52, 13);
             this.label17.TabIndex = 7;
@@ -1135,44 +1139,23 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(118, 29);
+            this.label18.Location = new System.Drawing.Point(118, 31);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(59, 13);
             this.label18.TabIndex = 6;
             this.label18.Text = "Limite Sup:";
             // 
-            // numeroDecimal2
+            // CHB_REPESAJE
             // 
-            this.numeroDecimal2.BackColor = System.Drawing.Color.Yellow;
-            this.numeroDecimal2.Location = new System.Drawing.Point(5, 48);
-            this.numeroDecimal2.Margin = new System.Windows.Forms.Padding(1);
-            this.numeroDecimal2.Name = "numeroDecimal2";
-            this.numeroDecimal2.Size = new System.Drawing.Size(100, 20);
-            this.numeroDecimal2.TabIndex = 2;
-            this.numeroDecimal2.Text = "0";
-            this.numeroDecimal2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // numeroDecimal1
-            // 
-            this.numeroDecimal1.BackColor = System.Drawing.Color.Yellow;
-            this.numeroDecimal1.Location = new System.Drawing.Point(5, 26);
-            this.numeroDecimal1.Margin = new System.Windows.Forms.Padding(1);
-            this.numeroDecimal1.Name = "numeroDecimal1";
-            this.numeroDecimal1.Size = new System.Drawing.Size(100, 20);
-            this.numeroDecimal1.TabIndex = 1;
-            this.numeroDecimal1.Text = "0";
-            this.numeroDecimal1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(5, 7);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Activar";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CHB_REPESAJE.AutoSize = true;
+            this.CHB_REPESAJE.Location = new System.Drawing.Point(5, 7);
+            this.CHB_REPESAJE.Margin = new System.Windows.Forms.Padding(1);
+            this.CHB_REPESAJE.Name = "CHB_REPESAJE";
+            this.CHB_REPESAJE.Size = new System.Drawing.Size(59, 17);
+            this.CHB_REPESAJE.TabIndex = 0;
+            this.CHB_REPESAJE.Text = "Activar";
+            this.CHB_REPESAJE.UseVisualStyleBackColor = true;
+            this.CHB_REPESAJE.CheckedChanged += new System.EventHandler(this.CHB_REPESAJE_CheckedChanged);
             // 
             // panel38
             // 
@@ -1198,7 +1181,7 @@
             // 
             // panel39
             // 
-            this.panel39.Controls.Add(this.textBox1);
+            this.panel39.Controls.Add(this.TB_CODIGO_SUCURSAL);
             this.panel39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel39.Location = new System.Drawing.Point(144, 1);
             this.panel39.Margin = new System.Windows.Forms.Padding(1);
@@ -1207,12 +1190,14 @@
             this.panel39.Size = new System.Drawing.Size(193, 30);
             this.panel39.TabIndex = 1;
             // 
-            // textBox1
+            // TB_CODIGO_SUCURSAL
             // 
-            this.textBox1.Location = new System.Drawing.Point(5, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 0;
+            this.TB_CODIGO_SUCURSAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CODIGO_SUCURSAL.Location = new System.Drawing.Point(5, 5);
+            this.TB_CODIGO_SUCURSAL.MaxLength = 10;
+            this.TB_CODIGO_SUCURSAL.Name = "TB_CODIGO_SUCURSAL";
+            this.TB_CODIGO_SUCURSAL.Size = new System.Drawing.Size(68, 22);
+            this.TB_CODIGO_SUCURSAL.TabIndex = 0;
             // 
             // panel40
             // 
@@ -1238,7 +1223,7 @@
             // 
             // panel25
             // 
-            this.panel25.Controls.Add(this.button1);
+            this.panel25.Controls.Add(this.BT_GUARDAR);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel25.Location = new System.Drawing.Point(1, 234);
             this.panel25.Margin = new System.Windows.Forms.Padding(1);
@@ -1247,17 +1232,44 @@
             this.panel25.Size = new System.Drawing.Size(354, 64);
             this.panel25.TabIndex = 1;
             // 
-            // button1
+            // BT_GUARDAR
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(10, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(334, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Guardar Cambios";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_GUARDAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_GUARDAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_GUARDAR.Location = new System.Drawing.Point(10, 10);
+            this.BT_GUARDAR.Margin = new System.Windows.Forms.Padding(1);
+            this.BT_GUARDAR.Name = "BT_GUARDAR";
+            this.BT_GUARDAR.Size = new System.Drawing.Size(334, 44);
+            this.BT_GUARDAR.TabIndex = 0;
+            this.BT_GUARDAR.Text = "Guardar Cambios";
+            this.BT_GUARDAR.UseVisualStyleBackColor = true;
+            this.BT_GUARDAR.Click += new System.EventHandler(this.BT_GUARDAR_Click);
+            // 
+            // TB_LIMITE_INFERIOR
+            // 
+            this.TB_LIMITE_INFERIOR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_INFERIOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_INFERIOR.Location = new System.Drawing.Point(5, 51);
+            this.TB_LIMITE_INFERIOR.Margin = new System.Windows.Forms.Padding(1);
+            this.TB_LIMITE_INFERIOR.MaxLength = 6;
+            this.TB_LIMITE_INFERIOR.Name = "TB_LIMITE_INFERIOR";
+            this.TB_LIMITE_INFERIOR.Size = new System.Drawing.Size(100, 22);
+            this.TB_LIMITE_INFERIOR.TabIndex = 2;
+            this.TB_LIMITE_INFERIOR.Text = "0";
+            this.TB_LIMITE_INFERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TB_LIMITE_SUPERIOR
+            // 
+            this.TB_LIMITE_SUPERIOR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_SUPERIOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_SUPERIOR.Location = new System.Drawing.Point(5, 26);
+            this.TB_LIMITE_SUPERIOR.Margin = new System.Windows.Forms.Padding(1);
+            this.TB_LIMITE_SUPERIOR.MaxLength = 6;
+            this.TB_LIMITE_SUPERIOR.Name = "TB_LIMITE_SUPERIOR";
+            this.TB_LIMITE_SUPERIOR.Size = new System.Drawing.Size(100, 22);
+            this.TB_LIMITE_SUPERIOR.TabIndex = 1;
+            this.TB_LIMITE_SUPERIOR.Text = "0";
+            this.TB_LIMITE_SUPERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ConfigurarFrm
             // 
@@ -1348,80 +1360,80 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox CB_MEDIO_OTRO;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox CB_MEDIO_ELECTRONICO;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox CB_MEDIO_DIVISA;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CB_MEDIO_EFECTIVO;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox CB_TRANSPORTE;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox CB_VENDEDOR;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox CB_COBRADOR;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox CB_DEPOSITO;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.ComboBox comboBox10;
+        private System.Windows.Forms.ComboBox CB_NOTA_DEBITO;
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox CB_NOTA_CREDITO;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.ComboBox comboBox12;
+        private System.Windows.Forms.ComboBox CB_FACTURA;
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox CB_CLAVE;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel35;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RB_BUSQUEDA_DESCRIPCION_NO;
+        private System.Windows.Forms.RadioButton RB_BUSQUEDA_DESCRIPCION_SI;
         private System.Windows.Forms.Panel panel36;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel37;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private Lib.Controles.Numero.NumeroDecimal numeroDecimal2;
-        private Lib.Controles.Numero.NumeroDecimal numeroDecimal1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private Lib.Controles.Numero.NumeroDecimal TB_LIMITE_INFERIOR;
+        private Lib.Controles.Numero.NumeroDecimal TB_LIMITE_SUPERIOR;
+        private System.Windows.Forms.CheckBox CHB_REPESAJE;
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel39;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TB_CODIGO_SUCURSAL;
         private System.Windows.Forms.Panel panel40;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_GUARDAR;
     }
 }

@@ -17,6 +17,7 @@ namespace ModPos
 
 
         private Configuracion.configurar _configuracion;
+        private AdministradorDoc.Administrador _administrador;
 
 
         public Form1()
@@ -25,6 +26,7 @@ namespace ModPos
             Sistema.MyBalanza = new Lib.BalanzaSoloPeso.BalanzaManual.Balanza();
             Sistema.Usuario = new OOB.LibVenta.PosOffline.Usuario.Ficha() { Auto = "0000000001", Codigo = "CAJA1T1", Descripcion = "CAJ. TURNO 1", IsActivo = true };
             _configuracion = new Configuracion.configurar();
+            _administrador = new AdministradorDoc.Administrador();
         }
 
 
@@ -129,6 +131,16 @@ namespace ModPos
         private void ConfiguracionSistema()
         {
             _configuracion.Configura();
+        }
+
+        private void BT_ADM_DOC_Click(object sender, EventArgs e)
+        {
+            AdministradorDocumentos();
+        }
+
+        private void AdministradorDocumentos()
+        {
+            _administrador.AdmDocumentos();
         }
 
     }

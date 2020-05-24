@@ -34,7 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.BT_CONFIGURACION = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BT_ADM_DOC = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BT_POS
@@ -95,21 +95,22 @@
             this.BT_CONFIGURACION.UseVisualStyleBackColor = true;
             this.BT_CONFIGURACION.Click += new System.EventHandler(this.BT_CONFIGURACION_Click);
             // 
-            // button1
+            // BT_ADM_DOC
             // 
-            this.button1.Location = new System.Drawing.Point(12, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "ADMINISTRADOR DOC";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_ADM_DOC.Location = new System.Drawing.Point(12, 135);
+            this.BT_ADM_DOC.Name = "BT_ADM_DOC";
+            this.BT_ADM_DOC.Size = new System.Drawing.Size(181, 23);
+            this.BT_ADM_DOC.TabIndex = 4;
+            this.BT_ADM_DOC.Text = "ADMINISTRADOR DOC";
+            this.BT_ADM_DOC.UseVisualStyleBackColor = true;
+            this.BT_ADM_DOC.Click += new System.EventHandler(this.BT_ADM_DOC_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BT_ADM_DOC);
             this.Controls.Add(this.BT_CONFIGURACION);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -131,7 +132,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button BT_CONFIGURACION;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_ADM_DOC;
     }
 }
 

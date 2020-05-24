@@ -183,6 +183,26 @@ namespace ModPos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_documentos {
+            get {
+                object obj = ResourceManager.GetObject("bt_documentos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_eliminar {
+            get {
+                object obj = ResourceManager.GetObject("bt_eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_eliminar_uno {
             get {
                 object obj = ResourceManager.GetObject("bt_eliminar_uno", resourceCulture);
@@ -263,6 +283,16 @@ namespace ModPos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_print_document {
+            get {
+                object obj = ResourceManager.GetObject("bt_print_document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_restar {
             get {
                 object obj = ResourceManager.GetObject("bt_restar", resourceCulture);
@@ -296,6 +326,16 @@ namespace ModPos.Properties {
         internal static System.Drawing.Bitmap bt_sumar {
             get {
                 object obj = ResourceManager.GetObject("bt_sumar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_undo {
+            get {
+                object obj = ResourceManager.GetObject("bt_undo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -107,6 +107,8 @@
             this.panel37 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.TB_LIMITE_INFERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_LIMITE_SUPERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.CHB_REPESAJE = new System.Windows.Forms.CheckBox();
             this.panel38 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -116,8 +118,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.BT_GUARDAR = new System.Windows.Forms.Button();
-            this.TB_LIMITE_INFERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_LIMITE_SUPERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1145,6 +1145,32 @@
             this.label18.TabIndex = 6;
             this.label18.Text = "Limite Sup:";
             // 
+            // TB_LIMITE_INFERIOR
+            // 
+            this.TB_LIMITE_INFERIOR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_INFERIOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_INFERIOR.Location = new System.Drawing.Point(5, 51);
+            this.TB_LIMITE_INFERIOR.Margin = new System.Windows.Forms.Padding(1);
+            this.TB_LIMITE_INFERIOR.MaxLength = 6;
+            this.TB_LIMITE_INFERIOR.Name = "TB_LIMITE_INFERIOR";
+            this.TB_LIMITE_INFERIOR.Size = new System.Drawing.Size(100, 22);
+            this.TB_LIMITE_INFERIOR.TabIndex = 2;
+            this.TB_LIMITE_INFERIOR.Text = "0";
+            this.TB_LIMITE_INFERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TB_LIMITE_SUPERIOR
+            // 
+            this.TB_LIMITE_SUPERIOR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_SUPERIOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_SUPERIOR.Location = new System.Drawing.Point(5, 26);
+            this.TB_LIMITE_SUPERIOR.Margin = new System.Windows.Forms.Padding(1);
+            this.TB_LIMITE_SUPERIOR.MaxLength = 6;
+            this.TB_LIMITE_SUPERIOR.Name = "TB_LIMITE_SUPERIOR";
+            this.TB_LIMITE_SUPERIOR.Size = new System.Drawing.Size(100, 22);
+            this.TB_LIMITE_SUPERIOR.TabIndex = 1;
+            this.TB_LIMITE_SUPERIOR.Text = "0";
+            this.TB_LIMITE_SUPERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // CHB_REPESAJE
             // 
             this.CHB_REPESAJE.AutoSize = true;
@@ -1244,32 +1270,6 @@
             this.BT_GUARDAR.Text = "Guardar Cambios";
             this.BT_GUARDAR.UseVisualStyleBackColor = true;
             this.BT_GUARDAR.Click += new System.EventHandler(this.BT_GUARDAR_Click);
-            // 
-            // TB_LIMITE_INFERIOR
-            // 
-            this.TB_LIMITE_INFERIOR.BackColor = System.Drawing.Color.Yellow;
-            this.TB_LIMITE_INFERIOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_LIMITE_INFERIOR.Location = new System.Drawing.Point(5, 51);
-            this.TB_LIMITE_INFERIOR.Margin = new System.Windows.Forms.Padding(1);
-            this.TB_LIMITE_INFERIOR.MaxLength = 6;
-            this.TB_LIMITE_INFERIOR.Name = "TB_LIMITE_INFERIOR";
-            this.TB_LIMITE_INFERIOR.Size = new System.Drawing.Size(100, 22);
-            this.TB_LIMITE_INFERIOR.TabIndex = 2;
-            this.TB_LIMITE_INFERIOR.Text = "0";
-            this.TB_LIMITE_INFERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TB_LIMITE_SUPERIOR
-            // 
-            this.TB_LIMITE_SUPERIOR.BackColor = System.Drawing.Color.Yellow;
-            this.TB_LIMITE_SUPERIOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_LIMITE_SUPERIOR.Location = new System.Drawing.Point(5, 26);
-            this.TB_LIMITE_SUPERIOR.Margin = new System.Windows.Forms.Padding(1);
-            this.TB_LIMITE_SUPERIOR.MaxLength = 6;
-            this.TB_LIMITE_SUPERIOR.Name = "TB_LIMITE_SUPERIOR";
-            this.TB_LIMITE_SUPERIOR.Size = new System.Drawing.Size(100, 22);
-            this.TB_LIMITE_SUPERIOR.TabIndex = 1;
-            this.TB_LIMITE_SUPERIOR.Text = "0";
-            this.TB_LIMITE_SUPERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ConfigurarFrm
             // 

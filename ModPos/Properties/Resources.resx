@@ -211,4 +211,16 @@
   <data name="configuracion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\configuracion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_documentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_documentos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_print_document" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_print_document.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

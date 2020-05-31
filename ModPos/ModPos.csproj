@@ -123,6 +123,7 @@
     <Compile Include="Facturacion\CtrlBuscar.cs" />
     <Compile Include="Facturacion\CtrListaItem.cs" />
     <Compile Include="Facturacion\CtrlLista.cs" />
+    <Compile Include="Facturacion\CtrPago.cs" />
     <Compile Include="Facturacion\CtrTotales.cs" />
     <Compile Include="Facturacion\Devolucion\DevolucionFrm.cs">
       <SubType>Form</SubType>

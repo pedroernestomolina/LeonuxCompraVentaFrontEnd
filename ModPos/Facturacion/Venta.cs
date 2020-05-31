@@ -37,6 +37,7 @@ namespace ModPos.Facturacion
         private CtrlBuscar _ctrBuscar;
         private CtrConsulta _ctrConsultar;
         private CtrListaItem _ctrListaItem;
+        private CtrPago _ctrPago;
 
         public string SerieFactura { get; set; }
         public string SerieNotaCredito { get; set; }

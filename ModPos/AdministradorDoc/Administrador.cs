@@ -16,25 +16,28 @@ namespace ModPos.AdministradorDoc
         private List<documento> _documentos;
         private BindingList<documento> _blDocumentos;
         private BindingSource _bs;
+        private OOB.LibVenta.PosOffline.Permiso.AdmDocumento.Ficha _permisos;
+        private ClaveSeguridad.Seguridad _seguridad;
 
 
-        public Administrador()
+        public Administrador(ClaveSeguridad.Seguridad seguridad)
         {
             _documentos = new List<documento>();
             _blDocumentos = new BindingList<documento>(_documentos);
             _bs = new BindingSource();
             _bs.DataSource = _blDocumentos;
+            _seguridad = seguridad;
         }
 
 
-        public void AdmDocumentos() 
+        public void AdmDocumentos()
         {
-            if (Cargar()) 
+            if (Cargar())
             {
                 var frm = new Listar.ListartFrm();
-                frm.AnularFire+=frm_AnularFire;
-                frm.ImprimirFire+=frm_ImprimirFire;
-                frm.NotaCreditoFire+=frm_NotaCreditoFire;
+                frm.AnularFire += frm_AnularFire;
+                frm.ImprimirFire += frm_ImprimirFire;
+                frm.NotaCreditoFire += frm_NotaCreditoFire;
                 frm.setSource(_bs);
                 frm.ShowDialog();
             }
@@ -54,19 +57,27 @@ namespace ModPos.AdministradorDoc
                     var item = (documento)_bs.Current;
                     if (item.IsActivo)
                     {
-                        if (item.TipoDocumento != OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito)
+                        var seguir = true;
+                        if (_permisos.NotaCredito.RequiereClave)
                         {
-                            var msg = MessageBox.Show("HACER NOTA DE CREDITO ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                            if (msg == DialogResult.Yes)
+                            seguir = _seguridad.SolicitarClave();
+                        }
+                        if (seguir)
+                        {
+                            if (item.TipoDocumento != OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito)
                             {
+                                var msg = MessageBox.Show("HACER NOTA DE CREDITO ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                                if (msg == DialogResult.Yes)
+                                {
+                                }
+                            }
+                            else
+                            {
+                                Helpers.Msg.Error("TIPO DOCUMENTO INCORRECTO !!!");
                             }
                         }
-                        else
-                        {
-                            Helpers.Msg.Error("TIPO DOCUMENTO INCORRECTO !!!");
-                        }
                     }
-                    else 
+                    else
                     {
                         Helpers.Msg.Error("ESTATUS DOCUMENTO ANULADO !!!");
                     }
@@ -76,6 +87,27 @@ namespace ModPos.AdministradorDoc
 
         private void frm_ImprimirFire(object sender, EventArgs e)
         {
+            ReImprimirDocumento();
+        }
+
+        private void ReImprimirDocumento()
+        {
+            if (_bs != null)
+            {
+                if (_bs.Current != null)
+                {
+                    var item = (documento)_bs.Current;
+                    var seguir = true;
+                    if (_permisos.ReImprimir.RequiereClave)
+                    {
+                        seguir = _seguridad.SolicitarClave();
+                    }
+                    if (seguir)
+                    {
+
+                    }
+                }
+            }
         }
 
         private void frm_AnularFire(object sender, EventArgs e)
@@ -85,21 +117,36 @@ namespace ModPos.AdministradorDoc
 
         private void AnularDocumento()
         {
-            if (_bs != null) 
+            if (_bs != null)
             {
                 if (_bs.Current != null)
                 {
                     var item = (documento)_bs.Current;
                     if (item.IsActivo)
                     {
-                        var msg = MessageBox.Show("ESTAS SEGURO DE ANULAR DOCUMENTO ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                        if (msg == DialogResult.Yes)
+
+                        var seguir = true;
+                        if (_permisos.Anular.RequiereClave)
                         {
-                            item.IsActivo = false;
-                            _bs.CurrencyManager.Refresh();
+                            seguir = _seguridad.SolicitarClave();
+                        }
+                        if (seguir)
+                        {
+                            var msg = MessageBox.Show("ESTAS SEGURO DE ANULAR DOCUMENTO ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                            if (msg == DialogResult.Yes)
+                            {
+                                var r01 = Sistema.MyData2.VentaDocumento_Anular(item.Id);
+                                if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+                                {
+                                    Helpers.Msg.Error(r01.Mensaje);
+                                    return;
+                                }
+                                item.IsActivo = false;
+                                _bs.CurrencyManager.Refresh();
+                            }
                         }
                     }
-                    else 
+                    else
                     {
                         Helpers.Msg.Error("DOCUMENTO YA ANULADO !!!");
                     }
@@ -107,9 +154,17 @@ namespace ModPos.AdministradorDoc
             }
         }
 
-        public bool Cargar() 
+        public bool Cargar()
         {
             var rt = false;
+
+            var r00 = Sistema.MyData2.Permiso_AdmDocumento();
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return rt;
+            }
+            _permisos = r00.Entidad;
 
             var filtro = new OOB.LibVenta.PosOffline.VentaDocumento.Filtro();
             var r01 = Sistema.MyData2.VentaDocumento_Lista(filtro);
@@ -121,7 +176,7 @@ namespace ModPos.AdministradorDoc
 
             _blDocumentos.Clear();
             _blDocumentos.RaiseListChangedEvents = false;
-            foreach (var it in r01.Lista.OrderByDescending(o=>o.Id).ToList()) 
+            foreach (var it in r01.Lista.OrderByDescending(o => o.Id).ToList())
             {
                 _documentos.Add(new documento(it));
             }

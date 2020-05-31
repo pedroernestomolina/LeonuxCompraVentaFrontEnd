@@ -12,39 +12,38 @@ namespace ModPos.Facturacion
     public class CtrCliente
     {
 
-        private Ficha _cliente;
-        public Ficha Cliente 
+
+        private Buscar _buscar;
+
+
+        public Cliente.Ficha Ficha
         {
             get 
             {
-                return _cliente;
+                return _buscar.FichaCliente;
             }
         }
 
 
         public CtrCliente() 
         {
-            _cliente = new Ficha();
+            _buscar = new Buscar();
         }
+
 
         public void Buscar()
         {
-            var frm = new Cliente.BuscarAgregarFrm();
-            frm.ShowDialog();
-            if (frm.Cliente != null) 
-            {
-                _cliente = frm.Cliente;
-            }
+            _buscar.Busqueda();
         }
 
-        public void setCliente(OOB.LibVenta.PosOffline.Cliente.Ficha ficha) 
+        public void BuscarId(int idCliente)
         {
-            _cliente.setEntidad(ficha);
+            _buscar.BuscarPorId(idCliente);
         }
 
         public void Limpiar() 
         {
-            _cliente.Limpiar();
+            _buscar.Limpiar();
         }
 
     }

@@ -15,68 +15,16 @@ namespace ModPos.Facturacion.AbrirPendiente
     public partial class AbrirPendienteFrm : Form
     {
 
-        private List<OOB.LibVenta.PosOffline.Pendiente.Ficha> _items;
-        private BindingList<OOB.LibVenta.PosOffline.Pendiente.Ficha> _bItems;
-        private BindingSource _bs;
-        private bool _abrirCtaOk;
-        private int _idCliente; 
 
-
-        public bool AbrirCtaOk 
-        {
-            get 
-            {
-                return _abrirCtaOk;
-            }
-        }
-
-        public int IdCliente
-        {
-            get
-            {
-                return _idCliente;
-            }
-        }
+        private Pendiente _controlador;
 
 
         public AbrirPendienteFrm()
         {
             InitializeComponent();
-
-            _abrirCtaOk = false;
-            _idCliente = -1;
-            _items = new List<OOB.LibVenta.PosOffline.Pendiente.Ficha>();
-            _bItems = new BindingList<OOB.LibVenta.PosOffline.Pendiente.Ficha>(_items);
-            _bs = new BindingSource();
-            _bs.CurrentChanged += _bs_CurrentChanged;
-            _bs.DataSource = _bItems;
-
             InicializarGrid();
         }
 
-        private void _bs_CurrentChanged(object sender, EventArgs e)
-        {
-        }
-
-        public bool CargarData() 
-        {
-            var rt = true;
-
-            var r01 = Sistema.MyData2.Pendiente_Lista();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
-            }
-
-            _bItems.Clear();
-            foreach (var rg in r01.Lista.OrderByDescending(o=>o.Id)) 
-            {
-                _bItems.Add(rg);
-            }
-
-            return rt;
-        }
 
         private void InicializarGrid()
         {
@@ -146,10 +94,11 @@ namespace ModPos.Facturacion.AbrirPendiente
 
         private void AbrirPendienteFrm_Load(object sender, EventArgs e)
         {
-            DGV.DataSource = _bs;
+            DGV.DataSource = _controlador.Source;
             DGV.Refresh();
             IrFoco();
         }
+
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
         {
@@ -168,28 +117,7 @@ namespace ModPos.Facturacion.AbrirPendiente
 
         private void AbrirCta()
         {
-            var it = (OOB.LibVenta.PosOffline.Pendiente.Ficha)_bs.Current;
-            if (it != null) 
-            {
-                Abrir(it);
-            }
-        }
-     
-        private void Abrir(OOB.LibVenta.PosOffline.Pendiente.Ficha it) 
-        {
-            var msg = MessageBox.Show("Abrir Cuenta Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == System.Windows.Forms.DialogResult.Yes)
-            {
-                var r01 = Sistema.MyData2.Pendiente_AbrirCta(it.Id);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                _idCliente = it.IdCliente;
-                _abrirCtaOk = true;
-                this.Close();
-            }
+            _controlador.AbrirCta();
         }
 
         private void IrFoco() 
@@ -203,19 +131,13 @@ namespace ModPos.Facturacion.AbrirPendiente
             {
                 if (DGV.CurrentRow.Index > -1)
                 {
-                    var row = DGV.CurrentRow;
-                    var id = (int)row.Cells[0].Value;
-                    var item = _bItems.FirstOrDefault(f => f.Id == id);
-                    if (item != null)
+                    if (e.KeyCode == Keys.Enter)
                     {
-                        if (e.KeyCode == Keys.Enter)
-                        {
-                            Abrir(item);
-                        }
-                        if (e.KeyCode == Keys.Delete) 
-                        {
-                            Eliminar(item);
-                        }
+                        AbrirCta();
+                    }
+                    if (e.KeyCode == Keys.Delete)
+                    {
+                        EliminarCta();
                     }
                 }
             }
@@ -228,26 +150,12 @@ namespace ModPos.Facturacion.AbrirPendiente
 
         private void EliminarCta()
         {
-            var it = (OOB.LibVenta.PosOffline.Pendiente.Ficha)_bs.Current;
-            if (it != null)
-            {
-                Eliminar(it);
-            }
+            _controlador.EliminarCta();
         }
 
-        private void Eliminar(OOB.LibVenta.PosOffline.Pendiente.Ficha it)
+        public void setControlador(Pendiente ctr) 
         {
-            var msg = MessageBox.Show("Eliminar Cuenta Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == System.Windows.Forms.DialogResult.Yes)
-            {
-                var r01 = Sistema.MyData2.Pendiente_EliminarCta(it.Id);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                _bItems.Remove(it);
-            }
+            _controlador = ctr;
         }
 
     }

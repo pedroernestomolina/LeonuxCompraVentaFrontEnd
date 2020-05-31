@@ -63,11 +63,14 @@
     <Compile Include="LibVenta\PosOffline\Item\Agregar.cs" />
     <Compile Include="LibVenta\PosOffline\Item\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\MedioCobro\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Pendiente\CtaAbrir\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\Agregar.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\AgregarItem.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\AdmDocumento\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\Enumerados.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\permiso.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\Pos\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\Pos\Permiso.cs" />
     <Compile Include="LibVenta\PosOffline\Precio\Ficha.cs" />

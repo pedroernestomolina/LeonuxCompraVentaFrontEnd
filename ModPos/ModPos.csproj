@@ -94,6 +94,7 @@
     <Compile Include="Facturacion\AbrirPendiente\AbrirPendienteFrm.Designer.cs">
       <DependentUpon>AbrirPendienteFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\AbrirPendiente\Pendiente.cs" />
     <Compile Include="Facturacion\Cliente\Buscar.cs" />
     <Compile Include="Facturacion\Cliente\BuscarAgregarFrm.cs">
       <SubType>Form</SubType>
@@ -116,8 +117,11 @@
       <DependentUpon>ConsultorFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Consultor\Precio.cs" />
+    <Compile Include="Facturacion\CtrConsulta.cs" />
     <Compile Include="Facturacion\CtrItem.cs" />
     <Compile Include="Facturacion\CtrCliente.cs" />
+    <Compile Include="Facturacion\CtrlBuscar.cs" />
+    <Compile Include="Facturacion\CtrlLista.cs" />
     <Compile Include="Facturacion\CtrTotales.cs" />
     <Compile Include="Facturacion\Devolucion\DevolucionFrm.cs">
       <SubType>Form</SubType>
@@ -126,6 +130,7 @@
       <DependentUpon>DevolucionFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Enumerados.cs" />
+    <Compile Include="Facturacion\FormatoPreEmPaque.cs" />
     <Compile Include="Facturacion\Item.cs" />
     <Compile Include="Facturacion\MultiplicarFrm.cs">
       <SubType>Form</SubType>
@@ -172,6 +177,7 @@
     <Compile Include="Facturacion\ProductoLista\ListaPluFrm.Designer.cs">
       <DependentUpon>ListaPluFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturacion\ResultadoPreEmpaque.cs" />
     <Compile Include="Facturacion\Venta.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

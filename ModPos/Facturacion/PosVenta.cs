@@ -15,204 +15,32 @@ namespace ModPos.Facturacion
     public partial class PosVenta : Form
     {
 
-        private bool _permitirBusquedaPorDescripcion;
-        private Enumerados.EnumModoOperacionPos _modoOperacionPos;
-        private bool _activarRepesaje;
-        private decimal _limiteRepesajeInf ;
-        private decimal _limiteRepesajeSup ;
-        private decimal _montoDivisa;
-        private CtrItem _ctrItem;
-        private CtrCliente _ctrCliente;
-        private Timer _hora;
         private Venta _venta;
-        private OOB.LibVenta.PosOffline.Configuracion.Vendedor.Ficha _vendedor;
-        private OOB.LibVenta.PosOffline.Configuracion.Deposito.Ficha _deposito;
-        private ClaveSeguridad.Seguridad _seguridad;
+        private Timer _hora;
 
      
         public PosVenta()
         {
             InitializeComponent();
 
-            _venta = new Venta();
-            _venta.ProcesarOk+=_venta_ProcesarOk;
-            _ctrItem = new CtrItem();
-            _ctrItem.PrdAcutalCambioOk+=_ctrItem_PrdAcutalCambioOk;
-            _ctrCliente = new CtrCliente();
-            _seguridad = new ClaveSeguridad.Seguridad();
-            _vendedor = null;
-            _deposito = null;
-
             _hora = new Timer();
             _hora.Interval = 1000;
             _hora.Start();
             _hora.Tick+=_hora_Tick;
 
-            Helpers.FormatoPreEmpaque formato = new Helpers.FormatoPreEmpaque();
-            Helpers.BuscarProducto.setFormatoPreEmpaque(formato);
             InicializarGrid();
             Limpiar();
         }
 
         private void _venta_ProcesarOk(object sender, EventArgs e)
         {
-            _ctrCliente.Limpiar();
-            _ctrItem.Limpiar();
-            ActualizarCliente();
-            ActualizarTotal();
-            IrFoco();
             Limpiar();
+            Actualizar();
         }
 
         private void _hora_Tick(object sender, EventArgs e)
         {
             L_HORA.Text = DateTime.Now.ToLongTimeString();
-        }
-
-        public bool CargarData() 
-        {
-            var rt = true;
-
-            _permitirBusquedaPorDescripcion = false;
-            _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
-            _montoDivisa = 0.0m;
-            _activarRepesaje = false;
-            _limiteRepesajeInf = 0.0m;
-            _limiteRepesajeSup = 0.0m;
-
-            var r01 = Sistema.MyData2.Item_Cargar();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
-            }
-            if (r01.Lista.Count > 0)
-            {
-                _ctrItem.CargarLista(r01.Lista);
-            }
-
-            var r02 = Sistema.MyData2.Fiscal_Tasas();
-            if (r02.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r02.Mensaje);
-                return false;
-            }
-            _venta.setFiscal(r02.Entidad);
-
-            var r03 = Sistema.MyData2.Configuracion_FactorCambio();
-            if (r03.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r03.Mensaje);
-                return false;
-            }
-            _montoDivisa = r03.Entidad;
-            _ctrItem.setMontoDivisa(_montoDivisa);
-
-            var r04 = Sistema.MyData2.Configuracion_Repesaje();
-            if (r04.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r04.Mensaje);
-                return false;
-            }
-            _activarRepesaje = r04.Entidad.IsActivo;
-            _limiteRepesajeInf = r04.Entidad.LimiteValidoInferior;
-            _limiteRepesajeSup = r04.Entidad.LimiteValidoSuperior;
-            _ctrItem.setRepesaje(_activarRepesaje, _limiteRepesajeInf, _limiteRepesajeSup);
-
-            var r05 = Sistema.MyData2.Configuracion_Serie();
-            if (r05.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r05.Mensaje);
-                return false;
-            }
-            _venta.SerieFactura = r05.Entidad.ParaFactura;
-            _venta.SerieNotaCredito = r05.Entidad.ParaNotaCredito;
-            _venta.SerieNotaDebito = r05.Entidad.ParaNotaDebito;
-
-            var r06 = Sistema.MyData2.Configuracion_Sucursal();
-            if (r06.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r06.Mensaje);
-                return false;
-            }
-            _venta.CodigoSucursal = r06.Entidad.Codigo;
-
-            var r07 = Sistema.MyData2.Configuracion_ModoPos ();
-            if (r07.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r07.Mensaje);
-                return false;
-            }
-            switch(r07.Entidad.Modo)
-            {
-                case OOB.LibVenta.PosOffline.Configuracion.Enumerados.EnumModoPos.Detal:
-                    _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
-                    break;
-                case OOB.LibVenta.PosOffline.Configuracion.Enumerados.EnumModoPos.Mayor:
-                    _modoOperacionPos = Enumerados.EnumModoOperacionPos.Mayor;
-                    break;
-            }
-
-            var r08 = Sistema.MyData2.Configuracion_Deposito();
-            if (r08.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r08.Mensaje);
-                return false;
-            }
-            _venta.setDeposito(r08.Entidad);
-
-            var r09 = Sistema.MyData2.Configuracion_Vendedor();
-            if (r09.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r09.Mensaje);
-                return false;
-            }
-            _venta.setVendedor(r09.Entidad);
-
-            var r0a = Sistema.MyData2.Configuracion_ActivarBusquedaPorDescripcion();
-            if (r0a.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r0a.Mensaje);
-                return false;
-            }
-            _permitirBusquedaPorDescripcion = r0a.Entidad;
-
-            var r0b = Sistema.MyData2.Configuracion_Cobrador ();
-            if (r0b.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r0b.Mensaje);
-                return false;
-            }
-            _venta.setCobrador(r0b.Entidad);
-
-            var r0c = Sistema.MyData2.Configuracion_Transporte();
-            if (r0c.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r0c.Mensaje);
-                return false;
-            }
-            _venta.setTransporte(r0c.Entidad);
-
-            var r0d = Sistema.MyData2.Configuracion_MedioCobro();
-            if (r0d.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r0d.Mensaje);
-                return false;
-            }
-            _venta.setMedioCobro(r0d.Entidad);
-
-            var r0e = Sistema.MyData2.Permiso_ManejoPos();
-            if (r0e.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r0e.Mensaje);
-                return false;
-            }
-            _ctrItem.setPermiso(r0e.Entidad);
-            _ctrItem.setSeguridad(_seguridad);
-            _venta.setPermiso(r0e.Entidad);
-            _venta.setSeguridad(_seguridad);
-
-            return rt;
         }
 
         private void _ctrItem_PrdAcutalCambioOk(object sender, EventArgs e)
@@ -335,34 +163,24 @@ namespace ModPos.Facturacion
 
         private void PosVenta_Load(object sender, EventArgs e)
         {
-            L_MONTO_DIVISA.Text = _montoDivisa.ToString("n2");
+            DGV_DETALLE.DataSource = _venta.Items.Source;
+            L_MONTO_DIVISA.Text = _venta.TasaCambio.ToString("n2");
             L_FECHA.Text = "Hoy : "+DateTime.Now.ToShortDateString();
             L_HORA.Text = "";
             L_USUARIO.Text = Sistema.Usuario.Usuario;
             L_ESTACION.Text = Environment.MachineName;
-            ActualizarCliente();
-            ActualizarTotal();
-
-            DGV_DETALLE.DataSource = _ctrItem.Source;
-
-            IrFoco();
+            Actualizar();
         }
 
         private void BT_CONSULTAR_Click(object sender, EventArgs e)
         {
             Consultar();
-            IrFoco();
         }
 
-        Consultor.ConsultorFrm frmConsultor;
         private void Consultar()
         {
-            if (frmConsultor == null) 
-            {
-                frmConsultor = new Consultor.ConsultorFrm();
-            }
-            frmConsultor.ShowDialog();
-            ActivarBuscar();
+            _venta.Consultor();
+            Actualizar();
         }
 
         private void ActivarBuscar()
@@ -385,55 +203,43 @@ namespace ModPos.Facturacion
             var buscar = TB_BUSCAR.Text.Trim().ToUpper();
             if (buscar != "")
             {
-                var rt = Helpers.BuscarProducto.ActivarBusqueda(buscar, _permitirBusquedaPorDescripcion);
-                if (rt)
-                {
-                    _ctrItem.RegistraItem(Helpers.BuscarProducto.Producto, Helpers.BuscarProducto.Peso);
-                    ActualizarTotal();
-                }
-                else 
-                {
-                    Helpers.Msg.Error("Producto No Encontrado");
-                    return;
-                }
+                _venta.BuscarProducto(buscar);
+                Actualizar();
             }
         }
 
         private void ActualizarTotal()
         {
-            L_IMPORTE.Text=_ctrItem.SubTotal.ToString("n2");
-            L_TOTAL_ITEMS.Text = _ctrItem.CantItem.ToString("n0");
-            L_TOTAL_KILOS.Text = _ctrItem.TotalPeso.ToString("n3");
-            L_TOTAL_RENGLONES.Text = _ctrItem.Renglones.ToString("n0");
-            L_TOTAL_DIVISA.Text = _ctrItem.TotalDivisa.ToString("n2");
+            L_IMPORTE.Text=_venta.Items.SubTotal.ToString("n2");
+            L_TOTAL_ITEMS.Text = _venta.Items.CantItem.ToString("n0");
+            L_TOTAL_KILOS.Text = _venta.Items.TotalPeso.ToString("n3");
+            L_TOTAL_RENGLONES.Text = _venta.Items.Renglones.ToString("n0");
+            L_TOTAL_DIVISA.Text = _venta.Items.TotalDivisa.ToString("n2");
 
-            L_PRODUCTO.Text = _ctrItem.PrdActual.Nombre;
-            L_PRD_NETO.Text = _ctrItem.PrdActual.PrecioNeto.ToString("n2");
-            L_PRD_TASA.Text =  _ctrItem.PrdActual.TasaIva;
-            L_PRD_IVA.Text = _ctrItem.PrdActual.Iva.ToString("n2");
-            L_PRD_CONT.Text = _ctrItem.PrdActual.Contenido.ToString("n0");
+            L_PRODUCTO.Text = _venta.Items.PrdActual.Nombre;
+            L_PRD_NETO.Text = _venta.Items.PrdActual.PrecioNeto.ToString("n2");
+            L_PRD_TASA.Text = _venta.Items.PrdActual.TasaIva;
+            L_PRD_IVA.Text = _venta.Items.PrdActual.Iva.ToString("n2");
+            L_PRD_CONT.Text = _venta.Items.PrdActual.Contenido.ToString("n0");
             DGV_DETALLE.Refresh();
         }
 
         private void BT_CLIENTE_Click(object sender, EventArgs e)
         {
             Cliente();
-            IrFoco();
         }
 
         private void Cliente()
         {
-            _ctrCliente.Buscar();
+            _venta.Cliente.Buscar();
             ActualizarCliente();
+            IrFoco();
         }
 
         private void ActualizarCliente()
         {
             L_CLIENTE.Text = "";
-            if (_ctrCliente.Cliente != null)
-            {
-                L_CLIENTE.Text = _ctrCliente.Cliente.Data;
-            }
+            L_CLIENTE.Text = _venta.Cliente.Ficha.Data;
         }
 
         private void TB_BUSCAR_KeyPress(object sender, KeyPressEventArgs e)
@@ -463,7 +269,6 @@ namespace ModPos.Facturacion
                 }
             }
         }
-        
 
         private void BT_SUMAR_Click(object sender, EventArgs e)
         {
@@ -472,29 +277,14 @@ namespace ModPos.Facturacion
 
         private void IncrementarItem()
         {
-            _ctrItem.IncrementarItem();
-            IrFoco();
+            _venta.IncrementarItem();
+            Actualizar();
         }
 
         private void AnularVenta()
         {
-            if (_ctrItem.AnularVenta())
-            {
-                _ctrCliente.Limpiar();
-                ActualizarCliente();
-                ActualizarTotal();
-            }
-
-            //var msg = MessageBox.Show("Anular Venta ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            //if (msg == System.Windows.Forms.DialogResult.Yes) 
-            //{
-            //    _ctrCliente.Limpiar();
-            //    _ctrItem.Limpiar();
-            //    ActualizarCliente();
-            //    ActualizarTotal();
-            //}
-
-            IrFoco();
+            _venta.AnularVenta();
+            Actualizar();
         }
 
         private void IrFoco()
@@ -505,32 +295,28 @@ namespace ModPos.Facturacion
         private void BT_MULTIPLICA_Click(object sender, EventArgs e)
         {
             Multiplicar();
-            IrFoco();
         }
 
         private void Multiplicar()
         {
-            _ctrItem.Multiplicar();
+            _venta.Multiplicar();
+            Actualizar();
         }
 
         private void BT_RESTAR_Click(object sender, EventArgs e)
         {
             Restar();
-            IrFoco();
         }
 
         private void Restar()
         {
-            DGV_DETALLE.DataSource = null;
-            _ctrItem.Restar();
-            DGV_DETALLE.DataSource = _ctrItem.Source;
-            DGV_DETALLE.Refresh();
+            _venta.Restar();
+            Actualizar();
         }
 
         private void BT_TOTAL_Click(object sender, EventArgs e)
         {
             Totalizar();
-            IrFoco();
         }
      
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -545,7 +331,7 @@ namespace ModPos.Facturacion
 
         private void PosVenta_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_ctrItem.SubTotal > 0) 
+            if (_venta.Items.SubTotal > 0) 
             {
                 MessageBox.Show("HAY ITEMS EN PROCESO !!!","*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 e.Cancel = true;
@@ -560,43 +346,30 @@ namespace ModPos.Facturacion
 
         private void ActivarCalculadora()
         {
-            Helpers.Utilitis.Calculadora();
-            IrFoco();
+            _venta.ActivarCalculador();
+            Actualizar();
         }
 
         private void BT_LISTA_OFERTA_Click(object sender, EventArgs e)
         {
             ListaOferta();
-            IrFoco();
         }
 
         private void ListaOferta()
         {
-            var frm = new ProductoLista.ListaOfertaFrm ();
-            if (frm.CargarData())
-            {
-                frm.ShowDialog();
-            }
+            _venta.ListaOferta();
+            Actualizar();
         }
 
         private void BT_LISTA_PLU_Click(object sender, EventArgs e)
         {
             ListaPlu();
-            IrFoco();
         }
 
         private void ListaPlu()
         {
-            var frm = new ProductoLista.ListaPluFrm();
-            if (frm.CargarData()) 
-            {
-                frm.ShowDialog();
-                if (frm.IsProductoSelected) 
-                {
-                    _ctrItem.RegistraItem(frm.ProductoSelected , 0 );
-                    ActualizarTotal();
-                }
-            }
+            _venta.ListaPlu();
+            Actualizar();
         }
 
         private void BT_DEVOLUCION_Click(object sender, EventArgs e)
@@ -611,10 +384,8 @@ namespace ModPos.Facturacion
 
         private void Totalizar()
         {
-            _venta.setUsuario(Sistema.Usuario);
-            _venta.setCliente(_ctrCliente);
-            _venta.setItem(_ctrItem);
             _venta.Procesar();
+            Actualizar();
         }
 
         private void BT_PENDIENTE_Click(object sender, EventArgs e)
@@ -624,15 +395,8 @@ namespace ModPos.Facturacion
 
         private void DejarCtaEnPendiente()
         {
-            var result = _ctrItem.DejarCtaEnPendiente(_ctrCliente.Cliente);
-            if (result)
-            {
-                _ctrCliente.Limpiar();
-                _ctrItem.Limpiar();
-                ActualizarCliente();
-                ActualizarTotal();
-            }
-            IrFoco();
+            _venta.DejarCtaPendiente();
+            Actualizar();
         }
 
         private void BT_ABRIR_PENDIENTE_Click(object sender, EventArgs e)
@@ -642,20 +406,14 @@ namespace ModPos.Facturacion
 
         private void AbrirCtaEnPendiente()
         {
-            var result = _ctrItem.AbrirCtaEnPendiente(_ctrCliente);
-            if (result)
-            {
-                ActualizarCliente();
-                ActualizarTotal();
-            }
-            IrFoco();
+            _venta.CtaPendiente();
+            Actualizar();
         }
 
         private void DevolucionItem()
         {
-            _ctrItem.ActivarDevolucion();
-            ActualizarTotal();
-            IrFoco();
+            _venta.Devolucion();
+            Actualizar();
         }
 
         private void DGV_DETALLE_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -696,7 +454,18 @@ namespace ModPos.Facturacion
             {
                 Totalizar();
             }
+        }
 
+        public void setVenta(Venta venta) 
+        {
+            _venta = venta;
+        }
+
+        private void Actualizar() 
+        {
+            ActualizarCliente();
+            ActualizarTotal();
+            IrFoco();
         }
     
     }

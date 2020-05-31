@@ -204,11 +204,27 @@ namespace DataProvPosOffLine.Data
                             NombreRazonSocial = s.NombreRazonSocial,
                             Signo = s.Signo,
                             TipoDocumento = (OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento) s.TipoDocumento,
+                            Renglones=s.Renglones,
                         };
                     }).ToList();
                 }
             }
             rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.Resultado VentaDocumento_Anular(int idDocumento)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.VentaDocumento_Anular(idDocumento);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
 
             return rt;
         }

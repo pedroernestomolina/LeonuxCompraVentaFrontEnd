@@ -11,23 +11,25 @@ namespace ModPos.Facturacion.Cliente
     public class Buscar
     {
 
-        OOB.LibVenta.PosOffline.Cliente.Ficha _fichaCliente ;
 
-
-        public OOB.LibVenta.PosOffline.Cliente.Ficha FichaCliente 
-        {
-            get 
-            {
-                return _fichaCliente;
-            }
-        }
+        public Cliente.Ficha FichaCliente {get;set;}
 
 
         public Buscar()
         {
-            _fichaCliente = null;
+            FichaCliente = new Ficha();
         }
 
+        public void BuscarPorId(int idCliente) 
+        {
+            var r01 = Sistema.MyData2.Cliente(idCliente);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            FichaCliente.setEntidad(r01.Entidad);
+        }
 
         public bool BuscarPorCiRif(string data) 
         {
@@ -43,7 +45,7 @@ namespace ModPos.Facturacion.Cliente
                     return false;
                 }
 
-                _fichaCliente = r01.Entidad;
+                FichaCliente.setEntidad(r01.Entidad);
                 rt = true;
             }
 
@@ -72,7 +74,7 @@ namespace ModPos.Facturacion.Cliente
                         return false;
                     }
 
-                    _fichaCliente = r01.Entidad;
+                    FichaCliente.setEntidad(r01.Entidad);
                     return true;
                 }
             }
@@ -118,10 +120,22 @@ namespace ModPos.Facturacion.Cliente
             }
 
             rt = true;
-            _fichaCliente = r02.Entidad;
+            FichaCliente.setEntidad(r02.Entidad);
             Helpers.Msg.AgregarOk();
 
             return rt;
+        }
+
+        public void Busqueda() 
+        {
+            var frm = new Cliente.BuscarAgregarFrm();
+            frm.setControlador(this);
+            frm.ShowDialog();
+        }
+
+        public void Limpiar() 
+        {
+           FichaCliente.Limpiar();
         }
 
     }

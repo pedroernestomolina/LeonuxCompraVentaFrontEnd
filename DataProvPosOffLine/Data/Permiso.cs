@@ -40,6 +40,28 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Permiso.AdmDocumento.Ficha> Permiso_AdmDocumento()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Permiso.AdmDocumento.Ficha>();
+
+            var r01 = MyData.Permiso_AdmDocumento();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var ent = r01.Entidad;
+            var nr = new OOB.LibVenta.PosOffline.Permiso.AdmDocumento.Ficha();
+            nr.Anular = new OOB.LibVenta.PosOffline.Permiso.permiso (ent.Anular.Codigo, ent.Anular.Descripcion, ent.Anular.RequiereClave);
+            nr.ReImprimir = new OOB.LibVenta.PosOffline.Permiso.permiso(ent.ReImprimir.Codigo, ent.ReImprimir.Descripcion, ent.ReImprimir.RequiereClave);
+            nr.NotaCredito = new OOB.LibVenta.PosOffline.Permiso.permiso(ent.NotaCredito.Codigo, ent.NotaCredito.Descripcion, ent.NotaCredito.RequiereClave);
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

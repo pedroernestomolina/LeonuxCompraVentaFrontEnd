@@ -12,6 +12,7 @@ namespace DataProvPosOffLine.InfraEstructura
     {
 
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Permiso.Pos.Ficha> Permiso_ManejoPos();
+        OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Permiso.AdmDocumento.Ficha> Permiso_AdmDocumento();
 
     }
 

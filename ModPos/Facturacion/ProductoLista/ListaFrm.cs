@@ -15,25 +15,13 @@ namespace ModPos.Facturacion.ProductoLista
     public partial class ListaFrm : Form
     {
 
-        private BindingSource bs;
-        private BindingList<OOB.LibVenta.PosOffline.Producto.Ficha> bProducto;
-        private bool _isProductoSelected;
-        private OOB.LibVenta.PosOffline.Producto.Ficha _productoSelected;
 
-
-        public bool IsProductoSelected { get { return _isProductoSelected; } }
-        public OOB.LibVenta.PosOffline.Producto.Ficha ProductoSelected { get { return _productoSelected; } }
+        private CtrlLista _controlador;
 
 
         public ListaFrm()
         {
             InitializeComponent();
-            bProducto = new BindingList<OOB.LibVenta.PosOffline.Producto.Ficha>();
-            bs = new BindingSource();
-            bs.DataSource = bProducto;
-
-            _isProductoSelected = false;
-            _productoSelected = null;
             InicializarDGV();
         }
 
@@ -96,34 +84,8 @@ namespace ModPos.Facturacion.ProductoLista
         {
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
-                _productoSelected = (OOB.LibVenta.PosOffline.Producto.Ficha)bs.Current;
-                _isProductoSelected = true;
-                Salida();
+                SeleccionarItem();
             }
-        }
-
-
-        public bool CargarData(string buscar) 
-        {
-            var rt = true;
-
-            var r01 = Sistema.MyData2.Producto_Lista(buscar);
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
-            }
-
-            bProducto.Clear();
-            bProducto.RaiseListChangedEvents = false;
-            foreach (var dt in r01.Lista.OrderBy(o=>o.NombrePrd))
-            {
-                bProducto.Add(dt);
-            }
-            bProducto.RaiseListChangedEvents = true;
-            bProducto.ResetBindings();
-
-            return rt;
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -138,7 +100,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void ListaFrm_Load(object sender, EventArgs e)
         {
-            DGV.DataSource = bs;
+            DGV.DataSource = _controlador.Source;
             DGV.Focus();
             DGV.Refresh();
         }
@@ -151,14 +113,7 @@ namespace ModPos.Facturacion.ProductoLista
                 {
                     if (DGV.CurrentRow.Index > -1)
                     {
-                        var row = DGV.CurrentRow;
-                        var auto = (string)row.Cells[0].Value;
-                        _productoSelected = bProducto.FirstOrDefault(f => f.Auto == auto);
-                        if (_productoSelected != null)
-                        {
-                            _isProductoSelected = true;
-                            Salida();
-                        }
+                        SeleccionarItem();
                     }
                 }
             }
@@ -171,7 +126,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void SubirItem()
         {
-            bs.Position = bs.Position - 1;
+            _controlador.Subir();
         }
 
         private void BT_BAJAR_Click(object sender, EventArgs e)
@@ -181,7 +136,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void BajarItem()
         {
-            bs.Position = bs.Position + 1;
+            _controlador.Bajar();
         }
 
         private void BT_ENTER_Click(object sender, EventArgs e)
@@ -189,17 +144,15 @@ namespace ModPos.Facturacion.ProductoLista
             SeleccionarItem();
         }
 
+        public void setControlador(CtrlLista ctr)
+        {
+            _controlador = ctr;
+        }
+        
         private void SeleccionarItem()
         {
-            if (bs != null)
-            {
-                if (bs.Current != null) 
-                {
-                    _productoSelected = (OOB.LibVenta.PosOffline.Producto.Ficha)bs.Current;
-                    _isProductoSelected = true;
-                    Salida();
-                }
-            }
+            _controlador.Seleccionar();
+            Salida();
         }
     
     }

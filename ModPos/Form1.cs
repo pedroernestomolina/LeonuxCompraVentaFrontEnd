@@ -18,6 +18,8 @@ namespace ModPos
 
         private Configuracion.configurar _configuracion;
         private AdministradorDoc.Administrador _administrador;
+        private ClaveSeguridad.Seguridad _seguridad;
+        private Facturacion.Venta _venta;
 
 
         public Form1()
@@ -25,8 +27,10 @@ namespace ModPos
             InitializeComponent();
             Sistema.MyBalanza = new Lib.BalanzaSoloPeso.BalanzaManual.Balanza();
             Sistema.Usuario = new OOB.LibVenta.PosOffline.Usuario.Ficha() { Auto = "0000000001", Codigo = "CAJA1T1", Descripcion = "CAJ. TURNO 1", IsActivo = true };
+            _seguridad = new ClaveSeguridad.Seguridad();
             _configuracion = new Configuracion.configurar();
-            _administrador = new AdministradorDoc.Administrador();
+            _administrador = new AdministradorDoc.Administrador(_seguridad);
+            _venta = new Facturacion.Venta(_seguridad);
         }
 
 
@@ -72,11 +76,7 @@ namespace ModPos
             if (pass)
             {
                 this.Hide();
-                var frm = new Facturacion.PosVenta();
-                if (frm.CargarData()) 
-                {
-                    frm.ShowDialog();
-                }
+                _venta.ActivarPos();
                 this.Visible = true;
             }
         }

@@ -67,12 +67,25 @@ namespace ModPos.Facturacion.Consultor
             }
         }
 
-        public Precio(OOB.LibVenta.PosOffline.Precio.Ficha ficha, decimal tasa)
+        public Precio()
+        {
+            Limpiar();
+        }
+
+        public void setEntidad(OOB.LibVenta.PosOffline.Precio.Ficha ficha, decimal tasa)
         {
             _tasaIva = tasa;
             _precioNeto = ficha.PrecioNeto;
             _contEmpaque = ficha.ContEmpVenta;
             _empaque = ficha.DescEmpVenta;
+        }
+
+        public void Limpiar()
+        {
+            _tasaIva = 0.0m;
+            _precioNeto = 0.0m;
+            _contEmpaque = 1;
+            _empaque = "";
         }
 
     }

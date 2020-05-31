@@ -50,9 +50,6 @@ namespace ModPos.Facturacion
         }
 
 
-        public event EventHandler PrdAcutalCambioOk;
-
-
         private List<Item> _items;
         private BindingList<Item> _bItems;
         private BindingSource _bs;
@@ -63,8 +60,6 @@ namespace ModPos.Facturacion
         private decimal _montoDivisa;
         private decimal _dsctoGlobal;
         private decimal _cargoGlobal;
-        private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
-        private ClaveSeguridad.Seguridad _seguridad;
 
 
         public List<Item> Items
@@ -292,7 +287,6 @@ namespace ModPos.Facturacion
             }
         }
 
-
         public CtrItem()
         {
             _items = new List<Item>();
@@ -309,16 +303,6 @@ namespace ModPos.Facturacion
             {
                 var item = (Item)_bs.Current;
                 _prdActual.setProducto(item);
-                NotificarPrdActualCambio();
-            }
-        }
-
-        private void NotificarPrdActualCambio()
-        {
-            EventHandler handler = PrdAcutalCambioOk;
-            if (handler != null)
-            {
-                handler(this, null);
             }
         }
 
@@ -526,104 +510,70 @@ namespace ModPos.Facturacion
             _bs.MoveFirst();
         }
 
-        public void IncrementarItem()
-        {
-            if (_bs.CurrencyManager.Position == 0)
-            {
-                var it = (Item)_bs.Current;
-                if (it != null) 
-                {
-                    if (!it.EsPesado)
-                    {
-                        var seguir = true;
-                        if (_permisos.Sumar.RequiereClave)
-                        {
-                            seguir = _seguridad.SolicitarClave();
-                        }
-                        if (seguir)
-                        {
-                            IncrementarItem(it, 1);
-                        }
-                    }
-                }
-            }
-        }
-
         public void IncrementarItem(Item it, int cnt)
         {
-            var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
+            if (it != null)
             {
-                Id = it.Id,
-                Cantidad = (it.Cantidad + cnt),
-            };
-            var r01 = Sistema.MyData2.Item_Actualizar(act);
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return;
-            }
-            it.Cantidad += cnt;
-            NotificarPrdActualCambio();
-        }
-
-        public void Restar()
-        {
-            if (_bs.CurrencyManager.Position == 0)
-            {
-                var eliminar = false;
-                var it = (Item)_bs.Current;
-                if (it != null)
+                if (cnt > 0)
                 {
-                    var seguir = true;
-                    if (_permisos.Restar.RequiereClave)
+                    var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
                     {
-                        seguir = _seguridad.SolicitarClave();
-                    }
-                    if (seguir)
+                        Id = it.Id,
+                        Cantidad = (it.Cantidad + cnt),
+                    };
+                    var r01 = Sistema.MyData2.Item_Actualizar(act);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
-                        if (!it.EsPesado)
-                        {
-                            if (it.Cantidad > 1)
-                            {
-                                var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
-                                {
-                                    Id = it.Id,
-                                    Cantidad = it.Cantidad - 1,
-                                };
-                                var r01 = Sistema.MyData2.Item_Actualizar(act);
-                                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                                {
-                                    Helpers.Msg.Error(r01.Mensaje);
-                                    return;
-                                }
-                                it.Cantidad -= 1;
-                            }
-                            else
-                            {
-                                eliminar = true;
-                            }
-                        }
-                        else
-                        {
-                            eliminar = true;
-                        }
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
                     }
-
-                    if (eliminar)
-                    {
-                        var r01 = Sistema.MyData2.Item_Eliminar(it.Id);
-                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                        {
-                            Helpers.Msg.Error(r01.Mensaje);
-                            return;
-                        }
-                        _bs.Remove(it);
-                    }
-                    NotificarPrdActualCambio();
+                    it.Cantidad += cnt;
                 }
             }
         }
 
+        public void Restar(Item it)
+        {
+            var eliminar = false;
+
+            if (!it.EsPesado)
+            {
+                if (it.Cantidad > 1)
+                {
+                    var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
+                    {
+                        Id = it.Id,
+                        Cantidad = it.Cantidad - 1,
+                    };
+                    var r01 = Sistema.MyData2.Item_Actualizar(act);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    it.Cantidad -= 1;
+                }
+                else
+                {
+                    eliminar = true;
+                }
+            }
+            else
+            {
+                eliminar = true;
+            }
+
+            if (eliminar)
+            {
+                var r01 = Sistema.MyData2.Item_Eliminar(it.Id);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _bs.Remove(it);
+            }
+        }
 
         public void Limpiar()
         {
@@ -644,32 +594,11 @@ namespace ModPos.Facturacion
             _montoDivisa = monto;
         }
 
-        public void Multiplicar()
+        public void Multiplicar(Item it)
         {
-            if (_bs.CurrencyManager.Position == 0)
-            {
-                var it = (Item)_bs.Current;
-                if (it != null) 
-                {
-                    if (!it.EsPesado)
-                    {
-                        var seguir = true;
-                        if (_permisos.Multiplicar.RequiereClave)
-                        {
-                            seguir = _seguridad.SolicitarClave();
-                        }
-                        if (seguir)
-                        {
-                            var frm = new MultiplicarFrm();
-                            frm.ShowDialog();
-                            if (frm.Cantidad > 0)
-                            {
-                                IncrementarItem(it, frm.Cantidad);
-                            }
-                        }
-                    }
-                }
-            }
+            var frm = new MultiplicarFrm();
+            frm.ShowDialog();
+            IncrementarItem(it, frm.Cantidad);
         }
 
         public void CargarLista(List<OOB.LibVenta.PosOffline.Item.Ficha> lst)
@@ -713,153 +642,46 @@ namespace ModPos.Facturacion
             return rt;
         }
 
-
         public bool DejarCtaEnPendiente(Cliente.Ficha ficha)
         {
             var rt = false;
 
-            if (ficha == null)
+            var msg = MessageBox.Show("Dejar Cuenta En Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == System.Windows.Forms.DialogResult.Yes)
             {
-                Helpers.Msg.Error("CLIENTE NO DEFINIDO");
-                return false;
-            }
-            if (ficha.Id == -1)
-            {
-                Helpers.Msg.Error("CLIENTE NO DEFINIDO");
-                return false;
-            }
-            if (_items == null)
-            {
-                Helpers.Msg.Error("ITEMS NO DEFINIDO");
-                return false;
-            }
-            if (_items.Count == 0)
-            {
-                Helpers.Msg.Error("ITEMS NO DEFINIDO");
-                return false;
-            }
-
-            var seguir = true;
-            if (_permisos.DejarCtaPendiente.RequiereClave)
-            {
-                seguir = _seguridad.SolicitarClave();
-            }
-
-            if (seguir)
-            {
-                var msg = MessageBox.Show("Dejar Cuenta En Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == System.Windows.Forms.DialogResult.Yes)
+                var agregar = new OOB.LibVenta.PosOffline.Pendiente.DejarEnPendiente.Agregar()
                 {
-                    var agregar = new OOB.LibVenta.PosOffline.Pendiente.DejarEnPendiente.Agregar()
+                    IdCliente = ficha.Id,
+                    Monto = SubTotal,
+                    Renglones = Renglones,
+                };
+                agregar.Items = _items.Select(s =>
+                {
+                    var nr = new OOB.LibVenta.PosOffline.Pendiente.DejarEnPendiente.AgregarItem()
                     {
-                        IdCliente = ficha.Id,
-                        Monto = SubTotal,
-                        Renglones = Renglones,
+                        IdItem = s.Id,
                     };
-                    agregar.Items = _items.Select(s =>
-                    {
-                        var nr = new OOB.LibVenta.PosOffline.Pendiente.DejarEnPendiente.AgregarItem()
-                        {
-                            IdItem = s.Id,
-                        };
-                        return nr;
-                    }).ToList();
+                    return nr;
+                }).ToList();
 
-                    var r01 = Sistema.MyData2.Pendiente_DejarCtaEnPendiente(agregar);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return false;
-                    }
-
-                    return true;
-                }
-                else
+                var r01 = Sistema.MyData2.Pendiente_DejarCtaEnPendiente(agregar);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    Helpers.Msg.Error(r01.Mensaje);
                     return false;
                 }
+
+                return true;
             }
 
             return rt;
         }
 
-        public bool AbrirCtaEnPendiente(CtrCliente ctrCli)
+        public void ActivarDevolucion()
         {
-            var result = false;
 
-            if (_items == null)
-            {
-                Helpers.Msg.Error("ITEMS NO DEFINIDO");
-                return false;
-            }
-            if (_items.Count > 0)
-            {
-                Helpers.Msg.Error("HAY ITEMS EN LA BANDEJA");
-                return false;
-            }
-
-            var frm = new AbrirPendiente.AbrirPendienteFrm();
-            if (frm.CargarData())
-            {
-                frm.ShowDialog();
-                var _idClienteAbrir = frm.IdCliente;
-                result = frm.AbrirCtaOk;
-
-                if (result)
-                {
-                    var r01 = Sistema.MyData2.Item_Cargar();
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                    }
-                    if (r01.Lista.Count > 0)
-                    {
-                        CargarLista(r01.Lista);
-                    }
-
-                    var r02 = Sistema.MyData2.Cliente(_idClienteAbrir);
-                    if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r02.Mensaje);
-                    }
-                    else
-                    {
-                        ctrCli.setCliente(r02.Entidad);
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        public bool ActivarDevolucion()
-        {
-            var rt = false;
-
-            if (_items == null)
-            {
-                Helpers.Msg.Error("ITEMS NO DEFINIDO");
-                return false;
-            }
-            if (_items.Count == 0)
-            {
-                Helpers.Msg.Error("NO HAY ITEMS EN LA BANDEJA");
-                return false;
-            }
-
-            var seguir = true;
-            if (_permisos.Devolucion.RequiereClave)
-            {
-                seguir = _seguridad.SolicitarClave();
-            }
-
-            if (seguir)
-            {
-                var frm = new Devolucion.DevolucionFrm(this);
-                frm.ShowDialog();
-            }
-
-            return rt;
+            var frm = new Devolucion.DevolucionFrm(this);
+            frm.ShowDialog();
         }
 
         public bool EliminarItem(int id)
@@ -877,7 +699,6 @@ namespace ModPos.Facturacion
                 }
                 _bItems.Remove(it);
                 rt = true;
-                NotificarPrdActualCambio();
             }
 
             return rt;
@@ -901,9 +722,7 @@ namespace ModPos.Facturacion
                     Helpers.Msg.Error(r01.Mensaje);
                     return false;
                 }
-                //it.Cantidad -= 1;
                 rt = true;
-                NotificarPrdActualCambio();
             }
 
             return rt;
@@ -912,45 +731,25 @@ namespace ModPos.Facturacion
         public bool AnularVenta()
         {
             var rt = false;
-            var seguir = true;
 
-            if (_permisos.AnularVenta.RequiereClave)
+            var msg = MessageBox.Show("Anular Venta ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == System.Windows.Forms.DialogResult.Yes)
             {
-                seguir = _seguridad.SolicitarClave();
-            }
-
-            if (seguir)
-            {
-                var msg = MessageBox.Show("Anular Venta ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == System.Windows.Forms.DialogResult.Yes)
+                var r01 = Sistema.MyData2.Item_Limpiar();
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
-                    var r01 = Sistema.MyData2.Item_Limpiar();
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return rt;
-                    }
-
-                    _dsctoGlobal = 0.0m;
-                    _prdActual.Limpiar();
-                    _bItems.Clear();
-                    rt = true;
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return rt;
                 }
+
+                _dsctoGlobal = 0.0m;
+                _prdActual.Limpiar();
+                _bItems.Clear();
+                rt = true;
             }
 
             return rt;
         }
-
-        public void setPermiso(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso)
-        {
-            _permisos = permiso;
-        }
-
-        public void setSeguridad(ClaveSeguridad.Seguridad seguridad)
-        {
-            _seguridad = seguridad;
-        }
-
 
     }
 

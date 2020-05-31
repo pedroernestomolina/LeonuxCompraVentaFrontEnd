@@ -14,17 +14,14 @@ namespace ModPos.Facturacion.ProductoLista
 
     public partial class ListaOfertaFrm : Form
     {
-        
-        private BindingSource bs;
-        private BindingList<OOB.LibVenta.PosOffline.Producto.Ficha> bProducto;
 
+
+        private CtrlLista _controlador;
+        
 
         public ListaOfertaFrm()
         {
             InitializeComponent();
-            bProducto = new BindingList<OOB.LibVenta.PosOffline.Producto.Ficha>();
-            bs = new BindingSource();
-            bs.DataSource = bProducto;
             InicializarDGV();
         }
 
@@ -91,8 +88,8 @@ namespace ModPos.Facturacion.ProductoLista
             c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c6.DefaultCellStyle.Format = "n2";
 
+            DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
-            //DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
@@ -101,33 +98,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            foreach (DataGridViewRow row in DGV.Rows)
-            {
-                row.DefaultCellStyle.ForeColor = !(bool)row.Cells["IsActivo"].Value ? Color.Red : Color.Black;
-            }
-        }
 
-        public bool CargarData() 
-        {
-            var rt = true;
-
-            var r01 = Sistema.MyData2.ProductoListaOferta();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
-            }
-
-            bProducto.Clear();
-            bProducto.RaiseListChangedEvents = false;
-            foreach (var dt in r01.Lista.Where(w=>w.IsOfertaActiva).OrderBy(o=>o.NombrePrd))
-            {
-                bProducto.Add(dt);
-            }
-            bProducto.RaiseListChangedEvents = true;
-            bProducto.ResetBindings();
-
-            return rt;
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -142,9 +113,34 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void ListaOfertaFrm_Load(object sender, EventArgs e)
         {
-            DGV.DataSource = bs;
+            DGV.DataSource = _controlador.Source;
             DGV.Focus();
             DGV.Refresh();
+        }
+
+        public void setControlador(CtrlLista ctr) 
+        {
+            _controlador = ctr;
+        }
+
+        private void BT_SUBIR_Click(object sender, EventArgs e)
+        {
+            SubirItem();
+        }
+
+        private void BajarItem()
+        {
+            _controlador.Bajar();
+        }
+
+        private void SubirItem()
+        {
+            _controlador.Subir();
+        }
+
+        private void BT_BAJAR_Click(object sender, EventArgs e)
+        {
+            BajarItem();
         }
 
     }

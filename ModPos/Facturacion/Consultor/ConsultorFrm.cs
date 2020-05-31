@@ -16,7 +16,7 @@ namespace ModPos.Facturacion.Consultor
     {
 
 
-        private Consulta _consulta;
+        private CtrConsulta _controlador; 
 
 
         public ConsultorFrm() 
@@ -69,15 +69,8 @@ namespace ModPos.Facturacion.Consultor
                 var t=TB_BUSCAR.Text.Trim().ToUpper(); 
                 if (t != "")
                 {
-                    if (Helpers.BuscarProducto.ActivarBusqueda(t))
-                    {
-                        _consulta = new Consulta(Helpers.BuscarProducto.Producto);
-                        ActualizarFicha();
-                    }
-                    else 
-                    {
-                        Limpiar();
-                    }
+                    _controlador.BuscarProducto(t);
+                    ActualizarFicha();
                     TB_BUSCAR.Text = "";
                 }
             }
@@ -86,9 +79,10 @@ namespace ModPos.Facturacion.Consultor
         private void ActualizarFicha()
         {
             Limpiar();
+            var _consulta = _controlador.Ficha;
             if (_consulta != null)
             {
-                L_PRODUCTO.Text = _consulta.NombrePrd;
+                L_PRODUCTO.Text =_consulta.NombrePrd;
                 L_DEPARTAMENTO.Text = _consulta.Departamento;
                 L_GRUPO.Text = _consulta.Grupo;
                 L_MARCA.Text = _consulta.Marca;
@@ -131,6 +125,11 @@ namespace ModPos.Facturacion.Consultor
         private void BT_SALIDA_Click(object sender, EventArgs e)
         {
             Salida();
+        }
+
+        public void setControlador(CtrConsulta ctr) 
+        {
+            _controlador = ctr;
         }
 
     }

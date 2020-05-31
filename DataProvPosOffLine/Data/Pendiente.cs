@@ -79,21 +79,6 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
-        public OOB.Resultado Pendiente_AbrirCta(int id)
-        {
-            var rt = new OOB.Resultado();
-
-            var r01 = MyData.Pendiente_AbrirCtaEnPendiente(id);
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
-            }
-
-            return rt;
-        }
-
         public OOB.Resultado Pendiente_EliminarCta(int id)
         {
             var rt = new OOB.Resultado();
@@ -108,6 +93,58 @@ namespace DataProvPosOffLine.Data
 
             return rt;
         }
+
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Pendiente.CtaAbrir.Ficha> Pendiente_AbrirCta(int id)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Pendiente.CtaAbrir.Ficha>();
+
+            var r01 = MyData.Pendiente_AbrirCtaEnPendiente(id);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            var ent=r01.Entidad ;
+            var nr = new OOB.LibVenta.PosOffline.Pendiente.CtaAbrir.Ficha()
+            {
+                IdCliente = ent.IdCliente,
+                Items = ent.Items.Select(s =>
+                {
+                    var r = new OOB.LibVenta.PosOffline.Item.Ficha() 
+                    {
+                        Id = s.Id,
+                        AutoPrd = s.AutoPrd,
+                        NombrePrd = s.NombrePrd,
+                        Cantidad = s.Cantidad,
+                        TasaImpuesto = s.TasaImpuesto,
+                        PrecioNeto = s.PrecioNeto,
+                        EsPesado = s.EsPesado,
+                        TipoIva = s.TipoIva,
+                        CostoCompraUnd = s.CostoCompraUnd,
+                        CostoPromedioUnd = s.CostoPromedioUnd,
+                        AutoDepartamento = s.AutoDepartamento,
+                        AutoGrupo = s.AutoGrupo,
+                        AutoSubGrupo = s.AutoSubGrupo,
+                        AutoTasaIva = s.AutoTasaIva,
+                        Categoria = s.Categoria,
+                        CodigoPrd = s.CodigoPrd,
+                        Decimales = s.Decimales,
+                        DiasEmpaqueGarantia = s.DiasEmpaqueGarantia,
+                        EmpCodigo = s.EmpCodigo,
+                        EmpDescripcion = s.EmpDescripcion,
+                        EmpContenido = s.EmpContenido,
+                        Tarifa = s.TarifaPrecio,
+                        PrecioSugerido = s.PrecioSugerido,
+                    };
+                    return r;
+                }).ToList(),
+            };
+            rt.Entidad=nr;
+
+            return rt;
+        }
+
 
     }
 

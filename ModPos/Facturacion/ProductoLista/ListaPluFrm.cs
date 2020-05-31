@@ -14,25 +14,14 @@ namespace ModPos.Facturacion.ProductoLista
 
     public partial class ListaPluFrm : Form
     {
-        
-        private BindingSource bs;
-        private BindingList<OOB.LibVenta.PosOffline.Producto.Ficha> bProducto;
-        private bool _isProductoSelected;
-        private OOB.LibVenta.PosOffline.Producto.Ficha _productoSelected;
 
 
-        public bool IsProductoSelected { get { return _isProductoSelected; } }
-        public OOB.LibVenta.PosOffline.Producto.Ficha ProductoSelected { get { return _productoSelected; } }
+        private CtrlLista _controlador;
 
 
         public ListaPluFrm()
         {
             InitializeComponent();
-            bProducto = new BindingList<OOB.LibVenta.PosOffline.Producto.Ficha>();
-            bs = new BindingSource();
-            bs.DataSource = bProducto;
-            _isProductoSelected = false;
-            _productoSelected = null;
             InicializarDGV();
         }
 
@@ -100,29 +89,6 @@ namespace ModPos.Facturacion.ProductoLista
             }
         }
 
-        public bool CargarData() 
-        {
-            var rt = true;
-
-            var r01 = Sistema.MyData2.ProductoListaPlu();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
-            }
-
-            bProducto.Clear();
-            bProducto.RaiseListChangedEvents = false;
-            foreach (var dt in r01.Lista.OrderBy(o=>o.NombrePrd))
-            {
-                bProducto.Add(dt);
-            }
-            bProducto.RaiseListChangedEvents = true;
-            bProducto.ResetBindings();
-
-            return rt;
-        }
-
         private void BT_SALIDA_Click(object sender, EventArgs e)
         {
             Salida();
@@ -135,7 +101,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void ListaPluFrm_Load(object sender, EventArgs e)
         {
-            DGV.DataSource = bs;
+            DGV.DataSource = _controlador.Source;
             DGV.Focus();
             DGV.Refresh();
         }
@@ -147,7 +113,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void SubirItem()
         {
-            bs.Position -=1;
+            _controlador.Subir();
         }
 
         private void BT_BAJAR_Click(object sender, EventArgs e)
@@ -157,7 +123,7 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void BajarItem()
         {
-            bs.Position += 1;
+            _controlador.Bajar();
         }
 
         private void BT_ENTER_Click(object sender, EventArgs e)
@@ -167,22 +133,8 @@ namespace ModPos.Facturacion.ProductoLista
 
         private void SeleccionarItem()
         {
-            if (bs != null)
-            {
-                if (bs.Current != null)
-                {
-                    var prd = (OOB.LibVenta.PosOffline.Producto.Ficha)bs.Current;
-                    var r01 = Sistema.MyData2.Producto(prd.Auto);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    _productoSelected = r01.Entidad;
-                    _isProductoSelected = true;
-                    Salida();
-                }
-            }
+            _controlador.Seleccionar();
+            Salida();
         }
 
         private void DGV_KeyDown(object sender, KeyEventArgs e)
@@ -193,18 +145,7 @@ namespace ModPos.Facturacion.ProductoLista
                 {
                     if (DGV.CurrentRow.Index > -1)
                     {
-                        var row = DGV.CurrentRow;
-                        var auto = (string)row.Cells[0].Value;
-                        var r01 = Sistema.MyData2.Producto(auto);
-                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                        {
-                            Helpers.Msg.Error(r01.Mensaje);
-                            return;
-                        }
-
-                        _productoSelected = r01.Entidad;
-                        _isProductoSelected = true;
-                        Salida();
+                        SeleccionarItem();
                     }
                 }
             }
@@ -214,18 +155,13 @@ namespace ModPos.Facturacion.ProductoLista
         {
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
-                var _prd= (OOB.LibVenta.PosOffline.Producto.Ficha)bs.Current;
-                var r01 = Sistema.MyData2.Producto(_prd.Auto);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-
-                _productoSelected = r01.Entidad;
-                _isProductoSelected = true;
-                Salida();
+                SeleccionarItem();
             }
+        }
+
+        public void setControlador(CtrlLista ctr) 
+        {
+            _controlador = ctr;
         }
      
     }

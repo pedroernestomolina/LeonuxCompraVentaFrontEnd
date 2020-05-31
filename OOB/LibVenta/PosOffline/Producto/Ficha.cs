@@ -133,6 +133,114 @@ namespace OOB.LibVenta.PosOffline.Producto
             }
         }
 
+
+        public Ficha()
+        {
+            Auto = "";
+            AutoDepartamento = "";
+            AutoGrupo = "";
+            AutoSubGrupo = "";
+            AutoMarca = "";
+            AutoTasa = "";
+
+            CodigoBarra = "";
+            CodigoPlu = "";
+            CodigoPrd = "";
+            NombrePrd = "";
+            Categoria = "";
+            Referencia = "";
+
+            CodigoDepartamento = "";
+            NombreDepartamento = "";
+            CodigoGrupo = "";
+            NombreGrupo = "";
+
+            Marca = "";
+            Modelo = "";
+            Pasillo = "";
+
+            TasaImpuesto = 0.0m;
+            Costo = 0.0m;
+            CostoUnidad = 0.0m;
+            CostoPromedio = 0.0m;
+            CostoPromedioUnidad = 0.0m;
+            PrecioSugerido = 0.0m;
+            PrecioRegular = 0.0m;
+
+            IsActivo = false;
+            IsDivisa = false;
+            IsPesado = false;
+            IsOferta = false;
+            IsGarantia = false;
+            IsSerial = false;
+
+            FechaServidor = DateTime.Now.Date;
+            DiasEmpaqueGarantia = 0;
+            OfertaDesde = null;
+            OfertaHasta = null;
+            OfertaPrecio = 0.0m;
+
+            Precio_1 = new Precio.Ficha();
+            Precio_2 = new Precio.Ficha();
+            Precio_3 = new Precio.Ficha();
+            Precio_4 = new Precio.Ficha();
+        }
+
+
+        public void Limpiar() 
+        {
+            Auto = "";
+            AutoDepartamento = "";
+            AutoGrupo="";
+            AutoSubGrupo = "";
+            AutoMarca="";
+            AutoTasa="";
+
+            CodigoBarra="";
+            CodigoPlu="";
+            CodigoPrd="";
+            NombrePrd="";
+            Categoria="";
+            Referencia="";
+
+            CodigoDepartamento="";
+            NombreDepartamento="";
+            CodigoGrupo="";
+            NombreGrupo="";
+
+            Marca="";
+            Modelo="";
+            Pasillo="";
+
+            TasaImpuesto=0.0m;
+            Costo=0.0m;
+            CostoUnidad=0.0m;
+            CostoPromedio=0.0m;
+            CostoPromedioUnidad=0.0m;
+            PrecioSugerido=0.0m;
+            PrecioRegular=0.0m;
+
+            IsActivo=false;
+            IsDivisa=false;
+            IsPesado=false;
+            IsOferta=false;
+            IsGarantia=false;
+            IsSerial=false;
+
+            FechaServidor=DateTime.Now.Date;
+            DiasEmpaqueGarantia=0;
+            OfertaDesde=null;
+            OfertaHasta=null;
+            OfertaPrecio=0.0m;
+
+            Precio_1.Limpiar();
+            Precio_2.Limpiar();
+            Precio_3.Limpiar();
+            Precio_4.Limpiar();
+        }
+
+
+
     }
 
 }

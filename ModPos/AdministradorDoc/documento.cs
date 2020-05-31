@@ -65,6 +65,7 @@ namespace ModPos.AdministradorDoc
             TipoDocumento = ficha.TipoDocumento;
             IsActivo = ficha.IsActivo;
             Signo = ficha.Signo;
+            Renglones = ficha.Renglones;
         }
 
     }

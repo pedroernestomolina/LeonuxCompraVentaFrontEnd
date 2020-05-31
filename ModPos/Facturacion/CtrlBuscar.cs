@@ -5,20 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModPos.Helpers
+namespace ModPos.Facturacion
 {
-    
-    public class BuscarProducto
+
+    public class CtrlBuscar
     {
 
 
-        static public OOB.LibVenta.PosOffline.Producto.Ficha Producto { get; set; }
-        static public decimal Peso { get; set; }
-        static public decimal Precio { get; set; }
-        static private FormatoPreEmpaque _formato;
+        public OOB.LibVenta.PosOffline.Producto.Ficha Producto { get; set; }
+        public decimal Peso { get; set; }
+        public decimal Precio { get; set; }
+        private FormatoPreEmpaque _formato;
+        private CtrlLista _listaPrd;
 
 
-        static private bool BusquedaPorCodigo(string codigo)
+        public CtrlBuscar(CtrlLista listaPrd)
+        {
+            _listaPrd = listaPrd;
+            Producto = new OOB.LibVenta.PosOffline.Producto.Ficha();
+            _formato = new FormatoPreEmpaque();
+            Peso = 0.0m;
+            Precio = 0.0m;
+        }
+
+
+        private bool BusquedaPorCodigo(string codigo)
         {
             var rt = false;
 
@@ -29,7 +40,7 @@ namespace ModPos.Helpers
                 return rt;
             }
 
-            if (r01.Entidad != "") 
+            if (r01.Entidad != "")
             {
                 var r02 = Sistema.MyData2.Producto(r01.Entidad);
                 if (r02.Result == OOB.Enumerados.EnumResult.isError)
@@ -45,7 +56,7 @@ namespace ModPos.Helpers
             return rt;
         }
 
-        private static ResultadoPreEmpaque VerificaPreEmpaque(string codigo)
+        private ResultadoPreEmpaque VerificaPreEmpaque(string codigo)
         {
             var rt = new ResultadoPreEmpaque();
 
@@ -53,30 +64,30 @@ namespace ModPos.Helpers
             {
                 return rt;
             };
-            if (codigo.Length != _formato.Largo) 
+            if (codigo.Length != _formato.Largo)
             {
                 return rt;
             };
             var cb = codigo.Substring(0, _formato.LargoCabecera);
-            if (cb != _formato.IdCabecera) 
+            if (cb != _formato.IdCabecera)
             {
                 return rt;
             };
 
-            var cod = codigo.Substring(_formato.LargoCabecera , _formato.LargoItemCod);
-            var peso=0.0m;
-            var precio=0.0m;
+            var cod = codigo.Substring(_formato.LargoCabecera, _formato.LargoItemCod);
+            var peso = 0.0m;
+            var precio = 0.0m;
             if (_formato.IsModoPeso)
             {
-                var ind = _formato.LargoCabecera + _formato.LargoItemCod ;
+                var ind = _formato.LargoCabecera + _formato.LargoItemCod;
                 var xs = codigo.Substring(ind, _formato.LargoPeso);
                 peso = decimal.Parse(xs) / 1000;
             }
-            else 
+            else
             {
                 var ind = _formato.LargoCabecera + _formato.LargoItemCod;
                 var xs = codigo.Substring(ind, _formato.LargoPrecio);
-                precio = decimal.Parse(xs) ;
+                precio = decimal.Parse(xs);
             }
             rt.IsPreEmpaque = true;
             rt.ItemCodigo = cod;
@@ -85,8 +96,8 @@ namespace ModPos.Helpers
 
             return rt;
         }
-        
-        static public bool ActivarBusqueda(string buscar, bool activarBusquedaPorDescripcion=true) 
+
+        public bool ActivarBusqueda(string buscar, bool activarBusquedaPorDescripcion = true)
         {
             var rt = false;
             Producto = null;
@@ -95,51 +106,44 @@ namespace ModPos.Helpers
 
             var codBuscar = buscar;
             var vr = VerificaPreEmpaque(buscar);
-            if (vr.IsPreEmpaque) 
+            if (vr.IsPreEmpaque)
             {
                 codBuscar = vr.ItemCodigo;
                 Peso = vr.Peso;
             }
 
             var result = BusquedaPorCodigo(codBuscar);
-            if (result) 
+            if (result)
             {
-                rt=true;
+                rt = true;
             }
-            else 
+            else
             {
-                if (activarBusquedaPorDescripcion) 
+                if (activarBusquedaPorDescripcion)
                 {
-                    //var frm = new Facturacion.ProductoLista.ListaFrm();
-                    //if (frm.CargarData(buscar))
-                    //{
-                    //    frm.ShowDialog();
-                    //    if (frm.IsProductoSelected)
-                    //    {
-                    //        var autoPrd = frm.ProductoSelected.Auto;
-
-                    //        var r01 = Sistema.MyData2.Producto(autoPrd);
-                    //        if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    //        {
-                    //            Helpers.Msg.Error(r01.Mensaje);
-                    //            return false;
-                    //        }
-
-                    //        Producto = r01.Entidad;
-                    //        return true;
-                    //    }
-                    //}
+                    _listaPrd.ListaFiltrada(buscar);
+                    if (_listaPrd.IsProductoSelected )
+                    {
+                        var r01 = Sistema.MyData2.Producto(_listaPrd.ProductoSelected.Auto);
+                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return false;
+                        }
+                        Producto = r01.Entidad;
+                        return true;
+                    }
                 }
             }
 
             return rt;
         }
 
-        static public void setFormatoPreEmpaque(FormatoPreEmpaque formato) 
+        public void setFormatoPreEmpaque(FormatoPreEmpaque formato)
         {
             _formato = formato;
         }
-
+    
     }
 
 }

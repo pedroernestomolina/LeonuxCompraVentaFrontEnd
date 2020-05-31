@@ -57,7 +57,7 @@ namespace ModPos.Facturacion.Pago
             _pago = new Pago();
             _pago.setMontoPagar(venta.MontoNacional);
             _pago.setTasaCambio(venta.TasaCambio);
-            _cliente = cliente.Cliente.Data;
+            //_cliente = cliente.Buscar.Data;
             _pagoIsOk = false;
 
             _efectivoChanged = false;

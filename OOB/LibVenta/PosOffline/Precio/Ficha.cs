@@ -18,6 +18,22 @@ namespace OOB.LibVenta.PosOffline.Precio
         public string DescEmpVenta { get; set; }
         public string Decimales { get; set; }
 
+
+        public Ficha()
+        {
+            Limpiar();
+        }
+
+        public void Limpiar() 
+        {
+            Id = "";
+            PrecioNeto = 0.0m;
+            UtilidadMargen = 0.0m;
+            ContEmpVenta = 0;
+            DescEmpVenta = "";
+            Decimales = "";
+        }
+
     }
 
 }

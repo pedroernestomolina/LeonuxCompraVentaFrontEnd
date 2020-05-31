@@ -13,6 +13,12 @@ namespace ModPos.Facturacion
 
         public event EventHandler ProcesarOk;
 
+        private Enumerados.EnumModoOperacionPos _modoOperacionPos;
+        private bool _permitirBusquedaPorDescripcion;
+        private bool _activarRepesaje;
+        private decimal _limiteRepesajeInf;
+        private decimal _limiteRepesajeSup;
+        private decimal _montoDivisa;
 
         private OOB.LibVenta.PosOffline.Usuario.Ficha _usuario;
         private OOB.LibVenta.PosOffline.Fiscal.Ficha _fiscal;
@@ -22,16 +28,19 @@ namespace ModPos.Facturacion
         private OOB.LibVenta.PosOffline.Configuracion.Transporte.Ficha _transporte;
         private OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Ficha _medioCobro;
         private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
+
         private ClaveSeguridad.Seguridad _seguridad;
+        private AbrirPendiente.Pendiente _pendiente;
         private CtrCliente _ctrCliente;
         private CtrItem _ctrItem;
-
+        private CtrlLista _ctrLista;
+        private CtrlBuscar _ctrBuscar;
+        private CtrConsulta _ctrConsultar;
 
         public string SerieFactura { get; set; }
         public string SerieNotaCredito { get; set; }
         public string SerieNotaDebito { get; set; }
         public string CodigoSucursal { get; set; }
-
 
         public decimal MontoNacional 
         {
@@ -69,6 +78,49 @@ namespace ModPos.Facturacion
             {
                 return 0.0m;
             }
+        }
+
+        public CtrCliente Cliente 
+        {
+            get 
+            {
+                return _ctrCliente;
+            }
+        }
+
+        public CtrItem Items 
+        {
+            get 
+            {
+                return _ctrItem;
+            }
+        }
+
+        public CtrlBuscar BuscarItem
+        {
+            get
+            {
+                return _ctrBuscar;
+            }
+        }
+
+
+        public Venta(ClaveSeguridad.Seguridad seguridad)
+        {
+            _seguridad = seguridad;
+            _ctrCliente = new CtrCliente();
+            _pendiente = new AbrirPendiente.Pendiente(_seguridad);
+            _ctrItem = new CtrItem();
+            _ctrLista = new CtrlLista();
+            _ctrBuscar = new CtrlBuscar(_ctrLista);
+            _ctrConsultar = new CtrConsulta(_ctrBuscar);
+
+            _permitirBusquedaPorDescripcion = false;
+            _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
+            _montoDivisa = 0.0m;
+            _activarRepesaje = false;
+            _limiteRepesajeInf = 0.0m;
+            _limiteRepesajeSup = 0.0m;
         }
 
 
@@ -120,6 +172,7 @@ namespace ModPos.Facturacion
         public void setPermiso(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha ficha)
         {
             _permisos = ficha;
+            _pendiente.setPermisos(ficha);
         }
 
         public void setSeguridad (ClaveSeguridad.Seguridad seguridad)
@@ -131,15 +184,7 @@ namespace ModPos.Facturacion
         Pago.PagoFrm procesarFrm; 
         public void Procesar() 
         {
-            if (_ctrCliente.Cliente == null) 
-            {
-                return;
-            }
-            if (_ctrCliente.Cliente.Id == -1)
-            {
-                return;
-            }
-            if (_ctrItem.Items == null)
+            if (_ctrCliente.Ficha.Id == -1)
             {
                 return;
             }
@@ -180,10 +225,10 @@ namespace ModPos.Facturacion
             {
                 Aplica = "",
                 AutoUsuario = _usuario.Auto,
-                ClienteCiRif = _ctrCliente.Cliente.CiRif,
-                ClienteDirFiscal = _ctrCliente.Cliente.DirFiscal,
-                ClienteNombreRazonSocial = _ctrCliente.Cliente.NombreRazaonSocial,
-                ClienteTelefono = _ctrCliente.Cliente.Telefono,
+                ClienteCiRif = _ctrCliente.Ficha.CiRif,
+                ClienteDirFiscal = _ctrCliente.Ficha.DirFiscal,
+                ClienteNombreRazonSocial = _ctrCliente.Ficha.NombreRazaonSocial,
+                ClienteTelefono = _ctrCliente.Ficha.Telefono,
                 Control = "",
                 Documento = "",
                 Estacion = Environment.MachineName,
@@ -348,6 +393,330 @@ namespace ModPos.Facturacion
             {
                 handler(this, null);
             }
+        }
+
+        public void CtaPendiente() 
+        {
+            _pendiente.Listar();
+            if (_pendiente.CtaAbrirIsOk) 
+            {
+                _ctrCliente.BuscarId(_pendiente.IdClienteAbrir);
+                _ctrItem.CargarLista(_pendiente.ListaItemAbrir);
+            }
+        }
+
+        public bool CargarData()
+        {
+            var rt = true;
+
+            var r01 = Sistema.MyData2.Item_Cargar();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            _ctrItem.CargarLista(r01.Lista);
+
+            var r02 = Sistema.MyData2.Fiscal_Tasas();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+            setFiscal(r02.Entidad);
+
+            var r03 = Sistema.MyData2.Configuracion_FactorCambio();
+            if (r03.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r03.Mensaje);
+                return false;
+            }
+            _montoDivisa = r03.Entidad;
+            _ctrItem.setMontoDivisa(_montoDivisa);
+
+            var r04 = Sistema.MyData2.Configuracion_Repesaje();
+            if (r04.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r04.Mensaje);
+                return false;
+            }
+            _activarRepesaje = r04.Entidad.IsActivo;
+            _limiteRepesajeInf = r04.Entidad.LimiteValidoInferior;
+            _limiteRepesajeSup = r04.Entidad.LimiteValidoSuperior;
+            _ctrItem.setRepesaje(_activarRepesaje, _limiteRepesajeInf, _limiteRepesajeSup);
+
+            var r05 = Sistema.MyData2.Configuracion_Serie();
+            if (r05.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r05.Mensaje);
+                return false;
+            }
+            SerieFactura = r05.Entidad.ParaFactura;
+            SerieNotaCredito = r05.Entidad.ParaNotaCredito;
+            SerieNotaDebito = r05.Entidad.ParaNotaDebito;
+
+            var r06 = Sistema.MyData2.Configuracion_Sucursal();
+            if (r06.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r06.Mensaje);
+                return false;
+            }
+            CodigoSucursal = r06.Entidad.Codigo;
+
+            var r07 = Sistema.MyData2.Configuracion_ModoPos();
+            if (r07.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r07.Mensaje);
+                return false;
+            }
+            switch (r07.Entidad.Modo)
+            {
+                case OOB.LibVenta.PosOffline.Configuracion.Enumerados.EnumModoPos.Detal:
+                    _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
+                    break;
+                case OOB.LibVenta.PosOffline.Configuracion.Enumerados.EnumModoPos.Mayor:
+                    _modoOperacionPos = Enumerados.EnumModoOperacionPos.Mayor;
+                    break;
+            }
+
+            var r08 = Sistema.MyData2.Configuracion_Deposito();
+            if (r08.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r08.Mensaje);
+                return false;
+            }
+            setDeposito(r08.Entidad);
+
+            var r09 = Sistema.MyData2.Configuracion_Vendedor();
+            if (r09.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r09.Mensaje);
+                return false;
+            }
+            setVendedor(r09.Entidad);
+
+            var r0a = Sistema.MyData2.Configuracion_ActivarBusquedaPorDescripcion();
+            if (r0a.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0a.Mensaje);
+                return false;
+            }
+            _permitirBusquedaPorDescripcion = r0a.Entidad;
+
+            var r0b = Sistema.MyData2.Configuracion_Cobrador();
+            if (r0b.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0b.Mensaje);
+                return false;
+            }
+            setCobrador(r0b.Entidad);
+
+            var r0c = Sistema.MyData2.Configuracion_Transporte();
+            if (r0c.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0c.Mensaje);
+                return false;
+            }
+            setTransporte(r0c.Entidad);
+
+            var r0d = Sistema.MyData2.Configuracion_MedioCobro();
+            if (r0d.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0d.Mensaje);
+                return false;
+            }
+            setMedioCobro(r0d.Entidad);
+
+            var r0e = Sistema.MyData2.Permiso_ManejoPos();
+            if (r0e.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0e.Mensaje);
+                return false;
+            }
+            setPermiso(r0e.Entidad);
+            setUsuario(Sistema.Usuario);
+
+            return rt;
+        }
+
+        public void ActivarPos() 
+        {
+            if (CargarData()) 
+            {
+                Cliente.Limpiar();
+
+                var frm = new Facturacion.PosVenta();
+                frm.setVenta(this);
+                frm.ShowDialog();
+            }
+        }
+
+        public void DejarCtaPendiente() 
+        {
+            if (Cliente.Ficha.Id == -1)
+            {
+                Helpers.Msg.Error("CLIENTE NO DEFINIDO");
+                return ;
+            }
+            if (_ctrItem.Items.Count == 0)
+            {
+                Helpers.Msg.Error("ITEMS NO DEFINIDO");
+                return ;
+            }
+            
+            var seguir = true;
+            if (_permisos.DejarCtaPendiente.RequiereClave)
+            {
+                seguir = _seguridad.SolicitarClave();
+            }
+            if (seguir)
+            {
+                if (_ctrItem.DejarCtaEnPendiente(Cliente.Ficha)) 
+                {
+                    _ctrCliente.Limpiar();
+                    _ctrItem.Limpiar();
+                }
+            }
+        }
+
+        public void AnularVenta() 
+        {
+            if (_ctrItem.Items.Count == 0)
+            {
+                Helpers.Msg.Error("ITEMS NO DEFINIDO");
+                return ;
+            }
+            
+            var seguir = true;
+            if (_permisos.DejarCtaPendiente.RequiereClave)
+            {
+                seguir = _seguridad.SolicitarClave();
+            }
+            if (seguir)
+            {
+                if (_ctrItem.AnularVenta()) 
+                {
+                    _ctrCliente.Limpiar();
+                }
+            }
+        }
+
+        public void ActivarCalculador() 
+        {
+            Helpers.Utilitis.Calculadora();
+        }
+
+        public void ListaPlu() 
+        {
+            _ctrLista.ListaPlu();
+            if (_ctrLista.IsProductoSelected) 
+            {
+                Items.RegistraItem(_ctrLista.ProductoSelected, 0);
+            }
+        }
+
+        public void ListaOferta() 
+        {
+            _ctrLista.ListaOferta();
+        }
+
+        public void Devolucion() 
+        {
+            if (_ctrItem.Items.Count == 0)
+            {
+                Helpers.Msg.Error("NO HAY ITEMS EN LA BANDEJA");
+                return ;
+            }
+
+            var seguir = true;
+            if (_permisos.Devolucion.RequiereClave)
+            {
+                seguir = _seguridad.SolicitarClave();
+            }
+            if (seguir)
+            {
+                _ctrItem.ActivarDevolucion();
+            }
+        }
+
+        public void IncrementarItem()
+        {
+            if (_ctrItem.Source.CurrencyManager.Position == 0)
+            {
+                var it = (Item)_ctrItem.Source.Current;
+                if (it != null)
+                {
+                    if (!it.EsPesado)
+                    {
+                        var seguir = true;
+                        if (_permisos.Sumar.RequiereClave)
+                        {
+                            seguir = _seguridad.SolicitarClave();
+                        }
+                        if (seguir)
+                        {
+                            _ctrItem.IncrementarItem(it, 1);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void Multiplicar() 
+        {
+            if (_ctrItem.Source.CurrencyManager.Position == 0)
+            {
+                var it = (Item)_ctrItem.Source.Current;
+                if (it != null)
+                {
+                    if (!it.EsPesado)
+                    {
+                        var seguir = true;
+                        if (_permisos.Multiplicar.RequiereClave)
+                        {
+                            seguir = _seguridad.SolicitarClave();
+                        }
+                        if (seguir)
+                        {
+                            _ctrItem.Multiplicar(it);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void Restar()
+        {
+            if (_ctrItem.Source.CurrencyManager.Position == 0)
+            {
+                var it = (Item)_ctrItem.Source.Current;
+                if (it != null)
+                {
+                    var seguir = true;
+                    if (_permisos.Multiplicar.RequiereClave)
+                    {
+                        seguir = _seguridad.SolicitarClave();
+                    }
+                    if (seguir)
+                    {
+                        _ctrItem.Restar(it);
+                    }
+                }
+            }
+        }
+
+        public void BuscarProducto(string buscar) 
+        {
+            var rt = BuscarItem.ActivarBusqueda(buscar, _permitirBusquedaPorDescripcion);
+            if (rt) 
+            {
+                Items.RegistraItem(_ctrBuscar.Producto , _ctrBuscar.Peso);
+            }
+        }
+
+        public void Consultor() 
+        {
+            _ctrConsultar.Consultor();
         }
 
     }

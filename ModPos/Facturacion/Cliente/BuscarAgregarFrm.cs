@@ -16,24 +16,12 @@ namespace ModPos.Facturacion.Cliente
     {
 
         private Buscar _buscar;
-        private Ficha _cliente;
-
-
-        public Ficha Cliente 
-        {
-            get
-            { 
-                return _cliente; 
-            }
-        }
 
 
         public BuscarAgregarFrm()
         {
             InitializeComponent();
-            _buscar = new Buscar();
             RB_CI.Checked = true;
-            _cliente = new Ficha();
         }
 
         private void Salida()
@@ -107,13 +95,13 @@ namespace ModPos.Facturacion.Cliente
             BT_ACEPTAR.Enabled = false;
             BT_GUARDAR.Enabled = false;
 
+            _buscar.Limpiar();
+
             IrFocoPrincipal();
-            _cliente.Limpiar();
         }
 
         private void BT_ACEPTAR_Click(object sender, EventArgs e)
         {
-            _cliente.setEntidad(_buscar.FichaCliente);
             Salida();
         }
 
@@ -171,7 +159,7 @@ namespace ModPos.Facturacion.Cliente
         {
             BuscarOff();
             TB_CIRIF.Text = _buscar.FichaCliente.CiRif;
-            TB_NOMBRE.Text = _buscar.FichaCliente.NombreRazonSocial;
+            TB_NOMBRE.Text = _buscar.FichaCliente.NombreRazaonSocial;
             TB_DIRFISCAL.Text = _buscar.FichaCliente.DirFiscal;
             TB_TELEFONO.Text = _buscar.FichaCliente.Telefono;
             BT_ACEPTAR.Enabled = true;
@@ -202,6 +190,11 @@ namespace ModPos.Facturacion.Cliente
         private void RB_CI_CheckedChanged(object sender, EventArgs e)
         {
             IrFocoPrincipal();
+        }
+
+        public void setControlador(Buscar ctr) 
+        {
+            _buscar = ctr;
         }
 
     }

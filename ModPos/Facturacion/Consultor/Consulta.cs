@@ -11,19 +11,18 @@ namespace ModPos.Facturacion.Consultor
     public class Consulta
     {
 
-        private OOB.LibVenta.PosOffline.Producto.Ficha _ficha;
-        public string CodigoPrd { get { return _ficha.CodigoPrd; } }
-        public string CodigoPlu { get { return _ficha.CodigoPlu; } }
-        public string CodigoBarra { get { return _ficha.CodigoBarra; } }
-        public string NombrePrd { get { return _ficha.NombrePrd; } }
-        public string Departamento { get { return _ficha.NombreDepartamento; } }
-        public string Grupo { get { return _ficha.NombreGrupo ; } }
-        public string Marca { get { return _ficha.Marca; } }
-        public string Modelo { get { return _ficha.Modelo; } }
-        public string Pasillo { get{ return _ficha.Pasillo; } } 
-        public decimal Tasa { get { return _ficha.TasaImpuesto; } }
-        public string Referencia { get { return _ficha.Referencia; } }
-        public bool IsInactivo { get { return !_ficha.IsActivo; } }
+        public string CodigoPrd { get; set; }
+        public string CodigoPlu { get; set; } 
+        public string CodigoBarra { get; set; } 
+        public string NombrePrd { get; set; } 
+        public string Departamento { get; set; } 
+        public string Grupo { get; set; } 
+        public string Marca { get; set; } 
+        public string Modelo { get; set; }
+        public string Pasillo { get; set; } 
+        public decimal Tasa { get; set; } 
+        public string Referencia { get; set; } 
+        public bool IsInactivo { get; set; } 
         public Precio Precio_1 { get; set; }
         public Precio Precio_2 { get; set; }
         public Precio Precio_3 { get; set; }
@@ -43,13 +42,54 @@ namespace ModPos.Facturacion.Consultor
         }
 
 
-        public Consulta(OOB.LibVenta.PosOffline.Producto.Ficha ficha) 
+        public Consulta() 
         {
-            _ficha = ficha;
-            Precio_1 = new Precio(ficha.Precio_1 ,Tasa);
-            Precio_2 = new Precio(ficha.Precio_2, Tasa);
-            Precio_3 = new Precio(ficha.Precio_3, Tasa);
-            Precio_4 = new Precio(ficha.Precio_4, Tasa);
+            Precio_1 = new Precio();
+            Precio_2 = new Precio();
+            Precio_3 = new Precio();
+            Precio_4 = new Precio();
+        }
+
+        public void setEntidad(OOB.LibVenta.PosOffline.Producto.Ficha ficha) 
+        {
+
+            CodigoPrd=ficha.CodigoPrd; 
+            CodigoPlu = ficha.CodigoPlu; 
+            CodigoBarra = ficha.CodigoBarra; 
+            NombrePrd = ficha.NombrePrd; 
+            Departamento = ficha.NombreDepartamento; 
+            Grupo = ficha.NombreGrupo ; 
+            Marca = ficha.Marca; 
+            Modelo = ficha.Modelo; 
+            Pasillo = ficha.Pasillo; 
+            Tasa = ficha.TasaImpuesto; 
+            Referencia = ficha.Referencia; 
+            IsInactivo = !ficha.IsActivo; 
+            Precio_1.setEntidad (ficha.Precio_1, Tasa);
+            Precio_2 .setEntidad (ficha.Precio_2, Tasa);
+            Precio_3.setEntidad (ficha.Precio_3, Tasa);
+            Precio_4.setEntidad (ficha.Precio_4, Tasa);
+        }
+
+        public void Limpiar() 
+        {
+            CodigoPrd = "";
+            CodigoPlu = "";
+            CodigoBarra = "";
+            NombrePrd = "";
+            Departamento = "";
+            Grupo = "";
+            Marca = "";
+            Modelo = "";
+            Pasillo = "";
+            Tasa = 0.0m;
+            Referencia = "";
+            IsInactivo = false; 
+
+            Precio_1.Limpiar();
+            Precio_2.Limpiar();
+            Precio_3.Limpiar();
+            Precio_4.Limpiar();
         }
 
     }

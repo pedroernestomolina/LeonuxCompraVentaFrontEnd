@@ -13,7 +13,7 @@ namespace DataProvPosOffLine.InfraEstructura
 
         OOB.Resultado Pendiente_DejarCtaEnPendiente(OOB.LibVenta.PosOffline.Pendiente.DejarEnPendiente.Agregar ficha);
         OOB.ResultadoLista<OOB.LibVenta.PosOffline.Pendiente.Ficha> Pendiente_Lista();
-        OOB.Resultado Pendiente_AbrirCta(int id);
+        OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Pendiente.CtaAbrir.Ficha> Pendiente_AbrirCta(int id);
         OOB.Resultado Pendiente_EliminarCta(int id);
 
     }

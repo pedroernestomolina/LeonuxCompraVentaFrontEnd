@@ -13,6 +13,7 @@ namespace DataProvPosOffLine.InfraEstructura
 
         OOB.ResultadoId VentaDocumento_Agregar(OOB.LibVenta.PosOffline.VentaDocumento.Agregar ficha);
         OOB.ResultadoLista<OOB.LibVenta.PosOffline.VentaDocumento.Ficha> VentaDocumento_Lista(OOB.LibVenta.PosOffline.VentaDocumento.Filtro filtro);
+        OOB.Resultado VentaDocumento_Anular(int idDocumento);
 
     }
 

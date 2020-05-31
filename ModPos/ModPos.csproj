@@ -185,10 +185,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\BuscarProducto.cs" />
-    <Compile Include="Helpers\FormatoPreEmpaque.cs" />
     <Compile Include="Helpers\Msg.cs" />
-    <Compile Include="Helpers\ResultadoPreEmpaque.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
     <Compile Include="Helpers\VerificaPassword.cs" />
     <Compile Include="Identificacion\IdentificacionFrm.cs">

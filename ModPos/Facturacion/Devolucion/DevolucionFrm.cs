@@ -15,20 +15,12 @@ namespace ModPos.Facturacion.Devolucion
     public partial class DevolucionFrm : Form
     {
 
-        private CtrItem _ctrItem;
-        private List<Item> _items;
-        private BindingList<Item> _bItems;
-        private BindingSource _bs;
+
+        private CtrListaItem _controlador;
 
 
-        public DevolucionFrm(CtrItem ctrItem)
+        public DevolucionFrm()
         {
-            _ctrItem = ctrItem;
-            _items = new List<Item>(_ctrItem.Items);
-            _bItems = new BindingList<Item>(_items);
-            _bs = new BindingSource();
-            _bs.DataSource = _bItems;
-
             InitializeComponent();
             InicializarGrid();
         }
@@ -127,8 +119,8 @@ namespace ModPos.Facturacion.Devolucion
 
         private void DevolucionFrm_Load(object sender, EventArgs e)
         {
-            DGV_DETALLE.DataSource = _bs;
-            L_SUBTOTAL.Text = _ctrItem.SubTotal.ToString("n2");
+            DGV_DETALLE.DataSource = _controlador.Source;
+            L_SUBTOTAL.Text = _controlador.SubTotal.ToString("n2");
             irFocoPrincipal();
         }
 
@@ -144,55 +136,50 @@ namespace ModPos.Facturacion.Devolucion
 
         private void EliminarItem()
         {
-            if (_bs != null) 
-            {
-                var item = (Item)_bs.Current;
-                if (item != null)
-                {
-                    if (_ctrItem.EliminarItem(item.Id)) 
-                    {
-                        _bItems.Remove(item);
-                    }
-                }
-            }
+            _controlador.EliminarItem();
             ActualizarSubTotal();
         }
 
         private void ActualizarSubTotal()
         {
-            L_SUBTOTAL.Text = _ctrItem.SubTotal.ToString("n2");
+            L_SUBTOTAL.Text = _controlador.SubTotal.ToString("n2");
             DGV_DETALLE.Refresh();
         }
 
         private void BT_DEVOLVER_Click(object sender, EventArgs e)
         {
-            if (_bs != null)
-            {
-                var item = (Item)_bs.Current;
-                if (item != null)
-                {
-                    if (item.EsPesado)
-                    {
-                        Helpers.Msg.Error("Opción No Permitida Para Item(s) Pesado, Verifique Por Favor");
-                        return;
-                    }
-                    if (item.Cantidad > 1)
-                    {
-                        if (_ctrItem.Restar(item.Id)) 
-                        {
-                            item.Cantidad -= 1;
-                        };
-                    }
-                    else 
-                    {
-                        if (_ctrItem.EliminarItem(item.Id)) 
-                        {
-                            _bItems.Remove(item);
-                        }
-                    }
-                }
-            }
+            DevolerItem();
+        }
+
+        private void DevolerItem()
+        {
+            _controlador.DevolerItem();
             ActualizarSubTotal();
+        }
+
+        public void setControlador(CtrListaItem ctr) 
+        {
+            _controlador = ctr;
+        }
+
+        private void BT_SUBIR_Click(object sender, EventArgs e)
+        {
+            SubirItem();
+        }
+
+        private void SubirItem()
+        {
+            _controlador.Subir();
+        }
+
+        private void BT_BAJAR_Click(object sender, EventArgs e)
+        {
+            BajarItem();
+        }
+
+        private void BajarItem()
+        {
+            _controlador.Bajar();
         }
 
     }

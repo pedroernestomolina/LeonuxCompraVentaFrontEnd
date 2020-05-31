@@ -60,6 +60,7 @@ namespace ModPos.Facturacion
         private decimal _montoDivisa;
         private decimal _dsctoGlobal;
         private decimal _cargoGlobal;
+        private CtrListaItem _ctrListaItem;
 
 
         public List<Item> Items
@@ -677,13 +678,6 @@ namespace ModPos.Facturacion
             return rt;
         }
 
-        public void ActivarDevolucion()
-        {
-
-            var frm = new Devolucion.DevolucionFrm(this);
-            frm.ShowDialog();
-        }
-
         public bool EliminarItem(int id)
         {
             var rt = false;
@@ -749,6 +743,11 @@ namespace ModPos.Facturacion
             }
 
             return rt;
+        }
+
+        public void ActivarDevolucion()
+        {
+            _ctrListaItem.ActivarDevolucion();
         }
 
     }

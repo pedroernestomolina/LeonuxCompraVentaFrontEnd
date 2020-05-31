@@ -36,6 +36,7 @@ namespace ModPos.Facturacion
         private CtrlLista _ctrLista;
         private CtrlBuscar _ctrBuscar;
         private CtrConsulta _ctrConsultar;
+        private CtrListaItem _ctrListaItem;
 
         public string SerieFactura { get; set; }
         public string SerieNotaCredito { get; set; }
@@ -114,6 +115,7 @@ namespace ModPos.Facturacion
             _ctrLista = new CtrlLista();
             _ctrBuscar = new CtrlBuscar(_ctrLista);
             _ctrConsultar = new CtrConsulta(_ctrBuscar);
+            _ctrListaItem = new CtrListaItem(_ctrItem);
 
             _permitirBusquedaPorDescripcion = false;
             _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
@@ -635,7 +637,7 @@ namespace ModPos.Facturacion
             }
             if (seguir)
             {
-                _ctrItem.ActivarDevolucion();
+                _ctrListaItem.ActivarDevolucion();
             }
         }
 

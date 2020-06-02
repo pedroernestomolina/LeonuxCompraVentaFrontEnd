@@ -15,36 +15,15 @@ namespace ModPos.Facturacion.Pago
     public partial class PagoFrm : Form
     {
 
-        private Pago _pago;
+        private CtrPago _controlador;
         private bool _efectivoChanged;
         private bool _divisaChanged;
         private bool _elect_1_Changed;
         private bool _elect_2_Changed;
         private bool _elect_3_Changed;
         private bool _otro_Changed;
-        private string _cliente;
-        private bool _pagoIsOk;
-        private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
-        private ClaveSeguridad.Seguridad _seguridad;
 
-
-        public bool PagoIsOk
-        {
-            get 
-            {
-                return _pagoIsOk;
-            }
-        }
-
-        public Pago Pago
-        {
-            get 
-            {
-                return _pago;
-            }
-        }
-
-
+             
         public PagoFrm()
         {
             InitializeComponent();
@@ -52,14 +31,6 @@ namespace ModPos.Facturacion.Pago
 
         public void Inicializa(CtrCliente cliente, Venta venta, OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso, ClaveSeguridad.Seguridad seguridad) 
         {
-            _permisos = permiso;
-            _seguridad = seguridad;
-            _pago = new Pago();
-            _pago.setMontoPagar(venta.MontoNacional);
-            _pago.setTasaCambio(venta.TasaCambio);
-            //_cliente = cliente.Buscar.Data;
-            _pagoIsOk = false;
-
             _efectivoChanged = false;
             _divisaChanged = false;
             _elect_1_Changed = false;
@@ -73,18 +44,18 @@ namespace ModPos.Facturacion.Pago
         {
             Limpiar();
 
-            L_CLIENTE.Text = _cliente;
-            L_SUBTOTAL_MONTO_PAGAR.Text = _pago.SubTotalMontoPagar.ToString("n2");
-            L_VENTA_MONEDA_NACIONAL.Text = _pago.MontoPagar.ToString("n2");
-            L_VENTA_DIVISA.Text = "$" + _pago.MontoPagarDivisa.ToString("n2");
-            L_RESTA_MONEDA_NACIONAL.Text = _pago.MontoResta_MonedaNacional.ToString("n2");
-            L_RESTA_DIVISA.Text = "$" + _pago.MontoResta_Divisa.ToString("n2");
-            L_TASA_CAMBIO.Text = _pago.TasaCambio.ToString("n2");
+            L_CLIENTE.Text = _controlador.FichaCliente;
+            L_SUBTOTAL_MONTO_PAGAR.Text = _controlador.Pago.SubTotalMontoPagar.ToString("n2");
+            L_VENTA_MONEDA_NACIONAL.Text = _controlador.Pago.MontoPagar.ToString("n2");
+            L_VENTA_DIVISA.Text = "$" + _controlador.Pago.MontoPagarDivisa.ToString("n2");
+            L_RESTA_MONEDA_NACIONAL.Text = _controlador.Pago.MontoResta_MonedaNacional.ToString("n2");
+            L_RESTA_DIVISA.Text = "$" + _controlador.Pago.MontoResta_Divisa.ToString("n2");
+            L_TASA_CAMBIO.Text = _controlador.Pago.TasaCambio.ToString("n2");
         }
 
         private void Limpiar()
         {
-            L_MONTO_VENTA.Text = "Monto Venta,  Descuento: " + _pago.Descuento.ToString("n2") + "%";
+            L_MONTO_VENTA.Text = "Monto Venta,  Descuento: " + _controlador.Pago.Descuento.ToString("n2") + "%";
             L_CLIENTE.Text = "";
             L_VENTA_MONEDA_NACIONAL.Text = "0.00";
             L_VENTA_DIVISA.Text = "$0.00";
@@ -163,7 +134,7 @@ namespace ModPos.Facturacion.Pago
                     {
                         if (monto >= 0)
                         {
-                            _pago.AddEfectivo(monto);
+                            _controlador.Pago.AddEfectivo(monto);
                         }
                         _efectivoChanged = false;
                     }
@@ -174,7 +145,7 @@ namespace ModPos.Facturacion.Pago
                     {
                         if (monto >= 0)
                         {
-                            _pago.AddDivisa(monto);
+                            _controlador.Pago.AddDivisa(monto);
                         }
                         _divisaChanged = false;
                     }
@@ -185,7 +156,7 @@ namespace ModPos.Facturacion.Pago
                     {
                         if (monto >= 0)
                         {
-                            _pago.AddElectronico(monto, 1);
+                            _controlador.Pago.AddElectronico(monto, 1);
                         }
                         _elect_1_Changed = false;
                     }
@@ -196,7 +167,7 @@ namespace ModPos.Facturacion.Pago
                     {
                         if (monto >= 0)
                         {
-                            _pago.AddElectronico(monto, 2);
+                            _controlador.Pago.AddElectronico(monto, 2);
                         }
                         _elect_2_Changed = false;
                     }
@@ -207,7 +178,7 @@ namespace ModPos.Facturacion.Pago
                     {
                         if (monto >= 0)
                         {
-                            _pago.AddElectronico(monto, 3);
+                            _controlador.Pago.AddElectronico(monto, 3);
                         }
                         _elect_3_Changed = false;
                     }
@@ -218,7 +189,7 @@ namespace ModPos.Facturacion.Pago
                     {
                         if (monto >= 0)
                         {
-                            _pago.AddElectronico(monto, 4);
+                            _controlador.Pago.AddElectronico(monto, 4);
                         }
                         _otro_Changed = false;
                     }
@@ -238,32 +209,32 @@ namespace ModPos.Facturacion.Pago
 
         private void ActualizaMontoResta()
         {
-            if (_pago.IsCredito)
+            if (_controlador.Pago.IsCredito)
             {
                 panel12.BackColor = Color.Green;
                 L_RESTA_CAMBIO_DAR.Text = "CREDITO HABILITADO";
-                L_RESTA_MONEDA_NACIONAL.Text = _pago.MontoResta_MonedaNacional.ToString("n2");
-                L_RESTA_DIVISA.Text = "$" + _pago.MontoResta_Divisa.ToString("n2");
+                L_RESTA_MONEDA_NACIONAL.Text = _controlador.Pago.MontoResta_MonedaNacional.ToString("n2");
+                L_RESTA_DIVISA.Text = "$" + _controlador.Pago.MontoResta_Divisa.ToString("n2");
             }
             else
             {
-                if (_pago.MontoCambioDar_MonedaNacional < 0)
+                if (_controlador.Pago.MontoCambioDar_MonedaNacional < 0)
                 {
                     panel12.BackColor = Color.Maroon;
                     L_RESTA_CAMBIO_DAR.Text = "Resta/Pendiente";
-                    L_RESTA_MONEDA_NACIONAL.Text = _pago.MontoResta_MonedaNacional.ToString("n2");
-                    L_RESTA_DIVISA.Text = "$" + _pago.MontoResta_Divisa.ToString("n2");
+                    L_RESTA_MONEDA_NACIONAL.Text = _controlador.Pago.MontoResta_MonedaNacional.ToString("n2");
+                    L_RESTA_DIVISA.Text = "$" + _controlador.Pago.MontoResta_Divisa.ToString("n2");
                 }
                 else
                 {
                     panel12.BackColor = Color.Navy;
                     L_RESTA_CAMBIO_DAR.Text = "Cambio Dar";
-                    L_RESTA_MONEDA_NACIONAL.Text = _pago.MontoCambioDar_MonedaNacional.ToString("n2");
-                    L_RESTA_DIVISA.Text = "$" + _pago.MontoCambioDar_Divisa.ToString("n2");
+                    L_RESTA_MONEDA_NACIONAL.Text = _controlador.Pago.MontoCambioDar_MonedaNacional.ToString("n2");
+                    L_RESTA_DIVISA.Text = "$" + _controlador.Pago.MontoCambioDar_Divisa.ToString("n2");
                 }
             }
-            TB_DIVISA_MONTO.Text = _pago.MontoDivisa.ToString("n2");
-            TB_MONTO_RECIBIDO.Text = _pago.MontoRecibido.ToString("n2");
+            TB_DIVISA_MONTO.Text = _controlador.Pago.MontoDivisa.ToString("n2");
+            TB_MONTO_RECIBIDO.Text = _controlador.Pago.MontoRecibido.ToString("n2");
         }
 
         private void BT_LIMPIAR_Click(object sender, EventArgs e)
@@ -273,7 +244,7 @@ namespace ModPos.Facturacion.Pago
 
         private void Limpieza()
         {
-            _pago.Limpiar();
+            _controlador.Pago.Limpiar();
             LimpiarPago();
             ActualizarMonto();
             ActualizaMontoResta();
@@ -287,7 +258,12 @@ namespace ModPos.Facturacion.Pago
 
         private void BT_CALCULADORA_Click(object sender, EventArgs e)
         {
-            Helpers.Utilitis.Calculadora();
+            ActivarCalculadora();
+        }
+
+        private void ActivarCalculadora()
+        {
+            _controlador.Calculadora();
             IrFocoPrincipal();
         }
 
@@ -308,25 +284,17 @@ namespace ModPos.Facturacion.Pago
 
         private void DarDescuento()
         {
-            var seguir = true;
-            if (_permisos.DarDesctoGlobal.RequiereClave)
-            {
-                seguir = _seguridad.SolicitarClave();
-            }
-            if (seguir)
-            {
-                _pago.DarDescuento();
-                ActualizarMonto();
-                ActualizaMontoResta();
-                IrFocoPrincipal();
-            }
+            _controlador.ActivarDescuento();
+            ActualizarMonto();
+            ActualizaMontoResta();
+            IrFocoPrincipal();
         }
 
         private void ActualizarMonto()
         {
-            L_MONTO_VENTA.Text = "Monto Venta,  Descuento: " + _pago.DescuentoPorct.ToString("n2") + "%";
-            L_VENTA_MONEDA_NACIONAL.Text = _pago.MontoPagar.ToString("n2");
-            L_VENTA_DIVISA.Text = "$" + _pago.MontoPagarDivisa.ToString("n2");
+            L_MONTO_VENTA.Text = "Monto Venta,  Descuento: " + _controlador.Pago.DescuentoPorct.ToString("n2") + "%";
+            L_VENTA_MONEDA_NACIONAL.Text = _controlador.Pago.MontoPagar.ToString("n2");
+            L_VENTA_DIVISA.Text = "$" + _controlador.Pago.MontoPagarDivisa.ToString("n2");
         }
 
         private void BT_PROCESAR_Click(object sender, EventArgs e)
@@ -341,47 +309,30 @@ namespace ModPos.Facturacion.Pago
 
         private void DarCredito()
         {
-            var seguir = true;
-            if (_permisos.CtaCredito.RequiereClave)
+            if (_controlador.ActivarCredito()) 
             {
-                seguir = _seguridad.SolicitarClave();
+                LimpiarPago();
+                ActualizaMontoResta();
+                this.Close();
             }
-            if (seguir)
-            {
-                if (_pago.setDocumentoCredito())
-                {
-                    LimpiarPago();
-                    ActualizaMontoResta();
-                    if (_pago.ProcesarCredito())
-                    {
-                        _pagoIsOk = true;
-                        this.Close();
-                    }
-                    else
-                    {
-                        ActualizaMontoResta();
-                        IrFocoPrincipal();
-                    }
-                }
-                else
-                {
-                    IrFocoPrincipal();
-                }
-            }
+            IrFocoPrincipal();
         }
 
         private void Procesar()
         {
-            if (_pago.Procesar()) 
+            if (_controlador.Procesar())
             {
-                _pagoIsOk = true;
                 this.Close();
+            }
+            else 
+            {
+                IrFocoPrincipal();
             }
         }
 
         private void TB_MONTO_RECIBIDO_Leave(object sender, EventArgs e)
         {
-            if (_pago.MontoResta_MonedaNacional > 0)
+            if (_controlador.Pago.MontoResta_MonedaNacional > 0)
             {
                 IrFocoPrincipal();
             }
@@ -389,6 +340,11 @@ namespace ModPos.Facturacion.Pago
             {
                 BT_PROCESAR.Select();
             }
+        }
+
+        public void setControlador(CtrPago ctr) 
+        {
+            _controlador = ctr;
         }
 
     }

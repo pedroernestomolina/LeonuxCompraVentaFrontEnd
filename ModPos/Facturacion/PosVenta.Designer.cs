@@ -159,6 +159,7 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.BT_SUMAR = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
             this.BT_TOTAL = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.BT_SALIDA = new System.Windows.Forms.Button();
@@ -270,12 +271,12 @@
             this.tableLayoutPanel6.SetColumnSpan(this.panel45, 2);
             this.panel45.Controls.Add(this.label12);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel45.Location = new System.Drawing.Point(456, 1);
+            this.panel45.Location = new System.Drawing.Point(454, 1);
             this.panel45.Margin = new System.Windows.Forms.Padding(1);
             this.panel45.Name = "panel45";
             this.panel45.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel45, 2);
-            this.panel45.Size = new System.Drawing.Size(242, 54);
+            this.panel45.Size = new System.Drawing.Size(240, 54);
             this.panel45.TabIndex = 6;
             // 
             // label12
@@ -285,7 +286,7 @@
             this.label12.ForeColor = System.Drawing.Color.Yellow;
             this.label12.Location = new System.Drawing.Point(2, 2);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(238, 50);
+            this.label12.Size = new System.Drawing.Size(236, 50);
             this.label12.TabIndex = 0;
             this.label12.Text = "Facturación :)";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,12 +295,12 @@
             // 
             this.panel44.Controls.Add(this.tableLayoutPanel20);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel44.Location = new System.Drawing.Point(220, 1);
+            this.panel44.Location = new System.Drawing.Point(219, 1);
             this.panel44.Margin = new System.Windows.Forms.Padding(1);
             this.panel44.Name = "panel44";
             this.panel44.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel44, 2);
-            this.panel44.Size = new System.Drawing.Size(234, 54);
+            this.panel44.Size = new System.Drawing.Size(233, 54);
             this.panel44.TabIndex = 5;
             // 
             // tableLayoutPanel20
@@ -316,7 +317,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(230, 50);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(229, 50);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // panel52
@@ -327,7 +328,7 @@
             this.panel52.Margin = new System.Windows.Forms.Padding(1);
             this.panel52.Name = "panel52";
             this.panel52.Padding = new System.Windows.Forms.Padding(2);
-            this.panel52.Size = new System.Drawing.Size(166, 48);
+            this.panel52.Size = new System.Drawing.Size(165, 48);
             this.panel52.TabIndex = 2;
             // 
             // L_ESTACION
@@ -337,7 +338,7 @@
             this.L_ESTACION.ForeColor = System.Drawing.Color.Yellow;
             this.L_ESTACION.Location = new System.Drawing.Point(2, 2);
             this.L_ESTACION.Name = "L_ESTACION";
-            this.L_ESTACION.Size = new System.Drawing.Size(162, 44);
+            this.L_ESTACION.Size = new System.Drawing.Size(161, 44);
             this.L_ESTACION.TabIndex = 0;
             this.L_ESTACION.Text = "label12";
             this.L_ESTACION.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,11 +370,11 @@
             // 
             this.panel28.Controls.Add(this.tableLayoutPanel15);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(700, 1);
+            this.panel28.Location = new System.Drawing.Point(696, 1);
             this.panel28.Margin = new System.Windows.Forms.Padding(1);
             this.panel28.Name = "panel28";
             this.tableLayoutPanel6.SetRowSpan(this.panel28, 2);
-            this.panel28.Size = new System.Drawing.Size(333, 54);
+            this.panel28.Size = new System.Drawing.Size(337, 54);
             this.panel28.TabIndex = 3;
             // 
             // tableLayoutPanel15
@@ -390,7 +391,7 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(333, 54);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(337, 54);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // pictureBox1
@@ -398,9 +399,9 @@
             this.pictureBox1.BackgroundImage = global::ModPos.Properties.Resources.carrito_compra;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(213, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(215, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 48);
+            this.pictureBox1.Size = new System.Drawing.Size(119, 48);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -411,7 +412,7 @@
             this.panel29.Location = new System.Drawing.Point(1, 1);
             this.panel29.Margin = new System.Windows.Forms.Padding(1);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(208, 52);
+            this.panel29.Size = new System.Drawing.Size(210, 52);
             this.panel29.TabIndex = 0;
             // 
             // label7
@@ -421,7 +422,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(208, 52);
+            this.label7.Size = new System.Drawing.Size(210, 52);
             this.label7.TabIndex = 0;
             this.label7.Text = "Sistema Pos Off Line\r\nPara: Leonux, C.A";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,7 +436,7 @@
             this.panel43.Name = "panel43";
             this.panel43.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel43, 2);
-            this.panel43.Size = new System.Drawing.Size(217, 54);
+            this.panel43.Size = new System.Drawing.Size(216, 54);
             this.panel43.TabIndex = 4;
             // 
             // tableLayoutPanel19
@@ -452,7 +453,7 @@
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(213, 50);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(212, 50);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // panel51
@@ -463,7 +464,7 @@
             this.panel51.Margin = new System.Windows.Forms.Padding(1);
             this.panel51.Name = "panel51";
             this.panel51.Padding = new System.Windows.Forms.Padding(2);
-            this.panel51.Size = new System.Drawing.Size(151, 48);
+            this.panel51.Size = new System.Drawing.Size(150, 48);
             this.panel51.TabIndex = 1;
             // 
             // L_USUARIO
@@ -473,7 +474,7 @@
             this.L_USUARIO.ForeColor = System.Drawing.Color.Yellow;
             this.L_USUARIO.Location = new System.Drawing.Point(2, 2);
             this.L_USUARIO.Name = "L_USUARIO";
-            this.L_USUARIO.Size = new System.Drawing.Size(147, 44);
+            this.L_USUARIO.Size = new System.Drawing.Size(146, 44);
             this.L_USUARIO.TabIndex = 0;
             this.L_USUARIO.Text = "label12";
             this.L_USUARIO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1891,6 +1892,7 @@
             // 
             // panel27
             // 
+            this.panel27.Controls.Add(this.label21);
             this.panel27.Controls.Add(this.BT_TOTAL);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel27.Location = new System.Drawing.Point(1, 226);
@@ -1900,6 +1902,18 @@
             this.tableLayoutPanel14.SetRowSpan(this.panel27, 2);
             this.panel27.Size = new System.Drawing.Size(63, 149);
             this.panel27.TabIndex = 3;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.SystemColors.Control;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.DarkRed;
+            this.label21.Location = new System.Drawing.Point(3, 20);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(36, 18);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "F10";
             // 
             // BT_TOTAL
             // 
@@ -2039,6 +2053,7 @@
             this.panel22.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -2179,5 +2194,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }

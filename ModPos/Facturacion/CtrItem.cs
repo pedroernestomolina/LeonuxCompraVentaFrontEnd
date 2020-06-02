@@ -13,6 +13,7 @@ namespace ModPos.Facturacion
     public class CtrItem
     {
 
+        public event EventHandler CambioItemActual;
         public class ProductoActual
         {
             public string Nombre { get; set; }
@@ -60,7 +61,6 @@ namespace ModPos.Facturacion
         private decimal _montoDivisa;
         private decimal _dsctoGlobal;
         private decimal _cargoGlobal;
-        private CtrListaItem _ctrListaItem;
 
 
         public List<Item> Items
@@ -178,7 +178,7 @@ namespace ModPos.Facturacion
             {
                 var rt = 0.0m;
                 rt = _items.Sum(s => s.MontoExento);
-                return rt;
+                return Math.Round(rt,2,MidpointRounding.AwayFromZero);
             }
         }
 
@@ -188,7 +188,7 @@ namespace ModPos.Facturacion
             {
                 var rt = 0.0m;
                 rt = _items.Sum(s => s.MontoBase);
-                return rt;
+                return Math.Round(rt, 2, MidpointRounding.AwayFromZero);
             }
         }
 
@@ -198,7 +198,7 @@ namespace ModPos.Facturacion
             {
                 var rt = 0.0m;
                 rt = _items.Sum(s => s.MontoImpuesto);
-                return rt;
+                return Math.Round(rt,2,MidpointRounding.AwayFromZero);
             }
         }
 
@@ -304,6 +304,16 @@ namespace ModPos.Facturacion
             {
                 var item = (Item)_bs.Current;
                 _prdActual.setProducto(item);
+                NotificarItemCambio();
+            }
+        }
+
+        private void NotificarItemCambio()
+        {
+            EventHandler handler = CambioItemActual;
+            if (handler != null) 
+            {
+                handler(this, null);
             }
         }
 
@@ -739,15 +749,11 @@ namespace ModPos.Facturacion
                 _dsctoGlobal = 0.0m;
                 _prdActual.Limpiar();
                 _bItems.Clear();
+
                 rt = true;
             }
 
             return rt;
-        }
-
-        public void ActivarDevolucion()
-        {
-            _ctrListaItem.ActivarDevolucion();
         }
 
     }

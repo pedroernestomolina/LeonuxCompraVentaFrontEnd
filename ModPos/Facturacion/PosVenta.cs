@@ -17,6 +17,7 @@ namespace ModPos.Facturacion
 
         private Venta _venta;
         private Timer _hora;
+        private BindingSource _bs;
 
      
         public PosVenta()
@@ -283,8 +284,10 @@ namespace ModPos.Facturacion
 
         private void AnularVenta()
         {
+            DGV_DETALLE.DataSource = null;
             _venta.AnularVenta();
             Actualizar();
+            DGV_DETALLE.DataSource = _bs;
         }
 
         private void IrFoco()
@@ -384,8 +387,10 @@ namespace ModPos.Facturacion
 
         private void Totalizar()
         {
+            DGV_DETALLE.DataSource = null;
             _venta.Procesar();
             Actualizar();
+            DGV_DETALLE.DataSource = _bs;
         }
 
         private void BT_PENDIENTE_Click(object sender, EventArgs e)
@@ -395,8 +400,10 @@ namespace ModPos.Facturacion
 
         private void DejarCtaEnPendiente()
         {
+            DGV_DETALLE.DataSource = null;
             _venta.DejarCtaPendiente();
             Actualizar();
+            DGV_DETALLE.DataSource = _bs;
         }
 
         private void BT_ABRIR_PENDIENTE_Click(object sender, EventArgs e)
@@ -459,6 +466,13 @@ namespace ModPos.Facturacion
         public void setVenta(Venta venta) 
         {
             _venta = venta;
+            _bs = _venta.Items.Source;
+            _bs.CurrentChanged+= _bs_CurrentChanged;
+        }
+
+        private void _bs_CurrentChanged(object sender, EventArgs e)
+        {
+            Actualizar();
         }
 
         private void Actualizar() 
@@ -467,7 +481,7 @@ namespace ModPos.Facturacion
             ActualizarTotal();
             IrFoco();
         }
-    
+   
     }
 
 }

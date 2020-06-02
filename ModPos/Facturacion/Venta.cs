@@ -117,6 +117,7 @@ namespace ModPos.Facturacion
             _ctrBuscar = new CtrlBuscar(_ctrLista);
             _ctrConsultar = new CtrConsulta(_ctrBuscar);
             _ctrListaItem = new CtrListaItem(_ctrItem);
+            _ctrPago = new CtrPago(_seguridad, _ctrCliente);
 
             _permitirBusquedaPorDescripcion = false;
             _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
@@ -200,12 +201,10 @@ namespace ModPos.Facturacion
                 return;
             }
 
-            procesarFrm = new Facturacion.Pago.PagoFrm();
-            procesarFrm.Inicializa(_ctrCliente, this, _permisos, _seguridad);
-            procesarFrm.ShowDialog();
-            if (procesarFrm.PagoIsOk)
+            _ctrPago.Pagar(_permisos, MontoNacional, TasaCambio);
+            if (_ctrPago.PagoIsOk) 
             {
-                GuardarFactura(procesarFrm.Pago);
+                GuardarFactura(_ctrPago.Pago);
             }
         }
 
@@ -385,6 +384,8 @@ namespace ModPos.Facturacion
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+            _ctrItem.Limpiar();
+            _ctrCliente.Limpiar();
             Helpers.Msg.AgregarOk();
             Notificar();
         }

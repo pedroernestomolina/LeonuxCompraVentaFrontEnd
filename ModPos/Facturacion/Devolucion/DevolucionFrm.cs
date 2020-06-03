@@ -182,6 +182,24 @@ namespace ModPos.Facturacion.Devolucion
             _controlador.Bajar();
         }
 
+        private void DGV_DETALLE_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (DGV_DETALLE.CurrentRow != null)
+            {
+                if (DGV_DETALLE.CurrentRow.Index > -1)
+                {
+                    if (e.KeyCode == Keys.Subtract)
+                    {
+                        DevolerItem();
+                    }
+                    if (e.KeyCode == Keys.Delete)
+                    {
+                        EliminarItem();
+                    }
+                }
+            }
+        }
+
     }
 
 }

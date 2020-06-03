@@ -96,7 +96,7 @@ namespace ModPos.Facturacion.Pago
         {
             get
             {
-                return _subtotalMonto ;
+                return decimal.Round(_subtotalMonto,2, MidpointRounding.AwayFromZero) ;
             }
         }
 
@@ -139,7 +139,7 @@ namespace ModPos.Facturacion.Pago
             {
                 var x = 0.0m;
                 x = _subtotalMonto * _dsctoPorct/100;
-                return x;
+                return decimal.Round(x,2,MidpointRounding.AwayFromZero);
             }
         }
 

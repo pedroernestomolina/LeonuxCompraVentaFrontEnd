@@ -50,14 +50,14 @@
             this.P_DEV_TOTAL = new System.Windows.Forms.Panel();
             this.BT_ELIMINAR = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.BT_BAJAR = new System.Windows.Forms.Button();
             this.P_DEV_ITEM = new System.Windows.Forms.Panel();
             this.BT_DEVOLVER = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.BT_SUBIR = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.DGV_DETALLE = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.BT_SUBIR = new System.Windows.Forms.Button();
-            this.BT_BAJAR = new System.Windows.Forms.Button();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -75,9 +75,9 @@
             this.P_DEV_TOTAL.SuspendLayout();
             this.panel8.SuspendLayout();
             this.P_DEV_ITEM.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).BeginInit();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel9
@@ -119,7 +119,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.62755F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.37245F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 205F));
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 2, 0);
@@ -141,7 +141,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(1);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(2);
-            this.panel3.Size = new System.Drawing.Size(585, 59);
+            this.panel3.Size = new System.Drawing.Size(583, 59);
             this.panel3.TabIndex = 1;
             // 
             // label1
@@ -151,7 +151,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(2, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(581, 55);
+            this.label1.Size = new System.Drawing.Size(579, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "Devolución de Item";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,11 +181,11 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(672, 1);
+            this.panel5.Location = new System.Drawing.Point(670, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(202, 59);
+            this.panel5.Size = new System.Drawing.Size(204, 59);
             this.panel5.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -202,7 +202,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.21569F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.78431F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 57);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(202, 57);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel11
@@ -213,7 +213,7 @@
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(2);
-            this.panel11.Size = new System.Drawing.Size(198, 33);
+            this.panel11.Size = new System.Drawing.Size(200, 33);
             this.panel11.TabIndex = 1;
             // 
             // L_SUBTOTAL
@@ -223,7 +223,7 @@
             this.L_SUBTOTAL.ForeColor = System.Drawing.Color.White;
             this.L_SUBTOTAL.Location = new System.Drawing.Point(2, 2);
             this.L_SUBTOTAL.Name = "L_SUBTOTAL";
-            this.L_SUBTOTAL.Size = new System.Drawing.Size(194, 29);
+            this.L_SUBTOTAL.Size = new System.Drawing.Size(196, 29);
             this.L_SUBTOTAL.TabIndex = 1;
             this.L_SUBTOTAL.Text = "SubTotal";
             this.L_SUBTOTAL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -236,7 +236,7 @@
             this.panel10.Margin = new System.Windows.Forms.Padding(1);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(2);
-            this.panel10.Size = new System.Drawing.Size(198, 20);
+            this.panel10.Size = new System.Drawing.Size(200, 20);
             this.panel10.TabIndex = 0;
             // 
             // label2
@@ -246,7 +246,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(2, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 16);
+            this.label2.Size = new System.Drawing.Size(196, 16);
             this.label2.TabIndex = 0;
             this.label2.Text = "SubTotal";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -345,6 +345,20 @@
             this.panel8.Size = new System.Drawing.Size(140, 85);
             this.panel8.TabIndex = 1;
             // 
+            // BT_BAJAR
+            // 
+            this.BT_BAJAR.BackgroundImage = global::ModPos.Properties.Resources.bt_subir;
+            this.BT_BAJAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_BAJAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_BAJAR.FlatAppearance.BorderSize = 0;
+            this.BT_BAJAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_BAJAR.Location = new System.Drawing.Point(4, 4);
+            this.BT_BAJAR.Name = "BT_BAJAR";
+            this.BT_BAJAR.Size = new System.Drawing.Size(132, 77);
+            this.BT_BAJAR.TabIndex = 2;
+            this.BT_BAJAR.UseVisualStyleBackColor = true;
+            this.BT_BAJAR.Click += new System.EventHandler(this.BT_BAJAR_Click);
+            // 
             // P_DEV_ITEM
             // 
             this.P_DEV_ITEM.Controls.Add(this.BT_DEVOLVER);
@@ -371,26 +385,6 @@
             this.BT_DEVOLVER.UseVisualStyleBackColor = true;
             this.BT_DEVOLVER.Click += new System.EventHandler(this.BT_DEVOLVER_Click);
             // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.DGV_DETALLE);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(1, 1);
-            this.panel7.Margin = new System.Windows.Forms.Padding(1);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(6);
-            this.panel7.Size = new System.Drawing.Size(721, 446);
-            this.panel7.TabIndex = 0;
-            // 
-            // DGV_DETALLE
-            // 
-            this.DGV_DETALLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_DETALLE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV_DETALLE.Location = new System.Drawing.Point(6, 6);
-            this.DGV_DETALLE.Name = "DGV_DETALLE";
-            this.DGV_DETALLE.Size = new System.Drawing.Size(709, 434);
-            this.DGV_DETALLE.TabIndex = 7;
-            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.BT_SUBIR);
@@ -416,19 +410,26 @@
             this.BT_SUBIR.UseVisualStyleBackColor = true;
             this.BT_SUBIR.Click += new System.EventHandler(this.BT_SUBIR_Click);
             // 
-            // BT_BAJAR
+            // panel7
             // 
-            this.BT_BAJAR.BackgroundImage = global::ModPos.Properties.Resources.bt_subir;
-            this.BT_BAJAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_BAJAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_BAJAR.FlatAppearance.BorderSize = 0;
-            this.BT_BAJAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_BAJAR.Location = new System.Drawing.Point(4, 4);
-            this.BT_BAJAR.Name = "BT_BAJAR";
-            this.BT_BAJAR.Size = new System.Drawing.Size(132, 77);
-            this.BT_BAJAR.TabIndex = 2;
-            this.BT_BAJAR.UseVisualStyleBackColor = true;
-            this.BT_BAJAR.Click += new System.EventHandler(this.BT_BAJAR_Click);
+            this.panel7.Controls.Add(this.DGV_DETALLE);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1, 1);
+            this.panel7.Margin = new System.Windows.Forms.Padding(1);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(6);
+            this.panel7.Size = new System.Drawing.Size(721, 446);
+            this.panel7.TabIndex = 0;
+            // 
+            // DGV_DETALLE
+            // 
+            this.DGV_DETALLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_DETALLE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV_DETALLE.Location = new System.Drawing.Point(6, 6);
+            this.DGV_DETALLE.Name = "DGV_DETALLE";
+            this.DGV_DETALLE.Size = new System.Drawing.Size(709, 434);
+            this.DGV_DETALLE.TabIndex = 0;
+            this.DGV_DETALLE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGV_DETALLE_KeyDown);
             // 
             // DevolucionFrm
             // 
@@ -460,9 +461,9 @@
             this.P_DEV_TOTAL.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.P_DEV_ITEM.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).EndInit();
-            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

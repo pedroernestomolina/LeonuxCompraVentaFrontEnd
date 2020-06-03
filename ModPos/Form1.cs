@@ -20,6 +20,7 @@ namespace ModPos
         private AdministradorDoc.Administrador _administrador;
         private ClaveSeguridad.Seguridad _seguridad;
         private Facturacion.Venta _venta;
+        private Fiscal.CtrFiscal _fiscal;
 
 
         public Form1()
@@ -31,6 +32,7 @@ namespace ModPos
             _configuracion = new Configuracion.configurar();
             _administrador = new AdministradorDoc.Administrador(_seguridad);
             _venta = new Facturacion.Venta(_seguridad);
+            _fiscal = new Fiscal.CtrFiscal();
         }
 
 
@@ -141,6 +143,16 @@ namespace ModPos
         private void AdministradorDocumentos()
         {
             _administrador.AdmDocumentos();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Fiscal();
+        }
+
+        private void Fiscal()
+        {
+            _fiscal.Activar();
         }
 
     }

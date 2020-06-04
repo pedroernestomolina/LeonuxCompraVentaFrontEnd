@@ -182,6 +182,7 @@
     <Compile Include="Facturacion\ResultadoPreEmpaque.cs" />
     <Compile Include="Facturacion\Venta.cs" />
     <Compile Include="Fiscal\CtrFiscal.cs" />
+    <Compile Include="Fiscal\Enumerados.cs" />
     <Compile Include="Fiscal\FiscalFrm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -143,6 +143,11 @@ namespace ModPos
         private void AdministradorDocumentos()
         {
             _administrador.AdmDocumentos();
+            if (_administrador.NotaCreditoIsOk) 
+            {
+                _venta.setModoNotaCredito(_administrador.IdDoumentoNC);
+                _venta.ActivarPos();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)

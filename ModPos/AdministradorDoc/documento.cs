@@ -57,13 +57,13 @@ namespace ModPos.AdministradorDoc
             Id = ficha.Id;
             Documento = ficha.Documento;
             Control = ficha.Control;
-            FechaEmision = ficha.FechaEmision;
-            HoraEmision = ficha.HoraEmision;
-            NombreRazonSocial = ficha.NombreRazonSocial;
-            CiRif = ficha.CiRif;
-            Monto = ficha.Monto;
+            FechaEmision = ficha.Fecha;
+            HoraEmision = ficha.Hora;
+            NombreRazonSocial = ficha.ClienteNombre;
+            CiRif = ficha.ClienteCiRif;
+            Monto = ficha.MontoTotal;
             TipoDocumento = ficha.TipoDocumento;
-            IsActivo = ficha.IsActivo;
+            IsActivo = ficha.IsActiva;
             Signo = ficha.Signo;
             Renglones = ficha.Renglones;
         }

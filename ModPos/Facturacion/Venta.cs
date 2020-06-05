@@ -11,14 +11,14 @@ namespace ModPos.Facturacion
     public class Venta
     {
 
-        public event EventHandler ProcesarOk;
-
         private Enumerados.EnumModoOperacionPos _modoOperacionPos;
+        private Enumerados.EnumModoFuncion _modoFuncion;
         private bool _permitirBusquedaPorDescripcion;
         private bool _activarRepesaje;
         private decimal _limiteRepesajeInf;
         private decimal _limiteRepesajeSup;
         private decimal _montoDivisa;
+        private int _idDocumento;
 
         private OOB.LibVenta.PosOffline.Usuario.Ficha _usuario;
         private OOB.LibVenta.PosOffline.Fiscal.Ficha _fiscal;
@@ -28,6 +28,7 @@ namespace ModPos.Facturacion
         private OOB.LibVenta.PosOffline.Configuracion.Transporte.Ficha _transporte;
         private OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Ficha _medioCobro;
         private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
+        private OOB.LibVenta.PosOffline.VentaDocumento.Ficha _documentoVenta;
 
         private ClaveSeguridad.Seguridad _seguridad;
         private AbrirPendiente.Pendiente _pendiente;
@@ -106,6 +107,14 @@ namespace ModPos.Facturacion
             }
         }
 
+        public Enumerados.EnumModoFuncion ModoFuncion 
+        {
+            get
+            {
+                return _modoFuncion;
+            }
+        }
+
 
         public Venta(ClaveSeguridad.Seguridad seguridad)
         {
@@ -121,6 +130,7 @@ namespace ModPos.Facturacion
 
             _permitirBusquedaPorDescripcion = false;
             _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
+            _modoFuncion = Enumerados.EnumModoFuncion.Facturacion;
             _montoDivisa = 0.0m;
             _activarRepesaje = false;
             _limiteRepesajeInf = 0.0m;
@@ -185,7 +195,6 @@ namespace ModPos.Facturacion
         }
 
 
-        Pago.PagoFrm procesarFrm; 
         public void Procesar() 
         {
             if (_ctrCliente.Ficha.Id == -1)
@@ -201,7 +210,15 @@ namespace ModPos.Facturacion
                 return;
             }
 
-            _ctrPago.Pagar(_permisos, MontoNacional, TasaCambio);
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion) 
+            {
+                _ctrPago.Pagar(_permisos, MontoNacional, TasaCambio);
+            }
+            if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito)
+            {
+                _ctrPago.PagarNotaCredito(_permisos, MontoNacional, TasaCambio,  _documentoVenta.DesctoPorc_1);
+            }
+
             if (_ctrPago.PagoIsOk) 
             {
                 GuardarFactura(_ctrPago.Pago);
@@ -219,14 +236,29 @@ namespace ModPos.Facturacion
             var _cambioDar = pago.MontoCambioDar_MonedaNacional;
             var _montoRecibido = pago.MontoRecibido;
             var _isCredito = pago.IsCredito ? "S" : "N";
+            var _tipoDocumento = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.Factura;
+            var _signo=1;
+            var _aplica="";
+            var _serie=SerieFactura;
 
+
+            if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
+            {
+                _cambioDar = 0.0m;
+                _montoRecibido = 0.0m;
+                _aplica=_documentoVenta.Documento;
+                _tipoDocumento=OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito;
+                _signo=-1;
+                _serie=SerieNotaCredito;
+            }
 
             _ctrItem.setDescuentoGlobal(_dsctoGlobalPorct);
             _ctrItem.setCargoGlobal(_cargoGlobalPorct);
             var ficha = new OOB.LibVenta.PosOffline.VentaDocumento.Agregar()
             {
-                Aplica = "",
+                Aplica = _aplica,
                 AutoUsuario = _usuario.Auto,
+                ClienteId = _ctrCliente.Ficha.Id,
                 ClienteCiRif = _ctrCliente.Ficha.CiRif,
                 ClienteDirFiscal = _ctrCliente.Ficha.DirFiscal,
                 ClienteNombreRazonSocial = _ctrCliente.Ficha.NombreRazaonSocial,
@@ -261,12 +293,12 @@ namespace ModPos.Facturacion
                 PorcDescuento_2 = 0.0m,
                 PorcUtilidad = _ctrItem.UtilidadNetaPorct,
                 Renglones = _ctrItem.Renglones,
-                Serie = SerieFactura,
-                SignoDocumento = 1,
+                Serie = _serie,
+                SignoDocumento = _signo,
                 TasaIva_1 = _fiscal.Tasa1,
                 TasaIva_2 = _fiscal.Tasa2,
                 TasaIva_3 = _fiscal.Tasa3,
-                TipoDocumento = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.Factura,
+                TipoDocumento = _tipoDocumento,
                 UsuarioCodigo = _usuario.Codigo,
                 UsuarioDescripcion = _usuario.Descripcion,
                 CodioSucursal = CodigoSucursal,
@@ -292,11 +324,14 @@ namespace ModPos.Facturacion
             foreach (var rg in _ctrItem.Items)
             {
 
-                var nrEliminar = new OOB.LibVenta.PosOffline.VentaDocumento.AgregarItemEliminar()
+                if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
                 {
-                    IdEliminar = rg.Id,
-                };
-                fichaItemsEliminar.Add(nrEliminar);
+                    var nrEliminar = new OOB.LibVenta.PosOffline.VentaDocumento.AgregarItemEliminar()
+                    {
+                        IdEliminar = rg.Id,
+                    };
+                    fichaItemsEliminar.Add(nrEliminar);
+                }
 
                 var nr = new OOB.LibVenta.PosOffline.VentaDocumento.AgregarItem()
                 {
@@ -338,6 +373,8 @@ namespace ModPos.Facturacion
                     Total = rg.Total,
                     TotalNeto = rg.TotalNeto,
                     TotalDescuento = rg.TotalDescuentoItem,
+                    EsPesado=rg.EsPesado,
+                    TipoIva=rg.TipoIva,
                 };
                 fichaItems.Add(nr);
             }
@@ -377,35 +414,28 @@ namespace ModPos.Facturacion
             }).ToList();
             ficha.MetodosPago=metodosPago;
 
-
             var r01 = Sistema.MyData2.VentaDocumento_Agregar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+            _modoFuncion = Enumerados.EnumModoFuncion.Facturacion;
             _ctrItem.Limpiar();
             _ctrCliente.Limpiar();
             Helpers.Msg.AgregarOk();
-            Notificar();
-        }
-
-        private void Notificar()
-        {
-            EventHandler handler = ProcesarOk;
-            if (handler != null) 
-            {
-                handler(this, null);
-            }
         }
 
         public void CtaPendiente() 
         {
-            _pendiente.Listar();
-            if (_pendiente.CtaAbrirIsOk) 
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                _ctrCliente.BuscarId(_pendiente.IdClienteAbrir);
-                _ctrItem.CargarLista(_pendiente.ListaItemAbrir);
+                _pendiente.Listar();
+                if (_pendiente.CtaAbrirIsOk)
+                {
+                    _ctrCliente.BuscarId(_pendiente.IdClienteAbrir);
+                    _ctrItem.CargarLista(_pendiente.ListaItemAbrir);
+                }
             }
         }
 
@@ -540,6 +570,21 @@ namespace ModPos.Facturacion
             setPermiso(r0e.Entidad);
             setUsuario(Sistema.Usuario);
 
+            _documentoVenta = null;
+            if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
+            {
+                var r0f = Sistema.MyData2.VentaDocumento_Cargar(_idDocumento);
+                if (r0f.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r0f.Mensaje);
+                    return false;
+                }
+                var ent=r0f.Entidad;
+                _documentoVenta = ent;
+                _ctrCliente.setCliente(ent.ClienteId, ent.ClienteCiRif, ent.ClienteNombre, ent.ClienteDirFiscal, ent.ClienteTelefono);
+                _ctrItem.CargarLista(ent.Detalles);
+            }
+
             return rt;
         }
 
@@ -547,7 +592,10 @@ namespace ModPos.Facturacion
         {
             if (CargarData()) 
             {
-                Cliente.Limpiar();
+                if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion) 
+                {
+                    Cliente.Limpiar();
+                }
 
                 var frm = new Facturacion.PosVenta();
                 frm.setVenta(this);
@@ -557,42 +605,39 @@ namespace ModPos.Facturacion
 
         public void DejarCtaPendiente() 
         {
-            if (Cliente.Ficha.Id == -1)
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                Helpers.Msg.Error("CLIENTE NO DEFINIDO");
-                return ;
-            }
-            if (_ctrItem.Items.Count == 0)
-            {
-                Helpers.Msg.Error("ITEMS NO DEFINIDO");
-                return ;
-            }
-            
-            var seguir = true;
-            if (_permisos.DejarCtaPendiente.RequiereClave)
-            {
-                seguir = _seguridad.SolicitarClave();
-            }
-            if (seguir)
-            {
-                if (_ctrItem.DejarCtaEnPendiente(Cliente.Ficha)) 
+                if (Cliente.Ficha.Id == -1)
                 {
-                    _ctrCliente.Limpiar();
-                    _ctrItem.Limpiar();
+                    Helpers.Msg.Error("CLIENTE NO DEFINIDO");
+                    return;
+                }
+                if (_ctrItem.Items.Count == 0)
+                {
+                    Helpers.Msg.Error("ITEMS NO DEFINIDO");
+                    return;
+                }
+
+                var seguir = true;
+                if (_permisos.DejarCtaPendiente.RequiereClave)
+                {
+                    seguir = _seguridad.SolicitarClave();
+                }
+                if (seguir)
+                {
+                    if (_ctrItem.DejarCtaEnPendiente(Cliente.Ficha))
+                    {
+                        _ctrCliente.Limpiar();
+                        _ctrItem.Limpiar();
+                    }
                 }
             }
         }
 
         public void AnularVenta() 
         {
-            if (_ctrItem.Items.Count == 0)
-            {
-                Helpers.Msg.Error("ITEMS NO DEFINIDO");
-                return ;
-            }
-            
             var seguir = true;
-            if (_permisos.DejarCtaPendiente.RequiereClave)
+            if (_permisos.AnularVenta.RequiereClave)
             {
                 seguir = _seguridad.SolicitarClave();
             }
@@ -600,6 +645,7 @@ namespace ModPos.Facturacion
             {
                 if (_ctrItem.AnularVenta()) 
                 {
+                    _modoFuncion = Enumerados.EnumModoFuncion.Facturacion;
                     _ctrCliente.Limpiar();
                 }
             }
@@ -612,16 +658,22 @@ namespace ModPos.Facturacion
 
         public void ListaPlu() 
         {
-            _ctrLista.ListaPlu();
-            if (_ctrLista.IsProductoSelected) 
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                Items.RegistraItem(_ctrLista.ProductoSelected, 0);
+                _ctrLista.ListaPlu();
+                if (_ctrLista.IsProductoSelected)
+                {
+                    Items.RegistraItem(_ctrLista.ProductoSelected, 0);
+                }
             }
         }
 
         public void ListaOferta() 
         {
-            _ctrLista.ListaOferta();
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
+            {
+                _ctrLista.ListaOferta();
+            }
         }
 
         public void Devolucion() 
@@ -632,34 +684,44 @@ namespace ModPos.Facturacion
                 return ;
             }
 
-            var seguir = true;
-            if (_permisos.Devolucion.RequiereClave)
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                seguir = _seguridad.SolicitarClave();
+                var seguir = true;
+                if (_permisos.Devolucion.RequiereClave)
+                {
+                    seguir = _seguridad.SolicitarClave();
+                }
+                if (seguir)
+                {
+                    _ctrListaItem.ActivarDevolucion();
+                }
             }
-            if (seguir)
+            else 
             {
-                _ctrListaItem.ActivarDevolucion();
+                _ctrListaItem.ActivarDevolucion(_modoFuncion);
             }
         }
 
         public void IncrementarItem()
         {
-            if (_ctrItem.Source.CurrencyManager.Position == 0)
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                var it = (Item)_ctrItem.Source.Current;
-                if (it != null)
+                if (_ctrItem.Source.CurrencyManager.Position == 0)
                 {
-                    if (!it.EsPesado)
+                    var it = (Item)_ctrItem.Source.Current;
+                    if (it != null)
                     {
-                        var seguir = true;
-                        if (_permisos.Sumar.RequiereClave)
+                        if (!it.EsPesado)
                         {
-                            seguir = _seguridad.SolicitarClave();
-                        }
-                        if (seguir)
-                        {
-                            _ctrItem.IncrementarItem(it, 1);
+                            var seguir = true;
+                            if (_permisos.Sumar.RequiereClave)
+                            {
+                                seguir = _seguridad.SolicitarClave();
+                            }
+                            if (seguir)
+                            {
+                                _ctrItem.IncrementarItem(it, 1);
+                            }
                         }
                     }
                 }
@@ -668,21 +730,24 @@ namespace ModPos.Facturacion
 
         public void Multiplicar() 
         {
-            if (_ctrItem.Source.CurrencyManager.Position == 0)
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                var it = (Item)_ctrItem.Source.Current;
-                if (it != null)
+                if (_ctrItem.Source.CurrencyManager.Position == 0)
                 {
-                    if (!it.EsPesado)
+                    var it = (Item)_ctrItem.Source.Current;
+                    if (it != null)
                     {
-                        var seguir = true;
-                        if (_permisos.Multiplicar.RequiereClave)
+                        if (!it.EsPesado)
                         {
-                            seguir = _seguridad.SolicitarClave();
-                        }
-                        if (seguir)
-                        {
-                            _ctrItem.Multiplicar(it);
+                            var seguir = true;
+                            if (_permisos.Multiplicar.RequiereClave)
+                            {
+                                seguir = _seguridad.SolicitarClave();
+                            }
+                            if (seguir)
+                            {
+                                _ctrItem.Multiplicar(it);
+                            }
                         }
                     }
                 }
@@ -691,19 +756,22 @@ namespace ModPos.Facturacion
 
         public void Restar()
         {
-            if (_ctrItem.Source.CurrencyManager.Position == 0)
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                var it = (Item)_ctrItem.Source.Current;
-                if (it != null)
+                if (_ctrItem.Source.CurrencyManager.Position == 0)
                 {
-                    var seguir = true;
-                    if (_permisos.Multiplicar.RequiereClave)
+                    var it = (Item)_ctrItem.Source.Current;
+                    if (it != null)
                     {
-                        seguir = _seguridad.SolicitarClave();
-                    }
-                    if (seguir)
-                    {
-                        _ctrItem.Restar(it);
+                        var seguir = true;
+                        if (_permisos.Multiplicar.RequiereClave)
+                        {
+                            seguir = _seguridad.SolicitarClave();
+                        }
+                        if (seguir)
+                        {
+                            _ctrItem.Restar(it);
+                        }
                     }
                 }
             }
@@ -711,16 +779,33 @@ namespace ModPos.Facturacion
 
         public void BuscarProducto(string buscar) 
         {
-            var rt = BuscarItem.ActivarBusqueda(buscar, _permitirBusquedaPorDescripcion);
-            if (rt) 
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
-                Items.RegistraItem(_ctrBuscar.Producto , _ctrBuscar.Peso);
+                var rt = BuscarItem.ActivarBusqueda(buscar, _permitirBusquedaPorDescripcion);
+                if (rt)
+                {
+                    Items.RegistraItem(_ctrBuscar.Producto, _ctrBuscar.Peso);
+                }
             }
         }
 
         public void Consultor() 
         {
             _ctrConsultar.Consultor();
+        }
+
+        public void setModoNotaCredito (int idDocumento)
+        {
+            _modoFuncion= Enumerados.EnumModoFuncion.NotaCredito;
+            _idDocumento = idDocumento;
+        }
+
+        public void ClienteBuscar() 
+        {
+            if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion) 
+            {
+                Cliente.Buscar();
+            }
         }
 
     }

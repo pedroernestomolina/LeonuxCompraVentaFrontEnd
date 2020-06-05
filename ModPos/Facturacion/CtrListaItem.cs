@@ -17,6 +17,7 @@ namespace ModPos.Facturacion
         private List<Item> _items;
         private BindingList<Item> _bItems;
         private BindingSource _bs;
+        private Enumerados.EnumModoFuncion _modoFuncion; 
 
 
         public BindingSource Source { get { return _bs; } }
@@ -39,9 +40,19 @@ namespace ModPos.Facturacion
                 var item = (Item)_bs.Current;
                 if (item != null)
                 {
-                    if (_ctrItem.EliminarItem(item.Id))
+                    if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion) 
                     {
-                        _bItems.Remove(item);
+                        if (_ctrItem.EliminarItem(item.Id))
+                        {
+                            _bItems.Remove(item);
+                        }
+                    }
+                    if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito)
+                    {
+                        if (_ctrItem.EliminarItemNotaCredito(item.Id))
+                        {
+                            _bItems.Remove(item);
+                        }
                     }
                 }
             }
@@ -56,23 +67,46 @@ namespace ModPos.Facturacion
                 {
                     if (item.EsPesado)
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error("Opción No Permitida Para Item(s) Pesado, Verifique Por Favor");
                         return;
                     }
-                    if (item.Cantidad > 1)
+                    if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
                     {
-                        if (_ctrItem.Restar(item.Id))
+                        if (item.Cantidad > 1)
                         {
-                            item.Cantidad -= 1;
-                        };
-                    }
-                    else
-                    {
-                        if (_ctrItem.EliminarItem(item.Id))
+                            if (_ctrItem.Restar(item.Id))
+                            {
+                                item.Cantidad -= 1;
+                            };
+                        }
+                        else
                         {
-                            _bItems.Remove(item);
+                            if (_ctrItem.EliminarItem(item.Id))
+                            {
+                                _bItems.Remove(item);
+                            }
                         }
                     }
+
+                    if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito)
+                    {
+                        if (item.Cantidad > 1)
+                        {
+                            if (_ctrItem.RestarNotaCredito(item.Id))
+                            {
+                                item.Cantidad -= 1;
+                            };
+                        }
+                        else
+                        {
+                            if (_ctrItem.EliminarItemNotaCredito(item.Id))
+                            {
+                                _bItems.Remove(item);
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -88,8 +122,9 @@ namespace ModPos.Facturacion
         }
 
         Devolucion.DevolucionFrm frm;
-        public void ActivarDevolucion() 
+        public void ActivarDevolucion(Enumerados.EnumModoFuncion modo= Enumerados.EnumModoFuncion.Facturacion) 
         {
+            _modoFuncion = modo;
             if (CargarData()) 
             {
                 if (frm == null) 

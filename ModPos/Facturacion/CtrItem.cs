@@ -321,11 +321,13 @@ namespace ModPos.Facturacion
         {
             if (!_prd.IsActivo)
             {
+                Helpers.Sonido.Error();
                 Helpers.Msg.Error("PRODUCTO EN ESTADO INACTIVO, VERIFIQUE POR FAVOR... !!");
                 return;
             }
             if (_prd.Precio_1.PrecioNeto <= 0.0m)
             {
+                Helpers.Sonido.Error();
                 Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
                 return;
             }
@@ -388,6 +390,7 @@ namespace ModPos.Facturacion
             var r01 = Sistema.MyBalanza.LeerPeso();
             if (r01.IsOk == false)
             {
+                Helpers.Sonido.Error();
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
@@ -438,12 +441,14 @@ namespace ModPos.Facturacion
                     var difPorArriba = r01.Peso - peso;
                     if (difPorArriba > 0 && difPorArriba > _limiteRepesajeSup)
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error("REPESAJE NO CONCUERDA CON EL PESO DE LA ETIQUETA");
                         return;
                     }
                     var difPorAbajo = r01.Peso - peso;
                     if (difPorAbajo < 0 && Math.Abs(difPorAbajo) > _limiteRepesajeInf)
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error("REPESAJE NO CONCUERDA CON EL PESO DE LA ETIQUETA");
                         return;
                     }
@@ -512,10 +517,12 @@ namespace ModPos.Facturacion
             var r01 = Sistema.MyData2.Item_Agregar(agregar);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
+                Helpers.Sonido.Error();
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
 
+            Helpers.Sonido.SonidoOk();
             item.Id = r01.Id;
             _bItems.Insert(0, item);
             _bs.MoveFirst();
@@ -535,6 +542,7 @@ namespace ModPos.Facturacion
                     var r01 = Sistema.MyData2.Item_Actualizar(act);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error(r01.Mensaje);
                         return;
                     }
@@ -559,6 +567,7 @@ namespace ModPos.Facturacion
                     var r01 = Sistema.MyData2.Item_Actualizar(act);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error(r01.Mensaje);
                         return;
                     }
@@ -579,6 +588,7 @@ namespace ModPos.Facturacion
                 var r01 = Sistema.MyData2.Item_Eliminar(it.Id);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    Helpers.Sonido.Error();
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
@@ -613,6 +623,15 @@ namespace ModPos.Facturacion
         }
 
         public void CargarLista(List<OOB.LibVenta.PosOffline.Item.Ficha> lst)
+        {
+            foreach (var it in lst.OrderByDescending(o => o.Id))
+            {
+                var nr = new Item(it);
+                _bItems.Add(nr);
+            }
+        }
+
+        public void CargarLista(List<OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle> lst)
         {
             foreach (var it in lst.OrderByDescending(o => o.Id))
             {
@@ -678,6 +697,7 @@ namespace ModPos.Facturacion
                 var r01 = Sistema.MyData2.Pendiente_DejarCtaEnPendiente(agregar);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    Helpers.Sonido.Error();
                     Helpers.Msg.Error(r01.Mensaje);
                     return false;
                 }
@@ -698,9 +718,24 @@ namespace ModPos.Facturacion
                 var r01 = Sistema.MyData2.Item_Eliminar(it.Id);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    Helpers.Sonido.Error();
                     Helpers.Msg.Error(r01.Mensaje);
                     return rt;
                 }
+                _bItems.Remove(it);
+                rt = true;
+            }
+
+            return rt;
+        }
+
+        public bool EliminarItemNotaCredito(int id)
+        {
+            var rt = false;
+
+            var it = _bItems.FirstOrDefault(f => f.Id == id);
+            if (it != null)
+            {
                 _bItems.Remove(it);
                 rt = true;
             }
@@ -723,9 +758,23 @@ namespace ModPos.Facturacion
                 var r01 = Sistema.MyData2.Item_Actualizar(act);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    Helpers.Sonido.Error();
                     Helpers.Msg.Error(r01.Mensaje);
                     return false;
                 }
+                rt = true;
+            }
+
+            return rt;
+        }
+
+        public bool RestarNotaCredito(int id)
+        {
+            var rt = false;
+
+            var it = _bItems.First(f => f.Id == id);
+            if (it != null)
+            {
                 rt = true;
             }
 
@@ -742,6 +791,7 @@ namespace ModPos.Facturacion
                 var r01 = Sistema.MyData2.Item_Limpiar();
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    Helpers.Sonido.Error();
                     Helpers.Msg.Error(r01.Mensaje);
                     return rt;
                 }

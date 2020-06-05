@@ -170,6 +170,9 @@ namespace ModPos.Facturacion
             L_HORA.Text = "";
             L_USUARIO.Text = Sistema.Usuario.Usuario;
             L_ESTACION.Text = Environment.MachineName;
+
+            ActualizarModo();
+
             Actualizar();
         }
 
@@ -232,7 +235,7 @@ namespace ModPos.Facturacion
 
         private void Cliente()
         {
-            _venta.Cliente.Buscar();
+            _venta.ClienteBuscar();
             ActualizarCliente();
             IrFoco();
         }
@@ -288,6 +291,19 @@ namespace ModPos.Facturacion
             _venta.AnularVenta();
             Actualizar();
             DGV_DETALLE.DataSource = _bs;
+            ActualizarModo();
+        }
+
+        private void ActualizarModo() 
+        {
+            L_MODO_FUNCION.Text = "Facturación :)";
+            L_MODO_FUNCION.ForeColor = Color.Yellow;
+
+            if (_venta.ModoFuncion == Enumerados.EnumModoFuncion.NotaCredito)
+            {
+                L_MODO_FUNCION.Text = ":( Nt/Crédito";
+                L_MODO_FUNCION.ForeColor = Color.Red;
+            }
         }
 
         private void IrFoco()
@@ -389,6 +405,7 @@ namespace ModPos.Facturacion
         {
             DGV_DETALLE.DataSource = null;
             _venta.Procesar();
+            ActualizarModo();
             Actualizar();
             DGV_DETALLE.DataSource = _bs;
         }

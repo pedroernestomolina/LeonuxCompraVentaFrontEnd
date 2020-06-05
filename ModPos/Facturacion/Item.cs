@@ -34,6 +34,7 @@ namespace ModPos.Facturacion
         public int DiasEmpaqueGarantia { get; set; }
         public string TarifaPrecio { get; set; }
         public decimal PrecioSugerido { get; set; }
+        public OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle DetalleItem { get; set; }
 
 
         public int CantItem 
@@ -200,26 +201,6 @@ namespace ModPos.Facturacion
             }
         }
 
-        //public decimal Iva 
-        //{
-        //    get
-        //    {
-        //        var rt = 0.0m;
-        //        rt = PrecioNeto * TasaIva /100;
-        //        return rt;
-        //    }
-        //}
-
-        //public decimal PrecioItemFull
-        //{
-        //    get
-        //    {
-        //        var rt = 0.0m;
-        //        rt = PrecioItemNeto + Iva ;
-        //        return rt;
-        //    }
-        //}
-
         public decimal MontoExento 
         {
             get 
@@ -381,6 +362,35 @@ namespace ModPos.Facturacion
             DiasEmpaqueGarantia = it.DiasEmpaqueGarantia;
             TarifaPrecio = it.Tarifa;
             PrecioSugerido = it.PrecioSugerido;
+        }
+
+        public Item(OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle it)
+            : this()
+        {
+            Id = it.Id;
+            AutoId = it.AutoProducto;
+            NombrePrd = it.NombreProducto;
+            Cantidad = it.Cantidad;
+            PrecioNeto = it.PrecioNeto;
+            TasaIva = it.TasaIva;
+            EsPesado = it.EsPesado;
+            TipoIva = it.TipoIva;
+            CostoUnd = it.CostoCompraUnd;
+            CostoPromUnd = it.CostoPromedioUnd;
+            AutoDepartamento = it.AutoDepartamento;
+            AutoGrupo = it.AutoGrupo;
+            AutoSubGrupo = it.AutoSubGrupo;
+            AutoTasa = it.AutoTasa;
+            Categoria = it.Categoria;
+            CodigoPrd = it.CodigoProducto;
+            Decimales = it.Decimales;
+            EmpaqueCodigo = it.EmpaqueCodigo ;
+            EmpaqueDescripcion = it.EmpaqueDescripcion;
+            EmpaqueContenido = it.EmpaqueContenido;
+            DiasEmpaqueGarantia = it.DiaEmpaqueGarantia;
+            TarifaPrecio = it.Tarifa;
+            PrecioSugerido = it.PrecioSugerido;
+            DetalleItem = it;
         }
 
         private decimal _dsctoGlobal;

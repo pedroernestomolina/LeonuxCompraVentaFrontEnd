@@ -138,6 +138,15 @@ namespace ModPos.Facturacion.Cliente
            FichaCliente.Limpiar();
         }
 
+        public void setCliente(int id, string cirif, string nombre, string dirfiscal, string telefono) 
+        {
+            FichaCliente.Id = id;
+            FichaCliente.NombreRazaonSocial = nombre;
+            FichaCliente.CiRif = cirif;
+            FichaCliente.DirFiscal = dirfiscal;
+            FichaCliente.Telefono = telefono;
+        }
+
     }
 
 }

@@ -35,11 +35,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.BT_CONFIGURACION = new System.Windows.Forms.Button();
             this.BT_ADM_DOC = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BT_POS
@@ -92,7 +92,7 @@
             // 
             // BT_CONFIGURACION
             // 
-            this.BT_CONFIGURACION.Location = new System.Drawing.Point(12, 309);
+            this.BT_CONFIGURACION.Location = new System.Drawing.Point(12, 280);
             this.BT_CONFIGURACION.Name = "BT_CONFIGURACION";
             this.BT_CONFIGURACION.Size = new System.Drawing.Size(181, 23);
             this.BT_CONFIGURACION.TabIndex = 10;
@@ -110,18 +110,9 @@
             this.BT_ADM_DOC.UseVisualStyleBackColor = true;
             this.BT_ADM_DOC.Click += new System.EventHandler(this.BT_ADM_DOC_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "CUADRE CAJA";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 193);
+            this.button4.Location = new System.Drawing.Point(12, 164);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(181, 23);
             this.button4.TabIndex = 6;
@@ -131,7 +122,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 222);
+            this.button5.Location = new System.Drawing.Point(12, 193);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(181, 23);
             this.button5.TabIndex = 7;
@@ -140,7 +131,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(12, 251);
+            this.button6.Location = new System.Drawing.Point(12, 222);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(181, 23);
             this.button6.TabIndex = 8;
@@ -149,23 +140,32 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 280);
+            this.button7.Location = new System.Drawing.Point(12, 251);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(181, 23);
             this.button7.TabIndex = 9;
             this.button7.Text = "ENVIAR DATA AL SERVIDOR";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 309);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(181, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "CONFIGURAR PERMISOS";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 381);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.BT_ADM_DOC);
             this.Controls.Add(this.BT_CONFIGURACION);
             this.Controls.Add(this.button3);
@@ -189,11 +189,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button BT_CONFIGURACION;
         private System.Windows.Forms.Button BT_ADM_DOC;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button1;
     }
 }
 

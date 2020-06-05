@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ModPos.Facturacion
@@ -40,6 +41,8 @@ namespace ModPos.Facturacion
 
         public void Pagar(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso, decimal monto, decimal tasaCambio) 
         {
+            Pago.Limpiar();
+
             _permisos = permiso;
             Pago.setMontoPagar(monto);
             Pago.setTasaCambio(tasaCambio);
@@ -48,6 +51,23 @@ namespace ModPos.Facturacion
             frm.setControlador(this);
             frm.ShowDialog();
         }
+
+        public void PagarNotaCredito(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso, decimal monto, decimal tasaCambio, decimal dscto)
+        {
+            Pago.Limpiar();
+
+            _permisos = permiso;
+            Pago.setMontoPagar(monto);
+            Pago.setTasaCambio(tasaCambio);
+            Pago.setDescuento(dscto);
+
+            var msg = MessageBox.Show("Procesar Pago ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes) 
+            {
+                PagoIsOk = true;
+            }
+        }
+
 
         public void setPermiso(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso) 
         {

@@ -196,6 +196,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Msg.cs" />
+    <Compile Include="Helpers\Sonido.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
     <Compile Include="Helpers\VerificaPassword.cs" />
     <Compile Include="Identificacion\IdentificacionFrm.cs">
@@ -323,6 +324,12 @@
     <Content Include="Imagenes\bt_print_document.png" />
     <Content Include="Imagenes\bt_undo.png" />
     <Content Include="Imagenes\configuracion.png" />
+    <None Include="Resources\alerta.wav" />
+    <None Include="Resources\error.wav" />
+    <None Include="Resources\paso.wav" />
+    <Content Include="Sonidos\alerta.wav" />
+    <Content Include="Sonidos\error.wav" />
+    <Content Include="Sonidos\paso.wav" />
     <None Include="Resources\bt_undo.png" />
     <None Include="Resources\bt_print_document.png" />
     <None Include="Resources\bt_eliminar.png" />

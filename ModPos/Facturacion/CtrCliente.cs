@@ -46,6 +46,11 @@ namespace ModPos.Facturacion
             _buscar.Limpiar();
         }
 
+        public void setCliente(int id , string cirif, string nombre, string dirfiscal, string telefono) 
+        {
+            _buscar.setCliente(id, cirif, nombre, dirfiscal, telefono);
+        }
+
     }
 
 }

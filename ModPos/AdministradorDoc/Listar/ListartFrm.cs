@@ -16,10 +16,7 @@ namespace ModPos.AdministradorDoc.Listar
     {
 
 
-        public event EventHandler ImprimirFire;
-        public event EventHandler AnularFire;
-        public event EventHandler NotaCreditoFire;
-        private BindingSource _bs;
+        private Administrador _controlador;
 
 
         public ListartFrm()
@@ -122,13 +119,13 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void ListartFrm_Load(object sender, EventArgs e)
         {
-            DGV.DataSource = _bs;
+            DGV.DataSource = _controlador.Source;
             DGV.Refresh();
         }
 
-        public void setSource(BindingSource bs) 
+        private void IrFocoPrincipal()
         {
-            _bs= bs;
+            DGV.Focus();
         }
 
         private void BT_SUBIR_Click(object sender, EventArgs e)
@@ -138,7 +135,7 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void SubirItem()
         {
-            _bs.Position -= 1;
+            _controlador.Subir();
         }
 
         private void BT_BAJAR_Click(object sender, EventArgs e)
@@ -148,7 +145,7 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void BajarItem()
         {
-            _bs.Position += 1;
+            _controlador.Bajar();
         }
 
         private void BT_ANULAR_Click(object sender, EventArgs e)
@@ -158,11 +155,7 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void AnularDocumento()
         {
-            EventHandler handler = AnularFire;
-            if (handler != null) 
-            {
-                handler(this, null);
-            }
+            _controlador.AnularDocumento();
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -182,10 +175,9 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void NotaCredito()
         {
-            EventHandler handler = NotaCreditoFire;
-            if (handler != null)
+            if (_controlador.NotaCredito()) 
             {
-                handler(this, null);
+                Salir();
             }
         }
 
@@ -196,11 +188,7 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void ImprimirDocumento()
         {
-            EventHandler handler = ImprimirFire;
-            if (handler != null)
-            {
-                handler(this, null);
-            }
+            _controlador.ReImprimirDocumento();
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -209,6 +197,11 @@ namespace ModPos.AdministradorDoc.Listar
             {
                 row.DefaultCellStyle.ForeColor = !(bool)row.Cells["IsActivo"].Value ? Color.Red : Color.Black;
             }
+        }
+
+        public void setControlador(Administrador ctr) 
+        {
+            _controlador = ctr;
         }
 
     }

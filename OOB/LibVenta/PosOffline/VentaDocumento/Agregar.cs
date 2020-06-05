@@ -26,6 +26,7 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
         public int Renglones { get; set; }
         public string CodioSucursal { get; set; }
 
+        public int ClienteId { get; set; }
         public string ClienteCiRif { get; set; }
         public string ClienteNombreRazonSocial { get; set; }
         public string ClienteDirFiscal { get; set; }

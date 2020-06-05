@@ -82,7 +82,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(4);
             this.panel2.Size = new System.Drawing.Size(934, 36);
-            this.panel2.TabIndex = 4;
+            this.panel2.TabIndex = 1;
             // 
             // BT_SALIDA
             // 
@@ -105,7 +105,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(934, 61);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -176,7 +176,7 @@
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(934, 434);
-            this.panel5.TabIndex = 6;
+            this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 

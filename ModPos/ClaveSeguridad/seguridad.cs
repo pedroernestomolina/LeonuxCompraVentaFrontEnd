@@ -16,6 +16,7 @@ namespace ModPos.ClaveSeguridad
         {
             var rt = false;
 
+            Helpers.Sonido.ClvaeAcceso();
             var frm = new SeguridadFrm();
             frm.ShowDialog();
             var clv=frm.Clave.Trim().ToUpper();

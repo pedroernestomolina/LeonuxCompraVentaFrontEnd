@@ -20,6 +20,11 @@ namespace ModPos.AdministradorDoc
         private ClaveSeguridad.Seguridad _seguridad;
 
 
+        public BindingSource Source { get { return _bs; } }
+        public bool NotaCreditoIsOk { get; set; }
+        public int IdDoumentoNC { get; set; }
+
+
         public Administrador(ClaveSeguridad.Seguridad seguridad)
         {
             _documentos = new List<documento>();
@@ -32,24 +37,20 @@ namespace ModPos.AdministradorDoc
 
         public void AdmDocumentos()
         {
+            NotaCreditoIsOk = false;
+            IdDoumentoNC = -1;
             if (Cargar())
             {
                 var frm = new Listar.ListartFrm();
-                frm.AnularFire += frm_AnularFire;
-                frm.ImprimirFire += frm_ImprimirFire;
-                frm.NotaCreditoFire += frm_NotaCreditoFire;
-                frm.setSource(_bs);
+                frm.setControlador(this);
                 frm.ShowDialog();
             }
         }
 
-        private void frm_NotaCreditoFire(object sender, EventArgs e)
+        public bool NotaCredito()
         {
-            NotaCredito();
-        }
+            var rt = false;
 
-        private void NotaCredito()
-        {
             if (_bs != null)
             {
                 if (_bs.Current != null)
@@ -69,28 +70,30 @@ namespace ModPos.AdministradorDoc
                                 var msg = MessageBox.Show("HACER NOTA DE CREDITO ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                                 if (msg == DialogResult.Yes)
                                 {
+                                    NotaCreditoIsOk = true;
+                                    IdDoumentoNC = item.Id;
+                                    rt = true;
                                 }
                             }
                             else
                             {
+                                Helpers.Sonido.Error();
                                 Helpers.Msg.Error("TIPO DOCUMENTO INCORRECTO !!!");
                             }
                         }
                     }
                     else
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error("ESTATUS DOCUMENTO ANULADO !!!");
                     }
                 }
             }
+
+            return rt;
         }
 
-        private void frm_ImprimirFire(object sender, EventArgs e)
-        {
-            ReImprimirDocumento();
-        }
-
-        private void ReImprimirDocumento()
+        public void ReImprimirDocumento()
         {
             if (_bs != null)
             {
@@ -110,12 +113,7 @@ namespace ModPos.AdministradorDoc
             }
         }
 
-        private void frm_AnularFire(object sender, EventArgs e)
-        {
-            AnularDocumento();
-        }
-
-        private void AnularDocumento()
+        public void AnularDocumento()
         {
             if (_bs != null)
             {
@@ -124,7 +122,6 @@ namespace ModPos.AdministradorDoc
                     var item = (documento)_bs.Current;
                     if (item.IsActivo)
                     {
-
                         var seguir = true;
                         if (_permisos.Anular.RequiereClave)
                         {
@@ -138,6 +135,7 @@ namespace ModPos.AdministradorDoc
                                 var r01 = Sistema.MyData2.VentaDocumento_Anular(item.Id);
                                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 
                                 {
+                                    Helpers.Sonido.Error();
                                     Helpers.Msg.Error(r01.Mensaje);
                                     return;
                                 }
@@ -148,6 +146,7 @@ namespace ModPos.AdministradorDoc
                     }
                     else
                     {
+                        Helpers.Sonido.Error();
                         Helpers.Msg.Error("DOCUMENTO YA ANULADO !!!");
                     }
                 }
@@ -185,6 +184,16 @@ namespace ModPos.AdministradorDoc
             rt = true;
 
             return rt;
+        }
+
+        public void Subir()
+        {
+            _bs.Position -= 1;
+        }
+
+        public void Bajar()
+        {
+            _bs.Position += 1;
         }
 
     }

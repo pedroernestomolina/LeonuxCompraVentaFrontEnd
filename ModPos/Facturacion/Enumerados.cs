@@ -12,6 +12,7 @@ namespace ModPos.Facturacion
     {
 
         public enum EnumModoOperacionPos { SinDefinir=-1, Detal = 1, Mayor };
+        public enum EnumModoFuncion { Facturacion= 1, NotaCredito};
 
     }
 

@@ -83,6 +83,7 @@
     <Compile Include="LibVenta\PosOffline\VentaDocumento\AgregarItem.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\AgregarItemEliminar.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\AgregarMetodoPago.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\FichaDetalle.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Enumerados.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Filtro.cs" />

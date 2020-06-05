@@ -16,12 +16,11 @@ namespace DataProvPosOffLine.Data
         {
             var rt = new OOB.ResultadoId();
 
-            var tipoDocumento = 1;
-            if (ficha.TipoDocumento != OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.Factura){tipoDocumento = 2;}
             var agregarDTO = new DtoLibPosOffLine.VentaDocumento.Agregar()
             {
                 Aplica = ficha.Aplica,
                 AutoUsuario = ficha.AutoUsuario,
+                ClienteId=ficha.ClienteId,
                 ClienteCiRif = ficha.ClienteCiRif,
                 ClienteDirFiscal = ficha.ClienteDirFiscal,
                 ClienteNombreRazonSocial = ficha.ClienteNombreRazonSocial,
@@ -61,7 +60,7 @@ namespace DataProvPosOffLine.Data
                 TasaIva_1 = ficha.TasaIva_1,
                 TasaIva_2 = ficha.TasaIva_2,
                 TasaIva_3 = ficha.TasaIva_3,
-                TipoDocumento = tipoDocumento,
+                TipoDocumento = (int)ficha.TipoDocumento,
                 UsuarioCodigo = ficha.UsuarioCodigo,
                 UsuarioDescripcion = ficha.UsuarioDescripcion,
                 CodigoSucursal = ficha.CodioSucursal,
@@ -80,6 +79,7 @@ namespace DataProvPosOffLine.Data
                 MontoRecibido = ficha.MontoRecibido,
                 CambioDar = ficha.CambioDar,
                 IsCredito=ficha.IsCredito,
+                HoraEmision= DateTime.Now.ToShortTimeString(),
             };
 
             var agregarItemDto = ficha.Items.Select(s =>
@@ -124,6 +124,8 @@ namespace DataProvPosOffLine.Data
                     Total=s.Total,
                     TotalNeto=s.TotalNeto,
                     TotalDescuento=s.TotalDescuento,
+                    EsPesado=s.EsPesado?1:0,
+                    TipoIva=s.TipoIva,
                 };
 
                 return t;
@@ -193,15 +195,15 @@ namespace DataProvPosOffLine.Data
                     {
                         return new OOB.LibVenta.PosOffline.VentaDocumento.Ficha()
                         {
-                            CiRif = s.CiRif,
+                            ClienteCiRif = s.CiRif,
                             Control = s.Control,
                             Documento = s.Documento,
-                            FechaEmision = s.FechaEmision,
-                            HoraEmision = s.HoraEmision,
+                            Fecha = s.FechaEmision,
+                            Hora = s.HoraEmision,
                             Id = s.Id,
-                            IsActivo = s.IsActivo,
-                            Monto = s.Monto,
-                            NombreRazonSocial = s.NombreRazonSocial,
+                            IsActiva = s.IsActivo,
+                            MontoTotal = s.Monto,
+                            ClienteNombre = s.NombreRazonSocial,
                             Signo = s.Signo,
                             TipoDocumento = (OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento) s.TipoDocumento,
                             Renglones=s.Renglones,
@@ -226,6 +228,142 @@ namespace DataProvPosOffLine.Data
                 return rt;
             }
 
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.VentaDocumento.Ficha> VentaDocumento_Cargar(int idDocumento)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.VentaDocumento.Ficha>();
+
+            var r01 = MyData.VentaDocumento_Cargar(idDocumento);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var d=s.Detalles;
+            var nr = new OOB.LibVenta.PosOffline.VentaDocumento.Ficha()
+            {
+                Control = s.Control,
+                Documento = s.Documento,
+                Fecha = s.Fecha,
+                Hora = s.Hora,
+                ClienteId = s.ClienteId,
+                ClienteCiRif = s.CiRif,
+                ClienteNombre = s.ClienteNombre,
+                ClienteDirFiscal = s.ClienteDirFiscal,
+                ClienteTelefono = s.ClienteTelefono,
+                Renglones = s.Renglones,
+                Signo = s.Signo,
+                TipoDocumento = (OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento)s.TipoDocumento,
+                Base1 = s.Base1,
+                Base2 = s.Base2,
+                Base3 = s.Base3,
+                Impuesto1 = s.Impuesto1,
+                Impuesto2 = s.Impuesto2,
+                Impuesto3 = s.Impuesto3,
+                MontoBase = s.MontoBase,
+                MontoExento = s.MontoExento,
+                MontoImpuesto = s.MontoImpuesto,
+                MontoTotal = s.MontoTotal,
+                TasaIva1 = s.TasaIva1,
+                TasaIva2 = s.TasaIva2,
+                TasaIva3 = s.TasaIva3,
+                AnoRelacion = s.AnoRelacion,
+                Aplica = s.Aplica,
+                CargoMonto_1 = s.CargoMonto_1,
+                CargoPorc_1 = s.CargoPorc_1,
+                CodigoSucursal = s.CodigoSucursal,
+                DesctoMonto_1 = s.DesctoMonto_1,
+                DesctoMonto_2 = s.DesctoMonto_2,
+                DesctoPorc_1 = s.DesctoPorc_1,
+                DesctoPorc_2 = s.DesctoPorc_2,
+                IsActiva = s.IsActiva,
+                MesRelacion = s.MesRelacion,
+                Serie = s.Serie,
+                Estacion = s.Estacion,
+                FactorCambio = s.FactorCambio,
+                MontoCostoVenta = s.MontoCostoVenta,
+                MontoDivisa = s.MontoDivisa,
+                MontoSubt = s.MontoSubt,
+                MontoSubtImpuesto = s.MontoSubtImpuesto,
+                MontoSubtNeto = s.MontoSubtNeto,
+                MontoUtilidad = s.MontoUtilidad,
+                MontoUtilidadPorc = s.MontoUtilidadPorc,
+                MontoVentaNeta = s.MontoVentaNeta,
+                CambioDar = s.CambioDar,
+                CobradorAuto = s.CobradorAuto,
+                CobradorCodigo = s.CobradorCodigo,
+                CobradorNombre = s.CobradorNombre,
+                DepositoAuto = s.DepositoAuto,
+                DepositoCodigo = s.DepositoCodigo,
+                DepositoNombre = s.DepositoNombre,
+                IsCredito = s.IsCredito,
+                MontoRecibido = s.MontoRecibido,
+                TranporteAuto = s.TranporteAuto,
+                TranporteCodigo = s.TranporteCodigo,
+                TranporteNombre = s.TranporteNombre,
+                UsuarioAuto = s.UsuarioAuto,
+                UsuarioCodigo = s.UsuarioCodigo,
+                UsuarioNombre = s.UsuarioNombre,
+                VendedorAuto = s.VendedorAuto,
+                VendedorCodigo = s.VendedorCodigo,
+                VendedorNombre = s.VendedorNombre,
+            };
+            var det = d.Select(t =>
+            {
+                var dt = new OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle()
+                {
+                    AutoDepartamento = t.AutoDepartamento,
+                    AutoGrupo = t.AutoGrupo,
+                    AutoProducto = t.AutoProducto,
+                    AutoSubGrupo = t.AutoSubGrupo,
+                    AutoTasa = t.AutoTasa,
+                    Cantidad = t.Cantidad,
+                    CantidadUnd = t.CantidadUnd,
+                    Categoria = t.Categoria,
+                    CodigoProducto = t.CodigoProducto,
+                    CostoCompraUnd = t.CostoCompraUnd,
+                    CostoPromedioUnd = t.CostoPromedioUnd,
+                    CostoVenta = t.CostoVenta,
+                    Decimales = t.Decimales,
+                    DiaEmpaqueGarantia = t.DiaEmpaqueGarantia,
+                    EmpaqueContenido = t.EmpaqueContenido,
+                    EmpaqueDescripcion = t.EmpaqueDescripcion,
+                    Id = t.Id,
+                    MontoDscto_1 = t.MontoDscto_1,
+                    MontoDscto_2 = t.MontoDscto_2,
+                    MontoDscto_3 = t.MontoDscto_3,
+                    MontoIva = t.MontoIva,
+                    NombreProducto = t.NombreProducto,
+                    Notas = t.Notas,
+                    PorcDscto_1 = t.PorcDscto_1,
+                    PorcDscto_2 = t.PorcDscto_2,
+                    PorcDscto_3 = t.PorcDscto_3,
+                    PrecioFinal = t.PrecioFinal,
+                    PrecioItem = t.PrecioItem,
+                    PrecioNeto = t.PrecioNeto,
+                    PrecioSugerido = t.PrecioSugerido,
+                    PrecioUnd = t.PrecioUnd,
+                    Tarifa = t.Tarifa,
+                    TasaIva = t.TasaIva,
+                    Total = t.Total,
+                    TotalDescuento = t.TotalDescuento,
+                    TotalNeto = t.TotalNeto,
+                    UtilidadMonto = t.UtilidadMonto,
+                    UtilidadPorct = t.UtilidadPorct,
+                    EmpaqueCodigo = t.EmpaqueCodigo,
+                    EsPesado = t.EsPesado,
+                    TipoIva = t.TipoIva,
+                };
+                return dt;
+            }).ToList();
+            nr.Detalles = det;
+
+            rt.Entidad = nr;
             return rt;
         }
 

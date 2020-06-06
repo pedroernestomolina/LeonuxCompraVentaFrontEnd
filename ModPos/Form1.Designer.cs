@@ -51,7 +51,7 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.BT_JORNADA_CERRAR = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BT_OPERADOR_CERRAR = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.BT_CONTROL_FISCAL = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -59,7 +59,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.BT_POS = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BT_OPERADOR_ABRIR = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.BT_JORNADA_ABRIR = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -350,7 +350,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.button5);
+            this.panel13.Controls.Add(this.BT_OPERADOR_CERRAR);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(1, 246);
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
@@ -359,16 +359,17 @@
             this.panel13.Size = new System.Drawing.Size(295, 33);
             this.panel13.TabIndex = 6;
             // 
-            // button5
+            // BT_OPERADOR_CERRAR
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(2, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(291, 29);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "CERRAR OPERADOR";
-            this.button5.UseVisualStyleBackColor = true;
+            this.BT_OPERADOR_CERRAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_OPERADOR_CERRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_OPERADOR_CERRAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_OPERADOR_CERRAR.Name = "BT_OPERADOR_CERRAR";
+            this.BT_OPERADOR_CERRAR.Size = new System.Drawing.Size(291, 29);
+            this.BT_OPERADOR_CERRAR.TabIndex = 7;
+            this.BT_OPERADOR_CERRAR.Text = "CERRAR OPERADOR";
+            this.BT_OPERADOR_CERRAR.UseVisualStyleBackColor = true;
+            this.BT_OPERADOR_CERRAR.Click += new System.EventHandler(this.BT_OPERADOR_CERRAR_Click);
             // 
             // panel12
             // 
@@ -441,7 +442,7 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.button3);
+            this.panel9.Controls.Add(this.BT_OPERADOR_ABRIR);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(1, 106);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
@@ -450,16 +451,17 @@
             this.panel9.Size = new System.Drawing.Size(295, 33);
             this.panel9.TabIndex = 2;
             // 
-            // button3
+            // BT_OPERADOR_ABRIR
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(291, 29);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "ABRIR OPERADOR";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BT_OPERADOR_ABRIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_OPERADOR_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_OPERADOR_ABRIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_OPERADOR_ABRIR.Name = "BT_OPERADOR_ABRIR";
+            this.BT_OPERADOR_ABRIR.Size = new System.Drawing.Size(291, 29);
+            this.BT_OPERADOR_ABRIR.TabIndex = 2;
+            this.BT_OPERADOR_ABRIR.Text = "ABRIR OPERADOR";
+            this.BT_OPERADOR_ABRIR.UseVisualStyleBackColor = true;
+            this.BT_OPERADOR_ABRIR.Click += new System.EventHandler(this.BT_OPERADOR_ABRIR_Click);
             // 
             // panel8
             // 
@@ -575,7 +577,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button BT_JORNADA_CERRAR;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button BT_OPERADOR_CERRAR;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button BT_CONTROL_FISCAL;
         private System.Windows.Forms.Panel panel11;
@@ -583,7 +585,7 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button BT_POS;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BT_OPERADOR_ABRIR;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button BT_JORNADA_ABRIR;
         private System.Windows.Forms.Panel panel7;

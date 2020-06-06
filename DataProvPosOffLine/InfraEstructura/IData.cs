@@ -9,7 +9,7 @@ namespace DataProvPosOffLine.InfraEstructura
 {
 
     public interface IData: IProducto, ICliente, IServidor, IItem, IVentaDocumento, IFiscal, IConfiguracion,
-        IPendiente, IPermiso, IDeposito, ICobrador, IVendedor, ITransporte, IMedioCobro, ISerie, IJornada
+        IPendiente, IPermiso, IDeposito, ICobrador, IVendedor, ITransporte, IMedioCobro, ISerie, IJornada, IOperador
     {
 
         void setServidorRemoto(string instancia, string basedatos);

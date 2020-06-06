@@ -59,9 +59,13 @@
     <Compile Include="LibVenta\PosOffline\Configuracion\Vendedor\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Deposito\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Fiscal\Ficha.cs" />
-    <Compile Include="LibVenta\PosOffline\Item\Actualizar.cs" />
-    <Compile Include="LibVenta\PosOffline\Item\Agregar.cs" />
-    <Compile Include="LibVenta\PosOffline\Item\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Fiscal\Item\Actualizar.cs" />
+    <Compile Include="LibVenta\PosOffline\Fiscal\Item\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\Fiscal\Item\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Jornada\Abrir\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Jornada\Cargar\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Jornada\Cerrar\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Jornada\Enumerado.cs" />
     <Compile Include="LibVenta\PosOffline\MedioCobro\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\CtaAbrir\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\Agregar.cs" />

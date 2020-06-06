@@ -40,6 +40,25 @@ namespace ModPos
         {
             var rt = true;
 
+            var r01 = Sistema.MyData2.Jornada_Activa();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            if (r01.Entidad!=-1)
+            {
+                var idJornadaAbierta = r01.Entidad;
+                var r02 = Sistema.MyData2.Jornada_Cargar(idJornadaAbierta);
+                if (r02.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return false;
+                }
+                Sistema.MyJornada = r02.Entidad;
+            }
+
             return rt;
         }
 
@@ -150,16 +169,100 @@ namespace ModPos
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Fiscal();
-        }
-
         private void Fiscal()
         {
             _fiscal.Activar();
         }
 
+        private void MenuItem_Configuracion_Sistema_Click(object sender, EventArgs e)
+        {
+            ConfiguracionSistema();
+        }
+
+        private void MenuItem_Archivo_Salida_Click(object sender, EventArgs e)
+        {
+            Salida();
+        }
+
+        private void BT_CONTROL_FISCAL_Click(object sender, EventArgs e)
+        {
+            Fiscal();
+        }
+
+        private void BT_JORNADA_ABRIR_Click(object sender, EventArgs e)
+        {
+            AbrirJornada();
+        }
+
+        private void AbrirJornada()
+        {
+            if (Sistema.MyJornada == null)
+            {
+                var ficha = new OOB.LibVenta.PosOffline.Jornada.Abrir.Ficha()
+                {
+                    Estatus = "A",
+                    Fecha = DateTime.Now,
+                    Hora = DateTime.Now.ToShortTimeString(),
+                };
+                var r01 = Sistema.MyData2.Jornada_Abrir(ficha);
+                if (r01.Result== OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                var idJornada = r01.Id;
+                var r02 = Sistema.MyData2.Jornada_Cargar(idJornada);
+                if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return ;
+                }
+                Sistema.MyJornada = r02.Entidad;
+                Helpers.Msg.Alerta("JORNADA ABIERTA EXITOSAMENTE !!!!!");
+            }
+            else 
+            {
+                Helpers.Msg.Error("JORNADA ABIERTA, VERIFIQUE POR FAVOR");
+            }
+        }
+
+        private void BT_JORNADA_CERRAR_Click(object sender, EventArgs e)
+        {
+            CerrarJornada();
+        }
+
+        private void CerrarJornada()
+        {
+            if (Sistema.MyJornada != null)
+            {
+                var msg = MessageBox.Show("Estas Seguro De Cerrar La Jornada ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (msg == System.Windows.Forms.DialogResult.No) 
+                {
+                    return;
+                }
+
+                var ficha = new OOB.LibVenta.PosOffline.Jornada.Cerrar.Ficha()
+                {
+                    IdJornada=Sistema.MyJornada.Id,
+                    Estatus = "C",
+                    Fecha = DateTime.Now,
+                    Hora = DateTime.Now.ToShortTimeString(),
+                };
+                var r01 = Sistema.MyData2.Jornada_Cerrar(ficha);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                Sistema.MyJornada = null;
+                Helpers.Msg.Alerta("JORNADA CERRRADA EXITOSAMENTE !!!!!");
+            }
+            else
+            {
+                Helpers.Msg.Error("NO HAY NINGUNA JORNADA ABIERTA, VERIFIQUE POR FAVOR");
+            }
+        }
+     
     }
 
 }

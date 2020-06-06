@@ -55,6 +55,7 @@
     <Compile Include="Data\Deposito.cs" />
     <Compile Include="Data\Fiscal.cs" />
     <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\Jornada.cs" />
     <Compile Include="Data\MedioCobro.cs" />
     <Compile Include="Data\Pendiente.cs" />
     <Compile Include="Data\Permiso.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="InfraEstructura\IDeposito.cs" />
     <Compile Include="InfraEstructura\IFiscal.cs" />
     <Compile Include="InfraEstructura\IItem.cs" />
+    <Compile Include="InfraEstructura\IJornada.cs" />
     <Compile Include="InfraEstructura\IMedioCobro.cs" />
     <Compile Include="InfraEstructura\IPendiente.cs" />
     <Compile Include="InfraEstructura\IPermiso.cs" />

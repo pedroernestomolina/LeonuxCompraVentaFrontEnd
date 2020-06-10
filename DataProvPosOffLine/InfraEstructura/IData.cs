@@ -9,11 +9,13 @@ namespace DataProvPosOffLine.InfraEstructura
 {
 
     public interface IData: IProducto, ICliente, IServidor, IItem, IVentaDocumento, IFiscal, IConfiguracion,
-        IPendiente, IPermiso, IDeposito, ICobrador, IVendedor, ITransporte, IMedioCobro, ISerie, IJornada, IOperador
+        IPendiente, IPermiso, IDeposito, ICobrador, IVendedor, ITransporte, IMedioCobro, ISerie, IJornada, IOperador,
+        IUsuario
     {
 
         void setServidorRemoto(string instancia, string basedatos);
         OOB.ResultadoEntidad<DateTime> FechaServidor();
+        OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Sistema.InformacionBD.Ficha> InformacionBD();
 
     }
 

@@ -64,6 +64,7 @@
     <Compile Include="Data\Serie.cs" />
     <Compile Include="Data\Servidor.cs" />
     <Compile Include="Data\Transporte.cs" />
+    <Compile Include="Data\Usuario.cs" />
     <Compile Include="Data\Vendedor.cs" />
     <Compile Include="Data\VentaDocumento.cs" />
     <Compile Include="InfraEstructura\ICliente.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="InfraEstructura\ISerie.cs" />
     <Compile Include="InfraEstructura\IServidor.cs" />
     <Compile Include="InfraEstructura\ITransporte.cs" />
+    <Compile Include="InfraEstructura\IUsuario.cs" />
     <Compile Include="InfraEstructura\IVendedor.cs" />
     <Compile Include="InfraEstructura\IVentaDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,69 +16,42 @@ namespace ModPos
     {
 
 
-        private Configuracion.configurar _configuracion;
-        private AdministradorDoc.Administrador _administrador;
-        private ClaveSeguridad.Seguridad _seguridad;
-        private Facturacion.Venta _venta;
-        private Fiscal.CtrFiscal _fiscal;
+        private Sistema_ _controlador;
 
 
         public Form1()
         {
             InitializeComponent();
-            Sistema.MyBalanza = new Lib.BalanzaSoloPeso.BalanzaManual.Balanza();
-            Sistema.Usuario = new OOB.LibVenta.PosOffline.Usuario.Ficha() { Auto = "0000000001", Codigo = "CAJA1T1", Descripcion = "CAJ. TURNO 1", IsActivo = true };
-            _seguridad = new ClaveSeguridad.Seguridad();
-            _configuracion = new Configuracion.configurar();
-            _administrador = new AdministradorDoc.Administrador(_seguridad);
-            _venta = new Facturacion.Venta(_seguridad);
-            _fiscal = new Fiscal.CtrFiscal();
         }
 
 
-        public bool CargarData()
+        private void ActualizarJornadaOperadorUsuario()
         {
-            var rt = true;
+            L_JORNADA_ACTIVA.Text = "";
+            L_JORNADA_FECHA.Text = "";
+            L_OPERADOR_ESTATUS.Text = "";
+            L_OPERADOR_USUARIO.Text = "";
+            L_OPERADOR_CODIGO.Text = "";
+            L_OPERADOR_FECHA.Text = "";
+            L_USUARIO_CODIGO.Text = "";
+            L_USUARIO_NOMBRE.Text = "";
 
-            var r01 = Sistema.MyData2.Jornada_Activa();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            if (Sistema.MyJornada != null)
             {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
+                L_JORNADA_ACTIVA.Text = "ACTIVA";
+                L_JORNADA_FECHA.Text = Sistema.MyJornada.FechaApertura.ToShortDateString();
             }
 
-            if (r01.Entidad != -1)
+            if (Sistema.MyOperador != null)
             {
-                var idJornadaActiva = r01.Entidad;
-                var r02 = Sistema.MyData2.Jornada_Cargar(idJornadaActiva);
-                if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r02.Mensaje);
-                    return false;
-                }
-                Sistema.MyJornada = r02.Entidad;
-
-                var r03 = Sistema.MyData2.Operador_Activo ();
-                if (r03.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r03.Mensaje);
-                    return false;
-                }
-
-                if (r03.Entidad != -1) 
-                {
-                    var idOperadorActivo = r03.Entidad;
-                    var r04 = Sistema.MyData2.Operador_Cargar(idOperadorActivo);
-                    if (r04.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r04.Mensaje);
-                        return false;
-                    }
-                    Sistema.MyOperador = r04.Entidad;
-                }
+                L_OPERADOR_ESTATUS.Text = "ACTIVA";
+                L_OPERADOR_CODIGO.Text = Sistema.MyOperador.CodigoUsuario;
+                L_OPERADOR_USUARIO.Text = Sistema.MyOperador.Usuario;
+                L_OPERADOR_FECHA.Text = Sistema.MyOperador.FechaApertura.ToShortDateString();
             }
 
-            return rt;
+            L_USUARIO_CODIGO.Text = Sistema.Usuario.Codigo;
+            L_USUARIO_NOMBRE.Text = Sistema.Usuario.Descripcion;
         }
 
         private void BT_POS_Click(object sender, EventArgs e)
@@ -88,37 +61,7 @@ namespace ModPos
 
         private void ModuloVenta()
         {
-            if (Sistema.Usuario.IsInvitado)
-            {
-                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA USUARIO [ INVITADO]");
-                return;
-            }
-
-            //var r01 = Sistema.MyData.PosOffLine_Permiso_ModuloVenta(Sistema._usuario.AutoGrupo);
-            //if (r01.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(r01.Mensaje);
-            //    return;
-            //}
-            //var permiso = r01.Entidad;
-            //if (!permiso.IsHabilitado)
-            //{
-            //    Helpers.Msg.Error(r01.Mensaje);
-            //    return;
-            //}
-
-            var pass = true;
-            //if (permiso.NivelSeguridad != OOB.LibVenta.PosOffline.Permiso.Enumerados.enumNivelSeguridad.Ninguna)
-            //{
-            //    pass = Helpers.VerificaPassword.Verificar();
-            //}
-
-            if (pass)
-            {
-                this.Hide();
-                _venta.ActivarPos();
-                this.Visible = true;
-            }
+            _controlador.ActivarPos();
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -133,6 +76,8 @@ namespace ModPos
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            L_BD_INF.Text = _controlador.InformacionBD;
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void BT_ACTUALIZAR_DATA_Click(object sender, EventArgs e)
@@ -142,25 +87,7 @@ namespace ModPos
 
         private void ActualizaDataDelServidor()
         {
-            var msg = MessageBox.Show("Actualizar Data Del Servidor ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == System.Windows.Forms.DialogResult.Yes)
-            {
-                var r01 = Sistema.MyData2.Servidor_Test();
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-
-                var r02 = Sistema.MyData2.Servidor_ActualizarData();
-                if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r02.Mensaje);
-                    return;
-                }
-
-                Helpers.Msg.EditarOk();
-            }
+            _controlador.ImportarDataDelServidor();
         }
 
         private void BT_CONFIGURACION_Click(object sender, EventArgs e)
@@ -170,7 +97,7 @@ namespace ModPos
 
         private void ConfiguracionSistema()
         {
-            _configuracion.Configura();
+            _controlador.ConfiguracionActivar();
         }
 
         private void BT_ADM_DOC_Click(object sender, EventArgs e)
@@ -180,17 +107,12 @@ namespace ModPos
 
         private void AdministradorDocumentos()
         {
-            _administrador.AdmDocumentos();
-            if (_administrador.NotaCreditoIsOk)
-            {
-                _venta.setModoNotaCredito(_administrador.IdDoumentoNC);
-                _venta.ActivarPos();
-            }
+            _controlador.AdministradorDocumentosActivar();
         }
 
         private void Fiscal()
         {
-            _fiscal.Activar();
+            _controlador.FiscalActivar();
         }
 
         private void MenuItem_Configuracion_Sistema_Click(object sender, EventArgs e)
@@ -215,34 +137,8 @@ namespace ModPos
 
         private void AbrirJornada()
         {
-            if (Sistema.MyJornada == null)
-            {
-                var ficha = new OOB.LibVenta.PosOffline.Jornada.Abrir.Ficha()
-                {
-                    Estatus = "A",
-                    Fecha = DateTime.Now,
-                    Hora = DateTime.Now.ToShortTimeString(),
-                };
-                var r01 = Sistema.MyData2.Jornada_Abrir(ficha);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                var idJornada = r01.Id;
-                var r02 = Sistema.MyData2.Jornada_Cargar(idJornada);
-                if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r02.Mensaje);
-                    return;
-                }
-                Sistema.MyJornada = r02.Entidad;
-                Helpers.Msg.Alerta("SE ABRIO LA JORNADA DE MANERA EXITOSA !!!!!");
-            }
-            else
-            {
-                Helpers.Msg.Error("YA EXISTE UNA JORNADA ABIERTA, VERIFIQUE POR FAVOR");
-            }
+            _controlador.AbrirJornada();
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void BT_JORNADA_CERRAR_Click(object sender, EventArgs e)
@@ -252,40 +148,8 @@ namespace ModPos
 
         private void CerrarJornada()
         {
-            if (Sistema.MyJornada != null)
-            {
-                if (Sistema.MyOperador != null)
-                {
-                    Helpers.Msg.Error("EXISTE UN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
-                    return;
-                }
-
-                var msg = MessageBox.Show("Estas Seguro De Cerrar La Jornada ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == System.Windows.Forms.DialogResult.No)
-                {
-                    return;
-                }
-
-                var ficha = new OOB.LibVenta.PosOffline.Jornada.Cerrar.Ficha()
-                {
-                    IdJornada = Sistema.MyJornada.Id,
-                    Estatus = "C",
-                    Fecha = DateTime.Now,
-                    Hora = DateTime.Now.ToShortTimeString(),
-                };
-                var r01 = Sistema.MyData2.Jornada_Cerrar(ficha);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                Sistema.MyJornada = null;
-                Helpers.Msg.Alerta("JORNADA CERRRADA EXITOSAMENTE !!!!!");
-            }
-            else
-            {
-                Helpers.Msg.Error("NO HAY NINGUNA JORNADA ABIERTA, VERIFIQUE POR FAVOR");
-            }
+            _controlador.CerrarJornada();
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void BT_OPERADOR_ABRIR_Click(object sender, EventArgs e)
@@ -295,45 +159,8 @@ namespace ModPos
 
         private void AbrirOperador()
         {
-            if (Sistema.MyJornada != null)
-            {
-                if (Sistema.MyOperador == null)
-                {
-                    var ficha = new OOB.LibVenta.PosOffline.Operador.Abrir.Ficha()
-                    {
-                        IdJornada = Sistema.MyJornada.Id,
-                        AutoUsuario = Sistema.Usuario.Auto,
-                        CodigoUsuario = Sistema.Usuario.Codigo,
-                        Usuario = Sistema.Usuario.Descripcion,
-                        Estatus = "A",
-                        Fecha = DateTime.Now,
-                        Hora = DateTime.Now.ToShortTimeString(),
-                    };
-                    var r01 = Sistema.MyData2.Operador_Abrir(ficha);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    var idOperador = r01.Id;
-                    var r02 = Sistema.MyData2.Operador_Cargar(idOperador);
-                    if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r02.Mensaje);
-                        return;
-                    }
-                    Sistema.MyOperador = r02.Entidad;
-                    Helpers.Msg.Alerta("SE ABRIO EL OPERADOR DE MANERA EXITOSA !!!!!");
-                }
-                else 
-                {
-                    Helpers.Msg.Error("YA EXISTE UN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
-                }
-            }
-            else
-            {
-                Helpers.Msg.Error("NO HAY UNA JORNADA ABIERTA, VERIFIQUE POR FAVOR");
-            }
+            _controlador.AbrirOperador();
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void BT_OPERADOR_CERRAR_Click(object sender, EventArgs e)
@@ -343,34 +170,33 @@ namespace ModPos
 
         private void CerrarOperador()
         {
-            if (Sistema.MyOperador != null)
-            {
-                var msg = MessageBox.Show("Estas Seguro De Cerrar Este Operador ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == System.Windows.Forms.DialogResult.No)
-                {
-                    return;
-                }
+            _controlador.CerrarOperador();
+            ActualizarJornadaOperadorUsuario();
+        }
 
-                var ficha = new OOB.LibVenta.PosOffline.Operador.Cerrar.Ficha()
-                {
-                    IdOperador= Sistema.MyOperador.Id,
-                    Estatus = "C",
-                    Fecha = DateTime.Now,
-                    Hora = DateTime.Now.ToShortTimeString(),
-                };
-                var r01 = Sistema.MyData2.Operador_Cerrar(ficha);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                Sistema.MyOperador= null;
-                Helpers.Msg.Alerta("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
-            }
-            else
-            {
-                Helpers.Msg.Error("NO HAY NINGUN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
-            }
+        private void BT_ENVIAR_SERVIDOR_Click(object sender, EventArgs e)
+        {
+            EniviarDataServidor();
+        }
+
+        private void EniviarDataServidor()
+        {
+            _controlador.EniviarDataAlServidor();
+        }
+
+        private void MenuItem_Herramientas_TestBD_Click(object sender, EventArgs e)
+        {
+            TestBD();
+        }
+
+        private void TestBD()
+        {
+            _controlador.TestBD();
+        }
+
+        public void setControlador(Sistema_ _ctr) 
+        {
+            _controlador = _ctr;
         }
 
     }

@@ -30,6 +30,31 @@ namespace OOB.LibVenta.PosOffline.Usuario
             }
         }
 
+        public Ficha()
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            Auto = "";
+            AutoGrupo = "";
+            Codigo = "";
+            CodigoGrupo = "";
+            Descripcion = "";
+            DescripcionGrupo = "";
+            IsActivo = false;
+            IsInvitado = false;
+        }
+
+        public void setInvitado() 
+        {
+            Codigo = "Administrador";
+            Descripcion= "Administrador";
+            IsActivo = false;
+            IsInvitado = true;
+        }
+
     }
 
 }

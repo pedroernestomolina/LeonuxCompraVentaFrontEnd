@@ -37,13 +37,20 @@ namespace ModPos.AdministradorDoc
 
         public void AdmDocumentos()
         {
-            NotaCreditoIsOk = false;
-            IdDoumentoNC = -1;
-            if (Cargar())
+            if (Sistema.MyJornada != null)
             {
-                var frm = new Listar.ListartFrm();
-                frm.setControlador(this);
-                frm.ShowDialog();
+                NotaCreditoIsOk = false;
+                IdDoumentoNC = -1;
+                if (Cargar())
+                {
+                    var frm = new Listar.ListartFrm();
+                    frm.setControlador(this);
+                    frm.ShowDialog();
+                }
+            }
+            else 
+            {
+                Helpers.Msg.Error("NO HAY NINGUNA JORNADA ABIERTA, VERIFIQUE POR FAVOR");
             }
         }
 
@@ -166,6 +173,7 @@ namespace ModPos.AdministradorDoc
             _permisos = r00.Entidad;
 
             var filtro = new OOB.LibVenta.PosOffline.VentaDocumento.Filtro();
+            filtro.IdJornada = Sistema.MyJornada.Id;
             var r01 = Sistema.MyData2.VentaDocumento_Lista(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {

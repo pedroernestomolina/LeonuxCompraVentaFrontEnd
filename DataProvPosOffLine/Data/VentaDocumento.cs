@@ -18,6 +18,8 @@ namespace DataProvPosOffLine.Data
 
             var agregarDTO = new DtoLibPosOffLine.VentaDocumento.Agregar()
             {
+                IdJornada=ficha.IdJornada,
+                IdOperador=ficha.IdOperador,
                 Aplica = ficha.Aplica,
                 AutoUsuario = ficha.AutoUsuario,
                 ClienteId=ficha.ClienteId,
@@ -178,6 +180,7 @@ namespace DataProvPosOffLine.Data
             var rt = new OOB.ResultadoLista<OOB.LibVenta.PosOffline.VentaDocumento.Ficha>();
 
             var filtroDTO = new DtoLibPosOffLine.VentaDocumento.Lista.Filtro();
+            filtroDTO.IdJornada = filtro.IdJornada;
             var r01 = MyData.VentaDocumento_Lista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {

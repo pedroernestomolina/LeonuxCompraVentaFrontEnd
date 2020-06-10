@@ -15,9 +15,9 @@ namespace ModPos.Identificacion
     public partial class IdentificacionFrm : Form
     {
 
-        public event EventHandler SalidaOk;
-        public event EventHandler UsuarioOk;
 
+        private Gestion _controlador;
+       
 
         public IdentificacionFrm()
         {
@@ -27,32 +27,26 @@ namespace ModPos.Identificacion
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
-            NotificarSalida();
+            Salir();
         }
 
-        private void NotificarSalida()
+        private void Salir()
         {
-            EventHandler handler = SalidaOk;
-            if (handler != null) 
-            {
-                handler(this, null);
-            }
-        }
-
-        private void IdentificacionFrm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            NotificarSalida();
+            this.Close();
         }
 
         private void BT_ACEPTAR_Click(object sender, EventArgs e)
         {
-            if (VerificarData())
+            Aceptar();
+        }
+
+        private void Aceptar()
+        {
+            var cod = TB_CODIGO.Text.Trim().ToUpper();
+            var psw= TB_CLAVE.Text.Trim().ToUpper();
+            if (_controlador.VerificarUsuario(cod, psw)) 
             {
-                NotificaroK();
-            }
-            else 
-            {
-                Limpiar();
+                Salir();
             }
         }
 
@@ -63,34 +57,21 @@ namespace ModPos.Identificacion
             TB_CODIGO.Focus();
         }
 
-        private bool VerificarData()
+        private void IdentificacionFrm_Load(object sender, EventArgs e)
         {
-            var rt = true;
-            var codUsu = TB_CODIGO.Text.Trim().ToUpper();
-            var pswUsu = TB_CLAVE.Text.Trim().ToUpper();
-
-            //var r01=Sistema.MyData.PosOffLine_Usuario(codUsu, pswUsu);
-            //if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            //{
-            //    Helpers.Msg.Error(r01.Mensaje);
-            //    return false;
-            //}
-            //if (!r01.Entidad.IsActivo)
-            //{
-            //    Helpers.Msg.Error("USUARIO INACTIVO");
-            //    return false;
-            //}
-            //Sistema._usuario = r01.Entidad;
-
-            return rt;
+            TB_CODIGO.Focus();
         }
 
-        private void NotificaroK()
+        public void setControlador(Gestion ctr) 
         {
-            EventHandler handler = UsuarioOk;
-            if (handler != null)
+            _controlador = ctr;
+        }
+
+        private void TB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                handler(this, null);
+                this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
 

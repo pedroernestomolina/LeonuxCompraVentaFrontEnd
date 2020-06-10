@@ -10,6 +10,15 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
     
     public class Filtro
     {
+
+        public int IdJornada { get; set; }
+
+
+        public Filtro()
+        {
+            IdJornada = -1;
+        }
+
     }
 
 }

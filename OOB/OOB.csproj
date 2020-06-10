@@ -84,7 +84,17 @@
     <Compile Include="LibVenta\PosOffline\Precio\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Producto\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Serie\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Venta.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Documento.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\DocumentoDetalle.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\DocumentoPago.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Enumerados.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Jornada.cs" />
+    <Compile Include="LibVenta\PosOffline\Sistema\InformacionBD\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Transporte\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Usuario\BuscarCargar.cs" />
     <Compile Include="LibVenta\PosOffline\Usuario\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Vendedor\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Agregar.cs" />

@@ -256,6 +256,9 @@ namespace ModPos.Facturacion
             _ctrItem.setCargoGlobal(_cargoGlobalPorct);
             var ficha = new OOB.LibVenta.PosOffline.VentaDocumento.Agregar()
             {
+                IdJornada =Sistema.MyJornada.Id,
+                IdOperador=Sistema.MyOperador.Id,
+
                 Aplica = _aplica,
                 AutoUsuario = _usuario.Auto,
                 ClienteId = _ctrCliente.Ficha.Id,

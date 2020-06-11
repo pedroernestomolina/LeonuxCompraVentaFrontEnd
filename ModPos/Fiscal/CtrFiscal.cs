@@ -54,12 +54,12 @@ namespace ModPos.Fiscal
 
         public void ObtenerDatosFiscal() 
         {
-            DatosFiscal.Factura = "000890";
-            DatosFiscal.Rif = "J308219347";
-            DatosFiscal.Fecha="04/06/20201";
-            DatosFiscal.Hora="10:10";
-            DatosFiscal.Serial="ZB3847933";
-            DatosFiscal.Z="0010";
+            DatosFiscal.Factura = "";
+            DatosFiscal.Rif = "";
+            DatosFiscal.Fecha="";
+            DatosFiscal.Hora="";
+            DatosFiscal.Serial="";
+            DatosFiscal.Z="";
         }
 
         public void CorteFiscal(Enumerados.EnumCorteFiscal corte)

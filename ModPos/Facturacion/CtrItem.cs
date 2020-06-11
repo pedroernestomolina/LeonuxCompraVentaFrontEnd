@@ -61,6 +61,7 @@ namespace ModPos.Facturacion
         private decimal _montoDivisa;
         private decimal _dsctoGlobal;
         private decimal _cargoGlobal;
+        private string _tarifaPrecio;
 
 
         public List<Item> Items
@@ -325,18 +326,55 @@ namespace ModPos.Facturacion
                 Helpers.Msg.Error("PRODUCTO EN ESTADO INACTIVO, VERIFIQUE POR FAVOR... !!");
                 return;
             }
-            if (_prd.Precio_1.PrecioNeto <= 0.0m)
+
+            OOB.LibVenta.PosOffline.Precio.Ficha precio=null;
+            if (_tarifaPrecio == "1")
             {
-                Helpers.Sonido.Error();
-                Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
-                return;
+                if (_prd.Precio_1.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.Precio_1;
             }
+            if (_tarifaPrecio == "2")
+            {
+                if (_prd.Precio_2.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.Precio_2;
+            }
+            if (_tarifaPrecio == "3")
+            {
+                if (_prd.Precio_3.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.Precio_3;
+            }
+            if (_tarifaPrecio == "4")
+            {
+                if (_prd.Precio_4.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.Precio_4;
+            }
+
 
             if (_prd.IsPreEmpaque)
             {
                 if (peso > 0)
                 {
-                    RegistraItemPreEmpaque(_prd, peso);
+                    RegistraItemPreEmpaque(_prd, precio, peso);
                 }
             }
             else
@@ -345,24 +383,24 @@ namespace ModPos.Facturacion
                 {
                     if (_prd.IsPesado)
                     {
-                        RegistraItemPesado(_prd);
+                        RegistraItemPesado(_prd, precio);
                     }
                     else
                     {
-                        RegistraItemBarra(_prd);
+                        RegistraItemBarra(_prd, precio);
                     }
                 }
             }
         }
 
-        private void RegistraItemBarra(OOB.LibVenta.PosOffline.Producto.Ficha _prd)
+        private void RegistraItemBarra(OOB.LibVenta.PosOffline.Producto.Ficha _prd, OOB.LibVenta.PosOffline.Precio.Ficha precio)
         {
             var nr = new Item()
             {
                 AutoId = _prd.Auto,
                 NombrePrd = _prd.NombrePrd,
                 Cantidad = 1,
-                PrecioNeto = _prd.Precio_1.PrecioNeto,
+                PrecioNeto = precio.PrecioNeto,
                 TasaIva = _prd.TasaImpuesto,
                 EsPesado = _prd.IsPesado,
                 TipoIva = _prd.TipoIva,
@@ -374,18 +412,18 @@ namespace ModPos.Facturacion
                 AutoTasa = _prd.AutoTasa,
                 Categoria = _prd.Categoria,
                 CodigoPrd = _prd.CodigoPrd,
-                Decimales = _prd.Precio_1.Decimales,
+                Decimales = precio.Decimales,
                 EmpaqueCodigo = "",
-                EmpaqueDescripcion = _prd.Precio_1.DescEmpVenta,
-                EmpaqueContenido = _prd.Precio_1.ContEmpVenta,
+                EmpaqueDescripcion = precio.DescEmpVenta,
+                EmpaqueContenido = precio.ContEmpVenta,
                 DiasEmpaqueGarantia = _prd.DiasEmpaqueGarantia,
-                TarifaPrecio = _prd.Precio_1.Id,
+                TarifaPrecio = precio.Id,
                 PrecioSugerido = _prd.PrecioSugerido,
             };
             Insertar(nr);
         }
 
-        private void RegistraItemPesado(OOB.LibVenta.PosOffline.Producto.Ficha _prd)
+        private void RegistraItemPesado(OOB.LibVenta.PosOffline.Producto.Ficha _prd, OOB.LibVenta.PosOffline.Precio.Ficha precio)
         {
             var r01 = Sistema.MyBalanza.LeerPeso();
             if (r01.IsOk == false)
@@ -401,7 +439,7 @@ namespace ModPos.Facturacion
                     AutoId = _prd.Auto,
                     NombrePrd = _prd.NombrePrd,
                     Cantidad = r01.Peso,
-                    PrecioNeto = _prd.Precio_1.PrecioNeto,
+                    PrecioNeto = precio.PrecioNeto,
                     TasaIva = _prd.TasaImpuesto,
                     EsPesado = _prd.IsPesado,
                     TipoIva = _prd.TipoIva,
@@ -413,19 +451,19 @@ namespace ModPos.Facturacion
                     AutoTasa = _prd.AutoTasa,
                     Categoria = _prd.Categoria,
                     CodigoPrd = _prd.CodigoPrd,
-                    Decimales = _prd.Precio_1.Decimales,
+                    Decimales = precio.Decimales,
                     EmpaqueCodigo = "",
-                    EmpaqueDescripcion = _prd.Precio_1.DescEmpVenta,
-                    EmpaqueContenido = _prd.Precio_1.ContEmpVenta,
+                    EmpaqueDescripcion = precio.DescEmpVenta,
+                    EmpaqueContenido = precio.ContEmpVenta,
                     DiasEmpaqueGarantia = _prd.DiasEmpaqueGarantia,
-                    TarifaPrecio = _prd.Precio_1.Id,
+                    TarifaPrecio = precio.Id,
                     PrecioSugerido = _prd.PrecioSugerido,
                 };
                 Insertar(nr);
             }
         }
 
-        private void RegistraItemPreEmpaque(OOB.LibVenta.PosOffline.Producto.Ficha _prd, decimal peso)
+        private void RegistraItemPreEmpaque(OOB.LibVenta.PosOffline.Producto.Ficha _prd, OOB.LibVenta.PosOffline.Precio.Ficha precio , decimal peso)
         {
             if (_activarRepesaje)
             {
@@ -464,7 +502,7 @@ namespace ModPos.Facturacion
                 AutoId = _prd.Auto,
                 NombrePrd = _prd.NombrePrd,
                 Cantidad = peso,
-                PrecioNeto = _prd.Precio_1.PrecioNeto,
+                PrecioNeto = precio.PrecioNeto,
                 TasaIva = _prd.TasaImpuesto,
                 EsPesado = _prd.IsPesado,
                 TipoIva = _prd.TipoIva,
@@ -476,12 +514,12 @@ namespace ModPos.Facturacion
                 AutoTasa = _prd.AutoTasa,
                 Categoria = _prd.Categoria,
                 CodigoPrd = _prd.CodigoPrd,
-                Decimales = _prd.Precio_1.Decimales,
+                Decimales = precio.Decimales,
                 EmpaqueCodigo = "",
-                EmpaqueDescripcion = _prd.Precio_1.DescEmpVenta,
-                EmpaqueContenido = _prd.Precio_1.ContEmpVenta,
+                EmpaqueDescripcion = precio.DescEmpVenta,
+                EmpaqueContenido = precio.ContEmpVenta,
                 DiasEmpaqueGarantia = _prd.DiasEmpaqueGarantia,
-                TarifaPrecio = _prd.Precio_1.Id,
+                TarifaPrecio = precio.Id,
                 PrecioSugerido = _prd.PrecioSugerido,
             };
             Insertar(nr);
@@ -656,6 +694,11 @@ namespace ModPos.Facturacion
             {
                 r.setCargoGlobal(cargo);
             }
+        }
+
+        public void setTarifaPrecio(string tarifa) 
+        {
+            _tarifaPrecio = tarifa;
         }
 
         public decimal MontoBaseX(string tipoIva)

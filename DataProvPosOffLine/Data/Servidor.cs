@@ -46,16 +46,16 @@ namespace DataProvPosOffLine.Data
         {
             var result = new OOB.Resultado();
 
-            var fichaDTO = new DtoLibPosOffLine.Servidor.EnviarData.Ficha();
-            fichaDTO.Ventas = new List<DtoLibPosOffLine.Servidor.EnviarData.Venta>();
-            fichaDTO.Ventas.Add(new DtoLibPosOffLine.Servidor.EnviarData.Venta());
-            var r01 = MyData.Servidor_EnviarData(fichaDTO);
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                result.Mensaje = r01.Mensaje;
-                result.Result = OOB.Enumerados.EnumResult.isError;
-                return result;
-            }
+            //var fichaDTO = new DtoLibPosOffLine.Servidor.EnviarData.Ficha();
+            //fichaDTO.Ventas = new List<DtoLibPosOffLine.Servidor.EnviarData.Venta>();
+            //fichaDTO.Ventas.Add(new DtoLibPosOffLine.Servidor.EnviarData.Venta());
+            //var r01 = MyData.Servidor_EnviarData(fichaDTO);
+            //if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            //{
+            //    result.Mensaje = r01.Mensaje;
+            //    result.Result = OOB.Enumerados.EnumResult.isError;
+            //    return result;
+            //}
 
             return result;
         }

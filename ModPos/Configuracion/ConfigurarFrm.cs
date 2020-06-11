@@ -22,6 +22,7 @@ namespace ModPos.Configuracion
         private BindingSource bs_SerieFactura;
         private BindingSource bs_SerieNotaCredito ;
         private BindingSource bs_SerieNotaDebito;
+        private BindingSource bs_SerieNotaEntrega;
         private BindingSource bs_MedioEfectivo;
         private BindingSource bs_MedioDivisa;
         private BindingSource bs_MedioElectronico;
@@ -34,6 +35,7 @@ namespace ModPos.Configuracion
         private List<OOB.LibVenta.PosOffline.Serie.Ficha > LSerieFactura;
         private List<OOB.LibVenta.PosOffline.Serie.Ficha> LSerieNotaCredito;
         private List<OOB.LibVenta.PosOffline.Serie.Ficha> LSerieNotaDebito;
+        private List<OOB.LibVenta.PosOffline.Serie.Ficha> LSerieNotaEntrega ;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioEfectivo;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioDivisa;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioElectronico;
@@ -52,6 +54,7 @@ namespace ModPos.Configuracion
             LSerieFactura= new List<OOB.LibVenta.PosOffline.Serie.Ficha>();
             LSerieNotaCredito = new List<OOB.LibVenta.PosOffline.Serie.Ficha>();
             LSerieNotaDebito= new List<OOB.LibVenta.PosOffline.Serie.Ficha>();
+            LSerieNotaEntrega = new List<OOB.LibVenta.PosOffline.Serie.Ficha>();
             LMedioEfectivo = new List<OOB.LibVenta.PosOffline.MedioCobro.Ficha>();
             LMedioDivisa = new List<OOB.LibVenta.PosOffline.MedioCobro.Ficha>();
             LMedioElectronico = new List<OOB.LibVenta.PosOffline.MedioCobro.Ficha>();
@@ -64,6 +67,7 @@ namespace ModPos.Configuracion
             bs_SerieFactura = new BindingSource();
             bs_SerieNotaCredito= new BindingSource();
             bs_SerieNotaDebito= new BindingSource();
+            bs_SerieNotaEntrega = new BindingSource();
             bs_MedioEfectivo = new BindingSource();
             bs_MedioDivisa = new BindingSource();
             bs_MedioElectronico = new BindingSource();
@@ -76,6 +80,7 @@ namespace ModPos.Configuracion
             bs_SerieFactura.DataSource = LSerieFactura;
             bs_SerieNotaCredito.DataSource = LSerieNotaCredito;
             bs_SerieNotaDebito.DataSource = LSerieNotaDebito;
+            bs_SerieNotaEntrega.DataSource = LSerieNotaEntrega;
             bs_MedioEfectivo.DataSource = LMedioEfectivo;
             bs_MedioDivisa.DataSource = LMedioDivisa;
             bs_MedioElectronico.DataSource = LMedioElectronico;
@@ -149,6 +154,8 @@ namespace ModPos.Configuracion
             LSerieNotaDebito.AddRange(r06.Lista);
             LSerieNotaCredito.Clear();
             LSerieNotaCredito.AddRange(r06.Lista);
+            LSerieNotaEntrega.Clear();
+            LSerieNotaEntrega.AddRange(r06.Lista);
 
             var r07 = Sistema.MyData2.Configuracion_ActualCargar();
             if (r07.Result == OOB.Enumerados.EnumResult.isError)
@@ -196,6 +203,10 @@ namespace ModPos.Configuracion
             CB_NOTA_DEBITO.ValueMember = "Auto";
             CB_NOTA_DEBITO.DataSource = bs_SerieNotaDebito;
 
+            CB_NOTA_ENTREGA.DisplayMember = "Nombre";
+            CB_NOTA_ENTREGA.ValueMember = "Auto";
+            CB_NOTA_ENTREGA.DataSource = bs_SerieNotaEntrega;
+
             CB_MEDIO_EFECTIVO.DisplayMember = "Nombre";
             CB_MEDIO_EFECTIVO.ValueMember = "Auto";
             CB_MEDIO_EFECTIVO.DataSource = bs_MedioEfectivo;
@@ -215,6 +226,8 @@ namespace ModPos.Configuracion
             TB_CODIGO_SUCURSAL.Text = "";
             TB_LIMITE_INFERIOR.Text = "0,0";
             TB_LIMITE_SUPERIOR.Text = "0,0";
+            TB_TARIFA.Text = "";
+            CHB_ETIQUETAR_PRECIO_NEGOCIO.Checked = false;
             CHB_REPESAJE.Checked = true;
             RB_BUSQUEDA_DESCRIPCION_SI.Checked = true;
             CHB_REPESAJE.Checked = false;
@@ -237,14 +250,18 @@ namespace ModPos.Configuracion
             CB_FACTURA.SelectedValue = _cnfActual.SerieFactura;
             CB_NOTA_CREDITO.SelectedValue = _cnfActual.SerieNotaCredito;
             CB_NOTA_DEBITO.SelectedValue = _cnfActual.SerieNotaDebito;
+            CB_NOTA_ENTREGA.SelectedValue = _cnfActual.SerieNotaEntrega;
 
             RB_BUSQUEDA_DESCRIPCION_NO.Checked = true;
             TB_CODIGO_SUCURSAL.Text = _cnfActual.CodigoSucursal;
+            TB_TARIFA.Text = _cnfActual.TarifaPrecio;
             TB_LIMITE_INFERIOR.Text = _cnfActual.LimiteInferiorRepesaje.ToString("n2");
             TB_LIMITE_SUPERIOR.Text = _cnfActual.LimiteSuperiorRepesaje.ToString("n2");
             CHB_REPESAJE.Checked = _cnfActual.ActivarRepesaje;
             RB_BUSQUEDA_DESCRIPCION_SI.Checked = _cnfActual.ActivarBusquedaPorDescripcion;
             CB_CLAVE.SelectedIndex = _cnfActual.ClavePos - 1;
+            CHB_ETIQUETAR_PRECIO_NEGOCIO.Checked = _cnfActual.EtiquetarPrecioPorTipoNegocio;
+
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -296,6 +313,10 @@ namespace ModPos.Configuracion
             {
                 return;
             }
+            if (CB_NOTA_ENTREGA.SelectedValue == null)
+            {
+                return;
+            }
             if (CB_DEPOSITO.SelectedValue == null)
             {
                 return;
@@ -340,7 +361,6 @@ namespace ModPos.Configuracion
                     ActivarBusquedaPorDescripcion = RB_BUSQUEDA_DESCRIPCION_SI.Checked ? "S" : "N",
                     ActivarRepesaje = CHB_REPESAJE.Checked ? "S" : "N",
                     AutoCobrador = (string)CB_COBRADOR.SelectedValue,
-                    AutoDeposito = (string)CB_DEPOSITO.SelectedValue,
                     AutoMedioDivisa = (string)CB_MEDIO_DIVISA.SelectedValue,
                     AutoMedioEfectivo = (string)CB_MEDIO_EFECTIVO.SelectedValue,
                     AutoMedioElectronico = (string)CB_MEDIO_ELECTRONICO.SelectedValue,
@@ -348,12 +368,12 @@ namespace ModPos.Configuracion
                     AutoTransporte = (string)CB_TRANSPORTE.SelectedValue,
                     AutoVendedor = (string)CB_VENDEDOR.SelectedValue,
                     ClavePos = CB_CLAVE.SelectedIndex + 1,
-                    CodigoSucursal = sucursal,
                     LimiteInferiorRepesaje = lim_inf,
                     LimiteSuperiorRepesaje = lim_sup,
                     SerieFactura = (string)CB_FACTURA.SelectedValue,
                     SerieNotaCredito = (string)CB_NOTA_CREDITO.SelectedValue,
                     SerieNotaDebito = (string)CB_NOTA_DEBITO.SelectedValue,
+                    SerieNotaEntrega = (string)CB_NOTA_ENTREGA.SelectedValue,
                 };
                 var r01 = Sistema.MyData2.Configuracion_GuardarCambio(fichaCnf);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 

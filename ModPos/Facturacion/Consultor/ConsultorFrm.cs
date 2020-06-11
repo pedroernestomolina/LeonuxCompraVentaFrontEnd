@@ -93,23 +93,64 @@ namespace ModPos.Facturacion.Consultor
                 L_PLU.Text = _consulta.CodigoPlu;
                 L_CODIGO_BARRA.Text = _consulta.CodigoBarra;
 
-                L_NETO_1.Text = _consulta.Precio_1.Neto.ToString("n2");
-                L_NETO_2.Text = _consulta.Precio_2.Neto.ToString("n2");
-                L_NETO_3.Text = _consulta.Precio_3.Neto.ToString("n2");
-                L_NETO_4.Text = _consulta.Precio_4.Neto.ToString("n2");
+                var tarifaPrecio = _controlador.TarifaPrecio;
+                var pn = 0.0m;
+                var pf = 0.0m;
+                var iva = 0.0m;
+                var emp = "";
 
-                L_FULL_1.Text = _consulta.Precio_1.Full.ToString("n2");
-                L_FULL_2.Text = _consulta.Precio_2.Full.ToString("n2");
-                L_FULL_3.Text = _consulta.Precio_3.Full.ToString("n2");
-                L_FULL_4.Text = _consulta.Precio_4.Full.ToString("n2");
+                if (tarifaPrecio == "1") 
+                {
+                    pn = _consulta.Precio_1.Neto;
+                    pf = _consulta.Precio_1.Full;
+                    iva = _consulta.Precio_1.Iva;
+                    emp = _consulta.Precio_1.EmpaqueContenidoDescripcion;
+                }
+                if (tarifaPrecio == "2")
+                {
+                    pn = _consulta.Precio_2.Neto;
+                    pf = _consulta.Precio_2.Full;
+                    iva = _consulta.Precio_2.Iva;
+                    emp = _consulta.Precio_2.EmpaqueContenidoDescripcion;
+                }
+                if (tarifaPrecio == "3")
+                {
+                    pn = _consulta.Precio_3.Neto;
+                    pf = _consulta.Precio_3.Full;
+                    iva = _consulta.Precio_3.Iva;
+                    emp = _consulta.Precio_3.EmpaqueContenidoDescripcion;
+                }
+                if (tarifaPrecio == "4")
+                {
+                    pn = _consulta.Precio_4.Neto;
+                    pf = _consulta.Precio_4.Full;
+                    iva = _consulta.Precio_4.Iva;
+                    emp = _consulta.Precio_4.EmpaqueContenidoDescripcion;
+                }
+                if (tarifaPrecio == "5")
+                {
+                }
 
-                L_CONT_2.Text = _consulta.Precio_2.ContenidoDescripcion;
-                L_CONT_3.Text = _consulta.Precio_3.ContenidoDescripcion;
-                L_CONT_4.Text = _consulta.Precio_4.ContenidoDescripcion;
-
+                L_NETO_1.Text = pn.ToString("n2");
+                L_FULL_1.Text = pf.ToString("n2");
+                L_IVA_1.Text = iva.ToString("n2");
+                L_EMPAQUE_VENTA.Text = emp;
                 L_TASA.Text = _consulta.TasaDescripcion;
-                L_IVA_1.Text = _consulta.Precio_1.Iva.ToString("n2");
-                L_EMPAQUE_VENTA.Text = _consulta.Precio_1.EmpaqueContenidoDescripcion;
+
+                if (!_controlador.EtiquetarPrecioPorTipoNegocio)
+                {
+                    L_NETO_2.Text = _consulta.Precio_2.Neto.ToString("n2");
+                    L_NETO_3.Text = _consulta.Precio_3.Neto.ToString("n2");
+                    L_NETO_4.Text = _consulta.Precio_4.Neto.ToString("n2");
+
+                    L_FULL_2.Text = _consulta.Precio_2.Full.ToString("n2");
+                    L_FULL_3.Text = _consulta.Precio_3.Full.ToString("n2");
+                    L_FULL_4.Text = _consulta.Precio_4.Full.ToString("n2");
+
+                    L_CONT_2.Text = _consulta.Precio_2.ContenidoDescripcion;
+                    L_CONT_3.Text = _consulta.Precio_3.ContenidoDescripcion;
+                    L_CONT_4.Text = _consulta.Precio_4.ContenidoDescripcion;
+                }
 
                 L_INACTIVO.Visible = _consulta.IsInactivo;
                 P_PRODUCTO.BackColor = _consulta.IsInactivo ? Color.Red : Color.Navy;

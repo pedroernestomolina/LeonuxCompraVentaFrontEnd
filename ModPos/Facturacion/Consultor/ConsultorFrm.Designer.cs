@@ -81,7 +81,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.L_NETO_1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.TL_PRECIOS_MAYOR = new System.Windows.Forms.TableLayoutPanel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.L_CONT_4 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -128,7 +128,7 @@
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
+            this.TL_PRECIOS_MAYOR.SuspendLayout();
             this.panel25.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel23.SuspendLayout();
@@ -617,7 +617,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.83444F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.16556F));
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel8, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.TL_PRECIOS_MAYOR, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 55);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -774,36 +774,36 @@
             this.label17.TabIndex = 3;
             this.label17.Text = "Neto:";
             // 
-            // tableLayoutPanel8
+            // TL_PRECIOS_MAYOR
             // 
-            this.tableLayoutPanel8.ColumnCount = 4;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Controls.Add(this.panel25, 3, 3);
-            this.tableLayoutPanel8.Controls.Add(this.panel24, 2, 3);
-            this.tableLayoutPanel8.Controls.Add(this.panel23, 1, 3);
-            this.tableLayoutPanel8.Controls.Add(this.panel22, 3, 2);
-            this.tableLayoutPanel8.Controls.Add(this.panel21, 2, 2);
-            this.tableLayoutPanel8.Controls.Add(this.panel20, 1, 2);
-            this.tableLayoutPanel8.Controls.Add(this.panel19, 3, 1);
-            this.tableLayoutPanel8.Controls.Add(this.panel18, 2, 1);
-            this.tableLayoutPanel8.Controls.Add(this.panel16, 3, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel15, 2, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel14, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel13, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.panel17, 1, 1);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 4;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(597, 156);
-            this.tableLayoutPanel8.TabIndex = 1;
+            this.TL_PRECIOS_MAYOR.ColumnCount = 4;
+            this.TL_PRECIOS_MAYOR.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TL_PRECIOS_MAYOR.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TL_PRECIOS_MAYOR.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TL_PRECIOS_MAYOR.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel25, 3, 3);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel24, 2, 3);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel23, 1, 3);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel22, 3, 2);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel21, 2, 2);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel20, 1, 2);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel19, 3, 1);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel18, 2, 1);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel16, 3, 0);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel15, 2, 0);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel14, 0, 0);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel13, 1, 0);
+            this.TL_PRECIOS_MAYOR.Controls.Add(this.panel17, 1, 1);
+            this.TL_PRECIOS_MAYOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TL_PRECIOS_MAYOR.Location = new System.Drawing.Point(3, 3);
+            this.TL_PRECIOS_MAYOR.Name = "TL_PRECIOS_MAYOR";
+            this.TL_PRECIOS_MAYOR.RowCount = 4;
+            this.TL_PRECIOS_MAYOR.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TL_PRECIOS_MAYOR.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TL_PRECIOS_MAYOR.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TL_PRECIOS_MAYOR.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TL_PRECIOS_MAYOR.Size = new System.Drawing.Size(597, 156);
+            this.TL_PRECIOS_MAYOR.TabIndex = 1;
             // 
             // panel25
             // 
@@ -1035,7 +1035,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel8.SetRowSpan(this.panel14, 4);
+            this.TL_PRECIOS_MAYOR.SetRowSpan(this.panel14, 4);
             this.panel14.Size = new System.Drawing.Size(147, 154);
             this.panel14.TabIndex = 1;
             // 
@@ -1138,7 +1138,7 @@
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.tableLayoutPanel8.ResumeLayout(false);
+            this.TL_PRECIOS_MAYOR.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
@@ -1204,7 +1204,7 @@
         private System.Windows.Forms.Label L_TASA;
         private System.Windows.Forms.Label L_REFERENCIA;
         private System.Windows.Forms.Label L_MODELO;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel TL_PRECIOS_MAYOR;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel13;

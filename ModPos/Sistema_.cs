@@ -21,7 +21,7 @@ namespace ModPos
         private string _bdLocal;
 
 
-        public string InformacionBD { get { return _bdRemota + Environment.NewLine + _bdLocal; } }
+        public string InformacionBD { get { return "Ruta: "+_bdRemota + Environment.NewLine + _bdLocal; } }
 
 
         public Sistema_()
@@ -162,8 +162,18 @@ namespace ModPos
             }
         }
 
+        public void ConfigurarPermisos() 
+        {
+        }
+
         public void ImportarDataDelServidor() 
         {
+            if (Sistema.MyOperador != null) 
+            {
+                Helpers.Msg.Error("HAY UN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
+                return;
+            }
+
             var msg = MessageBox.Show("Importar Data Del Servidor ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == System.Windows.Forms.DialogResult.Yes)
             {
@@ -334,6 +344,18 @@ namespace ModPos
         {
             if (Sistema.MyOperador != null)
             {
+                var r00 = Sistema.MyData2.Pendiente_HayCuentasporProcesar();
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (r00.Entidad)
+                {
+                    Helpers.Msg.Error("HAY CUENTAS PENDIENTES POR PROCESAR, VERIFIQUE POR FAVOR");
+                    return;
+                }
+
                 var msg = MessageBox.Show("Estas Seguro De Cerrar Este Operador ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == System.Windows.Forms.DialogResult.No)
                 {

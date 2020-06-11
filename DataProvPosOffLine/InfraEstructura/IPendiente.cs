@@ -15,6 +15,7 @@ namespace DataProvPosOffLine.InfraEstructura
         OOB.ResultadoLista<OOB.LibVenta.PosOffline.Pendiente.Ficha> Pendiente_Lista();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Pendiente.CtaAbrir.Ficha> Pendiente_AbrirCta(int id);
         OOB.Resultado Pendiente_EliminarCta(int id);
+        OOB.ResultadoEntidad<bool> Pendiente_HayCuentasporProcesar();
 
     }
 

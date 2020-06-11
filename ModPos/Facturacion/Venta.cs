@@ -43,7 +43,9 @@ namespace ModPos.Facturacion
         public string SerieFactura { get; set; }
         public string SerieNotaCredito { get; set; }
         public string SerieNotaDebito { get; set; }
+        public string SerieNotaEntrega { get; set; }
         public string CodigoSucursal { get; set; }
+        public string TarifaPrecio { get; set; }
 
         public decimal MontoNacional 
         {
@@ -491,6 +493,7 @@ namespace ModPos.Facturacion
             SerieFactura = r05.Entidad.ParaFactura;
             SerieNotaCredito = r05.Entidad.ParaNotaCredito;
             SerieNotaDebito = r05.Entidad.ParaNotaDebito;
+            SerieNotaEntrega = r05.Entidad.ParaNotaEnrega;
 
             var r06 = Sistema.MyData2.Configuracion_Sucursal();
             if (r06.Result == OOB.Enumerados.EnumResult.isError)
@@ -572,6 +575,24 @@ namespace ModPos.Facturacion
             }
             setPermiso(r0e.Entidad);
             setUsuario(Sistema.Usuario);
+
+            var r0g = Sistema.MyData2.Configuracion_TarifaPrecio();
+            if (r0g.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0g.Mensaje);
+                return false;
+            }
+            TarifaPrecio = r0g.Entidad;
+            _ctrItem.setTarifaPrecio(TarifaPrecio);
+            _ctrConsultar.setTarifaPrecio(TarifaPrecio);
+
+            var r0h = Sistema.MyData2.Configuracion_EtiquetarPrecioPorTipoNegocio();
+            if (r0h.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0h.Mensaje);
+                return false;
+            }
+            _ctrConsultar.setEtiquetarPrecioPorTipoNegocio(r0h.Entidad);
 
             _documentoVenta = null;
             if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 

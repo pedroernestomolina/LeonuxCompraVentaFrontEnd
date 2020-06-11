@@ -89,6 +89,7 @@ namespace DataProvPosOffLine.Data
                 ParaFactura = e.ParaFactura,
                 ParaNotaCredito = e.ParaNotaCredito,
                 ParaNotaDebito = e.ParaNotaDebito,
+                ParaNotaEnrega=e.ParaNotaEntrega,
             };
             rt.Entidad = nr;
             return rt;
@@ -284,7 +285,6 @@ namespace DataProvPosOffLine.Data
                 ActivarBusquedaPorDescripcion=ficha.ActivarBusquedaPorDescripcion,
                 ActivarRepesaje=ficha.ActivarRepesaje,
                 AutoCobrador=ficha.AutoCobrador,
-                AutoDeposito=ficha.AutoDeposito,
                 AutoMedioDivisa=ficha.AutoMedioDivisa,
                 AutoMedioEfectivo=ficha.AutoMedioEfectivo,
                 AutoMedioElectronico=ficha.AutoMedioElectronico,
@@ -292,12 +292,12 @@ namespace DataProvPosOffLine.Data
                 AutoTransporte=ficha.AutoTransporte,
                 AutoVendedor=ficha.AutoVendedor,
                 ClavePos=ficha.ClavePos,
-                CodigoSucursal=ficha.CodigoSucursal,
                 LimiteInferiorRepesaje=ficha.LimiteInferiorRepesaje,
                 LimiteSuperiorRepesaje=ficha.LimiteSuperiorRepesaje,
                 SerieFactura=ficha.SerieFactura,
                 SerieNotaCredito=ficha.SerieNotaCredito,
                 SerieNotaDebito=ficha.SerieNotaDebito,
+                SerieNotaEntrega = ficha.SerieNotaEntrega,
             };
             var r01 = MyData.Configuracion_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -336,14 +336,49 @@ namespace DataProvPosOffLine.Data
                 AutoTransporte = e.AutoTransporte,
                 AutoVendedor = e.AutoVendedor,
                 ClavePos = e.ClavePos,
+                TarifaPrecio=e.TarifaPrecio,
+                EtiquetarPrecioPorTipoNegocio=e.EtiquetarPrecioPorTipoNegocio,
                 CodigoSucursal = e.CodigoSucursal,
                 LimiteInferiorRepesaje = e.LimiteInferiorRepesaje,
                 LimiteSuperiorRepesaje = e.LimiteSuperiorRepesaje,
                 SerieFactura = e.SerieFactura,
                 SerieNotaCredito = e.SerieNotaCredito,
                 SerieNotaDebito = e.SerieNotaDebito,
+                SerieNotaEntrega = e.SerieNotaEntrega,
             };
             rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<string> Configuracion_TarifaPrecio()
+        {
+            var rt = new OOB.ResultadoEntidad<string>();
+
+            var r01 = MyData.Configuracion_TarifaPrecio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<bool> Configuracion_EtiquetarPrecioPorTipoNegocio()
+        {
+            var rt = new OOB.ResultadoEntidad<bool>();
+
+            var r01 = MyData.Configuracion_EtiquetarPrecioPorTipoNegocio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad;
 
             return rt;
         }

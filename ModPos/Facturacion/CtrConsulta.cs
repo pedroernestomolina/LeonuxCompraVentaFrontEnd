@@ -13,7 +13,12 @@ namespace ModPos.Facturacion
 
 
         private CtrlBuscar _ctrBuscar;
+        private string _tarifaPrecio;
+        private bool _etiquetarPrecioPorTipoNegocio; 
         public Consultor.Consulta Ficha { get; set; }
+
+        public string TarifaPrecio { get { return _tarifaPrecio; } }
+        public bool EtiquetarPrecioPorTipoNegocio { get { return _etiquetarPrecioPorTipoNegocio; } }
 
 
         public CtrConsulta(CtrlBuscar buscar)
@@ -36,6 +41,16 @@ namespace ModPos.Facturacion
             {
                 Ficha.setEntidad(_ctrBuscar.Producto);
             };
+        }
+
+        public void setTarifaPrecio(string tarifa) 
+        {
+            _tarifaPrecio = tarifa;
+        }
+
+        public void setEtiquetarPrecioPorTipoNegocio(bool etiquetarPrecio) 
+        {
+            _etiquetarPrecioPorTipoNegocio = etiquetarPrecio;
         }
 
     }

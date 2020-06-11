@@ -33,6 +33,7 @@ namespace ModPos.Facturacion
         {
             var rt = false;
 
+            
             var r01 = Sistema.MyData2.Producto_BuscarPorCodigoBarraPlu(codigo);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {

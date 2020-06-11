@@ -12,6 +12,9 @@ namespace DataProvPosOffLine.InfraEstructura
     {
 
         OOB.ResultadoEntidad<decimal> Configuracion_FactorCambio();
+        OOB.ResultadoEntidad<string> Configuracion_TarifaPrecio();
+        OOB.ResultadoEntidad<bool > Configuracion_EtiquetarPrecioPorTipoNegocio();
+
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.ModoPos.Ficha> Configuracion_ModoPos();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.Repesaje.Ficha> Configuracion_Repesaje();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.Serie.Ficha> Configuracion_Serie();

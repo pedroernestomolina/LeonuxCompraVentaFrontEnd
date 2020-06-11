@@ -38,7 +38,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Archivo_Salida = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.permisosUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Configuracion_Permisos = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Configuracion_Sistema = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Herramientas_TestBD = new System.Windows.Forms.ToolStripMenuItem();
@@ -222,17 +222,18 @@
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.permisosUsuarioToolStripMenuItem,
+            this.MenuItem_Configuracion_Permisos,
             this.MenuItem_Configuracion_Sistema});
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuracionToolStripMenuItem.Text = "Configuración";
             // 
-            // permisosUsuarioToolStripMenuItem
+            // MenuItem_Configuracion_Permisos
             // 
-            this.permisosUsuarioToolStripMenuItem.Name = "permisosUsuarioToolStripMenuItem";
-            this.permisosUsuarioToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.permisosUsuarioToolStripMenuItem.Text = "Permisos Usuario";
+            this.MenuItem_Configuracion_Permisos.Name = "MenuItem_Configuracion_Permisos";
+            this.MenuItem_Configuracion_Permisos.Size = new System.Drawing.Size(165, 22);
+            this.MenuItem_Configuracion_Permisos.Text = "Permisos Usuario";
+            this.MenuItem_Configuracion_Permisos.Click += new System.EventHandler(this.MenuItem_Configuracion_Permisos_Click);
             // 
             // MenuItem_Configuracion_Sistema
             // 
@@ -863,7 +864,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Archivo_Salida;
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem permisosUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Configuracion_Permisos;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Configuracion_Sistema;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

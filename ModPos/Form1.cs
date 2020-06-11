@@ -199,6 +199,16 @@ namespace ModPos
             _controlador = _ctr;
         }
 
+        private void MenuItem_Configuracion_Permisos_Click(object sender, EventArgs e)
+        {
+            PermisosConfiguracion();
+        }
+
+        private void PermisosConfiguracion()
+        {
+            _controlador.ConfigurarPermisos();
+        }
+
     }
 
 }

@@ -368,7 +368,16 @@ namespace ModPos.Facturacion
                 }
                 precio = _prd.Precio_4;
             }
-
+            if (_tarifaPrecio == "5")
+            {
+                if (_prd.Precio_5.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.Precio_5;
+            }
 
             if (_prd.IsPreEmpaque)
             {

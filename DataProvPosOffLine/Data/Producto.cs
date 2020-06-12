@@ -107,6 +107,14 @@ namespace DataProvPosOffLine.Data
                 PrecioNeto = prd.Precio_4.Neto,
                 DescEmpVenta = prd.Precio_4.Empaque,
             };
+            var pv5 = new OOB.LibVenta.PosOffline.Precio.Ficha()
+            {
+                Id = "5",
+                ContEmpVenta = prd.Precio_5.Contenido,
+                Decimales = prd.Precio_5.Decimales,
+                PrecioNeto = prd.Precio_5.Neto,
+                DescEmpVenta = prd.Precio_5.Empaque,
+            };
             var nr= new OOB.LibVenta.PosOffline.Producto.Ficha()
             {
                  Auto= prd.Auto,
@@ -157,7 +165,8 @@ namespace DataProvPosOffLine.Data
             nr.Precio_2=pv2;
             nr.Precio_3=pv3;
             nr.Precio_4=pv4;
-            rt.Entidad=nr;
+            nr.Precio_5=pv5;
+            rt.Entidad = nr;
 
             return rt;
         }

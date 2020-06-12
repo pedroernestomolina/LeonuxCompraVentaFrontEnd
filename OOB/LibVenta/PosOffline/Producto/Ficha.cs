@@ -60,6 +60,7 @@ namespace OOB.LibVenta.PosOffline.Producto
         public OOB.LibVenta.PosOffline.Precio.Ficha Precio_2 { get; set; }
         public OOB.LibVenta.PosOffline.Precio.Ficha Precio_3 { get; set; }
         public OOB.LibVenta.PosOffline.Precio.Ficha Precio_4 { get; set; }
+        public OOB.LibVenta.PosOffline.Precio.Ficha Precio_5 { get; set; }
 
 
         public bool IsOfertaActiva
@@ -184,6 +185,7 @@ namespace OOB.LibVenta.PosOffline.Producto
             Precio_2 = new Precio.Ficha();
             Precio_3 = new Precio.Ficha();
             Precio_4 = new Precio.Ficha();
+            Precio_5 = new Precio.Ficha();
         }
 
 
@@ -237,9 +239,8 @@ namespace OOB.LibVenta.PosOffline.Producto
             Precio_2.Limpiar();
             Precio_3.Limpiar();
             Precio_4.Limpiar();
+            Precio_5.Limpiar();
         }
-
-
 
     }
 

@@ -16,6 +16,7 @@ namespace DataProvPosOffLine.InfraEstructura
         void setServidorRemoto(string instancia, string basedatos);
         OOB.ResultadoEntidad<DateTime> FechaServidor();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Sistema.InformacionBD.Ficha> InformacionBD();
+        OOB.Resultado Inicializar_BdLocal();
 
     }
 

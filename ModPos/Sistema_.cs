@@ -17,11 +17,13 @@ namespace ModPos
         private ClaveSeguridad.Seguridad _seguridad;
         private Facturacion.Venta _venta;
         private Fiscal.CtrFiscal _fiscal;
+        private Permisos.CtrPermiso _permisos;
+        private List<OOB.LibVenta.PosOffline.Permiso.Actual.Permiso> _litsActualPermisos; 
         private string _bdRemota;
         private string _bdLocal;
 
 
-        public string InformacionBD { get { return "Ruta: "+_bdRemota + Environment.NewLine + _bdLocal; } }
+        public string InformacionBD { get { return "Ruta Remota: "+_bdRemota + Environment.NewLine + "Ruta Local: "+_bdLocal; } }
 
 
         public Sistema_()
@@ -32,6 +34,7 @@ namespace ModPos
             _administrador = new AdministradorDoc.Administrador(_seguridad);
             _venta = new Facturacion.Venta(_seguridad);
             _fiscal = new Fiscal.CtrFiscal();
+            _permisos = new Permisos.CtrPermiso();
         }
 
         public bool CargarData() 
@@ -85,6 +88,14 @@ namespace ModPos
                 }
             }
 
+            var r05 = Sistema.MyData2.Permiso_CargarListaActual ();
+            if (r05.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r05.Mensaje);
+                return false;
+            }
+            _litsActualPermisos = r05.Entidad.Permisos;
+
             return rt;
         }
 
@@ -117,7 +128,7 @@ namespace ModPos
         {
             if (Sistema.Usuario.IsInvitado)
             {
-                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA USUARIO [ INVITADO]");
+                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
                 return;
             }
 
@@ -164,10 +175,46 @@ namespace ModPos
 
         public void ConfigurarPermisos() 
         {
+            if (!Sistema.Usuario.IsInvitado)
+            {
+                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
+                return;
+            }
+
+            _permisos.Configurar();
+        }
+
+        public bool VerificarPermiso(int modulo, string codigo) 
+        {
+            var rt = true;
+
+            if (!Sistema.Usuario.IsInvitado)
+            {
+                var permiso = _litsActualPermisos.FirstOrDefault(f => f.Modulo == modulo  && f.CodigoFuncion == codigo);
+                if (permiso != null)
+                {
+                    if (permiso.RequiereClave)
+                    {
+                        rt = _seguridad.SolicitarClave();
+                    }
+                }
+                else
+                {
+                    rt=false ;
+                }
+            }
+
+            return rt;
         }
 
         public void ImportarDataDelServidor() 
         {
+            var r = VerificarPermiso(1, "01");
+            if (!r)
+            {
+                return;
+            }
+
             if (Sistema.MyOperador != null) 
             {
                 Helpers.Msg.Error("HAY UN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
@@ -218,11 +265,23 @@ namespace ModPos
 
         public void FiscalActivar() 
         {
+            var r = VerificarPermiso(1, "07");
+            if (!r)
+            {
+                return;
+            }
+
             _fiscal.Activar();
         }
 
         public void AbrirJornada() 
         {
+            var r = VerificarPermiso(1, "03");
+            if (!r)
+            {
+                return;
+            }
+
             if (Sistema.MyJornada == null)
             {
                 var ficha = new OOB.LibVenta.PosOffline.Jornada.Abrir.Ficha()
@@ -255,6 +314,12 @@ namespace ModPos
 
         public void CerrarJornada() 
         {
+            var r = VerificarPermiso(1, "04");
+            if (!r)
+            {
+                return;
+            }
+
             if (Sistema.MyJornada != null)
             {
                 if (Sistema.MyOperador != null)
@@ -293,9 +358,15 @@ namespace ModPos
 
         public void AbrirOperador() 
         {
+            var r = VerificarPermiso(1, "05");
+            if (!r)
+            {
+                return;
+            }
+
             if (Sistema.Usuario.IsInvitado) 
             {
-                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA USUARIO [ INVITADO]");
+                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
                 return;
             }
 
@@ -342,6 +413,12 @@ namespace ModPos
 
         public void CerrarOperador() 
         {
+            var r = VerificarPermiso(1, "06");
+            if (!r)
+            {
+                return;
+            }
+
             if (Sistema.MyOperador != null)
             {
                 var r00 = Sistema.MyData2.Pendiente_HayCuentasporProcesar();
@@ -384,8 +461,37 @@ namespace ModPos
             }
         }
 
+        public void InicializarBDLocal() 
+        {
+            if (!Sistema.Usuario.IsInvitado)
+            {
+                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
+                return;
+            }
+            if (_seguridad.SolicitarClaveSeguridad()) 
+            {
+                var msg = MessageBox.Show("Estas Seguro De Limpiar BD Local ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (msg == System.Windows.Forms.DialogResult.Yes)
+                {
+                    var r01 = Sistema.MyData2.Inicializar_BdLocal();
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+
+                    Helpers.Msg.OK("PROCESO REALIZADO CON EXITO !!!");
+                }
+            }
+        }
+
         public void EniviarDataAlServidor() 
         {
+            var r = VerificarPermiso(1, "02");
+            if (!r)
+            {
+                return;
+            }
 
             var r01 = Sistema.MyData2.Servidor_PrepararData();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)

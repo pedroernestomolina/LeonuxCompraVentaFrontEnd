@@ -59,9 +59,9 @@
     <Compile Include="LibVenta\PosOffline\Configuracion\Vendedor\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Deposito\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Fiscal\Ficha.cs" />
-    <Compile Include="LibVenta\PosOffline\Fiscal\Item\Actualizar.cs" />
-    <Compile Include="LibVenta\PosOffline\Fiscal\Item\Agregar.cs" />
-    <Compile Include="LibVenta\PosOffline\Fiscal\Item\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Item\Actualizar.cs" />
+    <Compile Include="LibVenta\PosOffline\Item\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\Item\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Jornada\Abrir\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Jornada\Cargar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Jornada\Cerrar\Ficha.cs" />
@@ -75,6 +75,10 @@
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\Agregar.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\AgregarItem.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Actualizar\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Actualizar\Permiso.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Actual\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Permiso\Actual\Permiso.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\AdmDocumento\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\Enumerados.cs" />
     <Compile Include="LibVenta\PosOffline\Permiso\Ficha.cs" />

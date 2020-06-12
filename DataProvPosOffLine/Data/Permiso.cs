@@ -62,6 +62,73 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Permiso.Actual.Ficha> Permiso_CargarListaActual()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Permiso.Actual.Ficha>();
+
+            var r01 = MyData.Permiso_ActualCargar();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var nr = new OOB.LibVenta.PosOffline.Permiso.Actual.Ficha();
+            var lt = new List<OOB.LibVenta.PosOffline.Permiso.Actual.Permiso>();
+            if (r01.Entidad != null) 
+            {
+                if (r01.Entidad.Permisos != null) 
+                {
+                    if (r01.Entidad.Permisos.Count > 0) 
+                    {
+                        lt = r01.Entidad.Permisos.Select(s =>
+                        {
+                            var rg = new OOB.LibVenta.PosOffline.Permiso.Actual.Permiso()
+                            {
+                                CodigoFuncion = s.CodigoFuncion,
+                                Descripcion = s.Descripcion,
+                                Id = s.Id,
+                                Modulo = s.Modulo,
+                                RequiereClave = s.RequiereClave,
+                            };
+                            return rg;
+                        }).ToList();
+                    }
+                }
+            }
+            nr.Permisos = lt;
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.Resultado Permiso_Actualizar(OOB.LibVenta.PosOffline.Permiso.Actualizar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibPosOffLine.Permiso.Actualizar.Ficha();
+            fichaDTO.Permisos = ficha.Cambios.Select(s =>
+            {
+                var nr = new DtoLibPosOffLine.Permiso.Actualizar.Permiso()
+                {
+                    Id = s.Id,
+                    RequiereClave = s.RequiereClave,
+                };
+                return nr;
+            }).ToList();
+
+            var r01 = MyData.Permiso_Actualizar (fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

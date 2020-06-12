@@ -64,6 +64,21 @@ namespace DataProvPosOffLine.Data
             return result;
         }
 
+        public OOB.Resultado Inicializar_BdLocal()
+        {
+            var result = new OOB.Resultado();
+
+            var r01 = MyData.Inicializar_BdLocal ();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
     }
 
 }

@@ -788,7 +788,7 @@ namespace ModPos.Facturacion
                     if (it != null)
                     {
                         var seguir = true;
-                        if (_permisos.Multiplicar.RequiereClave)
+                        if (_permisos.Restar.RequiereClave)
                         {
                             seguir = _seguridad.SolicitarClave();
                         }

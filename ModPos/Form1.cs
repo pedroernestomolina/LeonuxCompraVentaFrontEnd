@@ -209,6 +209,16 @@ namespace ModPos
             _controlador.ConfigurarPermisos();
         }
 
+        private void MenuItem_Herramientas_Limpiar_BD_Local_Click(object sender, EventArgs e)
+        {
+            LimpiarBD_Local();
+        }
+
+        private void LimpiarBD_Local()
+        {
+            _controlador.InicializarBDLocal();
+        }
+
     }
 
 }

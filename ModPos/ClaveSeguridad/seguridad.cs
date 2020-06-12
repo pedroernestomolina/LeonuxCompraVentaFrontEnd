@@ -46,6 +46,35 @@ namespace ModPos.ClaveSeguridad
             return rt;
         }
 
+        public bool SolicitarClaveSeguridad()
+        {
+            var rt = false;
+
+            Helpers.Sonido.ClvaeAcceso();
+            var frm = new SeguridadFrm();
+            frm.ShowDialog();
+            var clv = frm.Clave.Trim().ToUpper();
+            if (clv != "")
+            {
+                var claveSeguridad = "71277128";
+                if (clv == claveSeguridad)
+                {
+                    rt = true;
+                }
+                else
+                {
+                    Helpers.Msg.Error("CLAVE INCORRECTA !!!");
+                }
+            }
+            else
+            {
+                Helpers.Msg.Error("CLAVE INCORRECTA !!!");
+            }
+
+            return rt;
+        }
+
+
     }
 
 }

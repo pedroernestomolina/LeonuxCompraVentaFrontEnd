@@ -88,6 +88,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BT_ACTUALIZAR_DATA = new System.Windows.Forms.Button();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuItem_Herramientas_Limpiar_BD_Local = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -246,7 +248,9 @@
             // 
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItem_Herramientas_TestBD,
-            this.testFiscalToolStripMenuItem});
+            this.testFiscalToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.MenuItem_Herramientas_Limpiar_BD_Local});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
@@ -808,6 +812,18 @@
             this.BT_ACTUALIZAR_DATA.UseVisualStyleBackColor = true;
             this.BT_ACTUALIZAR_DATA.Click += new System.EventHandler(this.BT_ACTUALIZAR_DATA_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 6);
+            // 
+            // MenuItem_Herramientas_Limpiar_BD_Local
+            // 
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Name = "MenuItem_Herramientas_Limpiar_BD_Local";
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Size = new System.Drawing.Size(167, 22);
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Text = "Limpiar BD Local";
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Click += new System.EventHandler(this.MenuItem_Herramientas_Limpiar_BD_Local_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -919,6 +935,8 @@
         private System.Windows.Forms.Label L_BD_INF;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Button BT_SALIDA;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Herramientas_Limpiar_BD_Local;
     }
 }
 

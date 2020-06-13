@@ -27,6 +27,7 @@ namespace ModPos.Facturacion.Consultor
         public Precio Precio_2 { get; set; }
         public Precio Precio_3 { get; set; }
         public Precio Precio_4 { get; set; }
+        public Precio Precio_5 { get; set; }
 
         public string TasaDescripcion 
         {
@@ -44,15 +45,28 @@ namespace ModPos.Facturacion.Consultor
 
         public Consulta() 
         {
+            CodigoPrd = "";
+            CodigoPlu = "";
+            CodigoBarra = "";
+            NombrePrd = "";
+            Departamento = "";
+            Grupo = "";
+            Marca = "";
+            Modelo = "";
+            Pasillo = "";
+            Tasa = 0.0m;
+            Referencia = "";
+            IsInactivo = false; 
+
             Precio_1 = new Precio();
             Precio_2 = new Precio();
             Precio_3 = new Precio();
             Precio_4 = new Precio();
+            Precio_5 = new Precio();
         }
 
         public void setEntidad(OOB.LibVenta.PosOffline.Producto.Ficha ficha) 
         {
-
             CodigoPrd=ficha.CodigoPrd; 
             CodigoPlu = ficha.CodigoPlu; 
             CodigoBarra = ficha.CodigoBarra; 
@@ -69,6 +83,7 @@ namespace ModPos.Facturacion.Consultor
             Precio_2 .setEntidad (ficha.Precio_2, Tasa);
             Precio_3.setEntidad (ficha.Precio_3, Tasa);
             Precio_4.setEntidad (ficha.Precio_4, Tasa);
+            Precio_5.setEntidad(ficha.Precio_5, Tasa);
         }
 
         public void Limpiar() 
@@ -90,6 +105,7 @@ namespace ModPos.Facturacion.Consultor
             Precio_2.Limpiar();
             Precio_3.Limpiar();
             Precio_4.Limpiar();
+            Precio_5.Limpiar();
         }
 
     }

@@ -51,15 +51,18 @@ namespace ModPos.Facturacion.Consultor
             L_NETO_2.Text = "0.00";
             L_NETO_3.Text = "0.00";
             L_NETO_4.Text = "0.00";
+            L_NETO_5.Text = "0.00";
             L_FULL_1.Text = "0.00";
             L_FULL_2.Text = "0.00";
             L_FULL_3.Text = "0.00";
             L_FULL_4.Text = "0.00";
+            L_FULL_5.Text = "0.00";
             L_TASA.Text = "";
             L_IVA_1.Text = "0.00";
             L_CONT_2.Text = "";
             L_CONT_3.Text = "";
             L_CONT_4.Text = "";
+            L_CONT_5.Text = "";
         }
 
         private void TB_BUSCAR_KeyDown(object sender, KeyEventArgs e)
@@ -129,6 +132,10 @@ namespace ModPos.Facturacion.Consultor
                 }
                 if (tarifaPrecio == "5")
                 {
+                    pn = _consulta.Precio_5.Neto;
+                    pf = _consulta.Precio_5.Full;
+                    iva = _consulta.Precio_5.Iva;
+                    emp = _consulta.Precio_5.EmpaqueContenidoDescripcion;
                 }
 
                 L_NETO_1.Text = pn.ToString("n2");
@@ -142,14 +149,17 @@ namespace ModPos.Facturacion.Consultor
                     L_NETO_2.Text = _consulta.Precio_2.Neto.ToString("n2");
                     L_NETO_3.Text = _consulta.Precio_3.Neto.ToString("n2");
                     L_NETO_4.Text = _consulta.Precio_4.Neto.ToString("n2");
+                    L_NETO_5.Text = _consulta.Precio_5.Neto.ToString("n2");
 
                     L_FULL_2.Text = _consulta.Precio_2.Full.ToString("n2");
                     L_FULL_3.Text = _consulta.Precio_3.Full.ToString("n2");
                     L_FULL_4.Text = _consulta.Precio_4.Full.ToString("n2");
+                    L_FULL_5.Text = _consulta.Precio_5.Full.ToString("n2");
 
                     L_CONT_2.Text = _consulta.Precio_2.ContenidoDescripcion;
                     L_CONT_3.Text = _consulta.Precio_3.ContenidoDescripcion;
                     L_CONT_4.Text = _consulta.Precio_4.ContenidoDescripcion;
+                    L_CONT_5.Text = _consulta.Precio_5.ContenidoDescripcion;
                 }
 
                 L_INACTIVO.Visible = _consulta.IsInactivo;

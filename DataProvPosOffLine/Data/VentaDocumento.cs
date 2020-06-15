@@ -18,11 +18,11 @@ namespace DataProvPosOffLine.Data
 
             var agregarDTO = new DtoLibPosOffLine.VentaDocumento.Agregar()
             {
-                IdJornada=ficha.IdJornada,
-                IdOperador=ficha.IdOperador,
+                IdJornada = ficha.IdJornada,
+                IdOperador = ficha.IdOperador,
                 Aplica = ficha.Aplica,
                 AutoUsuario = ficha.AutoUsuario,
-                ClienteId=ficha.ClienteId,
+                ClienteId = ficha.ClienteId,
                 ClienteCiRif = ficha.ClienteCiRif,
                 ClienteDirFiscal = ficha.ClienteDirFiscal,
                 ClienteNombreRazonSocial = ficha.ClienteNombreRazonSocial,
@@ -80,8 +80,16 @@ namespace DataProvPosOffLine.Data
                 NombreTransporte = ficha.NombreTransporte,
                 MontoRecibido = ficha.MontoRecibido,
                 CambioDar = ficha.CambioDar,
-                IsCredito=ficha.IsCredito,
-                HoraEmision= DateTime.Now.ToShortTimeString(),
+                IsCredito = ficha.IsCredito,
+                HoraEmision = DateTime.Now.ToShortTimeString(),
+                Tarifa = ficha.Tarifa,
+                SaldoPendiente = ficha.SaldoPendiente,
+                AutoConceptoVenta = ficha.AutoConceptoVenta,
+                CodigoConceptoVenta = ficha.CodigoConceptoVenta,
+                NombreConceptoVenta = ficha.NombreConceptoVenta,
+                AutoConceptoDevVenta = ficha.AutoConceptoDevVenta,
+                CodigoConceptoDevVenta = ficha.CodigoConceptoDevVenta,
+                NombreConceptoDevVenta = ficha.NombreConceptoDevVenta,
             };
 
             var agregarItemDto = ficha.Items.Select(s =>
@@ -98,7 +106,7 @@ namespace DataProvPosOffLine.Data
                     Categoria=s.Categoria,
                     CodigoPrd=s.CodigoPrd,
                     CostoCompraUnd=s.CostoCompraUnd,
-                    CostoPromedioUnd=s.CostoCompraUnd,
+                    CostoPromedioUnd=s.CostoPromedioUnd,
                     CostoVenta=s.CostoVenta,
                     Decimales=s.Decimales,
                     DiasEmpaqueGarantia=s.DiasEmpaqueGarantia,
@@ -108,8 +116,8 @@ namespace DataProvPosOffLine.Data
                     MontoDscto_1=s.MontoDscto_1,
                     MontoDscto_2=s.MontoDscto_2,
                     MontoDscto_3=s.MontoDscto_3,
-                    MontoIva=s.MontoIva,
-                    MontoUtilidad=s.MontoUtilidad,
+                    MontoIva = s.MontoIva,
+                    MontoUtilidad = s.MontoUtilidad,
                     NombrePrd=s.NombrePrd,
                     Notas=s.Notas,
                     PorcDscto_1=s.PorcDscto_1,
@@ -128,6 +136,8 @@ namespace DataProvPosOffLine.Data
                     TotalDescuento=s.TotalDescuento,
                     EsPesado=s.EsPesado?1:0,
                     TipoIva=s.TipoIva,
+                    CostoCompra=s.CostoCompra,
+                    CostoPromedio=s.CostoPromedio,
                 };
 
                 return t;
@@ -315,6 +325,14 @@ namespace DataProvPosOffLine.Data
                 VendedorAuto = s.VendedorAuto,
                 VendedorCodigo = s.VendedorCodigo,
                 VendedorNombre = s.VendedorNombre,
+                Tarifa = s.Tarifa,
+                SaldoPendiente = s.SaldoPendiente,
+                AutoConceptoVenta = s.AutoConceptoVenta,
+                CodigoConceptoVenta = s.CodigoConceptoVenta,
+                NombreConceptoVenta = s.NombreConceptoVenta,
+                AutoConceptoDevVenta = s.AutoConceptoDevVenta,
+                NombreConceptoDevVenta = s.NombreConceptoDevVenta,
+                CodigoConceptoDevVenta = s.CodigoConceptoDevVenta,
             };
             var det = d.Select(t =>
             {
@@ -361,6 +379,8 @@ namespace DataProvPosOffLine.Data
                     EmpaqueCodigo = t.EmpaqueCodigo,
                     EsPesado = t.EsPesado,
                     TipoIva = t.TipoIva,
+                    CostoCompra=t.CostoCompra,
+                    CostoPromedio=t.CostoPromedio,
                 };
                 return dt;
             }).ToList();

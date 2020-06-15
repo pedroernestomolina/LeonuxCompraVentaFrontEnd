@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
 {
     
-    public class Venta
+    public class Documento
     {
 
-        public string Documento { get; set; }
+        public string DocumentoNro { get; set; }
         public DateTime Fecha { get; set; }
         public DateTime FechaVencimiento { get; set; }
         public string RazonSocial { get; set; }
@@ -114,10 +114,16 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
         public DateTime FechaRetencion { get; set; }
         public string EstatusCierreContable { get; set; }
 
+        public List<DocumentoDetalle> Detalles { get; set; }
+        public List<ProductoKardex> MovKardex { get; set; }
+        public List<ProductoDeposito> ActDeposito { get; set; }
+        public CxC DocCxC { get; set; }
+        public CxCPago DocPago { get; set; }
 
-        public Venta()
+
+        public Documento()
         {
-            Documento = "";
+            DocumentoNro = "";
             Fecha = DateTime.Now.Date;
             FechaVencimiento = DateTime.Now.Date;
             RazonSocial = "";
@@ -164,7 +170,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
             FactorCambio = 0.0m;
             CodigoVendedor = "";
             Vendedor = "";
-            AutoVendedor = "";
+            AutoVendedor = "0000000001";
             FechaPedido = DateTime.Now.Date;
             Pedido = "";
             CondicionPago = "";
@@ -185,7 +191,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
             AnoRelacion = "";
             ComprobanteRetencionIslr = "";
             DiasValidez = 0;
-            AutoUsuario = "";
+            AutoUsuario = "0000000001";
             AutoTransporte = "";
             Situacion = "Procesado";
             Signo = 1;
@@ -219,6 +225,11 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
             Cierre = "";
             FechaRetencion = DateTime.Now.Date;
             EstatusCierreContable = "0";
+
+            DocCxC = new CxC();
+            Detalles = new List<DocumentoDetalle>();
+            MovKardex = new List<ProductoKardex>();
+            ActDeposito = new List<ProductoDeposito>();
         }
 
     }

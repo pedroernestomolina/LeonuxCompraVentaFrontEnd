@@ -428,6 +428,8 @@ namespace ModPos.Facturacion
                 DiasEmpaqueGarantia = _prd.DiasEmpaqueGarantia,
                 TarifaPrecio = precio.Id,
                 PrecioSugerido = _prd.PrecioSugerido,
+                CostoCompra=_prd.Costo,
+                CostoPromedio=_prd.CostoPromedio,
             };
             Insertar(nr);
         }
@@ -467,6 +469,8 @@ namespace ModPos.Facturacion
                     DiasEmpaqueGarantia = _prd.DiasEmpaqueGarantia,
                     TarifaPrecio = precio.Id,
                     PrecioSugerido = _prd.PrecioSugerido,
+                    CostoCompra = _prd.Costo,
+                    CostoPromedio = _prd.CostoPromedio,
                 };
                 Insertar(nr);
             }
@@ -530,6 +534,8 @@ namespace ModPos.Facturacion
                 DiasEmpaqueGarantia = _prd.DiasEmpaqueGarantia,
                 TarifaPrecio = precio.Id,
                 PrecioSugerido = _prd.PrecioSugerido,
+                CostoCompra = _prd.Costo,
+                CostoPromedio = _prd.CostoPromedio,
             };
             Insertar(nr);
         }
@@ -560,6 +566,8 @@ namespace ModPos.Facturacion
                 DiasEmpaqueGarantia = item.DiasEmpaqueGarantia,
                 Tarifa = item.TarifaPrecio,
                 PrecioSugerido = item.PrecioSugerido,
+                CostoCompra = item.CostoCompra,
+                CostoPromedio = item.CostoPromedio,
             };
             var r01 = Sistema.MyData2.Item_Agregar(agregar);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -593,6 +601,7 @@ namespace ModPos.Facturacion
                         Helpers.Msg.Error(r01.Mensaje);
                         return;
                     }
+                    Helpers.Sonido.SonidoOk();
                     it.Cantidad += cnt;
                 }
             }

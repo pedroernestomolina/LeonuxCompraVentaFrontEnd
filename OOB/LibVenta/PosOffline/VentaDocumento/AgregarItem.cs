@@ -61,6 +61,9 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
         public bool EsPesado { get; set; }
         public string TipoIva { get; set; }
 
+        public decimal CostoCompra { get; set; }
+        public decimal CostoPromedio { get; set; }
+
     }
 
 }

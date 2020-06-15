@@ -44,6 +44,10 @@ namespace ModPos.Facturacion
         public string SerieNotaCredito { get; set; }
         public string SerieNotaDebito { get; set; }
         public string SerieNotaEntrega { get; set; }
+        public string ControlSerieFactura { get; set; }
+        public string ControlSerieNotaCredito { get; set; }
+        public string ControlSerieNotaDebito { get; set; }
+        public string ControlSerieNotaEntrega { get; set; }
         public string CodigoSucursal { get; set; }
         public string TarifaPrecio { get; set; }
 
@@ -238,11 +242,12 @@ namespace ModPos.Facturacion
             var _cambioDar = pago.MontoCambioDar_MonedaNacional;
             var _montoRecibido = pago.MontoRecibido;
             var _isCredito = pago.IsCredito ? "S" : "N";
+            var _saldoPendiente = pago.IsCredito ? pago.MontoPagar: 0.0m;
             var _tipoDocumento = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.Factura;
             var _signo=1;
             var _aplica="";
             var _serie=SerieFactura;
-
+            var _control = ControlSerieFactura;
 
             if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
             {
@@ -252,6 +257,7 @@ namespace ModPos.Facturacion
                 _tipoDocumento=OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito;
                 _signo=-1;
                 _serie=SerieNotaCredito;
+                _control = ControlSerieNotaCredito;
             }
 
             _ctrItem.setDescuentoGlobal(_dsctoGlobalPorct);
@@ -268,7 +274,7 @@ namespace ModPos.Facturacion
                 ClienteDirFiscal = _ctrCliente.Ficha.DirFiscal,
                 ClienteNombreRazonSocial = _ctrCliente.Ficha.NombreRazaonSocial,
                 ClienteTelefono = _ctrCliente.Ficha.Telefono,
-                Control = "",
+                Control = _control,
                 Documento = "",
                 Estacion = Environment.MachineName,
                 FactorCambio = TasaCambio,
@@ -322,6 +328,15 @@ namespace ModPos.Facturacion
                 MontoRecibido=_montoRecibido,
                 CambioDar=_cambioDar,
                 IsCredito=_isCredito,
+
+                Tarifa= TarifaPrecio,
+                SaldoPendiente= _saldoPendiente ,
+                AutoConceptoVenta="0000000001",
+                CodigoConceptoVenta="",
+                NombreConceptoVenta="",
+                AutoConceptoDevVenta="0000000003",
+                CodigoConceptoDevVenta="",
+                NombreConceptoDevVenta="",
             };
 
             var fichaItemsEliminar = new List<OOB.LibVenta.PosOffline.VentaDocumento.AgregarItemEliminar>();
@@ -360,7 +375,7 @@ namespace ModPos.Facturacion
                     MontoDscto_1 = 0.0m,
                     MontoDscto_2 = 0.0m,
                     MontoDscto_3 = 0.0m,
-                    MontoIva = rg.Iva,
+                    MontoIva = rg.MontoIva,
                     MontoUtilidad = rg.UtilidadNetaMonto,
                     NombrePrd = rg.NombrePrd,
                     Notas = "",
@@ -380,6 +395,8 @@ namespace ModPos.Facturacion
                     TotalDescuento = rg.TotalDescuentoItem,
                     EsPesado=rg.EsPesado,
                     TipoIva=rg.TipoIva,
+                    CostoCompra=rg.CostoCompra,
+                    CostoPromedio=rg.CostoPromedio,
                 };
                 fichaItems.Add(nr);
             }
@@ -494,6 +511,10 @@ namespace ModPos.Facturacion
             SerieNotaCredito = r05.Entidad.ParaNotaCredito;
             SerieNotaDebito = r05.Entidad.ParaNotaDebito;
             SerieNotaEntrega = r05.Entidad.ParaNotaEnrega;
+            ControlSerieFactura = r05.Entidad.ControlParaFactura;
+            ControlSerieNotaCredito = r05.Entidad.ControlParaNotaCredito;
+            ControlSerieNotaDebito = r05.Entidad.ControlParaNotaDebito;
+            ControlSerieNotaEntrega = r05.Entidad.ControlParaNotaEnrega;
 
             var r06 = Sistema.MyData2.Configuracion_Sucursal();
             if (r06.Result == OOB.Enumerados.EnumResult.isError)

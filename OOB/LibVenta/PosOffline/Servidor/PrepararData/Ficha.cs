@@ -12,11 +12,13 @@ namespace OOB.LibVenta.PosOffline.Servidor.PrepararData
     {
 
         public List<Jornada> Jornadas { get; set; }
+        public List<Serie> Series { get; set; }
 
 
         public Ficha()
         {
             Jornadas = new List<Jornada>();
+            Series = new List<Serie>();
         }
 
     }

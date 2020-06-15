@@ -90,6 +90,10 @@ namespace DataProvPosOffLine.Data
                 ParaNotaCredito = e.ParaNotaCredito,
                 ParaNotaDebito = e.ParaNotaDebito,
                 ParaNotaEnrega=e.ParaNotaEntrega,
+                ControlParaFactura=e.ControlParaFactura,
+                ControlParaNotaCredito=e.ControlParaNotaCredito,
+                ControlParaNotaDebito=e.ControlParaNotaDebito,
+                ControlParaNotaEnrega=e.ControlParaNotaEntrega,
             };
             rt.Entidad = nr;
             return rt;

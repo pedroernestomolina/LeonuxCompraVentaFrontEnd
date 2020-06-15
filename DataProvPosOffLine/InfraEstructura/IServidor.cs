@@ -13,8 +13,8 @@ namespace DataProvPosOffLine.InfraEstructura
 
         OOB.Resultado Servidor_Test();
         OOB.Resultado Servidor_ActualizarData();
-        OOB.Resultado Servidor_EnviarData();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Servidor.PrepararData.Ficha> Servidor_PrepararData();
+        OOB.Resultado Servidor_EnviarData(OOB.LibVenta.PosOffline.Servidor.EnviarData.Ficha ficha);
 
     }
 

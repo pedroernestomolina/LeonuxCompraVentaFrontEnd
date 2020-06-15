@@ -39,6 +39,9 @@ namespace OOB.LibVenta.PosOffline.Item
         public decimal CostoCompraUnd { get; set; }
         public decimal CostoPromedioUnd { get; set; }
 
+        public decimal CostoCompra { get; set; }
+        public decimal CostoPromedio { get; set; }
+
         public bool EsPesado { get; set; }
 
     }

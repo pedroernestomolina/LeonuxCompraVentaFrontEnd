@@ -11,6 +11,15 @@ namespace OOB.LibVenta.PosOffline.Servidor.PrepararData
     public class Documento
     {
 
+        public class ActDeposito
+        {
+
+            public string AutoDeposito { get; set; }
+            public string AutoProducto { get; set; }
+            public decimal CantidadUnd { get; set; }
+
+        }
+
         public int Id { get; set; }
         public int IdJornada { get; set; }
         public int IdOperador { get; set; }
@@ -91,9 +100,188 @@ namespace OOB.LibVenta.PosOffline.Servidor.PrepararData
         public decimal CambioDar { get; set; }
         public bool IsCredito { get; set; }
 
+        public string Tarifa { get; set; }
+        public decimal SaldoPendiente { get; set; }
+        public string AutoConceptoVenta { get; set; }
+        public string CodigoConceptoVenta { get; set; }
+        public string NombreConceptoVenta { get; set; }
+        public string AutoConceptoDevVenta { get; set; }
+        public string CodigoConceptoDevVenta { get; set; }
+        public string NombreConceptoDevVenta { get; set; }
+
+
         public List<DocumentoDetalle> Detalles { get; set; }
         public List<DocumentoPago> MetodosPago { get; set; }
+        public List<ActDeposito> Deposito 
+        {
+            get 
+            {
+                var list = Detalles.Select(s =>
+                {
+                    var nr = new ActDeposito()
+                    {
+                         AutoDeposito= DepositoAuto,
+                         AutoProducto=s.AutoProducto,
+                         CantidadUnd=s.CantidadUnd*Signo,
+                    };
+                    return nr;
+                }).ToList();
+                return list;
+            }
+        }
 
+        public string DocumentoNombre
+        {
+            get
+            {
+                var t = "";
+                switch (TipoDocumento)
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = "FACTURA";
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = "NOTA CREDITO";
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string DocumentoNombreVenta
+        {
+            get
+            {
+                var t = "";
+                switch (TipoDocumento)
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = "VENTA";
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = "NOTA CREDITO";
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string TipoDocumentoCxC 
+        {
+            get
+            {
+                var t = "";
+                switch (TipoDocumento)
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = "FAC";
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = "NCR";
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string Siglas 
+        {
+            get 
+            {
+                var t = "";
+                switch (TipoDocumento) 
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = "FAC";
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = "NCR";
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string Codigo
+        {
+            get
+            {
+                var t = "";
+                switch (TipoDocumento)
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = "01";
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = "03";
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string EstatusAnulado 
+        {
+            get 
+            {
+                var t="";
+                t = IsActiva ? "0" : "1";
+                return t; 
+            }
+        }
+
+        public string AutoConcepto
+        {
+            get
+            {
+                var t = "";
+                switch (TipoDocumento)
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = AutoConceptoVenta;
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = AutoConceptoDevVenta;
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string CondicionPago 
+        {
+            get
+            {
+                var t = "CONTADO";
+                if (IsCredito) 
+                {
+                    t = "CREDITO";
+                }
+                return t;
+            }
+        }
+
+        public decimal AcumuladoCxC 
+        {
+            get 
+            {
+                var monto = MontoTotal;
+                if (IsCredito) 
+                {
+                    monto = 0.0m;
+                }
+                return monto;
+            }
+        }
+
+        public string EstatusPagado
+        {
+            get
+            {
+                var estatus = IsCredito?"0":"1";
+                return estatus;
+            }
+        }
 
         public Documento()
         {

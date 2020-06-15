@@ -84,6 +84,8 @@ namespace DataProvPosOffLine.Data
                  EmpContenido=ficha.EmpContenido,
                  TarifaPrecio=ficha.Tarifa,
                  PrecioSugerido=ficha.PrecioSugerido,
+                 CostoCompra=ficha.CostoCompra,
+                 CostoPromedio=ficha.CostoPromedio,
             };
             var r01 = MyData.Item_Agregar(agregarDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -140,7 +142,9 @@ namespace DataProvPosOffLine.Data
                             EmpDescripcion=s.EmpDescripcion,
                             EmpContenido=s.EmpContenido,
                             Tarifa=s.TarifaPrecio,
-                            PrecioSugerido=s.PrecioSugerido
+                            PrecioSugerido=s.PrecioSugerido,
+                            CostoCompra = s.CostoCompra,
+                            CostoPromedio = s.CostoPromedio,
                         };
                         return nr;
                     }).ToList();

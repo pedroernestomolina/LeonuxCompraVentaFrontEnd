@@ -506,18 +506,17 @@ namespace ModPos
                 {
                     if (r01.Entidad.Jornadas.Count > 0) 
                     {
-
+                        var ficha = new OOB.LibVenta.PosOffline.Servidor.EnviarData.Ficha(r01.Entidad);
+                        var r02 = Sistema.MyData2.Servidor_EnviarData(ficha);
+                        if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r02.Mensaje);
+                            return;
+                        }
+                        Helpers.Msg.AgregarOk();
                     }
                 }
             }
-
-            //var r01 = Sistema.MyData2.Servidor_EnviarData();
-            //if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            //{
-            //    Helpers.Msg.Error(r01.Mensaje);
-            //    return;
-            //}
-
         }
 
     }

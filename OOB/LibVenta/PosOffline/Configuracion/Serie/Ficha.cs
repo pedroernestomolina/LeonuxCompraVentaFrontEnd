@@ -16,6 +16,11 @@ namespace OOB.LibVenta.PosOffline.Configuracion.Serie
         public string ParaNotaDebito { get; set; }
         public string ParaNotaEnrega { get; set; }
 
+        public string ControlParaFactura { get; set; }
+        public string ControlParaNotaCredito { get; set; }
+        public string ControlParaNotaDebito { get; set; }
+        public string ControlParaNotaEnrega { get; set; }
+
     }
 
 }

@@ -34,6 +34,8 @@ namespace ModPos.Facturacion
         public int DiasEmpaqueGarantia { get; set; }
         public string TarifaPrecio { get; set; }
         public decimal PrecioSugerido { get; set; }
+        public decimal CostoCompra { get; set; }
+        public decimal CostoPromedio { get; set; }
         public OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle DetalleItem { get; set; }
 
 
@@ -84,6 +86,16 @@ namespace ModPos.Facturacion
                 rt = PrecioNeto * TasaIva/100;
                 return rt; 
             } 
+        }
+
+        public decimal MontoIva
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = PrecioNeto * Cantidad * TasaIva / 100;
+                return rt;
+            }
         }
 
         public decimal PrecioFull // PRECIO NETO CON IVA
@@ -306,34 +318,8 @@ namespace ModPos.Facturacion
             DiasEmpaqueGarantia = 0;
             TarifaPrecio = "";
             PrecioSugerido = 0.0m;
-        }
-
-        public Item(Item it)
-            : this()
-        {
-            Id = it.Id;
-            AutoId = it.AutoId;
-            NombrePrd = it.NombrePrd;
-            Cantidad = it.Cantidad;
-            PrecioNeto = it.PrecioNeto;
-            TasaIva = it.TasaIva;
-            EsPesado = it.EsPesado;
-            TipoIva = it.TipoIva;
-            CostoUnd = it.CostoUnd;
-            CostoPromUnd = it.CostoPromUnd;
-            AutoDepartamento = it.AutoDepartamento;
-            AutoGrupo = it.AutoGrupo;
-            AutoSubGrupo = it.AutoSubGrupo;
-            AutoTasa = it.AutoTasa;
-            Categoria = it.Categoria;
-            CodigoPrd = it.CodigoPrd;
-            Decimales = it.Decimales;
-            EmpaqueCodigo = it.EmpaqueCodigo;
-            EmpaqueDescripcion = it.EmpaqueDescripcion;
-            EmpaqueContenido = it.EmpaqueContenido;
-            DiasEmpaqueGarantia = it.DiasEmpaqueGarantia;
-            TarifaPrecio = it.TarifaPrecio;
-            PrecioSugerido = it.PrecioSugerido;
+            CostoCompra = 0.0m;
+            CostoPromedio = 0.0m;
         }
 
         public Item(OOB.LibVenta.PosOffline.Item.Ficha it) 
@@ -362,6 +348,8 @@ namespace ModPos.Facturacion
             DiasEmpaqueGarantia = it.DiasEmpaqueGarantia;
             TarifaPrecio = it.Tarifa;
             PrecioSugerido = it.PrecioSugerido;
+            CostoCompra = it.CostoCompra;
+            CostoPromedio = it.CostoPromedio;
         }
 
         public Item(OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle it)
@@ -390,6 +378,8 @@ namespace ModPos.Facturacion
             DiasEmpaqueGarantia = it.DiaEmpaqueGarantia;
             TarifaPrecio = it.Tarifa;
             PrecioSugerido = it.PrecioSugerido;
+            CostoCompra=it.CostoCompra;
+            CostoPromedio = it.CostoPromedio;
             DetalleItem = it;
         }
 

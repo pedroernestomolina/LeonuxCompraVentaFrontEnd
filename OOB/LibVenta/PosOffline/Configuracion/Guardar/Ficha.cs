@@ -31,6 +31,12 @@ namespace OOB.LibVenta.PosOffline.Configuracion.Guardar
         public string AutoMedioElectronico { get; set; }
         public string AutoMedioOtro { get; set; }
 
+        public string IdEquipo { get; set; }
+
+        public string AutoMovConceptoVenta { get; set; }
+        public string AutoMovConceptoDevVenta { get; set; }
+        public string AutoMovConceptoSalida { get; set; }
+
     }
 
 }

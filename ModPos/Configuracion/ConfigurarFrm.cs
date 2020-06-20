@@ -261,6 +261,7 @@ namespace ModPos.Configuracion
             RB_BUSQUEDA_DESCRIPCION_SI.Checked = _cnfActual.ActivarBusquedaPorDescripcion;
             CB_CLAVE.SelectedIndex = _cnfActual.ClavePos - 1;
             CHB_ETIQUETAR_PRECIO_NEGOCIO.Checked = _cnfActual.EtiquetarPrecioPorTipoNegocio;
+            TB_ID_EQUIPO.Text = _cnfActual.EquipoNumero;
 
         }
 
@@ -284,6 +285,7 @@ namespace ModPos.Configuracion
             var sucursal = TB_CODIGO_SUCURSAL.Text.Trim().ToUpper();
             var lim_sup = decimal.Parse(TB_LIMITE_SUPERIOR.Text);
             var lim_inf = decimal.Parse(TB_LIMITE_INFERIOR.Text);
+            var idEquipo = TB_ID_EQUIPO.Text.Trim().ToUpper();
 
             if (CB_MEDIO_EFECTIVO.SelectedValue == null) 
             {
@@ -341,6 +343,10 @@ namespace ModPos.Configuracion
             {
                 return;
             }
+            if (idEquipo == "")
+            {
+                return;
+            }
             if (CHB_REPESAJE.Checked) 
             {
                 //if (lim_sup == 0.0m || lim_inf==0.0m) 
@@ -374,6 +380,7 @@ namespace ModPos.Configuracion
                     SerieNotaCredito = (string)CB_NOTA_CREDITO.SelectedValue,
                     SerieNotaDebito = (string)CB_NOTA_DEBITO.SelectedValue,
                     SerieNotaEntrega = (string)CB_NOTA_ENTREGA.SelectedValue,
+                    IdEquipo=idEquipo.PadLeft(2,'0'),
                 };
                 var r01 = Sistema.MyData2.Configuracion_GuardarCambio(fichaCnf);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 

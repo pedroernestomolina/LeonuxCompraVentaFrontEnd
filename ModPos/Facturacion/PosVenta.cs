@@ -164,6 +164,8 @@ namespace ModPos.Facturacion
 
         private void PosVenta_Load(object sender, EventArgs e)
         {
+            printDialog1.Document = printDocument1;
+
             DGV_DETALLE.DataSource = _venta.Items.Source;
             L_MONTO_DIVISA.Text = _venta.TasaCambio.ToString("n2");
             L_FECHA.Text = "Hoy : "+DateTime.Now.ToShortDateString();
@@ -405,6 +407,11 @@ namespace ModPos.Facturacion
         {
             DGV_DETALLE.DataSource = null;
             _venta.Procesar();
+            if (_venta.DocumentoProcesadoIsOk) 
+            {
+                printDocument1.Print();
+            }
+
             ActualizarModo();
             Actualizar();
             DGV_DETALLE.DataSource = _bs;
@@ -497,6 +504,12 @@ namespace ModPos.Facturacion
             ActualizarCliente();
             ActualizarTotal();
             IrFoco();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Cancel = false;
+            _venta.Imprimir(e);
         }
    
     }

@@ -66,6 +66,7 @@ namespace DataProvPosOffLine.Data
                 UsuarioCodigo = ficha.UsuarioCodigo,
                 UsuarioDescripcion = ficha.UsuarioDescripcion,
                 CodigoSucursal = ficha.CodioSucursal,
+                Prefijo=ficha.PrefijoSucursal,
                 AutoDeposito = ficha.AutoDeposito,
                 CodigoDeposito = ficha.CodigoDeposito,
                 DescripcionDeposito = ficha.DescripcionDeposito,

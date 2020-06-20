@@ -19,6 +19,9 @@ namespace ModPos.Facturacion
         private decimal _limiteRepesajeSup;
         private decimal _montoDivisa;
         private int _idDocumento;
+        private  Ticket _ticketFactura;
+        private bool _documentoProcesado;
+
 
         private OOB.LibVenta.PosOffline.Usuario.Ficha _usuario;
         private OOB.LibVenta.PosOffline.Fiscal.Ficha _fiscal;
@@ -49,7 +52,11 @@ namespace ModPos.Facturacion
         public string ControlSerieNotaDebito { get; set; }
         public string ControlSerieNotaEntrega { get; set; }
         public string CodigoSucursal { get; set; }
+        public string PrefijoSucursal { get; set; }
         public string TarifaPrecio { get; set; }
+
+
+        public bool DocumentoProcesadoIsOk { get { return _documentoProcesado; } }
 
         public decimal MontoNacional 
         {
@@ -133,6 +140,7 @@ namespace ModPos.Facturacion
             _ctrConsultar = new CtrConsulta(_ctrBuscar);
             _ctrListaItem = new CtrListaItem(_ctrItem);
             _ctrPago = new CtrPago(_seguridad, _ctrCliente);
+            _ticketFactura = new Ticket();
 
             _permitirBusquedaPorDescripcion = false;
             _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
@@ -233,6 +241,8 @@ namespace ModPos.Facturacion
 
         private void GuardarFactura(Pago.Pago pago)
         {
+            _documentoProcesado = false;
+
             var _dsctoGlobalPorct = pago.DescuentoPorct;
             var _dsctoGlobalMonto = pago.Descuento;
             var _cargoGlobalMonto = 0.0m;
@@ -248,6 +258,9 @@ namespace ModPos.Facturacion
             var _aplica="";
             var _serie=SerieFactura;
             var _control = ControlSerieFactura;
+            var _correlativo = "0000000001";
+            var _condicionPago = pago.IsCredito ? "CREDITO" : "CONTADO";
+            var _documentoNombre="FACTURA";
 
             if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
             {
@@ -258,6 +271,7 @@ namespace ModPos.Facturacion
                 _signo=-1;
                 _serie=SerieNotaCredito;
                 _control = ControlSerieNotaCredito;
+                _documentoNombre="NOTA CREDITO";
             }
 
             _ctrItem.setDescuentoGlobal(_dsctoGlobalPorct);
@@ -313,6 +327,7 @@ namespace ModPos.Facturacion
                 UsuarioCodigo = _usuario.Codigo,
                 UsuarioDescripcion = _usuario.Descripcion,
                 CodioSucursal = CodigoSucursal,
+                PrefijoSucursal = PrefijoSucursal,
                 AutoDeposito = _deposito.Auto,
                 CodigoDeposito = _deposito.Codigo,
                 DescripcionDeposito = _deposito.Descripcion,
@@ -328,7 +343,6 @@ namespace ModPos.Facturacion
                 MontoRecibido=_montoRecibido,
                 CambioDar=_cambioDar,
                 IsCredito=_isCredito,
-
                 Tarifa= TarifaPrecio,
                 SaldoPendiente= _saldoPendiente ,
                 AutoConceptoVenta="0000000001",
@@ -338,6 +352,39 @@ namespace ModPos.Facturacion
                 CodigoConceptoDevVenta="",
                 NombreConceptoDevVenta="",
             };
+
+
+            //PARA EL TICKET
+            _ticketFactura.Cliente.Limpiar();
+            _ticketFactura.Cliente.cirif = _ctrCliente.Ficha.CiRif;
+            _ticketFactura.Cliente.nombre_1 = _ctrCliente.Ficha.NombreRazaonSocial;
+            _ticketFactura.Cliente.dirFiscal_1 = _ctrCliente.Ficha.DirFiscal;
+            _ticketFactura.Cliente.telefono_1 = _ctrCliente.Ficha.Telefono;
+            _ticketFactura.Cliente.condicionpago = _condicionPago ;
+            _ticketFactura.Cliente.estacion = Environment.MachineName ;
+            _ticketFactura.Cliente.usuario= Sistema.Usuario.Descripcion;
+
+            var tot = Math.Round(ficha.MontoTotal, 0, MidpointRounding.AwayFromZero);
+            var stot = Math.Round(ficha.MontoSubTotal, 0, MidpointRounding.AwayFromZero);
+            var sbtot = Math.Round(_ctrItem.SubTotal, 0, MidpointRounding.AwayFromZero);
+
+            _ticketFactura.Documento.Limpiar();
+            _ticketFactura.Documento.nombre=_documentoNombre;
+            _ticketFactura.Documento.aplicaA = _aplica;
+            _ticketFactura.Documento.numero = ficha.Documento ;
+            _ticketFactura.Documento.fecha =  DateTime.Now.Date.ToShortDateString();
+            _ticketFactura.Documento.hora = DateTime.Now.ToShortTimeString();
+            _ticketFactura.Documento.subtotalNeto = "Bs " + sbtot.ToString("n2");
+            _ticketFactura.Documento.subtotal = "Bs " + stot.ToString("n2");
+            _ticketFactura.Documento.total = "Bs "+tot.ToString("n2");
+            _ticketFactura.Documento.cambio = "Bs "+ficha.CambioDar.ToString("n2");
+            _ticketFactura.Documento.descuentoMonto = "Bs "+ficha.MontoDescuento_1.ToString("n2");
+            _ticketFactura.Documento.descuentoPorct = ficha.PorcDescuento_1.ToString("n2").Trim() + "%";
+            _ticketFactura.Documento.cargoMonto = "Bs "+ficha.MontoCargo_1.ToString("n2");
+            _ticketFactura.Documento.cargoPorct = ficha.PorcCargo_1.ToString("n2").Trim()+"%";
+            _ticketFactura.Documento.HayDescuento= ficha.PorcDescuento_1 >0.0m;
+            _ticketFactura.Documento.HayCargo= ficha.PorcCargo_1 > 0.0m;
+
 
             var fichaItemsEliminar = new List<OOB.LibVenta.PosOffline.VentaDocumento.AgregarItemEliminar>();
             var fichaItems = new List<OOB.LibVenta.PosOffline.VentaDocumento.AgregarItem>();
@@ -399,6 +446,20 @@ namespace ModPos.Facturacion
                     CostoPromedio=rg.CostoPromedio,
                 };
                 fichaItems.Add(nr);
+
+
+                //PARA EL TICKET
+                var it = new Ticket.DatosDocumento.Item()
+                {
+                    cantidad = nr.Cantidad,
+                    precio = Math.Round(rg.PrecioFull,0 , MidpointRounding.AwayFromZero),
+                    isExento =  rg.EsExento,
+                    isPesado = nr.EsPesado ,
+                    descripcion = nr.NombrePrd,
+                    importe = Math.Round(rg.Total,0, MidpointRounding.AwayFromZero) ,
+                };
+               _ticketFactura.Documento.Items.Add(it);
+
             }
             ficha.Items = fichaItems;
             ficha.ItemsEliminar = fichaItemsEliminar;
@@ -436,16 +497,43 @@ namespace ModPos.Facturacion
             }).ToList();
             ficha.MetodosPago=metodosPago;
 
+
+            //PARA EL TICKET
+            foreach (var fmp in metodosPago) 
+            {
+                if (fmp.Tasa > 1)
+                {
+                    var m = fmp.MontoRecibido*fmp.Tasa;
+                    var itP = new Ticket.DatosDocumento.MedioPago()
+                    {
+                        descripcion = "Efectivo",
+                        monto = "Bs " + m.ToString("n2"),
+                    };
+                    _ticketFactura.Documento.MediosPago.Add(itP);
+                }
+                else 
+                {
+                    var itP = new Ticket.DatosDocumento.MedioPago()
+                    {
+                        descripcion = fmp.descripcionMedioPago,
+                        monto = "Bs " + fmp.MontoRecibido.ToString("n2"),
+                    };
+                    _ticketFactura.Documento.MediosPago.Add(itP);
+                }
+            }
+
+
             var r01 = Sistema.MyData2.VentaDocumento_Agregar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+            _documentoProcesado = true;
+            Helpers.Msg.AgregarOk();
             _modoFuncion = Enumerados.EnumModoFuncion.Facturacion;
             _ctrItem.Limpiar();
             _ctrCliente.Limpiar();
-            Helpers.Msg.AgregarOk();
         }
 
         public void CtaPendiente() 
@@ -523,6 +611,7 @@ namespace ModPos.Facturacion
                 return false;
             }
             CodigoSucursal = r06.Entidad.Codigo;
+            PrefijoSucursal = r06.Entidad.PrefijoSucursal;
 
             var r07 = Sistema.MyData2.Configuracion_ModoPos();
             if (r07.Result == OOB.Enumerados.EnumResult.isError)
@@ -850,6 +939,16 @@ namespace ModPos.Facturacion
             if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion) 
             {
                 Cliente.Buscar();
+            }
+        }
+
+        public void Imprimir(System.Drawing.Printing.PrintPageEventArgs e) 
+        {
+            if (_documentoProcesado) 
+            {
+                _ticketFactura.setControlador(e);
+                _ticketFactura.Negocio.setEmpresa(Sistema.Empresa);
+                _ticketFactura.ImrpimirFactura();
             }
         }
 

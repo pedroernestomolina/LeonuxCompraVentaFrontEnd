@@ -347,6 +347,18 @@ namespace ModPos.Facturacion.Pago
             _controlador = ctr;
         }
 
+        private void PagoFrm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                DarDescuento();
+            }
+            if (e.KeyCode == Keys.F3)
+            {
+                DarCredito();
+            }
+        }
+
     }
 
 }

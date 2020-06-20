@@ -79,6 +79,31 @@ namespace DataProvPosOffLine.Data
             return result;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Empresa.Ficha> Empresa_Datos()
+        {
+            var result = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Empresa.Ficha>();
+
+            var r01 = MyData.Empresa_Datos();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var nr = new OOB.LibVenta.PosOffline.Empresa.Ficha()
+            {
+                Auto = r01.Entidad.Auto,
+                CiRif = r01.Entidad.CiRif,
+                Nombre = r01.Entidad.Nombre,
+                DireccionFiscal = r01.Entidad.DireccionFiscal,
+                Telefono = r01.Entidad.Telefono,
+            };
+            result.Entidad = nr;
+
+            return result;
+        }
+
     }
 
 }

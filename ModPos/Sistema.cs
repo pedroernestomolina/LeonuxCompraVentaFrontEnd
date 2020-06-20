@@ -16,6 +16,7 @@ namespace ModPos
         static public Lib.BalanzaSoloPeso.IBalanza MyBalanza;
         static public OOB.LibVenta.PosOffline.Jornada.Cargar.Ficha MyJornada ;
         static public OOB.LibVenta.PosOffline.Operador.Cargar.Ficha MyOperador;
+        static public OOB.LibVenta.PosOffline.Empresa.Ficha Empresa;
 
     }
 

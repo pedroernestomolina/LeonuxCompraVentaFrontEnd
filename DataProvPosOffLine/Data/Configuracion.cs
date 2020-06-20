@@ -115,6 +115,7 @@ namespace DataProvPosOffLine.Data
             var nr = new OOB.LibVenta.PosOffline.Configuracion.Sucursal.Ficha()
             {
                 Codigo = e.Codigo,
+                EquipoNumero=e.EquipoNumero,
             };
             rt.Entidad = nr;
             return rt;
@@ -286,22 +287,26 @@ namespace DataProvPosOffLine.Data
 
             var fichaDTO = new DtoLibPosOffLine.Configuracion.Guardar.Ficha()
             {
-                ActivarBusquedaPorDescripcion=ficha.ActivarBusquedaPorDescripcion,
-                ActivarRepesaje=ficha.ActivarRepesaje,
-                AutoCobrador=ficha.AutoCobrador,
-                AutoMedioDivisa=ficha.AutoMedioDivisa,
-                AutoMedioEfectivo=ficha.AutoMedioEfectivo,
-                AutoMedioElectronico=ficha.AutoMedioElectronico,
-                AutoMedioOtro=ficha.AutoMedioOtro,
-                AutoTransporte=ficha.AutoTransporte,
-                AutoVendedor=ficha.AutoVendedor,
-                ClavePos=ficha.ClavePos,
-                LimiteInferiorRepesaje=ficha.LimiteInferiorRepesaje,
-                LimiteSuperiorRepesaje=ficha.LimiteSuperiorRepesaje,
-                SerieFactura=ficha.SerieFactura,
-                SerieNotaCredito=ficha.SerieNotaCredito,
-                SerieNotaDebito=ficha.SerieNotaDebito,
+                ActivarBusquedaPorDescripcion = ficha.ActivarBusquedaPorDescripcion,
+                ActivarRepesaje = ficha.ActivarRepesaje,
+                AutoCobrador = ficha.AutoCobrador,
+                AutoMedioDivisa = ficha.AutoMedioDivisa,
+                AutoMedioEfectivo = ficha.AutoMedioEfectivo,
+                AutoMedioElectronico = ficha.AutoMedioElectronico,
+                AutoMedioOtro = ficha.AutoMedioOtro,
+                AutoTransporte = ficha.AutoTransporte,
+                AutoVendedor = ficha.AutoVendedor,
+                ClavePos = ficha.ClavePos,
+                LimiteInferiorRepesaje = ficha.LimiteInferiorRepesaje,
+                LimiteSuperiorRepesaje = ficha.LimiteSuperiorRepesaje,
+                SerieFactura = ficha.SerieFactura,
+                SerieNotaCredito = ficha.SerieNotaCredito,
+                SerieNotaDebito = ficha.SerieNotaDebito,
                 SerieNotaEntrega = ficha.SerieNotaEntrega,
+                EquipoNumero = ficha.IdEquipo,
+                AutoMovConceptoDevVenta = ficha.AutoMovConceptoDevVenta,
+                AutoMovConceptoSalida = ficha.AutoMovConceptoSalida,
+                AutoMovConceptoVenta = ficha.AutoMovConceptoVenta,
             };
             var r01 = MyData.Configuracion_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -340,15 +345,21 @@ namespace DataProvPosOffLine.Data
                 AutoTransporte = e.AutoTransporte,
                 AutoVendedor = e.AutoVendedor,
                 ClavePos = e.ClavePos,
-                TarifaPrecio=e.TarifaPrecio,
-                EtiquetarPrecioPorTipoNegocio=e.EtiquetarPrecioPorTipoNegocio,
+                TarifaPrecio = e.TarifaPrecio,
+                EtiquetarPrecioPorTipoNegocio = e.EtiquetarPrecioPorTipoNegocio,
                 CodigoSucursal = e.CodigoSucursal,
+                EquipoNumero = e.EquipoNumero,
+
                 LimiteInferiorRepesaje = e.LimiteInferiorRepesaje,
                 LimiteSuperiorRepesaje = e.LimiteSuperiorRepesaje,
                 SerieFactura = e.SerieFactura,
                 SerieNotaCredito = e.SerieNotaCredito,
                 SerieNotaDebito = e.SerieNotaDebito,
                 SerieNotaEntrega = e.SerieNotaEntrega,
+
+                AutoMovConceptoDevVenta = e.AutoMovConceptoDevVenta,
+                AutoMovConceptoSalida = e.AutoMovConceptoSalida,
+                AutoMovConceptoVenta = e.AutoMovConceptoVenta,
             };
             rt.Entidad = nr;
 

@@ -42,6 +42,7 @@ namespace ModPos.Facturacion
         public void Pagar(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso, decimal monto, decimal tasaCambio) 
         {
             Pago.Limpiar();
+            PagoIsOk = false;
 
             _permisos = permiso;
             Pago.setMontoPagar(monto);
@@ -55,6 +56,7 @@ namespace ModPos.Facturacion
         public void PagarNotaCredito(OOB.LibVenta.PosOffline.Permiso.Pos.Ficha permiso, decimal monto, decimal tasaCambio, decimal dscto)
         {
             Pago.Limpiar();
+            PagoIsOk = false;
 
             _permisos = permiso;
             Pago.setMontoPagar(monto);

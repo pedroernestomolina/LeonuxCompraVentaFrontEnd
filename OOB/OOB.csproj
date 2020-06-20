@@ -58,6 +58,7 @@
     <Compile Include="LibVenta\PosOffline\Configuracion\Transporte\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Configuracion\Vendedor\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Deposito\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Empresa\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Fiscal\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Item\Actualizar.cs" />
     <Compile Include="LibVenta\PosOffline\Item\Agregar.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="LibVenta\PosOffline\Jornada\Cerrar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Jornada\Enumerado.cs" />
     <Compile Include="LibVenta\PosOffline\MedioCobro\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\MovConceptoInv\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Abrir\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Cargar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Cerrar\Ficha.cs" />
@@ -89,6 +91,8 @@
     <Compile Include="LibVenta\PosOffline\Producto\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Serie\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxC.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxCDocumento.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxCMedioPago.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxCPago.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxCRecibo.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\DocumentoDetalle.cs" />

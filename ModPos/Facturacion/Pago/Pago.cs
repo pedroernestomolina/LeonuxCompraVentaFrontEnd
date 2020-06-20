@@ -271,6 +271,7 @@ namespace ModPos.Facturacion.Pago
 
         public void Limpiar()
         {
+            _isCredito = false;
             _dsctoPorct = 0.0m;
             _detalle.Clear();
         }

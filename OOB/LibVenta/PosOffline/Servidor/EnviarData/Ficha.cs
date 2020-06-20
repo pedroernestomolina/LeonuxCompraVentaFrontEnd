@@ -49,7 +49,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
             var listDoc = new List<Documento>();
             foreach (var j in data.Jornadas) 
             {
-                listDoc = j.Documentos.Select(d =>
+                listDoc = j.Documentos.Where(w=>w.IsActiva).Select(d =>
                 {
                     var nd = new OOB.LibVenta.PosOffline.Servidor.EnviarData.Documento()
                     {
@@ -155,6 +155,8 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                         Utilidad = d.MontoUtilidad,
                         Utilidadp = d.MontoUtilidadPorc,
                         Vendedor = d.VendedorNombre,
+                        PrefijoSucursal=d.PrefijoSucursal,
+
 
                         DocCxC= new CxC()
                         {
@@ -189,7 +191,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                             Castigop=0.0m,
                         },
 
-                        DocPago =  new CxCPago(d),
+                        DocPago =  d.TipoDocumento!= PrepararData.Enumerados.EnumTipoDocumento.NotaCredito ? new CxCPago(d) : null ,
 
                         Detalles = d.Detalles.Select(dt =>
                         {

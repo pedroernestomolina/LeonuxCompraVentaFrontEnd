@@ -77,6 +77,14 @@
             this.panel27 = new System.Windows.Forms.Panel();
             this.L_TIT_TASA_CAMBIO = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.TB_DIVISA_CNT = new ModPos.Lib.Controles.Numero.NumeroEntero();
+            this.TB_OTRO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_ELECT_3 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_ELECT_2 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_ELECT_1 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_EFECTIVO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.BT_CALCULADORA = new System.Windows.Forms.Button();
+            this.BT_LIMPIAR = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.L_REF_4 = new System.Windows.Forms.Label();
@@ -100,21 +108,13 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.BT_PROCESAR = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.BT_DESCUENTO = new System.Windows.Forms.Button();
             this.panel30 = new System.Windows.Forms.Panel();
             this.BT_CREDITO = new System.Windows.Forms.Button();
             this.panel31 = new System.Windows.Forms.Panel();
-            this.BT_CALCULADORA = new System.Windows.Forms.Button();
-            this.BT_LIMPIAR = new System.Windows.Forms.Button();
-            this.BT_PROCESAR = new System.Windows.Forms.Button();
-            this.BT_DESCUENTO = new System.Windows.Forms.Button();
-            this.TB_DIVISA_CNT = new ModPos.Lib.Controles.Numero.NumeroEntero();
-            this.TB_OTRO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_ELECT_3 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_ELECT_2 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_ELECT_1 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_EFECTIVO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -786,6 +786,124 @@
             this.panel20.Size = new System.Drawing.Size(656, 290);
             this.panel20.TabIndex = 0;
             // 
+            // TB_DIVISA_CNT
+            // 
+            this.TB_DIVISA_CNT.BackColor = System.Drawing.Color.Yellow;
+            this.TB_DIVISA_CNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_DIVISA_CNT.Location = new System.Drawing.Point(192, 76);
+            this.TB_DIVISA_CNT.MaxLength = 4;
+            this.TB_DIVISA_CNT.Name = "TB_DIVISA_CNT";
+            this.TB_DIVISA_CNT.Size = new System.Drawing.Size(56, 26);
+            this.TB_DIVISA_CNT.TabIndex = 3;
+            this.TB_DIVISA_CNT.Text = "0";
+            this.TB_DIVISA_CNT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_DIVISA_CNT.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_DIVISA_CNT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_DIVISA_CNT.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_OTRO
+            // 
+            this.TB_OTRO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_OTRO.Location = new System.Drawing.Point(192, 211);
+            this.TB_OTRO.MaxLength = 14;
+            this.TB_OTRO.Name = "TB_OTRO";
+            this.TB_OTRO.Size = new System.Drawing.Size(181, 29);
+            this.TB_OTRO.TabIndex = 8;
+            this.TB_OTRO.Text = "0";
+            this.TB_OTRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_OTRO.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_OTRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_OTRO.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_ELECT_3
+            // 
+            this.TB_ELECT_3.BackColor = System.Drawing.Color.Yellow;
+            this.TB_ELECT_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ELECT_3.Location = new System.Drawing.Point(192, 176);
+            this.TB_ELECT_3.MaxLength = 14;
+            this.TB_ELECT_3.Name = "TB_ELECT_3";
+            this.TB_ELECT_3.Size = new System.Drawing.Size(181, 29);
+            this.TB_ELECT_3.TabIndex = 7;
+            this.TB_ELECT_3.Text = "0";
+            this.TB_ELECT_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_ELECT_3.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_ELECT_3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_ELECT_3.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_ELECT_2
+            // 
+            this.TB_ELECT_2.BackColor = System.Drawing.Color.Yellow;
+            this.TB_ELECT_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ELECT_2.Location = new System.Drawing.Point(192, 142);
+            this.TB_ELECT_2.MaxLength = 14;
+            this.TB_ELECT_2.Name = "TB_ELECT_2";
+            this.TB_ELECT_2.Size = new System.Drawing.Size(181, 29);
+            this.TB_ELECT_2.TabIndex = 6;
+            this.TB_ELECT_2.Text = "0";
+            this.TB_ELECT_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_ELECT_2.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_ELECT_2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_ELECT_2.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_ELECT_1
+            // 
+            this.TB_ELECT_1.BackColor = System.Drawing.Color.Yellow;
+            this.TB_ELECT_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ELECT_1.Location = new System.Drawing.Point(192, 107);
+            this.TB_ELECT_1.MaxLength = 14;
+            this.TB_ELECT_1.Name = "TB_ELECT_1";
+            this.TB_ELECT_1.Size = new System.Drawing.Size(181, 29);
+            this.TB_ELECT_1.TabIndex = 5;
+            this.TB_ELECT_1.Text = "0";
+            this.TB_ELECT_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_ELECT_1.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_ELECT_1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_ELECT_1.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_EFECTIVO
+            // 
+            this.TB_EFECTIVO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_EFECTIVO.Location = new System.Drawing.Point(192, 41);
+            this.TB_EFECTIVO.MaxLength = 14;
+            this.TB_EFECTIVO.Name = "TB_EFECTIVO";
+            this.TB_EFECTIVO.Size = new System.Drawing.Size(181, 29);
+            this.TB_EFECTIVO.TabIndex = 2;
+            this.TB_EFECTIVO.Text = "0";
+            this.TB_EFECTIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_EFECTIVO.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_EFECTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_EFECTIVO.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // BT_CALCULADORA
+            // 
+            this.BT_CALCULADORA.BackgroundImage = global::ModPos.Properties.Resources.calc;
+            this.BT_CALCULADORA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_CALCULADORA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_CALCULADORA.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_CALCULADORA.Location = new System.Drawing.Point(233, 7);
+            this.BT_CALCULADORA.Name = "BT_CALCULADORA";
+            this.BT_CALCULADORA.Size = new System.Drawing.Size(35, 28);
+            this.BT_CALCULADORA.TabIndex = 1;
+            this.BT_CALCULADORA.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_CALCULADORA.UseVisualStyleBackColor = true;
+            this.BT_CALCULADORA.Click += new System.EventHandler(this.BT_CALCULADORA_Click);
+            // 
+            // BT_LIMPIAR
+            // 
+            this.BT_LIMPIAR.BackgroundImage = global::ModPos.Properties.Resources.limpiar;
+            this.BT_LIMPIAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_LIMPIAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_LIMPIAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_LIMPIAR.Location = new System.Drawing.Point(192, 7);
+            this.BT_LIMPIAR.Name = "BT_LIMPIAR";
+            this.BT_LIMPIAR.Size = new System.Drawing.Size(35, 28);
+            this.BT_LIMPIAR.TabIndex = 0;
+            this.BT_LIMPIAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_LIMPIAR.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
+            // 
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1026,6 +1144,21 @@
             this.panel22.Size = new System.Drawing.Size(211, 70);
             this.panel22.TabIndex = 0;
             // 
+            // BT_PROCESAR
+            // 
+            this.BT_PROCESAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PROCESAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PROCESAR.Image = global::ModPos.Properties.Resources.CarritoCompra;
+            this.BT_PROCESAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PROCESAR.Location = new System.Drawing.Point(6, 6);
+            this.BT_PROCESAR.Name = "BT_PROCESAR";
+            this.BT_PROCESAR.Size = new System.Drawing.Size(199, 58);
+            this.BT_PROCESAR.TabIndex = 20;
+            this.BT_PROCESAR.Text = "&Procesar";
+            this.BT_PROCESAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_PROCESAR.UseVisualStyleBackColor = true;
+            this.BT_PROCESAR.Click += new System.EventHandler(this.BT_PROCESAR_Click);
+            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 4;
@@ -1057,6 +1190,21 @@
             this.panel24.Size = new System.Drawing.Size(153, 68);
             this.panel24.TabIndex = 1;
             // 
+            // BT_DESCUENTO
+            // 
+            this.BT_DESCUENTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_DESCUENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_DESCUENTO.Image = global::ModPos.Properties.Resources.bt_descuento;
+            this.BT_DESCUENTO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_DESCUENTO.Location = new System.Drawing.Point(4, 4);
+            this.BT_DESCUENTO.Name = "BT_DESCUENTO";
+            this.BT_DESCUENTO.Size = new System.Drawing.Size(145, 60);
+            this.BT_DESCUENTO.TabIndex = 16;
+            this.BT_DESCUENTO.Text = "(F2) Descto";
+            this.BT_DESCUENTO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_DESCUENTO.UseVisualStyleBackColor = true;
+            this.BT_DESCUENTO.Click += new System.EventHandler(this.BT_DESCUENTO_Click);
+            // 
             // panel30
             // 
             this.panel30.Controls.Add(this.BT_CREDITO);
@@ -1078,7 +1226,7 @@
             this.BT_CREDITO.Name = "BT_CREDITO";
             this.BT_CREDITO.Size = new System.Drawing.Size(145, 60);
             this.BT_CREDITO.TabIndex = 18;
-            this.BT_CREDITO.Text = "(F4) Crédito";
+            this.BT_CREDITO.Text = "(F3) Crédito";
             this.BT_CREDITO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_CREDITO.UseVisualStyleBackColor = true;
             this.BT_CREDITO.Click += new System.EventHandler(this.BT_CREDITO_Click);
@@ -1093,154 +1241,6 @@
             this.panel31.Size = new System.Drawing.Size(153, 68);
             this.panel31.TabIndex = 4;
             // 
-            // BT_CALCULADORA
-            // 
-            this.BT_CALCULADORA.BackgroundImage = global::ModPos.Properties.Resources.calc;
-            this.BT_CALCULADORA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_CALCULADORA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_CALCULADORA.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_CALCULADORA.Location = new System.Drawing.Point(233, 7);
-            this.BT_CALCULADORA.Name = "BT_CALCULADORA";
-            this.BT_CALCULADORA.Size = new System.Drawing.Size(35, 28);
-            this.BT_CALCULADORA.TabIndex = 1;
-            this.BT_CALCULADORA.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_CALCULADORA.UseVisualStyleBackColor = true;
-            this.BT_CALCULADORA.Click += new System.EventHandler(this.BT_CALCULADORA_Click);
-            // 
-            // BT_LIMPIAR
-            // 
-            this.BT_LIMPIAR.BackgroundImage = global::ModPos.Properties.Resources.limpiar;
-            this.BT_LIMPIAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_LIMPIAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_LIMPIAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_LIMPIAR.Location = new System.Drawing.Point(192, 7);
-            this.BT_LIMPIAR.Name = "BT_LIMPIAR";
-            this.BT_LIMPIAR.Size = new System.Drawing.Size(35, 28);
-            this.BT_LIMPIAR.TabIndex = 0;
-            this.BT_LIMPIAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_LIMPIAR.UseVisualStyleBackColor = true;
-            this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
-            // 
-            // BT_PROCESAR
-            // 
-            this.BT_PROCESAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_PROCESAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_PROCESAR.Image = global::ModPos.Properties.Resources.CarritoCompra;
-            this.BT_PROCESAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_PROCESAR.Location = new System.Drawing.Point(6, 6);
-            this.BT_PROCESAR.Name = "BT_PROCESAR";
-            this.BT_PROCESAR.Size = new System.Drawing.Size(199, 58);
-            this.BT_PROCESAR.TabIndex = 20;
-            this.BT_PROCESAR.Text = "&Procesar";
-            this.BT_PROCESAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_PROCESAR.UseVisualStyleBackColor = true;
-            this.BT_PROCESAR.Click += new System.EventHandler(this.BT_PROCESAR_Click);
-            // 
-            // BT_DESCUENTO
-            // 
-            this.BT_DESCUENTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_DESCUENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_DESCUENTO.Image = global::ModPos.Properties.Resources.bt_descuento;
-            this.BT_DESCUENTO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_DESCUENTO.Location = new System.Drawing.Point(4, 4);
-            this.BT_DESCUENTO.Name = "BT_DESCUENTO";
-            this.BT_DESCUENTO.Size = new System.Drawing.Size(145, 60);
-            this.BT_DESCUENTO.TabIndex = 16;
-            this.BT_DESCUENTO.Text = "(F2) Descto";
-            this.BT_DESCUENTO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_DESCUENTO.UseVisualStyleBackColor = true;
-            this.BT_DESCUENTO.Click += new System.EventHandler(this.BT_DESCUENTO_Click);
-            // 
-            // TB_DIVISA_CNT
-            // 
-            this.TB_DIVISA_CNT.BackColor = System.Drawing.Color.Yellow;
-            this.TB_DIVISA_CNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_DIVISA_CNT.Location = new System.Drawing.Point(192, 76);
-            this.TB_DIVISA_CNT.MaxLength = 4;
-            this.TB_DIVISA_CNT.Name = "TB_DIVISA_CNT";
-            this.TB_DIVISA_CNT.Size = new System.Drawing.Size(56, 26);
-            this.TB_DIVISA_CNT.TabIndex = 3;
-            this.TB_DIVISA_CNT.Text = "0";
-            this.TB_DIVISA_CNT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_DIVISA_CNT.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_DIVISA_CNT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_DIVISA_CNT.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_OTRO
-            // 
-            this.TB_OTRO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_OTRO.Location = new System.Drawing.Point(192, 211);
-            this.TB_OTRO.MaxLength = 14;
-            this.TB_OTRO.Name = "TB_OTRO";
-            this.TB_OTRO.Size = new System.Drawing.Size(181, 29);
-            this.TB_OTRO.TabIndex = 8;
-            this.TB_OTRO.Text = "0";
-            this.TB_OTRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_OTRO.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_OTRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_OTRO.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_ELECT_3
-            // 
-            this.TB_ELECT_3.BackColor = System.Drawing.Color.Yellow;
-            this.TB_ELECT_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_ELECT_3.Location = new System.Drawing.Point(192, 176);
-            this.TB_ELECT_3.MaxLength = 14;
-            this.TB_ELECT_3.Name = "TB_ELECT_3";
-            this.TB_ELECT_3.Size = new System.Drawing.Size(181, 29);
-            this.TB_ELECT_3.TabIndex = 7;
-            this.TB_ELECT_3.Text = "0";
-            this.TB_ELECT_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_ELECT_3.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_ELECT_3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_ELECT_3.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_ELECT_2
-            // 
-            this.TB_ELECT_2.BackColor = System.Drawing.Color.Yellow;
-            this.TB_ELECT_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_ELECT_2.Location = new System.Drawing.Point(192, 142);
-            this.TB_ELECT_2.MaxLength = 14;
-            this.TB_ELECT_2.Name = "TB_ELECT_2";
-            this.TB_ELECT_2.Size = new System.Drawing.Size(181, 29);
-            this.TB_ELECT_2.TabIndex = 6;
-            this.TB_ELECT_2.Text = "0";
-            this.TB_ELECT_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_ELECT_2.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_ELECT_2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_ELECT_2.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_ELECT_1
-            // 
-            this.TB_ELECT_1.BackColor = System.Drawing.Color.Yellow;
-            this.TB_ELECT_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_ELECT_1.Location = new System.Drawing.Point(192, 107);
-            this.TB_ELECT_1.MaxLength = 14;
-            this.TB_ELECT_1.Name = "TB_ELECT_1";
-            this.TB_ELECT_1.Size = new System.Drawing.Size(181, 29);
-            this.TB_ELECT_1.TabIndex = 5;
-            this.TB_ELECT_1.Text = "0";
-            this.TB_ELECT_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_ELECT_1.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_ELECT_1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_ELECT_1.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_EFECTIVO
-            // 
-            this.TB_EFECTIVO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_EFECTIVO.Location = new System.Drawing.Point(192, 41);
-            this.TB_EFECTIVO.MaxLength = 14;
-            this.TB_EFECTIVO.Name = "TB_EFECTIVO";
-            this.TB_EFECTIVO.Size = new System.Drawing.Size(181, 29);
-            this.TB_EFECTIVO.TabIndex = 2;
-            this.TB_EFECTIVO.Text = "0";
-            this.TB_EFECTIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_EFECTIVO.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_EFECTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_EFECTIVO.Leave += new System.EventHandler(this.TB_Leave);
-            // 
             // PagoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1253,6 +1253,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.PagoFrm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PagoFrm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

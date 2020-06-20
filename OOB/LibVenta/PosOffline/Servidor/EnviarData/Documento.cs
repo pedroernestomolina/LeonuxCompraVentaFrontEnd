@@ -65,6 +65,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
         public string Usuario { get; set; }
         public string CodigoUsuario { get; set; }
         public string CodigoSucursal { get; set; }
+        public string PrefijoSucursal { get; set; }
         public string Hora { get; set; }
         public string Transporte { get; set; }
         public string CodigoTransporte { get; set; }
@@ -225,6 +226,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
             Cierre = "";
             FechaRetencion = DateTime.Now.Date;
             EstatusCierreContable = "0";
+            PrefijoSucursal = "";
 
             DocCxC = new CxC();
             Detalles = new List<DocumentoDetalle>();

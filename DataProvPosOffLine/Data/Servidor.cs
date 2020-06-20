@@ -108,6 +108,7 @@ namespace DataProvPosOffLine.Data
                                         CobradorCodigo = d.CobradorCodigo,
                                         CobradorNombre = d.CobradorNombre,
                                         CodigoSucursal = d.CodigoSucursal,
+                                        PrefijoSucursal=d.Prefijo,
                                         Control = d.Control,
                                         DepositoAuto = d.DepositoAuto,
                                         DepositoCodigo = d.DepositoCodigo,
@@ -280,6 +281,114 @@ namespace DataProvPosOffLine.Data
 
                 Documentos = ficha.Documentos.Select(d => 
                 {
+                    DtoLibPosOffLine.Servidor.EnviarData.CxCPago pago = null;
+                    if (d.DocPago != null) 
+                    {
+                        pago = new DtoLibPosOffLine.Servidor.EnviarData.CxCPago();
+
+                        var p = d.DocPago.Pago;
+                        pago.Pago = new DtoLibPosOffLine.Servidor.EnviarData.CxC() 
+                        {
+                            Acumulado = p.Acumulado,
+                            Agencia = p.Agencia,
+                            AutoAgencia = p.AutoAgencia,
+                            AutoCliente = p.AutoCliente,
+                            AutoDocumento = p.AutoDocumento,
+                            AutoVendedor = p.AutoVendedor,
+                            Castigop = p.Castigop,
+                            CCobranza = p.CCobranza,
+                            CCobranzap = p.CCobranzap,
+                            CDepartamento = p.CDepartamento,
+                            CiRif = p.CiRif,
+                            Cliente = p.Cliente,
+                            CodigoCliente = p.CodigoCliente,
+                            CVentas = p.CVentas,
+                            CVentasp = p.CVentasp,
+                            Dias = p.Dias,
+                            Documento = p.Documento,
+                            EstatusAnulado = p.EstatusAnulado,
+                            EstatusCancelado = p.EstatusCancelado,
+                            Fecha = p.Fecha,
+                            FechaVencimiento = p.FechaVencimiento,
+                            Importe = p.Importe,
+                            ImporteNeto = p.ImporteNeto,
+                            Nota = p.Nota,
+                            Numero = p.Numero,
+                            Resta = p.Resta,
+                            Serie = p.Serie,
+                            Signo = p.Signo,
+                            TipoDocumento = p.TipoDocumento,
+                        };
+
+                        var r = d.DocPago.Recibo;
+                        pago.Recibo = new DtoLibPosOffLine.Servidor.EnviarData.CxCRecibo()
+                        {
+                            Fecha=r.Fecha,
+                            AutoUsuario=r.AutoUsuario,
+                            Importe=r.Importe,
+                            Usuario=r.Usuario,
+                            MontoRecibido=r.MontoRecibido,
+                            Cobrador=r.Cobrador,
+                            AutoCliente=r.AutoCliente,
+                            Cliente=r.Cliente,
+                            CiRif=r.CiRif,
+                            Codigo=r.Codigo,
+                            EstatusAnulado=r.EstatusAnulado,
+                            Direccion=r.Direccion,
+                            Telefono=r.Telefono,
+                            AutoCobrador=r.AutoCobrador,
+                            Anticipos=r.Anticipos,
+                            Cambio=r.Cambio,
+                            Nota=r.Nota,
+                            CodigoCobrador=r.CodigoCobrador,
+                            AutoCxC=r.AutoCxC,
+                            Retenciones=r.Retenciones,
+                            Descuentos=r.Descuentos,
+                            Hora=r.Hora,
+                            Cierre=r.Cierre,
+                        };
+
+                        var dd = d.DocPago.Documento;
+                        pago.Documento = new DtoLibPosOffLine.Servidor.EnviarData.CxCDocumento()
+                        {
+                            Id = dd.Id,
+                            Fecha = dd.Fecha,
+                            TipoDocumento = dd.TipoDocumento,
+                            Documento = dd.Documento,
+                            Importe = dd.Importe,
+                            Operacion = dd.Operacion,
+                            FechaRecepcion = dd.FechaRecepcion,
+                            Dias = dd.Dias,
+                            CastigoP = dd.CastigoP,
+                            ComisionP = dd.ComisionP,
+                        };
+
+                        pago.MetodoPago = d.DocPago.MediosPago.Select(mp =>
+                        {
+                            var nmp = new DtoLibPosOffLine.Servidor.EnviarData.CxCMetodoPago()
+                            {
+                                AutoMedioPago = mp.AutoMedioPago,
+                                AutoAgencia = mp.AutoAgencia,
+                                Medio = mp.Medio,
+                                Codigo = mp.Codigo,
+                                MontoRecibido = mp.MontoRecibido,
+                                Fecha = mp.Fecha,
+                                EstatusAnulado = mp.EstatusAnulado,
+                                Numero = mp.Numero,
+                                Agencia = mp.Agencia,
+                                AutoUsuario = mp.AutoUsuario,
+                                Lote = mp.Lote,
+                                Referencia = mp.Referencia,
+                                AutoCobrador = mp.AutoCobrador,
+                                Cierre = mp.Cierre,
+                                FechaAgencia = mp.FechaAgencia,
+                            };
+                            return nmp;
+                        }).ToList();
+                    }
+
+
+                    //SE CREA EL DOCUMENTO
                     var nr = new DtoLibPosOffLine.Servidor.EnviarData.Documento()
                     {
                         AnoRelacion = d.AnoRelacion,
@@ -384,7 +493,10 @@ namespace DataProvPosOffLine.Data
                         Utilidad = d.Utilidad,
                         Utilidadp = d.Utilidadp,
                         Vendedor = d.Vendedor,
+                        Prefijo=d.PrefijoSucursal,
 
+
+                        //SE CREA LA CXC DEL DOCUMENTO
                         DocCxC = new DtoLibPosOffLine.Servidor.EnviarData.CxC()
                         {
                             Acumulado = d.DocCxC.Acumulado,
@@ -418,6 +530,12 @@ namespace DataProvPosOffLine.Data
                             TipoDocumento = d.DocCxC.TipoDocumento,
                         },
 
+
+                        //PAGO DEL DOCUMENTO
+                        DocCxCPago= pago,
+
+
+                        //DETALLES DE DOCUMENTO
                         Detalles = d.Detalles.Select(ddt =>
                         {
                             var ndt = new DtoLibPosOffLine.Servidor.EnviarData.DocumentoDetalle()
@@ -492,6 +610,8 @@ namespace DataProvPosOffLine.Data
                             return ndt;
                         }).ToList(),
 
+
+                        //KARDEX DEL DOCUMENTO
                         MovKardex = d.MovKardex.Select(dmk =>
                         {
                             var nmk = new DtoLibPosOffLine.Servidor.EnviarData.ProductoKardex()
@@ -520,6 +640,8 @@ namespace DataProvPosOffLine.Data
                             return nmk;
                         }).ToList(),
 
+
+                        // ACTUALIZACION DEL LO
                         ActDeposito = d.ActDeposito.Select(dp =>
                         {
                             var ndp = new DtoLibPosOffLine.Servidor.EnviarData.ProductoDeposito()

@@ -63,6 +63,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.PrepararData
         public int Signo { get; set; }
         public string Serie { get; set; }
         public string CodigoSucursal { get; set; }
+        public string PrefijoSucursal { get; set; }
 
         public decimal MontoSubtNeto { get; set; }
         public decimal MontoSubtImpuesto { get; set; }

@@ -96,6 +96,14 @@ namespace ModPos
             }
             _litsActualPermisos = r05.Entidad.Permisos;
 
+            var r06 = Sistema.MyData2.Empresa_Datos ();
+            if (r06.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r06.Mensaje);
+                return false;
+            }
+            Sistema.Empresa = r06.Entidad;
+
             return rt;
         }
 

@@ -12,6 +12,17 @@ namespace OOB.LibVenta.PosOffline.Configuracion.Sucursal
     {
 
         public string Codigo { get; set; }
+        public string EquipoNumero { get; set; }
+
+        public string PrefijoSucursal 
+        {
+            get 
+            {
+                var t = "";
+                t=Codigo + EquipoNumero;
+                return t;
+            }
+        }
 
     }
 

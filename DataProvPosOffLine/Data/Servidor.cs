@@ -162,12 +162,9 @@ namespace DataProvPosOffLine.Data
                                         VendedorNombre = d.VendedorNombre,
                                         Tarifa=d.Tarifa,
                                         SaldoPendiente=d.SaldoPendiente,
-                                        AutoConceptoVenta=d.AutoConceptoVenta,
-                                        CodigoConceptoVenta=d.CodigoConceptoVenta,
-                                        NombreConceptoVenta=d.NombreConceptoVenta,
-                                        AutoConceptoDevVenta=d.AutoConceptoDevVenta,
-                                        CodigoConceptoDevVenta=d.CodigoConceptoDevVenta,
-                                        NombreConceptoDevVenta=d.NombreConceptoDevVenta,
+                                        AutoConceptoMov=d.AutoConceptoMov,
+                                        CodigoConceptoMov =d.CodigoConceptoMov,
+                                        NombreConceptoMov =d.NombreConceptoMov,
 
                                         Detalles = d.Detalles.Select(dt =>
                                         {

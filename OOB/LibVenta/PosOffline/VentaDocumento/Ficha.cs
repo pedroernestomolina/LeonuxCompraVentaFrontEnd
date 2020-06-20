@@ -90,14 +90,45 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
 
         public string Tarifa { get; set; }
         public decimal SaldoPendiente { get; set; }
-        public string AutoConceptoVenta { get; set; }
-        public string CodigoConceptoVenta { get; set; }
-        public string NombreConceptoVenta { get; set; }
-        public string AutoConceptoDevVenta { get; set; }
-        public string CodigoConceptoDevVenta { get; set; }
-        public string NombreConceptoDevVenta { get; set; }
+
+        public string AutoConceptoMov { get; set; }
+        public string CodigoConceptoMov { get; set; }
+        public string NombreConceptoMov { get; set; }
 
         public List<FichaDetalle> Detalles { get; set; }
+        public List<FichaPago> MediosPago { get; set; }
+
+        public string DocumentoNombre 
+        {
+            get 
+            {
+                var t = "";
+                switch (TipoDocumento) 
+                {
+                    case Enumerados.EnumTipoDocumento.Factura:
+                        t = "FACTURA";
+                        break;
+                    case Enumerados.EnumTipoDocumento.NotaCredito:
+                        t = "NOTA CREDITO";
+                        break;
+                }
+                return t;
+            }
+        }
+
+        public string CondicionPago
+        {
+            get
+            {
+                var t = "CONTADO";
+                if (IsCredito) 
+                {
+                    t = "CREDITO";
+                }
+                return t;
+            }
+        }
+
 
     }
 

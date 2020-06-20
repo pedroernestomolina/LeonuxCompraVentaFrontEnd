@@ -398,6 +398,30 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.Ficha> Configuracion_MovConceptoInv()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.Ficha>();
+
+            var r01 = MyData.Configuracion_MovConceptoInv();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var ent = r01.Entidad;
+            var nr = new OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.Ficha()
+            {
+                Venta = new OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.ConceptoMov() { Auto = ent.Venta.Auto, Codigo = ent.Venta.Codigo, Nombre = ent.Venta.Nombre },
+                DevVenta = new OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.ConceptoMov() { Auto = ent.DevVenta.Auto, Codigo = ent.DevVenta.Codigo, Nombre = ent.DevVenta.Nombre },
+                Salida = new OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.ConceptoMov() { Auto = ent.Salida.Auto, Codigo = ent.Salida.Codigo, Nombre = ent.Salida.Nombre },
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

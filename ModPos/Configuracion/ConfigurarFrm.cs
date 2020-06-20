@@ -27,6 +27,9 @@ namespace ModPos.Configuracion
         private BindingSource bs_MedioDivisa;
         private BindingSource bs_MedioElectronico;
         private BindingSource bs_MedioOtro;
+        private BindingSource bs_MovVenta ;
+        private BindingSource bs_MovDevVenta;
+        private BindingSource bs_MovSalida ;
 
         private List<OOB.LibVenta.PosOffline.Deposito.Ficha> LDeposito;
         private List<OOB.LibVenta.PosOffline.Cobrador.Ficha> LCobrador;
@@ -40,6 +43,9 @@ namespace ModPos.Configuracion
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioDivisa;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioElectronico;
         private List<OOB.LibVenta.PosOffline.MedioCobro.Ficha> LMedioOtro;
+        private List<OOB.LibVenta.PosOffline.MovConceptoInv.Ficha> LMovVenta;
+        private List<OOB.LibVenta.PosOffline.MovConceptoInv.Ficha> LMovDevVenta;
+        private List<OOB.LibVenta.PosOffline.MovConceptoInv.Ficha> LMovSalida;
 
         private OOB.LibVenta.PosOffline.Configuracion.Actual.Ficha _cnfActual;
 
@@ -59,6 +65,9 @@ namespace ModPos.Configuracion
             LMedioDivisa = new List<OOB.LibVenta.PosOffline.MedioCobro.Ficha>();
             LMedioElectronico = new List<OOB.LibVenta.PosOffline.MedioCobro.Ficha>();
             LMedioOtro= new List<OOB.LibVenta.PosOffline.MedioCobro.Ficha>();
+            LMovVenta = new List<OOB.LibVenta.PosOffline.MovConceptoInv.Ficha>();
+            LMovDevVenta = new List<OOB.LibVenta.PosOffline.MovConceptoInv.Ficha>();
+            LMovSalida = new List<OOB.LibVenta.PosOffline.MovConceptoInv.Ficha>();
 
             bs_Deposito = new BindingSource();
             bs_Cobrador= new BindingSource();
@@ -72,6 +81,9 @@ namespace ModPos.Configuracion
             bs_MedioDivisa = new BindingSource();
             bs_MedioElectronico = new BindingSource();
             bs_MedioOtro = new BindingSource();
+            bs_MovVenta = new BindingSource();
+            bs_MovDevVenta = new BindingSource();
+            bs_MovSalida = new BindingSource();
 
             bs_Deposito.DataSource = LDeposito;
             bs_Cobrador.DataSource = LCobrador;
@@ -85,6 +97,9 @@ namespace ModPos.Configuracion
             bs_MedioDivisa.DataSource = LMedioDivisa;
             bs_MedioElectronico.DataSource = LMedioElectronico;
             bs_MedioOtro.DataSource = LMedioOtro;
+            bs_MovVenta .DataSource = LMovVenta;
+            bs_MovDevVenta.DataSource = LMovDevVenta;
+            bs_MovSalida.DataSource = LMovSalida;
         }
 
         public bool CargarData() 
@@ -165,6 +180,19 @@ namespace ModPos.Configuracion
             }
             _cnfActual = r07.Entidad;
 
+            var r08 = Sistema.MyData2.MovConceptoInv_Lista ();
+            if (r08.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r08.Mensaje);
+                return rt;
+            }
+            LMovVenta.Clear();
+            LMovVenta.AddRange(r08.Lista);
+            LMovDevVenta.Clear();
+            LMovDevVenta.AddRange(r08.Lista);
+            LMovSalida.Clear();
+            LMovSalida.AddRange(r08.Lista);
+
             rt = true;
             return rt;
         }
@@ -223,6 +251,18 @@ namespace ModPos.Configuracion
             CB_MEDIO_OTRO.ValueMember = "Auto";
             CB_MEDIO_OTRO.DataSource = bs_MedioOtro;
 
+            CB_MOV_VENTA.DisplayMember = "Nombre";
+            CB_MOV_VENTA.ValueMember = "Auto";
+            CB_MOV_VENTA.DataSource = bs_MovVenta ;
+
+            CB_MOV_DEV_VENTA.DisplayMember = "Nombre";
+            CB_MOV_DEV_VENTA.ValueMember = "Auto";
+            CB_MOV_DEV_VENTA.DataSource = bs_MovDevVenta;
+
+            CB_MOV_SALIDA.DisplayMember = "Nombre";
+            CB_MOV_SALIDA.ValueMember = "Auto";
+            CB_MOV_SALIDA.DataSource = bs_MovSalida;
+
             TB_CODIGO_SUCURSAL.Text = "";
             TB_LIMITE_INFERIOR.Text = "0,0";
             TB_LIMITE_SUPERIOR.Text = "0,0";
@@ -251,6 +291,10 @@ namespace ModPos.Configuracion
             CB_NOTA_CREDITO.SelectedValue = _cnfActual.SerieNotaCredito;
             CB_NOTA_DEBITO.SelectedValue = _cnfActual.SerieNotaDebito;
             CB_NOTA_ENTREGA.SelectedValue = _cnfActual.SerieNotaEntrega;
+
+            CB_MOV_VENTA.SelectedValue = _cnfActual.AutoMovConceptoVenta ;
+            CB_MOV_DEV_VENTA.SelectedValue = _cnfActual.AutoMovConceptoDevVenta ;
+            CB_MOV_SALIDA.SelectedValue = _cnfActual.AutoMovConceptoSalida;
 
             RB_BUSQUEDA_DESCRIPCION_NO.Checked = true;
             TB_CODIGO_SUCURSAL.Text = _cnfActual.CodigoSucursal;
@@ -339,6 +383,18 @@ namespace ModPos.Configuracion
             {
                 return;
             }
+            if (CB_MOV_VENTA.SelectedIndex == -1)
+            {
+                return;
+            }
+            if (CB_MOV_DEV_VENTA.SelectedIndex == -1)
+            {
+                return;
+            }
+            if (CB_MOV_SALIDA.SelectedIndex == -1)
+            {
+                return;
+            }
             if (sucursal == "") 
             {
                 return;
@@ -381,6 +437,9 @@ namespace ModPos.Configuracion
                     SerieNotaDebito = (string)CB_NOTA_DEBITO.SelectedValue,
                     SerieNotaEntrega = (string)CB_NOTA_ENTREGA.SelectedValue,
                     IdEquipo=idEquipo.PadLeft(2,'0'),
+                    AutoMovConceptoDevVenta = (string)CB_MOV_DEV_VENTA.SelectedValue,
+                    AutoMovConceptoVenta = (string)CB_MOV_VENTA.SelectedValue,
+                    AutoMovConceptoSalida = (string)CB_MOV_SALIDA.SelectedValue,
                 };
                 var r01 = Sistema.MyData2.Configuracion_GuardarCambio(fichaCnf);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 

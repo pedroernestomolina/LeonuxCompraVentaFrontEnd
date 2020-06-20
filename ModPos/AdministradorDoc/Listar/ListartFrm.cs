@@ -121,6 +121,7 @@ namespace ModPos.AdministradorDoc.Listar
         {
             DGV.DataSource = _controlador.Source;
             DGV.Refresh();
+            printDialog1.Document = printDocument1;
         }
 
         private void IrFocoPrincipal()
@@ -188,7 +189,10 @@ namespace ModPos.AdministradorDoc.Listar
 
         private void ImprimirDocumento()
         {
-            _controlador.ReImprimirDocumento();
+            if (_controlador.PrepararDocumento()) 
+            {
+                printDocument1.Print();
+            }
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -202,6 +206,11 @@ namespace ModPos.AdministradorDoc.Listar
         public void setControlador(Administrador ctr) 
         {
             _controlador = ctr;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            _controlador.Imprimir(e);
         }
 
     }

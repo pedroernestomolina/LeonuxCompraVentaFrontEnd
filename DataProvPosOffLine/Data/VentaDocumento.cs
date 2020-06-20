@@ -85,12 +85,9 @@ namespace DataProvPosOffLine.Data
                 HoraEmision = DateTime.Now.ToShortTimeString(),
                 Tarifa = ficha.Tarifa,
                 SaldoPendiente = ficha.SaldoPendiente,
-                AutoConceptoVenta = ficha.AutoConceptoVenta,
-                CodigoConceptoVenta = ficha.CodigoConceptoVenta,
-                NombreConceptoVenta = ficha.NombreConceptoVenta,
-                AutoConceptoDevVenta = ficha.AutoConceptoDevVenta,
-                CodigoConceptoDevVenta = ficha.CodigoConceptoDevVenta,
-                NombreConceptoDevVenta = ficha.NombreConceptoDevVenta,
+                AutoConceptoMov = ficha.AutoConceptoMov,
+                CodigoConceptoMov = ficha.CodigoConceptoMov,
+                NombreConceptoMov = ficha.NombreConceptoMov,
             };
 
             var agregarItemDto = ficha.Items.Select(s =>
@@ -328,12 +325,9 @@ namespace DataProvPosOffLine.Data
                 VendedorNombre = s.VendedorNombre,
                 Tarifa = s.Tarifa,
                 SaldoPendiente = s.SaldoPendiente,
-                AutoConceptoVenta = s.AutoConceptoVenta,
-                CodigoConceptoVenta = s.CodigoConceptoVenta,
-                NombreConceptoVenta = s.NombreConceptoVenta,
-                AutoConceptoDevVenta = s.AutoConceptoDevVenta,
-                NombreConceptoDevVenta = s.NombreConceptoDevVenta,
-                CodigoConceptoDevVenta = s.CodigoConceptoDevVenta,
+                AutoConceptoMov = s.AutoConceptoMov,
+                CodigoConceptoMov = s.CodigoConceptoMov,
+                NombreConceptoMov = s.NombreConceptoMov,
             };
             var det = d.Select(t =>
             {
@@ -385,9 +379,32 @@ namespace DataProvPosOffLine.Data
                 };
                 return dt;
             }).ToList();
-            nr.Detalles = det;
 
+            nr.MediosPago = new List<OOB.LibVenta.PosOffline.VentaDocumento.FichaPago>();
+            if (s.MediosPago != null) 
+            {
+                if (s.MediosPago.Count > 0) 
+                {
+                    var lmp = s.MediosPago.Select(mp =>
+                    {
+                        var rmp = new OOB.LibVenta.PosOffline.VentaDocumento.FichaPago()
+                        {
+                            Codigo = mp.Codigo,
+                            Descripcion = mp.Descripcion,
+                            Importe = mp.Importe,
+                            Lote = mp.Lote,
+                            MontoRecibido = mp.Importe,
+                            Referencia = mp.Referencia,
+                            Tasa = mp.Tasa,
+                        };
+                        return rmp;
+                    }).ToList();
+                    nr.MediosPago = lmp;
+                }
+            }
+            nr.Detalles = det;
             rt.Entidad = nr;
+
             return rt;
         }
 

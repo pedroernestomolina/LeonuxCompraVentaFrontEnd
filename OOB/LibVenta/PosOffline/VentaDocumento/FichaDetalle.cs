@@ -63,6 +63,29 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
         public decimal CostoCompra { get; set; }
         public decimal CostoPromedio { get; set; }
 
+        public bool EsExento 
+        {
+            get 
+            {
+                var t = false;
+                if (TasaIva == 0.0m)
+                {
+                    t = true;
+                }
+                return t;
+            }
+        }
+
+        public decimal PrecioFull 
+        {
+            get 
+            {
+                var t = 0.0m;
+                t = PrecioNeto + (PrecioNeto * TasaIva / 100);
+                return t;
+            }
+        }
+
     }
 
 }

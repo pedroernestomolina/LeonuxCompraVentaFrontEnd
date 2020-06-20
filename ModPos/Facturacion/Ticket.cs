@@ -298,7 +298,7 @@ namespace ModPos.Facturacion
         }
 
 
-        public void ImrpimirFactura() 
+        public void Imrpimir() 
         {
 
             var fr = new Font("Arial", 7, FontStyle.Regular);

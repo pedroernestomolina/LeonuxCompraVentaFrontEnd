@@ -30,8 +30,10 @@ namespace ModPos.Facturacion
         private OOB.LibVenta.PosOffline.Configuracion.Cobrador.Ficha _cobrador;
         private OOB.LibVenta.PosOffline.Configuracion.Transporte.Ficha _transporte;
         private OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Ficha _medioCobro;
+        private OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.Ficha _movConceptoInv;
         private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
         private OOB.LibVenta.PosOffline.VentaDocumento.Ficha _documentoVenta;
+
 
         private ClaveSeguridad.Seguridad _seguridad;
         private AbrirPendiente.Pendiente _pendiente;
@@ -261,6 +263,10 @@ namespace ModPos.Facturacion
             var _correlativo = "0000000001";
             var _condicionPago = pago.IsCredito ? "CREDITO" : "CONTADO";
             var _documentoNombre="FACTURA";
+            var _autoConceptoMv=_movConceptoInv.Venta.Auto ;
+            var _codigoConceptoMv = _movConceptoInv.Venta.Codigo;
+            var _nombreConceptoMv = _movConceptoInv.Venta.Nombre;
+
 
             if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
             {
@@ -272,6 +278,9 @@ namespace ModPos.Facturacion
                 _serie=SerieNotaCredito;
                 _control = ControlSerieNotaCredito;
                 _documentoNombre="NOTA CREDITO";
+                _autoConceptoMv = _movConceptoInv.DevVenta.Auto;
+                _codigoConceptoMv = _movConceptoInv.DevVenta.Codigo;
+                _nombreConceptoMv = _movConceptoInv.DevVenta.Nombre;
             }
 
             _ctrItem.setDescuentoGlobal(_dsctoGlobalPorct);
@@ -345,12 +354,9 @@ namespace ModPos.Facturacion
                 IsCredito=_isCredito,
                 Tarifa= TarifaPrecio,
                 SaldoPendiente= _saldoPendiente ,
-                AutoConceptoVenta="0000000001",
-                CodigoConceptoVenta="",
-                NombreConceptoVenta="",
-                AutoConceptoDevVenta="0000000003",
-                CodigoConceptoDevVenta="",
-                NombreConceptoDevVenta="",
+                AutoConceptoMov = _autoConceptoMv ,
+                CodigoConceptoMov = _codigoConceptoMv,
+                NombreConceptoMov = _nombreConceptoMv,
             };
 
 
@@ -704,6 +710,14 @@ namespace ModPos.Facturacion
             }
             _ctrConsultar.setEtiquetarPrecioPorTipoNegocio(r0h.Entidad);
 
+            var r0i = Sistema.MyData2.Configuracion_MovConceptoInv();
+            if (r0i.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0i.Mensaje);
+                return false;
+            }
+            _movConceptoInv = r0i.Entidad;
+
             _documentoVenta = null;
             if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
             {
@@ -948,7 +962,7 @@ namespace ModPos.Facturacion
             {
                 _ticketFactura.setControlador(e);
                 _ticketFactura.Negocio.setEmpresa(Sistema.Empresa);
-                _ticketFactura.ImrpimirFactura();
+                _ticketFactura.Imrpimir();
             }
         }
 

@@ -52,6 +52,8 @@
     <Compile Include="LibVenta\PosOffline\Configuracion\MedioCobro\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Configuracion\MedioCobro\Medio.cs" />
     <Compile Include="LibVenta\PosOffline\Configuracion\ModoPos\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\MovConceptoInv\ConceptoMov.cs" />
+    <Compile Include="LibVenta\PosOffline\Configuracion\MovConceptoInv\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Configuracion\Repesaje\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Configuracion\Serie\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Configuracion\Sucursal\Ficha.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="LibVenta\PosOffline\VentaDocumento\FichaDetalle.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Enumerados.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\VentaDocumento\FichaPago.cs" />
     <Compile Include="LibVenta\PosOffline\VentaDocumento\Filtro.cs" />
     <Compile Include="LibVenta\VentaAdministrativa\Cliente\AgregarEventual.cs" />
     <Compile Include="LibVenta\VentaAdministrativa\Cliente\Ficha.cs" />

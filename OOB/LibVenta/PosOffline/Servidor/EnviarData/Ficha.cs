@@ -271,7 +271,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                         {
                             var mk = new OOB.LibVenta.PosOffline.Servidor.EnviarData.ProductoKardex()
                             {
-                                AutoConcepto = d.AutoConcepto,
+                                AutoConcepto = d.AutoConceptoMov,
                                 AutoDeposito = d.DepositoAuto,
                                 AutoProducto = dt.AutoProducto,
                                 Cantidad = dt.CantidadUnd,

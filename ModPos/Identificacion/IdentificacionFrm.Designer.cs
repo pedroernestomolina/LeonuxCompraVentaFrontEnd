@@ -55,7 +55,7 @@
             // 
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Right;
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_SALIR.Location = new System.Drawing.Point(278, 2);
+            this.BT_SALIR.Location = new System.Drawing.Point(257, 2);
             this.BT_SALIR.Name = "BT_SALIR";
             this.BT_SALIR.Size = new System.Drawing.Size(75, 38);
             this.BT_SALIR.TabIndex = 3;
@@ -68,10 +68,10 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.BT_SALIR);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 307);
+            this.panel1.Location = new System.Drawing.Point(0, 289);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2);
-            this.panel1.Size = new System.Drawing.Size(355, 42);
+            this.panel1.Size = new System.Drawing.Size(334, 42);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -83,7 +83,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(1);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(2);
-            this.panel3.Size = new System.Drawing.Size(355, 66);
+            this.panel3.Size = new System.Drawing.Size(334, 66);
             this.panel3.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -99,7 +99,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(351, 62);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(330, 62);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // panel5
@@ -110,7 +110,7 @@
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(2);
-            this.panel5.Size = new System.Drawing.Size(288, 60);
+            this.panel5.Size = new System.Drawing.Size(267, 60);
             this.panel5.TabIndex = 1;
             // 
             // label3
@@ -120,7 +120,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(2, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(284, 56);
+            this.label3.Size = new System.Drawing.Size(263, 56);
             this.label3.TabIndex = 0;
             this.label3.Text = "Identificación";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,11 +158,13 @@
             this.panel2.Location = new System.Drawing.Point(0, 66);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(355, 241);
+            this.panel2.Size = new System.Drawing.Size(334, 223);
             this.panel2.TabIndex = 0;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(67, 101);
@@ -173,6 +175,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(67, 45);
@@ -183,31 +187,37 @@
             // 
             // TB_CLAVE
             // 
+            this.TB_CLAVE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_CLAVE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_CLAVE.Location = new System.Drawing.Point(64, 128);
             this.TB_CLAVE.MaxLength = 20;
             this.TB_CLAVE.Name = "TB_CLAVE";
             this.TB_CLAVE.PasswordChar = '*';
-            this.TB_CLAVE.Size = new System.Drawing.Size(228, 26);
+            this.TB_CLAVE.Size = new System.Drawing.Size(207, 26);
             this.TB_CLAVE.TabIndex = 1;
             this.TB_CLAVE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // TB_CODIGO
             // 
+            this.TB_CODIGO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TB_CODIGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_CODIGO.Location = new System.Drawing.Point(64, 72);
             this.TB_CODIGO.MaxLength = 20;
             this.TB_CODIGO.Name = "TB_CODIGO";
-            this.TB_CODIGO.Size = new System.Drawing.Size(228, 26);
+            this.TB_CODIGO.Size = new System.Drawing.Size(207, 26);
             this.TB_CODIGO.TabIndex = 0;
             this.TB_CODIGO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // BT_ACEPTAR
             // 
+            this.BT_ACEPTAR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BT_ACEPTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_ACEPTAR.Location = new System.Drawing.Point(200, 160);
             this.BT_ACEPTAR.Name = "BT_ACEPTAR";
-            this.BT_ACEPTAR.Size = new System.Drawing.Size(92, 36);
+            this.BT_ACEPTAR.Size = new System.Drawing.Size(71, 36);
             this.BT_ACEPTAR.TabIndex = 2;
             this.BT_ACEPTAR.Text = "Aceptar";
             this.BT_ACEPTAR.UseVisualStyleBackColor = true;
@@ -217,10 +227,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 349);
+            this.CancelButton = this.BT_SALIR;
+            this.ClientSize = new System.Drawing.Size(334, 331);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(350, 370);
             this.Name = "IdentificacionFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.IdentificacionFrm_Load);

@@ -184,11 +184,13 @@ namespace ModPos.Facturacion.Cliente
 
         private void RB_NOMBRE_CheckedChanged(object sender, EventArgs e)
         {
+            TB_BUSCAR.Text = "";
             IrFocoPrincipal();
         }
 
         private void RB_CI_CheckedChanged(object sender, EventArgs e)
         {
+            TB_BUSCAR.Text = "";
             IrFocoPrincipal();
         }
 

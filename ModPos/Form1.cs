@@ -77,6 +77,7 @@ namespace ModPos
         private void Form1_Load(object sender, EventArgs e)
         {
             L_BD_INF.Text = _controlador.InformacionBD;
+            L_VERSION.Text = "Ver. " + Application.ProductVersion;
             ActualizarJornadaOperadorUsuario();
         }
 

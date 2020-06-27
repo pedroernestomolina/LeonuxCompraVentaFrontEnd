@@ -43,12 +43,13 @@
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Herramientas_TestBD = new System.Windows.Forms.ToolStripMenuItem();
             this.testFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuItem_Herramientas_Limpiar_BD_Local = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -88,8 +89,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BT_ACTUALIZAR_DATA = new System.Windows.Forms.Button();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.MenuItem_Herramientas_Limpiar_BD_Local = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.L_VERSION = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -118,6 +122,9 @@
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel24.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -268,6 +275,18 @@
             this.testFiscalToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.testFiscalToolStripMenuItem.Text = "Test Fiscal";
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 6);
+            // 
+            // MenuItem_Herramientas_Limpiar_BD_Local
+            // 
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Name = "MenuItem_Herramientas_Limpiar_BD_Local";
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Size = new System.Drawing.Size(167, 22);
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Text = "Limpiar BD Local";
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Click += new System.EventHandler(this.MenuItem_Herramientas_Limpiar_BD_Local_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
@@ -325,7 +344,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label1);
+            this.panel5.Controls.Add(this.tableLayoutPanel6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(62, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
@@ -333,18 +352,6 @@
             this.panel5.Padding = new System.Windows.Forms.Padding(2);
             this.panel5.Size = new System.Drawing.Size(455, 60);
             this.panel5.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(2, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(451, 56);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Menú Principal";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel16
             // 
@@ -812,17 +819,67 @@
             this.BT_ACTUALIZAR_DATA.UseVisualStyleBackColor = true;
             this.BT_ACTUALIZAR_DATA.Click += new System.EventHandler(this.BT_ACTUALIZAR_DATA_Click);
             // 
-            // toolStripMenuItem2
+            // tableLayoutPanel6
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 6);
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.51441F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.48559F));
+            this.tableLayoutPanel6.Controls.Add(this.panel23, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.panel24, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(451, 56);
+            this.tableLayoutPanel6.TabIndex = 0;
             // 
-            // MenuItem_Herramientas_Limpiar_BD_Local
+            // panel23
             // 
-            this.MenuItem_Herramientas_Limpiar_BD_Local.Name = "MenuItem_Herramientas_Limpiar_BD_Local";
-            this.MenuItem_Herramientas_Limpiar_BD_Local.Size = new System.Drawing.Size(167, 22);
-            this.MenuItem_Herramientas_Limpiar_BD_Local.Text = "Limpiar BD Local";
-            this.MenuItem_Herramientas_Limpiar_BD_Local.Click += new System.EventHandler(this.MenuItem_Herramientas_Limpiar_BD_Local_Click);
+            this.panel23.Controls.Add(this.label1);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(1, 1);
+            this.panel23.Margin = new System.Windows.Forms.Padding(1);
+            this.panel23.Name = "panel23";
+            this.panel23.Padding = new System.Windows.Forms.Padding(2);
+            this.panel23.Size = new System.Drawing.Size(306, 54);
+            this.panel23.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(2, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 50);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Menú Principal";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.L_VERSION);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(309, 1);
+            this.panel24.Margin = new System.Windows.Forms.Padding(1);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(2);
+            this.panel24.Size = new System.Drawing.Size(141, 54);
+            this.panel24.TabIndex = 1;
+            // 
+            // L_VERSION
+            // 
+            this.L_VERSION.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_VERSION.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_VERSION.Location = new System.Drawing.Point(2, 2);
+            this.L_VERSION.Name = "L_VERSION";
+            this.L_VERSION.Size = new System.Drawing.Size(137, 50);
+            this.L_VERSION.TabIndex = 3;
+            this.L_VERSION.Text = "label3";
+            this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // Form1
             // 
@@ -868,6 +925,9 @@
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -908,7 +968,6 @@
         private System.Windows.Forms.Button BT_ACTUALIZAR_DATA;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
@@ -937,6 +996,11 @@
         private System.Windows.Forms.Button BT_SALIDA;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Herramientas_Limpiar_BD_Local;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Label L_VERSION;
     }
 }
 

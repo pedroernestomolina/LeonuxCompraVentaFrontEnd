@@ -252,8 +252,17 @@ namespace DataProvPosOffLine.Data
         {
             var result = new OOB.Resultado();
 
+            var fec = new List<DateTime>();
+            var lf = ficha.Documentos.GroupBy(g => g.Fecha).Select(r => new { r.Key }).ToList();
+            foreach (var r in lf) 
+            {
+                fec.Add(r.Key.Date);
+            }
+
             var fichaDTO = new DtoLibPosOffLine.Servidor.EnviarData.Ficha()
             {
+                FechasMov= fec,
+
                 Jornadas = ficha.Jornadas.Select(s =>
                 {
                     var nr = new DtoLibPosOffLine.Servidor.EnviarData.Jornada()

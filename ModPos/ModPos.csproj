@@ -181,6 +181,7 @@
       <DependentUpon>ListaPluFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\ResultadoPreEmpaque.cs" />
+    <Compile Include="Facturacion\series.cs" />
     <Compile Include="Facturacion\Ticket.cs" />
     <Compile Include="Facturacion\Venta.cs" />
     <Compile Include="Fiscal\CtrFiscal.cs" />

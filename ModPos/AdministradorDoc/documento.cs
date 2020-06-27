@@ -23,6 +23,7 @@ namespace ModPos.AdministradorDoc
         public bool IsActivo { get; set; }
         public int Signo { get; set; }
         public int Renglones { get; set; }
+        public string Serie { get; set; }
         public string FechaHora 
         {
             get
@@ -41,10 +42,10 @@ namespace ModPos.AdministradorDoc
                         desc = "FACTURA";
                         break;
                     case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito:
-                        desc = "Nt/Crédito";
+                        desc = "NT/CREDITO";
                         break;
                     case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaDebito:
-                        desc = "Nt/Débito";
+                        desc = "NT/DEBITO";
                         break;
                 }
                 return desc;
@@ -66,6 +67,7 @@ namespace ModPos.AdministradorDoc
             IsActivo = ficha.IsActiva;
             Signo = ficha.Signo;
             Renglones = ficha.Renglones;
+            Serie = ficha.Serie;
         }
 
     }

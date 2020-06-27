@@ -94,6 +94,10 @@ namespace DataProvPosOffLine.Data
                 ControlParaNotaCredito=e.ControlParaNotaCredito,
                 ControlParaNotaDebito=e.ControlParaNotaDebito,
                 ControlParaNotaEnrega=e.ControlParaNotaEntrega,
+                CorrelativoParaFactura=e.CorrelativoParaFactura,
+                CorrelativoParaNtCredito=e.CorrelativoParaNtCredito,
+                CorrelativoParaNtDebito=e.CorrelativoParaNtDebito,
+                CorrelativoParaNtEntrega=e.CorrelativoParaNtEntrega,
             };
             rt.Entidad = nr;
             return rt;

@@ -218,6 +218,7 @@ namespace DataProvPosOffLine.Data
                             Signo = s.Signo,
                             TipoDocumento = (OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento) s.TipoDocumento,
                             Renglones=s.Renglones,
+                            Serie=s.Serie,
                         };
                     }).ToList();
                 }

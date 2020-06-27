@@ -48,6 +48,14 @@ namespace ModPos.AdministradorDoc.Listar
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
 
+            var c9 = new DataGridViewTextBoxColumn();
+            c9.DataPropertyName = "Serie";
+            c9.HeaderText = "Serie";
+            c9.Visible = true;
+            c9.Width = 60;
+            c9.HeaderCell.Style.Font = f;
+            c9.DefaultCellStyle.Font = f1;
+
             var c2 = new DataGridViewTextBoxColumn();
             c2.DataPropertyName = "Documento";
             c2.HeaderText = "Documento";
@@ -60,7 +68,7 @@ namespace ModPos.AdministradorDoc.Listar
             c7.DataPropertyName = "TipoDocumentoDesc";
             c7.HeaderText = "Tipo";
             c7.Visible = true;
-            c7.Width = 100;
+            c7.Width = 90;
             c7.HeaderCell.Style.Font = f;
             c7.DefaultCellStyle.Font = f1;
 
@@ -68,7 +76,7 @@ namespace ModPos.AdministradorDoc.Listar
             c6.DataPropertyName = "Renglones";
             c6.HeaderText = "# Reng";
             c6.Visible = true;
-            c6.Width = 60;
+            c6.Width = 50;
             c6.HeaderCell.Style.Font = f;
             c6.DefaultCellStyle.Font = f1;
             c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -78,7 +86,7 @@ namespace ModPos.AdministradorDoc.Listar
             c3.DataPropertyName = "CiRif";
             c3.HeaderText = "CiRif";
             c3.Visible = true;
-            c3.Width = 100;
+            c3.Width = 90;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
 
@@ -108,6 +116,7 @@ namespace ModPos.AdministradorDoc.Listar
             c8.Width = 10;
 
             DGV.Columns.Add(c1);
+            DGV.Columns.Add(c9);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c6);

@@ -33,6 +33,7 @@ namespace ModPos.Facturacion
         private OOB.LibVenta.PosOffline.Configuracion.MovConceptoInv.Ficha _movConceptoInv;
         private OOB.LibVenta.PosOffline.Permiso.Pos.Ficha _permisos;
         private OOB.LibVenta.PosOffline.VentaDocumento.Ficha _documentoVenta;
+        private series _series;
 
 
         private ClaveSeguridad.Seguridad _seguridad;
@@ -45,14 +46,7 @@ namespace ModPos.Facturacion
         private CtrListaItem _ctrListaItem;
         private CtrPago _ctrPago;
 
-        public string SerieFactura { get; set; }
-        public string SerieNotaCredito { get; set; }
-        public string SerieNotaDebito { get; set; }
-        public string SerieNotaEntrega { get; set; }
-        public string ControlSerieFactura { get; set; }
-        public string ControlSerieNotaCredito { get; set; }
-        public string ControlSerieNotaDebito { get; set; }
-        public string ControlSerieNotaEntrega { get; set; }
+
         public string CodigoSucursal { get; set; }
         public string PrefijoSucursal { get; set; }
         public string TarifaPrecio { get; set; }
@@ -143,6 +137,7 @@ namespace ModPos.Facturacion
             _ctrListaItem = new CtrListaItem(_ctrItem);
             _ctrPago = new CtrPago(_seguridad, _ctrCliente);
             _ticketFactura = new Ticket();
+            _series = new series();
 
             _permitirBusquedaPorDescripcion = false;
             _modoOperacionPos = Enumerados.EnumModoOperacionPos.Detal;
@@ -258,9 +253,9 @@ namespace ModPos.Facturacion
             var _tipoDocumento = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.Factura;
             var _signo=1;
             var _aplica="";
-            var _serie=SerieFactura;
-            var _control = ControlSerieFactura;
-            var _correlativo = "0000000001";
+            var _serie=_series.ParaFactura;
+            var _control =_series.ControlParaFactura;
+            var _correlativo = _series.CorrelativoParaFactura+1;
             var _condicionPago = pago.IsCredito ? "CREDITO" : "CONTADO";
             var _documentoNombre="FACTURA";
             var _autoConceptoMv=_movConceptoInv.Venta.Auto ;
@@ -275,8 +270,9 @@ namespace ModPos.Facturacion
                 _aplica=_documentoVenta.Documento;
                 _tipoDocumento=OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito;
                 _signo=-1;
-                _serie=SerieNotaCredito;
-                _control = ControlSerieNotaCredito;
+                _serie=_series.ParaNotaCredito  ;
+                _control = _series.ControlParaNotaCredito ;
+                _correlativo = _series.CorrelativoParaNtCredito + 1;
                 _documentoNombre="NOTA CREDITO";
                 _autoConceptoMv = _movConceptoInv.DevVenta.Auto;
                 _codigoConceptoMv = _movConceptoInv.DevVenta.Codigo;
@@ -298,7 +294,7 @@ namespace ModPos.Facturacion
                 ClienteNombreRazonSocial = _ctrCliente.Ficha.NombreRazaonSocial,
                 ClienteTelefono = _ctrCliente.Ficha.Telefono,
                 Control = _control,
-                Documento = "",
+                Documento = _correlativo.ToString().Trim().PadLeft(10,'0'),
                 Estacion = Environment.MachineName,
                 FactorCambio = TasaCambio,
                 IsDocumentoActivo = true,
@@ -528,13 +524,25 @@ namespace ModPos.Facturacion
                 }
             }
 
-
             var r01 = Sistema.MyData2.VentaDocumento_Agregar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+            switch (ficha.TipoDocumento) 
+            {
+                case  OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.Factura:
+                    _series.IncrementaCorrelativoFactura();
+                    break;
+                case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito:
+                    _series.IncrementaCorrelativoNtCredito ();
+                    break;
+                case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaDebito:
+                    _series.IncrementaCorrelativoNtDebito ();
+                    break;
+            }
+
             _documentoProcesado = true;
             Helpers.Msg.AgregarOk();
             _modoFuncion = Enumerados.EnumModoFuncion.Facturacion;
@@ -601,14 +609,7 @@ namespace ModPos.Facturacion
                 Helpers.Msg.Error(r05.Mensaje);
                 return false;
             }
-            SerieFactura = r05.Entidad.ParaFactura;
-            SerieNotaCredito = r05.Entidad.ParaNotaCredito;
-            SerieNotaDebito = r05.Entidad.ParaNotaDebito;
-            SerieNotaEntrega = r05.Entidad.ParaNotaEnrega;
-            ControlSerieFactura = r05.Entidad.ControlParaFactura;
-            ControlSerieNotaCredito = r05.Entidad.ControlParaNotaCredito;
-            ControlSerieNotaDebito = r05.Entidad.ControlParaNotaDebito;
-            ControlSerieNotaEntrega = r05.Entidad.ControlParaNotaEnrega;
+            _series.setSeries(r05.Entidad);
 
             var r06 = Sistema.MyData2.Configuracion_Sucursal();
             if (r06.Result == OOB.Enumerados.EnumResult.isError)

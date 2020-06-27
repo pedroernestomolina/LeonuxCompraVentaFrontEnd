@@ -10,7 +10,6 @@ namespace OOB.LibVenta.PosOffline.Configuracion.Serie
 
     public class Ficha
     {
-
         public string ParaFactura { get; set; }
         public string ParaNotaCredito { get; set; }
         public string ParaNotaDebito { get; set; }
@@ -21,6 +20,10 @@ namespace OOB.LibVenta.PosOffline.Configuracion.Serie
         public string ControlParaNotaDebito { get; set; }
         public string ControlParaNotaEnrega { get; set; }
 
+        public int CorrelativoParaFactura { get; set; }
+        public int CorrelativoParaNtCredito { get; set; }
+        public int CorrelativoParaNtDebito { get; set; }
+        public int CorrelativoParaNtEntrega { get; set; }
     }
 
 }

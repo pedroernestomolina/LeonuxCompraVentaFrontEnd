@@ -277,11 +277,16 @@ namespace ModPos.Facturacion
             }
         }
 
+        public enum EnumModoTicket { Modo80mm = 1, Modo58mm };
+        public int caracterPorLinea;
+        public float anchoPapel ;
+
 
         public DatosNegocio Negocio;
         public DatosCliente Cliente;
         public DatosDocumento Documento;
         private System.Drawing.Printing.PrintPageEventArgs eg;
+        private EnumModoTicket _modoTicket;
 
 
         public Ticket()
@@ -295,6 +300,22 @@ namespace ModPos.Facturacion
         public void setControlador(System.Drawing.Printing.PrintPageEventArgs e) 
         {
             eg = e;
+        }
+
+        public void setModo(EnumModoTicket modo)
+        {
+            _modoTicket = modo;
+            switch (modo) 
+            {
+                case EnumModoTicket.Modo58mm:
+                    caracterPorLinea = 35;
+                    anchoPapel = 186;
+                    break;
+                case EnumModoTicket.Modo80mm:
+                    caracterPorLinea = 51;
+                    anchoPapel = 285;
+                    break;
+            }
         }
 
 
@@ -376,9 +397,16 @@ namespace ModPos.Facturacion
                 }
                 else
                 {
+                    var xdes = r.descripcion.Trim();
+                    if (_modoTicket == EnumModoTicket.Modo58mm)
+                    {
+                        if (xdes.Length > 15)
+                            xdes = xdes.Substring(0, 15);
+                    }
+
                     if (r.cantidad == 1.0m)
                     {
-                        eg.Graphics.DrawString(r.sdescripcion, fr, Brushes.Black, 0, l);
+                        eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
                         eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder(r.simporte), l);
                         l += 10;
                     }
@@ -386,7 +414,7 @@ namespace ModPos.Facturacion
                     {
                         eg.Graphics.DrawString(r.scantidadPrecio, fr, Brushes.Black, 0, l);
                         l += 10;
-                        eg.Graphics.DrawString(r.sdescripcion, fr, Brushes.Black, 0, l);
+                        eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
                         eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder(r.simporte), l);
                         l += 10;
                     }
@@ -444,18 +472,26 @@ namespace ModPos.Facturacion
         private float centrar(string t)
         {
             float r = 0.0f;
-            //r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
-            float tl = (275.0f / 51.0f);
-            r = ((50.0f - t.Trim().Length) / 2.0f) * tl;
+            ////r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
+            //float tl = (275.0f / 51.0f);
+            //r = ((50.0f - t.Trim().Length) / 2.0f) * tl;
+            //return r;
+
+            float tl = (anchoPapel/ caracterPorLinea);
+            r = (( caracterPorLinea- t.Trim().Length) / 2.0f) * tl;
             return r;
         }
 
         private float dder(string t)
         {
             float r = 0.0f;
-            //r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
-            float tl = (285.0f / 51.0f);
-            r = ((51.0f - t.Length)) * tl;
+            ////r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
+            //float tl = (285.0f / 51.0f);
+            //r = ((51.0f - t.Length)) * tl;
+            //return r;
+
+            float tl = ((anchoPapel+0) / caracterPorLinea);
+            r = (((caracterPorLinea+1) - t.Length)) * tl;
             return r;
         }
 

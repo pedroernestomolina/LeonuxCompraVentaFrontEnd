@@ -15,6 +15,7 @@ namespace DataProvPosOffLine.InfraEstructura
         OOB.Resultado Operador_Cerrar(OOB.LibVenta.PosOffline.Operador.Cerrar.Ficha ficha);
         OOB.ResultadoEntidad<int> Operador_Activo();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Operador.Cargar.Ficha> Operador_Cargar(int idOperador);
+        OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha> Operador_Movimiento(int idOperador);
 
     }
 

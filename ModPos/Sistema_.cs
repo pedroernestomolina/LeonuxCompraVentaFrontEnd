@@ -18,12 +18,31 @@ namespace ModPos
         private Facturacion.Venta _venta;
         private Fiscal.CtrFiscal _fiscal;
         private Permisos.CtrPermiso _permisos;
+        private Operador.Cierre.CtrCierre _cierreOperador;
         private List<OOB.LibVenta.PosOffline.Permiso.Actual.Permiso> _litsActualPermisos; 
         private string _bdRemota;
         private string _bdLocal;
 
 
         public string InformacionBD { get { return "Ruta Remota: "+_bdRemota + Environment.NewLine + "Ruta Local: "+_bdLocal; } }
+
+        public bool IsBdActualizada 
+        { 
+            get 
+            {
+                var rt = true;
+                if (Sistema.FechaUltimaActualizacion == null)
+                {
+                    rt=false;
+                }
+                var dif = (Sistema.FechaUltimaActualizacion.Value.Date - DateTime.Now.Date).Days;
+                if (dif != 0)
+                {
+                    rt=false;
+                }
+                return rt;
+            } 
+        }
 
 
         public Sistema_()
@@ -35,6 +54,7 @@ namespace ModPos
             _venta = new Facturacion.Venta(_seguridad);
             _fiscal = new Fiscal.CtrFiscal();
             _permisos = new Permisos.CtrPermiso();
+            _cierreOperador = new Operador.Cierre.CtrCierre();
         }
 
         public bool CargarData() 
@@ -104,6 +124,14 @@ namespace ModPos
             }
             Sistema.Empresa = r06.Entidad;
 
+            var r07 = Sistema.MyData2.FechaUltimaActualizacionBDServidor();
+            if (r07.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r07.Mensaje);
+                return false;
+            }
+            Sistema.FechaUltimaActualizacion = r07.Entidad;
+
             return rt;
         }
 
@@ -116,11 +144,11 @@ namespace ModPos
 
         public void TestBD() 
         {
-            if (!Sistema.Usuario.IsInvitado)
-            {
-                Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
-                return;
-            }
+            //if (!Sistema.Usuario.IsInvitado)
+            //{
+            //    Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
+            //    return;
+            //}
 
             var r01 = Sistema.MyData2.Servidor_Test();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -137,6 +165,19 @@ namespace ModPos
             if (Sistema.Usuario.IsInvitado)
             {
                 Helpers.Msg.Alerta("OPCION NO PERMITDA PARA ESTE USUARIO");
+                return;
+            }
+
+            if (Sistema.FechaUltimaActualizacion == null)
+            {
+                Helpers.Msg.Alerta("POR FAVOR, DEBES IR A ACTUALIZAR DATA DEL SERVIDOR");
+                return;
+            }
+
+            var dif = (Sistema.FechaUltimaActualizacion.Value.Date- DateTime.Now.Date).Days ;
+            if (dif != 0)
+            {
+                Helpers.Msg.Alerta("POR FAVOR, DEBES IR A ACTUALIZAR DATA DEL SERVIDOR");
                 return;
             }
 
@@ -223,11 +264,11 @@ namespace ModPos
                 return;
             }
 
-            if (Sistema.MyOperador != null) 
-            {
-                Helpers.Msg.Error("HAY UN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
-                return;
-            }
+            //if (Sistema.MyOperador != null) 
+            //{
+            //    Helpers.Msg.Error("HAY UN OPERADOR ABIERTO, VERIFIQUE POR FAVOR");
+            //    return;
+            //}
 
             var msg = MessageBox.Show("Importar Data Del Servidor ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == System.Windows.Forms.DialogResult.Yes)
@@ -245,6 +286,14 @@ namespace ModPos
                     Helpers.Msg.Error(r02.Mensaje);
                     return;
                 }
+
+                var r03 = Sistema.MyData2.FechaUltimaActualizacionBDServidor();
+                if (r03.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r03.Mensaje);
+                    return;
+                }
+                Sistema.FechaUltimaActualizacion = r03.Entidad;
 
                 Helpers.Msg.EditarOk();
             }
@@ -429,39 +478,41 @@ namespace ModPos
 
             if (Sistema.MyOperador != null)
             {
-                var r00 = Sistema.MyData2.Pendiente_HayCuentasporProcesar();
-                if (r00.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r00.Mensaje);
-                    return;
-                }
-                if (r00.Entidad)
-                {
-                    Helpers.Msg.Error("HAY CUENTAS PENDIENTES POR PROCESAR, VERIFIQUE POR FAVOR");
-                    return;
-                }
+                _cierreOperador.Cierre();
 
-                var msg = MessageBox.Show("Estas Seguro De Cerrar Este Operador ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == System.Windows.Forms.DialogResult.No)
-                {
-                    return;
-                }
+                //var r00 = Sistema.MyData2.Pendiente_HayCuentasporProcesar();
+                //if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                //{
+                //    Helpers.Msg.Error(r00.Mensaje);
+                //    return;
+                //}
+                //if (r00.Entidad)
+                //{
+                //    Helpers.Msg.Error("HAY CUENTAS PENDIENTES POR PROCESAR, VERIFIQUE POR FAVOR");
+                //    return;
+                //}
 
-                var ficha = new OOB.LibVenta.PosOffline.Operador.Cerrar.Ficha()
-                {
-                    IdOperador = Sistema.MyOperador.Id,
-                    Estatus = "C",
-                    Fecha = DateTime.Now,
-                    Hora = DateTime.Now.ToShortTimeString(),
-                };
-                var r01 = Sistema.MyData2.Operador_Cerrar(ficha);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                Sistema.MyOperador = null;
-                Helpers.Msg.Alerta("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
+                //var msg = MessageBox.Show("Estas Seguro De Cerrar Este Operador ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                //if (msg == System.Windows.Forms.DialogResult.No)
+                //{
+                //    return;
+                //}
+
+                //var ficha = new OOB.LibVenta.PosOffline.Operador.Cerrar.Ficha()
+                //{
+                //    IdOperador = Sistema.MyOperador.Id,
+                //    Estatus = "C",
+                //    Fecha = DateTime.Now,
+                //    Hora = DateTime.Now.ToShortTimeString(),
+                //};
+                //var r01 = Sistema.MyData2.Operador_Cerrar(ficha);
+                //if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                //{
+                //    Helpers.Msg.Error(r01.Mensaje);
+                //    return;
+                //}
+                //Sistema.MyOperador = null;
+                //Helpers.Msg.Alerta("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
             }
             else
             {

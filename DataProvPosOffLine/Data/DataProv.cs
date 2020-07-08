@@ -104,6 +104,22 @@ namespace DataProvPosOffLine.Data
             return result;
         }
 
+        public OOB.ResultadoEntidad<DateTime?> FechaUltimaActualizacionBDServidor()
+        {
+            var result = new OOB.ResultadoEntidad<DateTime?>();
+
+            var r01 = MyData.FechaUltimaActualizaion();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            result.Entidad = (DateTime?)r01.Entidad;
+            return result;
+        }
+
     }
 
 }

@@ -18,6 +18,7 @@ namespace DataProvPosOffLine.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Sistema.InformacionBD.Ficha> InformacionBD();
         OOB.Resultado Inicializar_BdLocal();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Empresa.Ficha> Empresa_Datos();
+        OOB.ResultadoEntidad<DateTime?> FechaUltimaActualizacionBDServidor();
 
     }
 

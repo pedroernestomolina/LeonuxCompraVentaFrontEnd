@@ -137,6 +137,11 @@ namespace ModPos.Facturacion
             _ctrListaItem = new CtrListaItem(_ctrItem);
             _ctrPago = new CtrPago(_seguridad, _ctrCliente);
             _ticketFactura = new Ticket();
+            _ticketFactura.setModo(Ticket.EnumModoTicket.Modo80mm);
+            if (Sistema.ImpresoraTicket == Sistema.EnumModoRolloTicket.Pequeno) 
+            {
+                _ticketFactura.setModo(Ticket.EnumModoTicket.Modo58mm);
+            }
             _series = new series();
 
             _permitirBusquedaPorDescripcion = false;
@@ -468,24 +473,39 @@ namespace ModPos.Facturacion
 
             var metodosPago = pago._detalle.Select(s =>
             {
+                OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.SinDefinir; 
                 OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Medio medio=null;
                 switch (s.Modo) 
                 {
                     case  Pago.Enumerados.ModoPago.Efectivo:
                         medio = _medioCobro.Efectivo;
+                        _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Efectivo;
                         break;
                     case Pago.Enumerados.ModoPago.Divisa:
                         medio = _medioCobro.Divisa;
+                        _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Divisa;
                         break;
                     case Pago.Enumerados.ModoPago.Electronico:
-                        medio = _medioCobro.Electronico;
-                        break;
+                        if (s.Id == 4)
+                        {
+                            medio = _medioCobro.Otro;
+                            _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Otros;
+                            break;
+                        }
+                        else 
+                        {
+                            medio = _medioCobro.Electronico;
+                            _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Electronico;
+                            break;
+                        }
                     case Pago.Enumerados.ModoPago.Otro:
                         medio = _medioCobro.Otro;
+                        _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Otros;
                         break;
                 }
                 var nr = new OOB.LibVenta.PosOffline.VentaDocumento.AgregarMetodoPago()
                 {
+                    TipoMedioPago=  _tipoMedioPago,
                     autoMedioPago = medio.Auto,
                     codigoMedioPago = medio.Codigo,
                     descripcionMedioPago = medio.Descripcion,

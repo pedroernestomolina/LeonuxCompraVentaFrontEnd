@@ -224,6 +224,14 @@
     <Compile Include="Lib\Controles\Numero\NumeroEntero.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Operador\Cierre\cierre.cs" />
+    <Compile Include="Operador\Cierre\CierreFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operador\Cierre\CierreFrm.Designer.cs">
+      <DependentUpon>CierreFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operador\Cierre\CtrCierre.cs" />
     <Compile Include="Permisos\CtrPermiso.cs" />
     <Compile Include="Permisos\permiso.cs" />
     <Compile Include="Permisos\PermisosFrm.cs">
@@ -292,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lib\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.resx">
       <DependentUpon>BalanzaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operador\Cierre\CierreFrm.resx">
+      <DependentUpon>CierreFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Permisos\PermisosFrm.resx">
       <DependentUpon>PermisosFrm.cs</DependentUpon>

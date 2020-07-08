@@ -145,8 +145,25 @@ namespace DataProvPosOffLine.Data
 
             var agregarMetodsPago = ficha.MetodosPago.Select(m =>
             {
+                var _tipoMedioPago = -1;
+                switch (m.TipoMedioPago) 
+                {
+                    case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Efectivo:
+                        _tipoMedioPago = 1;
+                        break;
+                    case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Divisa:
+                        _tipoMedioPago = 2;
+                        break;
+                    case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Electronico:
+                        _tipoMedioPago = 3;
+                        break;
+                    case OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.Otros:
+                        _tipoMedioPago = 4;
+                        break;
+                }
                 var nr = new DtoLibPosOffLine.VentaDocumento.AgregarMetodoPago()
                 {
+                    tipoMedioPago= _tipoMedioPago,
                     autoMedioPago = m.autoMedioPago,
                     codigoMedioPago = m.codigoMedioPago,
                     descripcionMedioPago = m.descripcionMedioPago,
@@ -394,7 +411,7 @@ namespace DataProvPosOffLine.Data
                             Descripcion = mp.Descripcion,
                             Importe = mp.Importe,
                             Lote = mp.Lote,
-                            MontoRecibido = mp.Importe,
+                            MontoRecibido = mp.MontoRecibido,
                             Referencia = mp.Referencia,
                             Tasa = mp.Tasa,
                         };

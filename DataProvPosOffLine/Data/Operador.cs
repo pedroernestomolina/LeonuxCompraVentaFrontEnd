@@ -11,6 +11,7 @@ namespace DataProvPosOffLine.Data
     
     public partial class DataProv: IData
     {
+    
         public OOB.ResultadoId Operador_Abrir(OOB.LibVenta.PosOffline.Operador.Abrir.Ficha ficha)
         {
             var rt = new OOB.ResultadoId();
@@ -105,6 +106,41 @@ namespace DataProvPosOffLine.Data
 
             return rt;
         }
+
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha> Operador_Movimiento(int idOperador)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha>();
+
+            var r01 = MyData.Operador_Movimientos(idOperador);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var mv = r01.Entidad;
+            var nr = new OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha()
+            {
+                cntDivisa = mv.cntDivisa,
+                cntElectronico = mv.cntElectronico,
+                cntFactura = mv.cntFactura,
+                cntNCredito = mv.cntNCredito,
+                cntNDebito = mv.cntNDebito,
+                cntOtros = mv.cntOtros,
+                montoDivisa = mv.montoDivisa,
+                montoEfectivo = mv.montoEfectivo,
+                montoElectronico = mv.montoElectronico,
+                montoFactura = mv.montoFactura,
+                montoNCredito = mv.montoNCredito,
+                montoNDebito = mv.montoNDebito,
+                montoOtros = mv.montoOtros,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

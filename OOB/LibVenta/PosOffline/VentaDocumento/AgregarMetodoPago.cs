@@ -11,6 +11,7 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
     public class AgregarMetodoPago
     {
 
+        public Enumerados.EnumTipoMedioPago TipoMedioPago { get; set; }
         public string autoMedioPago { get; set; }
         public string codigoMedioPago { get; set; }
         public string descripcionMedioPago { get; set; }

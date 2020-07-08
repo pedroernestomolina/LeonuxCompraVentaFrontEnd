@@ -120,9 +120,12 @@
             this.panel34 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel35 = new System.Windows.Forms.Panel();
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION = new System.Windows.Forms.CheckBox();
             this.panel36 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel37 = new System.Windows.Forms.Panel();
+            this.ND_LIMITE_INFERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.ND_LIMITE_SUPERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.CHB_REPESAJE = new System.Windows.Forms.CheckBox();
@@ -142,9 +145,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
             this.BT_GUARDAR = new System.Windows.Forms.Button();
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION = new System.Windows.Forms.CheckBox();
-            this.ND_LIMITE_INFERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.ND_LIMITE_SUPERIOR = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -1356,6 +1356,18 @@
             this.panel35.Size = new System.Drawing.Size(233, 45);
             this.panel35.TabIndex = 5;
             // 
+            // CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION
+            // 
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.AutoSize = true;
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Location = new System.Drawing.Point(5, 16);
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Margin = new System.Windows.Forms.Padding(1);
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Name = "CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION";
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Size = new System.Drawing.Size(59, 17);
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.TabIndex = 1;
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Text = "Activar";
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.UseVisualStyleBackColor = true;
+            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.CheckedChanged += new System.EventHandler(this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION_CheckedChanged);
+            // 
             // panel36
             // 
             this.panel36.Controls.Add(this.label10);
@@ -1392,6 +1404,28 @@
             this.panel37.Padding = new System.Windows.Forms.Padding(2);
             this.panel37.Size = new System.Drawing.Size(233, 80);
             this.panel37.TabIndex = 4;
+            // 
+            // ND_LIMITE_INFERIOR
+            // 
+            this.ND_LIMITE_INFERIOR.BackColor = System.Drawing.Color.Yellow;
+            this.ND_LIMITE_INFERIOR.Location = new System.Drawing.Point(5, 53);
+            this.ND_LIMITE_INFERIOR.MaxLength = 7;
+            this.ND_LIMITE_INFERIOR.Name = "ND_LIMITE_INFERIOR";
+            this.ND_LIMITE_INFERIOR.Size = new System.Drawing.Size(94, 20);
+            this.ND_LIMITE_INFERIOR.TabIndex = 2;
+            this.ND_LIMITE_INFERIOR.Text = "0";
+            this.ND_LIMITE_INFERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // ND_LIMITE_SUPERIOR
+            // 
+            this.ND_LIMITE_SUPERIOR.BackColor = System.Drawing.Color.Yellow;
+            this.ND_LIMITE_SUPERIOR.Location = new System.Drawing.Point(5, 28);
+            this.ND_LIMITE_SUPERIOR.MaxLength = 7;
+            this.ND_LIMITE_SUPERIOR.Name = "ND_LIMITE_SUPERIOR";
+            this.ND_LIMITE_SUPERIOR.Size = new System.Drawing.Size(94, 20);
+            this.ND_LIMITE_SUPERIOR.TabIndex = 1;
+            this.ND_LIMITE_SUPERIOR.Text = "0";
+            this.ND_LIMITE_SUPERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label17
             // 
@@ -1598,40 +1632,6 @@
             this.BT_GUARDAR.Text = "Guardar Cambios";
             this.BT_GUARDAR.UseVisualStyleBackColor = true;
             this.BT_GUARDAR.Click += new System.EventHandler(this.BT_GUARDAR_Click);
-            // 
-            // CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION
-            // 
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.AutoSize = true;
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Location = new System.Drawing.Point(5, 16);
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Margin = new System.Windows.Forms.Padding(1);
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Name = "CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION";
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Size = new System.Drawing.Size(59, 17);
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.TabIndex = 1;
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.Text = "Activar";
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.UseVisualStyleBackColor = true;
-            this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION.CheckedChanged += new System.EventHandler(this.CHB_ACTIVAR_BUSQUEDA_POR_DESCRIPCION_CheckedChanged);
-            // 
-            // ND_LIMITE_INFERIOR
-            // 
-            this.ND_LIMITE_INFERIOR.BackColor = System.Drawing.Color.Yellow;
-            this.ND_LIMITE_INFERIOR.Location = new System.Drawing.Point(5, 53);
-            this.ND_LIMITE_INFERIOR.MaxLength = 7;
-            this.ND_LIMITE_INFERIOR.Name = "ND_LIMITE_INFERIOR";
-            this.ND_LIMITE_INFERIOR.Size = new System.Drawing.Size(94, 20);
-            this.ND_LIMITE_INFERIOR.TabIndex = 2;
-            this.ND_LIMITE_INFERIOR.Text = "0";
-            this.ND_LIMITE_INFERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // ND_LIMITE_SUPERIOR
-            // 
-            this.ND_LIMITE_SUPERIOR.BackColor = System.Drawing.Color.Yellow;
-            this.ND_LIMITE_SUPERIOR.Location = new System.Drawing.Point(5, 28);
-            this.ND_LIMITE_SUPERIOR.MaxLength = 7;
-            this.ND_LIMITE_SUPERIOR.Name = "ND_LIMITE_SUPERIOR";
-            this.ND_LIMITE_SUPERIOR.Size = new System.Drawing.Size(94, 20);
-            this.ND_LIMITE_SUPERIOR.TabIndex = 1;
-            this.ND_LIMITE_SUPERIOR.Text = "0";
-            this.ND_LIMITE_SUPERIOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ConfigurarFrm
             // 

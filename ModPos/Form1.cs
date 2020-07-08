@@ -78,6 +78,7 @@ namespace ModPos
         {
             L_BD_INF.Text = _controlador.InformacionBD;
             L_VERSION.Text = "Ver. " + Application.ProductVersion;
+            ActualizarInformacionBdServidor();
             ActualizarJornadaOperadorUsuario();
         }
 
@@ -89,6 +90,21 @@ namespace ModPos
         private void ActualizaDataDelServidor()
         {
             _controlador.ImportarDataDelServidor();
+            ActualizarInformacionBdServidor();
+        }
+
+        private void ActualizarInformacionBdServidor()
+        {
+            if (_controlador.IsBdActualizada)
+            {
+                L_ESTATUS_ACTUALIZACION.Text = "SISTEMA ACTUALIZADO";
+                L_ESTATUS_ACTUALIZACION.ForeColor = Color.Green;
+            }
+            else
+            {
+                L_ESTATUS_ACTUALIZACION.Text = "ERROR ACTUALIZAR";
+                L_ESTATUS_ACTUALIZACION.ForeColor = Color.Red;
+            }
         }
 
         private void BT_CONFIGURACION_Click(object sender, EventArgs e)

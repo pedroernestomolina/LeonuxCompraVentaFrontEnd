@@ -12,6 +12,7 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
     {
 
         public enum EnumTipoDocumento { SinDefinir = -1, Factura = 1, NotaDebito, NotaCredito };
+        public enum EnumTipoMedioPago { SinDefinir = -1, Efectivo = 1, Divisa, Electronico, Otros };
 
     }
 

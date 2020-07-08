@@ -75,6 +75,7 @@
     <Compile Include="LibVenta\PosOffline\Operador\Cargar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Cerrar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Enumerado.cs" />
+    <Compile Include="LibVenta\PosOffline\Operador\Movimiento\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\CtaAbrir\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\Agregar.cs" />
     <Compile Include="LibVenta\PosOffline\Pendiente\DejarEnPendiente\AgregarItem.cs" />

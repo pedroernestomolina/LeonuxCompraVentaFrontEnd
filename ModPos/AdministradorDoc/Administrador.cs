@@ -34,6 +34,12 @@ namespace ModPos.AdministradorDoc
             _bs.DataSource = _blDocumentos;
             _seguridad = seguridad;
             _ticket = new Facturacion.Ticket();
+            _ticket.setModo(Facturacion.Ticket.EnumModoTicket.Modo80mm);
+            if (Sistema.ImpresoraTicket == Sistema.EnumModoRolloTicket.Pequeno)
+            {
+                _ticket.setModo(Facturacion.Ticket.EnumModoTicket.Modo58mm);
+            }
+
         }
 
 

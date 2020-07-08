@@ -60,6 +60,25 @@ namespace ModPos.Helpers
                                 {
                                     _DataLocal = nv.InnerText.Trim();
                                 }
+
+                                if (nv.LocalName.ToUpper().Trim()=="IMPRESORATICKET")
+                                {
+                                    foreach (XmlNode mi in nv.ChildNodes)
+                                    {
+                                        if (mi.LocalName.Trim().ToUpper() == "TAMANOROLLO")
+                                        {
+                                            if (mi.InnerText.Trim().ToUpper() == "G")
+                                            {
+                                                Sistema.ImpresoraTicket = Sistema.EnumModoRolloTicket.Grande;
+                                            }                                            
+                                            if (mi.InnerText.Trim().ToUpper() == "P")
+                                            {
+                                                Sistema.ImpresoraTicket = Sistema.EnumModoRolloTicket.Pequeno;
+                                            }
+                                        }
+                                    }
+
+                                }
                             }
                         }
                     }

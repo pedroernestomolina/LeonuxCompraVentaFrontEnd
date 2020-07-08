@@ -19,7 +19,7 @@ namespace OOB.LibVenta.PosOffline.Serie
         {
             get 
             {
-                return "("+Serie.Trim().ToUpper() + "), " + Control.Trim().ToUpper();
+                return "("+Serie.Trim().ToUpper() + ")";
             }
         }
 

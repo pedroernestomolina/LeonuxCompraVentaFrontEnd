@@ -78,6 +78,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.L_ESTATUS_ACTUALIZACION = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.L_USUARIO_NOMBRE = new System.Windows.Forms.Label();
             this.L_USUARIO_CODIGO = new System.Windows.Forms.Label();
@@ -94,7 +95,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BT_ACTUALIZAR_DATA = new System.Windows.Forms.Button();
-            this.L_ESTATUS_ACTUALIZACION = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -520,6 +520,7 @@
             // BT_JORNADA_CERRAR
             // 
             this.BT_JORNADA_CERRAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_JORNADA_CERRAR.Enabled = false;
             this.BT_JORNADA_CERRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_JORNADA_CERRAR.Location = new System.Drawing.Point(2, 2);
             this.BT_JORNADA_CERRAR.Name = "BT_JORNADA_CERRAR";
@@ -658,6 +659,7 @@
             // BT_JORNADA_ABRIR
             // 
             this.BT_JORNADA_ABRIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_JORNADA_ABRIR.Enabled = false;
             this.BT_JORNADA_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_JORNADA_ABRIR.Location = new System.Drawing.Point(2, 2);
             this.BT_JORNADA_ABRIR.Name = "BT_JORNADA_ABRIR";
@@ -709,6 +711,17 @@
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
             this.panel20.Size = new System.Drawing.Size(215, 76);
             this.panel20.TabIndex = 3;
+            // 
+            // L_ESTATUS_ACTUALIZACION
+            // 
+            this.L_ESTATUS_ACTUALIZACION.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ESTATUS_ACTUALIZACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ESTATUS_ACTUALIZACION.Location = new System.Drawing.Point(2, 2);
+            this.L_ESTATUS_ACTUALIZACION.Name = "L_ESTATUS_ACTUALIZACION";
+            this.L_ESTATUS_ACTUALIZACION.Size = new System.Drawing.Size(211, 72);
+            this.L_ESTATUS_ACTUALIZACION.TabIndex = 0;
+            this.L_ESTATUS_ACTUALIZACION.Text = "label4";
+            this.L_ESTATUS_ACTUALIZACION.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel19
             // 
@@ -883,17 +896,6 @@
             this.BT_ACTUALIZAR_DATA.Text = "ACTUALIZAR DATA DEL SERVIDOR";
             this.BT_ACTUALIZAR_DATA.UseVisualStyleBackColor = true;
             this.BT_ACTUALIZAR_DATA.Click += new System.EventHandler(this.BT_ACTUALIZAR_DATA_Click);
-            // 
-            // L_ESTATUS_ACTUALIZACION
-            // 
-            this.L_ESTATUS_ACTUALIZACION.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ESTATUS_ACTUALIZACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ESTATUS_ACTUALIZACION.Location = new System.Drawing.Point(2, 2);
-            this.L_ESTATUS_ACTUALIZACION.Name = "L_ESTATUS_ACTUALIZACION";
-            this.L_ESTATUS_ACTUALIZACION.Size = new System.Drawing.Size(211, 72);
-            this.L_ESTATUS_ACTUALIZACION.TabIndex = 0;
-            this.L_ESTATUS_ACTUALIZACION.Text = "label4";
-            this.L_ESTATUS_ACTUALIZACION.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

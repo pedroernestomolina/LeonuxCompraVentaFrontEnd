@@ -247,6 +247,7 @@
             // BT_GUARDAR
             // 
             this.BT_GUARDAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_GUARDAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_GUARDAR.Location = new System.Drawing.Point(2, 2);
             this.BT_GUARDAR.Name = "BT_GUARDAR";
             this.BT_GUARDAR.Size = new System.Drawing.Size(97, 35);

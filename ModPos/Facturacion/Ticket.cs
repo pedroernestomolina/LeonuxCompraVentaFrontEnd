@@ -495,6 +495,17 @@ namespace ModPos.Facturacion
             return r;
         }
 
+        public void Reporte(List<string> lineas) 
+        {
+            var l = 0;
+            var fr = new Font("Arial", 7, FontStyle.Regular);
+            foreach (var lin in lineas)
+            {
+                eg.Graphics.DrawString(lin, fr, Brushes.Black, 0, l);
+                l += 10;
+            }
+        }
+
     }
 
 }

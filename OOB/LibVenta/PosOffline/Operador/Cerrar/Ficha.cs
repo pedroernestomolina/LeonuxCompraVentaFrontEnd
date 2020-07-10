@@ -16,6 +16,7 @@ namespace OOB.LibVenta.PosOffline.Operador.Cerrar
         public DateTime Fecha { get; set; }
         public string Hora { get; set; }
         public string Estatus { get; set; }
+        public Movimiento Movimientos { get; set; }
 
     }
 

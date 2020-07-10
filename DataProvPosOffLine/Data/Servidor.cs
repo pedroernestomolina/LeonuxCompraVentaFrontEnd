@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DataProvPosOffLine.Data
 {
 
-    public partial class DataProv: IData
+    public partial class DataProv : IData
     {
 
         public OOB.Resultado Servidor_Test()
@@ -55,15 +55,15 @@ namespace DataProvPosOffLine.Data
             }
 
             var rt = new OOB.LibVenta.PosOffline.Servidor.PrepararData.Ficha(); ;
-            if (r01.Entidad != null) 
+            if (r01.Entidad != null)
             {
 
-                if (r01.Entidad.Series != null) 
+                if (r01.Entidad.Series != null)
                 {
-                    if (r01.Entidad.Series.Count > 0) 
+                    if (r01.Entidad.Series.Count > 0)
                     {
                         var ls = new List<OOB.LibVenta.PosOffline.Servidor.PrepararData.Serie>();
-                        foreach (var rs in r01.Entidad.Series) 
+                        foreach (var rs in r01.Entidad.Series)
                         {
                             var nr = new OOB.LibVenta.PosOffline.Servidor.PrepararData.Serie()
                             {
@@ -78,16 +78,41 @@ namespace DataProvPosOffLine.Data
                     }
                 }
 
-                if (r01.Entidad.Jornadas != null) 
+                if (r01.Entidad.Jornadas != null)
                 {
-                    if (r01.Entidad.Jornadas.Count > 0) 
+                    if (r01.Entidad.Jornadas.Count > 0)
                     {
                         var listJor = r01.Entidad.Jornadas.Select(s =>
                         {
                             var jor = new OOB.LibVenta.PosOffline.Servidor.PrepararData.Jornada()
                             {
                                 Id = s.Id,
-                                Documentos = s.Documentos.Select(d => 
+                                Cierre = new OOB.LibVenta.PosOffline.Servidor.PrepararData.MovimientoCierre()
+                                {
+                                    autoUsuario = s.Cierre.autoUsuario,
+                                    codigoUsuario = s.Cierre.codigoUsuario,
+                                    usuario = s.Cierre.usuario,
+                                    fecha = s.Cierre.fecha,
+                                    hora = s.Cierre.hora,
+                                    prefijo = s.Cierre.prefijo,
+                                    diferencia = s.Cierre.diferencia,
+                                    efectivo = s.Cierre.efectivo,
+                                    divisa = s.Cierre.divisa,
+                                    tarjeta = s.Cierre.tarjeta,
+                                    otros = s.Cierre.otros,
+                                    devolucion = s.Cierre.devolucion,
+                                    subTotal = s.Cierre.subTotal,
+                                    total = s.Cierre.total,
+                                    mEfectivo = s.Cierre.mEfectivo,
+                                    mDivisa = s.Cierre.mDivisa,
+                                    mTarjeta = s.Cierre.mTarjeta,
+                                    mOtro = s.Cierre.otros,
+                                    mSubTotal = s.Cierre.mSubTotal,
+                                    mTotal = s.Cierre.mTotal,
+                                    firma = s.Cierre.firma,
+                                    mFirma = s.Cierre.mFirma,
+                                },
+                                Documentos = s.Documentos.Select(d =>
                                 {
                                     var doc = new OOB.LibVenta.PosOffline.Servidor.PrepararData.Documento()
                                     {
@@ -108,7 +133,7 @@ namespace DataProvPosOffLine.Data
                                         CobradorCodigo = d.CobradorCodigo,
                                         CobradorNombre = d.CobradorNombre,
                                         CodigoSucursal = d.CodigoSucursal,
-                                        PrefijoSucursal=d.Prefijo,
+                                        PrefijoSucursal = d.Prefijo,
                                         Control = d.Control,
                                         DepositoAuto = d.DepositoAuto,
                                         DepositoCodigo = d.DepositoCodigo,
@@ -150,7 +175,7 @@ namespace DataProvPosOffLine.Data
                                         TasaIva1 = d.TasaIva1,
                                         TasaIva2 = d.TasaIva2,
                                         TasaIva3 = d.TasaIva3,
-                                        TipoDocumento = (OOB.LibVenta.PosOffline.Servidor.PrepararData.Enumerados.EnumTipoDocumento) d.TipoDocumento,
+                                        TipoDocumento = (OOB.LibVenta.PosOffline.Servidor.PrepararData.Enumerados.EnumTipoDocumento)d.TipoDocumento,
                                         TranporteAuto = d.TranporteAuto,
                                         TranporteCodigo = d.TranporteCodigo,
                                         TranporteNombre = d.TranporteNombre,
@@ -160,11 +185,11 @@ namespace DataProvPosOffLine.Data
                                         VendedorAuto = d.VendedorAuto,
                                         VendedorCodigo = d.VendedorCodigo,
                                         VendedorNombre = d.VendedorNombre,
-                                        Tarifa=d.Tarifa,
-                                        SaldoPendiente=d.SaldoPendiente,
-                                        AutoConceptoMov=d.AutoConceptoMov,
-                                        CodigoConceptoMov =d.CodigoConceptoMov,
-                                        NombreConceptoMov =d.NombreConceptoMov,
+                                        Tarifa = d.Tarifa,
+                                        SaldoPendiente = d.SaldoPendiente,
+                                        AutoConceptoMov = d.AutoConceptoMov,
+                                        CodigoConceptoMov = d.CodigoConceptoMov,
+                                        NombreConceptoMov = d.NombreConceptoMov,
 
                                         Detalles = d.Detalles.Select(dt =>
                                         {
@@ -211,8 +236,8 @@ namespace DataProvPosOffLine.Data
                                                 TotalNeto = dt.TotalNeto,
                                                 UtilidadMonto = dt.UtilidadMonto,
                                                 UtilidadPorct = dt.UtilidadPorct,
-                                                CostoCompra=dt.CostoCompra,
-                                                CostoPromedio=dt.CostoPromedio,
+                                                CostoCompra = dt.CostoCompra,
+                                                CostoPromedio = dt.CostoPromedio,
                                             };
                                             return detalle;
                                         }).ToList(),
@@ -252,17 +277,8 @@ namespace DataProvPosOffLine.Data
         {
             var result = new OOB.Resultado();
 
-            var fec = new List<DateTime>();
-            var lf = ficha.Documentos.GroupBy(g => g.Fecha).Select(r => new { r.Key }).ToList();
-            foreach (var r in lf) 
-            {
-                fec.Add(r.Key.Date);
-            }
-
             var fichaDTO = new DtoLibPosOffLine.Servidor.EnviarData.Ficha()
             {
-                FechasMov= fec,
-
                 Jornadas = ficha.Jornadas.Select(s =>
                 {
                     var nr = new DtoLibPosOffLine.Servidor.EnviarData.Jornada()
@@ -278,22 +294,60 @@ namespace DataProvPosOffLine.Data
                 {
                     var nr = new DtoLibPosOffLine.Servidor.EnviarData.Serie()
                     {
-                        Auto=s.Auto,
-                        Correlativo=s.Correlativo,
+                        Auto = s.Auto,
+                        Correlativo = s.Correlativo,
                     };
                     return nr;
                 }).ToList(),
+            };
 
+            var Fechas = new List<DateTime>();
+            var Movimientos = new List<DtoLibPosOffLine.Servidor.EnviarData.Movimiento>();
+            foreach (var mv in ficha.Movimientos)
+            {
+                var lf = mv.Documentos.GroupBy(g => g.Fecha).Select(r => new { r.Key }).ToList();
+                foreach (var r in lf)
+                {
+                    Fechas.Add(r.Key.Date);
+                };
 
-                Documentos = ficha.Documentos.Select(d => 
+                var _prefijo = mv.Prefijo;
+
+                var c = mv.Cierre;
+                var _cierre = new DtoLibPosOffLine.Servidor.EnviarData.MovCierre()
+                {
+                     autoUsuario= c.autoUsuario,
+                     codigoUsuario=c.codigoUsuario,
+                     usuario=c.usuario,
+                     fecha=c.fecha,
+                     hora=c.hora,
+                     diferencia=c.diferencia,
+                     efectivo=c.efectivo,
+                     divisa=c.divisa,
+                     debito=c.debito,
+                     otros=c.otros,
+                     firma=c.firma,
+                     devolucion=c.devolucion,
+                     subTotal=c.subTotal,
+                     total=c.total,
+                     mfectivo=c.mfectivo,
+                     mdivisa=c.mdivisa,
+                     mdebito=c.mdebito,
+                     motros=c.motros,
+                     mfirma=c.mfirma,
+                     msubtotal=c.msubtotal,
+                     mtotal=c.mtotal,
+                };
+
+                var Documentos = mv.Documentos.Select(d =>
                 {
                     DtoLibPosOffLine.Servidor.EnviarData.CxCPago pago = null;
-                    if (d.DocPago != null) 
+                    if (d.DocPago != null)
                     {
                         pago = new DtoLibPosOffLine.Servidor.EnviarData.CxCPago();
 
                         var p = d.DocPago.Pago;
-                        pago.Pago = new DtoLibPosOffLine.Servidor.EnviarData.CxC() 
+                        pago.Pago = new DtoLibPosOffLine.Servidor.EnviarData.CxC()
                         {
                             Acumulado = p.Acumulado,
                             Agencia = p.Agencia,
@@ -329,29 +383,29 @@ namespace DataProvPosOffLine.Data
                         var r = d.DocPago.Recibo;
                         pago.Recibo = new DtoLibPosOffLine.Servidor.EnviarData.CxCRecibo()
                         {
-                            Fecha=r.Fecha,
-                            AutoUsuario=r.AutoUsuario,
-                            Importe=r.Importe,
-                            Usuario=r.Usuario,
-                            MontoRecibido=r.MontoRecibido,
-                            Cobrador=r.Cobrador,
-                            AutoCliente=r.AutoCliente,
-                            Cliente=r.Cliente,
-                            CiRif=r.CiRif,
-                            Codigo=r.Codigo,
-                            EstatusAnulado=r.EstatusAnulado,
-                            Direccion=r.Direccion,
-                            Telefono=r.Telefono,
-                            AutoCobrador=r.AutoCobrador,
-                            Anticipos=r.Anticipos,
-                            Cambio=r.Cambio,
-                            Nota=r.Nota,
-                            CodigoCobrador=r.CodigoCobrador,
-                            AutoCxC=r.AutoCxC,
-                            Retenciones=r.Retenciones,
-                            Descuentos=r.Descuentos,
-                            Hora=r.Hora,
-                            Cierre=r.Cierre,
+                            Fecha = r.Fecha,
+                            AutoUsuario = r.AutoUsuario,
+                            Importe = r.Importe,
+                            Usuario = r.Usuario,
+                            MontoRecibido = r.MontoRecibido,
+                            Cobrador = r.Cobrador,
+                            AutoCliente = r.AutoCliente,
+                            Cliente = r.Cliente,
+                            CiRif = r.CiRif,
+                            Codigo = r.Codigo,
+                            EstatusAnulado = r.EstatusAnulado,
+                            Direccion = r.Direccion,
+                            Telefono = r.Telefono,
+                            AutoCobrador = r.AutoCobrador,
+                            Anticipos = r.Anticipos,
+                            Cambio = r.Cambio,
+                            Nota = r.Nota,
+                            CodigoCobrador = r.CodigoCobrador,
+                            AutoCxC = r.AutoCxC,
+                            Retenciones = r.Retenciones,
+                            Descuentos = r.Descuentos,
+                            Hora = r.Hora,
+                            Cierre = r.Cierre,
                         };
 
                         var dd = d.DocPago.Documento;
@@ -499,7 +553,7 @@ namespace DataProvPosOffLine.Data
                         Utilidad = d.Utilidad,
                         Utilidadp = d.Utilidadp,
                         Vendedor = d.Vendedor,
-                        Prefijo=d.PrefijoSucursal,
+                        Prefijo = d.PrefijoSucursal,
 
 
                         //SE CREA LA CXC DEL DOCUMENTO
@@ -538,7 +592,7 @@ namespace DataProvPosOffLine.Data
 
 
                         //PAGO DEL DOCUMENTO
-                        DocCxCPago= pago,
+                        DocCxCPago = pago,
 
 
                         //DETALLES DE DOCUMENTO
@@ -660,8 +714,16 @@ namespace DataProvPosOffLine.Data
                         }).ToList(),
                     };
                     return nr;
-                }).ToList(),
+                }).ToList();
+
+                var mov = new DtoLibPosOffLine.Servidor.EnviarData.Movimiento();
+                mov.Documentos = Documentos;
+                mov.Prefijo = _prefijo;
+                mov.Cierre = _cierre;
+                Movimientos.Add(mov);
             };
+            fichaDTO.Movimientos = Movimientos;
+            fichaDTO.FechasMov = Fechas;
 
             var r01 = MyData.Servidor_EnviarData(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

@@ -95,7 +95,12 @@ namespace ModPos.Facturacion
         public void ActivarDescuento() 
         {
             var seguir = true;
-            if (_permisos.DarDesctoGlobal.RequiereClave)
+
+            if (_permisos.DarDesctoGlobal.RequiereClave == OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso)
+            {
+                seguir = false;
+            }
+            if (_permisos.DarDesctoGlobal.RequiereClave== OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave)
             {
                 seguir = _seguridad.SolicitarClave();
             }
@@ -110,10 +115,16 @@ namespace ModPos.Facturacion
             var rt = false;
 
             var seguir = true;
-            if (_permisos.CtaCredito.RequiereClave)
+            switch (_permisos.CtaCredito.RequiereClave)
             {
-                seguir = _seguridad.SolicitarClave();
+                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                    seguir = false;
+                    break;
+                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                    seguir = _seguridad.SolicitarClave();
+                    break;
             }
+
             if (seguir)
             {
                 if (Pago.setDocumentoCredito())

@@ -73,6 +73,7 @@
     <Compile Include="LibVenta\PosOffline\MovConceptoInv\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Abrir\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Cargar\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Operador\Cerrar\Movimiento.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Cerrar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Enumerado.cs" />
     <Compile Include="LibVenta\PosOffline\Operador\Movimiento\Ficha.cs" />
@@ -102,6 +103,8 @@
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Documento.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Jornada.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\MovCierre.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Movimiento.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\ProductoDeposito.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\ProductoKardex.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\Serie.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Enumerados.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Jornada.cs" />
+    <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\MovimientoCierre.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\PrepararData\Serie.cs" />
     <Compile Include="LibVenta\PosOffline\Sistema\InformacionBD\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Transporte\Ficha.cs" />

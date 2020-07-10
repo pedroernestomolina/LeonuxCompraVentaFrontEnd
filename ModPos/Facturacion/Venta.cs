@@ -213,6 +213,8 @@ namespace ModPos.Facturacion
 
         public void Procesar() 
         {
+            _documentoProcesado = false;
+
             if (_ctrCliente.Ficha.Id == -1)
             {
                 return;
@@ -243,8 +245,6 @@ namespace ModPos.Facturacion
 
         private void GuardarFactura(Pago.Pago pago)
         {
-            _documentoProcesado = false;
-
             var _dsctoGlobalPorct = pago.DescuentoPorct;
             var _dsctoGlobalMonto = pago.Descuento;
             var _cargoGlobalMonto = 0.0m;
@@ -788,10 +788,16 @@ namespace ModPos.Facturacion
                 }
 
                 var seguir = true;
-                if (_permisos.DejarCtaPendiente.RequiereClave)
+                switch (_permisos.DejarCtaPendiente.RequiereClave)
                 {
-                    seguir = _seguridad.SolicitarClave();
+                    case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                        seguir = false;
+                        break;
+                    case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                        seguir = _seguridad.SolicitarClave();
+                        break;
                 }
+
                 if (seguir)
                 {
                     if (_ctrItem.DejarCtaEnPendiente(Cliente.Ficha))
@@ -806,10 +812,17 @@ namespace ModPos.Facturacion
         public void AnularVenta() 
         {
             var seguir = true;
-            if (_permisos.AnularVenta.RequiereClave)
+
+            switch (_permisos.AnularVenta.RequiereClave)
             {
-                seguir = _seguridad.SolicitarClave();
+                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                    seguir = false;
+                    break;
+                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                    seguir = _seguridad.SolicitarClave();
+                    break;
             }
+
             if (seguir)
             {
                 if (_ctrItem.AnularVenta()) 
@@ -856,10 +869,17 @@ namespace ModPos.Facturacion
             if (_modoFuncion == Enumerados.EnumModoFuncion.Facturacion)
             {
                 var seguir = true;
-                if (_permisos.Devolucion.RequiereClave)
+
+                switch (_permisos.Devolucion.RequiereClave)
                 {
-                    seguir = _seguridad.SolicitarClave();
+                    case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                        seguir = false;
+                        break;
+                    case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                        seguir = _seguridad.SolicitarClave();
+                        break;
                 }
+
                 if (seguir)
                 {
                     _ctrListaItem.ActivarDevolucion();
@@ -883,10 +903,17 @@ namespace ModPos.Facturacion
                         if (!it.EsPesado)
                         {
                             var seguir = true;
-                            if (_permisos.Sumar.RequiereClave)
+
+                            switch (_permisos.Sumar.RequiereClave)
                             {
-                                seguir = _seguridad.SolicitarClave();
+                                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                                    seguir = false;
+                                    break;
+                                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                                    seguir = _seguridad.SolicitarClave();
+                                    break;
                             }
+
                             if (seguir)
                             {
                                 _ctrItem.IncrementarItem(it, 1);
@@ -909,10 +936,17 @@ namespace ModPos.Facturacion
                         if (!it.EsPesado)
                         {
                             var seguir = true;
-                            if (_permisos.Multiplicar.RequiereClave)
+
+                            switch (_permisos.Multiplicar.RequiereClave)
                             {
-                                seguir = _seguridad.SolicitarClave();
+                                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                                    seguir = false;
+                                    break;
+                                case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                                    seguir = _seguridad.SolicitarClave();
+                                    break;
                             }
+
                             if (seguir)
                             {
                                 _ctrItem.Multiplicar(it);
@@ -933,10 +967,17 @@ namespace ModPos.Facturacion
                     if (it != null)
                     {
                         var seguir = true;
-                        if (_permisos.Restar.RequiereClave)
+
+                        switch (_permisos.Restar.RequiereClave)
                         {
-                            seguir = _seguridad.SolicitarClave();
+                            case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                                seguir = false;
+                                break;
+                            case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                                seguir = _seguridad.SolicitarClave();
+                                break;
                         }
+
                         if (seguir)
                         {
                             _ctrItem.Restar(it);

@@ -12,14 +12,14 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
     {
 
         public List<Jornada> Jornadas { get; set; }
-        public List<Documento> Documentos { get; set; }
+        public List<Movimiento> Movimientos { get; set; }
         public List<Serie> Series { get; set; }
 
 
         public Ficha()
         {
             Jornadas = new List<Jornada>();
-            Documentos = new List<Documento>();
+            Movimientos = new List<Movimiento>();
             Series = new List<Serie>();
         }
 
@@ -46,10 +46,39 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                 return ns;
             }).ToList();
 
-            var listDoc = new List<Documento>();
-            foreach (var j in data.Jornadas) 
+
+            foreach (var jor in data.Jornadas)
             {
-                listDoc = j.Documentos.Where(w=>w.IsActiva).Select(d =>
+                var prefijo = jor.Cierre.prefijo;
+
+                var c=jor.Cierre;
+                var cierre = new OOB.LibVenta.PosOffline.Servidor.EnviarData.MovCierre()
+                {
+                    autoUsuario = c.autoUsuario,
+                    codigoUsuario = c.codigoUsuario,
+                    usuario = c.usuario,
+                    fecha = c.fecha,
+                    hora = c.hora,
+                    diferencia = c.diferencia,
+                    efectivo = c.efectivo,
+                    divisa = c.divisa,
+                    debito = c.tarjeta,
+                    otros = c.otros,
+                    firma = c.firma,
+                    devolucion = c.devolucion,
+                    subTotal = c.subTotal,
+                    total = c.total,
+                    mfectivo = c.mEfectivo,
+                    mdivisa = c.mDivisa,
+                    mdebito = c.mTarjeta,
+                    motros = c.mOtro,
+                    mfirma = c.mFirma,
+                    msubtotal = c.mSubTotal,
+                    mtotal = c.mTotal,
+                };
+
+                var listDoc = new List<Documento>();
+                listDoc = jor.Documentos.Where(w => w.IsActiva).Select(d =>
                 {
                     var nd = new OOB.LibVenta.PosOffline.Servidor.EnviarData.Documento()
                     {
@@ -155,43 +184,44 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                         Utilidad = d.MontoUtilidad,
                         Utilidadp = d.MontoUtilidadPorc,
                         Vendedor = d.VendedorNombre,
-                        PrefijoSucursal=d.PrefijoSucursal,
+                        PrefijoSucursal = d.PrefijoSucursal,
 
 
-                        DocCxC= new CxC()
+                        DocCxC = new CxC()
                         {
-                            CCobranza=0.0m,
-                            CCobranzap=0.0m,
-                            Fecha=d.Fecha,
-                            TipoDocumento=d.TipoDocumentoCxC,
-                            Documento=d.DocumentoNro,
-                            FechaVencimiento=d.Fecha,
-                            Nota="",
-                            Importe=d.MontoTotal,
-                            Acumulado=d.AcumuladoCxC,
-                            AutoCliente="0000000001",
-                            Cliente=d.ClienteNombre,
-                            CiRif=d.CiRif,
-                            CodigoCliente="01",
-                            EstatusCancelado=d.EstatusPagado,
-                            Resta=d.SaldoPendiente,
-                            EstatusAnulado=d.EstatusAnulado,
-                            AutoDocumento="",
-                            Numero="",
-                            AutoAgencia="0000000001",
-                            Agencia="",
-                            Signo=d.Signo,
-                            AutoVendedor=d.VendedorAuto,
-                            CDepartamento=0.0m,
-                            CVentas=0.0m,
-                            CVentasp=0.0m,
-                            Serie=d.Serie,
-                            ImporteNeto=d.MontoVentaNeta,
-                            Dias=0,
-                            Castigop=0.0m,
+                            CCobranza = 0.0m,
+                            CCobranzap = 0.0m,
+                            Fecha = d.Fecha,
+                            TipoDocumento = d.TipoDocumentoCxC,
+                            Documento = d.DocumentoNro,
+                            FechaVencimiento = d.Fecha,
+                            Nota = "",
+                            Importe = d.MontoTotal,
+                            Acumulado = d.AcumuladoCxC,
+                            AutoCliente = "0000000001",
+                            Cliente = d.ClienteNombre,
+                            CiRif = d.CiRif,
+                            CodigoCliente = "01",
+                            EstatusCancelado = d.EstatusPagado,
+                            Resta = d.SaldoPendiente,
+                            EstatusAnulado = d.EstatusAnulado,
+                            AutoDocumento = "",
+                            Numero = "",
+                            AutoAgencia = "0000000001",
+                            Agencia = "",
+                            Signo = d.Signo,
+                            AutoVendedor = d.VendedorAuto,
+                            CDepartamento = 0.0m,
+                            CVentas = 0.0m,
+                            CVentasp = 0.0m,
+                            Serie = d.Serie,
+                            ImporteNeto = d.MontoVentaNeta,
+                            Dias = 0,
+                            Castigop = 0.0m,
                         },
 
-                        DocPago =  d.TipoDocumento!= PrepararData.Enumerados.EnumTipoDocumento.NotaCredito ? new CxCPago(d) : null ,
+                        //DocPago = ((d.TipoDocumento != PrepararData.Enumerados.EnumTipoDocumento.NotaCredito) || (!d.IsCredito)) ? new CxCPago(d) : null,
+                        DocPago = (d.IsCredito || d.TipoDocumento == PrepararData.Enumerados.EnumTipoDocumento.NotaCredito) ? null : new CxCPago(d),
 
                         Detalles = d.Detalles.Select(dt =>
                         {
@@ -305,15 +335,20 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                     };
 
                     var auto = 1;
-                    foreach (var det in nd.Detalles) 
+                    foreach (var det in nd.Detalles)
                     {
                         det.Auto = auto.ToString().Trim().PadLeft(10, '0');
                         auto += 1;
                     }
                     return nd;
                 }).ToList();
+
+                var mov = new Movimiento();
+                mov.Cierre=cierre;
+                mov.Documentos=listDoc;
+                mov.Prefijo = prefijo;
+                Movimientos.Add(mov);
             }
-            Documentos = listDoc;
         }
     }
 

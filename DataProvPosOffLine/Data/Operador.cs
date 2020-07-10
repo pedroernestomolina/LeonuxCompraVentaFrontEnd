@@ -25,6 +25,7 @@ namespace DataProvPosOffLine.Data
                 Fecha = ficha.Fecha.ToShortDateString(),
                 Hora = ficha.Hora,
                 Estatus = ficha.Estatus,
+                Prefijo=ficha.Prefijo,
             };
             var r01 = MyData.Operador_Abrir (agregarDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -44,11 +45,31 @@ namespace DataProvPosOffLine.Data
 
             var agregarDTO = new DtoLibPosOffLine.Operador.Cerrar.Ficha()
             {
-                IdOperador=ficha.IdOperador,
+                IdOperador = ficha.IdOperador,
                 Fecha = ficha.Fecha.ToShortDateString(),
                 Hora = ficha.Hora,
                 Estatus = ficha.Estatus,
+                Movimientos = new DtoLibPosOffLine.Operador.Cerrar.Movimiento() 
+                {
+                     devolucion= ficha.Movimientos.devolucion,
+                     diferencia = ficha.Movimientos.diferencia,
+                     efectivo = ficha.Movimientos.efectivo,
+                     divisa = ficha.Movimientos.divisa,
+                     tarjeta = ficha.Movimientos.tarjeta,
+                     otros = ficha.Movimientos.otros,
+                     firma = ficha.Movimientos.firma,
+                     subTotal = ficha.Movimientos.subTotal,
+                     total = ficha.Movimientos.total,
+                     mEfectivo = ficha.Movimientos.mEfectivo,
+                     mDivisa = ficha.Movimientos.mDivisa,
+                     mTarjeta = ficha.Movimientos.mTarjeta,
+                     mOtro = ficha.Movimientos.mOtro,
+                     mFirma = ficha.Movimientos.mFirma,
+                     mSubTotal = ficha.Movimientos.mSubTotal,
+                     mTotal = ficha.Movimientos.mTotal,
+                }
             };
+
             var r01 = MyData.Operador_Cerrar(agregarDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
@@ -122,12 +143,18 @@ namespace DataProvPosOffLine.Data
             var mv = r01.Entidad;
             var nr = new OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha()
             {
+                cntEfecitvo= mv.cntEfectivo,
                 cntDivisa = mv.cntDivisa,
                 cntElectronico = mv.cntElectronico,
                 cntFactura = mv.cntFactura,
                 cntNCredito = mv.cntNCredito,
                 cntNDebito = mv.cntNDebito,
                 cntOtros = mv.cntOtros,
+                cntDocContado= mv.cntDocContado,
+                cntDocCredito= mv.cntDocCredito,
+
+                montoDocContado=mv.montoDocContado,
+                montoDocCredito=mv.montoDocCredito,
                 montoDivisa = mv.montoDivisa,
                 montoEfectivo = mv.montoEfectivo,
                 montoElectronico = mv.montoElectronico,

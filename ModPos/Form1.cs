@@ -198,7 +198,7 @@ namespace ModPos
 
         private void EniviarDataServidor()
         {
-            _controlador.EniviarDataAlServidor();
+            _controlador.EnviarDataAlServidor();
         }
 
         private void MenuItem_Herramientas_TestBD_Click(object sender, EventArgs e)

@@ -18,6 +18,7 @@ namespace OOB.LibVenta.PosOffline.Operador.Abrir
         public DateTime Fecha { get; set; }
         public string Hora { get; set; }
         public string Estatus { get; set; }
+        public string Prefijo { get; set; }
 
     }
 

@@ -307,6 +307,12 @@ namespace ModPos
                 return;
             }
 
+            if (Sistema.MyOperador!=null)
+            {
+                Helpers.Msg.Alerta("HAY UN OPERADOR ACTIVO"+Environment.NewLine+"DEBES CERRAR EL OPERADOR PARA PODER CONFIGURAR");
+                return;
+            }
+
             _configuracion.Configura();
         }
 
@@ -339,6 +345,11 @@ namespace ModPos
                 return;
             }
 
+            AbreJornada();
+        }
+
+        public void AbreJornada()
+        {
             if (Sistema.MyJornada == null)
             {
                 var ficha = new OOB.LibVenta.PosOffline.Jornada.Abrir.Ficha()
@@ -391,26 +402,31 @@ namespace ModPos
                     return;
                 }
 
-                var ficha = new OOB.LibVenta.PosOffline.Jornada.Cerrar.Ficha()
-                {
-                    IdJornada = Sistema.MyJornada.Id,
-                    Estatus = "C",
-                    Fecha = DateTime.Now,
-                    Hora = DateTime.Now.ToShortTimeString(),
-                };
-                var r01 = Sistema.MyData2.Jornada_Cerrar(ficha);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                Sistema.MyJornada = null;
-                Helpers.Msg.Alerta("JORNADA CERRRADA EXITOSAMENTE !!!!!");
+                CierraJornada();
             }
             else
             {
                 Helpers.Msg.Error("NO HAY NINGUNA JORNADA ABIERTA, VERIFIQUE POR FAVOR");
             }
+        }
+
+        public void CierraJornada() 
+        {
+            var ficha = new OOB.LibVenta.PosOffline.Jornada.Cerrar.Ficha()
+            {
+                IdJornada = Sistema.MyJornada.Id,
+                Estatus = "C",
+                Fecha = DateTime.Now,
+                Hora = DateTime.Now.ToShortTimeString(),
+            };
+            var r01 = Sistema.MyData2.Jornada_Cerrar(ficha);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            Sistema.MyJornada = null;
+            Helpers.Msg.Alerta("JORNADA CERRRADA EXITOSAMENTE !!!!!");
         }
 
         public void AbrirOperador() 
@@ -427,6 +443,16 @@ namespace ModPos
                 return;
             }
 
+            var r00 = Sistema.MyData2.Configuracion_ActualCargar();
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            var prefijo = r00.Entidad.CodigoSucursal + r00.Entidad.EquipoNumero;
+
+            AbreJornada();
+
             if (Sistema.MyJornada != null)
             {
                 if (Sistema.MyOperador == null)
@@ -440,6 +466,7 @@ namespace ModPos
                         Estatus = "A",
                         Fecha = DateTime.Now,
                         Hora = DateTime.Now.ToShortTimeString(),
+                        Prefijo= prefijo,
                     };
                     var r01 = Sistema.MyData2.Operador_Abrir(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -479,40 +506,11 @@ namespace ModPos
             if (Sistema.MyOperador != null)
             {
                 _cierreOperador.Cierre();
-
-                //var r00 = Sistema.MyData2.Pendiente_HayCuentasporProcesar();
-                //if (r00.Result == OOB.Enumerados.EnumResult.isError)
-                //{
-                //    Helpers.Msg.Error(r00.Mensaje);
-                //    return;
-                //}
-                //if (r00.Entidad)
-                //{
-                //    Helpers.Msg.Error("HAY CUENTAS PENDIENTES POR PROCESAR, VERIFIQUE POR FAVOR");
-                //    return;
-                //}
-
-                //var msg = MessageBox.Show("Estas Seguro De Cerrar Este Operador ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                //if (msg == System.Windows.Forms.DialogResult.No)
-                //{
-                //    return;
-                //}
-
-                //var ficha = new OOB.LibVenta.PosOffline.Operador.Cerrar.Ficha()
-                //{
-                //    IdOperador = Sistema.MyOperador.Id,
-                //    Estatus = "C",
-                //    Fecha = DateTime.Now,
-                //    Hora = DateTime.Now.ToShortTimeString(),
-                //};
-                //var r01 = Sistema.MyData2.Operador_Cerrar(ficha);
-                //if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                //{
-                //    Helpers.Msg.Error(r01.Mensaje);
-                //    return;
-                //}
-                //Sistema.MyOperador = null;
-                //Helpers.Msg.Alerta("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
+                if (_cierreOperador.IsOperadorCerrado) 
+                {
+                    CierraJornada();
+                    EnviarData();
+                }
             }
             else
             {
@@ -544,14 +542,18 @@ namespace ModPos
             }
         }
 
-        public void EniviarDataAlServidor() 
+        public void EnviarDataAlServidor() 
         {
             var r = VerificarPermiso(1, "02");
             if (!r)
             {
                 return;
             }
+            EnviarData();
+        }
 
+        public void EnviarData()
+        {
             var r01 = Sistema.MyData2.Servidor_PrepararData();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {

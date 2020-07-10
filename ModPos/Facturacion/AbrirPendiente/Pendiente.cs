@@ -47,9 +47,11 @@ namespace ModPos.Facturacion.AbrirPendiente
         AbrirPendiente.AbrirPendienteFrm frm;
         public void Listar()
         {
+            CtaAbrirIsOk = false;
+
             if (CargarData())
             {
-                if (frm == null)
+                if (frm == null) 
                 {
                     frm = new AbrirPendiente.AbrirPendienteFrm();
                     frm.setControlador(this);
@@ -86,9 +88,14 @@ namespace ModPos.Facturacion.AbrirPendiente
                 {
 
                     var seguir = true;
-                    if (_permiso.DejarCtaPendiente.RequiereClave)
+                    switch (_permiso.DejarCtaPendiente.RequiereClave)
                     {
-                        seguir = _seguridad.SolicitarClave();
+                        case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:
+                            seguir = false;
+                            break;
+                        case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave:
+                            seguir = _seguridad.SolicitarClave();
+                            break;
                     }
                     if (seguir) 
                     {

@@ -74,10 +74,17 @@ namespace ModPos.AdministradorDoc
                     if (item.IsActivo)
                     {
                         var seguir = true;
-                        if (_permisos.NotaCredito.RequiereClave)
+
+                        switch (_permisos.NotaCredito.RequiereClave)
                         {
-                            seguir = _seguridad.SolicitarClave();
+                            case OOB.LibVenta.PosOffline.Permiso.permiso.EnumAcceso.SinAcceso:
+                                seguir = false;
+                                break;
+                            case OOB.LibVenta.PosOffline.Permiso.permiso.EnumAcceso.PedirClave:
+                                seguir = _seguridad.SolicitarClave();
+                                break;
                         }
+
                         if (seguir)
                         {
                             if (item.TipoDocumento != OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoDocumento.NotaCredito)
@@ -118,10 +125,17 @@ namespace ModPos.AdministradorDoc
                 {
                     var item = (documento)_bs.Current;
                     var seguir = true;
-                    if (_permisos.ReImprimir.RequiereClave)
+
+                    switch (_permisos.ReImprimir.RequiereClave)
                     {
-                        seguir = _seguridad.SolicitarClave();
+                        case OOB.LibVenta.PosOffline.Permiso.permiso.EnumAcceso.SinAcceso:
+                            seguir = false;
+                            break;
+                        case OOB.LibVenta.PosOffline.Permiso.permiso.EnumAcceso.PedirClave:
+                            seguir = _seguridad.SolicitarClave();
+                            break;
                     }
+
                     if (seguir)
                     {
                         var r01 = Sistema.MyData2.VentaDocumento_Cargar(item.Id);
@@ -228,10 +242,17 @@ namespace ModPos.AdministradorDoc
                     if (item.IsActivo)
                     {
                         var seguir = true;
-                        if (_permisos.Anular.RequiereClave)
+
+                        switch (_permisos.Anular.RequiereClave)
                         {
-                            seguir = _seguridad.SolicitarClave();
+                            case OOB.LibVenta.PosOffline.Permiso.permiso.EnumAcceso.SinAcceso:
+                                seguir = false;
+                                break;
+                            case OOB.LibVenta.PosOffline.Permiso.permiso.EnumAcceso.PedirClave:
+                                seguir = _seguridad.SolicitarClave();
+                                break;
                         }
+
                         if (seguir)
                         {
                             var msg = MessageBox.Show("ESTAS SEGURO DE ANULAR DOCUMENTO ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);

@@ -33,9 +33,10 @@ namespace ModPos
                 var rt = true;
                 if (Sistema.FechaUltimaActualizacion == null)
                 {
-                    rt=false;
+                    return false;
                 }
-                var dif = (Sistema.FechaUltimaActualizacion.Value.Date - DateTime.Now.Date).Days;
+                var dif = -1;
+                dif = (Sistema.FechaUltimaActualizacion.Value.Date - DateTime.Now.Date).Days;
                 if (dif != 0)
                 {
                     rt=false;

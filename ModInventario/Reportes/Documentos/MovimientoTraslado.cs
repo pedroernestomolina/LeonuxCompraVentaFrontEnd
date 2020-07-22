@@ -1,5 +1,4 @@
 ﻿using Microsoft.Reporting.WinForms;
-using ModInventario.ReporteMovimiento;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -92,7 +91,7 @@ namespace ModInventario.Reportes.Documentos
             Rds.Add(new ReportDataSource("Movimiento", ds.Tables["Movimiento"]));
             Rds.Add(new ReportDataSource("MovimientoDetalle", ds.Tables["MovimientoDetalle"]));
 
-            var frp = new Reporte();
+            var frp = new ReporteFrm();
             frp.rds = Rds;
             frp.prmts = pmt;
             frp.Path = pt;

@@ -14,7 +14,6 @@ namespace ModInventario
 
 
         private Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion _gestionMovimiento;
-        private ReporteMovimiento.Gestion _gestionRep;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -23,7 +22,6 @@ namespace ModInventario
         public GestionInv()
         {
             _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
-            _gestionRep = new ReporteMovimiento.Gestion();
         }
 
 
@@ -35,11 +33,7 @@ namespace ModInventario
             frm.ShowDialog();
         }
 
-        public void Inicia2()
-        {
-            _gestionRep.Inicia();
-        }
-
+     
         public void TrasladoMercanciaEntreSucursalPorNivelMinimo()
         {
             _gestionMovimiento.Inicializar();

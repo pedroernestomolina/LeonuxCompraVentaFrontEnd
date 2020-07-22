@@ -40,6 +40,8 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -51,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,8 +70,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionInv.cs" />
-    <Compile Include="GestionMovimiento.cs" />
+    <Compile Include="Helpers\Msg.cs" />
+    <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Gestion.cs" />
+    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\GestionLista.cs" />
+    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Item.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,9 +90,48 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteMovimiento\ArqueoVentaPos.cs" />
+    <Compile Include="ReporteMovimiento\dsMovimiento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMovimiento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteMovimiento\Gestion.cs" />
+    <Compile Include="ReporteMovimiento\Movimiento.cs" />
+    <Compile Include="ReporteMovimiento\Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteMovimiento\Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Documentos\dsDocumento.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDocumento.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Documentos\MovimientoTraslado.cs" />
     <Compile Include="Sistema.cs" />
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\AjustarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\AjustarFrm.Designer.cs">
+      <DependentUpon>AjustarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\data.cs" />
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\AjusteNivelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\AjusteNivelFrm.Designer.cs">
+      <DependentUpon>AjusteNivelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\Gestion.cs" />
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\GestionAjuste.cs" />
+    <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\GestionLista.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
@@ -93,6 +145,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReporteMovimiento\ArqueoVentaPos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteMovimiento\Reporte.resx">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Documentos\MovTraslado.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tool\AjusteNivelMinimoMaximoProducto\AjustarFrm.resx">
+      <DependentUpon>AjustarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tool\AjusteNivelMinimoMaximoProducto\AjusteNivelFrm.resx">
+      <DependentUpon>AjusteNivelFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -103,6 +170,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReporteMovimiento\dsMovimiento.xsc">
+      <DependentUpon>dsMovimiento.xsd</DependentUpon>
+    </None>
+    <None Include="ReporteMovimiento\dsMovimiento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMovimiento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReporteMovimiento\dsMovimiento.xss">
+      <DependentUpon>dsMovimiento.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Documentos\dsDocumento.xsc">
+      <DependentUpon>dsDocumento.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Documentos\dsDocumento.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDocumento.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Documentos\dsDocumento.xss">
+      <DependentUpon>dsDocumento.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -112,10 +201,19 @@
       <Project>{9bb9b2d0-8fb0-4064-a677-e28dd79efe68}</Project>
       <Name>DataProvInventario</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LibControles\LibControles.csproj">
+      <Project>{1ed1d146-c74f-41d5-92fd-2f651c40698e}</Project>
+      <Name>LibControles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OOB\OOB.csproj">
       <Project>{e2d2a709-86b4-4801-adfe-d16ce6b272a5}</Project>
       <Name>OOB</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="conf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

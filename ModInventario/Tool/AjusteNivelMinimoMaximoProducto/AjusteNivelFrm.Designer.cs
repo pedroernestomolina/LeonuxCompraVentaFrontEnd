@@ -1,0 +1,422 @@
+﻿namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
+{
+    partial class AjusteNivelFrm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BT_ACEPTAR = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.BT_SALIR = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CB_DEPOSITO = new System.Windows.Forms.ComboBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.BT_BUSCAR = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.BT_LIMPIAR = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.DGV = new System.Windows.Forms.DataGridView();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.L_DEPOSITO = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
+            this.panel11.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 565);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(734, 51);
+            this.panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 3, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(734, 51);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BT_ACEPTAR);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(367, 1);
+            this.panel3.Margin = new System.Windows.Forms.Padding(1);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.panel3.Size = new System.Drawing.Size(181, 49);
+            this.panel3.TabIndex = 0;
+            // 
+            // BT_ACEPTAR
+            // 
+            this.BT_ACEPTAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ACEPTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ACEPTAR.Location = new System.Drawing.Point(6, 4);
+            this.BT_ACEPTAR.Name = "BT_ACEPTAR";
+            this.BT_ACEPTAR.Size = new System.Drawing.Size(169, 41);
+            this.BT_ACEPTAR.TabIndex = 0;
+            this.BT_ACEPTAR.Text = "Aceptar";
+            this.BT_ACEPTAR.UseVisualStyleBackColor = true;
+            this.BT_ACEPTAR.Click += new System.EventHandler(this.BT_ACEPTAR_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.BT_SALIR);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(550, 1);
+            this.panel4.Margin = new System.Windows.Forms.Padding(1);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.panel4.Size = new System.Drawing.Size(183, 49);
+            this.panel4.TabIndex = 1;
+            // 
+            // BT_SALIR
+            // 
+            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Location = new System.Drawing.Point(6, 4);
+            this.BT_SALIR.Name = "BT_SALIR";
+            this.BT_SALIR.Size = new System.Drawing.Size(171, 41);
+            this.BT_SALIR.TabIndex = 1;
+            this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Yellow;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(1);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(2);
+            this.panel2.Size = new System.Drawing.Size(734, 38);
+            this.panel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(730, 34);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Productos: Ajuste Nivel Minimo / Maximo ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tableLayoutPanel2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 38);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(2);
+            this.panel5.Size = new System.Drawing.Size(734, 527);
+            this.panel5.TabIndex = 2;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel9, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel11, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.85468F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.14532F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(730, 523);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tableLayoutPanel3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(1, 1);
+            this.panel6.Margin = new System.Windows.Forms.Padding(1);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(2);
+            this.panel6.Size = new System.Drawing.Size(363, 59);
+            this.panel6.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panel7, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel8, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel10, 2, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(359, 55);
+            this.tableLayoutPanel3.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label2);
+            this.panel7.Controls.Add(this.CB_DEPOSITO);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1, 1);
+            this.panel7.Margin = new System.Windows.Forms.Padding(1);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(2);
+            this.panel7.Size = new System.Drawing.Size(220, 53);
+            this.panel7.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Deposito A Filtrar:";
+            // 
+            // CB_DEPOSITO
+            // 
+            this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_DEPOSITO.FormattingEnabled = true;
+            this.CB_DEPOSITO.Location = new System.Drawing.Point(9, 23);
+            this.CB_DEPOSITO.Name = "CB_DEPOSITO";
+            this.CB_DEPOSITO.Size = new System.Drawing.Size(202, 24);
+            this.CB_DEPOSITO.TabIndex = 1;
+            this.CB_DEPOSITO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPOSITO_SelectedIndexChanged);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.BT_BUSCAR);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(223, 1);
+            this.panel8.Margin = new System.Windows.Forms.Padding(1);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(2);
+            this.panel8.Size = new System.Drawing.Size(50, 53);
+            this.panel8.TabIndex = 2;
+            // 
+            // BT_BUSCAR
+            // 
+            this.BT_BUSCAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_BUSCAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_BUSCAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_BUSCAR.Name = "BT_BUSCAR";
+            this.BT_BUSCAR.Size = new System.Drawing.Size(46, 49);
+            this.BT_BUSCAR.TabIndex = 1;
+            this.BT_BUSCAR.Text = "Busc";
+            this.BT_BUSCAR.UseVisualStyleBackColor = true;
+            this.BT_BUSCAR.Click += new System.EventHandler(this.BT_BUSCAR_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.BT_LIMPIAR);
+            this.panel10.Location = new System.Drawing.Point(275, 1);
+            this.panel10.Margin = new System.Windows.Forms.Padding(1);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(2);
+            this.panel10.Size = new System.Drawing.Size(50, 53);
+            this.panel10.TabIndex = 3;
+            // 
+            // BT_LIMPIAR
+            // 
+            this.BT_LIMPIAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LIMPIAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_LIMPIAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_LIMPIAR.Name = "BT_LIMPIAR";
+            this.BT_LIMPIAR.Size = new System.Drawing.Size(46, 49);
+            this.BT_LIMPIAR.TabIndex = 2;
+            this.BT_LIMPIAR.Text = "Limp";
+            this.BT_LIMPIAR.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
+            // 
+            // panel9
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.panel9, 2);
+            this.panel9.Controls.Add(this.DGV);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(1, 62);
+            this.panel9.Margin = new System.Windows.Forms.Padding(1);
+            this.panel9.Name = "panel9";
+            this.panel9.Padding = new System.Windows.Forms.Padding(2);
+            this.panel9.Size = new System.Drawing.Size(728, 460);
+            this.panel9.TabIndex = 1;
+            // 
+            // DGV
+            // 
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV.Location = new System.Drawing.Point(2, 2);
+            this.DGV.Name = "DGV";
+            this.DGV.Size = new System.Drawing.Size(724, 456);
+            this.DGV.TabIndex = 0;
+            this.DGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellDoubleClick);
+            this.DGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_CellFormatting);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.L_DEPOSITO);
+            this.panel11.Controls.Add(this.label3);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(366, 1);
+            this.panel11.Margin = new System.Windows.Forms.Padding(1);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(2);
+            this.panel11.Size = new System.Drawing.Size(363, 59);
+            this.panel11.TabIndex = 2;
+            // 
+            // L_DEPOSITO
+            // 
+            this.L_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DEPOSITO.Location = new System.Drawing.Point(35, 7);
+            this.L_DEPOSITO.Name = "L_DEPOSITO";
+            this.L_DEPOSITO.Size = new System.Drawing.Size(319, 47);
+            this.L_DEPOSITO.TabIndex = 3;
+            this.L_DEPOSITO.Text = "label4";
+            this.L_DEPOSITO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Inf:";
+            // 
+            // AjusteNivelFrm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIR;
+            this.ClientSize = new System.Drawing.Size(734, 616);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
+            this.Name = "AjusteNivelFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AjusteNivelFrm_FormClosing);
+            this.Load += new System.EventHandler(this.AjusteNivelFrm_Load);
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button BT_ACEPTAR;
+        private System.Windows.Forms.Button BT_SALIR;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox CB_DEPOSITO;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button BT_BUSCAR;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.DataGridView DGV;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button BT_LIMPIAR;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label L_DEPOSITO;
+    }
+}

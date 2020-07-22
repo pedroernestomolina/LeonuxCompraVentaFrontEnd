@@ -11,6 +11,7 @@ namespace ModPos.Helpers
 
     public class Msg
     {
+
         public static void Error(string msg) 
         {
             MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Error);

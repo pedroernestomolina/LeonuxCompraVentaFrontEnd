@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsMovimiento" targetNamespace="http://tempuri.org/dsMovimiento.xsd" xmlns:mstns="http://tempuri.org/dsMovimiento.xsd" xmlns="http://tempuri.org/dsMovimiento.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsMovimiento" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsMovimiento" msprop:Generator_UserDSName="dsMovimiento">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ArqueoVentaPos" msprop:Generator_TableClassName="ArqueoVentaPosDataTable" msprop:Generator_TableVarName="tableArqueoVentaPos" msprop:Generator_RowChangedName="ArqueoVentaPosRowChanged" msprop:Generator_TablePropName="ArqueoVentaPos" msprop:Generator_RowDeletingName="ArqueoVentaPosRowDeleting" msprop:Generator_RowChangingName="ArqueoVentaPosRowChanging" msprop:Generator_RowEvHandlerName="ArqueoVentaPosRowChangeEventHandler" msprop:Generator_RowDeletedName="ArqueoVentaPosRowDeleted" msprop:Generator_RowClassName="ArqueoVentaPosRow" msprop:Generator_UserTableName="ArqueoVentaPos" msprop:Generator_RowEvArgName="ArqueoVentaPosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Sucursal" msprop:Generator_ColumnVarNameInTable="columnSucursal" msprop:Generator_ColumnPropNameInRow="Sucursal" msprop:Generator_ColumnPropNameInTable="SucursalColumn" msprop:Generator_UserColumnName="Sucursal" type="xs:string" minOccurs="0" />
+              <xs:element name="Equipo" msprop:Generator_ColumnVarNameInTable="columnEquipo" msprop:Generator_ColumnPropNameInRow="Equipo" msprop:Generator_ColumnPropNameInTable="EquipoColumn" msprop:Generator_UserColumnName="Equipo" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="efectivo" msprop:Generator_ColumnVarNameInTable="columnefectivo" msprop:Generator_ColumnPropNameInRow="efectivo" msprop:Generator_ColumnPropNameInTable="efectivoColumn" msprop:Generator_UserColumnName="efectivo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mefectivo" msprop:Generator_ColumnVarNameInTable="columnmefectivo" msprop:Generator_ColumnPropNameInRow="mefectivo" msprop:Generator_ColumnPropNameInTable="mefectivoColumn" msprop:Generator_UserColumnName="mefectivo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="divisa" msprop:Generator_ColumnVarNameInTable="columndivisa" msprop:Generator_ColumnPropNameInRow="divisa" msprop:Generator_ColumnPropNameInTable="divisaColumn" msprop:Generator_UserColumnName="divisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mdivisa" msprop:Generator_ColumnVarNameInTable="columnmdivisa" msprop:Generator_ColumnPropNameInRow="mdivisa" msprop:Generator_ColumnPropNameInTable="mdivisaColumn" msprop:Generator_UserColumnName="mdivisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cntdivisa" msprop:Generator_ColumnVarNameInTable="columncntdivisa" msprop:Generator_ColumnPropNameInRow="cntdivisa" msprop:Generator_ColumnPropNameInTable="cntdivisaColumn" msprop:Generator_UserColumnName="cntdivisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tarjeta" msprop:Generator_ColumnVarNameInTable="columntarjeta" msprop:Generator_ColumnPropNameInRow="tarjeta" msprop:Generator_ColumnPropNameInTable="tarjetaColumn" msprop:Generator_UserColumnName="tarjeta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mtarjeta" msprop:Generator_ColumnVarNameInTable="columnmtarjeta" msprop:Generator_ColumnPropNameInRow="mtarjeta" msprop:Generator_ColumnPropNameInTable="mtarjetaColumn" msprop:Generator_UserColumnName="mtarjeta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="otros" msprop:Generator_ColumnVarNameInTable="columnotros" msprop:Generator_ColumnPropNameInRow="otros" msprop:Generator_ColumnPropNameInTable="otrosColumn" msprop:Generator_UserColumnName="otros" type="xs:decimal" minOccurs="0" />
+              <xs:element name="motros" msprop:Generator_ColumnVarNameInTable="columnmotros" msprop:Generator_ColumnPropNameInRow="motros" msprop:Generator_ColumnPropNameInTable="motrosColumn" msprop:Generator_UserColumnName="motros" type="xs:decimal" minOccurs="0" />
+              <xs:element name="firma" msprop:Generator_ColumnVarNameInTable="columnfirma" msprop:Generator_ColumnPropNameInRow="firma" msprop:Generator_ColumnPropNameInTable="firmaColumn" msprop:Generator_UserColumnName="firma" type="xs:decimal" minOccurs="0" />
+              <xs:element name="devolucion" msprop:Generator_ColumnVarNameInTable="columndevolucion" msprop:Generator_ColumnPropNameInRow="devolucion" msprop:Generator_ColumnPropNameInTable="devolucionColumn" msprop:Generator_UserColumnName="devolucion" type="xs:decimal" minOccurs="0" />
+              <xs:element name="diferencia" msprop:Generator_ColumnVarNameInTable="columndiferencia" msprop:Generator_ColumnPropNameInRow="diferencia" msprop:Generator_ColumnPropNameInTable="diferenciaColumn" msprop:Generator_UserColumnName="diferencia" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cntDivisa" msprop:Generator_ColumnVarNameInTable="columncntDivisa" msprop:Generator_ColumnPropNameInRow="cntDivisa" msprop:Generator_ColumnPropNameInTable="cntDivisaColumn" msprop:Generator_UserColumnName="cntDivisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cierre" msprop:Generator_ColumnVarNameInTable="columncierre" msprop:Generator_ColumnPropNameInRow="cierre" msprop:Generator_ColumnPropNameInTable="cierreColumn" msprop:Generator_UserColumnName="cierre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

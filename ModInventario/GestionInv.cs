@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ModInventario
@@ -12,26 +13,44 @@ namespace ModInventario
     {
 
 
-        private GestionMovimiento _gestionMovimiento;
+        private Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion _gestionMovimiento;
+        private ReporteMovimiento.Gestion _gestionRep;
+
+
+        public string Version { get { return "Ver. " + Application.ProductVersion; } }
 
 
         public GestionInv()
         {
-            var rt1= Sistema.MyData.FechaServidor();
-            _gestionMovimiento = new GestionMovimiento();
+            _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
+            _gestionRep = new ReporteMovimiento.Gestion();
         }
 
 
+        Form1 frm = null;
         public void Inicia() 
         {
-            var frm = new Form1();
+            frm = new Form1();
             frm.setControlador(this);
             frm.ShowDialog();
         }
 
+        public void Inicia2()
+        {
+            _gestionRep.Inicia();
+        }
+
         public void TrasladoMercanciaEntreSucursalPorNivelMinimo()
         {
-            _gestionMovimiento.MovimientoTrasladoEntreSucursalPorNivelMinimo();
+            _gestionMovimiento.Inicializar();
+            _gestionMovimiento.TrasladoEntreSucursal_PorNivelMinimo();
+        }
+
+
+        public void Ajuste_DefinirNivelMinimoMaximo()
+        {
+            var _ajusteNivel = new Tool.AjusteNivelMinimoMaximoProducto.Gestion();
+            _ajusteNivel.Inicia();
         }
 
     }

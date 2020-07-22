@@ -36,6 +36,7 @@ namespace ModInventario
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            L_VERSION.Text = _controlador.Version;
         }
 
         public void setControlador(GestionInv ctr) 
@@ -43,5 +44,53 @@ namespace ModInventario
             _controlador = ctr;
         }
 
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void Salir()
+        {
+            this.Close();
+        }
+
+        private void TSM_MOVIMIENTO_TRASLADOMERCANCIAPOREXISTENCIADEBAJOMINIMO_Click(object sender, EventArgs e)
+        {
+            Movimientos_TrasladoEntreSucursal_PorExistenca_DebajoMinimo();
+        }
+
+        private void Movimientos_TrasladoEntreSucursal_PorExistenca_DebajoMinimo()
+        {
+            _controlador.TrasladoMercanciaEntreSucursalPorNivelMinimo();
+        }
+
+        private void TSM_ARCHIVO_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void TSM_AJUSTE_DefinirNivelMinimoMaximo_Click(object sender, EventArgs e)
+        {
+            Ajuste_DefinirNivelMinimoMaximo();
+        }
+
+        private void Ajuste_DefinirNivelMinimoMaximo()
+        {
+            VisibilidadOff();
+            _controlador.Ajuste_DefinirNivelMinimoMaximo();
+            VisibilidadOn();
+        }
+
+        private void VisibilidadOn()
+        {
+            this.Visible = true;
+        }
+
+        private void VisibilidadOff()
+        {
+            this.Visible = false;
+        }
+
     }
+
 }

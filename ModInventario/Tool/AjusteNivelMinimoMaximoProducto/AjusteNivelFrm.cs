@@ -32,10 +32,13 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         {
             InicializarGrid();
 
+            BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
+            CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
+
             CB_DEPOSITO.DisplayMember = "Nombre";
             CB_DEPOSITO.ValueMember = "Auto";
             CB_DEPOSITO.DataSource = _controlador._bsDeposito;
-            Limpiar();
+            Limpiar2();
         }
 
         private void InicializarGrid()
@@ -129,6 +132,8 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         {
             _controlador.Buscar();
             L_DEPOSITO.Text = _controlador.Deposito;
+            BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
+            CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
@@ -147,8 +152,18 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         private void Limpiar()
         {
             _controlador.Limpiar();
+            if (_controlador.IsLimpiarOk) 
+            {
+                Limpiar2();
+            }
+        }
+
+        private void Limpiar2()
+        {
             CB_DEPOSITO.SelectedIndex = -1;
             L_DEPOSITO.Text = _controlador.Deposito;
+            BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
+            CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
             DGV.Refresh();
         }
 

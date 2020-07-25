@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -52,6 +53,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.L_DEPOSITO = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -277,12 +279,14 @@
             this.BT_BUSCAR.Size = new System.Drawing.Size(46, 49);
             this.BT_BUSCAR.TabIndex = 1;
             this.BT_BUSCAR.Text = "Busc";
+            this.toolTip1.SetToolTip(this.BT_BUSCAR, "Activar Busqueda");
             this.BT_BUSCAR.UseVisualStyleBackColor = true;
             this.BT_BUSCAR.Click += new System.EventHandler(this.BT_BUSCAR_Click);
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.BT_LIMPIAR);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(275, 1);
             this.panel10.Margin = new System.Windows.Forms.Padding(1);
             this.panel10.Name = "panel10";
@@ -299,6 +303,7 @@
             this.BT_LIMPIAR.Size = new System.Drawing.Size(46, 49);
             this.BT_LIMPIAR.TabIndex = 2;
             this.BT_LIMPIAR.Text = "Limp";
+            this.toolTip1.SetToolTip(this.BT_LIMPIAR, "Limpiar Busqueda");
             this.BT_LIMPIAR.UseVisualStyleBackColor = true;
             this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
             // 
@@ -418,5 +423,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label L_DEPOSITO;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuracion>
+  <Servidor>
+    <Instancia>localhost</Instancia>
+    <Catalogo>bodega01</Catalogo>
+  </Servidor>
+  <DataLocal>D:\Proyectos FoxSystem\CompraVenta\LeonuxPosOffLine.db</DataLocal>
+  <ImpresoraTicket>
+    <TamanoRollo>P</TamanoRollo>
+  </ImpresoraTicket>
+</Configuracion>

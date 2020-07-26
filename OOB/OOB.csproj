@@ -63,6 +63,8 @@
     <Compile Include="LibSistema\Deposito\Agregar.cs" />
     <Compile Include="LibSistema\Deposito\Editar.cs" />
     <Compile Include="LibSistema\Deposito\Ficha.cs" />
+    <Compile Include="LibSistema\Precio\Etiquetar\Actualizar.cs" />
+    <Compile Include="LibSistema\Precio\Etiquetar\Ficha.cs" />
     <Compile Include="LibSistema\Precio\Ficha.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Agregar.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Editar.cs" />

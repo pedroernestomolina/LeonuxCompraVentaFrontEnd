@@ -12,6 +12,8 @@ namespace DataProvSistema.Infra
     {
 
         OOB.ResultadoLista<OOB.LibSistema.Precio.Ficha> Precio_GetLista();
+        OOB.ResultadoEntidad<OOB.LibSistema.Precio.Etiquetar.Ficha> Precio_Etiquetar_GetFicha();
+        OOB.Resultado Precio_Etiquetar_Actualizar(OOB.LibSistema.Precio.Etiquetar.Actualizar ficha);
 
     }
 

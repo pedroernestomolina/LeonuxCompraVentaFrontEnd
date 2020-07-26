@@ -37,8 +37,8 @@ namespace DataProvSistema.Data
                             codigo = s.codigo,
                             nombre = s.nombre,
                             autoSucursal = "",
-                            codigoSucursal = "",
-                            sucursal = "",
+                            codigoSucursal = s.codigoSucursal,
+                            sucursal = s.sucursal,
                         };
                     }).ToList();
                 }

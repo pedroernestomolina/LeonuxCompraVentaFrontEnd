@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
+            this.etiquetarPreciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -161,47 +162,49 @@
             this.TSM_MAESTRO_Sucursal,
             this.toolStripMenuItem3});
             this.sucursalesToolStripMenuItem.Name = "sucursalesToolStripMenuItem";
-            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.sucursalesToolStripMenuItem.Text = "Sucursales";
             // 
             // TSM_MAESTRO_SucursalGrupo
             // 
             this.TSM_MAESTRO_SucursalGrupo.Name = "TSM_MAESTRO_SucursalGrupo";
-            this.TSM_MAESTRO_SucursalGrupo.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_SucursalGrupo.Size = new System.Drawing.Size(129, 22);
             this.TSM_MAESTRO_SucursalGrupo.Text = "Grupos";
             this.TSM_MAESTRO_SucursalGrupo.Click += new System.EventHandler(this.TSM_MAESTRO_SucursalGrupo_Click);
             // 
             // TSM_MAESTRO_Sucursal
             // 
             this.TSM_MAESTRO_Sucursal.Name = "TSM_MAESTRO_Sucursal";
-            this.TSM_MAESTRO_Sucursal.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_Sucursal.Size = new System.Drawing.Size(129, 22);
             this.TSM_MAESTRO_Sucursal.Text = "Sucursales";
             this.TSM_MAESTRO_Sucursal.Click += new System.EventHandler(this.TSM_MAESTRO_Sucursal_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(126, 6);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
             // 
             // TSM_MAESTRO_Deposito
             // 
             this.TSM_MAESTRO_Deposito.Name = "TSM_MAESTRO_Deposito";
-            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(129, 22);
             this.TSM_MAESTRO_Deposito.Text = "Depositos";
+            this.TSM_MAESTRO_Deposito.Click += new System.EventHandler(this.TSM_MAESTRO_Deposito_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 6);
             // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.etiquetarPreciosToolStripMenuItem,
             this.asignarDepositoASucursalToolStripMenuItem});
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
             this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
@@ -210,8 +213,8 @@
             // asignarDepositoASucursalToolStripMenuItem
             // 
             this.asignarDepositoASucursalToolStripMenuItem.Name = "asignarDepositoASucursalToolStripMenuItem";
-            this.asignarDepositoASucursalToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.asignarDepositoASucursalToolStripMenuItem.Text = "Asignar Deposito A Sucursal";
+            this.asignarDepositoASucursalToolStripMenuItem.Size = new System.Drawing.Size(271, 22);
+            this.asignarDepositoASucursalToolStripMenuItem.Text = "Asignar Deposito Principal A Sucursal";
             // 
             // panel3
             // 
@@ -313,6 +316,12 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // etiquetarPreciosToolStripMenuItem
+            // 
+            this.etiquetarPreciosToolStripMenuItem.Name = "etiquetarPreciosToolStripMenuItem";
+            this.etiquetarPreciosToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.etiquetarPreciosToolStripMenuItem.Text = "Etiquetar Precios";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +378,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignarDepositoASucursalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem etiquetarPreciosToolStripMenuItem;
     }
 }
 

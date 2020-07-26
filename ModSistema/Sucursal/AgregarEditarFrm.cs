@@ -30,13 +30,19 @@ namespace ModSistema.Sucursal
 
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
-            CB_PRECIO.DisplayMember = "iddescripcion";
-            CB_PRECIO.ValueMember = "id";
-            CB_PRECIO.DataSource = _controlador.Source;
-            CB_PRECIO.SelectedValue = _controlador.IdPrecio;
+            CB_GRUPO.DisplayMember = "nombre";
+            CB_GRUPO.ValueMember = "auto";
+            CB_GRUPO.DataSource = _controlador.Source;
+            CB_GRUPO.SelectedValue = _controlador.AutoGrupo;
 
-            TB_NOMBRE.Text = _controlador.Grupo;
-            TB_NOMBRE.Focus();
+            TB_CODIGO.Text = _controlador.Codigo;
+            TB_NOMBRE.Text = _controlador.Sucursal;
+            TB_CODIGO.Focus();
+            TB_CODIGO.Enabled = true;
+            if (_controlador.Modo == GestionAgregarEditar.enumModo.Editar) 
+            {
+                TB_CODIGO.Enabled = false;
+            }
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -70,17 +76,22 @@ namespace ModSistema.Sucursal
 
         private void TB_NOMBRE_TextChanged(object sender, EventArgs e)
         {
-            _controlador.Grupo = TB_NOMBRE.Text;
+            _controlador.Sucursal = TB_NOMBRE.Text;
         }
 
-        private void CB_PRECIO_SelectedIndexChanged(object sender, EventArgs e)
+        private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CB_PRECIO.SelectedValue != null)
+            if (CB_GRUPO.SelectedValue != null)
             {
-                _controlador.IdPrecio = CB_PRECIO.SelectedValue.ToString();
+                _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
             }
         }
 
+        private void TB_CODIGO_TextChanged(object sender, EventArgs e)
+        {
+            _controlador.Codigo = TB_CODIGO.Text;
+        }
+     
     }
 
 }

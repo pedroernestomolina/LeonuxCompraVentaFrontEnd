@@ -68,6 +68,16 @@ namespace ModSistema
             _controlador.MaestroSucursales();
         }
 
+        private void TSM_MAESTRO_Deposito_Click(object sender, EventArgs e)
+        {
+            Depositos();
+        }
+
+        private void Depositos()
+        {
+            _controlador.MaestroDepositos();
+        }
+
     }
 
 }

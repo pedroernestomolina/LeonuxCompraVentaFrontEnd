@@ -36,7 +36,7 @@ namespace ModSistema.Sucursal
         public void setLista(List<OOB.LibSistema.Sucursal.Ficha> lista)
         {
             blLista.Clear();
-            foreach (var it in lista.OrderBy(o => o.nombre).ToList())
+            foreach (var it in lista.OrderBy(o => o.codigo).ToList())
             {
                 blLista.Add(it);
             }
@@ -63,7 +63,7 @@ namespace ModSistema.Sucursal
 
         public void EditarItem()
         {
-            var it = (OOB.LibSistema.SucursalGrupo.Ficha)bsLista.Current;
+            var it = (OOB.LibSistema.Sucursal.Ficha)bsLista.Current;
             if (it != null)
             {
                 _gestionAgregarEditar.Editar(it);

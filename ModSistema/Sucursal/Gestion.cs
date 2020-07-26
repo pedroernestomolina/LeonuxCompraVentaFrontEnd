@@ -54,7 +54,6 @@ namespace ModSistema.Sucursal
             _gestionLista.AgregarItem();
         }
 
-
         public void EditarItem()
         {
             _gestionLista.EditarItem();

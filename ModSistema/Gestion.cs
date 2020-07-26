@@ -15,6 +15,7 @@ namespace ModSistema
 
         private SucursalGrupo.Gestion _gestionSucGrupo;
         private Sucursal.Gestion _gestionSuc;
+        private Deposito.Gestion _gestionDep;
 
 
         public string Version 
@@ -30,6 +31,7 @@ namespace ModSistema
         {
             _gestionSucGrupo = new SucursalGrupo.Gestion();
             _gestionSuc = new Sucursal.Gestion();
+            _gestionDep = new Deposito.Gestion();
         }
 
 
@@ -48,6 +50,12 @@ namespace ModSistema
         public void MaestroSucursales()
         {
             _gestionSuc.Inicia();
+        }
+
+
+        public  void MaestroDepositos()
+        {
+            _gestionDep.Inicia();
         }
 
     }

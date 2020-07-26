@@ -15,28 +15,30 @@ namespace ModSistema.Sucursal
         public enum enumModo { SinDefinir = -1, Agregar = 1, Editar };
 
 
-        private OOB.LibSistema.SucursalGrupo.Ficha _ficha;
-        private List<OOB.LibSistema.Precio.Ficha> lPrecio;
-        private BindingSource bsPrecio;
+        private OOB.LibSistema.Sucursal.Ficha _ficha;
+        private List<OOB.LibSistema.SucursalGrupo.Ficha> lGrupo;
+        private BindingSource bsGrupo;
 
 
         public enumModo Modo { get; set; }
         public bool IsAgregarEditarOk { get; set; }
-        public BindingSource Source { get { return bsPrecio; } }
-        public string Grupo { get; set; }
-        public string IdPrecio { get; set; }
+        public BindingSource Source { get { return bsGrupo; } }
+        public string Sucursal { get; set; }
+        public string Codigo { get; set; }
+        public string AutoGrupo { get; set; }
 
 
         public GestionAgregarEditar()
         {
-            lPrecio = new List<OOB.LibSistema.Precio.Ficha>();
-            bsPrecio = new BindingSource();
-            bsPrecio.DataSource = lPrecio;
+            lGrupo = new List<OOB.LibSistema.SucursalGrupo.Ficha>();
+            bsGrupo = new BindingSource();
+            bsGrupo.DataSource = lGrupo;
 
             Modo = enumModo.SinDefinir;
             IsAgregarEditarOk = false;
-            Grupo = "";
-            IdPrecio = "";
+            Sucursal= "";
+            Codigo = "";
+            AutoGrupo = "";
         }
 
         AgregarEditarFrm frm;
@@ -52,41 +54,47 @@ namespace ModSistema.Sucursal
                     frm = new AgregarEditarFrm();
                     frm.setControlador(this);
                 }
-                frm.setTitulo("Agregar Sucursal Grupo:");
+                frm.setTitulo("Agregar Sucursal:");
                 frm.ShowDialog();
             }
         }
 
         private void LimpiarEntradas()
         {
-            Grupo = "";
-            IdPrecio = "";
+            Sucursal = "";
+            Codigo = "";
+            AutoGrupo = "";
         }
 
         private bool CargarData()
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Precio_GetLista();
+            var r01 = Sistema.MyData.SucursalGrupo_GetLista();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-            lPrecio.Clear();
-            lPrecio.AddRange(r01.Lista);
+            lGrupo.Clear();
+            lGrupo.AddRange(r01.Lista);
 
             return rt;
         }
 
         public void Guardar()
         {
-            if (Grupo.Trim() == "")
+            if (Sucursal.Trim() == "")
             {
-                Helpers.Msg.Error("Campo [ Nombre Grupo ] No Puede Estar Vacio");
+                Helpers.Msg.Error("Campo [ Nombre Sucursal ] No Puede Estar Vacio");
                 return;
             }
-            if (IdPrecio.Trim() == "")
+            if (Codigo.Trim() == "")
+            {
+                Helpers.Msg.Error("Campo [ Codigo Sucursal ] No Puede Estar Vacio");
+                return;
+            }
+            if (AutoGrupo.Trim() == "")
             {
                 Helpers.Msg.Error("Campo [ Precio ] No Puede Estar Vacio");
                 return;
@@ -98,12 +106,13 @@ namespace ModSistema.Sucursal
                 var msg = MessageBox.Show("Guardar Data ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.Yes)
                 {
-                    var ficha = new OOB.LibSistema.SucursalGrupo.Agregar()
+                    var ficha = new OOB.LibSistema.Sucursal.Agregar()
                     {
-                        nombre = Grupo,
-                        precioId = IdPrecio,
+                        nombre = Sucursal,
+                        codigo = Codigo,
+                        autoGrupo = AutoGrupo,
                     };
-                    var r01 = Sistema.MyData.SucursalGrupo_Agregar(ficha);
+                    var r01 = Sistema.MyData.Sucursal_Agregar(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);
@@ -117,13 +126,14 @@ namespace ModSistema.Sucursal
                 var msg = MessageBox.Show("Cambiar/Actualizar Data ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.Yes)
                 {
-                    var ficha = new OOB.LibSistema.SucursalGrupo.Editar()
+                    var ficha = new OOB.LibSistema.Sucursal.Editar()
                     {
                         auto = _ficha.auto,
-                        nombre = Grupo,
-                        precioId = IdPrecio,
+                        nombre = Sucursal,
+                        codigo = Codigo,
+                        autoGrupo = AutoGrupo,
                     };
-                    var r01 = Sistema.MyData.SucursalGrupo_Editar(ficha);
+                    var r01 = Sistema.MyData.Sucursal_Editar(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);
@@ -134,11 +144,11 @@ namespace ModSistema.Sucursal
             }
         }
 
-        public void Editar(OOB.LibSistema.SucursalGrupo.Ficha it)
+        public void Editar(OOB.LibSistema.Sucursal.Ficha it)
         {
             if (CargarData())
             {
-                var r01 = Sistema.MyData.SucursalGrupo_GetFicha(it.auto);
+                var r01 = Sistema.MyData.Sucursal_GetFicha(it.auto);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r01.Mensaje);
@@ -148,15 +158,16 @@ namespace ModSistema.Sucursal
                 _ficha = r01.Entidad;
                 LimpiarEntradas();
                 Modo = enumModo.Editar;
-                Grupo = _ficha.nombre;
-                IdPrecio = _ficha.precioId;
+                Codigo = _ficha.codigo;
+                Sucursal= _ficha.nombre;
+                AutoGrupo= _ficha.autoGrupoSucursal;
                 IsAgregarEditarOk = false;
                 if (frm == null)
                 {
                     frm = new AgregarEditarFrm();
                     frm.setControlador(this);
                 }
-                frm.setTitulo("Editar Sucursal Grupo:");
+                frm.setTitulo("Editar Sucursal:");
                 frm.ShowDialog();
             }
         }

@@ -72,14 +72,14 @@ namespace ModSistema.Sucursal
             c1.Visible = true;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
-            c1.MinimumWidth = 120;
+            c1.MinimumWidth = 180;
             c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c2 = new DataGridViewTextBoxColumn();
             c2.DataPropertyName = "Codigo";
             c2.HeaderText = "Codigo";
             c2.Visible = true;
-            c2.Width = 80;
+            c2.Width = 120;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 

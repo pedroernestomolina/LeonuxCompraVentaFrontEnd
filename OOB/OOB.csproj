@@ -45,6 +45,9 @@
     <Compile Include="LibCajaBanco\Sucursal\Ficha.cs" />
     <Compile Include="LibCajaBanco\Usuario\Ficha.cs" />
     <Compile Include="LibInventario\Concepto\Ficha.cs" />
+    <Compile Include="LibInventario\Departamento\Agregar.cs" />
+    <Compile Include="LibInventario\Departamento\Editar.cs" />
+    <Compile Include="LibInventario\Departamento\Ficha.cs" />
     <Compile Include="LibInventario\Deposito\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\ProductoPorDebajoNivelMinimo.cs" />

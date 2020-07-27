@@ -244,6 +244,7 @@
             this.TB_NOMBRE.Size = new System.Drawing.Size(238, 22);
             this.TB_NOMBRE.TabIndex = 0;
             this.TB_NOMBRE.TextChanged += new System.EventHandler(this.TB_NOMBRE_TextChanged);
+            this.TB_NOMBRE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel6
             // 
@@ -289,6 +290,7 @@
             this.CB_SUCURSAL.Size = new System.Drawing.Size(238, 24);
             this.CB_SUCURSAL.TabIndex = 0;
             this.CB_SUCURSAL.SelectedIndexChanged += new System.EventHandler(this.CB_SUCURSAL_SelectedIndexChanged);
+            this.CB_SUCURSAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel10
             // 
@@ -334,15 +336,18 @@
             this.TB_CODIGO.Size = new System.Drawing.Size(238, 22);
             this.TB_CODIGO.TabIndex = 1;
             this.TB_CODIGO.TextChanged += new System.EventHandler(this.TB_CODIGO_TextChanged);
+            this.TB_CODIGO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // AgregarEditarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIR;
             this.ClientSize = new System.Drawing.Size(427, 229);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "AgregarEditarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AgregarEditarFrm_Load);

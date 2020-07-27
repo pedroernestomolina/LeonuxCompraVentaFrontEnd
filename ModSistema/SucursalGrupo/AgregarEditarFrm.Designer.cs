@@ -124,6 +124,7 @@
             // 
             // BT_SALIR
             // 
+            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
@@ -230,11 +231,12 @@
             this.TB_NOMBRE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TB_NOMBRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_NOMBRE.Location = new System.Drawing.Point(2, 2);
-            this.TB_NOMBRE.MaxLength = 120;
+            this.TB_NOMBRE.MaxLength = 60;
             this.TB_NOMBRE.Name = "TB_NOMBRE";
             this.TB_NOMBRE.Size = new System.Drawing.Size(222, 22);
             this.TB_NOMBRE.TabIndex = 0;
             this.TB_NOMBRE.TextChanged += new System.EventHandler(this.TB_NOMBRE_TextChanged);
+            this.TB_NOMBRE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel6
             // 
@@ -280,15 +282,18 @@
             this.CB_PRECIO.Size = new System.Drawing.Size(222, 24);
             this.CB_PRECIO.TabIndex = 0;
             this.CB_PRECIO.SelectedIndexChanged += new System.EventHandler(this.CB_PRECIO_SelectedIndexChanged);
+            this.CB_PRECIO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // AgregarEditarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIR;
             this.ClientSize = new System.Drawing.Size(403, 202);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "AgregarEditarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AgregarEditarFrm_Load);

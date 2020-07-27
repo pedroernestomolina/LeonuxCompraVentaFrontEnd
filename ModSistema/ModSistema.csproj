@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\tools.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -95,6 +98,21 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sistema.cs" />
+    <Compile Include="SucursalDeposito\AsignarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SucursalDeposito\AsignarFrm.Designer.cs">
+      <DependentUpon>AsignarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalDeposito\Gestion.cs" />
+    <Compile Include="SucursalDeposito\GestionAjustar.cs" />
+    <Compile Include="SucursalDeposito\GestionLista.cs" />
+    <Compile Include="SucursalDeposito\SucDepFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SucursalDeposito\SucDepFrm.Designer.cs">
+      <DependentUpon>SucDepFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SucursalGrupo\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,7 +163,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SucursalDeposito\AsignarFrm.resx">
+      <DependentUpon>AsignarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SucursalDeposito\SucDepFrm.resx">
+      <DependentUpon>SucDepFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SucursalGrupo\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +211,12 @@
     <Content Include="Conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_sumar.png" />
+    <Content Include="Imagenes\TOOLS.ico" />
+    <None Include="Resources\bt_sumar.png" />
+    <None Include="Resources\bt_eliminar.png" />
+    <None Include="Resources\tools.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

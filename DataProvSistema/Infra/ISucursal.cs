@@ -16,6 +16,7 @@ namespace DataProvSistema.Infra
         OOB.ResultadoAuto Sucursal_Agregar(OOB.LibSistema.Sucursal.Agregar ficha);
         OOB.Resultado Sucursal_Editar(OOB.LibSistema.Sucursal.Editar ficha);
         OOB.Resultado Sucursal_AsignarDepositoPrincipal(OOB.LibSistema.Sucursal.AsignarDepositoPrincipal ficha);
+        OOB.Resultado Sucursal_QuitarDepositoPrincipal(string autoSuc);
 
     }
 

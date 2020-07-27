@@ -82,6 +82,14 @@ namespace ModSistema.SucursalGrupo
             }
         }
 
+        private void TB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
     }
 
 }

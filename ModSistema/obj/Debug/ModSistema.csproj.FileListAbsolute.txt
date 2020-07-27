@@ -1,12 +1,12 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\Conf.xml
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DataProvSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.dll
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\Conf.xml
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe.config
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DataProvSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ServiceSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLibSistema.dll
@@ -29,6 +29,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Form1.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Precio.ActualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.SucursalDeposito.AsignarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.SucursalDeposito.SucDepFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.SucursalGrupo.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.SucursalGrupo.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Sucursal.AgregarEditarFrm.resources

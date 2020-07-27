@@ -91,6 +91,14 @@ namespace ModSistema.Sucursal
         {
             _controlador.Codigo = TB_CODIGO.Text;
         }
+
+        private void TB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
      
     }
 

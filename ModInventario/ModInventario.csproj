@@ -76,6 +76,21 @@
     <Compile Include="GestionInv.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Maestros\Departamentos\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Departamentos\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Departamentos\Gestion.cs" />
+    <Compile Include="Maestros\Departamentos\GestionAgregarEditar.cs" />
+    <Compile Include="Maestros\Departamentos\GestionLista.cs" />
+    <Compile Include="Maestros\Departamentos\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Departamentos\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Gestion.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\GestionLista.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Item.cs" />
@@ -118,6 +133,12 @@
     <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\GestionLista.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Departamentos\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Departamentos\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
@@ -187,9 +208,14 @@
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\TOOLS.ico" />
+    <None Include="Resources\bt_sumar.png" />
+    <None Include="Resources\bt_eliminar.png" />
     <None Include="Resources\TOOLS.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

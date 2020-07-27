@@ -88,6 +88,16 @@ namespace ModSistema
             _controlador.EtiquetarPrecios();
         }
 
+        private void TSM_AJUSTES_AsignarDepositoSucursal_Click(object sender, EventArgs e)
+        {
+            AsignarDepositoPrincipalASucursal();
+        }
+
+        private void AsignarDepositoPrincipalASucursal()
+        {
+            _controlador.AsignarDepositoPrincipalASucursal();
+        }
+
     }
 
 }

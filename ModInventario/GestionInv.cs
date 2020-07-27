@@ -14,6 +14,7 @@ namespace ModInventario
 
 
         private Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion _gestionMovimiento;
+        private Maestros.Departamentos.Gestion _gestionDepart;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -21,6 +22,7 @@ namespace ModInventario
 
         public GestionInv()
         {
+            _gestionDepart = new Maestros.Departamentos.Gestion();
             _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
         }
 
@@ -32,7 +34,6 @@ namespace ModInventario
             frm.setControlador(this);
             frm.ShowDialog();
         }
-
      
         public void TrasladoMercanciaEntreSucursalPorNivelMinimo()
         {
@@ -45,6 +46,11 @@ namespace ModInventario
         {
             var _ajusteNivel = new Tool.AjusteNivelMinimoMaximoProducto.Gestion();
             _ajusteNivel.Inicia();
+        }
+
+        public void MaestroDepartamentos()
+        {
+            _gestionDepart.Inicia();
         }
 
     }

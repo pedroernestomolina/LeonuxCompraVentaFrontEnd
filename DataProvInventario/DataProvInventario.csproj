@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Data\Concepto.cs" />
     <Compile Include="Data\DataProv.cs" />
+    <Compile Include="Data\Departamento.cs" />
     <Compile Include="Data\Deposito.cs" />
     <Compile Include="Data\Movimiento.cs" />
     <Compile Include="Data\ReporteMovimientos.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Data\Usuario.cs" />
     <Compile Include="InfraEstructura\IConcepto.cs" />
     <Compile Include="InfraEstructura\IData.cs" />
+    <Compile Include="InfraEstructura\IDepartamento.cs" />
     <Compile Include="InfraEstructura\IDeposito.cs" />
     <Compile Include="InfraEstructura\IMovimiento.cs" />
     <Compile Include="InfraEstructura\IReporteMovimientos.cs" />

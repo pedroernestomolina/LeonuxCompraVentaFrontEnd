@@ -91,6 +91,16 @@ namespace ModInventario
             this.Visible = false;
         }
 
+        private void TSM_MAESTROS_Departamentos_Click(object sender, EventArgs e)
+        {
+            MaestroDepartamentos();
+        }
+
+        private void MaestroDepartamentos()
+        {
+            _controlador.MaestroDepartamentos();
+        }
+
     }
 
 }

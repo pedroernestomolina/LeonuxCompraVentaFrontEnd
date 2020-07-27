@@ -17,6 +17,7 @@ namespace ModSistema
         private Sucursal.Gestion _gestionSuc;
         private Deposito.Gestion _gestionDep;
         private Precio.Gestion _gestionPrecio;
+        private SucursalDeposito.Gestion _gestioSucDep;
 
 
         public string Version 
@@ -34,6 +35,7 @@ namespace ModSistema
             _gestionSuc = new Sucursal.Gestion();
             _gestionDep = new Deposito.Gestion();
             _gestionPrecio = new Precio.Gestion();
+            _gestioSucDep = new SucursalDeposito.Gestion();
         }
 
 
@@ -63,6 +65,11 @@ namespace ModSistema
         public void EtiquetarPrecios()
         {
             _gestionPrecio.Inicia();
+        }
+
+        public void AsignarDepositoPrincipalASucursal()
+        {
+            _gestioSucDep.Inicia();
         }
 
     }

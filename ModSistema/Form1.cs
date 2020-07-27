@@ -78,6 +78,16 @@ namespace ModSistema
             _controlador.MaestroDepositos();
         }
 
+        private void TSM_AJUSTE_EtiquetarPrecios_Click(object sender, EventArgs e)
+        {
+            EtiquetarPrecios();
+        }
+
+        private void EtiquetarPrecios()
+        {
+            _controlador.EtiquetarPrecios();
+        }
+
     }
 
 }

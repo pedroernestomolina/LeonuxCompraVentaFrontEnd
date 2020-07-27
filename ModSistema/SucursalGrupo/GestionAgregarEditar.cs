@@ -75,6 +75,7 @@ namespace ModSistema.SucursalGrupo
             }
             lPrecio.Clear();
             lPrecio.AddRange(r01.Lista);
+            bsPrecio.CurrencyManager.Refresh();
 
             return rt;
         }

@@ -44,6 +44,7 @@
             this.TSM_MAESTRO_Deposito = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_AJUSTE_EtiquetarPrecios = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarDepositoASucursalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,7 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
-            this.etiquetarPreciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -204,11 +204,18 @@
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.etiquetarPreciosToolStripMenuItem,
+            this.TSM_AJUSTE_EtiquetarPrecios,
             this.asignarDepositoASucursalToolStripMenuItem});
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
             this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.ajustesToolStripMenuItem.Text = "Ajustes";
+            // 
+            // TSM_AJUSTE_EtiquetarPrecios
+            // 
+            this.TSM_AJUSTE_EtiquetarPrecios.Name = "TSM_AJUSTE_EtiquetarPrecios";
+            this.TSM_AJUSTE_EtiquetarPrecios.Size = new System.Drawing.Size(271, 22);
+            this.TSM_AJUSTE_EtiquetarPrecios.Text = "Etiquetar Precios";
+            this.TSM_AJUSTE_EtiquetarPrecios.Click += new System.EventHandler(this.TSM_AJUSTE_EtiquetarPrecios_Click);
             // 
             // asignarDepositoASucursalToolStripMenuItem
             // 
@@ -316,12 +323,6 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // etiquetarPreciosToolStripMenuItem
-            // 
-            this.etiquetarPreciosToolStripMenuItem.Name = "etiquetarPreciosToolStripMenuItem";
-            this.etiquetarPreciosToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.etiquetarPreciosToolStripMenuItem.Text = "Etiquetar Precios";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,7 +379,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignarDepositoASucursalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem etiquetarPreciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTE_EtiquetarPrecios;
     }
 }
 

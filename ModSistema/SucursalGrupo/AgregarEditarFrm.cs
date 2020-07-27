@@ -33,6 +33,7 @@ namespace ModSistema.SucursalGrupo
             CB_PRECIO.DisplayMember = "iddescripcion";
             CB_PRECIO.ValueMember = "id";
             CB_PRECIO.DataSource = _controlador.Source;
+            CB_PRECIO.Refresh();
             CB_PRECIO.SelectedValue = _controlador.IdPrecio;
 
             TB_NOMBRE.Text = _controlador.Grupo;

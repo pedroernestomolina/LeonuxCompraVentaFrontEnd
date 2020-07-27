@@ -1,5 +1,0 @@
-D:\Proyectos FoxSystem\CompraVentaFront\LibControles\bin\Debug\LibControles.dll
-D:\Proyectos FoxSystem\CompraVentaFront\LibControles\bin\Debug\LibControles.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\LibControles\obj\Debug\LibControles.csprojResolveAssemblyReference.cache
-D:\Proyectos FoxSystem\CompraVentaFront\LibControles\obj\Debug\LibControles.dll
-D:\Proyectos FoxSystem\CompraVentaFront\LibControles\obj\Debug\LibControles.pdb

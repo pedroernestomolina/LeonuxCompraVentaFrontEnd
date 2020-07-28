@@ -94,6 +94,7 @@ namespace ModSistema.SucursalGrupo
         private void AgregarItem()
         {
             _controlador.AgregarItem();
+            L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
 
         private void BT_EDITAR_Click(object sender, EventArgs e)
@@ -104,6 +105,7 @@ namespace ModSistema.SucursalGrupo
         private void EditarItem()
         {
             _controlador.EditarItem();
+            L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
 
     }

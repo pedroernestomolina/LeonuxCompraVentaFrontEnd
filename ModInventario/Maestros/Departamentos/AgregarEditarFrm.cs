@@ -30,19 +30,9 @@ namespace ModInventario.Maestros.Departamentos
 
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
-            CB_GRUPO.DisplayMember = "nombre";
-            CB_GRUPO.ValueMember = "auto";
-            CB_GRUPO.DataSource = _controlador.Source;
-            CB_GRUPO.SelectedValue = _controlador.AutoGrupo;
-
             TB_CODIGO.Text = _controlador.Codigo;
-            TB_NOMBRE.Text = _controlador.Sucursal;
+            TB_NOMBRE.Text = _controlador.Nombre;
             TB_CODIGO.Focus();
-            TB_CODIGO.Enabled = true;
-            if (_controlador.Modo == GestionAgregarEditar.enumModo.Editar)
-            {
-                TB_CODIGO.Enabled = false;
-            }
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -76,15 +66,7 @@ namespace ModInventario.Maestros.Departamentos
 
         private void TB_NOMBRE_TextChanged(object sender, EventArgs e)
         {
-            _controlador.Sucursal = TB_NOMBRE.Text;
-        }
-
-        private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (CB_GRUPO.SelectedValue != null)
-            {
-                _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
-            }
+            _controlador.Nombre= TB_NOMBRE.Text;
         }
 
         private void TB_CODIGO_TextChanged(object sender, EventArgs e)

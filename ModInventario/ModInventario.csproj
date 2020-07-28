@@ -91,6 +91,51 @@
     <Compile Include="Maestros\Departamentos\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros\EmpaqueMedidas\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\EmpaqueMedidas\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\EmpaqueMedidas\Gestion.cs" />
+    <Compile Include="Maestros\EmpaqueMedidas\GestionAgregarEditar.cs" />
+    <Compile Include="Maestros\EmpaqueMedidas\GestionLista.cs" />
+    <Compile Include="Maestros\EmpaqueMedidas\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\EmpaqueMedidas\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Grupos\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Grupos\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Grupos\Gestion.cs" />
+    <Compile Include="Maestros\Grupos\GestionAgregarEditar.cs" />
+    <Compile Include="Maestros\Grupos\GestionLista.cs" />
+    <Compile Include="Maestros\Grupos\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Grupos\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Marcas\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Marcas\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Marcas\Gestion.cs" />
+    <Compile Include="Maestros\Marcas\GestionAgregarEditar.cs" />
+    <Compile Include="Maestros\Marcas\GestionLista.cs" />
+    <Compile Include="Maestros\Marcas\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Marcas\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Gestion.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\GestionLista.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Item.cs" />
@@ -138,6 +183,24 @@
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\Departamentos\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\EmpaqueMedidas\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\EmpaqueMedidas\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Grupos\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Grupos\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Marcas\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Marcas\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">

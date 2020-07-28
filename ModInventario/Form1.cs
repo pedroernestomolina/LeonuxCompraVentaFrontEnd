@@ -101,6 +101,36 @@ namespace ModInventario
             _controlador.MaestroDepartamentos();
         }
 
+        private void TSM_MAESTRO_Grupo_Click(object sender, EventArgs e)
+        {
+            MaestroGrupo();
+        }
+
+        private void MaestroGrupo()
+        {
+            _controlador.MaestroGrupo();
+        }
+
+        private void TSM_MAESTRO_Marcas_Click(object sender, EventArgs e)
+        {
+            MaestroMarca();
+        }
+
+        private void MaestroMarca()
+        {
+            _controlador.MaestroMarca();
+        }
+
+        private void TSM_MAESTRO_EmpaquesMedida_Click(object sender, EventArgs e)
+        {
+            MaestroEmpaquesMedida();
+        }
+
+        private void MaestroEmpaquesMedida()
+        {
+            _controlador.MaestroEmpaquesMedida();
+        }
+
     }
 
 }

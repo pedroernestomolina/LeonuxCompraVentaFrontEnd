@@ -49,6 +49,15 @@
     <Compile Include="LibInventario\Departamento\Editar.cs" />
     <Compile Include="LibInventario\Departamento\Ficha.cs" />
     <Compile Include="LibInventario\Deposito\Ficha.cs" />
+    <Compile Include="LibInventario\EmpaqueMedida\Agregar.cs" />
+    <Compile Include="LibInventario\EmpaqueMedida\Editar.cs" />
+    <Compile Include="LibInventario\EmpaqueMedida\Ficha.cs" />
+    <Compile Include="LibInventario\Grupo\Agregar.cs" />
+    <Compile Include="LibInventario\Grupo\Editar.cs" />
+    <Compile Include="LibInventario\Grupo\Ficha.cs" />
+    <Compile Include="LibInventario\Marca\Agregar.cs" />
+    <Compile Include="LibInventario\Marca\Editar.cs" />
+    <Compile Include="LibInventario\Marca\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\ProductoPorDebajoNivelMinimo.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\Ficha.cs" />

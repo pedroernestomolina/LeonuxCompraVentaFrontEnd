@@ -15,6 +15,9 @@ namespace ModInventario
 
         private Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion _gestionMovimiento;
         private Maestros.Departamentos.Gestion _gestionDepart;
+        private Maestros.Grupos.Gestion _gestionGrupo;
+        private Maestros.EmpaqueMedidas.Gestion _gestionEmpaqueMedida;
+        private Maestros.Marcas.Gestion _gestionMarca;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -23,6 +26,9 @@ namespace ModInventario
         public GestionInv()
         {
             _gestionDepart = new Maestros.Departamentos.Gestion();
+            _gestionGrupo = new Maestros.Grupos.Gestion();
+            _gestionMarca = new Maestros.Marcas.Gestion();
+            _gestionEmpaqueMedida = new Maestros.EmpaqueMedidas.Gestion();
             _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
         }
 
@@ -51,6 +57,21 @@ namespace ModInventario
         public void MaestroDepartamentos()
         {
             _gestionDepart.Inicia();
+        }
+
+        public void MaestroGrupo()
+        {
+            _gestionGrupo.Inicia();
+        }
+
+        public void MaestroMarca()
+        {
+            _gestionMarca.Inicia();
+        }
+
+        public void MaestroEmpaquesMedida()
+        {
+            _gestionEmpaqueMedida.Inicia();
         }
 
     }

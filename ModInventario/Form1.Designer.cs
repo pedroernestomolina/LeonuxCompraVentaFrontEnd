@@ -38,9 +38,9 @@
             this.maestrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTROS_Departamentos = new System.Windows.Forms.ToolStripMenuItem();
-            this.gruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unidadesEmpaqueMedidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTRO_Grupo = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTRO_Marcas = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTRO_EmpaquesMedida = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.conceptosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,10 +72,10 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 300);
+            this.panel1.Location = new System.Drawing.Point(0, 247);
             this.panel1.Margin = new System.Windows.Forms.Padding(1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(638, 54);
+            this.panel1.Size = new System.Drawing.Size(584, 54);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -92,18 +92,18 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(638, 54);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 54);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(478, 1);
+            this.panel2.Location = new System.Drawing.Point(439, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(159, 52);
+            this.panel2.Size = new System.Drawing.Size(144, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -112,7 +112,7 @@
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(155, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(140, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@
             this.movimientosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(638, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -151,9 +151,9 @@
             this.maestrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.productosToolStripMenuItem,
             this.TSM_MAESTROS_Departamentos,
-            this.gruposToolStripMenuItem,
-            this.marcasToolStripMenuItem,
-            this.unidadesEmpaqueMedidasToolStripMenuItem,
+            this.TSM_MAESTRO_Grupo,
+            this.TSM_MAESTRO_Marcas,
+            this.TSM_MAESTRO_EmpaquesMedida,
             this.toolStripMenuItem1,
             this.conceptosToolStripMenuItem});
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
@@ -173,23 +173,26 @@
             this.TSM_MAESTROS_Departamentos.Text = "Departamentos";
             this.TSM_MAESTROS_Departamentos.Click += new System.EventHandler(this.TSM_MAESTROS_Departamentos_Click);
             // 
-            // gruposToolStripMenuItem
+            // TSM_MAESTRO_Grupo
             // 
-            this.gruposToolStripMenuItem.Name = "gruposToolStripMenuItem";
-            this.gruposToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.gruposToolStripMenuItem.Text = "Grupos";
+            this.TSM_MAESTRO_Grupo.Name = "TSM_MAESTRO_Grupo";
+            this.TSM_MAESTRO_Grupo.Size = new System.Drawing.Size(277, 22);
+            this.TSM_MAESTRO_Grupo.Text = "Grupos";
+            this.TSM_MAESTRO_Grupo.Click += new System.EventHandler(this.TSM_MAESTRO_Grupo_Click);
             // 
-            // marcasToolStripMenuItem
+            // TSM_MAESTRO_Marcas
             // 
-            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.marcasToolStripMenuItem.Text = "Marcas";
+            this.TSM_MAESTRO_Marcas.Name = "TSM_MAESTRO_Marcas";
+            this.TSM_MAESTRO_Marcas.Size = new System.Drawing.Size(277, 22);
+            this.TSM_MAESTRO_Marcas.Text = "Marcas";
+            this.TSM_MAESTRO_Marcas.Click += new System.EventHandler(this.TSM_MAESTRO_Marcas_Click);
             // 
-            // unidadesEmpaqueMedidasToolStripMenuItem
+            // TSM_MAESTRO_EmpaquesMedida
             // 
-            this.unidadesEmpaqueMedidasToolStripMenuItem.Name = "unidadesEmpaqueMedidasToolStripMenuItem";
-            this.unidadesEmpaqueMedidasToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.unidadesEmpaqueMedidasToolStripMenuItem.Text = "Unidades Empaque/Medidas";
+            this.TSM_MAESTRO_EmpaquesMedida.Name = "TSM_MAESTRO_EmpaquesMedida";
+            this.TSM_MAESTRO_EmpaquesMedida.Size = new System.Drawing.Size(277, 22);
+            this.TSM_MAESTRO_EmpaquesMedida.Text = "Unidades Empaque/Medidas";
+            this.TSM_MAESTRO_EmpaquesMedida.Click += new System.EventHandler(this.TSM_MAESTRO_EmpaquesMedida_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -240,7 +243,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 24);
             this.panel3.Margin = new System.Windows.Forms.Padding(1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(638, 276);
+            this.panel3.Size = new System.Drawing.Size(584, 223);
             this.panel3.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -256,18 +259,18 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.71429F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(638, 276);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(584, 223);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.tableLayoutPanel3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(1, 237);
+            this.panel4.Location = new System.Drawing.Point(1, 192);
             this.panel4.Margin = new System.Windows.Forms.Padding(1);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(2);
-            this.panel4.Size = new System.Drawing.Size(317, 38);
+            this.panel4.Size = new System.Drawing.Size(290, 30);
             this.panel4.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -284,7 +287,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(313, 34);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(286, 26);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel5
@@ -295,7 +298,7 @@
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(2);
-            this.panel5.Size = new System.Drawing.Size(200, 32);
+            this.panel5.Size = new System.Drawing.Size(200, 24);
             this.panel5.TabIndex = 0;
             // 
             // label1
@@ -304,7 +307,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(2, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 28);
+            this.label1.Size = new System.Drawing.Size(196, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tools De Inventario";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -317,7 +320,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(105, 32);
+            this.panel6.Size = new System.Drawing.Size(105, 24);
             this.panel6.TabIndex = 1;
             // 
             // L_VERSION
@@ -326,7 +329,7 @@
             this.L_VERSION.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_VERSION.Location = new System.Drawing.Point(2, 2);
             this.L_VERSION.Name = "L_VERSION";
-            this.L_VERSION.Size = new System.Drawing.Size(101, 28);
+            this.L_VERSION.Size = new System.Drawing.Size(101, 20);
             this.L_VERSION.TabIndex = 0;
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -335,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 354);
+            this.ClientSize = new System.Drawing.Size(584, 301);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -384,9 +387,9 @@
         private System.Windows.Forms.ToolStripMenuItem maestrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_Departamentos;
-        private System.Windows.Forms.ToolStripMenuItem gruposToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unidadesEmpaqueMedidasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_Grupo;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_Marcas;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_EmpaquesMedida;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem conceptosToolStripMenuItem;
     }

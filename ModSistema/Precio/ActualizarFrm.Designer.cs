@@ -263,6 +263,7 @@
             this.TB_ET1.Name = "TB_ET1";
             this.TB_ET1.Size = new System.Drawing.Size(202, 22);
             this.TB_ET1.TabIndex = 0;
+            this.TB_ET1.TextChanged += new System.EventHandler(this.TB_ET1_TextChanged);
             this.TB_ET1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel6
@@ -308,6 +309,7 @@
             this.TB_ET2.Name = "TB_ET2";
             this.TB_ET2.Size = new System.Drawing.Size(202, 22);
             this.TB_ET2.TabIndex = 1;
+            this.TB_ET2.TextChanged += new System.EventHandler(this.TB_ET2_TextChanged);
             this.TB_ET2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel10
@@ -353,6 +355,7 @@
             this.TB_ET3.Name = "TB_ET3";
             this.TB_ET3.Size = new System.Drawing.Size(202, 22);
             this.TB_ET3.TabIndex = 1;
+            this.TB_ET3.TextChanged += new System.EventHandler(this.TB_ET3_TextChanged);
             this.TB_ET3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel12
@@ -398,6 +401,7 @@
             this.TB_ET4.Name = "TB_ET4";
             this.TB_ET4.Size = new System.Drawing.Size(202, 22);
             this.TB_ET4.TabIndex = 2;
+            this.TB_ET4.TextChanged += new System.EventHandler(this.TB_ET4_TextChanged);
             this.TB_ET4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // panel14
@@ -443,6 +447,7 @@
             this.TB_ET5.Name = "TB_ET5";
             this.TB_ET5.Size = new System.Drawing.Size(202, 22);
             this.TB_ET5.TabIndex = 2;
+            this.TB_ET5.TextChanged += new System.EventHandler(this.TB_ET5_TextChanged);
             this.TB_ET5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // ActualizarFrm

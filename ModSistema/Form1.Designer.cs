@@ -43,6 +43,9 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_MAESTRO_Deposito = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTROS_UsuarioGrupo = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTROS_Usuario = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTE_EtiquetarPrecios = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTES_AsignarDepositoSucursal = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,7 +153,8 @@
             this.sucursalesToolStripMenuItem,
             this.toolStripMenuItem1,
             this.TSM_MAESTRO_Deposito,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.usuariosToolStripMenuItem});
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
             this.maestrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.maestrosToolStripMenuItem.Text = "Maestros";
@@ -162,7 +166,7 @@
             this.TSM_MAESTRO_Sucursal,
             this.toolStripMenuItem3});
             this.sucursalesToolStripMenuItem.Name = "sucursalesToolStripMenuItem";
-            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sucursalesToolStripMenuItem.Text = "Sucursales";
             // 
             // TSM_MAESTRO_SucursalGrupo
@@ -187,19 +191,42 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // TSM_MAESTRO_Deposito
             // 
             this.TSM_MAESTRO_Deposito.Name = "TSM_MAESTRO_Deposito";
-            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(129, 22);
+            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_Deposito.Text = "Depositos";
             this.TSM_MAESTRO_Deposito.Click += new System.EventHandler(this.TSM_MAESTRO_Deposito_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_MAESTROS_UsuarioGrupo,
+            this.TSM_MAESTROS_Usuario});
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // TSM_MAESTROS_UsuarioGrupo
+            // 
+            this.TSM_MAESTROS_UsuarioGrupo.Name = "TSM_MAESTROS_UsuarioGrupo";
+            this.TSM_MAESTROS_UsuarioGrupo.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTROS_UsuarioGrupo.Text = "Grupos";
+            this.TSM_MAESTROS_UsuarioGrupo.Click += new System.EventHandler(this.TSM_MAESTROS_UsuarioGrupo_Click);
+            // 
+            // TSM_MAESTROS_Usuario
+            // 
+            this.TSM_MAESTROS_Usuario.Name = "TSM_MAESTROS_Usuario";
+            this.TSM_MAESTROS_Usuario.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTROS_Usuario.Text = "Usuario";
+            this.TSM_MAESTROS_Usuario.Click += new System.EventHandler(this.TSM_MAESTROS_Usuario_Click);
             // 
             // ajustesToolStripMenuItem
             // 
@@ -381,6 +408,9 @@
         private System.Windows.Forms.ToolStripMenuItem ajustesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTES_AsignarDepositoSucursal;
         private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTE_EtiquetarPrecios;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_UsuarioGrupo;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_Usuario;
     }
 }
 

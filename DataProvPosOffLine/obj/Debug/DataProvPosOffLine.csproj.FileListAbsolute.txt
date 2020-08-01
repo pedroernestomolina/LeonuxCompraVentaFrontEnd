@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\obj\Debug\DataProvPosOffLine.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\bin\Debug\DataProvPosOffLine.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\bin\Debug\DataProvPosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\bin\Debug\DtoLib.dll
@@ -19,4 +18,5 @@ D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\bin\Debug\ProvSqLiteP
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\bin\Debug\LibEntitySqLitePosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\obj\Debug\DataProvPosOffLine.csprojResolveAssemblyReference.cache
+D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\obj\Debug\DataProvPosOffLine.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvPosOffLine\obj\Debug\DataProvPosOffLine.pdb

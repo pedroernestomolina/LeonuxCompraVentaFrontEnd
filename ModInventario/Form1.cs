@@ -131,6 +131,11 @@ namespace ModInventario
             _controlador.MaestroEmpaquesMedida();
         }
 
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _controlador.BuscarProducto();
+        }
+
     }
 
 }

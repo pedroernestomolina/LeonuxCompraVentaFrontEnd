@@ -143,6 +143,36 @@
     <Compile Include="Sucursal\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsuarioGrupo\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioGrupo\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioGrupo\Gestion.cs" />
+    <Compile Include="UsuarioGrupo\GestionAgregarEditar.cs" />
+    <Compile Include="UsuarioGrupo\GestionLista.cs" />
+    <Compile Include="UsuarioGrupo\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsuarioGrupo\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\Gestion.cs" />
+    <Compile Include="Usuario\GestionAgregarEditar.cs" />
+    <Compile Include="Usuario\GestionLista.cs" />
+    <Compile Include="Usuario\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Deposito\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +213,18 @@
     <EmbeddedResource Include="Sucursal\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioGrupo\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioGrupo\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -212,8 +254,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_OnOff.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\TOOLS.ico" />
+    <None Include="Resources\bt_OnOff.png" />
     <None Include="Resources\bt_sumar.png" />
     <None Include="Resources\bt_eliminar.png" />
     <None Include="Resources\tools.ico" />

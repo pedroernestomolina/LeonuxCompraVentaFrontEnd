@@ -158,11 +158,11 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(526, 1);
+            this.panel5.Location = new System.Drawing.Point(525, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(111, 39);
+            this.panel5.Size = new System.Drawing.Size(112, 39);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -180,7 +180,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(109, 37);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(110, 37);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel6
@@ -191,7 +191,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(51, 33);
+            this.panel6.Size = new System.Drawing.Size(52, 33);
             this.panel6.TabIndex = 0;
             // 
             // BT_ELIMINAR
@@ -203,7 +203,7 @@
             this.BT_ELIMINAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_ELIMINAR.Location = new System.Drawing.Point(2, 2);
             this.BT_ELIMINAR.Name = "BT_ELIMINAR";
-            this.BT_ELIMINAR.Size = new System.Drawing.Size(47, 29);
+            this.BT_ELIMINAR.Size = new System.Drawing.Size(48, 29);
             this.BT_ELIMINAR.TabIndex = 0;
             this.BT_ELIMINAR.UseVisualStyleBackColor = true;
             this.BT_ELIMINAR.Click += new System.EventHandler(this.BT_ELIMINAR_Click);
@@ -212,7 +212,7 @@
             // 
             this.panel7.Controls.Add(this.BT_EDITAR);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(55, 2);
+            this.panel7.Location = new System.Drawing.Point(56, 2);
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
@@ -241,7 +241,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(205, 39);
+            this.panel8.Size = new System.Drawing.Size(204, 39);
             this.panel8.TabIndex = 1;
             // 
             // L_ITEMS
@@ -314,10 +314,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIR;
             this.ClientSize = new System.Drawing.Size(755, 422);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "SucDepFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.SucDepFrm_Load);

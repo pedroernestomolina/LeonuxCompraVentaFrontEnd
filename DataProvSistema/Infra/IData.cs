@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace DataProvSistema.Infra
 {
     
-    public interface IData: IDeposito, ISucursalGrupo, ISucursal, IUsuario, IPrecio
+    public interface IData: IDeposito, ISucursalGrupo, ISucursal, IUsuario, IPrecio,
+        IFuncion, IUsuarioGrupo
+
     {
 
         OOB.ResultadoEntidad<DateTime> FechaServidor();

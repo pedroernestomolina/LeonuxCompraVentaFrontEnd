@@ -56,8 +56,10 @@
     <Compile Include="Data\Grupo.cs" />
     <Compile Include="Data\Marca.cs" />
     <Compile Include="Data\Movimiento.cs" />
+    <Compile Include="Data\Producto.cs" />
     <Compile Include="Data\ReporteMovimientos.cs" />
     <Compile Include="Data\Sucursal.cs" />
+    <Compile Include="Data\TasaImpuesto.cs" />
     <Compile Include="Data\Tool.cs" />
     <Compile Include="Data\Usuario.cs" />
     <Compile Include="InfraEstructura\IConcepto.cs" />
@@ -68,8 +70,10 @@
     <Compile Include="InfraEstructura\IGrupo.cs" />
     <Compile Include="InfraEstructura\IMarca.cs" />
     <Compile Include="InfraEstructura\IMovimiento.cs" />
+    <Compile Include="InfraEstructura\IProducto.cs" />
     <Compile Include="InfraEstructura\IReporteMovimientos.cs" />
     <Compile Include="InfraEstructura\ISucursal.cs" />
+    <Compile Include="InfraEstructura\ITasaImpuesto.cs" />
     <Compile Include="InfraEstructura\ITool.cs" />
     <Compile Include="InfraEstructura\IUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

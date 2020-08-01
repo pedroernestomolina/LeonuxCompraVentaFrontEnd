@@ -67,6 +67,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buscar\BusquedaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\BusquedaFrm.Designer.cs">
+      <DependentUpon>BusquedaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar\Filtrar\FiltrosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buscar\Filtrar\FiltrosFrm.Designer.cs">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar\Filtrar\Gestion.cs" />
+    <Compile Include="Buscar\Gestion.cs" />
+    <Compile Include="Buscar\GestionLista.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +191,12 @@
     <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\Gestion.cs" />
     <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\GestionAjuste.cs" />
     <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\GestionLista.cs" />
+    <EmbeddedResource Include="Buscar\BusquedaFrm.resx">
+      <DependentUpon>BusquedaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buscar\Filtrar\FiltrosFrm.resx">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,9 +292,11 @@
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\bt_consulta.png" />
     <Content Include="Imagenes\bt_eliminar.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\TOOLS.ico" />
+    <None Include="Resources\bt_consulta.png" />
     <None Include="Resources\bt_sumar.png" />
     <None Include="Resources\bt_eliminar.png" />
     <None Include="Resources\TOOLS.ico" />

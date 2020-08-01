@@ -98,6 +98,26 @@ namespace ModSistema
             _controlador.AsignarDepositoPrincipalASucursal();
         }
 
+        private void TSM_MAESTROS_UsuarioGrupo_Click(object sender, EventArgs e)
+        {
+            UsuarioGrupos();
+        }
+
+        private void UsuarioGrupos()
+        {
+            _controlador.MaestroUsuariosGrupo();
+        }
+
+        private void TSM_MAESTROS_Usuario_Click(object sender, EventArgs e)
+        {
+            Usuarios();
+        }
+
+        private void Usuarios()
+        {
+            _controlador.MaestroUsuarios();
+        }
+
     }
 
 }

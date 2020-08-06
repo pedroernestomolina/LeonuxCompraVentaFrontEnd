@@ -83,9 +83,39 @@ namespace ModInventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_limpiar {
+            get {
+                object obj = ResourceManager.GetObject("bt_limpiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_price {
+            get {
+                object obj = ResourceManager.GetObject("bt_price", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_sumar {
             get {
                 object obj = ResourceManager.GetObject("bt_sumar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_warehouse {
+            get {
+                object obj = ResourceManager.GetObject("bt_warehouse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -97,6 +127,16 @@ namespace ModInventario.Properties {
             get {
                 object obj = ResourceManager.GetObject("TOOLS", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warehouse {
+            get {
+                object obj = ResourceManager.GetObject("warehouse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

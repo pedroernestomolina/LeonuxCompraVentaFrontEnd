@@ -136,6 +136,16 @@ namespace ModInventario
             _controlador.BuscarProducto();
         }
 
+        private void TSM_MAESTROS_Conceptos_Click(object sender, EventArgs e)
+        {
+            MaestroConcepto();
+        }
+
+        private void MaestroConcepto()
+        {
+            _controlador.MaestroConcepto();
+        }
+
     }
 
 }

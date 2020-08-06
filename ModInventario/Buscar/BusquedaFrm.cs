@@ -28,7 +28,7 @@ namespace ModInventario.Buscar
         private void InicializarGrid()
         {
             var f = new Font("Serif", 8, FontStyle.Bold);
-            var f1 = new Font("Serif", 10, FontStyle.Regular);
+            var f1 = new Font("Serif", 8, FontStyle.Regular);
 
             DGV.AllowUserToAddRows = false;
             DGV.AllowUserToDeleteRows = false;
@@ -57,9 +57,25 @@ namespace ModInventario.Buscar
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 
+            var c3 = new DataGridViewTextBoxColumn();
+            c3.Name = "VEstatus";
+            c3.HeaderText = "*";
+            c3.Visible = true;
+            c3.Width = 20;
+            c3.HeaderCell.Style.Font = f;
+            c3.DefaultCellStyle.Font = f1;
+            c3.DefaultCellStyle.BackColor = Color.Green;
+
+            var c4 = new DataGridViewTextBoxColumn();
+            c4.DataPropertyName = "Estatus";
+            c4.Name = "Estatus";
+            c4.Visible = false;
+            c4.Width = 0;
 
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
+            DGV.Columns.Add(c3);
+            DGV.Columns.Add(c4);
         }
 
 
@@ -67,9 +83,8 @@ namespace ModInventario.Buscar
         {
             DGV.DataSource = _controlador.Source;
             L_ITEMS.Text = _controlador.Items.ToString("n0");
-            L_PRODUCTO.Text = "";
-            L_DEPARTAMENTO.Text = "";
-            L_GRUPO .Text = "";
+            LimpiarEtiquetas();
+            TB_CADENA.Focus();
             switch (_controlador.MetodoBusqueda) 
             {
                 case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo:
@@ -84,6 +99,19 @@ namespace ModInventario.Buscar
             }
         }
 
+        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                var xcolor = Color.Green;
+                if (row.Cells["Estatus"].Value.ToString() == "Suspendido")
+                    xcolor= Color.Orange;
+                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
+                    xcolor = Color.Red;
+
+                row.Cells["VEstatus"].Style.BackColor = xcolor;    
+            }
+        }
 
         public void setControlador(Gestion ctr)
         {
@@ -96,6 +124,7 @@ namespace ModInventario.Buscar
             {
                 _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
             }
+            TB_CADENA.Focus();
         }
 
         private void RB_BUSCAR_POR_NOMBRE_CheckedChanged(object sender, EventArgs e)
@@ -104,6 +133,7 @@ namespace ModInventario.Buscar
             {
                 _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
             }
+            TB_CADENA.Focus();
         }
 
         private void RB_BUSCAR_POR_REF_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +142,7 @@ namespace ModInventario.Buscar
             {
                 _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia;
             }
+            TB_CADENA.Focus();
         }
 
         private void BT_BUSCAR_Click(object sender, EventArgs e)
@@ -124,6 +155,7 @@ namespace ModInventario.Buscar
             _controlador.RealizarBusqueda();
             L_ITEMS.Text = _controlador.Items.ToString("n0");
             TB_CADENA.Text = _controlador.Cadena;
+            TB_CADENA.Focus();
         }
 
         private void TB_CADENA_TextChanged(object sender, EventArgs e)
@@ -143,6 +175,20 @@ namespace ModInventario.Buscar
             L_PRODUCTO.Text = _controlador.Item.Producto;
             L_DEPARTAMENTO.Text = _controlador.Item.Departamento;
             L_GRUPO.Text = _controlador.Item.Grupo;
+            L_MARCA.Text = _controlador.Item.Marca;
+            L_REFERENCIA.Text = _controlador.Item.Referencia;
+            L_IMPUESTO.Text = _controlador.Item.Impuesto;
+            L_EMPAQUE.Text = _controlador.Item.Empaque;
+
+            L_CATEGORIA.Text = _controlador.Item.Categoria;
+            L_ORIGEN.Text = _controlador.Item.Origen;
+            L_ESTATUS.Text = _controlador.Item.Estatus;
+            L_DIVISA.Text = _controlador.Item.Divisa;
+            L_OFERTA.Text = _controlador.Item.EstatusOferta;
+
+            L_PESADO.Text = _controlador.Item.Pesado;
+            L_FECHA_ALTA.Text = _controlador.Item.FechaAlta.ToShortDateString();
+            L_FECHA_ACT.Text= _controlador.Item.FechaUltimaActualizacion;
         }
 
         private void LimpiarEtiquetas()
@@ -150,6 +196,18 @@ namespace ModInventario.Buscar
             L_PRODUCTO.Text = "";
             L_DEPARTAMENTO.Text = "";
             L_GRUPO.Text = "";
+            L_MARCA.Text = "";
+            L_REFERENCIA.Text = "";
+            L_IMPUESTO.Text = "";
+            L_EMPAQUE.Text = "";
+            L_CATEGORIA.Text = "";
+            L_ORIGEN.Text = "";
+            L_ESTATUS.Text = "";
+            L_DIVISA.Text = "";
+            L_PESADO.Text = "";
+            L_OFERTA.Text = "";
+            L_FECHA_ALTA.Text="";
+            L_FECHA_ACT.Text = "";
         }
 
         private void BT_FILTRAR_Click(object sender, EventArgs e)
@@ -190,6 +248,34 @@ namespace ModInventario.Buscar
         private void Salir()
         {
             Close();
+        }
+
+        private void TB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void BT_VER_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            VerExistencia();
+        }
+
+        private void VerExistencia()
+        {
+            _controlador.VerExistencia();
+        }
+
+        private void BT_PRECIO_Click(object sender, EventArgs e)
+        {
+            VerPrecios();
+        }
+
+        private void VerPrecios()
+        {
+            _controlador.VerPrecios();
         }
 
     }

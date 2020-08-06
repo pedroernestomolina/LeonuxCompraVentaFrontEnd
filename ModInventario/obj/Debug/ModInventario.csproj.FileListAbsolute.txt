@@ -30,6 +30,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.cs
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Buscar.BusquedaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Buscar.Filtrar.FiltrosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Form1.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Conceptos.AgregarEditarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Conceptos.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Departamentos.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Departamentos.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.EmpaqueMedidas.AgregarEditarFrm.resources
@@ -39,6 +41,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Ma
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Marcas.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Marcas.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.MovimientoFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Producto.Existencia.Ver.VerFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Producto.Precio.Ver.VerFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Reportes.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Tool.AjusteNivelMinimoMaximoProducto.AjustarFrm.resources

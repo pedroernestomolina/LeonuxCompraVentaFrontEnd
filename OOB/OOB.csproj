@@ -44,7 +44,10 @@
     <Compile Include="LibCajaBanco\Reporte\Movimiento\Filtro.cs" />
     <Compile Include="LibCajaBanco\Sucursal\Ficha.cs" />
     <Compile Include="LibCajaBanco\Usuario\Ficha.cs" />
+    <Compile Include="LibInventario\Concepto\Agregar.cs" />
+    <Compile Include="LibInventario\Concepto\Editar.cs" />
     <Compile Include="LibInventario\Concepto\Ficha.cs" />
+    <Compile Include="LibInventario\Configuracion\Enumerados.cs" />
     <Compile Include="LibInventario\Departamento\Agregar.cs" />
     <Compile Include="LibInventario\Departamento\Editar.cs" />
     <Compile Include="LibInventario\Departamento\Ficha.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\FichaKardex.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Detalle.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\AdmDivisa\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Categoria\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Data\Costo.cs" />
     <Compile Include="LibInventario\Producto\Data\Deposito.cs" />
@@ -75,8 +79,11 @@
     <Compile Include="LibInventario\Producto\Data\Precio.cs" />
     <Compile Include="LibInventario\Producto\Data\Proveedor.cs" />
     <Compile Include="LibInventario\Producto\Enumerados.cs" />
+    <Compile Include="LibInventario\Producto\Estatus\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Filtro.cs" />
+    <Compile Include="LibInventario\Producto\Oferta\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Origen\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Pesado\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Movimientos\ArqueoCajaPos\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Movimientos\Filtro.cs" />
     <Compile Include="LibInventario\Sucursal\Ficha.cs" />

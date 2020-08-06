@@ -42,7 +42,7 @@ namespace ModInventario.Maestros.Grupos
                     frm = new AgregarEditarFrm();
                     frm.setControlador(this);
                 }
-                frm.setTitulo("Agregar Departamento:");
+                frm.setTitulo("Agregar Grupo:");
                 frm.ShowDialog();
             }
         }

@@ -42,7 +42,7 @@
             this.TSM_MAESTRO_Marcas = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MAESTRO_EmpaquesMedida = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.conceptosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_MAESTROS_Conceptos = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +155,7 @@
             this.TSM_MAESTRO_Marcas,
             this.TSM_MAESTRO_EmpaquesMedida,
             this.toolStripMenuItem1,
-            this.conceptosToolStripMenuItem});
+            this.TSM_MAESTROS_Conceptos});
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
             this.maestrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.maestrosToolStripMenuItem.Text = "Maestros";
@@ -200,11 +200,12 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(274, 6);
             // 
-            // conceptosToolStripMenuItem
+            // TSM_MAESTROS_Conceptos
             // 
-            this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.conceptosToolStripMenuItem.Text = "Conceptos Movimientos De Inventario";
+            this.TSM_MAESTROS_Conceptos.Name = "TSM_MAESTROS_Conceptos";
+            this.TSM_MAESTROS_Conceptos.Size = new System.Drawing.Size(277, 22);
+            this.TSM_MAESTROS_Conceptos.Text = "Conceptos Movimientos De Inventario";
+            this.TSM_MAESTROS_Conceptos.Click += new System.EventHandler(this.TSM_MAESTROS_Conceptos_Click);
             // 
             // ajustesToolStripMenuItem
             // 
@@ -392,7 +393,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_Marcas;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTRO_EmpaquesMedida;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem conceptosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_Conceptos;
     }
 }
 

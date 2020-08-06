@@ -30,21 +30,39 @@ namespace ModInventario.Buscar.Filtrar
             CB_DEPARTAMENTO.ValueMember = "Auto";
             CB_GRUPO.DisplayMember = "Nombre";
             CB_GRUPO.ValueMember = "Auto";
+            CB_MARCA.DisplayMember = "Nombre";
+            CB_MARCA.ValueMember = "Auto";
+            CB_DEPOSITO.DisplayMember = "Nombre";
+            CB_DEPOSITO.ValueMember = "Auto";
             CB_CATEGORIA.DisplayMember = "Descripcion";
             CB_CATEGORIA.ValueMember = "Id";
             CB_ORIGEN.DisplayMember = "Descripcion";
             CB_ORIGEN.ValueMember = "Id";
             CB_IMPUESTO.DisplayMember= "Ficha";
             CB_IMPUESTO.ValueMember = "Auto";
+            CB_ESTATUS.DisplayMember = "Descripcion";
+            CB_ESTATUS.ValueMember = "Id";
+            CB_ADMDIVISA.DisplayMember = "Descripcion";
+            CB_ADMDIVISA.ValueMember = "Id";
+            CB_PESADO.DisplayMember = "Descripcion";
+            CB_PESADO.ValueMember = "Id";
+            CB_OFERTA.DisplayMember = "Descripcion";
+            CB_OFERTA.ValueMember = "Id";
         }
 
         private void FiltrosFrm_Load(object sender, EventArgs e)
         {
             CB_DEPARTAMENTO.DataSource = _controlador.SourceDepart;
             CB_GRUPO.DataSource = _controlador.SourceGrupo;
+            CB_MARCA.DataSource = _controlador.SourceMarca;
+            CB_DEPOSITO .DataSource = _controlador.SourceDeposito;
             CB_CATEGORIA.DataSource = _controlador.SourceCategoria;
             CB_ORIGEN.DataSource = _controlador.SourceOrigen;
             CB_IMPUESTO .DataSource = _controlador.SourceTasa;
+            CB_ESTATUS.DataSource = _controlador.SourceEstatus ;
+            CB_ADMDIVISA.DataSource = _controlador.SourceAdmDivisa;
+            CB_PESADO.DataSource = _controlador.SourcePesado;
+            CB_OFERTA.DataSource = _controlador.SourceOferta;
         }
 
         public void setControlador(Gestion ctr)
@@ -65,6 +83,22 @@ namespace ModInventario.Buscar.Filtrar
             if (CB_GRUPO.SelectedIndex != -1) 
             {
                 _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_MARCA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_MARCA.SelectedIndex != -1)
+            {
+                _controlador.AutoMarca = CB_MARCA.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_DEPOSITO.SelectedIndex != -1)
+            {
+                _controlador.AutoDeposito= CB_DEPOSITO.SelectedValue.ToString();
             }
         }
 
@@ -89,6 +123,38 @@ namespace ModInventario.Buscar.Filtrar
             if (CB_IMPUESTO.SelectedIndex != -1)
             {
                 _controlador.AutoTasa = CB_IMPUESTO.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_ESTATUS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_ESTATUS.SelectedIndex != -1)
+            {
+                _controlador.IdEstatus = CB_ESTATUS.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_ADMDIVISA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_ADMDIVISA.SelectedIndex != -1)
+            {
+                _controlador.IdAdmDivisa = CB_ADMDIVISA.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_PESADO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_PESADO.SelectedIndex != -1)
+            {
+                _controlador.IdPesado = CB_PESADO.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_OFERTA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CB_OFERTA.SelectedIndex != -1)
+            {
+                _controlador.IdOferta = CB_OFERTA.SelectedValue.ToString();
             }
         }
 
@@ -125,10 +191,71 @@ namespace ModInventario.Buscar.Filtrar
             {
                 CB_DEPARTAMENTO.SelectedIndex = -1;
                 CB_GRUPO.SelectedIndex = -1;
+                CB_MARCA.SelectedIndex = -1;
+                CB_DEPOSITO.SelectedIndex = -1;
                 CB_CATEGORIA.SelectedIndex = -1;
                 CB_ORIGEN.SelectedIndex = -1;
                 CB_IMPUESTO.SelectedIndex = -1;
+                CB_ESTATUS.SelectedIndex = -1;
+                CB_ADMDIVISA.SelectedIndex = -1;
+                CB_PESADO.SelectedIndex = -1;
+                CB_OFERTA.SelectedIndex = -1;
             }
+        }
+
+        private void L_DEPARTAMENTO_Click(object sender, EventArgs e)
+        {
+            CB_DEPARTAMENTO.SelectedIndex = -1;
+        }
+
+        private void L_GRUPO_Click(object sender, EventArgs e)
+        {
+            CB_GRUPO.SelectedIndex = -1;
+        }
+
+        private void L_PESADO_Click(object sender, EventArgs e)
+        {
+            CB_PESADO.SelectedIndex = -1;
+        }
+
+        private void L_ADMDIVISA_Click(object sender, EventArgs e)
+        {
+            CB_ADMDIVISA.SelectedIndex = -1;
+        }
+
+        private void L_ESTATUS_Click(object sender, EventArgs e)
+        {
+            CB_ESTATUS.SelectedIndex = -1;
+        }
+
+        private void L_IMPUESTO_Click(object sender, EventArgs e)
+        {
+            CB_IMPUESTO.SelectedIndex = -1;
+        }
+
+        private void L_ORIGEN_Click(object sender, EventArgs e)
+        {
+            CB_ORIGEN.SelectedIndex = -1;
+        }
+
+        private void L_CATEGORIA_Click(object sender, EventArgs e)
+        {
+            CB_CATEGORIA.SelectedIndex = -1;
+        }
+
+        private void L_DEPOSITO_Click(object sender, EventArgs e)
+        {
+            CB_DEPOSITO.SelectedIndex = -1;
+        }
+
+        private void L_MARCA_Click(object sender, EventArgs e)
+        {
+            CB_MARCA.SelectedIndex = -1;
+        }
+
+        private void L_OFERTA_Click(object sender, EventArgs e)
+        {
+            CB_OFERTA.SelectedIndex = -1;
         }
 
     }

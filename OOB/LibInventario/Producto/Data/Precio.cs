@@ -10,11 +10,25 @@ namespace OOB.LibInventario.Producto.Data
     public class Precio
     {
 
+        public decimal tasaIva { get; set; }
+
+        public string etiqueta1 { get; set; }
+        public string etiqueta2 { get; set; }
+        public string etiqueta3 { get; set; }
+        public string etiqueta4 { get; set; }
+        public string etiqueta5 { get; set; }
+
         public decimal precioNeto1 { get; set; }
         public decimal precioNeto2 { get; set; }
         public decimal precioNeto3 { get; set; }
         public decimal precioNeto4 { get; set; }
         public decimal precioNeto5 { get; set; }
+
+        public string empaque1 { get; set; }
+        public string empaque2 { get; set; }
+        public string empaque3 { get; set; }
+        public string empaque4 { get; set; }
+        public string empaque5 { get; set; }
 
         public int contenido1 { get; set; }
         public int contenido2 { get; set; }
@@ -30,6 +44,7 @@ namespace OOB.LibInventario.Producto.Data
 
         public decimal precioSugerido { get; set; }
 
+        public Enumerados.EnumOferta estatusOferta { get; set; }
         public Enumerados.EnumOferta ofertaActiva { get; set; }
         public decimal precioOferta { get; set; }
         public DateTime? inicioOferta { get; set; }
@@ -44,6 +59,14 @@ namespace OOB.LibInventario.Producto.Data
 
         public Precio()
         {
+            tasaIva=0.0m;
+
+            etiqueta1 = "Precio 1: ";
+            etiqueta2 = "Precio 2: ";
+            etiqueta3 = "Precio 3: ";
+            etiqueta4 = "Precio 4: ";
+            etiqueta5 = "Precio 5: ";
+
             precioNeto1 = 0.0m;
             precioNeto2 = 0.0m;
             precioNeto3 = 0.0m;
@@ -64,6 +87,7 @@ namespace OOB.LibInventario.Producto.Data
 
             precioSugerido = 0.0m;
 
+            estatusOferta = Enumerados.EnumOferta.SnDefinir;
             ofertaActiva = Enumerados.EnumOferta.SnDefinir;
             precioOferta = 0.0m;
             inicioOferta = null;

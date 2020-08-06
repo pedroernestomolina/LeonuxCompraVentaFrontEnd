@@ -51,10 +51,13 @@ namespace ModInventario.Buscar
         public void setLista(List<OOB.LibInventario.Producto.Data.Ficha> list)
         {
             blLista.Clear();
+            blLista.RaiseListChangedEvents = false;
             foreach (var it in list.OrderBy(o=>o.identidad.descripcion).ToList())
             {
                 blLista.Add(it);
             }
+            blLista.RaiseListChangedEvents = true;
+            blLista.ResetBindings();
             bsLista.CurrencyManager.Refresh();
         }
 

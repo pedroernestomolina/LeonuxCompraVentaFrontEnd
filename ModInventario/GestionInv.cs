@@ -18,6 +18,7 @@ namespace ModInventario
         private Maestros.Grupos.Gestion _gestionGrupo;
         private Maestros.EmpaqueMedidas.Gestion _gestionEmpaqueMedida;
         private Maestros.Marcas.Gestion _gestionMarca;
+        private Maestros.Conceptos.Gestion _gestionConcepto;
         private Buscar.Gestion _gestionBusqueda;
 
 
@@ -30,6 +31,7 @@ namespace ModInventario
             _gestionGrupo = new Maestros.Grupos.Gestion();
             _gestionMarca = new Maestros.Marcas.Gestion();
             _gestionEmpaqueMedida = new Maestros.EmpaqueMedidas.Gestion();
+            _gestionConcepto = new Maestros.Conceptos.Gestion();
             _gestionBusqueda = new Buscar.Gestion();
             _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
         }
@@ -83,6 +85,11 @@ namespace ModInventario
             {
                 MessageBox.Show(_gestionBusqueda.Item.Producto);
             }
+        }
+
+        public void MaestroConcepto()
+        {
+            _gestionConcepto.Inicia();
         }
 
     }

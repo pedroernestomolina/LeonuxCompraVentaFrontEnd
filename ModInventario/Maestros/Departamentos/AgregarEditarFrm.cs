@@ -66,12 +66,12 @@ namespace ModInventario.Maestros.Departamentos
 
         private void TB_NOMBRE_TextChanged(object sender, EventArgs e)
         {
-            _controlador.Nombre= TB_NOMBRE.Text;
+            _controlador.Nombre = TB_NOMBRE.Text.Trim().ToUpper(); ;
         }
 
         private void TB_CODIGO_TextChanged(object sender, EventArgs e)
         {
-            _controlador.Codigo = TB_CODIGO.Text;
+            _controlador.Codigo = TB_CODIGO.Text.Trim().ToUpper(); ;
         }
 
         private void TB_KeyDown(object sender, KeyEventArgs e)

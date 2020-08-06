@@ -13,12 +13,15 @@ namespace DataProvInventario.InfraEstructura
 
         OOB.ResultadoLista<OOB.LibInventario.Producto.Data.Ficha> Producto_GetLista(OOB.LibInventario.Producto.Filtro filtro);
         //DtoLib.ResultadoEntidad<DtoLibInventario.Producto.VerData.Ficha> Producto_GetFicha(string autoPrd);
-        //DtoLib.ResultadoLista<DtoLibInventario.Producto.Estatus.Resumen> Producto_Estatus_Lista();
+        OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Existencia> Producto_GetExistencia(string autoPrd);
+        OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Precio> Producto_GetPrecio(string autoPrd);
+
         OOB.ResultadoLista<OOB.LibInventario.Producto.Origen.Ficha> Producto_Origen_Lista();
         OOB.ResultadoLista<OOB.LibInventario.Producto.Categoria.Ficha> Producto_Categoria_Lista();
-        //DtoLib.ResultadoLista<DtoLibInventario.Producto.AdmDivisa.Resumen> Producto_AdmDivisa_Lista();
-        //DtoLib.ResultadoLista<DtoLibInventario.Producto.Pesado.Resumen> Producto_Pesado_Lista();
-        //DtoLib.ResultadoLista<DtoLibInventario.Producto.Oferta.Resumen> Producto_Oferta_Lista();
+        OOB.ResultadoLista<OOB.LibInventario.Producto.Estatus.Ficha> Producto_Estatus_Lista();
+        OOB.ResultadoLista<OOB.LibInventario.Producto.AdmDivisa.Ficha> Producto_AdmDivisa_Lista();
+        OOB.ResultadoLista<OOB.LibInventario.Producto.Pesado.Ficha> Producto_Pesado_Lista();
+        OOB.ResultadoLista<OOB.LibInventario.Producto.Oferta.Ficha> Producto_Oferta_Lista();
 
     }
 

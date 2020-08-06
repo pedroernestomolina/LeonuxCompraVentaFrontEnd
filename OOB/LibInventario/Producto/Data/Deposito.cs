@@ -17,6 +17,16 @@ namespace OOB.LibInventario.Producto.Data
         public decimal exReserva { get; set; }
         public decimal exDisponible { get; set; }
 
+
+        public Deposito()
+        {
+            codigo="";
+            nombre = "";
+            exFisica = 0.0m;
+            exReserva = 0.0m;
+            exDisponible = 0.0m;
+        }
+
     }
 
 }

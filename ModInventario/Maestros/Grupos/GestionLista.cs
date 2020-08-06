@@ -67,7 +67,7 @@ namespace ModInventario.Maestros.Grupos
         public void setLista(List<OOB.LibInventario.Grupo.Ficha> list)
         {
             blLista.Clear();
-            foreach (var it in list.OrderBy(o => o.codigo).ToList())
+            foreach (var it in list.OrderBy(o => o.nombre).ToList())
             {
                 blLista.Add(it);
             }

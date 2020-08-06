@@ -66,7 +66,7 @@ namespace ModInventario.Maestros.EmpaqueMedidas
 
         private void TB_NOMBRE_TextChanged(object sender, EventArgs e)
         {
-            _controlador.Nombre = TB_NOMBRE.Text;
+            _controlador.Nombre = TB_NOMBRE.Text.Trim().ToUpper(); ;
         }
 
         private void TB_CODIGO_TextChanged(object sender, EventArgs e)

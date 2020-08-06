@@ -29,7 +29,7 @@ namespace OOB.LibInventario.Producto.Data
         public string marca { get; set; }
         public decimal tasaIva { get; set; }
         public string nombreTasaIva { get; set; }
-        public DateTime? fechaAlta { get; set; }
+        public DateTime fechaAlta { get; set; }
         public DateTime? fechaBaja { get; set; }
         public DateTime? fechaUltActualizacion { get; set; }
         public string tipoABC { get; set; }
@@ -59,7 +59,7 @@ namespace OOB.LibInventario.Producto.Data
             marca = "";
             tasaIva = 0.0m;
             nombreTasaIva = "";
-            fechaAlta = null;
+            fechaAlta = DateTime.Now.Date;
             fechaBaja = null;
             fechaUltActualizacion = null;
             tipoABC = "";
@@ -68,6 +68,29 @@ namespace OOB.LibInventario.Producto.Data
             presentacion = "";
         }
 
+
+        public string Empaque 
+        {
+            get 
+            { 
+                var r="";
+                r = empaqueCompra + "(" + contenidoCompra.ToString("n0") + ")";
+                return r;
+            } 
+        }
+
+        public string Impuesto 
+        { 
+            get 
+            {
+                var r = "EXENTO";
+                if (tasaIva != 0.0m) 
+                {
+                    r = tasaIva.ToString("n2").PadLeft(5, '0') + "%," + nombreTasaIva;
+                }
+                return r;
+            } 
+        }
     }
 
 }

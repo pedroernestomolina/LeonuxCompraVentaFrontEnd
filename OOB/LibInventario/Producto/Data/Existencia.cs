@@ -13,12 +13,16 @@ namespace OOB.LibInventario.Producto.Data
 
         public List<Deposito> depositos { get; set; }
         public string decimales { get; set; }
+        public string empaque { get; set; }
+        public int empaqueContenido { get; set; }
 
 
         public Existencia()
         {
             depositos = null;
             decimales = "0";
+            empaque = "";
+            empaqueContenido = 1;
         }
 
     }

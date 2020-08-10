@@ -169,6 +169,14 @@
     <Compile Include="LibVenta\PosOffline\Permiso\Pos\Permiso.cs" />
     <Compile Include="LibVenta\PosOffline\Precio\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Producto\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\NCredito\Enumerados.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\NCredito\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\NCredito\Filtro.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\Pago\Detalle\Ficha.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\Pago\Detalle\Pago.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\Pago\Enumerados.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\Pago\Filtro.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\Pago\Resumen\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Serie\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxC.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxCDocumento.cs" />

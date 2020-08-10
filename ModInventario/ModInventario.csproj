@@ -336,6 +336,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\bt_consulta.png" />
+    <Content Include="Imagenes\bt_dollar.png" />
     <Content Include="Imagenes\bt_eliminar.png" />
     <Content Include="Imagenes\bt_price.png" />
     <Content Include="Imagenes\bt_sumar.png" />
@@ -343,6 +344,7 @@
     <Content Include="Imagenes\bt_warehouse.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\bt_dollar.png" />
     <None Include="Resources\bt_price.png" />
     <None Include="Resources\warehouse.png" />
     <None Include="Resources\bt_warehouse.png" />

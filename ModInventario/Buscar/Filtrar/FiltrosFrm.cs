@@ -63,6 +63,8 @@ namespace ModInventario.Buscar.Filtrar
             CB_ADMDIVISA.DataSource = _controlador.SourceAdmDivisa;
             CB_PESADO.DataSource = _controlador.SourcePesado;
             CB_OFERTA.DataSource = _controlador.SourceOferta;
+
+            CB_ESTATUS.SelectedValue = _controlador.IdEstatus;
         }
 
         public void setControlador(Gestion ctr)

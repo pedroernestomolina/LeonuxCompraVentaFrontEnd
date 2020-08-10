@@ -222,6 +222,57 @@ namespace ModPos.Operador.Cierre
             _ticket.Reporte(_lista);
         }
 
+        public void ReporteDetalle()
+        {
+            var filtro = new OOB.LibVenta.PosOffline.Reporte.Pago.Filtro()
+            {
+                IdOperador = Sistema.MyOperador.Id,
+            };
+            var r01 = Sistema.MyData2.Reporte_Pago_Detalle(filtro);
+            if (r01.Result== OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            var rp1 = new Reportes.Pago.Detalle.Movimiento(r01.Lista);
+            rp1.Generar();
+        }
+
+        public void NCreditoDetalle()
+        {
+            var filtro = new OOB.LibVenta.PosOffline.Reporte.NCredito.Filtro()
+            {
+                IdOperador = Sistema.MyOperador.Id,
+            };
+            var r01 = Sistema.MyData2.Reporte_NCredito(filtro);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            var rp1 = new Reportes.NCredito.Movimiento(r01.Lista);
+            rp1.Generar();
+        }
+
+        public void PagoResumen()
+        {
+            var filtro = new OOB.LibVenta.PosOffline.Reporte.Pago.Filtro()
+            {
+                IdOperador = Sistema.MyOperador.Id,
+            };
+            var r01 = Sistema.MyData2.Reporte_Pago_Resumen(filtro);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            var rp1 = new Reportes.Pago.Resumen.Movimiento(r01.Lista);
+            rp1.Generar();
+        }
+
     }
 
 }

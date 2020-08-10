@@ -153,9 +153,7 @@ namespace ModInventario.Buscar
         private void RealizarBusqueda()
         {
             _controlador.RealizarBusqueda();
-            L_ITEMS.Text = _controlador.Items.ToString("n0");
-            TB_CADENA.Text = _controlador.Cadena;
-            TB_CADENA.Focus();
+            ActualizarBusqueda();
         }
 
         private void TB_CADENA_TextChanged(object sender, EventArgs e)
@@ -220,7 +218,14 @@ namespace ModInventario.Buscar
             BT_BUSCAR.Enabled = false;
             _controlador.FiltrarBusqueda();
             BT_BUSCAR.Enabled = true;
+            ActualizarBusqueda();
+        }
+
+        private void ActualizarBusqueda()
+        {
             L_ITEMS.Text = _controlador.Items.ToString("n0");
+            TB_CADENA.Text = _controlador.Cadena;
+            TB_CADENA.Focus();
         }
 
         private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

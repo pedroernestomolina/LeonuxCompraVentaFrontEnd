@@ -335,7 +335,12 @@ namespace DataProvInventario.Data
             var e = r01.Entidad;
             if (e != null)
             {
+                nr.codigo=e.codigo;
+                nr.nombre=e.nombre;
+                nr.descripcion=e.descripcion;
+                nr.nombreTasaIva=e.nombreTasaIva;
                 nr.tasaIva = e.tasaIva;
+
                 nr.etiqueta1 = e.etiqueta1;
                 nr.etiqueta2 = e.etiqueta2;
                 nr.etiqueta3 = e.etiqueta3;

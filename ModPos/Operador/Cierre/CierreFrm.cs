@@ -146,6 +146,36 @@ namespace ModPos.Operador.Cierre
         {
             _controlador.Imprimir(e);
         }
+
+        private void BT_DETALLE_Click(object sender, EventArgs e)
+        {
+            ReporteDetalle();
+        }
+
+        private void ReporteDetalle()
+        {
+            _controlador.ReporteDetalle();
+        }
+
+        private void BT_NC_DETALLE_Click(object sender, EventArgs e)
+        {
+            NCreditoDetalle();
+        }
+
+        private void NCreditoDetalle()
+        {
+            _controlador.NCreditoDetalle();
+        }
+
+        private void BT_PAGO_RESUMEN_Click(object sender, EventArgs e)
+        {
+            PagoResumen();
+        }
+
+        private void PagoResumen()
+        {
+            _controlador.PagoResumen();
+        }
     
     }
 

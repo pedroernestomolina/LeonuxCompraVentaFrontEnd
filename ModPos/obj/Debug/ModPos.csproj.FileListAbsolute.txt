@@ -1,4 +1,6 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Conf.xml
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\NcDetalle.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Imagenes\Balanza.jpg
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.exe
@@ -51,6 +53,10 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Lib.BalanzaSoloP
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Operador.Cierre.CierreFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Permisos.PermisosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Reportes.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.csproj.GenerateResource.Cache
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.cache
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoResumen.rdlc

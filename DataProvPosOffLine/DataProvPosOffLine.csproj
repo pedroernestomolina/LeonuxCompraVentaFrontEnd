@@ -62,6 +62,7 @@
     <Compile Include="Data\Pendiente.cs" />
     <Compile Include="Data\Permiso.cs" />
     <Compile Include="Data\Producto.cs" />
+    <Compile Include="Data\Reporte.cs" />
     <Compile Include="Data\Serie.cs" />
     <Compile Include="Data\Servidor.cs" />
     <Compile Include="Data\Transporte.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="InfraEstructura\IPendiente.cs" />
     <Compile Include="InfraEstructura\IPermiso.cs" />
     <Compile Include="InfraEstructura\IProducto.cs" />
+    <Compile Include="InfraEstructura\IReporte.cs" />
     <Compile Include="InfraEstructura\ISerie.cs" />
     <Compile Include="InfraEstructura\IServidor.cs" />
     <Compile Include="InfraEstructura\ITransporte.cs" />

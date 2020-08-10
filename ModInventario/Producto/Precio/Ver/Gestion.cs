@@ -12,12 +12,17 @@ namespace ModInventario.Producto.Precio.Ver
     {
 
         private string _autoPrd;
+        private string _prd;
+        private string _tasa;
         private data _precio1;
         private data _precio2;
         private data _precio3;
         private data _precio4;
         private data _precio5;
 
+
+        public string Producto { get { return _prd; } }
+        public string TasaIva { get { return _tasa; } }
 
         public data Precio1 { get { return _precio1; } }
         public data Precio2 { get { return _precio2; } }
@@ -64,6 +69,8 @@ namespace ModInventario.Producto.Precio.Ver
             }
 
             var s=r01.Entidad;
+            _prd = s.codigo + Environment.NewLine + s.descripcion;
+            _tasa = s.tasaIva.ToString("n2").Trim().PadLeft(5, '0') + "%, " + s.nombreTasaIva;
             _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, s.utilidad1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
             _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, s.utilidad2, s.precioFullDivisa2, s.tasaIva, s.etiqueta2);
             _precio3.setData(s.contenido3, s.empaque3, s.precioNeto3, s.utilidad3, s.precioFullDivisa3, s.tasaIva, s.etiqueta3);

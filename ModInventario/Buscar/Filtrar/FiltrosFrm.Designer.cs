@@ -82,11 +82,11 @@
             this.L_PESADO = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
             this.CB_PESADO = new System.Windows.Forms.ComboBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel28 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
             this.L_OFERTA = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
             this.CB_OFERTA = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -799,17 +799,6 @@
             this.panel28.Size = new System.Drawing.Size(143, 28);
             this.panel28.TabIndex = 17;
             // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.CB_OFERTA);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(146, 324);
-            this.panel29.Margin = new System.Windows.Forms.Padding(1);
-            this.panel29.Name = "panel29";
-            this.panel29.Padding = new System.Windows.Forms.Padding(2);
-            this.panel29.Size = new System.Drawing.Size(241, 28);
-            this.panel29.TabIndex = 10;
-            // 
             // L_OFERTA
             // 
             this.L_OFERTA.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -822,6 +811,17 @@
             this.L_OFERTA.Text = "Marcados Con Oferta:";
             this.L_OFERTA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.L_OFERTA.Click += new System.EventHandler(this.L_OFERTA_Click);
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.CB_OFERTA);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(146, 324);
+            this.panel29.Margin = new System.Windows.Forms.Padding(1);
+            this.panel29.Name = "panel29";
+            this.panel29.Padding = new System.Windows.Forms.Padding(2);
+            this.panel29.Size = new System.Drawing.Size(241, 28);
+            this.panel29.TabIndex = 10;
             // 
             // CB_OFERTA
             // 

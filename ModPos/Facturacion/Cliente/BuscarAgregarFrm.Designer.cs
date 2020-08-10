@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel9 = new System.Windows.Forms.Panel();
+            this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -59,12 +60,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.RB_CI = new System.Windows.Forms.RadioButton();
-            this.RB_NOMBRE = new System.Windows.Forms.RadioButton();
             this.TB_BUSCAR = new System.Windows.Forms.TextBox();
-            this.BT_SALIR = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.RB_NOMBRE = new System.Windows.Forms.RadioButton();
+            this.RB_CI = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -94,6 +94,18 @@
             this.panel9.Padding = new System.Windows.Forms.Padding(2);
             this.panel9.Size = new System.Drawing.Size(468, 36);
             this.panel9.TabIndex = 1;
+            // 
+            // BT_SALIR
+            // 
+            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Location = new System.Drawing.Point(378, 2);
+            this.BT_SALIR.Name = "BT_SALIR";
+            this.BT_SALIR.Size = new System.Drawing.Size(88, 32);
+            this.BT_SALIR.TabIndex = 14;
+            this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -363,6 +375,7 @@
             this.TB_TELEFONO.Name = "TB_TELEFONO";
             this.TB_TELEFONO.Size = new System.Drawing.Size(254, 40);
             this.TB_TELEFONO.TabIndex = 3;
+            this.TB_TELEFONO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // TB_DIRFISCAL
             // 
@@ -374,6 +387,7 @@
             this.TB_DIRFISCAL.Name = "TB_DIRFISCAL";
             this.TB_DIRFISCAL.Size = new System.Drawing.Size(254, 45);
             this.TB_DIRFISCAL.TabIndex = 2;
+            this.TB_DIRFISCAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // TB_NOMBRE
             // 
@@ -386,6 +400,7 @@
             this.TB_NOMBRE.Name = "TB_NOMBRE";
             this.TB_NOMBRE.Size = new System.Drawing.Size(254, 45);
             this.TB_NOMBRE.TabIndex = 1;
+            this.TB_NOMBRE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
             // 
             // TB_CIRIF
             // 
@@ -462,6 +477,16 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(466, 66);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
+            // TB_BUSCAR
+            // 
+            this.TB_BUSCAR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_BUSCAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_BUSCAR.Location = new System.Drawing.Point(3, 36);
+            this.TB_BUSCAR.Name = "TB_BUSCAR";
+            this.TB_BUSCAR.Size = new System.Drawing.Size(460, 26);
+            this.TB_BUSCAR.TabIndex = 0;
+            this.TB_BUSCAR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_BUSCAR_KeyDown);
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.RB_NOMBRE);
@@ -475,16 +500,17 @@
             this.panel13.Size = new System.Drawing.Size(464, 31);
             this.panel13.TabIndex = 1;
             // 
-            // label7
+            // RB_NOMBRE
             // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(460, 27);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Buscar Por:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RB_NOMBRE.AutoSize = true;
+            this.RB_NOMBRE.Location = new System.Drawing.Point(149, 6);
+            this.RB_NOMBRE.Name = "RB_NOMBRE";
+            this.RB_NOMBRE.Size = new System.Drawing.Size(130, 17);
+            this.RB_NOMBRE.TabIndex = 1;
+            this.RB_NOMBRE.TabStop = true;
+            this.RB_NOMBRE.Text = "Nombre/Razón Social";
+            this.RB_NOMBRE.UseVisualStyleBackColor = true;
+            this.RB_NOMBRE.CheckedChanged += new System.EventHandler(this.RB_NOMBRE_CheckedChanged);
             // 
             // RB_CI
             // 
@@ -498,39 +524,16 @@
             this.RB_CI.UseVisualStyleBackColor = true;
             this.RB_CI.CheckedChanged += new System.EventHandler(this.RB_CI_CheckedChanged);
             // 
-            // RB_NOMBRE
+            // label7
             // 
-            this.RB_NOMBRE.AutoSize = true;
-            this.RB_NOMBRE.Location = new System.Drawing.Point(149, 6);
-            this.RB_NOMBRE.Name = "RB_NOMBRE";
-            this.RB_NOMBRE.Size = new System.Drawing.Size(130, 17);
-            this.RB_NOMBRE.TabIndex = 1;
-            this.RB_NOMBRE.TabStop = true;
-            this.RB_NOMBRE.Text = "Nombre/Razón Social";
-            this.RB_NOMBRE.UseVisualStyleBackColor = true;
-            this.RB_NOMBRE.CheckedChanged += new System.EventHandler(this.RB_NOMBRE_CheckedChanged);
-            // 
-            // TB_BUSCAR
-            // 
-            this.TB_BUSCAR.BackColor = System.Drawing.Color.Yellow;
-            this.TB_BUSCAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_BUSCAR.Location = new System.Drawing.Point(3, 36);
-            this.TB_BUSCAR.Name = "TB_BUSCAR";
-            this.TB_BUSCAR.Size = new System.Drawing.Size(460, 26);
-            this.TB_BUSCAR.TabIndex = 0;
-            this.TB_BUSCAR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_BUSCAR_KeyDown);
-            // 
-            // BT_SALIR
-            // 
-            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_SALIR.Location = new System.Drawing.Point(378, 2);
-            this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(88, 32);
-            this.BT_SALIR.TabIndex = 14;
-            this.BT_SALIR.Text = "Salir";
-            this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(2, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(460, 27);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Buscar Por:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BuscarAgregarFrm
             // 

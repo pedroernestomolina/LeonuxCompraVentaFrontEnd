@@ -56,6 +56,7 @@ namespace ModInventario.Buscar
             {
                 HayItemSeleccionado = false;
                 _gestionLista.Limpiar();
+                _gestionFiltro.setFiltroEstatusActivo();
                 if (frm == null) 
                 {
                     frm = new BusquedaFrm();
@@ -97,6 +98,8 @@ namespace ModInventario.Buscar
             {
                 _filtros.cadena = this.Cadena;
                 _filtros.MetodoBusqueda = this.MetodoBusqueda;
+                CargarFiltros();
+
                 var r01 = Sistema.MyData.Producto_GetLista(_filtros);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
@@ -106,7 +109,10 @@ namespace ModInventario.Buscar
 
                 _gestionLista.setLista(r01.Lista);
                 _filtros.Limpiar();
+
                 _gestionFiltro.Limpiar();
+                _gestionFiltro.setFiltroEstatusActivo();
+
                 frm.ActualizarItem();
                 Cadena = "";
             }
@@ -115,39 +121,39 @@ namespace ModInventario.Buscar
         public void FiltrarBusqueda()
         {
             _gestionFiltro.Inicia();
-            if (_gestionFiltro.IsFiltrarOk) 
-            {
-                _filtros.autoDepartamento = _gestionFiltro.AutoDepartamento;
-                _filtros.autoGrupo = _gestionFiltro.AutoGrupo;
-                _filtros.autoTasa = _gestionFiltro.AutoTasa;
-                _filtros.autoMarca = _gestionFiltro.AutoMarca;
-                _filtros.autoDeposito = _gestionFiltro.AutoDeposito;
-                if (_gestionFiltro.IdOrigen != "") 
-                {
-                    _filtros.origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen)int.Parse(_gestionFiltro.IdOrigen);
-                }
-                if (_gestionFiltro.IdCategoria != "") 
-                {
-                    _filtros.categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria)int.Parse(_gestionFiltro.IdCategoria);
-                }
-                if (_gestionFiltro.IdEstatus != "")
-                {
-                    _filtros.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)int.Parse(_gestionFiltro.IdEstatus);
-                }
-                if (_gestionFiltro.IdAdmDivisa != "")
-                {
-                    _filtros.admPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)int.Parse(_gestionFiltro.IdAdmDivisa);
-                }
-                if (_gestionFiltro.IdPesado != "")
-                {
-                    _filtros.pesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado)int.Parse(_gestionFiltro.IdPesado);
-                }
-                if (_gestionFiltro.IdOferta != "")
-                {
-                    _filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(_gestionFiltro.IdOferta);
-                }
+            RealizarBusqueda();
+        }
 
-                RealizarBusqueda();
+        private void CargarFiltros()
+        {
+            _filtros.autoDepartamento = _gestionFiltro.AutoDepartamento;
+            _filtros.autoGrupo = _gestionFiltro.AutoGrupo;
+            _filtros.autoTasa = _gestionFiltro.AutoTasa;
+            _filtros.autoMarca = _gestionFiltro.AutoMarca;
+            _filtros.autoDeposito = _gestionFiltro.AutoDeposito;
+            if (_gestionFiltro.IdOrigen != "")
+            {
+                _filtros.origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen)int.Parse(_gestionFiltro.IdOrigen);
+            }
+            if (_gestionFiltro.IdCategoria != "")
+            {
+                _filtros.categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria)int.Parse(_gestionFiltro.IdCategoria);
+            }
+            if (_gestionFiltro.IdEstatus != "")
+            {
+                _filtros.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)int.Parse(_gestionFiltro.IdEstatus);
+            }
+            if (_gestionFiltro.IdAdmDivisa != "")
+            {
+                _filtros.admPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)int.Parse(_gestionFiltro.IdAdmDivisa);
+            }
+            if (_gestionFiltro.IdPesado != "")
+            {
+                _filtros.pesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado)int.Parse(_gestionFiltro.IdPesado);
+            }
+            if (_gestionFiltro.IdOferta != "")
+            {
+                _filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(_gestionFiltro.IdOferta);
             }
         }
 

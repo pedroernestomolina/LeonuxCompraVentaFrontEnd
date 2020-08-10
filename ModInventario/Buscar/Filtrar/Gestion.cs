@@ -322,6 +322,12 @@ namespace ModInventario.Buscar.Filtrar
             LimpiarEntradas();
         }
 
+        public void setFiltroEstatusActivo() 
+        {
+            IdEstatus = "1";
+            IsFiltrarOk = true;
+        }
+
     }
 
 }

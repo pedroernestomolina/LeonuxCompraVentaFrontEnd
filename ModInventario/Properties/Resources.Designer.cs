@@ -73,6 +73,16 @@ namespace ModInventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_dollar {
+            get {
+                object obj = ResourceManager.GetObject("bt_dollar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_eliminar {
             get {
                 object obj = ResourceManager.GetObject("bt_eliminar", resourceCulture);

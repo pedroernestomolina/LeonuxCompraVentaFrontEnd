@@ -212,7 +212,7 @@ namespace DataProvInventario.Data
                     {
                         return new OOB.LibInventario.Producto.Estatus.Ficha()
                         {
-                            Id = s.Id,
+                            Id = s.Id.ToString(),
                             Descripcion = s.Descripcion,
                         };
                     }).ToList();
@@ -340,6 +340,7 @@ namespace DataProvInventario.Data
                 nr.descripcion=e.descripcion;
                 nr.nombreTasaIva=e.nombreTasaIva;
                 nr.tasaIva = e.tasaIva;
+                nr.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus) e.estatus;
 
                 nr.etiqueta1 = e.etiqueta1;
                 nr.etiqueta2 = e.etiqueta2;
@@ -372,6 +373,7 @@ namespace DataProvInventario.Data
                 nr.utilidad4 = e.utilidad4;
                 nr.utilidad5 = e.utilidad5;
 
+                nr.admDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)e.admDivisa;
                 nr.estatusOferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta) e.estatusOferta;
                 nr.inicioOferta = e.inicioOferta;
                 nr.finOferta = e.finOferta;

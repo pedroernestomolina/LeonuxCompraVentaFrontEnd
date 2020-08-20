@@ -81,28 +81,9 @@ namespace ModInventario.Producto.Precio.Ver
 
         public data()
         {
-            modoActual = enumModoPrecio.Bolivar;
-            etiqueta = "";
-            empaque = "";
-            contenido = 1;
-            precioNeto = 0.0m;
-            precioFullDivisa = 0.0m;
-            utilidadPorc = 0.0m;
-            tasaIva = 0.0m;
+            Limpiar();
         }
 
-
-        public data(int p1, string p2, decimal p3, decimal p4, decimal p5, decimal p6, string etiqueta)
-            :this()
-        {
-            this.contenido = p1;
-            this.empaque = p2;
-            this.precioNeto = p3;
-            this.utilidadPorc = p4;
-            this.precioFullDivisa = p5;
-            this.tasaIva = p6;
-            this.etiqueta = etiqueta;
-        }
 
         public void setData(int cont, string empaque, decimal precioNeto , decimal utilidad , decimal preciofulldivisa , decimal tasaIva, string etiq)
         {
@@ -115,16 +96,21 @@ namespace ModInventario.Producto.Precio.Ver
             this.etiqueta = etiq;
         }
 
-        public void setModoPrecio()
+        public void setModoPrecioActual(enumModoPrecio modo)
         {
-            if (modoActual== enumModoPrecio.Bolivar)
-            {
-                modoActual = enumModoPrecio.Divisa;
-            }
-            else
-            {
-                modoActual = enumModoPrecio.Bolivar;
-            }
+            modoActual = modo;
+        }
+
+        public void Limpiar() 
+        {
+            modoActual = enumModoPrecio.Bolivar;
+            etiqueta = "";
+            empaque = "";
+            contenido = 1;
+            precioNeto = 0.0m;
+            precioFullDivisa = 0.0m;
+            utilidadPorc = 0.0m;
+            tasaIva = 0.0m;
         }
 
     }

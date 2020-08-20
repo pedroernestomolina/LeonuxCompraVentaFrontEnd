@@ -269,7 +269,7 @@ namespace ModPos.Operador.Cierre
                 return;
             }
 
-            var rp1 = new Reportes.Pago.Resumen.Movimiento(r01.Lista);
+            var rp1 = new Reportes.Pago.Resumen.Movimiento(r01.Entidad);
             rp1.Generar();
         }
 

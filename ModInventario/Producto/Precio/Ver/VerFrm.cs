@@ -82,6 +82,52 @@ namespace ModInventario.Producto.Precio.Ver
             L_UT_5.Text = _controlador.Precio5.utilidadPorc.ToString("n2").Trim() + "%";
             L_PN_5.Text = _controlador.Precio5.PN.ToString("n2");
             L_PF_5.Text = _controlador.Precio5.PF.ToString("n2");
+
+            L_PN_1.BackColor = Color.AliceBlue;
+            L_PN_2.BackColor = Color.AliceBlue;
+            L_PN_3.BackColor = Color.AliceBlue;
+            L_PN_4.BackColor = Color.AliceBlue;
+            L_PN_5.BackColor = Color.AliceBlue;
+            L_PN_1.ForeColor = Color.Black;
+            L_PN_2.ForeColor = Color.Black;
+            L_PN_3.ForeColor = Color.Black;
+            L_PN_4.ForeColor = Color.Black;
+            L_PN_5.ForeColor = Color.Black;
+            L_PF_1.BackColor = Color.AliceBlue;
+            L_PF_2.BackColor = Color.AliceBlue;
+            L_PF_3.BackColor = Color.AliceBlue;
+            L_PF_4.BackColor = Color.AliceBlue;
+            L_PF_5.BackColor = Color.AliceBlue;
+            L_PF_1.ForeColor = Color.Black;
+            L_PF_2.ForeColor = Color.Black;
+            L_PF_3.ForeColor = Color.Black;
+            L_PF_4.ForeColor = Color.Black;
+            L_PF_5.ForeColor = Color.Black;
+
+            if (_controlador.ModoActual == data.enumModoPrecio.Divisa)
+            {
+                L_PN_1.BackColor = Color.Green;
+                L_PN_2.BackColor = Color.Green;
+                L_PN_3.BackColor = Color.Green;
+                L_PN_4.BackColor = Color.Green;
+                L_PN_5.BackColor = Color.Green;
+                L_PN_1.ForeColor = Color.White;
+                L_PN_2.ForeColor = Color.White;
+                L_PN_3.ForeColor = Color.White;
+                L_PN_4.ForeColor = Color.White;
+                L_PN_5.ForeColor = Color.White;
+                L_PF_1.BackColor = Color.Green;
+                L_PF_2.BackColor = Color.Green;
+                L_PF_3.BackColor = Color.Green;
+                L_PF_4.BackColor = Color.Green;
+                L_PF_5.BackColor = Color.Green;
+                L_PF_1.ForeColor = Color.White;
+                L_PF_2.ForeColor = Color.White;
+                L_PF_3.ForeColor = Color.White;
+                L_PF_4.ForeColor = Color.White;
+                L_PF_5.ForeColor = Color.White;
+
+            }
         }
 
         private void Limpiar()
@@ -118,7 +164,7 @@ namespace ModInventario.Producto.Precio.Ver
             _controlador.CambioModoPrecio();
             Actualizar();
         }
-
+          
     }
 
 }

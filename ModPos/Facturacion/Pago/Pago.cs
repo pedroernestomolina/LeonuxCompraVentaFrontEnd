@@ -17,6 +17,7 @@ namespace ModPos.Facturacion.Pago
         private decimal _tasaCambio;
         private decimal _dsctoPorct;
         private bool _isCredito;
+        LoteReferencia _gestionLoteRef;
 
 
         public decimal MontoRecibido
@@ -167,6 +168,7 @@ namespace ModPos.Facturacion.Pago
             _tasaCambio = 0.0m;
             _dsctoPorct = 0.0m;
             _detalle = new List<PagoDetalle>();
+            _gestionLoteRef = new LoteReferencia();
         }
 
 
@@ -239,6 +241,27 @@ namespace ModPos.Facturacion.Pago
 
         public void AddElectronico(decimal monto, int id)
         {
+            var _lote = "";
+            var _ref = "";
+
+            if (monto > 0)
+            {
+                var xit = _detalle.FirstOrDefault(f => f.Modo == Enumerados.ModoPago.Electronico && f.Id == id);
+                if (xit == null)
+                {
+                    _gestionLoteRef.Inicia();
+                }
+                else
+                {
+                    _gestionLoteRef.Inicia(xit.Lote, xit.Referencia);
+                }
+                if (_gestionLoteRef.IsOk)
+                {
+                    _lote = _gestionLoteRef.Lote;
+                    _ref = _gestionLoteRef.Referencia;
+                }
+            }
+
             var it = _detalle.FirstOrDefault(f => f.Modo == Enumerados.ModoPago.Electronico && f.Id == id);
             if (it == null)
             {
@@ -249,8 +272,8 @@ namespace ModPos.Facturacion.Pago
                     Tasa = 1,
                     Cantidad = 1,
                     Monto = monto,
-                    Lote = "",
-                    Referencia = "",
+                    Lote = _lote,
+                    Referencia = _ref,
                     TarjetaNro = "",
                     Importe = MontoResta_MonedaNacional,
                     MontoRecibido=monto,
@@ -262,8 +285,8 @@ namespace ModPos.Facturacion.Pago
                 it.Monto = 0;
                 it.Importe = MontoResta_MonedaNacional;
                 it.Monto = monto;
-                it.Lote = "";
-                it.Referencia = "";
+                it.Lote = _lote;
+                it.Referencia = _ref;
                 it.TarjetaNro = "";
                 it.MontoRecibido = monto;
             }

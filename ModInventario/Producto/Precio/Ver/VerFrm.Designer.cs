@@ -112,13 +112,15 @@
             this.L_ETQ_4 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel45 = new System.Windows.Forms.Panel();
             this.panel43 = new System.Windows.Forms.Panel();
-            this.BT_MODO_PRECIO = new System.Windows.Forms.Button();
+            this.panel44 = new System.Windows.Forms.Panel();
             this.panel42 = new System.Windows.Forms.Panel();
             this.L_TASA_IVA = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.L_PRODUCTO = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.BT_MODO_PRECIO = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -164,7 +166,7 @@
             this.panel30.SuspendLayout();
             this.panel17.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.panel43.SuspendLayout();
+            this.panel44.SuspendLayout();
             this.panel42.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1167,7 +1169,9 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.panel43, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.panel45, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.panel43, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.panel44, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(1);
@@ -1177,34 +1181,40 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(69, 187);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // panel45
+            // 
+            this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel45.Location = new System.Drawing.Point(2, 63);
+            this.panel45.Margin = new System.Windows.Forms.Padding(1);
+            this.panel45.Name = "panel45";
+            this.panel45.Padding = new System.Windows.Forms.Padding(2);
+            this.panel45.Size = new System.Drawing.Size(65, 59);
+            this.panel45.TabIndex = 1;
+            // 
             // panel43
             // 
-            this.panel43.Controls.Add(this.BT_MODO_PRECIO);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel43.Location = new System.Drawing.Point(2, 2);
+            this.panel43.Location = new System.Drawing.Point(2, 124);
             this.panel43.Margin = new System.Windows.Forms.Padding(1);
             this.panel43.Name = "panel43";
             this.panel43.Padding = new System.Windows.Forms.Padding(2);
-            this.panel43.Size = new System.Drawing.Size(65, 59);
-            this.panel43.TabIndex = 0;
+            this.panel43.Size = new System.Drawing.Size(65, 61);
+            this.panel43.TabIndex = 2;
             // 
-            // BT_MODO_PRECIO
+            // panel44
             // 
-            this.BT_MODO_PRECIO.BackgroundImage = global::ModInventario.Properties.Resources.bt_dollar;
-            this.BT_MODO_PRECIO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_MODO_PRECIO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_MODO_PRECIO.FlatAppearance.BorderSize = 0;
-            this.BT_MODO_PRECIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_MODO_PRECIO.Location = new System.Drawing.Point(2, 2);
-            this.BT_MODO_PRECIO.Name = "BT_MODO_PRECIO";
-            this.BT_MODO_PRECIO.Size = new System.Drawing.Size(61, 55);
-            this.BT_MODO_PRECIO.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.BT_MODO_PRECIO, "Modo Divisa / Moneda Actual");
-            this.BT_MODO_PRECIO.UseVisualStyleBackColor = true;
-            this.BT_MODO_PRECIO.Click += new System.EventHandler(this.BT_MODO_PRECIO_Click);
+            this.panel44.Controls.Add(this.BT_MODO_PRECIO);
+            this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel44.Location = new System.Drawing.Point(2, 2);
+            this.panel44.Margin = new System.Windows.Forms.Padding(1);
+            this.panel44.Name = "panel44";
+            this.panel44.Padding = new System.Windows.Forms.Padding(2);
+            this.panel44.Size = new System.Drawing.Size(65, 59);
+            this.panel44.TabIndex = 0;
             // 
             // panel42
             // 
@@ -1251,6 +1261,21 @@
             this.L_PRODUCTO.TabIndex = 0;
             this.L_PRODUCTO.Text = "label8";
             this.L_PRODUCTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BT_MODO_PRECIO
+            // 
+            this.BT_MODO_PRECIO.BackgroundImage = global::ModInventario.Properties.Resources.bt_exchange_32;
+            this.BT_MODO_PRECIO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_MODO_PRECIO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_MODO_PRECIO.FlatAppearance.BorderSize = 0;
+            this.BT_MODO_PRECIO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_MODO_PRECIO.Location = new System.Drawing.Point(2, 2);
+            this.BT_MODO_PRECIO.Name = "BT_MODO_PRECIO";
+            this.BT_MODO_PRECIO.Size = new System.Drawing.Size(61, 55);
+            this.BT_MODO_PRECIO.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_MODO_PRECIO, "Modo Divisa / Moneda Actual");
+            this.BT_MODO_PRECIO.UseVisualStyleBackColor = true;
+            this.BT_MODO_PRECIO.Click += new System.EventHandler(this.BT_MODO_PRECIO_Click);
             // 
             // VerFrm
             // 
@@ -1310,7 +1335,7 @@
             this.panel30.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.panel43.ResumeLayout(false);
+            this.panel44.ResumeLayout(false);
             this.panel42.ResumeLayout(false);
             this.panel42.PerformLayout();
             this.ResumeLayout(false);
@@ -1353,7 +1378,6 @@
         private System.Windows.Forms.Label L_CONT_1;
         private System.Windows.Forms.Label L_EMP_1;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button BT_MODO_PRECIO;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label L_PF_3;
         private System.Windows.Forms.Panel panel28;
@@ -1409,5 +1433,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel43;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel45;
+        private System.Windows.Forms.Panel panel44;
+        private System.Windows.Forms.Button BT_MODO_PRECIO;
     }
 }

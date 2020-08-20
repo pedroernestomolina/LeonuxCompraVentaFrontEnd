@@ -252,6 +252,7 @@
   <ItemGroup>
     <Content Include="Conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Imagenes\bt_eliminar.png" />
     <Content Include="Imagenes\bt_OnOff.png" />

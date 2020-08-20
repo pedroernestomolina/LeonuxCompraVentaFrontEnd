@@ -122,11 +122,11 @@ namespace ModInventario.Buscar.Filtrar
             AutoDeposito = "";
             IdCategoria = "";
             IdOrigen = "";
-            IdEstatus = "";
+            IdEstatus = "1";
             IdAdmDivisa = "";
             IdPesado = "";
             IdOferta = "";
-            IsFiltrarOk=false;
+            IsFiltrarOk=true;
         }
 
 
@@ -244,7 +244,6 @@ namespace ModInventario.Buscar.Filtrar
             lOferta.Clear();
             lOferta.AddRange(r0B.Lista.OrderBy(o => o.Descripcion));
 
-
             return rt;
         }
 
@@ -322,10 +321,9 @@ namespace ModInventario.Buscar.Filtrar
             LimpiarEntradas();
         }
 
-        public void setFiltroEstatusActivo() 
+        public void Salir()
         {
-            IdEstatus = "1";
-            IsFiltrarOk = true;
+            IsFiltrarOk = false;
         }
 
     }

@@ -29,13 +29,10 @@ namespace ModPos.Reportes.NCredito
 
             foreach (var rg in _lista)
             {
-                DataRow p = ds.Tables["Pago"].NewRow();
-                p["id1"] = rg.id.ToString();
+                DataRow p = ds.Tables["NCredito"].NewRow();
                 p["documento"] = rg.documento;
                 p["fechaHora"] = rg.hora + Environment.NewLine + rg.fecha.ToShortDateString();
                 p["nombreRazonSocial"] = rg.ciRif + Environment.NewLine + rg.nombreRazaonSocial;
-                p["dirFiscal"] = rg.dirFiscal;
-                p["telefono"] = rg.telefono;
                 p["aplica"] = rg.aplica;
 
                 var _monto = rg.monto;
@@ -49,12 +46,12 @@ namespace ModPos.Reportes.NCredito
                     p["estatus"] = "ANULADO";
                     p["monto"] = 0.0m;
                 }
-                ds.Tables["Pago"].Rows.Add(p);
+                ds.Tables["NCredito"].Rows.Add(p);
             }
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            Rds.Add(new ReportDataSource("Pago", ds.Tables["Pago"]));
+            Rds.Add(new ReportDataSource("NCredito", ds.Tables["NCredito"]));
 
             var frp = new ReporteFrm();
             frp.rds = Rds;

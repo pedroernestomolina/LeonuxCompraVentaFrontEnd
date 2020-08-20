@@ -471,7 +471,7 @@ namespace ModPos.Facturacion
             ficha.Items = fichaItems;
             ficha.ItemsEliminar = fichaItemsEliminar;
 
-            var metodosPago = pago._detalle.Select(s =>
+            var metodosPago = pago._detalle.Where(w=>w.Monto>0).Select(s =>
             {
                 OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago _tipoMedioPago = OOB.LibVenta.PosOffline.VentaDocumento.Enumerados.EnumTipoMedioPago.SinDefinir; 
                 OOB.LibVenta.PosOffline.Configuracion.MedioCobro.Medio medio=null;

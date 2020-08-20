@@ -15,6 +15,7 @@ namespace OOB.LibInventario.Producto.Data
         public string descripcion { get; set; }
         public string nombreTasaIva { get; set; }
         public decimal tasaIva { get; set; }
+        public Enumerados.EnumEstatus estatus { get; set; }
 
         public string etiqueta1 { get; set; }
         public string etiqueta2 { get; set; }
@@ -50,6 +51,8 @@ namespace OOB.LibInventario.Producto.Data
 
         public Enumerados.EnumOferta estatusOferta { get; set; }
         public Enumerados.EnumOferta ofertaActiva { get; set; }
+        public Enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
+
         public decimal precioOferta { get; set; }
         public DateTime? inicioOferta { get; set; }
         public DateTime? finOferta { get; set; }
@@ -64,6 +67,7 @@ namespace OOB.LibInventario.Producto.Data
         public Precio()
         {
             tasaIva=0.0m;
+            estatus = Enumerados.EnumEstatus.SnDefinir;
 
             etiqueta1 = "Precio 1: ";
             etiqueta2 = "Precio 2: ";
@@ -93,6 +97,8 @@ namespace OOB.LibInventario.Producto.Data
 
             estatusOferta = Enumerados.EnumOferta.SnDefinir;
             ofertaActiva = Enumerados.EnumOferta.SnDefinir;
+            admDivisa = Enumerados.EnumAdministradorPorDivisa.SnDefinir;
+
             precioOferta = 0.0m;
             inicioOferta = null;
             finOferta = null;

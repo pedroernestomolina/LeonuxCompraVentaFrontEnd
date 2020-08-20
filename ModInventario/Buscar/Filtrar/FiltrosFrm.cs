@@ -63,7 +63,6 @@ namespace ModInventario.Buscar.Filtrar
             CB_ADMDIVISA.DataSource = _controlador.SourceAdmDivisa;
             CB_PESADO.DataSource = _controlador.SourcePesado;
             CB_OFERTA.DataSource = _controlador.SourceOferta;
-
             CB_ESTATUS.SelectedValue = _controlador.IdEstatus;
         }
 
@@ -74,6 +73,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_DEPARTAMENTO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.AutoDepartamento = "";
             if (CB_DEPARTAMENTO.SelectedIndex != -1)
             {
                 _controlador.AutoDepartamento = CB_DEPARTAMENTO.SelectedValue.ToString();
@@ -82,6 +82,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.AutoGrupo = "";
             if (CB_GRUPO.SelectedIndex != -1) 
             {
                 _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
@@ -90,6 +91,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_MARCA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.AutoMarca = "";
             if (CB_MARCA.SelectedIndex != -1)
             {
                 _controlador.AutoMarca = CB_MARCA.SelectedValue.ToString();
@@ -98,6 +100,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.AutoDeposito = "";
             if (CB_DEPOSITO.SelectedIndex != -1)
             {
                 _controlador.AutoDeposito= CB_DEPOSITO.SelectedValue.ToString();
@@ -106,6 +109,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_CATEGORIA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.IdCategoria = "";
             if (CB_CATEGORIA.SelectedIndex != -1) 
             {
                 _controlador.IdCategoria = CB_CATEGORIA.SelectedValue.ToString();
@@ -114,6 +118,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_ORIGEN_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.IdOrigen = "";
             if (CB_ORIGEN.SelectedIndex != -1)
             {
                 _controlador.IdOrigen = CB_ORIGEN.SelectedValue.ToString();
@@ -122,6 +127,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_IMPUESTO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.AutoTasa = "";
             if (CB_IMPUESTO.SelectedIndex != -1)
             {
                 _controlador.AutoTasa = CB_IMPUESTO.SelectedValue.ToString();
@@ -130,6 +136,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_ESTATUS_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.IdEstatus = "";
             if (CB_ESTATUS.SelectedIndex != -1)
             {
                 _controlador.IdEstatus = CB_ESTATUS.SelectedValue.ToString();
@@ -138,6 +145,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_ADMDIVISA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.IdAdmDivisa = "";
             if (CB_ADMDIVISA.SelectedIndex != -1)
             {
                 _controlador.IdAdmDivisa = CB_ADMDIVISA.SelectedValue.ToString();
@@ -146,6 +154,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_PESADO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.IdPesado = "";
             if (CB_PESADO.SelectedIndex != -1)
             {
                 _controlador.IdPesado = CB_PESADO.SelectedValue.ToString();
@@ -154,6 +163,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void CB_OFERTA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.IdOferta = "";
             if (CB_OFERTA.SelectedIndex != -1)
             {
                 _controlador.IdOferta = CB_OFERTA.SelectedValue.ToString();
@@ -178,6 +188,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
+            _controlador.Salir();
             Salir();
         }
 
@@ -259,7 +270,7 @@ namespace ModInventario.Buscar.Filtrar
         {
             CB_OFERTA.SelectedIndex = -1;
         }
-
+          
     }
 
 }

@@ -36,7 +36,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         public void setLista(List<OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar.Ficha> list)
         {
             _bldata.Clear();
-            foreach (var it in list) 
+            foreach (var it in list.OrderBy(o=>o.nombreProducto).ToList()) 
             {
                 var nr = new data(it);
                 _bldata.Add(nr);

@@ -283,6 +283,38 @@ namespace ModInventario.Buscar
             _controlador.VerPrecios();
         }
 
+        private void BT_LIMPIAR_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            _controlador.Limpiar();
+            L_ITEMS.Text = _controlador.Items.ToString("n0");
+            TB_CADENA.Focus();
+        }
+
+        private void BT_PRECIO_EDITAR_Click(object sender, EventArgs e)
+        {
+            EditarPrecio();
+        }
+
+        private void EditarPrecio()
+        {
+            _controlador.EditarPrecio();
+        }
+
+        private void BT_PRECIO_HISTORICO_Click(object sender, EventArgs e)
+        {
+            HistoricoPrecio();
+        }
+
+        private void HistoricoPrecio()
+        {
+            _controlador.HistoricoPrecio();
+        }
+    
     }
 
 }

@@ -13,7 +13,9 @@ namespace ModInventario.Buscar
 
         private Filtrar.Gestion _gestionFiltro;
         private GestionLista _gestionLista;
+        private Producto.Precio.Editar.Gestion _gestionEditarPrecio;
         private Producto.Existencia.Ver.Gestion _gestionPrdExistencia;
+        private Producto.Precio.Historico.Gestion _gestionHistoricoPrecio;
         private Producto.Precio.Ver.Gestion _gestionPrdPrecios;
         private OOB.LibInventario.Producto.Filtro _filtros;
 
@@ -34,6 +36,8 @@ namespace ModInventario.Buscar
             _gestionLista.CambioItemActual+=_gestionLista_CambioItemActual;
             _gestionPrdExistencia = new Producto.Existencia.Ver.Gestion();
             _gestionPrdPrecios = new Producto.Precio.Ver.Gestion();
+            _gestionHistoricoPrecio = new Producto.Precio.Historico.Gestion();
+            _gestionEditarPrecio = new Producto.Precio.Editar.Gestion(new Producto.Precio.Editar.ModoSucursal.Gestion());
             LimpiarEntradas();
         }
 
@@ -56,7 +60,6 @@ namespace ModInventario.Buscar
             {
                 HayItemSeleccionado = false;
                 _gestionLista.Limpiar();
-                _gestionFiltro.setFiltroEstatusActivo();
                 if (frm == null) 
                 {
                     frm = new BusquedaFrm();
@@ -109,9 +112,7 @@ namespace ModInventario.Buscar
 
                 _gestionLista.setLista(r01.Lista);
                 _filtros.Limpiar();
-
                 _gestionFiltro.Limpiar();
-                _gestionFiltro.setFiltroEstatusActivo();
 
                 frm.ActualizarItem();
                 Cadena = "";
@@ -177,6 +178,35 @@ namespace ModInventario.Buscar
             {
                 _gestionPrdPrecios.setFicha(Item.identidad.auto);
                 _gestionPrdPrecios.Inicia();
+            }
+        }
+
+        public void Limpiar()
+        {
+            _gestionLista.Limpiar();
+            frm.ActualizarItem();
+        }
+
+        public void EditarPrecio()
+        {
+            if (Item != null)
+            {
+                if (Item.identidad.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
+                {
+                    _gestionEditarPrecio.setFicha(Item.identidad.auto);
+                    _gestionEditarPrecio.Inicia();
+                }
+                else
+                    Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
+            }
+        }
+
+        public void HistoricoPrecio()
+        {
+            if (Item != null)
+            {
+                _gestionHistoricoPrecio.setFicha(Item.identidad.auto);
+                _gestionHistoricoPrecio.Inicia();
             }
         }
 

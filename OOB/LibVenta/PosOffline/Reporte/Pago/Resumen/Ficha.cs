@@ -11,14 +11,17 @@ namespace OOB.LibVenta.PosOffline.Reporte.Pago.Resumen
     public class Ficha
     {
 
-        public string codigo { get; set; }
-        public string descripcion { get; set; }
-        public decimal importe { get; set; }
-        public decimal montoRecibido { get; set; }
-        public decimal tasa { get; set; }
-        public string lote { get; set; }
-        public string referencia { get; set; }
-        public Enumerados.enumTipoMedioCobro tipoMedioCobro { get; set; }
+        public decimal MontoNCredito { get; set; }
+        public decimal MontoCambioDar { get; set; }
+        public List<Detalle> Detalle{ get; set; }
+
+
+        public Ficha()
+        {
+            MontoCambioDar = 0.0m;
+            MontoNCredito = 0.0m;
+            Detalle = null;
+        }
 
     }
 

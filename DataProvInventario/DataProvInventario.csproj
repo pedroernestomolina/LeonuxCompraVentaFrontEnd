@@ -57,6 +57,7 @@
     <Compile Include="Data\Grupo.cs" />
     <Compile Include="Data\Marca.cs" />
     <Compile Include="Data\Movimiento.cs" />
+    <Compile Include="Data\Precio.cs" />
     <Compile Include="Data\Producto.cs" />
     <Compile Include="Data\ReporteMovimientos.cs" />
     <Compile Include="Data\Sucursal.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="InfraEstructura\IGrupo.cs" />
     <Compile Include="InfraEstructura\IMarca.cs" />
     <Compile Include="InfraEstructura\IMovimiento.cs" />
+    <Compile Include="InfraEstructura\IPrecio.cs" />
     <Compile Include="InfraEstructura\IProducto.cs" />
     <Compile Include="InfraEstructura\IReporteMovimientos.cs" />
     <Compile Include="InfraEstructura\ISucursal.cs" />

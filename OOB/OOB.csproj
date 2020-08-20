@@ -68,6 +68,10 @@
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\FichaKardex.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Detalle.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Ficha.cs" />
+    <Compile Include="LibInventario\Precio\Historico\Data.cs" />
+    <Compile Include="LibInventario\Precio\Historico\Ficha.cs" />
+    <Compile Include="LibInventario\Precio\Historico\Filtro.cs" />
+    <Compile Include="LibInventario\Precio\PrecioCosto\Ficha.cs" />
     <Compile Include="LibInventario\Producto\AdmDivisa\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Categoria\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Data\Costo.cs" />
@@ -176,6 +180,7 @@
     <Compile Include="LibVenta\PosOffline\Reporte\Pago\Detalle\Pago.cs" />
     <Compile Include="LibVenta\PosOffline\Reporte\Pago\Enumerados.cs" />
     <Compile Include="LibVenta\PosOffline\Reporte\Pago\Filtro.cs" />
+    <Compile Include="LibVenta\PosOffline\Reporte\Pago\Resumen\Detalle.cs" />
     <Compile Include="LibVenta\PosOffline\Reporte\Pago\Resumen\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Serie\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Servidor\EnviarData\CxC.cs" />

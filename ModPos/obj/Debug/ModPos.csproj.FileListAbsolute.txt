@@ -1,6 +1,7 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\NcDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoDetalle.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoResumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Imagenes\Balanza.jpg
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.exe
@@ -41,6 +42,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Cons
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Devolucion.DevolucionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.MultiplicarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.DescuentoFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.LoteReferenciaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.PagoFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.PosVenta.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.ProductoLista.ListaFrm.resources
@@ -59,4 +61,3 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoResumen.rdlc

@@ -41,7 +41,7 @@ namespace ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebaj
         public void setItems(List<OOB.LibInventario.Movimiento.Traslado.Consultar.ProductoPorDebajoNivelMinimo> list) 
         {
             blItem.Clear();
-            foreach (var i in list) 
+            foreach (var i in list.OrderBy(o=>o.nombreProducto).ToList()) 
             {
                 var nr = new Item()
                 {

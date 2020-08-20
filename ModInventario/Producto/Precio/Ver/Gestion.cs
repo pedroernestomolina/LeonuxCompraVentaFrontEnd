@@ -14,16 +14,20 @@ namespace ModInventario.Producto.Precio.Ver
         private string _autoPrd;
         private string _prd;
         private string _tasa;
+        private bool _admDivisa;
+        private bool _isActivo;
         private data _precio1;
         private data _precio2;
         private data _precio3;
         private data _precio4;
         private data _precio5;
+        private data.enumModoPrecio _modoActual;
 
 
         public string Producto { get { return _prd; } }
         public string TasaIva { get { return _tasa; } }
-
+        public bool AdmPorDivisa { get { return _admDivisa; } }
+        public data.enumModoPrecio ModoActual { get { return _modoActual; } }
         public data Precio1 { get { return _precio1; } }
         public data Precio2 { get { return _precio2; } }
         public data Precio3 { get { return _precio3; } }
@@ -33,6 +37,10 @@ namespace ModInventario.Producto.Precio.Ver
 
         public Gestion()
         {
+            _autoPrd="";
+            _prd="";
+            _tasa="";
+            _admDivisa= false;
             _precio1 = new data();
             _precio2 = new data();
             _precio3 = new data();
@@ -71,26 +79,64 @@ namespace ModInventario.Producto.Precio.Ver
             var s=r01.Entidad;
             _prd = s.codigo + Environment.NewLine + s.descripcion;
             _tasa = s.tasaIva.ToString("n2").Trim().PadLeft(5, '0') + "%, " + s.nombreTasaIva;
+            _admDivisa = false;
+            _isActivo = false;
+            if (s.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo) 
+            {
+                _isActivo = true;
+            }
+            if (s.admDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si) 
+            {
+                _admDivisa = true;
+            };
+
             _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, s.utilidad1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
             _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, s.utilidad2, s.precioFullDivisa2, s.tasaIva, s.etiqueta2);
             _precio3.setData(s.contenido3, s.empaque3, s.precioNeto3, s.utilidad3, s.precioFullDivisa3, s.tasaIva, s.etiqueta3);
             _precio4.setData(s.contenido4, s.empaque4, s.precioNeto4, s.utilidad4, s.precioFullDivisa4, s.tasaIva, s.etiqueta4);
             _precio5.setData(s.contenido5, s.empaque5, s.precioNeto5, s.utilidad5, s.precioFullDivisa5, s.tasaIva, s.etiqueta5);
+            _modoActual = data.enumModoPrecio.Bolivar;
+            if (_admDivisa) 
+            {
+                _modoActual = data.enumModoPrecio.Divisa;
+            }
+            CambiarModo();
 
             return rt;
         }
 
         private void Limpiar()
         {
+            _prd = "";
+            _tasa = "";
+            _admDivisa = false;
+            _precio1.Limpiar();
+            _precio2.Limpiar();
+            _precio3.Limpiar();
+            _precio4.Limpiar();
+            _precio5.Limpiar();
         }
 
         public void CambioModoPrecio()
         {
-            _precio1.setModoPrecio();
-            _precio2.setModoPrecio();
-            _precio3.setModoPrecio();
-            _precio4.setModoPrecio();
-            _precio5.setModoPrecio();
+            if (_modoActual == data.enumModoPrecio.Bolivar)
+            {
+                _modoActual = data.enumModoPrecio.Divisa;
+            }
+            else
+            {
+                _modoActual = data.enumModoPrecio.Bolivar;
+            }
+            CambiarModo();
+        }
+
+        private void CambiarModo() 
+        {
+            _precio1.setModoPrecioActual(_modoActual);
+            _precio2.setModoPrecioActual(_modoActual);
+            _precio3.setModoPrecioActual(_modoActual);
+            _precio4.setModoPrecioActual(_modoActual);
+            _precio5.setModoPrecioActual(_modoActual);
         }
 
     }

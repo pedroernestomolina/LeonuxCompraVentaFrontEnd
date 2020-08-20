@@ -124,9 +124,9 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
-        public OOB.ResultadoLista<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha> Reporte_Pago_Resumen(OOB.LibVenta.PosOffline.Reporte.Pago.Filtro filtro)
+        public OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha> Reporte_Pago_Resumen(OOB.LibVenta.PosOffline.Reporte.Pago.Filtro filtro)
         {
-            var rt = new OOB.ResultadoLista<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha>();
+            var rt = new OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha>();
 
             var filtroDTO = new DtoLibPosOffLine.Reporte.Pago.Filtro();
             filtroDTO.IdOperador = filtro.IdOperador;
@@ -139,29 +139,38 @@ namespace DataProvPosOffLine.Data
                 return rt;
             }
 
-            var list = new List<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha>();
-            if (r01.Lista != null)
+            var list = new List<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Detalle>();
+            if (r01.Entidad != null)
             {
-                if (r01.Lista.Count > 0)
+                if (r01.Entidad.detalle != null)
                 {
-                    list = r01.Lista.Select(s =>
+                    if (r01.Entidad.detalle.Count > 0)
                     {
-                        var pag = new OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha()
+                        list = r01.Entidad.detalle.Select(s =>
                         {
-                            codigo = s.codigo,
-                            descripcion = s.descripcion,
-                            importe = s.importe,
-                            lote = s.lote,
-                            montoRecibido = s.montoRecibido,
-                            referencia = s.referencia,
-                            tasa = s.tasa,
-                            tipoMedioCobro = (OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumTipoMedioCobro)s.tipoMedioCobro,
-                        };
-                        return pag;
-                    }).ToList();
+                            var pag = new OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Detalle()
+                            {
+                                codigo = s.codigo,
+                                descripcion = s.descripcion,
+                                importe = s.importe,
+                                lote = s.lote,
+                                montoRecibido = s.montoRecibido,
+                                referencia = s.referencia,
+                                tasa = s.tasa,
+                                tipoMedioCobro = (OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumTipoMedioCobro)s.tipoMedioCobro,
+                            };
+                            return pag;
+                        }).ToList();
+                    }
                 }
             }
-            rt.Lista = list;
+            var reg = new OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha()
+            {
+                MontoNCredito = r01.Entidad.montoNCredito,
+                MontoCambioDar = r01.Entidad.montoCambioDar,
+                Detalle = list,
+            };
+            rt.Entidad = reg;
 
             return rt;
         }

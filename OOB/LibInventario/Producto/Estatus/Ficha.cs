@@ -11,7 +11,7 @@ namespace OOB.LibInventario.Producto.Estatus
     public class Ficha
     {
 
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Descripcion { get; set; }
 
     }

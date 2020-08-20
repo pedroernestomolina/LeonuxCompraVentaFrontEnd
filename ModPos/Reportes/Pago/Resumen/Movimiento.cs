@@ -13,12 +13,16 @@ namespace ModPos.Reportes.Pago.Resumen
     public class Movimiento
     {
 
-        private List<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha> _lista;
+        private decimal _montoNCredito;
+        private decimal _montoCambioDar;
+        private List<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Detalle> _lista;
 
 
-        public Movimiento(List<OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha > list)
+        public Movimiento(OOB.LibVenta.PosOffline.Reporte.Pago.Resumen.Ficha ficha)
         {
-            _lista = list;
+            _montoNCredito = ficha.MontoNCredito;
+            _montoCambioDar = ficha.MontoCambioDar;
+            _lista = ficha.Detalle;
         }
 
 
@@ -33,37 +37,43 @@ namespace ModPos.Reportes.Pago.Resumen
                 ToList();
 
             var xd = 0;
-            foreach (var rg in lista.OrderBy(o=>o.key.codigo).ToList())
+            var timporte = 0.0m;
+            foreach (var rg in lista.OrderBy(o => o.key.codigo).ToList())
             {
                 xd += 1;
-                foreach (var dt in rg.list) 
+                timporte += rg.list.Sum(r => r.montoRecibido * r.tasa);
+                var imp = rg.list.Sum(r => r.montoRecibido * r.tasa);
+                var cmb = rg.list.Sum(r => r.importe);
+
+                foreach (var dt in rg.list)
                 {
-                    DataRow p = ds.Tables["Pago"].NewRow();
-                    p["id1"] = xd.ToString();
-                    p["tasa"] = dt.tasa;
+                    var _tasa = "";
+                    var _cntDivisa = "";
+                    if (dt.tasa > 1)
+                    {
+                        _tasa = dt.tasa.ToString("n2");
+                        _cntDivisa = rg.list.Sum(r => r.montoRecibido).ToString("n0");
+                    }
+
+                    DataRow p = ds.Tables["PagoResumen"].NewRow();
+                    p["id"] = xd.ToString();
+                    p["medio"] = dt.codigo + "/ " + dt.descripcion;
+                    p["tasa"] = _tasa;
                     p["lote"] = dt.lote;
-                    p["montoRecibido"] = rg.list.Sum(r => r.montoRecibido * r.tasa);
-                    p["codigoMedioPago"] = dt.codigo + "/ " + dt.descripcion;
-                    p["importe"] = rg.list.Sum(r=>r.montoRecibido);
-                    ds.Tables["Pago"].Rows.Add(p);
+                    p["cntDivisa"] = _cntDivisa;
+                    p["cntMov"] = rg.list.Count().ToString("n0");
+                    p["importe"] = rg.list.Sum(r => r.montoRecibido * r.tasa);
+
+                    ds.Tables["PagoResumen"].Rows.Add(p);
                 }
             }
 
-            //foreach (var rg in _lista)
-            //{
-            //    xd+=1;
-            //    DataRow p = ds.Tables["Pago"].NewRow();
-            //    p["id1"]=xd.ToString();
-            //    p["montoRecibido"] = rg.montoRecibido;
-            //    p["codigoMedioPago"] = rg.codigo + "/ " + rg.descripcion;
-            //    p["tasa"] = rg.tasa;
-            //    p["lote"] = rg.lote;
-            //    ds.Tables["Pago"].Rows.Add(p);
-            //}
-
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            Rds.Add(new ReportDataSource("Pago", ds.Tables["Pago"]));
+            pmt.Add(new ReportParameter("tImporte", timporte.ToString("n2")));
+            pmt.Add(new ReportParameter("tCambio", _montoCambioDar.ToString("n2")));
+            pmt.Add(new ReportParameter("tNCredito", _montoNCredito.ToString("n2")));
+            Rds.Add(new ReportDataSource("PagoResumen", ds.Tables["PagoResumen"]));
 
             var frp = new ReporteFrm();
             frp.rds = Rds;

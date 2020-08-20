@@ -27,22 +27,30 @@ namespace ModPos.Reportes.Pago.Detalle
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\PagoDetalle.rdlc";
             var ds = new DS();
+            var xid = 0;
             var montoTotal = 0.0m;
             var cambioDarTotal = 0.0m;
+            var ncreditoTotal = 0.0m;
 
-            foreach (var rg in _lista) 
+            foreach (var rg in _lista.OrderBy(o=>o.id).ToList()) 
             {
+                xid += 1;
                 if (rg.estatus == OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumEstatus.Activo && 
                     rg.tipoDoc== OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumTipoDocumento.Factura) 
                 {
                     montoTotal += rg.monto;
                     cambioDarTotal += rg.cambioDar;
                 }
+                if (rg.estatus == OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumEstatus.Activo && 
+                    rg.tipoDoc== OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumTipoDocumento.NotaCredito) 
+                {
+                    ncreditoTotal += rg.monto;
+                }
 
                 foreach (var pg in rg.pagos.ToList())
                 {
                     DataRow p = ds.Tables["Pago"].NewRow();
-                    p["id1"] = rg.id.ToString();
+                    p["id1"] = xid.ToString().Trim().PadLeft(4,'0');
                     p["documento"] = rg.documento;
                     p["fechaHora"] = rg.hora+Environment.NewLine+ rg.fecha.ToShortDateString();
                     p["nombreRazonSocial"] = rg.ciRif+Environment.NewLine+rg.nombreRazaonSocial;
@@ -54,9 +62,11 @@ namespace ModPos.Reportes.Pago.Detalle
                     var _montoRecibido= pg.montoRecibido;
                     var _medioPago = pg.codigo + "/ " + pg.descripcion;
                     var _importe = pg.montoRecibido*pg.tasa;
-                    if (pg.importe<_importe)
+                    var _tasa = "";
+
+                    if (pg.tasa > 1) 
                     {
-                       //_importe=pg.importe;
+                        _tasa = pg.tasa.ToString("n2");
                     }
 
                     if (rg.estatus == OOB.LibVenta.PosOffline.Reporte.Pago.Enumerados.enumEstatus.Activo)
@@ -65,7 +75,7 @@ namespace ModPos.Reportes.Pago.Detalle
                         p["monto"] = rg.monto;
                         p["montoRecibido"] = pg.montoRecibido;
                         p["codigoMedioPago"] = pg.codigo + "/ " + pg.descripcion;
-                        p["tasa"] = pg.tasa;
+                        p["tasa"] = _tasa;
                         p["importe"] = _importe;
                     }
                     else
@@ -74,7 +84,7 @@ namespace ModPos.Reportes.Pago.Detalle
                         p["monto"] = 0.0m;
                         p["montoRecibido"] = 0.0m;
                         p["codigoMedioPago"] = "";
-                        p["tasa"] = 0.0m;
+                        p["tasa"] = "";
                         p["importe"] = 0.0m;
                     }
                     ds.Tables["Pago"].Rows.Add(p);
@@ -89,6 +99,7 @@ namespace ModPos.Reportes.Pago.Detalle
             var pmt = new List<ReportParameter>();
             pmt.Add(new ReportParameter("montoTotal", montoTotal.ToString("n2")));
             pmt.Add(new ReportParameter("cambioDarTotal", cambioDarTotal.ToString("n2")));
+            pmt.Add(new ReportParameter("ncreditoTotal", ncreditoTotal.ToString("n2")));
             Rds.Add(new ReportDataSource("Pago", ds.Tables["Pago"]));
 
             var frp = new ReporteFrm();

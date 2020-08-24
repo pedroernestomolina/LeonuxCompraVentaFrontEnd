@@ -154,6 +154,7 @@ namespace ModInventario.Buscar
         {
             _controlador.RealizarBusqueda();
             ActualizarBusqueda();
+            DGV.Focus();
         }
 
         private void TB_CADENA_TextChanged(object sender, EventArgs e)
@@ -219,6 +220,7 @@ namespace ModInventario.Buscar
             _controlador.FiltrarBusqueda();
             BT_BUSCAR.Enabled = true;
             ActualizarBusqueda();
+            DGV.Focus();
         }
 
         private void ActualizarBusqueda()
@@ -271,6 +273,7 @@ namespace ModInventario.Buscar
         private void VerExistencia()
         {
             _controlador.VerExistencia();
+            TB_CADENA.Focus();
         }
 
         private void BT_PRECIO_Click(object sender, EventArgs e)
@@ -281,6 +284,7 @@ namespace ModInventario.Buscar
         private void VerPrecios()
         {
             _controlador.VerPrecios();
+            TB_CADENA.Focus();
         }
 
         private void BT_LIMPIAR_Click(object sender, EventArgs e)
@@ -303,6 +307,7 @@ namespace ModInventario.Buscar
         private void EditarPrecio()
         {
             _controlador.EditarPrecio();
+            TB_CADENA.Focus();
         }
 
         private void BT_PRECIO_HISTORICO_Click(object sender, EventArgs e)
@@ -313,8 +318,72 @@ namespace ModInventario.Buscar
         private void HistoricoPrecio()
         {
             _controlador.HistoricoPrecio();
+            TB_CADENA.Focus();
         }
-    
+
+        private void BT_HISTORICO_COSTO_Click(object sender, EventArgs e)
+        {
+            HistoricoCosto();
+        }
+
+        private void HistoricoCosto()
+        {
+            _controlador.HistoricoCosto();
+            TB_CADENA.Focus();
+        }
+
+        private void BT_COSTO_Click(object sender, EventArgs e)
+        {
+            VerCosto();
+        }
+
+        private void VerCosto()
+        {
+            _controlador.VerCosto();
+            TB_CADENA.Focus();
+        }
+
+        private void BT_EDITAR_COSTO_Click(object sender, EventArgs e)
+        {
+            EditarCosto();
+        }
+
+        private void EditarCosto()
+        {
+            _controlador.EditarCosto();
+            TB_CADENA.Focus();
+        }
+
+        private void BT_GENERAR_QR_Click(object sender, EventArgs e)
+        {
+            GenerarQR();
+        }
+
+        private void GenerarQR()
+        {
+            _controlador.GenerarQR();
+            TB_CADENA.Focus();
+        }
+
+        private void BusquedaFrm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1) 
+            {
+                TB_CADENA.Focus();
+            }
+        }
+
+        private void BT_ASIGNAR_DEPOSITO_Click(object sender, EventArgs e)
+        {
+            AsignarDeposito();
+        }
+
+        private void AsignarDeposito()
+        {
+            _controlador.AsignarDeposito();
+            TB_CADENA.Focus();
+        }
+       
     }
 
 }

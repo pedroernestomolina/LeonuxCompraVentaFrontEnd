@@ -128,6 +128,89 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.Resultado PrecioProducto_Actualizar(OOB.LibInventario.Precio.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Precio.Editar.Ficha()
+            {
+                autoProducto = ficha.autoProducto,
+                autoUsuario = ficha.autoUsuario,
+                codigoUsuario = ficha.codigoUsuario,
+                estacion = ficha.estacion,
+                nombreUsuario = ficha.nombreUsuario,
+            };
+
+            var historia = new List<DtoLibInventario.Precio.Editar.FichaHistorica>();
+            foreach (var it in ficha.historia)
+            {
+                var nr = new DtoLibInventario.Precio.Editar.FichaHistorica()
+                {
+                    nota = it.nota,
+                    precio = it.precio,
+                    precio_id = it.precio_id
+                };
+                historia.Add(nr);
+            }
+            fichaDTO.historia = historia;
+
+            var precio_1 = new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.precio_1.autoEmp,
+                contenido = ficha.precio_1.contenido,
+                precioNeto = ficha.precio_1.precioNeto,
+                precio_divisa_Neto = ficha.precio_1.precio_divisa_Neto,
+                utilidad = ficha.precio_1.utilidad,
+            };
+            fichaDTO.precio_1 = precio_1;
+            var precio_2 = new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.precio_2.autoEmp,
+                contenido = ficha.precio_2.contenido,
+                precioNeto = ficha.precio_2.precioNeto,
+                precio_divisa_Neto = ficha.precio_2.precio_divisa_Neto,
+                utilidad = ficha.precio_2.utilidad,
+            };
+            fichaDTO.precio_2 = precio_2;
+            var precio_3 = new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.precio_3.autoEmp,
+                contenido = ficha.precio_3.contenido,
+                precioNeto = ficha.precio_3.precioNeto,
+                precio_divisa_Neto = ficha.precio_3.precio_divisa_Neto,
+                utilidad = ficha.precio_3.utilidad,
+            };
+            fichaDTO.precio_3 = precio_3;
+            var precio_4 = new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.precio_4.autoEmp,
+                contenido = ficha.precio_4.contenido,
+                precioNeto = ficha.precio_4.precioNeto,
+                precio_divisa_Neto = ficha.precio_4.precio_divisa_Neto,
+                utilidad = ficha.precio_4.utilidad,
+            };
+            fichaDTO.precio_4 = precio_4;
+            var precio_5 = new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.precio_5.autoEmp,
+                contenido = ficha.precio_5.contenido,
+                precioNeto = ficha.precio_5.precioNeto,
+                precio_divisa_Neto = ficha.precio_5.precio_divisa_Neto,
+                utilidad = ficha.precio_5.utilidad,
+            };
+            fichaDTO.precio_5 = precio_5;
+
+            var r01 = MyData.PrecioProducto_Actualizar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

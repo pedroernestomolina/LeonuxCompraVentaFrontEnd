@@ -166,4 +166,25 @@
   <data name="bt_costo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bt_costo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_editar_ficha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_editar_ficha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_qr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_qr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_asignar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_asignar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_mov" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_mov.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_gestion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_gestion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_mov_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_mov_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -47,7 +47,11 @@ namespace ModInventario.Producto.Precio.Ver
         private void Actualizar()
         {
             L_PRODUCTO.Text = _controlador.Producto;
+            L_METODO.Text = _controlador.MetodoCalculoUtilidad;
+            L_TASA_CAMBIO.Text = _controlador.TasaCambioActual;
+            L_ADM_DIVISA.Text = _controlador.AdmDivisa;
             L_TASA_IVA.Text = _controlador.TasaIva;
+
             L_ETQ_1.Text = _controlador.Precio1.etiqueta;
             L_EMP_1.Text = _controlador.Precio1.empaque;
             L_CONT_1.Text = _controlador.Precio1.contenido.ToString("n0");

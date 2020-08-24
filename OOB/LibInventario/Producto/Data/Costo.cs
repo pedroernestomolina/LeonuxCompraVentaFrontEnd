@@ -10,24 +10,44 @@ namespace OOB.LibInventario.Producto.Data
     public class Costo
     {
 
-        public decimal costoProveedor { get; set; }
-        public decimal costoImportacion { get; set; }
-        public decimal costoVario { get; set; }
-        public decimal costoDivisa { get; set; }
-        public decimal costo { get; set; }
-        public decimal costoPromedio { get; set; }
-        public DateTime? fechaUltCambio { get; set; }
+        public string codigo { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public string nombreTasaIva { get; set; }
+        public decimal tasaIva { get; set; }
+        public Enumerados.EnumEstatus estatus { get; set; }
+        public Enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
+        public string empaqueCompra { get; set; }
+        public int contEmpaqueCompra { get; set; }
+
+        public decimal costoProveedorUnd { get; set; }
+        public decimal costoImportacionUnd { get; set; }
+        public decimal costoVarioUnd { get; set; }
+        public decimal costoDivisaUnd { get; set; }
+        public decimal costoUnd { get; set; }
+        public decimal costoPromedioUnd { get; set; }
+        public string fechaUltCambio { get; set; }
 
 
         public Costo()
         {
-            costoProveedor = 0.0m;
-            costoImportacion = 0.0m;
-            costoVario = 0.0m;
-            costoDivisa = 0.0m;
-            costo = 0.0m;
-            costoPromedio = 0.0m;
-            fechaUltCambio = null;
+            codigo = "";
+            nombre = "";
+            descripcion = "";
+            nombreTasaIva = "";
+            tasaIva = 0;
+            empaqueCompra = "";
+            contEmpaqueCompra = 1;
+            estatus = Enumerados.EnumEstatus.SnDefinir;
+            admDivisa = Enumerados.EnumAdministradorPorDivisa.SnDefinir;
+
+            costoDivisaUnd = 0.0m;
+            costoImportacionUnd = 0.0m;
+            costoPromedioUnd = 0.0m;
+            costoProveedorUnd=0.0m;
+            costoUnd = 0.0m;
+            costoVarioUnd = 0.0m;
+            fechaUltCambio = "";
         }
 
     }

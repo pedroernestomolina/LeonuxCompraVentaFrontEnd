@@ -353,6 +353,7 @@ namespace ModInventario.Producto.Precio.Editar
         private void ModoPrecioSw()
         {
             _controlador.ModoPrecioSw();
+            L_COSTO.Text = _controlador.CostoUnitario;
             TB_NETO_1.Text = _controlador.Precio_1.neto.ToString("N2").Replace(".", "");
             TB_FULL_1.Text = _controlador.Precio_1.full.ToString("N2").Replace(".", "");
             TB_NETO_2.Text = _controlador.Precio_2.neto.ToString("N2").Replace(".", "");
@@ -462,6 +463,12 @@ namespace ModInventario.Producto.Precio.Editar
             }
 
             e.Cancel = !bStatus;
+        }
+
+        private void EditarFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !_controlador.IsCerrarHabilitado;
+            _controlador.InicializarIsCerrarHabilitado();
         }
 
     }

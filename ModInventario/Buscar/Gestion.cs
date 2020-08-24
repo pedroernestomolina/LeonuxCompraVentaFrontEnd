@@ -17,6 +17,11 @@ namespace ModInventario.Buscar
         private Producto.Existencia.Ver.Gestion _gestionPrdExistencia;
         private Producto.Precio.Historico.Gestion _gestionHistoricoPrecio;
         private Producto.Precio.Ver.Gestion _gestionPrdPrecios;
+        private Producto.Costo.Historico.Gestion _gestionHistoricoCosto;
+        private Producto.Costo.Ver.Gestion _gestionPrdCosto;
+        private Producto.Costo.Editar.Gestion _gestionEditarCosto;
+        private Producto.QR.Gestion _gestionQR;
+        private Producto.Deposito.Asignar.Gestion _gestionDeposito;
         private OOB.LibInventario.Producto.Filtro _filtros;
 
 
@@ -38,6 +43,11 @@ namespace ModInventario.Buscar
             _gestionPrdPrecios = new Producto.Precio.Ver.Gestion();
             _gestionHistoricoPrecio = new Producto.Precio.Historico.Gestion();
             _gestionEditarPrecio = new Producto.Precio.Editar.Gestion(new Producto.Precio.Editar.ModoSucursal.Gestion());
+            _gestionHistoricoCosto= new Producto.Costo.Historico.Gestion();
+            _gestionPrdCosto = new Producto.Costo.Ver.Gestion();
+            _gestionEditarCosto = new Producto.Costo.Editar.Gestion();
+            _gestionQR = new Producto.QR.Gestion();
+            _gestionDeposito = new Producto.Deposito.Asignar.Gestion();
             LimpiarEntradas();
         }
 
@@ -207,6 +217,56 @@ namespace ModInventario.Buscar
             {
                 _gestionHistoricoPrecio.setFicha(Item.identidad.auto);
                 _gestionHistoricoPrecio.Inicia();
+            }
+        }
+
+        internal void HistoricoCosto()
+        {
+            if (Item != null)
+            {
+                _gestionHistoricoCosto.setFicha(Item.identidad.auto);
+                _gestionHistoricoCosto.Inicia();
+            }
+        }
+
+        public void VerCosto()
+        {
+            if (Item != null)
+            {
+                _gestionPrdCosto.setFicha(Item.identidad.auto);
+                _gestionPrdCosto.Inicia();
+            }
+        }
+
+        public void EditarCosto()
+        {
+            if (Item != null)
+            {
+                if (Item.identidad.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
+                {
+                    _gestionEditarCosto.setFicha(Item.identidad.auto);
+                    _gestionEditarCosto.Inicia();
+                }
+                else
+                    Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
+            }
+        }
+
+        public void GenerarQR()
+        {
+            if (Item != null)
+            {
+                _gestionQR.setFicha(Item.identidad.auto);
+                _gestionQR.Inicia();
+            }
+        }
+
+        public void AsignarDeposito()
+        {
+            if (Item != null)
+            {
+                _gestionDeposito.setFicha(Item.identidad.auto);
+                _gestionDeposito.Inicia();
             }
         }
 

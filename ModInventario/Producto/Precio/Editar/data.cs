@@ -90,10 +90,6 @@ namespace ModInventario.Producto.Precio.Editar
             set
             {
                 _neto = value;
-                if (_neto < Costo)
-                {
-                   // _neto = 0.0m;
-                }
                 CalculaFull();
                 CalculaUtilidad();
             }
@@ -189,13 +185,62 @@ namespace ModInventario.Producto.Precio.Editar
             }
         }
 
+        public decimal PrecioNeto_BsF
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (isDivisa)
+                {
+                    rt = neto * tasaCambioActual;
+                }
+                else
+                {
+                    rt = neto ;
+                }
+
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
+
+        public decimal PrecioNeto_Divisa
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (isDivisa)
+                {
+                    rt = neto ;
+                }
+                else
+                {
+                    rt = neto/tasaCambioActual;
+                }
+
+                return rt;
+            }
+        }
+
+        public decimal PrecioFull_Divisa
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = PrecioNeto_Divisa + (PrecioNeto_Divisa * tasaIva / 100);
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
+
+
 
         public void setCalculoUtilidad(enumModo modo)
         {
             modoCalculoUtilidad = modo;
         }
 
-        public void setData(int cont, decimal costo, decimal iva, decimal ut, decimal neto, enumModo enumModo, string etq, string autoEmp, bool modoDivisa, decimal tasaCambio)
+        public void setData(int cont, decimal costo, decimal iva, decimal ut, decimal precio, enumModo enumModo, string etq, string autoEmp, bool modoDivisa, decimal tasaCambio)
         {
             autoEmpaque = autoEmp;
             etiqueta = etq;
@@ -210,13 +255,15 @@ namespace ModInventario.Producto.Precio.Editar
             _utilidad = ut;
             if (modoDivisa)
             {
-                _full = neto;
+                _full = precio;
                 CalculaNeto();
-            }
-            else 
-            {
-                _neto = neto;
                 CalculaFull();
+            }
+            else
+            {
+                _neto = precio;
+                CalculaFull();
+                CalculaNeto();
             }
         }
 

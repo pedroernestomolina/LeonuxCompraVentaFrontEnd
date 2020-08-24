@@ -43,6 +43,10 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
@@ -175,6 +179,39 @@
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.Designer.cs">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\Costo\Editar\costo.cs" />
+    <Compile Include="Producto\Costo\Editar\EditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Costo\Editar\EditarFrm.Designer.cs">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Costo\Editar\Gestion.cs" />
+    <Compile Include="Producto\Costo\Editar\precio.cs" />
+    <Compile Include="Producto\Costo\Historico\data.cs" />
+    <Compile Include="Producto\Costo\Historico\Gestion.cs" />
+    <Compile Include="Producto\Costo\Historico\HistoricoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Costo\Historico\HistoricoFrm.Designer.cs">
+      <DependentUpon>HistoricoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Costo\Ver\costo.cs" />
+    <Compile Include="Producto\Costo\Ver\data.cs" />
+    <Compile Include="Producto\Costo\Ver\Gestion.cs" />
+    <Compile Include="Producto\Costo\Ver\VerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Costo\Ver\VerFrm.Designer.cs">
+      <DependentUpon>VerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Deposito\Asignar\AsignarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Deposito\Asignar\AsignarFrm.Designer.cs">
+      <DependentUpon>AsignarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Deposito\Asignar\Gestion.cs" />
     <Compile Include="Producto\Existencia\Ver\data.cs" />
     <Compile Include="Producto\Existencia\Ver\Gestion.cs" />
     <Compile Include="Producto\Existencia\Ver\VerFrm.cs">
@@ -208,6 +245,13 @@
     </Compile>
     <Compile Include="Producto\Precio\Ver\VerFrm.Designer.cs">
       <DependentUpon>VerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\QR\Gestion.cs" />
+    <Compile Include="Producto\QR\QRFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\QR\QRFrm.Designer.cs">
+      <DependentUpon>QRFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -282,6 +326,18 @@
     <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Costo\Editar\EditarFrm.resx">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Costo\Historico\HistoricoFrm.resx">
+      <DependentUpon>HistoricoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Costo\Ver\VerFrm.resx">
+      <DependentUpon>VerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Deposito\Asignar\AsignarFrm.resx">
+      <DependentUpon>AsignarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Producto\Existencia\Ver\VerFrm.resx">
       <DependentUpon>VerFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Precio\Ver\VerFrm.resx">
       <DependentUpon>VerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\QR\QRFrm.resx">
+      <DependentUpon>QRFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -359,22 +418,36 @@
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\bt_asignar.png" />
     <Content Include="Imagenes\bt_consulta.png" />
     <Content Include="Imagenes\bt_costo.png" />
     <Content Include="Imagenes\bt_dollar.png" />
     <Content Include="Imagenes\bt_editar_32.png" />
     <Content Include="Imagenes\bt_editar_48.png" />
+    <Content Include="Imagenes\bt_editar_ficha.png" />
     <Content Include="Imagenes\bt_eliminar.png" />
     <Content Include="Imagenes\bt_exchange.png" />
     <Content Include="Imagenes\bt_exchange_32.png" />
     <Content Include="Imagenes\bt_exchange_48.png" />
+    <Content Include="Imagenes\bt_gestion.png" />
     <Content Include="Imagenes\bt_historico_32.png" />
+    <Content Include="Imagenes\bt_mov.png" />
+    <Content Include="Imagenes\bt_mov_2.png" />
     <Content Include="Imagenes\bt_price.png" />
+    <Content Include="Imagenes\bt_qr.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\bt_limpiar.png" />
     <Content Include="Imagenes\bt_warehouse.png" />
+    <Content Include="Imagenes\dollar.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\bt_gestion.png" />
+    <None Include="Resources\bt_mov_2.png" />
+    <None Include="Resources\bt_mov.png" />
+    <None Include="Resources\bt_asignar.png" />
+    <None Include="Resources\dollar.png" />
+    <None Include="Resources\bt_qr.png" />
+    <None Include="Resources\bt_editar_ficha.png" />
     <None Include="Resources\bt_costo.png" />
     <None Include="Resources\bt_editar_32.png" />
     <None Include="Resources\bt_editar_48.png" />

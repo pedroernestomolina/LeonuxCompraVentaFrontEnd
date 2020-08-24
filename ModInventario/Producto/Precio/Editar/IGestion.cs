@@ -37,12 +37,14 @@ namespace ModInventario.Producto.Precio.Editar
         data Precio_5 { get; }
         bool Habilitar_ContenidoEmpaque { get; }
         bool Habilitar_Empaque { get; }
+        bool IsCerrarHabilitado { get; }
 
 
         bool CargarData();
         void setFicha(string autoprd);
         void ModoPrecioSw();
         void Procesar();
+        void InicializarIsCerrarHabilitado();
 
     }
 

@@ -48,6 +48,13 @@
     <Compile Include="LibInventario\Concepto\Editar.cs" />
     <Compile Include="LibInventario\Concepto\Ficha.cs" />
     <Compile Include="LibInventario\Configuracion\Enumerados.cs" />
+    <Compile Include="LibInventario\Costo\Editar\Ficha.cs" />
+    <Compile Include="LibInventario\Costo\Editar\FichaHistorica.cs" />
+    <Compile Include="LibInventario\Costo\Editar\FichaPrecio.cs" />
+    <Compile Include="LibInventario\Costo\Enumerados.cs" />
+    <Compile Include="LibInventario\Costo\Historico\Data.cs" />
+    <Compile Include="LibInventario\Costo\Historico\Ficha.cs" />
+    <Compile Include="LibInventario\Costo\Historico\Filtro.cs" />
     <Compile Include="LibInventario\Departamento\Agregar.cs" />
     <Compile Include="LibInventario\Departamento\Editar.cs" />
     <Compile Include="LibInventario\Departamento\Ficha.cs" />
@@ -68,6 +75,9 @@
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\FichaKardex.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Detalle.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Ficha.cs" />
+    <Compile Include="LibInventario\Precio\Editar\Ficha.cs" />
+    <Compile Include="LibInventario\Precio\Editar\FichaHistorica.cs" />
+    <Compile Include="LibInventario\Precio\Editar\FichaPrecio.cs" />
     <Compile Include="LibInventario\Precio\Historico\Data.cs" />
     <Compile Include="LibInventario\Precio\Historico\Ficha.cs" />
     <Compile Include="LibInventario\Precio\Historico\Filtro.cs" />

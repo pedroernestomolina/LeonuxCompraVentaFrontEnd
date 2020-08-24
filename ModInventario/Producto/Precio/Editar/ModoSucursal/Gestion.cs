@@ -21,6 +21,10 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         private decimal tasaCambioActual;
         private string fechaUltActCosto;
         private bool isModoActualDivisa;
+        private decimal costoUnd;
+        private decimal costoUndDivisa;
+        private bool _isCerrarHabilitado;
+        private OOB.LibInventario.Precio.PrecioCosto.Ficha fichaPrecioCosto; 
 
         private List<OOB.LibInventario.EmpaqueMedida.Ficha> empaque1;
         private List<OOB.LibInventario.EmpaqueMedida.Ficha> empaque2;
@@ -50,7 +54,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         public BindingSource SourceEmpaque4 { get { return sourceEmpaque4; } }
         public BindingSource SourceEmpaque5 { get { return sourceEmpaque5; } }
 
-
+        public bool IsCerrarHabilitado { get { return _isCerrarHabilitado; } }
         public data Precio_1 { get { return precio_1; } }
         public data Precio_2 { get { return precio_2; } }
         public data Precio_3 { get { return precio_3; } }
@@ -105,6 +109,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
 
         public Gestion()
         {
+            _isCerrarHabilitado = true;
             empaque1 = new List<OOB.LibInventario.EmpaqueMedida.Ficha>();
             empaque2 = new List<OOB.LibInventario.EmpaqueMedida.Ficha>();
             empaque3 = new List<OOB.LibInventario.EmpaqueMedida.Ficha>();
@@ -139,6 +144,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            fichaPrecioCosto = r01.Entidad;
 
             var r02 = Sistema.MyData.EmpaqueMedida_GetLista();
             if (r02.Result == OOB.Enumerados.EnumResult.isError)
@@ -176,6 +182,8 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
             admDivisa = r01.Entidad.admDivisa.ToString();
             tasaIva = "EXENTO";
             fechaUltActCosto = r01.Entidad.fechaUltimaActCosto;
+            costoUnd = r01.Entidad.costoUnd;
+            costoUndDivisa = r01.Entidad.costoUndDivisa;
 
             if (r01.Entidad.tasaIva > 0)
             {
@@ -255,12 +263,183 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 precio_4.sw();
                 precio_5.sw();
             }
+            costoUnit=costoUnd.ToString("n2");
+            if (isModoActualDivisa)
+            { 
+                costoUnit=costoUndDivisa.ToString("n2");
+            };
         }
 
         public void Procesar()
         {
             var msg = "Procesar Cambios ?";
             var rt = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (rt == DialogResult.Yes)
+            {
+                _isCerrarHabilitado = Guardar();
+            }
+            else 
+            {
+                _isCerrarHabilitado = false;
+            }
+        }
+
+        private bool Guardar()
+        {
+            var rt = true;
+            var ficha = new OOB.LibInventario.Precio.Editar.Ficha()
+            {
+                autoProducto = autoPrd,
+                autoUsuario = Sistema.UsuarioP.auto,
+                codigoUsuario = Sistema.UsuarioP.codigo,
+                estacion = Environment.MachineName,
+                nombreUsuario = Sistema.UsuarioP.nombre,
+            };
+
+            var p1 = new OOB.LibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = precio_1.autoEmpaque,
+                contenido = precio_1.contenido,
+                precio_divisa_Neto = precio_1.PrecioFull_Divisa,
+                precioNeto = precio_1.PrecioNeto_BsF,
+                utilidad = precio_1.utilidad,
+            };
+            ficha.precio_1= p1;
+            var h1 = new OOB.LibInventario.Precio.Editar.FichaHistorica()
+            {
+                nota = "",
+                precio = precio_1.PrecioNeto_BsF,
+                precio_id = "1",
+            };
+
+            var p2 = new OOB.LibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = precio_2.autoEmpaque,
+                contenido = precio_2.contenido,
+                precio_divisa_Neto = precio_2.PrecioFull_Divisa,
+                precioNeto = precio_2.PrecioNeto_BsF,
+                utilidad = precio_2.utilidad,
+            };
+            ficha.precio_2 = p2;
+            var h2 = new OOB.LibInventario.Precio.Editar.FichaHistorica()
+            {
+                nota = "",
+                precio = precio_2.PrecioNeto_BsF,
+                precio_id = "2",
+            };
+
+            var p3 = new OOB.LibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = precio_3.autoEmpaque,
+                contenido = precio_3.contenido,
+                precio_divisa_Neto = precio_3.PrecioFull_Divisa,
+                precioNeto = precio_3.PrecioNeto_BsF,
+                utilidad = precio_3.utilidad,
+            };
+            ficha.precio_3 = p3;
+            var h3 = new OOB.LibInventario.Precio.Editar.FichaHistorica()
+            {
+                nota = "",
+                precio = precio_3.PrecioNeto_BsF,
+                precio_id = "3",
+            };
+
+            var p4 = new OOB.LibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = precio_4.autoEmpaque,
+                contenido = precio_4.contenido,
+                precio_divisa_Neto = precio_4.PrecioFull_Divisa,
+                precioNeto = precio_4.PrecioNeto_BsF,
+                utilidad = precio_4.utilidad,
+            };
+            ficha.precio_4 = p4;
+            var h4 = new OOB.LibInventario.Precio.Editar.FichaHistorica()
+            {
+                nota = "",
+                precio = precio_4.PrecioNeto_BsF,
+                precio_id = "4",
+            };
+
+            var p5 = new OOB.LibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = precio_5.autoEmpaque,
+                contenido = precio_5.contenido,
+                precio_divisa_Neto = precio_5.PrecioFull_Divisa,
+                precioNeto = precio_5.PrecioNeto_BsF,
+                utilidad = precio_5.utilidad,
+            };
+            ficha.precio_5 = p5;
+            var h5 = new OOB.LibInventario.Precio.Editar.FichaHistorica()
+            {
+                nota = "",
+                precio = precio_5.PrecioNeto_BsF,
+                precio_id = "PTO",
+            };
+
+            var historia = new List<OOB.LibInventario.Precio.Editar.FichaHistorica>();
+            if (VerificaCambio(precio_1,1)) { historia.Add(h1); }
+            if (VerificaCambio(precio_2,2)) { historia.Add(h2); }
+            if (VerificaCambio(precio_3,3)) { historia.Add(h3); }
+            if (VerificaCambio(precio_4,4)) { historia.Add(h4); }
+            if (VerificaCambio(precio_5,5)) { historia.Add(h5); }
+            ficha.historia = historia;
+
+            var r01 = Sistema.MyData.PrecioProducto_Actualizar(ficha);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            return rt;
+        }
+
+        private bool VerificaCambio(data precio, int p)
+        {
+            var rt = false;
+
+            if (p == 1) 
+            {
+                if (precio.autoEmpaque != fichaPrecioCosto.autoEmp1) { return true; }
+                if (precio.contenido != fichaPrecioCosto.contenido1) { return true; }
+                if (precio.PrecioNeto_BsF != fichaPrecioCosto.precioNeto1) { return true; }
+                if (precio.utilidad != fichaPrecioCosto.utilidad1) { return true; }
+            }
+            if (p == 2)
+            {
+                if (precio.autoEmpaque != fichaPrecioCosto.autoEmp2) { return true; }
+                if (precio.contenido != fichaPrecioCosto.contenido2) { return true; }
+                if (precio.PrecioNeto_BsF != fichaPrecioCosto.precioNeto2) { return true; }
+                if (precio.utilidad != fichaPrecioCosto.utilidad2) { return true; }
+            }
+            if (p == 3)
+            {
+                if (precio.autoEmpaque != fichaPrecioCosto.autoEmp3) { return true; }
+                if (precio.contenido != fichaPrecioCosto.contenido3) { return true; }
+                if (precio.PrecioNeto_BsF != fichaPrecioCosto.precioNeto3) { return true; }
+                if (precio.utilidad != fichaPrecioCosto.utilidad3) { return true; }
+            }
+            if (p == 4)
+            {
+                if (precio.autoEmpaque != fichaPrecioCosto.autoEmp4) { return true; }
+                if (precio.contenido != fichaPrecioCosto.contenido4) { return true; }
+                if (precio.PrecioNeto_BsF != fichaPrecioCosto.precioNeto4) { return true; }
+                if (precio.utilidad != fichaPrecioCosto.utilidad4) { return true; }
+            }
+            if (p == 5)
+            {
+                if (precio.autoEmpaque != fichaPrecioCosto.autoEmp5) { return true; }
+                if (precio.contenido != fichaPrecioCosto.contenido5) { return true; }
+                if (precio.PrecioNeto_BsF != fichaPrecioCosto.precioNeto5) { return true; }
+                if (precio.utilidad != fichaPrecioCosto.utilidad5) { return true; }
+            }
+
+            return rt;
+        }
+
+        public void InicializarIsCerrarHabilitado()
+        {
+            _isCerrarHabilitado = true;
         }
 
     }

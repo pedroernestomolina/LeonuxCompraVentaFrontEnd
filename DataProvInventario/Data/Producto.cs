@@ -69,7 +69,14 @@ namespace DataProvInventario.Data
                         id.AdmPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa) s.admPorDivisa;
                         id.fechaAlta=s.fechaAlta.Value;
                         id.fechaUltActualizacion = s.fechaUltActualizacion;
-                        nr.costo.fechaUltCambio = s.fechaUltCambioCosto;
+
+                        var fechaV = "";
+                        if (s.fechaUltCambioCosto.HasValue) 
+                        {
+                            fechaV = s.fechaUltCambioCosto.Value.ToShortDateString();
+                        }
+
+                        nr.costo.fechaUltCambio = fechaV;
                         nr.extra.esPesado= (OOB.LibInventario.Producto.Enumerados.EnumPesado) s.esPesado;
                         nr.precio.estatusOferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta) s.enOferta;
                         
@@ -380,6 +387,47 @@ namespace DataProvInventario.Data
                 nr.ofertaActiva = (OOB.LibInventario.Producto.Enumerados.EnumOferta) e.ofertaActiva;
                 nr.precioOferta = e.precioOferta;
                 nr.precioSugerido = e.precioSugerido;
+            }
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Costo> Producto_GetCosto(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Costo>();
+
+            var r01 = MyData.Producto_GetCosto(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var nr = new OOB.LibInventario.Producto.Data.Costo();
+            var e = r01.Entidad;
+            if (e != null)
+            {
+                nr.codigo = e.codigo;
+                nr.nombre = e.nombre;
+                nr.descripcion = e.descripcion;
+                nr.nombreTasaIva = e.nombreTasaIva;
+                nr.tasaIva = e.tasaIva;
+                nr.empaqueCompra = e.empaqueCompra;
+                nr.contEmpaqueCompra = e.contEmpaqueCompra;
+                nr.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)e.estatus;
+                nr.admDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)e.admDivisa;
+
+                nr.costoDivisaUnd= e.costoDivisa/e.contEmpaqueCompra ;
+                nr.costoImportacionUnd = e.costoImportacionUnd;
+                nr.costoPromedioUnd =e.costoPromedioUnd;
+                nr.costoProveedorUnd = e.costoProveedorUnd;
+                nr.costoUnd = e.costoUnd;
+                nr.costoVarioUnd = e.costoVarioUnd;
+                var fechaV="";
+                if (e.fechaUltCambio.HasValue) { fechaV = e.fechaUltCambio.Value.ToShortDateString(); }
+                nr.fechaUltCambio = fechaV;
             }
             rt.Entidad = nr;
 

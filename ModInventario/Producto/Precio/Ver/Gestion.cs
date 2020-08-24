@@ -15,7 +15,8 @@ namespace ModInventario.Producto.Precio.Ver
         private string _prd;
         private string _tasa;
         private bool _admDivisa;
-        private bool _isActivo;
+        private string _metodoCalculoUtilidad;
+        private string _tasaCambioActual;
         private data _precio1;
         private data _precio2;
         private data _precio3;
@@ -27,6 +28,10 @@ namespace ModInventario.Producto.Precio.Ver
         public string Producto { get { return _prd; } }
         public string TasaIva { get { return _tasa; } }
         public bool AdmPorDivisa { get { return _admDivisa; } }
+        public string MetodoCalculoUtilidad { get { return _metodoCalculoUtilidad; } }
+        public string TasaCambioActual { get { return _tasaCambioActual; } }
+        public string AdmDivisa { get { return (_admDivisa ? "SI" : "NO"); } }
+
         public data.enumModoPrecio ModoActual { get { return _modoActual; } }
         public data Precio1 { get { return _precio1; } }
         public data Precio2 { get { return _precio2; } }
@@ -76,19 +81,37 @@ namespace ModInventario.Producto.Precio.Ver
                 return false;
             }
 
+            var r02 = Sistema.MyData.Configuracion_TasaCambioActual ();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+
+            var r03 = Sistema.MyData.Configuracion_MetodoCalculoUtilidad();
+            if (r03.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r03.Mensaje);
+                return false;
+            }
+
             var s=r01.Entidad;
             _prd = s.codigo + Environment.NewLine + s.descripcion;
-            _tasa = s.tasaIva.ToString("n2").Trim().PadLeft(5, '0') + "%, " + s.nombreTasaIva;
-            _admDivisa = false;
-            _isActivo = false;
-            if (s.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo) 
+
+            _tasa = "EXENTO";
+            if (s.tasaIva > 0) 
             {
-                _isActivo = true;
+                _tasa = s.tasaIva.ToString("n2").Trim().PadLeft(5, '0') + "%";
             }
+
+            _admDivisa = false;
             if (s.admDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si) 
             {
                 _admDivisa = true;
             };
+
+            _tasaCambioActual = r02.Entidad.ToString("n2");
+            _metodoCalculoUtilidad = r03.Entidad.ToString();
 
             _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, s.utilidad1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
             _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, s.utilidad2, s.precioFullDivisa2, s.tasaIva, s.etiqueta2);

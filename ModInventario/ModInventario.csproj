@@ -179,6 +179,18 @@
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.Designer.cs">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\AgregarEditar\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\AgregarEditar\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\AgregarEditar\Agregar\data.cs" />
+    <Compile Include="Producto\AgregarEditar\Agregar\Gestion.cs" />
+    <Compile Include="Producto\AgregarEditar\Editar\data.cs" />
+    <Compile Include="Producto\AgregarEditar\Editar\Gestion.cs" />
+    <Compile Include="Producto\AgregarEditar\Gestion.cs" />
+    <Compile Include="Producto\AgregarEditar\IGestion.cs" />
     <Compile Include="Producto\Costo\Editar\costo.cs" />
     <Compile Include="Producto\Costo\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
@@ -211,6 +223,7 @@
     <Compile Include="Producto\Deposito\Asignar\AsignarFrm.Designer.cs">
       <DependentUpon>AsignarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\Deposito\Asignar\data.cs" />
     <Compile Include="Producto\Deposito\Asignar\Gestion.cs" />
     <Compile Include="Producto\Existencia\Ver\data.cs" />
     <Compile Include="Producto\Existencia\Ver\Gestion.cs" />
@@ -325,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\AgregarEditar\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Costo\Editar\EditarFrm.resx">
       <DependentUpon>EditarFrm.cs</DependentUpon>
@@ -464,7 +480,9 @@
     <None Include="Resources\bt_eliminar.png" />
     <None Include="Resources\TOOLS.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Producto\Existencia\Kardex\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

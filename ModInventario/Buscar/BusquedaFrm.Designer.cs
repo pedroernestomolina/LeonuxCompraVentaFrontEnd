@@ -36,9 +36,9 @@
             this.panel46 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.panel48 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BT_EDITAR_FICHA = new System.Windows.Forms.Button();
             this.panel47 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BT_AGREGAR_FICHA = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -141,7 +141,7 @@
             this.panel51 = new System.Windows.Forms.Panel();
             this.BT_ASIGNAR_DEPOSITO = new System.Windows.Forms.Button();
             this.panel52 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BT_MOV_KARDEX = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.panel44 = new System.Windows.Forms.Panel();
@@ -308,7 +308,7 @@
             // 
             // panel48
             // 
-            this.panel48.Controls.Add(this.button3);
+            this.panel48.Controls.Add(this.BT_EDITAR_FICHA);
             this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel48.Location = new System.Drawing.Point(58, 1);
             this.panel48.Margin = new System.Windows.Forms.Padding(1);
@@ -317,24 +317,25 @@
             this.panel48.Size = new System.Drawing.Size(55, 35);
             this.panel48.TabIndex = 1;
             // 
-            // button3
+            // BT_EDITAR_FICHA
             // 
-            this.button3.BackgroundImage = global::ModInventario.Properties.Resources.bt_editar_ficha;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 31);
-            this.button3.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.button3, "Editar / Cambiar Ficha");
-            this.button3.UseVisualStyleBackColor = true;
+            this.BT_EDITAR_FICHA.BackgroundImage = global::ModInventario.Properties.Resources.bt_editar_ficha;
+            this.BT_EDITAR_FICHA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_EDITAR_FICHA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_EDITAR_FICHA.FlatAppearance.BorderSize = 0;
+            this.BT_EDITAR_FICHA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_EDITAR_FICHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_EDITAR_FICHA.Location = new System.Drawing.Point(2, 2);
+            this.BT_EDITAR_FICHA.Name = "BT_EDITAR_FICHA";
+            this.BT_EDITAR_FICHA.Size = new System.Drawing.Size(51, 31);
+            this.BT_EDITAR_FICHA.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.BT_EDITAR_FICHA, "Editar / Cambiar Ficha");
+            this.BT_EDITAR_FICHA.UseVisualStyleBackColor = true;
+            this.BT_EDITAR_FICHA.Click += new System.EventHandler(this.BT_EDITAR_FICHA_Click);
             // 
             // panel47
             // 
-            this.panel47.Controls.Add(this.button1);
+            this.panel47.Controls.Add(this.BT_AGREGAR_FICHA);
             this.panel47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel47.Location = new System.Drawing.Point(1, 1);
             this.panel47.Margin = new System.Windows.Forms.Padding(1);
@@ -343,20 +344,21 @@
             this.panel47.Size = new System.Drawing.Size(55, 35);
             this.panel47.TabIndex = 0;
             // 
-            // button1
+            // BT_AGREGAR_FICHA
             // 
-            this.button1.BackgroundImage = global::ModInventario.Properties.Resources.bt_sumar;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 31);
-            this.button1.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.button1, "Agregar Ficha Nuevo");
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_AGREGAR_FICHA.BackgroundImage = global::ModInventario.Properties.Resources.bt_sumar;
+            this.BT_AGREGAR_FICHA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_AGREGAR_FICHA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_AGREGAR_FICHA.FlatAppearance.BorderSize = 0;
+            this.BT_AGREGAR_FICHA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_AGREGAR_FICHA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_AGREGAR_FICHA.Location = new System.Drawing.Point(2, 2);
+            this.BT_AGREGAR_FICHA.Name = "BT_AGREGAR_FICHA";
+            this.BT_AGREGAR_FICHA.Size = new System.Drawing.Size(51, 31);
+            this.BT_AGREGAR_FICHA.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.BT_AGREGAR_FICHA, "Agregar Ficha Nuevo");
+            this.BT_AGREGAR_FICHA.UseVisualStyleBackColor = true;
+            this.BT_AGREGAR_FICHA.Click += new System.EventHandler(this.BT_AGREGAR_FICHA_Click);
             // 
             // panel2
             // 
@@ -1642,7 +1644,7 @@
             // 
             // panel52
             // 
-            this.panel52.Controls.Add(this.button4);
+            this.panel52.Controls.Add(this.BT_MOV_KARDEX);
             this.panel52.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel52.Location = new System.Drawing.Point(1, 38);
             this.panel52.Margin = new System.Windows.Forms.Padding(1);
@@ -1651,20 +1653,21 @@
             this.panel52.Size = new System.Drawing.Size(35, 36);
             this.panel52.TabIndex = 2;
             // 
-            // button4
+            // BT_MOV_KARDEX
             // 
-            this.button4.BackgroundImage = global::ModInventario.Properties.Resources.bt_gestion;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(2, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(31, 32);
-            this.button4.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.button4, "Ver Existencia");
-            this.button4.UseVisualStyleBackColor = true;
+            this.BT_MOV_KARDEX.BackgroundImage = global::ModInventario.Properties.Resources.bt_gestion;
+            this.BT_MOV_KARDEX.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_MOV_KARDEX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_MOV_KARDEX.FlatAppearance.BorderSize = 0;
+            this.BT_MOV_KARDEX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_MOV_KARDEX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_MOV_KARDEX.Location = new System.Drawing.Point(2, 2);
+            this.BT_MOV_KARDEX.Name = "BT_MOV_KARDEX";
+            this.BT_MOV_KARDEX.Size = new System.Drawing.Size(31, 32);
+            this.BT_MOV_KARDEX.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.BT_MOV_KARDEX, "Movimiento / Kardex del Producto");
+            this.BT_MOV_KARDEX.UseVisualStyleBackColor = true;
+            this.BT_MOV_KARDEX.Click += new System.EventHandler(this.BT_MOV_KARDEX_Click);
             // 
             // panel40
             // 
@@ -2013,8 +2016,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.Panel panel47;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_EDITAR_FICHA;
+        private System.Windows.Forms.Button BT_AGREGAR_FICHA;
         private System.Windows.Forms.Panel panel49;
         private System.Windows.Forms.Button BT_GENERAR_QR;
         private System.Windows.Forms.Label label18;
@@ -2024,6 +2027,6 @@
         private System.Windows.Forms.Panel panel51;
         private System.Windows.Forms.Button BT_ASIGNAR_DEPOSITO;
         private System.Windows.Forms.Panel panel52;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BT_MOV_KARDEX;
     }
 }

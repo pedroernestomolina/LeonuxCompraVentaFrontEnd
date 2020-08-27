@@ -18,6 +18,7 @@ namespace DataProvInventario.Data
 
             var filtroDto = new DtoLibInventario.Producto.Filtro()
             {
+                autoProducto=filtro.autoProducto,
                 admPorDivisa = (DtoLibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)filtro.admPorDivisa,
                 autoDepartamento = filtro.autoDepartamento,
                 autoDeposito = filtro.autoDeposito,
@@ -110,7 +111,7 @@ namespace DataProvInventario.Data
                     {
                         return new OOB.LibInventario.Producto.Origen.Ficha ()
                         {
-                             Id=s.Id,
+                             Id=s.Id.ToString(),
                              Descripcion=s.Descripcion,
                         };
                     }).ToList();
@@ -142,7 +143,7 @@ namespace DataProvInventario.Data
                     {
                         return new OOB.LibInventario.Producto.Categoria.Ficha()
                         {
-                            Id = s.Id,
+                            Id = s.Id.ToString(),
                             Descripcion = s.Descripcion,
                         };
                     }).ToList();
@@ -251,7 +252,7 @@ namespace DataProvInventario.Data
                     {
                         return new OOB.LibInventario.Producto.AdmDivisa.Ficha()
                         {
-                            Id = s.Id,
+                            Id = s.Id.ToString(),
                             Descripcion = s.Descripcion,
                         };
                     }).ToList();
@@ -430,6 +431,236 @@ namespace DataProvInventario.Data
                 nr.fechaUltCambio = fechaV;
             }
             rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ficha> Producto_GetDepositos(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ficha>();
+
+            var r01 = MyData.Producto_GetDepositos(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var nr = new OOB.LibInventario.Producto.Depositos.Ficha();
+            var e = r01.Entidad;
+            if (e != null)
+            {
+                nr.autoPrd=e.autoPrd;
+                nr.codigoPrd=e.codigoPrd;
+                nr.descripcionPrd=e.descripcionPrd;
+                nr.nombrePrd=e.nombrePrd;
+                nr.referenciaPrd=e.referenciaPrd;
+
+                var list = new List<OOB.LibInventario.Producto.Depositos.Deposito>();
+                if (e.depositos != null)
+                {
+                    if (e.depositos.Count > 0)
+                    {
+                        list = e.depositos.Select(s =>
+                        {
+                            return new OOB.LibInventario.Producto.Depositos.Deposito()
+                            {
+                                auto = s.autoDeposito,
+                                codigo = s.codigoDeposito,
+                                nombre = s.nombreDeposito,
+                            };
+                        }).ToList();
+                    }
+                }
+                nr.depositos = list;
+            }
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_AsignarDepositos(OOB.LibInventario.Producto.Depositos.Asignar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var listDTO = new List<DtoLibInventario.Producto.Depositos.Asignar.Deposito>();
+            foreach (var it in ficha.depositos) 
+            {
+                var nr = new DtoLibInventario.Producto.Depositos.Asignar.Deposito()
+                {
+                    autoDeposito = it.autoDeposito,
+                    averia = it.averia,
+                    disponible = it.disponible,
+                    fechaUltConteo = it.fechaUltConteo,
+                    fisica = it.fisica,
+                    nivel_minimo = it.nivel_minimo,
+                    nivel_optimo = it.nivel_optimo,
+                    pto_pedido = it.pto_pedido,
+                    reservada = it.reservada,
+                    resultadoUltConteo = it.resultadoUltConteo,
+                    ubicacion_1 = it.ubicacion_1,
+                    ubicacion_2 = it.ubicacion_2,
+                    ubicacion_3 = it.ubicacion_3,
+                    ubicacion_4 = it.ubicacion_4,
+                };
+                listDTO.Add(nr);
+            }
+
+            var fichaDTO = new DtoLibInventario.Producto.Depositos.Asignar.Ficha() 
+            {
+                 autoProducto= ficha.autoProducto,
+                 depositos=listDTO,
+            };
+            var r01 = MyData.Producto_AsignarDepositos(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibInventario.Producto.ClasificacionAbc.Ficha> Producto_Clasificacion_Lista()
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Producto.ClasificacionAbc.Ficha>();
+
+            var r01 = MyData.Producto_Clasificacion_Lista();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Producto.ClasificacionAbc.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Producto.ClasificacionAbc.Ficha()
+                        {
+                            Id = s.Id.ToString(),
+                            Descripcion = s.Descripcion,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Editar.Obtener.Ficha> Producto_Editar_GetFicha(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Editar.Obtener.Ficha>();
+
+            var r01 = MyData.Producto_Editar_GetFicha(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var nr = new OOB.LibInventario.Producto.Editar.Obtener.Ficha();
+            var e = r01.Entidad;
+            if (e != null)
+            {
+                nr.auto=e.auto;
+                nr.autoDepartamento = e.autoDepartamento;
+                nr.autoGrupo = e.autoGrupo;
+                nr.autoMarca = e.autoMarca;
+                nr.autoEmpCompra = e.autoEmpCompra;
+                nr.autoTasaImpuesto = e.autoTasaImpuesto;
+
+                nr.codigo = e.codigo;
+                nr.nombre = e.nombre;
+                nr.descripcion = e.descripcion;
+                nr.modelo = e.modelo;
+                nr.referencia = e.referencia;
+                nr.contenidoCompra = e.contenidoCompra;
+
+                nr.origen= (OOB.LibInventario.Producto.Enumerados.EnumOrigen) e.origen;
+                nr.categoria= (OOB.LibInventario.Producto.Enumerados.EnumCategoria) e.categoria;
+                nr.AdmPorDivisa= (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)  e.AdmPorDivisa;
+                nr.Clasificacion= (OOB.LibInventario.Producto.Enumerados.EnumClasificacionABC) e.Clasificacion;
+            }
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_Editar_Actualizar(OOB.LibInventario.Producto.Editar.Actualizar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Producto.Editar.Actualizar.Ficha()
+            {
+                auto = ficha.auto,
+                abc = ficha.abc,
+                autoDepartamento = ficha.autoDepartamento,
+                autoEmpCompra = ficha.autoEmpCompra,
+                autoGrupo = ficha.autoGrupo,
+                autoMarca = ficha.autoMarca,
+                autoTasaImpuesto = ficha.autoTasaImpuesto,
+                categoria = ficha.categoria,
+                codigo = ficha.codigo,
+                contenidoCompra = ficha.contenidoCompra,
+                descripcion = ficha.descripcion,
+                estatusDivisa = ficha.estatusDivisa,
+                modelo = ficha.modelo,
+                nombre = ficha.nombre,
+                origen = ficha.origen,
+                referencia = ficha.referencia,
+            };
+            var r01 = MyData.Producto_Editar_Actualizar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.ResultadoAuto Producto_Nuevo_Agregar(OOB.LibInventario.Producto.Agregar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoAuto();
+
+            var fichaDTO = new DtoLibInventario.Producto.Agregar.Ficha()
+            {
+                abc = ficha.abc,
+                autoDepartamento = ficha.autoDepartamento,
+                autoEmpCompra = ficha.autoEmpCompra,
+                autoGrupo = ficha.autoGrupo,
+                autoMarca = ficha.autoMarca,
+                autoTasaImpuesto = ficha.autoTasaImpuesto,
+                categoria = ficha.categoria,
+                codigo = ficha.codigo,
+                contenidoCompra = ficha.contenidoCompra,
+                descripcion = ficha.descripcion,
+                estatusDivisa = ficha.estatusDivisa,
+                modelo = ficha.modelo,
+                nombre = ficha.nombre,
+                origen = ficha.origen,
+                referencia = ficha.referencia,
+                estatus = ficha.estatus,
+                tasa = ficha.tasa,
+            };
+            var r01 = MyData.Producto_Nuevo_Agregar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Auto = r01.Auto;
 
             return rt;
         }

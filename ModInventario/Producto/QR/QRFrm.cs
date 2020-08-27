@@ -33,9 +33,12 @@ namespace ModInventario.Producto.QR
 
         private void QRFrm_Load(object sender, EventArgs e)
         {
+            var url = _controlador.Url;
+
             QrEncoder qrencoder = new QrEncoder( ErrorCorrectionLevel.H );
             QrCode qrcode = new QrCode();
-            qrencoder.TryEncode("http://192.168.100.10/info.php?auto="+_controlador.AutoPrd, out qrcode);
+            //"http://192.168.100.10/info.php?auto="+_controlador.AutoPrd
+            qrencoder.TryEncode(url, out qrcode);
             GraphicsRenderer render = new GraphicsRenderer(new FixedCodeSize(400, QuietZoneModules.Zero), Brushes.Black, Brushes.White);
             MemoryStream ms = new MemoryStream();
             render.WriteToStream(qrcode.Matrix, System.Drawing.Imaging.ImageFormat.Png, ms);

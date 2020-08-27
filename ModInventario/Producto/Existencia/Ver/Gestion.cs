@@ -87,7 +87,7 @@ namespace ModInventario.Producto.Existencia.Ver
             _empaque = r01.Entidad.empaque;
             _empaqueContenido = r01.Entidad.empaqueContenido;
 
-            foreach (var it in r01.Entidad.depositos) 
+            foreach (var it in r01.Entidad.depositos.OrderBy(o=>o.nombre).ToList()) 
             {
                 var nr = new data(it);
                 _data.Add(nr);

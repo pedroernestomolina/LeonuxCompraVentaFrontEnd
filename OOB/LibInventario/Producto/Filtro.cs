@@ -12,6 +12,7 @@ namespace OOB.LibInventario.Producto
     {
 
         public string cadena { get; set; }
+        public string autoProducto { get; set; }
         public string autoDepartamento { get; set; }
         public string autoGrupo { get; set; }
         public string autoDeposito { get; set; }
@@ -35,6 +36,7 @@ namespace OOB.LibInventario.Producto
         public void Limpiar()
         {
             cadena = "";
+            autoProducto = "";
             autoDepartamento = "";
             autoDeposito = "";
             autoGrupo = "";

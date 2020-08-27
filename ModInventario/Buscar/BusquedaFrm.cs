@@ -81,6 +81,7 @@ namespace ModInventario.Buscar
 
         private void BusquedaFrm_Load(object sender, EventArgs e)
         {
+            TB_CADENA.Text = "";
             DGV.DataSource = _controlador.Source;
             L_ITEMS.Text = _controlador.Items.ToString("n0");
             LimpiarEtiquetas();
@@ -240,11 +241,11 @@ namespace ModInventario.Buscar
 
         private void SeleccionarItem()
         {
-            _controlador.SeleccionarItem();
-            if (_controlador.HayItemSeleccionado) 
-            {
-                Salir();
-            }
+            //_controlador.SeleccionarItem();
+            //if (_controlador.HayItemSeleccionado) 
+            //{
+            //    Salir();
+            //}
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -381,6 +382,39 @@ namespace ModInventario.Buscar
         private void AsignarDeposito()
         {
             _controlador.AsignarDeposito();
+            TB_CADENA.Focus();
+        }
+
+        private void BT_MOV_KARDEX_Click(object sender, EventArgs e)
+        {
+            MovKardex();
+        }
+
+        private void MovKardex()
+        {
+            _controlador.MovKardex(); 
+            TB_CADENA.Focus();
+        }
+
+        private void BT_EDITAR_FICHA_Click(object sender, EventArgs e)
+        {
+            EditarFicha();
+        }
+
+        private void EditarFicha()
+        {
+            _controlador.EditarFicha();
+            TB_CADENA.Focus();
+        }
+
+        private void BT_AGREGAR_FICHA_Click(object sender, EventArgs e)
+        {
+            AgregarFicha();
+        }
+
+        private void AgregarFicha()
+        {
+            _controlador.AgregarFicha();
             TB_CADENA.Focus();
         }
        

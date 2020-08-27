@@ -22,6 +22,8 @@ namespace ModInventario.Buscar
         private Producto.Costo.Editar.Gestion _gestionEditarCosto;
         private Producto.QR.Gestion _gestionQR;
         private Producto.Deposito.Asignar.Gestion _gestionDeposito;
+        private Producto.AgregarEditar.Gestion _gestionEditarFicha;
+        private Producto.AgregarEditar.Gestion _gestionAgregarFicha;
         private OOB.LibInventario.Producto.Filtro _filtros;
 
 
@@ -48,6 +50,8 @@ namespace ModInventario.Buscar
             _gestionEditarCosto = new Producto.Costo.Editar.Gestion();
             _gestionQR = new Producto.QR.Gestion();
             _gestionDeposito = new Producto.Deposito.Asignar.Gestion();
+            _gestionEditarFicha = new Producto.AgregarEditar.Gestion(new Producto.AgregarEditar.Editar.Gestion());
+            _gestionAgregarFicha = new Producto.AgregarEditar.Gestion(new Producto.AgregarEditar.Agregar.Gestion());
             LimpiarEntradas();
         }
 
@@ -267,6 +271,60 @@ namespace ModInventario.Buscar
             {
                 _gestionDeposito.setFicha(Item.identidad.auto);
                 _gestionDeposito.Inicia();
+            }
+        }
+
+        public void MovKardex()
+        {
+        }
+
+        public void EditarFicha()
+        {
+            if (Item != null)
+            {
+                _gestionEditarFicha.setFicha(Item.identidad.auto);
+                _gestionEditarFicha.Inicia();
+                if (_gestionEditarFicha.IsAgregarEditarOk)
+                {
+                    var filtros = new OOB.LibInventario.Producto.Filtro();
+                    filtros.autoProducto = Item.identidad.auto;
+                    var r01 = Sistema.MyData.Producto_GetLista(filtros);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    if (r01.Lista !=null) 
+                    {
+                        if (r01.Lista.Count > 0) 
+                        {
+                            _gestionLista.Reemplazar(r01.Lista);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void AgregarFicha()
+        {
+            _gestionAgregarFicha.Inicia();
+            if (_gestionAgregarFicha.IsAgregarEditarOk) 
+            {
+                var filtros = new OOB.LibInventario.Producto.Filtro();
+                filtros.autoProducto = _gestionAgregarFicha.AutoProductoAgregado ;
+                var r01 = Sistema.MyData.Producto_GetLista(filtros);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                if (r01.Lista != null)
+                {
+                    if (r01.Lista.Count > 0)
+                    {
+                        _gestionLista.Agregar(r01.Lista);
+                    }
+                }
             }
         }
 

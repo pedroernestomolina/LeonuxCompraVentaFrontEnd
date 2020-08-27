@@ -14,7 +14,14 @@ namespace ModInventario.Producto.QR
 
         private string _autoPrd;
         public string AutoPrd { get { return _autoPrd; } }
-
+        public string Url 
+        { 
+            get 
+            {
+                var rt = @"http://"+Sistema._Instancia+"/info.php?auto="+AutoPrd;
+                return rt; 
+            } 
+        }
 
 
         public void setFicha(string p)

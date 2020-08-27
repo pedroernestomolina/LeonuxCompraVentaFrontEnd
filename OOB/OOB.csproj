@@ -83,7 +83,9 @@
     <Compile Include="LibInventario\Precio\Historico\Filtro.cs" />
     <Compile Include="LibInventario\Precio\PrecioCosto\Ficha.cs" />
     <Compile Include="LibInventario\Producto\AdmDivisa\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Agregar\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Categoria\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\ClasificacionAbc\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Data\Costo.cs" />
     <Compile Include="LibInventario\Producto\Data\Deposito.cs" />
     <Compile Include="LibInventario\Producto\Data\Existencia.cs" />
@@ -92,6 +94,12 @@
     <Compile Include="LibInventario\Producto\Data\Identificacion.cs" />
     <Compile Include="LibInventario\Producto\Data\Precio.cs" />
     <Compile Include="LibInventario\Producto\Data\Proveedor.cs" />
+    <Compile Include="LibInventario\Producto\Depositos\Asignar\Deposito.cs" />
+    <Compile Include="LibInventario\Producto\Depositos\Asignar\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Depositos\Deposito.cs" />
+    <Compile Include="LibInventario\Producto\Depositos\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Editar\Actualizar\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Editar\Obtener\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Enumerados.cs" />
     <Compile Include="LibInventario\Producto\Estatus\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Filtro.cs" />

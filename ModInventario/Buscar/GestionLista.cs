@@ -73,6 +73,29 @@ namespace ModInventario.Buscar
             bsLista.CurrencyManager.Refresh();
         }
 
+        public void Reemplazar(List<OOB.LibInventario.Producto.Data.Ficha> lista)
+        {
+            foreach (var it in lista) 
+            {
+                var t = blLista.First(f => f.identidad.auto == it.identidad.auto);
+                if (t != null) 
+                {
+                    blLista.Remove(t);
+                    blLista.Add(it);
+                }
+            }
+            bsLista.CurrencyManager.Refresh();
+        }
+
+        public void Agregar(List<OOB.LibInventario.Producto.Data.Ficha> list)
+        {
+            foreach (var it in list)
+            {
+                blLista.Add(it);
+            }
+            bsLista.CurrencyManager.Refresh();
+        }
+
     }
 
 }

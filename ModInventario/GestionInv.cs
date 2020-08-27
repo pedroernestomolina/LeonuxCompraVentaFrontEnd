@@ -40,13 +40,12 @@ namespace ModInventario
         Form1 frm = null;
         public void Inicia() 
         {
-            frm = new Form1();
-            frm.setControlador(this);
-            Application.Run(frm);
-
-            //frm = new Form1();
-            //frm.setControlador(this);
-            //frm.ShowDialog();
+            if (frm == null) 
+            {
+                frm = new Form1();
+                frm.setControlador(this);
+            }
+            frm.ShowDialog();
         }
      
         public void TrasladoMercanciaEntreSucursalPorNivelMinimo()

@@ -37,6 +37,7 @@ namespace ModInventario
         private void Form1_Load(object sender, EventArgs e)
         {
             L_VERSION.Text = _controlador.Version;
+            L_HOST.Text = _controlador.Host;
         }
 
         public void setControlador(GestionInv ctr) 

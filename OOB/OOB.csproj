@@ -114,6 +114,7 @@
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Capturar\Ficha.cs" />
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Capturar\Filtro.cs" />
     <Compile Include="LibInventario\Usuario\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Inicializar\Ficha.cs" />
     <Compile Include="LibSistema\Deposito\Agregar.cs" />
     <Compile Include="LibSistema\Deposito\Editar.cs" />
     <Compile Include="LibSistema\Deposito\Ficha.cs" />

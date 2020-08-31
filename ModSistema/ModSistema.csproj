@@ -97,6 +97,13 @@
     <Compile Include="Precio\Gestion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicio\Gestion.cs" />
+    <Compile Include="Servicio\IniciarBDFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicio\IniciarBDFrm.Designer.cs">
+      <DependentUpon>IniciarBDFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema.cs" />
     <Compile Include="SucursalDeposito\AsignarFrm.cs">
       <SubType>Form</SubType>
@@ -195,6 +202,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Servicio\IniciarBDFrm.resx">
+      <DependentUpon>IniciarBDFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SucursalDeposito\AsignarFrm.resx">
       <DependentUpon>AsignarFrm.cs</DependentUpon>
     </EmbeddedResource>

@@ -89,7 +89,14 @@ namespace ModInventario.Producto.Precio.Editar
             }
             set
             {
-                _neto = value;
+                if (isDivisa)
+                {
+                    _neto = value;
+                }
+                else 
+                {
+                    _neto = Helpers.MetodosExtension.RoundOff((int)value);
+                }
                 CalculaFull();
                 CalculaUtilidad();
             }

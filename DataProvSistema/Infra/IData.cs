@@ -9,7 +9,7 @@ namespace DataProvSistema.Infra
 {
     
     public interface IData: IDeposito, ISucursalGrupo, ISucursal, IUsuario, IPrecio,
-        IFuncion, IUsuarioGrupo
+        IFuncion, IUsuarioGrupo, IServConf
 
     {
 

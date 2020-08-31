@@ -282,6 +282,12 @@ namespace ModInventario.Buscar
         {
             if (Item != null)
             {
+                if (Item.identidad.estatus == OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
+                {
+                    Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
+                    return;
+                }
+
                 _gestionEditarFicha.setFicha(Item.identidad.auto);
                 _gestionEditarFicha.Inicia();
                 if (_gestionEditarFicha.IsAgregarEditarOk)

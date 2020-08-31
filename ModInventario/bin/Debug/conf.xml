@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configuracion>
   <Servidor>
-    <Instancia>192.168.100.10</Instancia>
-    <Catalogo>panda</Catalogo>
+    <Instancia>localhost</Instancia>
+    <Catalogo>panda2</Catalogo>
   </Servidor>
 </Configuracion>

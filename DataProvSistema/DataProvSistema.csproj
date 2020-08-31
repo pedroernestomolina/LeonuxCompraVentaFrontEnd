@@ -52,6 +52,7 @@
     <Compile Include="Data\Deposito.cs" />
     <Compile Include="Data\Funcion.cs" />
     <Compile Include="Data\Precio.cs" />
+    <Compile Include="Data\ServConf.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\SucursalGrupo.cs" />
     <Compile Include="Data\Usuario.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Infra\IDeposito.cs" />
     <Compile Include="Infra\IFuncion.cs" />
     <Compile Include="Infra\IPrecio.cs" />
+    <Compile Include="Infra\IServConf.cs" />
     <Compile Include="Infra\ISucursal.cs" />
     <Compile Include="Infra\ISucursalGrupo.cs" />
     <Compile Include="Infra\IUsuario.cs" />

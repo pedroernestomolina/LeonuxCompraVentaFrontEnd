@@ -42,3 +42,4 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Usuario.
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Servicio.IniciarBDFrm.resources

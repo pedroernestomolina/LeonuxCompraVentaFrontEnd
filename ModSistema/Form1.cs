@@ -46,6 +46,7 @@ namespace ModSistema
         private void Form1_Load(object sender, EventArgs e)
         {
             L_VERSION.Text = _controlador.Version;
+            L_HOST.Text = _controlador.Host;
         }
 
         private void TSM_MAESTRO_SucursalGrupo_Click(object sender, EventArgs e)
@@ -116,6 +117,16 @@ namespace ModSistema
         private void Usuarios()
         {
             _controlador.MaestroUsuarios();
+        }
+
+        private void TSM_SERVICIO_INICIALIZA_BD_Click(object sender, EventArgs e)
+        {
+            InicializarBD();
+        }
+
+        private void InicializarBD()
+        {
+            _controlador.InicializarBD();
         }
 
     }

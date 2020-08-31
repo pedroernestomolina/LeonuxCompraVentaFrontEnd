@@ -57,6 +57,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.L_HOST = new System.Windows.Forms.Label();
+            this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_SERVICIO_INICIALIZA_BD = new System.Windows.Forms.ToolStripMenuItem();
+            this.inicializarBDSucussalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,6 +72,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +94,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.panel2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
@@ -125,7 +132,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.maestrosToolStripMenuItem,
-            this.ajustesToolStripMenuItem});
+            this.ajustesToolStripMenuItem,
+            this.serviciosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(535, 24);
@@ -166,7 +174,7 @@
             this.TSM_MAESTRO_Sucursal,
             this.toolStripMenuItem3});
             this.sucursalesToolStripMenuItem.Name = "sucursalesToolStripMenuItem";
-            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.sucursalesToolStripMenuItem.Text = "Sucursales";
             // 
             // TSM_MAESTRO_SucursalGrupo
@@ -191,19 +199,19 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
             // 
             // TSM_MAESTRO_Deposito
             // 
             this.TSM_MAESTRO_Deposito.Name = "TSM_MAESTRO_Deposito";
-            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(129, 22);
             this.TSM_MAESTRO_Deposito.Text = "Depositos";
             this.TSM_MAESTRO_Deposito.Click += new System.EventHandler(this.TSM_MAESTRO_Deposito_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(126, 6);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -211,20 +219,20 @@
             this.TSM_MAESTROS_UsuarioGrupo,
             this.TSM_MAESTROS_Usuario});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // TSM_MAESTROS_UsuarioGrupo
             // 
             this.TSM_MAESTROS_UsuarioGrupo.Name = "TSM_MAESTROS_UsuarioGrupo";
-            this.TSM_MAESTROS_UsuarioGrupo.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTROS_UsuarioGrupo.Size = new System.Drawing.Size(114, 22);
             this.TSM_MAESTROS_UsuarioGrupo.Text = "Grupos";
             this.TSM_MAESTROS_UsuarioGrupo.Click += new System.EventHandler(this.TSM_MAESTROS_UsuarioGrupo_Click);
             // 
             // TSM_MAESTROS_Usuario
             // 
             this.TSM_MAESTROS_Usuario.Name = "TSM_MAESTROS_Usuario";
-            this.TSM_MAESTROS_Usuario.Size = new System.Drawing.Size(152, 22);
+            this.TSM_MAESTROS_Usuario.Size = new System.Drawing.Size(114, 22);
             this.TSM_MAESTROS_Usuario.Text = "Usuario";
             this.TSM_MAESTROS_Usuario.Click += new System.EventHandler(this.TSM_MAESTROS_Usuario_Click);
             // 
@@ -351,6 +359,51 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // panel7
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
+            this.panel7.Controls.Add(this.L_HOST);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1, 1);
+            this.panel7.Margin = new System.Windows.Forms.Padding(1);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(2);
+            this.panel7.Size = new System.Drawing.Size(264, 52);
+            this.panel7.TabIndex = 1;
+            // 
+            // L_HOST
+            // 
+            this.L_HOST.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_HOST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
+            this.L_HOST.Location = new System.Drawing.Point(2, 2);
+            this.L_HOST.Name = "L_HOST";
+            this.L_HOST.Size = new System.Drawing.Size(260, 48);
+            this.L_HOST.TabIndex = 1;
+            this.L_HOST.Text = "label2";
+            // 
+            // serviciosToolStripMenuItem
+            // 
+            this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_SERVICIO_INICIALIZA_BD,
+            this.inicializarBDSucussalToolStripMenuItem});
+            this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.serviciosToolStripMenuItem.Text = "Servicios";
+            // 
+            // TSM_SERVICIO_INICIALIZA_BD
+            // 
+            this.TSM_SERVICIO_INICIALIZA_BD.Name = "TSM_SERVICIO_INICIALIZA_BD";
+            this.TSM_SERVICIO_INICIALIZA_BD.Size = new System.Drawing.Size(188, 22);
+            this.TSM_SERVICIO_INICIALIZA_BD.Text = "Inicializar BD";
+            this.TSM_SERVICIO_INICIALIZA_BD.Click += new System.EventHandler(this.TSM_SERVICIO_INICIALIZA_BD_Click);
+            // 
+            // inicializarBDSucussalToolStripMenuItem
+            // 
+            this.inicializarBDSucussalToolStripMenuItem.Name = "inicializarBDSucussalToolStripMenuItem";
+            this.inicializarBDSucussalToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.inicializarBDSucussalToolStripMenuItem.Text = "Inicializar BD Sucursal";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +428,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,6 +465,11 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_UsuarioGrupo;
         private System.Windows.Forms.ToolStripMenuItem TSM_MAESTROS_Usuario;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label L_HOST;
+        private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_SERVICIO_INICIALIZA_BD;
+        private System.Windows.Forms.ToolStripMenuItem inicializarBDSucussalToolStripMenuItem;
     }
 }
 

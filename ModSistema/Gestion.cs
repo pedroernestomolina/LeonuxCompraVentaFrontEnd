@@ -20,7 +20,16 @@ namespace ModSistema
         private UsuarioGrupo.Gestion _gestionUsuarioGrupo;
         private Usuario.Gestion _gestionUsuario;
         private SucursalDeposito.Gestion _gestionSucDep;
+        private Servicio.Gestion _gestionServicio;
 
+
+        public string Host 
+        {
+            get 
+            {
+                return "Base Dato: "+Sistema.Host; 
+            }
+        }
 
         public string Version 
         {
@@ -40,6 +49,7 @@ namespace ModSistema
             _gestionUsuarioGrupo = new UsuarioGrupo.Gestion();
             _gestionUsuario = new Usuario.Gestion();
             _gestionSucDep = new SucursalDeposito.Gestion();
+            _gestionServicio = new Servicio.Gestion();
         }
 
 
@@ -84,6 +94,11 @@ namespace ModSistema
         public void MaestroUsuarios()
         {
             _gestionUsuario.Inicia();
+        }
+
+        public void InicializarBD()
+        {
+            _gestionServicio.Inicia();
         }
 
     }

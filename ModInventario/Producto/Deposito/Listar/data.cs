@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModInventario.Producto.Existencia.Ver
+namespace ModInventario.Producto.Deposito.Listar
 {
 
     public class data
@@ -41,6 +41,14 @@ namespace ModInventario.Producto.Existencia.Ver
                 var ex = 0.0m;
                 ex = _deposito.exDisponible / _empContenido;
                 return ex;
+            }
+        }
+
+        public OOB.LibInventario.Producto.Data.Deposito Deposito 
+        {
+            get 
+            {
+                return _deposito;
             }
         }
 

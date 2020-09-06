@@ -96,6 +96,15 @@
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Kardex\Movimiento\data.cs" />
+    <Compile Include="Kardex\Movimiento\detalle.cs" />
+    <Compile Include="Kardex\Movimiento\Gestion.cs" />
+    <Compile Include="Kardex\Movimiento\KardexFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kardex\Movimiento\KardexFrm.Designer.cs">
+      <DependentUpon>KardexFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maestros\Conceptos\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,14 +235,36 @@
     </Compile>
     <Compile Include="Producto\Deposito\Asignar\data.cs" />
     <Compile Include="Producto\Deposito\Asignar\Gestion.cs" />
-    <Compile Include="Producto\Existencia\Ver\data.cs" />
-    <Compile Include="Producto\Existencia\Ver\Gestion.cs" />
-    <Compile Include="Producto\Existencia\Ver\VerFrm.cs">
+    <Compile Include="Producto\Deposito\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Producto\Existencia\Ver\VerFrm.Designer.cs">
+    <Compile Include="Producto\Deposito\Editar\EditarFrm.Designer.cs">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Deposito\Editar\Gestion.cs" />
+    <Compile Include="Producto\Deposito\Listar\data.cs" />
+    <Compile Include="Producto\Deposito\Listar\Gestion.cs" />
+    <Compile Include="Producto\Deposito\Ver\Gestion.cs" />
+    <Compile Include="Producto\Deposito\Listar\VerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Deposito\Listar\VerFrm.Designer.cs">
       <DependentUpon>VerFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\Deposito\Ver\VerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Deposito\Ver\VerFrm.Designer.cs">
+      <DependentUpon>VerFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Estatus\data.cs" />
+    <Compile Include="Producto\Estatus\EstatusFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Estatus\EstatusFrm.Designer.cs">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Estatus\Gestion.cs" />
     <Compile Include="Producto\Precio\Editar\data.cs" />
     <Compile Include="Producto\Precio\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
@@ -307,6 +338,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kardex\Movimiento\KardexFrm.resx">
+      <DependentUpon>KardexFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maestros\Conceptos\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,8 +389,17 @@
     <EmbeddedResource Include="Producto\Deposito\Asignar\AsignarFrm.resx">
       <DependentUpon>AsignarFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Producto\Existencia\Ver\VerFrm.resx">
+    <EmbeddedResource Include="Producto\Deposito\Editar\EditarFrm.resx">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Deposito\Listar\VerFrm.resx">
       <DependentUpon>VerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Deposito\Ver\VerFrm.resx">
+      <DependentUpon>VerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Estatus\EstatusFrm.resx">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Precio\Editar\EditarFrm.resx">
       <DependentUpon>EditarFrm.cs</DependentUpon>
@@ -435,6 +478,7 @@
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\automatizacion.jpg" />
     <Content Include="Imagenes\bt_asignar.png" />
     <Content Include="Imagenes\bt_consulta.png" />
     <Content Include="Imagenes\bt_costo.png" />
@@ -452,12 +496,20 @@
     <Content Include="Imagenes\bt_mov_2.png" />
     <Content Include="Imagenes\bt_price.png" />
     <Content Include="Imagenes\bt_qr.png" />
+    <Content Include="Imagenes\bt_status.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\bt_limpiar.png" />
     <Content Include="Imagenes\bt_warehouse.png" />
     <Content Include="Imagenes\dollar.png" />
+    <Content Include="Imagenes\inventario.jpg" />
+    <Content Include="Imagenes\inventario_2.jpg" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\automatizacion_2.jpg" />
+    <None Include="Resources\automatizacion.jpg" />
+    <None Include="Resources\inventario_2.jpg" />
+    <None Include="Resources\inventario.jpg" />
+    <None Include="Resources\bt_status.png" />
     <None Include="Resources\bt_gestion.png" />
     <None Include="Resources\bt_mov_2.png" />
     <None Include="Resources\bt_mov.png" />
@@ -481,9 +533,7 @@
     <None Include="Resources\bt_eliminar.png" />
     <None Include="Resources\TOOLS.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Producto\Existencia\Kardex\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

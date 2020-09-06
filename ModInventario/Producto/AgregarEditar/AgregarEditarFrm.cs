@@ -68,6 +68,7 @@ namespace ModInventario.Producto.AgregarEditar
 
         private void Salir()
         {
+            TB_CODIGO.Focus();
             this.Close();
         }
 
@@ -84,6 +85,7 @@ namespace ModInventario.Producto.AgregarEditar
         bool inicializarData = false;
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
+            TB_CODIGO.Focus();
             inicializarData = true;
             CB_DEPARTAMENTO.DataSource = _controlador.Departamentos;
             CB_GRUPO.DataSource = _controlador.Grupos;
@@ -257,6 +259,29 @@ namespace ModInventario.Producto.AgregarEditar
         private void TB_CONTENIDO_Leave(object sender, EventArgs e)
         {
             _controlador.ContEmpProducto = int.Parse(TB_CONTENIDO.Text);  
+        }
+
+        private void L_DEPARTAMENTO_Click(object sender, EventArgs e)
+        {
+            MaestroDepartamento();
+        }
+
+        private void MaestroDepartamento()
+        {
+            _controlador.MaestroDepartamento();
+            CB_DEPARTAMENTO.Refresh();
+        }
+
+        private void L_GRUPO_Click(object sender, EventArgs e)
+        {
+            _controlador.MaestroGrupo();
+            CB_GRUPO.Refresh();
+        }
+
+        private void L_MARCA_Click(object sender, EventArgs e)
+        {
+            _controlador.MaestroMarca();
+            CB_MARCA.Refresh();
         }
 
     }

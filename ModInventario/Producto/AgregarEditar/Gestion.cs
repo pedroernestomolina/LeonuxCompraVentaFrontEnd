@@ -14,6 +14,9 @@ namespace ModInventario.Producto.AgregarEditar
     {
 
         private IGestion miGestion;
+        private Maestros.Departamentos.Gestion _gestionMaestroDepartamento;
+        private Maestros.Grupos.Gestion _gestionMaestroGrupo;
+        private Maestros.Marcas.Gestion _gestionMaestroMarca;
 
 
         public bool IsAgregarEditarOk { get { return miGestion.IsAgregarEditarOk; } }
@@ -51,7 +54,11 @@ namespace ModInventario.Producto.AgregarEditar
         public Gestion(IGestion gestion)
         {
             miGestion = gestion;
+            _gestionMaestroDepartamento = new Maestros.Departamentos.Gestion();
+            _gestionMaestroGrupo = new Maestros.Grupos.Gestion();
+            _gestionMaestroMarca = new Maestros.Marcas.Gestion();
         }
+
 
         public void setFicha(string autoPrd)
         {
@@ -92,6 +99,24 @@ namespace ModInventario.Producto.AgregarEditar
         public void InicializarIsCerrarHabilitado()
         {
             miGestion.InicializarIsCerrarHabilitado();
+        }
+
+        public void MaestroDepartamento()
+        {
+            _gestionMaestroDepartamento.Inicia();
+            miGestion.CargaDepartamentos();
+        }
+
+        public void MaestroGrupo()
+        {
+            _gestionMaestroGrupo.Inicia();
+            miGestion.CargaGrupos();
+        }
+
+        public void MaestroMarca()
+        {
+            _gestionMaestroMarca.Inicia();
+            miGestion.CargaMarcas();
         }
 
     }

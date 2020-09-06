@@ -79,6 +79,14 @@ namespace ModSistema.Deposito
             lSucursal.Clear();
             lSucursal.AddRange(r01.Lista);
 
+            var r02 = Sistema.MyData.Deposito_GeneraCodigoAutomatico();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+            Codigo = r02.Entidad.ToString().Trim().PadLeft(2, '0');
+
             return rt;
         }
 

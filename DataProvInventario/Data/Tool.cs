@@ -43,7 +43,7 @@ namespace DataProvInventario.Data
                             nivelOptimo = s.nivelOptimo,
                             nombreProducto = s.nombreProducto,
                             referenciaProducto = s.referenciaProducto,
-                            esPesado=s.esPesado,
+                            esPesado=s.esPesado=="S"?true:false,
                         };
                     }).ToList();
                 }

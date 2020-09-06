@@ -152,7 +152,11 @@
             this.panel41 = new System.Windows.Forms.Panel();
             this.BT_COSTO = new System.Windows.Forms.Button();
             this.panel49 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel53 = new System.Windows.Forms.Panel();
             this.BT_GENERAR_QR = new System.Windows.Forms.Button();
+            this.panel54 = new System.Windows.Forms.Panel();
+            this.TB_CAMBIO_ESTATUS = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -221,6 +225,9 @@
             this.panel42.SuspendLayout();
             this.panel41.SuspendLayout();
             this.panel49.SuspendLayout();
+            this.tableLayoutPanel16.SuspendLayout();
+            this.panel53.SuspendLayout();
+            this.panel54.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1791,29 +1798,84 @@
             // 
             // panel49
             // 
-            this.panel49.Controls.Add(this.BT_GENERAR_QR);
+            this.panel49.Controls.Add(this.tableLayoutPanel16);
             this.panel49.Location = new System.Drawing.Point(2, 239);
             this.panel49.Margin = new System.Windows.Forms.Padding(1);
             this.panel49.Name = "panel49";
-            this.panel49.Padding = new System.Windows.Forms.Padding(2);
+            this.panel49.Padding = new System.Windows.Forms.Padding(1);
             this.panel49.Size = new System.Drawing.Size(74, 77);
             this.panel49.TabIndex = 2;
+            // 
+            // tableLayoutPanel16
+            // 
+            this.tableLayoutPanel16.ColumnCount = 2;
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.Controls.Add(this.panel53, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.panel54, 1, 0);
+            this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel16.Name = "tableLayoutPanel16";
+            this.tableLayoutPanel16.RowCount = 2;
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(72, 75);
+            this.tableLayoutPanel16.TabIndex = 0;
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.BT_GENERAR_QR);
+            this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel53.Location = new System.Drawing.Point(1, 1);
+            this.panel53.Margin = new System.Windows.Forms.Padding(1);
+            this.panel53.Name = "panel53";
+            this.panel53.Padding = new System.Windows.Forms.Padding(2);
+            this.panel53.Size = new System.Drawing.Size(34, 35);
+            this.panel53.TabIndex = 0;
             // 
             // BT_GENERAR_QR
             // 
             this.BT_GENERAR_QR.BackgroundImage = global::ModInventario.Properties.Resources.bt_qr;
-            this.BT_GENERAR_QR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_GENERAR_QR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BT_GENERAR_QR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_GENERAR_QR.FlatAppearance.BorderSize = 0;
             this.BT_GENERAR_QR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_GENERAR_QR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_GENERAR_QR.Location = new System.Drawing.Point(2, 2);
             this.BT_GENERAR_QR.Name = "BT_GENERAR_QR";
-            this.BT_GENERAR_QR.Size = new System.Drawing.Size(70, 73);
-            this.BT_GENERAR_QR.TabIndex = 3;
+            this.BT_GENERAR_QR.Size = new System.Drawing.Size(30, 31);
+            this.BT_GENERAR_QR.TabIndex = 4;
             this.toolTip1.SetToolTip(this.BT_GENERAR_QR, "Generar Codigo QR");
             this.BT_GENERAR_QR.UseVisualStyleBackColor = true;
             this.BT_GENERAR_QR.Click += new System.EventHandler(this.BT_GENERAR_QR_Click);
+            // 
+            // panel54
+            // 
+            this.panel54.Controls.Add(this.TB_CAMBIO_ESTATUS);
+            this.panel54.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel54.Location = new System.Drawing.Point(37, 1);
+            this.panel54.Margin = new System.Windows.Forms.Padding(1);
+            this.panel54.Name = "panel54";
+            this.panel54.Padding = new System.Windows.Forms.Padding(2);
+            this.panel54.Size = new System.Drawing.Size(34, 35);
+            this.panel54.TabIndex = 1;
+            // 
+            // TB_CAMBIO_ESTATUS
+            // 
+            this.TB_CAMBIO_ESTATUS.BackgroundImage = global::ModInventario.Properties.Resources.bt_status;
+            this.TB_CAMBIO_ESTATUS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TB_CAMBIO_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_CAMBIO_ESTATUS.FlatAppearance.BorderSize = 0;
+            this.TB_CAMBIO_ESTATUS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TB_CAMBIO_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CAMBIO_ESTATUS.Location = new System.Drawing.Point(2, 2);
+            this.TB_CAMBIO_ESTATUS.Name = "TB_CAMBIO_ESTATUS";
+            this.TB_CAMBIO_ESTATUS.Size = new System.Drawing.Size(30, 31);
+            this.TB_CAMBIO_ESTATUS.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.TB_CAMBIO_ESTATUS, "Cambiar Estatus: Activo / Inactivo / Suspendido");
+            this.TB_CAMBIO_ESTATUS.UseVisualStyleBackColor = true;
+            this.TB_CAMBIO_ESTATUS.Click += new System.EventHandler(this.TB_CAMBIO_ESTATUS_Click);
             // 
             // BusquedaFrm
             // 
@@ -1897,6 +1959,9 @@
             this.panel42.ResumeLayout(false);
             this.panel41.ResumeLayout(false);
             this.panel49.ResumeLayout(false);
+            this.tableLayoutPanel16.ResumeLayout(false);
+            this.panel53.ResumeLayout(false);
+            this.panel54.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2019,7 +2084,6 @@
         private System.Windows.Forms.Button BT_EDITAR_FICHA;
         private System.Windows.Forms.Button BT_AGREGAR_FICHA;
         private System.Windows.Forms.Panel panel49;
-        private System.Windows.Forms.Button BT_GENERAR_QR;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Panel panel50;
@@ -2028,5 +2092,10 @@
         private System.Windows.Forms.Button BT_ASIGNAR_DEPOSITO;
         private System.Windows.Forms.Panel panel52;
         private System.Windows.Forms.Button BT_MOV_KARDEX;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
+        private System.Windows.Forms.Panel panel53;
+        private System.Windows.Forms.Button BT_GENERAR_QR;
+        private System.Windows.Forms.Panel panel54;
+        private System.Windows.Forms.Button TB_CAMBIO_ESTATUS;
     }
 }

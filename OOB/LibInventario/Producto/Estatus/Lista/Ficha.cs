@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace OOB.LibInventario.Producto.Estatus
+namespace OOB.LibInventario.Producto.Estatus.Lista
 {
     
     public class Ficha

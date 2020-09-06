@@ -58,11 +58,6 @@ namespace ModPos
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-            if (!r01.Entidad.IsActivo)
-            {
-                Helpers.Msg.Error("USUARIO INACTIVO");
-                return false;
-            }
             rt = true;
             Sistema.Usuario = r01.Entidad;
 

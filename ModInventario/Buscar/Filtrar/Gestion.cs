@@ -19,7 +19,7 @@ namespace ModInventario.Buscar.Filtrar
         private List<OOB.LibInventario.Producto.Categoria.Ficha> lCategoria;
         private List<OOB.LibInventario.Producto.Origen.Ficha> lOrigen;
         private List<OOB.LibInventario.TasaImpuesto.Ficha> lTasa;
-        private List<OOB.LibInventario.Producto.Estatus.Ficha> lEstatus;
+        private List<OOB.LibInventario.Producto.Estatus.Lista.Ficha> lEstatus;
         private List<OOB.LibInventario.Producto.AdmDivisa.Ficha> lAdmDivisa;
         private List<OOB.LibInventario.Producto.Pesado.Ficha> lPesado;
         private List<OOB.LibInventario.Producto.Oferta.Ficha> lOferta;
@@ -34,7 +34,6 @@ namespace ModInventario.Buscar.Filtrar
         private BindingSource bsAdmDivisa;
         private BindingSource bsPesado;
         private BindingSource bsOferta;
-
 
         public BindingSource SourceDepart { get { return bsDepart; } }
         public BindingSource SourceGrupo { get { return bsGrupo; } }
@@ -62,10 +61,12 @@ namespace ModInventario.Buscar.Filtrar
 
         public bool IsFiltrarOk { get; set; }
         public bool IsLimpiarOK { get; set; }
+        public bool ActivarBusqueda { get; set; }
 
 
         public Gestion()
         {
+            ActivarBusqueda = false;
             LimpiarEntradas();
 
             lDepart = new List<OOB.LibInventario.Departamento.Ficha>();
@@ -96,7 +97,7 @@ namespace ModInventario.Buscar.Filtrar
             bsTasa= new BindingSource();
             bsTasa.DataSource = lTasa;
 
-            lEstatus = new List<OOB.LibInventario.Producto.Estatus.Ficha>();
+            lEstatus = new List<OOB.LibInventario.Producto.Estatus.Lista.Ficha>();
             bsEstatus= new BindingSource();
             bsEstatus.DataSource = lEstatus;
 
@@ -127,6 +128,7 @@ namespace ModInventario.Buscar.Filtrar
             IdPesado = "";
             IdOferta = "";
             IsFiltrarOk=true;
+            ActivarBusqueda = false;
         }
 
 
@@ -249,6 +251,7 @@ namespace ModInventario.Buscar.Filtrar
 
         public void Filtrar()
         {
+            ActivarBusqueda = true;
             if (AutoDepartamento != "") 
             {
                 IsFiltrarOk = true;

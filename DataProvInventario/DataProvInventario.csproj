@@ -56,6 +56,7 @@
     <Compile Include="Data\Deposito.cs" />
     <Compile Include="Data\EmpaqueMedida.cs" />
     <Compile Include="Data\Grupo.cs" />
+    <Compile Include="Data\Kardex.cs" />
     <Compile Include="Data\Marca.cs" />
     <Compile Include="Data\Movimiento.cs" />
     <Compile Include="Data\Precio.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="InfraEstructura\IDeposito.cs" />
     <Compile Include="InfraEstructura\IEmpaqueMedida.cs" />
     <Compile Include="InfraEstructura\IGrupo.cs" />
+    <Compile Include="InfraEstructura\IKardex.cs" />
     <Compile Include="InfraEstructura\IMarca.cs" />
     <Compile Include="InfraEstructura\IMovimiento.cs" />
     <Compile Include="InfraEstructura\IPrecio.cs" />

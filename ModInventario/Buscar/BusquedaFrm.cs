@@ -416,8 +416,19 @@ namespace ModInventario.Buscar
         {
             _controlador.AgregarFicha();
             TB_CADENA.Focus();
+            L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
-       
+
+        private void TB_CAMBIO_ESTATUS_Click(object sender, EventArgs e)
+        {
+            CambioEstatus();
+        }
+
+        private void CambioEstatus()
+        {
+            _controlador.CambioEstatus();
+        }
+      
     }
 
 }

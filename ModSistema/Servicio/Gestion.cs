@@ -12,10 +12,42 @@ namespace ModSistema.Servicio
     public class Gestion
     {
 
-        IniciarBDFrm frm;
-        public void Inicia() 
+        public bool HabilitarEntrada { get; set; }
+        public string Sucursal { get; set; }
+        public string Equipo { get; set; }
+
+
+        public Gestion()
         {
+            Limpiar();
+        }
+
+
+        private void Limpiar()
+        {
+            Sucursal = "01";
+            Equipo = "01";
+            HabilitarEntrada = false;
+        }
+
+        IniciarBDFrm frm;
+        public void IniciaBD() 
+        {
+            Limpiar();
             if (frm==null)
+            {
+                frm = new IniciarBDFrm();
+                frm.setControlador(this);
+            }
+            frm.ShowDialog();
+        }
+
+        public void IniciaBD_Sucursal()
+        {
+            Sucursal = "";
+            Equipo = "";
+            HabilitarEntrada = true;
+            if (frm == null)
             {
                 frm = new IniciarBDFrm();
                 frm.setControlador(this);
@@ -33,8 +65,8 @@ namespace ModSistema.Servicio
                 {
                     var ficha = new OOB.LibSistema.Configuracion.Inicializar.Ficha()
                     {
-                        CodSucursal = "01",
-                        IdEquipo = "01",
+                        CodSucursal = Sucursal,
+                        IdEquipo = Equipo,
                     };
                     var r01 = Sistema.MyData.Inicializar_BD(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError) 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModInventario.Producto.Existencia.Ver
+namespace ModInventario.Producto.Deposito.Listar
 {
     
     public class Gestion
@@ -20,6 +20,8 @@ namespace ModInventario.Producto.Existencia.Ver
         private string _empaque;
         private int _empaqueContenido;
         private string _empaqueDes;
+        private Ver.Gestion _gestionVer ;
+        private Editar.Gestion _gestionEditar;
 
 
         public BindingSource Source { get { return _bs; } }
@@ -43,6 +45,8 @@ namespace ModInventario.Producto.Existencia.Ver
             _autoPrd = "";
             _empaque = "";
             _empaqueContenido = 1;
+            _gestionVer = new Ver.Gestion();
+            _gestionEditar = new Editar.Gestion();
 
             _data = new List<data>();
             _bs = new BindingSource();
@@ -87,7 +91,7 @@ namespace ModInventario.Producto.Existencia.Ver
             _empaque = r01.Entidad.empaque;
             _empaqueContenido = r01.Entidad.empaqueContenido;
 
-            foreach (var it in r01.Entidad.depositos.OrderBy(o=>o.nombre).ToList()) 
+            foreach (var it in r01.Entidad.depositos.OrderBy(o=>o.codigo).ToList()) 
             {
                 var nr = new data(it);
                 _data.Add(nr);
@@ -112,6 +116,26 @@ namespace ModInventario.Producto.Existencia.Ver
             foreach (var it in _data)
             {
                 it.setContenido(1);
+            }
+        }
+
+        public void VerDetalleDeposito()
+        {
+            if (_bs.Current!=null)
+            {
+                var item= (data) _bs.Current;
+                _gestionVer.setFicha(_autoPrd, item.Deposito.autoId);
+                _gestionVer.Inicia();
+            }
+        }
+
+        public void EditarDeposito()
+        {
+            if (_bs.Current != null)
+            {
+                var item = (data)_bs.Current;
+                _gestionEditar.setFicha(_autoPrd, item.Deposito.autoId);
+                _gestionEditar.Inicia();
             }
         }
 

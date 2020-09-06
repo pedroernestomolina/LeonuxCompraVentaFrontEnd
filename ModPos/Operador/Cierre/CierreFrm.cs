@@ -130,6 +130,7 @@ namespace ModPos.Operador.Cierre
         private void TB_TextChanged(object sender, EventArgs e)
         {
             var mEfectivo = decimal.Parse(TB_EFECTIVO.Text);
+            var cntDivisa = int.Parse(TB_CNT_DIVISA.Text);
             var mDivisa = decimal.Parse(TB_DIVISA.Text);
             var mTarjeta = decimal.Parse(TB_TARJETA.Text);
             var mOtro = decimal.Parse(TB_OTRO.Text);
@@ -137,6 +138,8 @@ namespace ModPos.Operador.Cierre
             _controlador.setEntradaPorDivisa(mDivisa);
             _controlador.setEntradaPorTarjeta(mTarjeta);
             _controlador.setEntradaPorOtro(mOtro);
+            _controlador.setEntradaPorCntDivisa(cntDivisa);
+            TB_DIVISA.Text = _controlador.MiCierre.EntradaPorDivisa.ToString("n2").Replace(".", "");
             //L_TOTAL_ENTRADA.Text = (mEfectivo + mDivisa + mTarjeta + mOtro).ToString("n2");
             L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
             ActualizaDiferencia();

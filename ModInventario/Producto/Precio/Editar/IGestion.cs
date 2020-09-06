@@ -45,6 +45,7 @@ namespace ModInventario.Producto.Precio.Editar
         void ModoPrecioSw();
         void Procesar();
         void InicializarIsCerrarHabilitado();
+        void Limpiar();
 
     }
 

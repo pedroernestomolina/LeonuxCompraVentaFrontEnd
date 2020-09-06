@@ -11,11 +11,12 @@ namespace ModPos.Operador.Cierre
     public class cierre
     {
 
+        private decimal _divisaPromedio; 
         private OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha _movimientos;
         public decimal EntradaPorEfectivo { get; set; }
-        public decimal EntradaPorDivisa { get; set; }
         public decimal EntradaPorTarjeta { get; set; }
         public decimal EntradaPorOtro { get; set; }
+        public int EntradaPorCntDivisa { get; set; }
         public decimal EntradaPorCredito 
         {
             get 
@@ -23,7 +24,18 @@ namespace ModPos.Operador.Cierre
                 return _movimientos.montoDocCredito;
             }
         }
-
+        private decimal _entradaPorDivisa;
+        public decimal EntradaPorDivisa 
+        {
+            get
+            {
+                return _entradaPorDivisa;
+            }
+            set
+            {
+                _entradaPorDivisa = EntradaPorCntDivisa * _divisaPromedio;
+            }
+        }
 
         public OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha Movimientos 
         {
@@ -128,18 +140,26 @@ namespace ModPos.Operador.Cierre
 
         public cierre() 
         {
+            _divisaPromedio = 0.0m;
             _movimientos =  new OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha();
             EntradaPorDivisa = 0.0m;
             EntradaPorEfectivo = 0.0m;
             EntradaPorOtro = 0.0m;
             EntradaPorTarjeta = 0.0m;
+            EntradaPorCntDivisa = 0;
         }
 
 
         public void setMovimientos(OOB.LibVenta.PosOffline.Operador.Movimiento.Ficha mov) 
         {
             _movimientos = mov;
+            _divisaPromedio = 0.0m;
+            if (mov.cntDivisa > 0) 
+            {
+                _divisaPromedio = mov.montoDivisa / mov.cntDivisa;
+            }
         }
+
 
     }
 

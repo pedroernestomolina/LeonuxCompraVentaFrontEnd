@@ -171,7 +171,7 @@
             // 
             this.L_BD_INF.Dock = System.Windows.Forms.DockStyle.Fill;
             this.L_BD_INF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_BD_INF.ForeColor = System.Drawing.Color.White;
+            this.L_BD_INF.ForeColor = System.Drawing.Color.Yellow;
             this.L_BD_INF.Location = new System.Drawing.Point(2, 2);
             this.L_BD_INF.Name = "L_BD_INF";
             this.L_BD_INF.Size = new System.Drawing.Size(436, 44);

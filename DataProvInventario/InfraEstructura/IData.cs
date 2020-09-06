@@ -10,7 +10,7 @@ namespace DataProvInventario.InfraEstructura
     
     public interface IData: IMovimiento, ISucursal, IConcepto, IDeposito, IUsuario,
         ITool, IReporteMovimientos, IDepartamento, IGrupo, IMarca, IEmpaqueMedida,
-        IProducto, ITasaImpuesto, IConfiguracion, IPrecio, ICosto
+        IProducto, ITasaImpuesto, IConfiguracion, IPrecio, ICosto, IKardex
     {
 
         OOB.ResultadoEntidad<DateTime> FechaServidor();

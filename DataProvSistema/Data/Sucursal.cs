@@ -161,6 +161,22 @@ namespace DataProvSistema.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<int> Sucursal_GeneraCodigoAutomatico()
+        {
+            var rt = new OOB.ResultadoEntidad<int>();
+
+            var r01 = MyData.Sucursal_GeneraCodigoAutomatico();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad;
+
+            return rt;
+        }
+
     }
 
 }

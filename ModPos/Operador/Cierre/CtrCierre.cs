@@ -103,6 +103,7 @@ namespace ModPos.Operador.Cierre
                     {
                         diferencia = _cierre.Diferencia,
                         divisa = _cierre.Movimientos.montoDivisa,
+                        cntdivisa = _cierre.Movimientos.cntDivisa,
                         efectivo = _cierre.MontoEfectivo ,
                         tarjeta = _cierre.Movimientos.montoElectronico,
                         otros = _cierre.Movimientos.montoOtros ,
@@ -113,6 +114,7 @@ namespace ModPos.Operador.Cierre
 
                         mEfectivo = _cierre.EntradaPorEfectivo,
                         mDivisa = _cierre.EntradaPorDivisa,
+                        mCntDivisa = _cierre.EntradaPorCntDivisa,
                         mTarjeta = _cierre.EntradaPorTarjeta,
                         mOtro = _cierre.EntradaPorOtro,
                         mFirma = _cierre.EntradaPorCredito,
@@ -152,7 +154,7 @@ namespace ModPos.Operador.Cierre
                 _lista.Add("DESGLOZE");
                 _lista.Add("Efectivo : "+_cierre.Movimientos.cntEfecitvo.ToString("n0"));
                 _lista.Add("Monto    : "+_cierre.MontoEfectivo.ToString("n2"));
-                _lista.Add("Divisa   : "+_cierre.Movimientos.cntDivisa.ToString("n0"));
+                _lista.Add("Divisa   : "+_cierre.Movimientos.cntDivisa.ToString("n2"));
                 _lista.Add("Monto    : "+_cierre.Movimientos.montoDivisa.ToString("n2"));
                 _lista.Add("Tarjetas : "+_cierre.Movimientos.cntElectronico.ToString("n0"));
                 _lista.Add("Monto    : "+_cierre.Movimientos.montoElectronico.ToString("n2"));
@@ -171,6 +173,7 @@ namespace ModPos.Operador.Cierre
                 _lista.Add("Efectivo : ");
                 _lista.Add("Monto    : " + _cierre.EntradaPorEfectivo.ToString("n2"));
                 _lista.Add("Divisa   : ");
+                _lista.Add("Cantidad : " + _cierre.EntradaPorCntDivisa.ToString("n2"));
                 _lista.Add("Monto    : " + _cierre.EntradaPorDivisa.ToString("n2"));
                 _lista.Add("Tarjetas : ");
                 _lista.Add("Monto    : " + _cierre.EntradaPorTarjeta.ToString("n2"));
@@ -204,6 +207,11 @@ namespace ModPos.Operador.Cierre
         public void setEntradaPorDivisa(decimal monto)
         {
             _cierre.EntradaPorDivisa= monto;
+        }
+
+        public void setEntradaPorCntDivisa(int cntDivisa)
+        {
+            _cierre.EntradaPorCntDivisa = cntDivisa;
         }
 
         public void setEntradaPorTarjeta(decimal monto)

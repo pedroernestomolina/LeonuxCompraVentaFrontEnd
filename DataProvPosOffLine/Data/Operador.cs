@@ -67,6 +67,8 @@ namespace DataProvPosOffLine.Data
                      mFirma = ficha.Movimientos.mFirma,
                      mSubTotal = ficha.Movimientos.mSubTotal,
                      mTotal = ficha.Movimientos.mTotal,
+                     cntdivisa=ficha.Movimientos.cntdivisa,
+                     mCntDivisa=ficha.Movimientos.mCntDivisa,
                 }
             };
 

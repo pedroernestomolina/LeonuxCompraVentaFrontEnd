@@ -14,7 +14,7 @@ namespace ModInventario.Buscar
         private Filtrar.Gestion _gestionFiltro;
         private GestionLista _gestionLista;
         private Producto.Precio.Editar.Gestion _gestionEditarPrecio;
-        private Producto.Existencia.Ver.Gestion _gestionPrdExistencia;
+        private Producto.Deposito.Listar.Gestion _gestionPrdExistencia;
         private Producto.Precio.Historico.Gestion _gestionHistoricoPrecio;
         private Producto.Precio.Ver.Gestion _gestionPrdPrecios;
         private Producto.Costo.Historico.Gestion _gestionHistoricoCosto;
@@ -24,6 +24,8 @@ namespace ModInventario.Buscar
         private Producto.Deposito.Asignar.Gestion _gestionDeposito;
         private Producto.AgregarEditar.Gestion _gestionEditarFicha;
         private Producto.AgregarEditar.Gestion _gestionAgregarFicha;
+        private Producto.Estatus.Gestion _gestionEstatus;
+        private Kardex.Movimiento.Gestion _gestionKardex;
         private OOB.LibInventario.Producto.Filtro _filtros;
 
 
@@ -41,7 +43,7 @@ namespace ModInventario.Buscar
             _gestionFiltro = new Filtrar.Gestion();
             _gestionLista = new GestionLista();
             _gestionLista.CambioItemActual+=_gestionLista_CambioItemActual;
-            _gestionPrdExistencia = new Producto.Existencia.Ver.Gestion();
+            _gestionPrdExistencia = new Producto.Deposito.Listar.Gestion();
             _gestionPrdPrecios = new Producto.Precio.Ver.Gestion();
             _gestionHistoricoPrecio = new Producto.Precio.Historico.Gestion();
             _gestionEditarPrecio = new Producto.Precio.Editar.Gestion(new Producto.Precio.Editar.ModoSucursal.Gestion());
@@ -52,6 +54,8 @@ namespace ModInventario.Buscar
             _gestionDeposito = new Producto.Deposito.Asignar.Gestion();
             _gestionEditarFicha = new Producto.AgregarEditar.Gestion(new Producto.AgregarEditar.Editar.Gestion());
             _gestionAgregarFicha = new Producto.AgregarEditar.Gestion(new Producto.AgregarEditar.Agregar.Gestion());
+            _gestionEstatus = new Producto.Estatus.Gestion();
+            _gestionKardex = new Kardex.Movimiento.Gestion();
             LimpiarEntradas();
         }
 
@@ -136,7 +140,10 @@ namespace ModInventario.Buscar
         public void FiltrarBusqueda()
         {
             _gestionFiltro.Inicia();
-            RealizarBusqueda();
+            if (_gestionFiltro.ActivarBusqueda) 
+            {
+                RealizarBusqueda();
+            }
         }
 
         private void CargarFiltros()
@@ -276,6 +283,11 @@ namespace ModInventario.Buscar
 
         public void MovKardex()
         {
+            if (Item != null)
+            {
+                _gestionKardex.setFicha(Item.identidad.auto);
+                _gestionKardex.Inicia();
+            }
         }
 
         public void EditarFicha()
@@ -331,6 +343,35 @@ namespace ModInventario.Buscar
                         _gestionLista.Agregar(r01.Lista);
                     }
                 }
+            }
+        }
+
+        public void CambioEstatus()
+        {
+            if (Item != null)
+            {
+                _gestionEstatus.setFicha(Item.identidad.auto);
+                _gestionEstatus.Inicia();
+
+                if (_gestionEstatus.IsCambioOk)
+                {
+                    var filtros = new OOB.LibInventario.Producto.Filtro();
+                    filtros.autoProducto = Item.identidad.auto;
+                    var r01 = Sistema.MyData.Producto_GetLista(filtros);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    if (r01.Lista != null)
+                    {
+                        if (r01.Lista.Count > 0)
+                        {
+                            _gestionLista.Reemplazar(r01.Lista);
+                        }
+                    }
+                }
+
             }
         }
 

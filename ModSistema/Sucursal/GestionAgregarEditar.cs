@@ -79,6 +79,14 @@ namespace ModSistema.Sucursal
             lGrupo.Clear();
             lGrupo.AddRange(r01.Lista);
 
+            var r02 = Sistema.MyData.Sucursal_GeneraCodigoAutomatico();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            Codigo = r02.Entidad.ToString().Trim().PadLeft(2, '0');
+
             return rt;
         }
 

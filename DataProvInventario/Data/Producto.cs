@@ -183,6 +183,7 @@ namespace DataProvInventario.Data
                         {
                             return new OOB.LibInventario.Producto.Data.Deposito()
                             {
+                                autoId= s.autoId,
                                 codigo = s.codigo,
                                 exDisponible = s.exDisponible,
                                 exFisica = s.exFisica,
@@ -199,9 +200,9 @@ namespace DataProvInventario.Data
             return rt;
         }
 
-        public OOB.ResultadoLista<OOB.LibInventario.Producto.Estatus.Ficha> Producto_Estatus_Lista()
+        public OOB.ResultadoLista<OOB.LibInventario.Producto.Estatus.Lista.Ficha> Producto_Estatus_Lista()
         {
-            var rt = new OOB.ResultadoLista<OOB.LibInventario.Producto.Estatus.Ficha>();
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Producto.Estatus.Lista.Ficha>();
 
             var r01 = MyData.Producto_Estatus_Lista ();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -211,14 +212,14 @@ namespace DataProvInventario.Data
                 return rt;
             }
 
-            var list = new List<OOB.LibInventario.Producto.Estatus.Ficha>();
+            var list = new List<OOB.LibInventario.Producto.Estatus.Lista.Ficha>();
             if (r01.Lista != null)
             {
                 if (r01.Lista.Count > 0)
                 {
                     list = r01.Lista.Select(s =>
                     {
-                        return new OOB.LibInventario.Producto.Estatus.Ficha()
+                        return new OOB.LibInventario.Producto.Estatus.Lista.Ficha()
                         {
                             Id = s.Id.ToString(),
                             Descripcion = s.Descripcion,
@@ -435,9 +436,9 @@ namespace DataProvInventario.Data
             return rt;
         }
 
-        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ficha> Producto_GetDepositos(string autoPrd)
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Lista.Ficha> Producto_GetDepositos(string autoPrd)
         {
-            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ficha>();
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Lista.Ficha>();
 
             var r01 = MyData.Producto_GetDepositos(autoPrd);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -447,7 +448,7 @@ namespace DataProvInventario.Data
                 return rt;
             }
 
-            var nr = new OOB.LibInventario.Producto.Depositos.Ficha();
+            var nr = new OOB.LibInventario.Producto.Depositos.Lista.Ficha();
             var e = r01.Entidad;
             if (e != null)
             {
@@ -457,14 +458,14 @@ namespace DataProvInventario.Data
                 nr.nombrePrd=e.nombrePrd;
                 nr.referenciaPrd=e.referenciaPrd;
 
-                var list = new List<OOB.LibInventario.Producto.Depositos.Deposito>();
+                var list = new List<OOB.LibInventario.Producto.Depositos.Lista.Deposito>();
                 if (e.depositos != null)
                 {
                     if (e.depositos.Count > 0)
                     {
                         list = e.depositos.Select(s =>
                         {
-                            return new OOB.LibInventario.Producto.Depositos.Deposito()
+                            return new OOB.LibInventario.Producto.Depositos.Lista.Deposito()
                             {
                                 auto = s.autoDeposito,
                                 codigo = s.codigoDeposito,
@@ -661,6 +662,152 @@ namespace DataProvInventario.Data
                 return rt;
             }
             rt.Auto = r01.Auto;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ver.Ficha> Producto_GetDeposito(OOB.LibInventario.Producto.Depositos.Ver.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ver.Ficha>();
+
+            var filtroDTO = new DtoLibInventario.Producto.Depositos.Ver.Filtro()
+            {
+                autoDeposito = filtro.autoDeposito,
+                autoProducto = filtro.autoProducto,
+            };
+            var r01 = MyData.Producto_GetDeposito(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s= r01.Entidad;
+            var nr = new OOB.LibInventario.Producto.Depositos.Ver.Ficha()
+            {
+                autoDeposito = s.autoDeposito,
+                autoProducto = s.autoProducto,
+                averia = s.averia,
+                codigoDeposito = s.codigoDeposito,
+                codigoProducto = s.codigoProducto,
+                contenidoCompra = s.contenidoCompra,
+                disponible = s.disponible,
+                empaqueCompra = s.empaqueCompra,
+                fechaUltConteo = s.fechaUltConteo.HasValue ? s.fechaUltConteo.Value.ToShortDateString(): "",
+                fisica = s.fisica,
+                nivelMinimo = (int)s.nivelMinimo,
+                nivelOptimo = (int)s.nivelOptimo,
+                nombreDeposito = s.nombreDeposito,
+                nombreProducto = s.nombreProducto,
+                ptoPedido = (int)s.ptoPedido,
+                referenciaProducto = s.referenciaProducto,
+                reservada = s.reservada,
+                resultadoUltConteo = s.resultadoUltConteo,
+                ubicacion_1 = s.ubicacion_1,
+                ubicacion_2 = s.ubicacion_2,
+                ubicacion_3 = s.ubicacion_3,
+                ubicacion_4 = s.ubicacion_4,
+            };
+            rt.Entidad=nr;
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_EditarDeposito(OOB.LibInventario.Producto.Depositos.Editar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Editar.Ficha>();
+
+            var fichaDTO = new DtoLibInventario.Producto.Depositos.Editar.Ficha()
+            {
+                autoDeposito = ficha.autoDeposito,
+                autoProducto = ficha.autoProducto,
+                nivelMinimo = ficha.nivelMinimo,
+                nivelOptimo = ficha.nivelOptimo,
+                ptoPedido = ficha.ptoPedido,
+                ubicacion_1 = ficha.ubicacion_1,
+                ubicacion_2 = ficha.ubicacion_2,
+                ubicacion_3 = ficha.ubicacion_3,
+                ubicacion_4 = ficha.ubicacion_4,
+            };
+            var r01 = MyData.Producto_DepositoEditar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError) 
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_CambiarEstatusA_Activo(string auto)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Producto_CambiarEstatusA_Activo(auto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_CambiarEstatusA_Inactivo(string auto)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Producto_CambiarEstatusA_Inactivo(auto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_CambiarEstatusA_Suspendido(string auto)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Producto_CambiarEstatusA_Suspendido(auto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Estatus.Actual.Ficha> Producto_Estatus_GetFicha(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Estatus.Actual.Ficha>();
+
+            var r01 = MyData.Producto_Estatus_GetFicha(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s= r01.Entidad;
+            var nr = new OOB.LibInventario.Producto.Estatus.Actual.Ficha()
+            {
+                autoProducto = s.autoProducto,
+                codigoProducto = s.codigoProducto,
+                estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)s.estatus,
+                nombreProducto = s.nombreProducto,
+                referenciaProducto = s.referenciaProducto,
+            };
+            rt.Entidad = nr;
 
             return rt;
         }

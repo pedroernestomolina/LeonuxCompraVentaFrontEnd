@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace OOB.LibInventario.Producto.Depositos
+namespace OOB.LibInventario.Producto.Depositos.Lista
 {
     
     public class Deposito

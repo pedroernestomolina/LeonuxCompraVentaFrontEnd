@@ -96,6 +96,12 @@ namespace ModSistema.Precio
             }
         }
 
+        private void ActualizarFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = _controlador.CancelarCierreVentana;
+            _controlador.InicializarIsCerrarHabilitado();
+        }
+
     }
 
 }

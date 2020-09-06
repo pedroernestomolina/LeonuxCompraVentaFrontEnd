@@ -21,6 +21,7 @@ namespace ModSistema.Precio
         public string Etiqueta_4 { get; set; }
         public string Etiqueta_5 { get; set; }
         public bool IsActualizarOk { get; set; }
+        public bool CancelarCierreVentana { get; set; }
 
 
         public Gestion()
@@ -32,6 +33,7 @@ namespace ModSistema.Precio
         private void LimpiarEntradas()
         {
             IsActualizarOk = false;
+            CancelarCierreVentana = false;
             Etiqueta_1 = "";
             Etiqueta_2 = "";
             Etiqueta_3 = "";
@@ -39,13 +41,18 @@ namespace ModSistema.Precio
             Etiqueta_5 = "";
         }
 
+        ActualizarFrm frm ;
         public void Inicia() 
         {
             IsActualizarOk = false;
+            CancelarCierreVentana = false;
             if (CargarData())
             {
-                var frm = new ActualizarFrm();
-                frm.setControlador(this);
+                if (frm == null)
+                {
+                    frm = new ActualizarFrm();
+                    frm.setControlador(this);
+                }
                 frm.ShowDialog();
             }
         }
@@ -72,7 +79,8 @@ namespace ModSistema.Precio
 
         public void Procesar()
         {
-            IsActualizarOk = false;
+            CancelarCierreVentana = false;
+
             var msg = MessageBox.Show("Guardar Cambios ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes)
             {
@@ -87,11 +95,19 @@ namespace ModSistema.Precio
                 var r01 = Sistema.MyData.Precio_Etiquetar_Actualizar(ficha);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
+                    CancelarCierreVentana = true;
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
                 IsActualizarOk = true;
             }
+            else
+                CancelarCierreVentana = true;
+        }
+
+        public void InicializarIsCerrarHabilitado()
+        {
+            CancelarCierreVentana = false;
         }
 
     }

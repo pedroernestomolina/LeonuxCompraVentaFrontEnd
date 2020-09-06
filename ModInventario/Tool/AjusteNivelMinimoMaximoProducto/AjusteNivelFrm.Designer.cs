@@ -165,7 +165,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(730, 34);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Productos: Ajuste Nivel Minimo / Maximo ";
+            this.label1.Text = "Productos: Ajuste Nivel Mínimo / Máximo ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -374,6 +374,7 @@
             this.KeyPreview = true;
             this.Name = "AjusteNivelFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AjusteNivelFrm_FormClosing);
             this.Load += new System.EventHandler(this.AjusteNivelFrm_Load);
             this.panel1.ResumeLayout(false);

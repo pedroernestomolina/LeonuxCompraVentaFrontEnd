@@ -32,6 +32,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.L_HOST = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_ARCHIVO_SALIR = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +51,9 @@
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTE_EtiquetarPrecios = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTES_AsignarDepositoSucursal = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_SERVICIO_INICIALIZA_BD = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,14 +62,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.L_HOST = new System.Windows.Forms.Label();
-            this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSM_SERVICIO_INICIALIZA_BD = new System.Windows.Forms.ToolStripMenuItem();
-            this.inicializarBDSucussalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -72,7 +73,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,6 +126,29 @@
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
+            // 
+            // panel7
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
+            this.panel7.Controls.Add(this.L_HOST);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1, 1);
+            this.panel7.Margin = new System.Windows.Forms.Padding(1);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(2);
+            this.panel7.Size = new System.Drawing.Size(264, 52);
+            this.panel7.TabIndex = 1;
+            // 
+            // L_HOST
+            // 
+            this.L_HOST.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_HOST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
+            this.L_HOST.Location = new System.Drawing.Point(2, 2);
+            this.L_HOST.Name = "L_HOST";
+            this.L_HOST.Size = new System.Drawing.Size(260, 48);
+            this.L_HOST.TabIndex = 1;
+            this.L_HOST.Text = "label2";
             // 
             // menuStrip1
             // 
@@ -259,6 +282,29 @@
             this.TSM_AJUSTES_AsignarDepositoSucursal.Text = "Asignar Deposito Principal A Sucursal";
             this.TSM_AJUSTES_AsignarDepositoSucursal.Click += new System.EventHandler(this.TSM_AJUSTES_AsignarDepositoSucursal_Click);
             // 
+            // serviciosToolStripMenuItem
+            // 
+            this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_SERVICIO_INICIALIZA_BD,
+            this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL});
+            this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.serviciosToolStripMenuItem.Text = "Servicios";
+            // 
+            // TSM_SERVICIO_INICIALIZA_BD
+            // 
+            this.TSM_SERVICIO_INICIALIZA_BD.Name = "TSM_SERVICIO_INICIALIZA_BD";
+            this.TSM_SERVICIO_INICIALIZA_BD.Size = new System.Drawing.Size(188, 22);
+            this.TSM_SERVICIO_INICIALIZA_BD.Text = "Inicializar BD";
+            this.TSM_SERVICIO_INICIALIZA_BD.Click += new System.EventHandler(this.TSM_SERVICIO_INICIALIZA_BD_Click);
+            // 
+            // TSM_SERVICIO_INICIALIZA_BD_SUCURSAL
+            // 
+            this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL.Name = "TSM_SERVICIO_INICIALIZA_BD_SUCURSAL";
+            this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL.Size = new System.Drawing.Size(188, 22);
+            this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL.Text = "Inicializar BD Sucursal";
+            this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL.Click += new System.EventHandler(this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Azure;
@@ -359,51 +405,6 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // panel7
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
-            this.panel7.Controls.Add(this.L_HOST);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(1, 1);
-            this.panel7.Margin = new System.Windows.Forms.Padding(1);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(264, 52);
-            this.panel7.TabIndex = 1;
-            // 
-            // L_HOST
-            // 
-            this.L_HOST.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_HOST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
-            this.L_HOST.Location = new System.Drawing.Point(2, 2);
-            this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(260, 48);
-            this.L_HOST.TabIndex = 1;
-            this.L_HOST.Text = "label2";
-            // 
-            // serviciosToolStripMenuItem
-            // 
-            this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSM_SERVICIO_INICIALIZA_BD,
-            this.inicializarBDSucussalToolStripMenuItem});
-            this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.serviciosToolStripMenuItem.Text = "Servicios";
-            // 
-            // TSM_SERVICIO_INICIALIZA_BD
-            // 
-            this.TSM_SERVICIO_INICIALIZA_BD.Name = "TSM_SERVICIO_INICIALIZA_BD";
-            this.TSM_SERVICIO_INICIALIZA_BD.Size = new System.Drawing.Size(188, 22);
-            this.TSM_SERVICIO_INICIALIZA_BD.Text = "Inicializar BD";
-            this.TSM_SERVICIO_INICIALIZA_BD.Click += new System.EventHandler(this.TSM_SERVICIO_INICIALIZA_BD_Click);
-            // 
-            // inicializarBDSucussalToolStripMenuItem
-            // 
-            this.inicializarBDSucussalToolStripMenuItem.Name = "inicializarBDSucussalToolStripMenuItem";
-            this.inicializarBDSucussalToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.inicializarBDSucussalToolStripMenuItem.Text = "Inicializar BD Sucursal";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,6 +421,7 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -428,7 +430,6 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,7 +470,7 @@
         private System.Windows.Forms.Label L_HOST;
         private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_SERVICIO_INICIALIZA_BD;
-        private System.Windows.Forms.ToolStripMenuItem inicializarBDSucussalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_SERVICIO_INICIALIZA_BD_SUCURSAL;
     }
 }
 

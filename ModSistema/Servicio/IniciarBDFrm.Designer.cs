@@ -40,12 +40,12 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.P_DATA = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.TB_EQUIPO = new System.Windows.Forms.TextBox();
             this.TB_SUCURSAL = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -54,7 +54,7 @@
             this.panel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.P_DATA.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -176,7 +176,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.60685F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.39315F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.P_DATA, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
@@ -211,21 +211,32 @@
             this.label2.Text = "ALERTA !!!\r\n\r\nEste Procedimiento Deja La Base \r\nde Datos en su forma Original.\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel7
+            // P_DATA
             // 
-            this.panel7.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.TB_EQUIPO);
-            this.panel7.Controls.Add(this.TB_SUCURSAL);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(347, 1);
-            this.panel7.Margin = new System.Windows.Forms.Padding(1);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(265, 130);
-            this.panel7.TabIndex = 1;
+            this.P_DATA.BackColor = System.Drawing.Color.AliceBlue;
+            this.P_DATA.Controls.Add(this.label5);
+            this.P_DATA.Controls.Add(this.TB_EQUIPO);
+            this.P_DATA.Controls.Add(this.TB_SUCURSAL);
+            this.P_DATA.Controls.Add(this.label4);
+            this.P_DATA.Controls.Add(this.label3);
+            this.P_DATA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.P_DATA.Location = new System.Drawing.Point(347, 1);
+            this.P_DATA.Margin = new System.Windows.Forms.Padding(1);
+            this.P_DATA.Name = "P_DATA";
+            this.P_DATA.Padding = new System.Windows.Forms.Padding(2);
+            this.P_DATA.Size = new System.Drawing.Size(265, 130);
+            this.P_DATA.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(2, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(261, 28);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "DATOS SUCURSAL / PRINCIPAL";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TB_EQUIPO
             // 
@@ -236,6 +247,9 @@
             this.TB_EQUIPO.Name = "TB_EQUIPO";
             this.TB_EQUIPO.Size = new System.Drawing.Size(89, 22);
             this.TB_EQUIPO.TabIndex = 1;
+            this.TB_EQUIPO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_EQUIPO.Leave += new System.EventHandler(this.TB_EQUIPO_Leave);
+            this.TB_EQUIPO.Validating += new System.ComponentModel.CancelEventHandler(this.TB_EQUIPO_Validating);
             // 
             // TB_SUCURSAL
             // 
@@ -246,6 +260,9 @@
             this.TB_SUCURSAL.Name = "TB_SUCURSAL";
             this.TB_SUCURSAL.Size = new System.Drawing.Size(89, 22);
             this.TB_SUCURSAL.TabIndex = 0;
+            this.TB_SUCURSAL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_SUCURSAL.Leave += new System.EventHandler(this.TB_SUCURSAL_Leave);
+            this.TB_SUCURSAL.Validating += new System.ComponentModel.CancelEventHandler(this.TB_SUCURSAL_Validating);
             // 
             // label4
             // 
@@ -267,17 +284,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Sucursal:";
             // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(2, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(261, 28);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "DATOS SUCURSAL / PRINCIPAL";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // IniciarBDFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +294,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "IniciarBDFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.IniciarBDFrm_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -296,8 +303,8 @@
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.P_DATA.ResumeLayout(false);
+            this.P_DATA.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -316,7 +323,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel P_DATA;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TB_EQUIPO;

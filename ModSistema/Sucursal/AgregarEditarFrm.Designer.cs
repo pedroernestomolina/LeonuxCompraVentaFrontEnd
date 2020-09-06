@@ -334,6 +334,7 @@
             this.TB_CODIGO.Location = new System.Drawing.Point(2, 2);
             this.TB_CODIGO.MaxLength = 30;
             this.TB_CODIGO.Name = "TB_CODIGO";
+            this.TB_CODIGO.ReadOnly = true;
             this.TB_CODIGO.Size = new System.Drawing.Size(238, 22);
             this.TB_CODIGO.TabIndex = 1;
             this.TB_CODIGO.TextChanged += new System.EventHandler(this.TB_CODIGO_TextChanged);

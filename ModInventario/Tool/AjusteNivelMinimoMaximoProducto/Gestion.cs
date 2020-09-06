@@ -65,7 +65,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             {
                 var frm = new AjusteNivelFrm();
                 frm.setControlador(this);
-                frm.ShowDialog();
+                frm.Show();
             }
         }
 

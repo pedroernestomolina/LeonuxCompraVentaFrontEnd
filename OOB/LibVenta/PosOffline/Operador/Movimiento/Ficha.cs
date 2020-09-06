@@ -38,7 +38,7 @@ namespace OOB.LibVenta.PosOffline.Operador.Movimiento
 
         public Ficha()
         {
-            cntDivisa = 0;
+            cntDivisa = 0.0m;
             cntDocContado = 0;
             cntDocCredito = 0;
             cntEfecitvo = 0;

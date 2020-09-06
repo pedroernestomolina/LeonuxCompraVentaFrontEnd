@@ -167,6 +167,39 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 return false;
             }
 
+            var r05 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta();
+            if (r05.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r05.Mensaje);
+                return false;
+            }
+
+            var r06 = Sistema.MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (r06.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r06.Mensaje);
+                return false;
+            }
+
+            //PREFERENCIA PRECIO
+            var preferenciaPrecio = data.enumPreferenciaPrecio.Neto;
+            if (r06.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Full) 
+            {
+                preferenciaPrecio = data.enumPreferenciaPrecio.Full;
+            }
+
+            //REDONDEO
+            var redondeo = data.enumModoRedondeo.SinRedondeo;
+            switch (r05.Entidad)
+            {
+                case OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Unidad:
+                    redondeo= data.enumModoRedondeo.Unidad;
+                    break;
+                case OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Decena:
+                    redondeo= data.enumModoRedondeo.Decena;
+                    break;
+            }
+
             //TASA CAMBIO ACTUAL
             tasaCambioActual = r03.Entidad;
 
@@ -211,11 +244,11 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 costoUnit = r01.Entidad.costoUndDivisa.ToString("N2");
             }
             var _tasaIva = r01.Entidad.tasaIva;
-            precio_1.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad1, _p1, modoUtilidad, r01.Entidad.etiqueta1, "0000000001", _modoDivisa, tasaCambioActual);
-            precio_2.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad2, _p2, modoUtilidad, r01.Entidad.etiqueta2, "0000000001", _modoDivisa, tasaCambioActual);
-            precio_3.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad3, _p3, modoUtilidad, r01.Entidad.etiqueta3, "0000000001", _modoDivisa, tasaCambioActual);
-            precio_4.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad4, _p4, modoUtilidad, r01.Entidad.etiqueta4, "0000000001", _modoDivisa, tasaCambioActual);
-            precio_5.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad5, _p5, modoUtilidad, r01.Entidad.etiqueta5, "0000000001", _modoDivisa, tasaCambioActual);
+            precio_1.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad1, _p1, modoUtilidad, r01.Entidad.etiqueta1, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_2.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad2, _p2, modoUtilidad, r01.Entidad.etiqueta2, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_3.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad3, _p3, modoUtilidad, r01.Entidad.etiqueta3, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_4.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad4, _p4, modoUtilidad, r01.Entidad.etiqueta4, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_5.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad5, _p5, modoUtilidad, r01.Entidad.etiqueta5, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
 
             //empaques
             empaque1.Clear();
@@ -440,6 +473,30 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         public void InicializarIsCerrarHabilitado()
         {
             _isCerrarHabilitado = true;
+        }
+
+        public void Limpiar()
+        {
+            precio_1.Limpiar();
+            precio_2.Limpiar();
+            precio_3.Limpiar();
+            precio_4.Limpiar();
+            precio_5.Limpiar();
+
+            producto="";
+            costoUnit="";
+            admDivisa="";
+            tasaIva="";
+
+        //private data.enumModo modoUtilidad;
+        //private decimal tasaCambioActual;
+        //private string fechaUltActCosto;
+        //private bool isModoActualDivisa;
+        //private decimal costoUnd;
+        //private decimal costoUndDivisa;
+        //private bool _isCerrarHabilitado;
+        //private OOB.LibInventario.Precio.PrecioCosto.Ficha fichaPrecioCosto; 
+
         }
 
     }

@@ -26,6 +26,7 @@ namespace ModCajaBanco
         private void Form1_Load(object sender, EventArgs e)
         {
             L_VERSION.Text = _controlador.Version;
+            L_HOST.Text = _controlador.Host;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)

@@ -63,6 +63,7 @@ namespace ModSistema.SucursalDeposito
             c3.Width = 140;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
+            c3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "nombreDepositoPrincipal";
@@ -71,6 +72,7 @@ namespace ModSistema.SucursalDeposito
             c4.Width = 140;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
+            c4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c2);

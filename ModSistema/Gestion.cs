@@ -98,7 +98,12 @@ namespace ModSistema
 
         public void InicializarBD()
         {
-            _gestionServicio.Inicia();
+            _gestionServicio.IniciaBD();
+        }
+
+        public void InicializarBD_Sucursal()
+        {
+            _gestionServicio.IniciaBD_Sucursal();
         }
 
     }

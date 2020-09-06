@@ -66,6 +66,42 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta>();
+
+            var r01 = MyData.Configuracion_ForzarRedondeoPrecioVenta();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            rt.Entidad = (OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta)s;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio>();
+
+            var r01 = MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            rt.Entidad = (OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio)s;
+
+            return rt;
+        }
+
     }
 
 }

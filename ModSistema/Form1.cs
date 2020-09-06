@@ -129,6 +129,16 @@ namespace ModSistema
             _controlador.InicializarBD();
         }
 
+        private void TSM_SERVICIO_INICIALIZA_BD_SUCURSAL_Click(object sender, EventArgs e)
+        {
+            InicializarBD_Sucursal();
+        }
+
+        private void InicializarBD_Sucursal()
+        {
+            _controlador.InicializarBD_Sucursal();
+        }
+
     }
 
 }

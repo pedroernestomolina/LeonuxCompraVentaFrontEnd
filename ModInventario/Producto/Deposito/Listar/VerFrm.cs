@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModInventario.Producto.Existencia.Ver
+namespace ModInventario.Producto.Deposito.Listar
 {
 
     public partial class VerFrm : Form
@@ -147,6 +147,26 @@ namespace ModInventario.Producto.Existencia.Ver
         public void setControlador(Gestion ctr)
         {
             _controlador = ctr;
+        }
+
+        private void BT_VER_DETALLE_Click(object sender, EventArgs e)
+        {
+            VerDetalleDeposito();
+        }
+
+        private void VerDetalleDeposito()
+        {
+            _controlador.VerDetalleDeposito();
+        }
+
+        private void BT_EDITAR_DEPOSITO_Click(object sender, EventArgs e)
+        {
+            EditarDeposito();
+        }
+
+        private void EditarDeposito()
+        {
+            _controlador.EditarDeposito();
         }
       
     }

@@ -363,35 +363,14 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Departamento_GetLista();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r01.Mensaje);
+            if (!DepartamentosCargar())
                 return false;
-            }
-            blDepart.Clear();
-            depart.AddRange(r01.Lista.OrderBy(o=>o.nombre).ToList());
-            bsDepart.CurrencyManager.Refresh();
 
-            var r02 = Sistema.MyData.Grupo_GetLista();
-            if (r02.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r02.Mensaje);
+            if (!GruposCargar())
                 return false;
-            }
-            blGrupo.Clear();
-            grupo.AddRange(r02.Lista.OrderBy(o => o.nombre).ToList());
-            bsGrupo.CurrencyManager.Refresh();
 
-            var r03 = Sistema.MyData.Marca_GetLista();
-            if (r03.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r03.Mensaje);
+            if (!MarcasCargar())
                 return false;
-            }
-            blMarca.Clear();
-            marca.AddRange(r03.Lista.OrderBy(o => o.nombre).ToList());
-            bsMarca.CurrencyManager.Refresh();
 
             var r04 = Sistema.MyData.TasaImpuesto_GetLista();
             if (r04.Result == OOB.Enumerados.EnumResult.isError)
@@ -525,6 +504,73 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public void InicializarIsCerrarHabilitado()
         {
             _isCerrarHabilitado = true;
+        }
+
+        public void CargaDepartamentos()
+        {
+            DepartamentosCargar();
+        }
+
+
+        public bool DepartamentosCargar()
+        {
+            var rt = true;
+
+            var r01 = Sistema.MyData.Departamento_GetLista();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            blDepart.Clear();
+            depart.AddRange(r01.Lista.OrderBy(o => o.nombre).ToList());
+            bsDepart.CurrencyManager.Refresh();
+
+            return rt;
+        }
+
+        public void CargaGrupos()
+        {
+            GruposCargar();
+        }
+
+        public bool GruposCargar()
+        {
+            var rt = true;
+
+            var r02 = Sistema.MyData.Grupo_GetLista();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+            blGrupo.Clear();
+            grupo.AddRange(r02.Lista.OrderBy(o => o.nombre).ToList());
+            bsGrupo.CurrencyManager.Refresh();
+
+            return rt;
+        }
+
+        public void CargaMarcas()
+        {
+            MarcasCargar();
+        }
+
+        public bool MarcasCargar()
+        {
+            var rt = true;
+
+            var r03 = Sistema.MyData.Marca_GetLista();
+            if (r03.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r03.Mensaje);
+                return false;
+            }
+            blMarca.Clear();
+            marca.AddRange(r03.Lista.OrderBy(o => o.nombre).ToList());
+            bsMarca.CurrencyManager.Refresh();
+
+            return rt;
         }
 
     }

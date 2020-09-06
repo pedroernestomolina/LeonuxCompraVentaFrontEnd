@@ -16,6 +16,7 @@ namespace ModCajaBanco
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
+        public string Host { get { return "Base Dato: " + Sistema._Instancia + "/" + Sistema._BaseDatos; } }
 
 
         public Gestion()

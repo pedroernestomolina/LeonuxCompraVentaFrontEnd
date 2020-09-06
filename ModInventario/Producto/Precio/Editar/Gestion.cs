@@ -58,6 +58,7 @@ namespace ModInventario.Producto.Precio.Editar
         EditarFrm frm ;
         public void Inicia()
         {
+            Limpiar();
             if (CargarData()) 
             {
                 if (frm == null) 
@@ -67,6 +68,11 @@ namespace ModInventario.Producto.Precio.Editar
                 }
                 frm.ShowDialog();
             }
+        }
+
+        private void Limpiar()
+        {
+            miGestion.Limpiar();
         }
 
         private bool CargarData()

@@ -44,10 +44,11 @@ namespace ModInventario.Producto.AgregarEditar
         bool CargarData();
         void Procesar();
         void InicializarIsCerrarHabilitado();
-
+        void CargaDepartamentos();
+        void CargaGrupos();
+        void CargaMarcas();
 
         bool IsAgregarEditarOk { get; }
-
         string AutoProductoAgregado { get; }
 
     }

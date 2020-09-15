@@ -55,6 +55,7 @@ namespace DataProvInventario.Data
                     modulo = ss.modulo,
                     nombreConcepto = ss.nombreConcepto,
                     nombreDeposito = ss.nombreDeposito,
+                    siglas=ss.siglas,
                 };
                 return reg;
             }).ToList();
@@ -77,6 +78,54 @@ namespace DataProvInventario.Data
                 modulo = filtro.modulo,
             };
             var r01 = MyData.Producto_Kardex_Movimiento_Lista_Detalle(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError) 
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s= r01.Entidad;
+            var nr = new OOB.LibInventario.Kardex.Movimiento.Detalle.Ficha()
+            {
+                codigoProducto = s.codigoProducto,
+                contenidoEmp = s.contenidoEmp,
+                EmpaqueCompra = s.EmpaqueCompra,
+                existencia = s.existencia,
+                nombreProducto = s.nombreProducto,
+                referenciaProducto = s.referenciaProducto,
+            };
+            var lst = s.Data.Select(ss =>
+            {
+                var reg = new OOB.LibInventario.Kardex.Movimiento.Detalle.Data()
+                {
+                    autoConcepto = ss.autoConcepto,
+                    autoDeposito = ss.autoDeposito,
+                    autoDocumento = ss.autoDocumento,
+                    cantidad = ss.cantidad,
+                    cantidadBono = ss.cantidadBono,
+                    cantidadUnd = ss.cantidadUnd,
+                    codigoDoc = ss.codigoDoc,
+                    codigoSucursal = ss.codigoSucursal,
+                    costoUnd = ss.costoUnd,
+                    documento = ss.documento,
+                    entidad = ss.entidad,
+                    fecha = ss.fecha,
+                    hora = ss.hora,
+                    isAnulado = ss.isAnulado,
+                    Modulo = (OOB.LibInventario.Kardex.Enumerados.EnumModulo) ss.Modulo,
+                    moduloDoc = ss.moduloDoc,
+                    nota = ss.nota,
+                    precioUnd = ss.precioUnd,
+                    Siglas = (OOB.LibInventario.Kardex.Enumerados.EnumSiglas) ss.Siglas,
+                    siglasDoc = ss.siglasDoc,
+                    signoDoc = ss.signoDoc,
+                    total = ss.total,
+                };
+                return reg;
+            }).ToList();
+            nr.Data = lst;
+            rt.Entidad = nr;
 
             return rt;
         }

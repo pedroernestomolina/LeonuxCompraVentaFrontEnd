@@ -13,7 +13,6 @@ namespace ModInventario.Producto.AgregarEditar.Editar
     public class Gestion : IGestion
     {
 
-
         private string autoPrd;
         private bool _isCerrarHabilitado;
         private string _autoProductoAgregado;
@@ -279,6 +278,55 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             }
         }
 
+        public byte[] Imagen
+        {
+            get
+            {
+                return miData.Imagen;
+            }
+            set
+            {
+                miData.Imagen=value;
+            }
+        }
+
+        public bool Pesado
+        {
+            get
+            {
+                return miData.EsPesado;
+            }
+            set
+            {
+                miData.EsPesado = value;
+            }
+        }
+
+        public string Plu
+        {
+            get
+            {
+                return miData.Plu;
+            }
+            set
+            {
+                miData.Plu=value;
+            }
+        }
+
+        public int DiasEmpaque
+        {
+            get
+            {
+                return miData.DiasEmpaque;
+            }
+            set
+            {
+                miData.DiasEmpaque=value;
+            }
+        }
+
+
         public bool IsAgregarEditarOk
         {
             get
@@ -470,6 +518,16 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 return false;
             }
 
+            var _plu = miData.Plu;
+            var _diasEmpaque = miData.DiasEmpaque;
+            var _pesado = "1";
+            if (!miData.EsPesado) 
+            {
+                _plu = "";
+                _diasEmpaque = 0;
+                _pesado = "0";
+            }
+
             var ficha = new OOB.LibInventario.Producto.Editar.Actualizar.Ficha()
             {
                 auto = autoPrd,
@@ -488,6 +546,10 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 categoria = miData.Categoria,
                 estatusDivisa = miData.Divisa,
                 origen = miData.Origen,
+                imagen = miData.Imagen,
+                esPesado = _pesado,
+                plu = _plu,
+                diasEmpaque = _diasEmpaque,
             };
             var r01 = Sistema.MyData.Producto_Editar_Actualizar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 

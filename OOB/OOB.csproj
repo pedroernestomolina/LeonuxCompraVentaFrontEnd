@@ -100,6 +100,7 @@
     <Compile Include="LibInventario\Producto\Data\Extra.cs" />
     <Compile Include="LibInventario\Producto\Data\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Data\Identificacion.cs" />
+    <Compile Include="LibInventario\Producto\Data\Imagen.cs" />
     <Compile Include="LibInventario\Producto\Data\Precio.cs" />
     <Compile Include="LibInventario\Producto\Data\Proveedor.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Asignar\Deposito.cs" />
@@ -118,6 +119,9 @@
     <Compile Include="LibInventario\Producto\Oferta\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Origen\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Pesado\Ficha.cs" />
+    <Compile Include="LibInventario\Proveedor\Enumerados.cs" />
+    <Compile Include="LibInventario\Proveedor\Lista\Ficha.cs" />
+    <Compile Include="LibInventario\Proveedor\Lista\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\Movimientos\ArqueoCajaPos\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Movimientos\Filtro.cs" />
     <Compile Include="LibInventario\Sucursal\Ficha.cs" />

@@ -33,6 +33,7 @@ namespace DataProvInventario.Data
                 oferta = (DtoLibInventario.Producto.Enumerados.EnumOferta)filtro.oferta,
                 origen = (DtoLibInventario.Producto.Enumerados.EnumOrigen)filtro.origen,
                 pesado = (DtoLibInventario.Producto.Enumerados.EnumPesado)filtro.pesado,
+                existencia = (DtoLibInventario.Producto.Filtro.Existencia )filtro.existencia,
             };
             var r01 = MyData.Producto_GetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -586,6 +587,11 @@ namespace DataProvInventario.Data
                 nr.referencia = e.referencia;
                 nr.contenidoCompra = e.contenidoCompra;
 
+                nr.imagen = e.imagen;
+                nr.esPesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado) e.esPesado;
+                nr.plu = e.plu;
+                nr.diasEmpaque = e.diasEmpaque;
+
                 nr.origen= (OOB.LibInventario.Producto.Enumerados.EnumOrigen) e.origen;
                 nr.categoria= (OOB.LibInventario.Producto.Enumerados.EnumCategoria) e.categoria;
                 nr.AdmPorDivisa= (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)  e.AdmPorDivisa;
@@ -618,6 +624,10 @@ namespace DataProvInventario.Data
                 nombre = ficha.nombre,
                 origen = ficha.origen,
                 referencia = ficha.referencia,
+                imagen = ficha.imagen,
+                diasEmpaque = ficha.diasEmpaque,
+                esPesado = ficha.esPesado,
+                plu = ficha.plu,
             };
             var r01 = MyData.Producto_Editar_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -653,6 +663,10 @@ namespace DataProvInventario.Data
                 referencia = ficha.referencia,
                 estatus = ficha.estatus,
                 tasa = ficha.tasa,
+                imagen=ficha.imagen,
+                diasEmpaque = ficha.diasEmpaque,
+                esPesado = ficha.esPesado,
+                plu = ficha.plu,
             };
             var r01 = MyData.Producto_Nuevo_Agregar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -806,6 +820,30 @@ namespace DataProvInventario.Data
                 estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)s.estatus,
                 nombreProducto = s.nombreProducto,
                 referenciaProducto = s.referenciaProducto,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Imagen> Producto_GetImagen(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Imagen >();
+
+            var r01 = MyData.Producto_GetImagen(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Producto.Data.Imagen()
+            {
+                codigo = s.codigo,
+                descripcion = s.descripcion,
+                imagen = s.imagen,
             };
             rt.Entidad = nr;
 

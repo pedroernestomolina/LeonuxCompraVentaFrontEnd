@@ -103,7 +103,6 @@ namespace ModPos.Operador.Cierre
                     {
                         diferencia = _cierre.Diferencia,
                         divisa = _cierre.Movimientos.montoDivisa,
-                        cntdivisa = _cierre.Movimientos.cntDivisa,
                         efectivo = _cierre.MontoEfectivo ,
                         tarjeta = _cierre.Movimientos.montoElectronico,
                         otros = _cierre.Movimientos.montoOtros ,
@@ -114,12 +113,19 @@ namespace ModPos.Operador.Cierre
 
                         mEfectivo = _cierre.EntradaPorEfectivo,
                         mDivisa = _cierre.EntradaPorDivisa,
-                        mCntDivisa = _cierre.EntradaPorCntDivisa,
                         mTarjeta = _cierre.EntradaPorTarjeta,
                         mOtro = _cierre.EntradaPorOtro,
                         mFirma = _cierre.EntradaPorCredito,
                         mSubTotal = _cierre.TotalEntrada,
                         mTotal = _cierre.TotalEntrada,
+                        //
+                        cntDivisa = _cierre.Movimientos.cntDivisa,
+                        cntDivisaUsu = _cierre.EntradaPorCntDivisa,
+                        cntDoc = (_cierre.Movimientos.cntFactura + _cierre.Movimientos.cntNCredito),
+                        cntDocFac=_cierre.Movimientos.cntFactura,
+                        cntDocNcr=_cierre.Movimientos.cntNCredito,
+                        montoFac=_cierre.Movimientos.montoFactura,
+                        montoNcr = _cierre.Movimientos.montoNCredito,
                     },
                 };
 

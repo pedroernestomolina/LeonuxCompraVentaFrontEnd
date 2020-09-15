@@ -11,12 +11,17 @@ namespace ModInventario.Producto.Costo.Editar
     public class precio
     {
 
-        public enum enumUtilidadMetodo { Lineal=1, Financiero } ;
+        public enum enumUtilidadMetodo { SinDefinir=-1, Lineal=1, Financiero } ;
+        public enum enumModoRedondeo { SinDefinir = -1, SinRedondeo = 1, Unidad, Decena };
+        public enum enumPreferenciaPrecio { SinDefinir = -1, Neto = 1, Full };
 
 
         private enumUtilidadMetodo  metodoCalculo;
-        private decimal utilidad { get; set; }
-        private decimal neto { get; set; }
+        private enumModoRedondeo modoRedondeo;
+        private enumPreferenciaPrecio preferenciaPrecio;
+        private decimal utilidad;
+        private decimal neto; 
+        private decimal tasa;
 
 
         public decimal Neto { get { return neto; } }
@@ -33,13 +38,20 @@ namespace ModInventario.Producto.Costo.Editar
         {
             utilidad = 0.0m;
             neto = 0.0m;
+            tasa = 0.0m;
+            metodoCalculo = enumUtilidadMetodo.SinDefinir;
+            modoRedondeo = enumModoRedondeo.SinDefinir;
+            preferenciaPrecio = enumPreferenciaPrecio.SinDefinir;
         }
 
-        public void setFicha(decimal ut, decimal nt, enumUtilidadMetodo metodo)
+        public void setFicha(decimal ut, decimal nt, decimal ts, enumUtilidadMetodo metodo, enumModoRedondeo redondeo, enumPreferenciaPrecio prefPrec)
         {
             utilidad = ut;
             neto = nt;
+            tasa = ts;
             metodoCalculo = metodo;
+            modoRedondeo=redondeo;
+            preferenciaPrecio=prefPrec;
         }
 
         public void ActualizarPrecio(decimal cost)
@@ -53,8 +65,51 @@ namespace ModInventario.Producto.Costo.Editar
                 if (utilidad >= 100) { utilidad = 0; }
                 neto = cost / ((100 - utilidad) / 100);
             }
-            neto = Math.Round(neto, 2, MidpointRounding.AwayFromZero);
+
+            if (preferenciaPrecio == enumPreferenciaPrecio.Neto)
+            {
+                switch (modoRedondeo)
+                {
+                    case enumModoRedondeo.SinRedondeo:
+                        neto = Math.Round(neto, 2, MidpointRounding.AwayFromZero);
+                        break;
+                    case enumModoRedondeo.Unidad:
+                        neto = Helpers.MetodosExtension.RoundUnidad((int)neto);
+                        break;
+                    case enumModoRedondeo.Decena:
+                        neto = Helpers.MetodosExtension.RoundDecena((int)neto);
+                        break;
+                }
+            }
+
+            if (preferenciaPrecio == enumPreferenciaPrecio.Full)
+            {
+                var full = neto + CalculaIva(neto);
+                switch (modoRedondeo)
+                {
+                    case enumModoRedondeo.SinRedondeo:
+                        break;
+                    case enumModoRedondeo.Unidad:
+                        full = Helpers.MetodosExtension.RoundUnidad((int)full);
+                        break;
+                    case enumModoRedondeo.Decena:
+                        full = Helpers.MetodosExtension.RoundDecena((int)full);
+                        break;
+                }
+                neto = CalculaBase(full);
+            }
         }
+
+        private decimal CalculaIva(decimal monto)
+        {
+            return monto*tasa/100;
+        }
+
+        private decimal CalculaBase(decimal monto)
+        {
+            return monto / ((tasa / 100)+1);
+        }
+
 
         public void ActualizarUtilidad(decimal cost)
         {

@@ -38,6 +38,10 @@ namespace ModInventario.Producto.AgregarEditar
         string IdCategoria { get; set; }
         string IdClasificacionAbc { get; set; }
         string IdDivisa { get; set; }
+        byte[] Imagen { get; set; }
+        bool Pesado { get; set; }
+        string Plu { get; set; }
+        int DiasEmpaque { get; set; }
 
         void SetFicha(string autoPrd);
         void Limpiar();

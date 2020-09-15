@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\obj\Debug\DataProvInventario.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DataProvInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DataProvInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DtoLib.dll
@@ -17,5 +16,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\ILibInventa
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\ProvLibInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\LibEntityInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\obj\Debug\DataProvInventario.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\obj\Debug\DataProvInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\obj\Debug\DataProvInventario.pdb

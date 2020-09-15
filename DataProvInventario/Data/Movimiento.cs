@@ -137,6 +137,10 @@ namespace DataProvInventario.Data
                     siglas = s.siglas,
                     signo = s.signo,
                     total = s.total,
+                    codigoConcepto=s.codigoConcepto,
+                    nombreConcepto=s.nombreConcepto,
+                    codigoDeposito=s.codigoDeposito,
+                    nombreDeposito=s.nombreDeposito,
                 };
                 return dt;
             }).ToList();

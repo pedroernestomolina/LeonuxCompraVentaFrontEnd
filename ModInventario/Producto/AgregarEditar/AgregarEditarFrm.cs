@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,6 +88,7 @@ namespace ModInventario.Producto.AgregarEditar
         bool inicializarData = false;
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
+            tabControl1.SelectedIndex = 0;
             TB_CODIGO.Focus();
             inicializarData = true;
             CB_DEPARTAMENTO.DataSource = _controlador.Departamentos;
@@ -113,6 +117,22 @@ namespace ModInventario.Producto.AgregarEditar
             CB_CLASIFICACION_ABC.SelectedValue = _controlador.IdClasificacionAbc;
             CB_DIVISA.SelectedValue = _controlador.IdDivisa;
             CB_EMPAQUE_COMPRA.SelectedValue = _controlador.AutoEmpCompra;
+
+            PB_IMAGEN.Image = PB_IMAGEN.InitialImage;
+            if (_controlador.Imagen.Length > 0) 
+            {
+                using (var ms = new MemoryStream(_controlador.Imagen))
+                {
+                    PB_IMAGEN.Image = Image.FromStream(ms);
+                }
+            }
+
+            CHB_PESADO.Checked = _controlador.Pesado;
+            TB_PLU.Enabled = CHB_PESADO.Checked;
+            TB_DIAS_EMPAQUE.Enabled = CHB_PESADO.Checked;
+            TB_PLU.Text = _controlador.Plu;
+            TB_DIAS_EMPAQUE.Text = _controlador.DiasEmpaque.ToString();
+
             inicializarData = false;
         }
 
@@ -261,6 +281,17 @@ namespace ModInventario.Producto.AgregarEditar
             _controlador.ContEmpProducto = int.Parse(TB_CONTENIDO.Text);  
         }
 
+        private void TB_PLU_Leave(object sender, EventArgs e)
+        {
+            TB_PLU.Text = TB_PLU.Text.Trim().ToUpper();
+            _controlador.Plu = TB_PLU.Text;  
+        }
+
+        private void TB_DIAS_EMPAQUE_Leave(object sender, EventArgs e)
+        {
+            _controlador.DiasEmpaque = int.Parse(TB_DIAS_EMPAQUE.Text);  
+        }
+
         private void L_DEPARTAMENTO_Click(object sender, EventArgs e)
         {
             MaestroDepartamento();
@@ -268,20 +299,120 @@ namespace ModInventario.Producto.AgregarEditar
 
         private void MaestroDepartamento()
         {
+            var ind = CB_DEPARTAMENTO.SelectedIndex;
             _controlador.MaestroDepartamento();
             CB_DEPARTAMENTO.Refresh();
+            CB_DEPARTAMENTO.SelectedIndex = ind;
         }
 
         private void L_GRUPO_Click(object sender, EventArgs e)
         {
+            MaestrGrupo();
+        }
+
+        private void MaestrGrupo()
+        {
+            var ind = CB_GRUPO.SelectedIndex;
             _controlador.MaestroGrupo();
             CB_GRUPO.Refresh();
+            CB_GRUPO.SelectedIndex = ind;
         }
 
         private void L_MARCA_Click(object sender, EventArgs e)
         {
+            MaestroMarca();
+        }
+
+        private void MaestroMarca()
+        {
+            var ind = CB_MARCA.SelectedIndex;
             _controlador.MaestroMarca();
             CB_MARCA.Refresh();
+            CB_MARCA.SelectedIndex = ind;
+        }
+
+        private void BT_ABRIR_Click(object sender, EventArgs e)
+        {
+            BuscarImagen();
+            RedefinirImagen();
+        }
+
+        private void BuscarImagen()
+        {
+            try 
+            {
+                using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPG|*.jpg|PNG|*.png|Bitmap|*.bmp", ValidateNames = true, Multiselect = false }) 
+                {
+                    if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        PB_IMAGEN.Image = Image.FromFile(ofd.FileName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "*** ERROR ***", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BT_LIMPIAR_Click(object sender, EventArgs e)
+        {
+            LimpiarImagen();
+        }
+
+        private void LimpiarImagen()
+        {
+            PB_IMAGEN.Image = PB_IMAGEN.InitialImage;
+            RedefinirImagen();
+        }
+
+        private void RedefinirImagen()
+        {
+            _controlador.Imagen = new byte[]{} ;
+            if (PB_IMAGEN.Image != PB_IMAGEN.InitialImage)
+            {
+                //PB_IMAGEN.Image = ResizeImage(PB_IMAGEN.Image,188,128);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    PB_IMAGEN.Image.Save(ms, ImageFormat.Jpeg);
+                    _controlador.Imagen = ms.ToArray();
+                }
+            }
+        }
+
+        public static Bitmap ResizeImage(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                using (var wrapMode = new ImageAttributes())
+                {
+                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                }
+            }
+
+            return destImage;
+        }
+
+        private void CHB_PESADO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!inicializarData)
+            {
+                _controlador.Pesado = CHB_PESADO.Checked;
+                TB_PLU.Enabled = CHB_PESADO.Checked;
+                TB_DIAS_EMPAQUE.Enabled = CHB_PESADO.Checked;
+            }
         }
 
     }

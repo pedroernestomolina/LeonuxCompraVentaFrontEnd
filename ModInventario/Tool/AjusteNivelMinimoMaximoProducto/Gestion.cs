@@ -25,6 +25,8 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         public bool SalirIsOk { get; set; } 
         public BindingSource _bsDeposito { get { return bs_Deposito; } }
         public BindingSource Lista { get { return _gestionLista.Source; } }
+        public string Items { get { return Lista.Count.ToString(); } }
+
         public string AutoDeposito 
         {
             get { return _autoDeposito ; }
@@ -150,7 +152,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             if (msg == DialogResult.Yes) 
             {
                 var list = new List<OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Ajustar.Ficha>();
-                foreach (var it in _gestionLista.Lista.ToList()) 
+                foreach (var it in _gestionLista.Lista.Where(w=>w.IsEditado).ToList()) 
                 {
                     var nr = new OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Ajustar.Ficha()
                     {

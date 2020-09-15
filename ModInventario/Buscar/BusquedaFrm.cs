@@ -66,6 +66,15 @@ namespace ModInventario.Buscar
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.BackColor = Color.Green;
 
+            //var c3 = new DataGridViewTextBoxColumn();
+            //c3.DataPropertyName = "Estatus";
+            //c3.Name = "Estatus";
+            //c3.HeaderText = "*";
+            //c3.Visible = true;
+            //c3.Width = 20;
+            //c3.HeaderCell.Style.Font = f;
+            //c3.DefaultCellStyle.Font = f1;
+
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "Estatus";
             c4.Name = "Estatus";
@@ -78,6 +87,19 @@ namespace ModInventario.Buscar
             DGV.Columns.Add(c4);
         }
 
+        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                var xcolor = Color.Green;
+                if (row.Cells["Estatus"].Value.ToString() == "Suspendido")
+                    xcolor = Color.Orange;
+                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
+                    xcolor = Color.Red;
+
+                row.Cells["VEstatus"].Style.BackColor = xcolor;
+            }
+        }
 
         private void BusquedaFrm_Load(object sender, EventArgs e)
         {
@@ -97,20 +119,6 @@ namespace ModInventario.Buscar
                 case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia:
                     RB_BUSCAR_POR_REF.Checked = true;
                     break;
-            }
-        }
-
-        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            foreach (DataGridViewRow row in DGV.Rows)
-            {
-                var xcolor = Color.Green;
-                if (row.Cells["Estatus"].Value.ToString() == "Suspendido")
-                    xcolor= Color.Orange;
-                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
-                    xcolor = Color.Red;
-
-                row.Cells["VEstatus"].Style.BackColor = xcolor;    
             }
         }
 
@@ -148,12 +156,12 @@ namespace ModInventario.Buscar
 
         private void BT_BUSCAR_Click(object sender, EventArgs e)
         {
-            RealizarBusqueda();
+            Buscar();
         }
 
-        private void RealizarBusqueda()
+        private void Buscar()
         {
-            _controlador.RealizarBusqueda();
+            _controlador.Buscar();
             ActualizarBusqueda();
             DGV.Focus();
         }

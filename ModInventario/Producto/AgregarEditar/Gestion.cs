@@ -38,7 +38,11 @@ namespace ModInventario.Producto.AgregarEditar
         public string NombreProducto { get { return miGestion.NombreProducto; } set { miGestion.NombreProducto = value; } }
         public string ModeloProducto { get { return miGestion.ModeloProducto; } set { miGestion.ModeloProducto = value; } }
         public string ReferenciaProducto { get { return miGestion.ReferenciaProducto; } set { miGestion.ReferenciaProducto = value; } }
-        public int ContEmpProducto { get { return miGestion.ContEmpProducto; } set { miGestion.ContEmpProducto = value; } } 
+        public int ContEmpProducto { get { return miGestion.ContEmpProducto; } set { miGestion.ContEmpProducto = value; } }
+        public byte[] Imagen { get { return miGestion.Imagen; } set { miGestion.Imagen = value; } }
+        public bool Pesado { get { return miGestion.Pesado; } set { miGestion.Pesado = value; } }
+        public string Plu { get { return miGestion.Plu; } set { miGestion.Plu = value; } } 
+        public int DiasEmpaque { get { return miGestion.DiasEmpaque; } set { miGestion.DiasEmpaque = value; } } 
 
         public string AutoDepartamento { get { return miGestion.AutoDepartamento; } set { miGestion.AutoDepartamento = value; } }
         public string AutoGrupo { get { return miGestion.AutoGrupo; } set { miGestion.AutoGrupo = value; } }

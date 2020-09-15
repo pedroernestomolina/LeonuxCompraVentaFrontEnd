@@ -26,6 +26,10 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public string IdCategoria { get; set; }
         public string IdClasificacionAbc { get; set; }
         public string IdDivisa { get; set; }
+        public byte[] Imagen { get; set; }
+        public string Plu { get; set; }
+        public int DiasEmpaque { get; set; }
+        public bool EsPesado { get; set; }
 
 
         public data()
@@ -33,25 +37,6 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
             Limpiar();
         }
 
-
-        public void setFicha(OOB.LibInventario.Producto.Editar.Obtener.Ficha ficha)
-        {
-            Codigo = ficha.codigo;
-            Descripcion = ficha.descripcion;
-            NombreProducto = ficha.nombre;
-            ModeloProducto = ficha.modelo;
-            ReferenciaProducto = ficha.referencia;
-            ContEmpProducto = ficha.contenidoCompra;
-            AutoDepartamento = ficha.autoDepartamento;
-            AutoGrupo = ficha.autoGrupo;
-            AutoMarca = ficha.autoMarca;
-            AutoImpuesto = ficha.autoTasaImpuesto;
-            AutoEmpCompra = ficha.autoEmpCompra;
-            IdOrigen = ((int)ficha.origen).ToString();
-            IdCategoria = ((int)ficha.categoria).ToString();
-            IdClasificacionAbc = ((int)ficha.Clasificacion).ToString();
-            IdDivisa = ((int)ficha.AdmPorDivisa).ToString();
-        }
 
         public void Limpiar()
         {
@@ -70,6 +55,10 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
             IdCategoria = "";
             IdClasificacionAbc = "";
             IdDivisa = "";
+            Imagen = new byte[] { };
+            Plu = "";
+            DiasEmpaque = 0;
+            EsPesado = false;
         }
 
         public string Clasificacion
@@ -163,11 +152,11 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         {
             var rt = true;
 
-            if (Codigo.Trim() == "")
-            {
-                Helpers.Msg.Error("CAMPO [ CODIGO ] DEBE SER LLENADO");
-                return false;
-            }
+            //if (Codigo.Trim() == "")
+            //{
+            //    Helpers.Msg.Error("CAMPO [ CODIGO ] DEBE SER LLENADO");
+            //    return false;
+            //}
 
             if (Descripcion.Trim() == "")
             {
@@ -227,6 +216,15 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
             {
                 Helpers.Msg.Error("CAMPO [ CLASIFICACION ] DEBE SER LLENADO");
                 return false;
+            }
+
+            if (EsPesado) 
+            {
+                if (Plu.Trim() == "") 
+                {
+                    Helpers.Msg.Error("CAMPO [ PLU ] DEBE SER LLENADO");
+                    return false;
+                }
             }
 
             return rt;

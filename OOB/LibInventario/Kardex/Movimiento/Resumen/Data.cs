@@ -17,6 +17,7 @@ namespace OOB.LibInventario.Kardex.Movimiento.Resumen
         public string nombreDeposito { get; set; }
         public string codigoConcepto { get; set; }
         public string nombreConcepto { get; set; }
+        public string siglas { get; set; }
         public int cntMovimiento { get; set; }
         public string modulo { get; set; }
         public decimal cntInventario { get; set; }

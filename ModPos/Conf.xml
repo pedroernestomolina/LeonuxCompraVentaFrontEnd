@@ -2,7 +2,7 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>cristal</Catalogo>
+    <Catalogo>pitasuc5</Catalogo>
   </Servidor>
   <DataLocal>D:\Proyectos FoxSystem\CompraVenta\LeonuxPosOffLine.db</DataLocal>
   <ImpresoraTicket>

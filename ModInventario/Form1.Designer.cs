@@ -64,6 +64,11 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.controlDeMovimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.descargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trasladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajusteInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -248,7 +253,8 @@
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSM_AJUSTE_DefinirNivelMinimoMaximo});
+            this.TSM_AJUSTE_DefinirNivelMinimoMaximo,
+            this.ajusteInventarioToolStripMenuItem});
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
             this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.ajustesToolStripMenuItem.Text = "Ajustes";
@@ -263,6 +269,7 @@
             // movimientosToolStripMenuItem
             // 
             this.movimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.controlDeMovimientosToolStripMenuItem,
             this.TSM_MOVIMIENTO_TRASLADOMERCANCIAPOREXISTENCIADEBAJOMINIMO});
             this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
             this.movimientosToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
@@ -468,6 +475,40 @@
             this.panel10.Size = new System.Drawing.Size(228, 275);
             this.panel10.TabIndex = 0;
             // 
+            // controlDeMovimientosToolStripMenuItem
+            // 
+            this.controlDeMovimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cargoToolStripMenuItem,
+            this.descargoToolStripMenuItem,
+            this.trasladoToolStripMenuItem});
+            this.controlDeMovimientosToolStripMenuItem.Name = "controlDeMovimientosToolStripMenuItem";
+            this.controlDeMovimientosToolStripMenuItem.Size = new System.Drawing.Size(356, 22);
+            this.controlDeMovimientosToolStripMenuItem.Text = "Control De Movimientos";
+            // 
+            // cargoToolStripMenuItem
+            // 
+            this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
+            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cargoToolStripMenuItem.Text = "Cargo";
+            // 
+            // descargoToolStripMenuItem
+            // 
+            this.descargoToolStripMenuItem.Name = "descargoToolStripMenuItem";
+            this.descargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.descargoToolStripMenuItem.Text = "Descargo";
+            // 
+            // trasladoToolStripMenuItem
+            // 
+            this.trasladoToolStripMenuItem.Name = "trasladoToolStripMenuItem";
+            this.trasladoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.trasladoToolStripMenuItem.Text = "Traslado";
+            // 
+            // ajusteInventarioToolStripMenuItem
+            // 
+            this.ajusteInventarioToolStripMenuItem.Name = "ajusteInventarioToolStripMenuItem";
+            this.ajusteInventarioToolStripMenuItem.Size = new System.Drawing.Size(323, 22);
+            this.ajusteInventarioToolStripMenuItem.Text = "Ajuste Inventario";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,6 +581,11 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.ToolStripMenuItem controlDeMovimientosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cargoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem descargoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trasladoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajusteInventarioToolStripMenuItem;
     }
 }
 

@@ -213,6 +213,26 @@ namespace ModInventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_imagen {
+            get {
+                object obj = ResourceManager.GetObject("bt_imagen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_imagen_2 {
+            get {
+                object obj = ResourceManager.GetObject("bt_imagen_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_limpiar {
             get {
                 object obj = ResourceManager.GetObject("bt_limpiar", resourceCulture);
@@ -246,6 +266,16 @@ namespace ModInventario.Properties {
         internal static System.Drawing.Bitmap bt_price {
             get {
                 object obj = ResourceManager.GetObject("bt_price", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_proveedor {
+            get {
+                object obj = ResourceManager.GetObject("bt_proveedor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +346,16 @@ namespace ModInventario.Properties {
         internal static System.Drawing.Bitmap inventario_2 {
             get {
                 object obj = ResourceManager.GetObject("inventario_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sinImagen {
+            get {
+                object obj = ResourceManager.GetObject("sinImagen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

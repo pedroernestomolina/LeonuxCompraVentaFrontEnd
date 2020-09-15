@@ -32,6 +32,14 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
         public decimal mfirma { get; set; }
         public decimal msubtotal { get; set; }
         public decimal mtotal { get; set; }
+        //
+        public decimal cntDivisa { get; set; }
+        public decimal cntDivisaUsuario { get; set; }
+        public int cntDoc { get; set; }
+        public int cntDocFac { get; set; }
+        public int cntDocNcr { get; set; }
+        public decimal montoFac { get; set; }
+        public decimal montoNcr { get; set; }
 
     }
 

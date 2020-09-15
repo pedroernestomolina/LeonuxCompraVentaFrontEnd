@@ -27,7 +27,11 @@ namespace OOB.LibInventario.Movimiento.Traslado.Insertar
         public decimal precioUnd { get; set; }
         public string codigo { get; set; }
         public string siglas { get; set; }
-        public string codigoSucursal { get; set; }
+        public string codigoSucursal { get; set; }        
+        public string codigoConcepto { get; set; }
+        public string nombreConcepto { get; set; }
+        public string codigoDeposito { get; set; }
+        public string nombreDeposito { get; set; }
 
     }
 

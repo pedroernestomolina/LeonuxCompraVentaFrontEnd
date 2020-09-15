@@ -26,6 +26,10 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         public string IdCategoria { get; set; }
         public string IdClasificacionAbc { get; set; }
         public string IdDivisa { get; set; }
+        public byte[] Imagen { get; set; }
+        public string Plu { get; set; }
+        public int DiasEmpaque { get; set; }
+        public bool EsPesado { get; set; }
 
 
         public data()
@@ -51,6 +55,10 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             IdCategoria = ((int)ficha.categoria).ToString();
             IdClasificacionAbc=((int)ficha.Clasificacion).ToString();
             IdDivisa = ((int)ficha.AdmPorDivisa).ToString();
+            Imagen = ficha.imagen;
+            EsPesado = ficha.esPesado == OOB.LibInventario.Producto.Enumerados.EnumPesado.Si ? true : false;
+            Plu = ficha.plu;
+            DiasEmpaque = ficha.diasEmpaque;
         }
 
         public void Limpiar()
@@ -70,6 +78,10 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             IdCategoria = "";
             IdClasificacionAbc = "";
             IdDivisa = "";
+            Imagen = null;
+            EsPesado = false;
+            Plu = "";
+            DiasEmpaque = 0;
         }
 
         public string Clasificacion 
@@ -163,11 +175,11 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         {
             var rt = true;
 
-            if (Codigo.Trim() == "")
-            {
-                Helpers.Msg.Error("CAMPO [ CODIGO ] DEBE SER LLENADO");
-                return false;
-            }
+            //if (Codigo.Trim() == "")
+            //{
+            //    Helpers.Msg.Error("CAMPO [ CODIGO ] DEBE SER LLENADO");
+            //    return false;
+            //}
 
             if (Descripcion.Trim() == "")
             {
@@ -227,6 +239,15 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             {
                 Helpers.Msg.Error("CAMPO [ CLASIFICACION ] DEBE SER LLENADO");
                 return false;
+            }
+
+            if (EsPesado)
+            {
+                if (Plu.Trim() == "")
+                {
+                    Helpers.Msg.Error("CAMPO [ PLU ] DEBE SER LLENADO");
+                    return false;
+                }
             }
 
             return rt;

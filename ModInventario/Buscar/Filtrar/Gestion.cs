@@ -12,6 +12,7 @@ namespace ModInventario.Buscar.Filtrar
     public class Gestion
     {
 
+        private Proveedor.Buscar.Gestion _gestionProveedor;
         private List<OOB.LibInventario.Departamento.Ficha> lDepart;
         private List<OOB.LibInventario.Grupo.Ficha> lGrupo;
         private List<OOB.LibInventario.Marca.Ficha> lMarca;
@@ -47,6 +48,8 @@ namespace ModInventario.Buscar.Filtrar
         public BindingSource SourcePesado { get { return bsPesado; } }
         public BindingSource SourceOferta { get { return bsOferta; } }
 
+        public string NombreProveedor { get; set; }
+        public string AutoProveedor { get; set; }
         public string AutoDepartamento { get; set; }
         public string AutoGrupo { get; set; }
         public string AutoMarca { get; set; }
@@ -58,6 +61,7 @@ namespace ModInventario.Buscar.Filtrar
         public string IdAdmDivisa{ get; set; }
         public string IdPesado { get; set; }
         public string IdOferta { get; set; }
+        public string IdExistencia { get; set; }
 
         public bool IsFiltrarOk { get; set; }
         public bool IsLimpiarOK { get; set; }
@@ -66,6 +70,7 @@ namespace ModInventario.Buscar.Filtrar
 
         public Gestion()
         {
+            _gestionProveedor = new Proveedor.Buscar.Gestion();
             ActivarBusqueda = false;
             LimpiarEntradas();
 
@@ -116,6 +121,8 @@ namespace ModInventario.Buscar.Filtrar
 
         private void LimpiarEntradas()
         {
+            NombreProveedor = "";
+            AutoProveedor = "";
             AutoDepartamento = "";
             AutoGrupo = "";
             AutoTasa = "";
@@ -127,8 +134,10 @@ namespace ModInventario.Buscar.Filtrar
             IdAdmDivisa = "";
             IdPesado = "";
             IdOferta = "";
+            IdExistencia = "";
             IsFiltrarOk=true;
             ActivarBusqueda = false;
+            _gestionProveedor.Limpiar();
         }
 
 
@@ -252,6 +261,12 @@ namespace ModInventario.Buscar.Filtrar
         public void Filtrar()
         {
             ActivarBusqueda = true;
+
+            if (AutoProveedor != "")
+            {
+                IsFiltrarOk = true;
+                return;
+            }
             if (AutoDepartamento != "") 
             {
                 IsFiltrarOk = true;
@@ -307,6 +322,11 @@ namespace ModInventario.Buscar.Filtrar
                 IsFiltrarOk = true;
                 return;
             }
+            if (IdExistencia!= "")
+            {
+                IsFiltrarOk = true;
+                return;
+            }
         }
 
         public void LimpiarSelecciones()
@@ -315,6 +335,7 @@ namespace ModInventario.Buscar.Filtrar
             var msg = MessageBox.Show("Limpiar Selecciones ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes) 
             {
+                AutoProveedor = "";
                 IsLimpiarOK = true;
             }
         }
@@ -327,6 +348,16 @@ namespace ModInventario.Buscar.Filtrar
         public void Salir()
         {
             IsFiltrarOk = false;
+        }
+
+        public void BuscarProveedor()
+        {
+            _gestionProveedor.Inicia();
+            if (_gestionProveedor.ItemSeleccionado != null) 
+            {
+                AutoProveedor = _gestionProveedor.ItemSeleccionado.Auto;
+                NombreProveedor = _gestionProveedor.ItemSeleccionado.NombreRazonSocial;
+            }
         }
 
     }

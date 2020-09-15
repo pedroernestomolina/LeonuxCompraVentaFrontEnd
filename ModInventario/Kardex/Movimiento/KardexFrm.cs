@@ -64,6 +64,14 @@ namespace ModInventario.Kardex.Movimiento
             c2.MinimumWidth = 120;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var c5 = new DataGridViewTextBoxColumn();
+            c5.DataPropertyName = "Siglas";
+            c5.HeaderText = "Tipo/Mov";
+            c5.Visible = true;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+            c5.Width = 80;
+
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Concepto";
             c3.HeaderText = "Concepto";
@@ -85,6 +93,7 @@ namespace ModInventario.Kardex.Movimiento
 
             DGV_COMPRA.Columns.Add(c2);
             DGV_COMPRA.Columns.Add(c1);
+            DGV_COMPRA.Columns.Add(c5);
             DGV_COMPRA.Columns.Add(c3);
             DGV_COMPRA.Columns.Add(c4);
         }
@@ -122,6 +131,14 @@ namespace ModInventario.Kardex.Movimiento
             c2.MinimumWidth = 120;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var c5 = new DataGridViewTextBoxColumn();
+            c5.DataPropertyName = "Siglas";
+            c5.HeaderText = "Tipo/Mov";
+            c5.Visible = true;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+            c5.Width = 80;
+
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Concepto";
             c3.HeaderText = "Concepto";
@@ -143,6 +160,7 @@ namespace ModInventario.Kardex.Movimiento
 
             DGV_VENTA.Columns.Add(c2);
             DGV_VENTA.Columns.Add(c1);
+            DGV_VENTA.Columns.Add(c5);
             DGV_VENTA.Columns.Add(c3);
             DGV_VENTA.Columns.Add(c4);
         }
@@ -180,6 +198,14 @@ namespace ModInventario.Kardex.Movimiento
             c2.MinimumWidth = 120;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var c5 = new DataGridViewTextBoxColumn();
+            c5.DataPropertyName = "Siglas";
+            c5.HeaderText = "Tipo/Mov";
+            c5.Visible = true;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+            c5.Width = 80;
+
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Concepto";
             c3.HeaderText = "Concepto";
@@ -201,6 +227,7 @@ namespace ModInventario.Kardex.Movimiento
 
             DGV_INV.Columns.Add(c2);
             DGV_INV.Columns.Add(c1);
+            DGV_INV.Columns.Add(c5);
             DGV_INV.Columns.Add(c3);
             DGV_INV.Columns.Add(c4);
         }
@@ -215,11 +242,7 @@ namespace ModInventario.Kardex.Movimiento
         private void KardexFrm_Load(object sender, EventArgs e)
         {
             CB_DIAS.SelectedIndex = -1;
-
             L_PRODUCTO.Text = _controlador.Producto;
-            L_EX_ACTUAL.Text = _controlador.ExActual;
-            L_EX_FECHA.Text = _controlador.ExFecha;
-            L_FECHA.Text = _controlador.Fecha;
 
             DGV_COMPRA.DataSource = _controlador.Compra;
             DGV_COMPRA.Refresh();
@@ -230,8 +253,21 @@ namespace ModInventario.Kardex.Movimiento
             DGV_INV.DataSource = _controlador.Inventario;
             DGV_INV.Refresh();
 
-            L_ENTRADAS.Text = _controlador.Entradas;
-            L_SALIDAS.Text = _controlador.Salidas;
+            ActualizarData();
+        }
+
+        private void ActualizarData()
+        {
+            L_EX_ACTUAL.Text = _controlador.ExActual;
+            L_EX_FECHA.Text = _controlador.ExFecha;
+            L_FECHA.Text = _controlador.Fecha;
+            L_COMPRA_FAC.Text = _controlador.CompraFac;
+            L_COMPRA_NCR.Text = _controlador.CompraNcr; ;
+            L_VENTA_FAC.Text = _controlador.VentaFac;
+            L_VENTA_NCR.Text = _controlador.VentaNcr;
+            L_CARG_DESC.Text = _controlador.CargoDescgargo;
+            L_AJUSTE.Text = _controlador.Ajuste;
+            L_TRASLADO.Text = _controlador.Traslado;
         }
 
         private void BT_BUSCAR_Click(object sender, EventArgs e)
@@ -242,11 +278,7 @@ namespace ModInventario.Kardex.Movimiento
         private void Procesar()
         {
             _controlador.Procesar();
-            L_ENTRADAS.Text = _controlador.Entradas;
-            L_SALIDAS.Text = _controlador.Salidas;
-            L_EX_ACTUAL.Text = _controlador.ExActual;
-            L_EX_FECHA.Text = _controlador.ExFecha;
-            L_FECHA.Text = _controlador.Fecha;
+            ActualizarData();
         }
 
         private void CB_DIAS_SelectedIndexChanged(object sender, EventArgs e)
@@ -287,6 +319,36 @@ namespace ModInventario.Kardex.Movimiento
                     _controlador.setDias(OOB.LibInventario.Kardex.Enumerados.EnumMovUltDias.Todo);
                     break;
             }
+        }
+
+        private void BT_VER_DETALLE_COMPRA_Click(object sender, EventArgs e)
+        {
+            VerDetalleCompra();
+        }
+
+        private void VerDetalleCompra()
+        {
+            _controlador.VerDetalleCompra();
+        }
+
+        private void BT_VER_DETALLE_VENTA_Click(object sender, EventArgs e)
+        {
+            VerDetalleVenta();
+        }
+
+        private void VerDetalleVenta()
+        {
+            _controlador.VerDetalleVenta();
+        }
+
+        private void BT_VER_DETALLE_INVENTARIO_Click(object sender, EventArgs e)
+        {
+            VerDetalleInventario();
+        }
+
+        private void VerDetalleInventario()
+        {
+            _controlador.VerDetalleInventario();
         }
 
     }

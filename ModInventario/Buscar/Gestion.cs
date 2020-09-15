@@ -113,41 +113,31 @@ namespace ModInventario.Buscar
             return rt;
         }
 
+
         public void RealizarBusqueda()
         {
-            if (_gestionFiltro.IsFiltrarOk || this.Cadena.Trim() != "") 
+
+            var r01 = Sistema.MyData.Producto_GetLista(_filtros);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
-                _filtros.cadena = this.Cadena;
-                _filtros.MetodoBusqueda = this.MetodoBusqueda;
-                CargarFiltros();
-
-                var r01 = Sistema.MyData.Producto_GetLista(_filtros);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-
-                _gestionLista.setLista(r01.Lista);
-                _filtros.Limpiar();
-                _gestionFiltro.Limpiar();
-
-                frm.ActualizarItem();
-                Cadena = "";
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
             }
+            _gestionLista.setLista(r01.Lista);
+            _filtros.Limpiar();
+            _gestionFiltro.Limpiar();
+            frm.ActualizarItem();
+            Cadena = "";
         }
 
         public void FiltrarBusqueda()
         {
             _gestionFiltro.Inicia();
-            if (_gestionFiltro.ActivarBusqueda) 
-            {
-                RealizarBusqueda();
-            }
         }
 
         private void CargarFiltros()
         {
+            _filtros.autoProveedor = _gestionFiltro.AutoProveedor;
             _filtros.autoDepartamento = _gestionFiltro.AutoDepartamento;
             _filtros.autoGrupo = _gestionFiltro.AutoGrupo;
             _filtros.autoTasa = _gestionFiltro.AutoTasa;
@@ -177,6 +167,22 @@ namespace ModInventario.Buscar
             {
                 _filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(_gestionFiltro.IdOferta);
             }
+            if (_gestionFiltro.IdExistencia != "")
+            {
+                switch (_gestionFiltro.IdExistencia) 
+                {
+                    case "0":
+                        _filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.MayorQueCero;
+                        break;
+                    case "1":
+                        _filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.IgualCero;
+                        break;
+                    case "2":
+                        _filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.MenorQueCero;
+                        break;
+                }
+            }
+
         }
 
         public void SeleccionarItem()
@@ -372,6 +378,26 @@ namespace ModInventario.Buscar
                     }
                 }
 
+            }
+        }
+
+        public void Buscar()
+        {
+            if (_gestionFiltro.ActivarBusqueda)
+            {
+                _filtros.cadena = this.Cadena;
+                _filtros.MetodoBusqueda = this.MetodoBusqueda;
+                CargarFiltros();
+                RealizarBusqueda();
+            }
+            else 
+            {
+                if (this.Cadena.Trim() != "")
+                {
+                    _filtros.cadena = this.Cadena;
+                    _filtros.MetodoBusqueda = this.MetodoBusqueda;
+                    RealizarBusqueda();
+                }
             }
         }
 

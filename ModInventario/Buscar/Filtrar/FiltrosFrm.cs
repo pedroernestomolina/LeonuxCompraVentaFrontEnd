@@ -52,6 +52,7 @@ namespace ModInventario.Buscar.Filtrar
 
         private void FiltrosFrm_Load(object sender, EventArgs e)
         {
+            TB_PROVEEDOR.Text = "";
             CB_DEPARTAMENTO.DataSource = _controlador.SourceDepart;
             CB_GRUPO.DataSource = _controlador.SourceGrupo;
             CB_MARCA.DataSource = _controlador.SourceMarca;
@@ -64,6 +65,8 @@ namespace ModInventario.Buscar.Filtrar
             CB_PESADO.DataSource = _controlador.SourcePesado;
             CB_OFERTA.DataSource = _controlador.SourceOferta;
             CB_ESTATUS.SelectedValue = _controlador.IdEstatus;
+            CB_EXISTENCIA.SelectedIndex = -1;
+            TB_PROVEEDOR.Focus();
         }
 
         public void setControlador(Gestion ctr)
@@ -170,6 +173,15 @@ namespace ModInventario.Buscar.Filtrar
             }
         }
 
+        private void CB_EXISTENCIA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.IdExistencia = "";
+            if (CB_EXISTENCIA.SelectedIndex != -1)
+            {
+                _controlador.IdExistencia = CB_EXISTENCIA.SelectedIndex.ToString();
+            }
+        }
+
         private void BT_FILTRAR_Click(object sender, EventArgs e)
         {
             Filtrar();
@@ -202,6 +214,7 @@ namespace ModInventario.Buscar.Filtrar
             _controlador.LimpiarSelecciones();
             if (_controlador.IsLimpiarOK) 
             {
+                TB_PROVEEDOR.Text = "";
                 CB_DEPARTAMENTO.SelectedIndex = -1;
                 CB_GRUPO.SelectedIndex = -1;
                 CB_MARCA.SelectedIndex = -1;
@@ -213,6 +226,7 @@ namespace ModInventario.Buscar.Filtrar
                 CB_ADMDIVISA.SelectedIndex = -1;
                 CB_PESADO.SelectedIndex = -1;
                 CB_OFERTA.SelectedIndex = -1;
+                CB_EXISTENCIA.SelectedIndex = -1;
             }
         }
 
@@ -269,6 +283,22 @@ namespace ModInventario.Buscar.Filtrar
         private void L_OFERTA_Click(object sender, EventArgs e)
         {
             CB_OFERTA.SelectedIndex = -1;
+        }
+
+        private void L_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            CB_EXISTENCIA.SelectedIndex = -1;
+        }
+
+        private void BT_PROVEED_BUSCAR_Click(object sender, EventArgs e)
+        {
+            BuscarProveedor();
+        }
+
+        private void BuscarProveedor()
+        {
+            _controlador.BuscarProveedor();
+            TB_PROVEEDOR.Text = _controlador.NombreProveedor;
         }
           
     }

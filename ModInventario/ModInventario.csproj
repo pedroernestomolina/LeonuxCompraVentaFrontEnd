@@ -96,6 +96,14 @@
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Kardex\Detalle\data.cs" />
+    <Compile Include="Kardex\Detalle\DetalleFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kardex\Detalle\DetalleFrm.Designer.cs">
+      <DependentUpon>DetalleFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kardex\Detalle\Gestion.cs" />
     <Compile Include="Kardex\Movimiento\data.cs" />
     <Compile Include="Kardex\Movimiento\detalle.cs" />
     <Compile Include="Kardex\Movimiento\Gestion.cs" />
@@ -300,6 +308,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor\Buscar\BuscarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Buscar\BuscarFrm.Designer.cs">
+      <DependentUpon>BuscarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Buscar\Gestion.cs" />
+    <Compile Include="Proveedor\Buscar\Lista\data.cs" />
+    <Compile Include="Proveedor\Buscar\Lista\Gestion.cs" />
     <Compile Include="Reportes\Documentos\dsDocumento.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -337,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kardex\Detalle\DetalleFrm.resx">
+      <DependentUpon>DetalleFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kardex\Movimiento\KardexFrm.resx">
       <DependentUpon>KardexFrm.cs</DependentUpon>
@@ -423,6 +443,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Proveedor\Buscar\BuscarFrm.resx">
+      <DependentUpon>BuscarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Documentos\MovTraslado.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -492,9 +515,12 @@
     <Content Include="Imagenes\bt_exchange_48.png" />
     <Content Include="Imagenes\bt_gestion.png" />
     <Content Include="Imagenes\bt_historico_32.png" />
+    <Content Include="Imagenes\bt_imagen.png" />
+    <Content Include="Imagenes\bt_imagen_2.png" />
     <Content Include="Imagenes\bt_mov.png" />
     <Content Include="Imagenes\bt_mov_2.png" />
     <Content Include="Imagenes\bt_price.png" />
+    <Content Include="Imagenes\bt_proveedor.png" />
     <Content Include="Imagenes\bt_qr.png" />
     <Content Include="Imagenes\bt_status.png" />
     <Content Include="Imagenes\bt_sumar.png" />
@@ -503,8 +529,13 @@
     <Content Include="Imagenes\dollar.png" />
     <Content Include="Imagenes\inventario.jpg" />
     <Content Include="Imagenes\inventario_2.jpg" />
+    <Content Include="Imagenes\sinImagen.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\bt_proveedor.png" />
+    <None Include="Resources\sinImagen.png" />
+    <None Include="Resources\bt_imagen_2.png" />
+    <None Include="Resources\bt_imagen.png" />
     <None Include="Resources\automatizacion_2.jpg" />
     <None Include="Resources\automatizacion.jpg" />
     <None Include="Resources\inventario_2.jpg" />

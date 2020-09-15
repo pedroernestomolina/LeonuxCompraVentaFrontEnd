@@ -61,6 +61,7 @@
     <Compile Include="Data\Movimiento.cs" />
     <Compile Include="Data\Precio.cs" />
     <Compile Include="Data\Producto.cs" />
+    <Compile Include="Data\Proveedor.cs" />
     <Compile Include="Data\ReporteMovimientos.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\TasaImpuesto.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="InfraEstructura\IMovimiento.cs" />
     <Compile Include="InfraEstructura\IPrecio.cs" />
     <Compile Include="InfraEstructura\IProducto.cs" />
+    <Compile Include="InfraEstructura\IProveedor.cs" />
     <Compile Include="InfraEstructura\IReporteMovimientos.cs" />
     <Compile Include="InfraEstructura\ISucursal.cs" />
     <Compile Include="InfraEstructura\ITasaImpuesto.cs" />

@@ -12,19 +12,18 @@ namespace ModInventario.Kardex.Movimiento
     {
 
         private OOB.LibInventario.Kardex.Movimiento.Resumen.Data reg;
-        public string AutoDeposito { get; set; }
-        public string AutoConcepto { get; set; }
+        public string Siglas { get; set; }
         public string Deposito { get; set; }
         public string Concepto { get; set; }
         public int CntMovimiento { get; set; }
         public decimal CntInventario { get; set; }
+        public OOB.LibInventario.Kardex.Movimiento.Resumen.Data Data { get { return reg; } }
 
 
         public detalle(OOB.LibInventario.Kardex.Movimiento.Resumen.Data reg)
         {
             this.reg = reg;
-            AutoDeposito = reg.autoDeposito;
-            AutoConcepto = reg.autoConcepto;
+            Siglas = reg.siglas;
             Deposito = reg.nombreDeposito.Trim() + "/" + reg.codigoDeposito;
             Concepto = reg.nombreConcepto.Trim() + "/" + reg.codigoConcepto;
             CntInventario = reg.cntInventario;

@@ -41,12 +41,12 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_PRODUCTO = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.TB_EXISTENCIA = new LibControles.NumeroDecimal();
+            this.TB_MAXIMO = new LibControles.NumeroDecimal();
+            this.TB_MINIMO = new LibControles.NumeroDecimal();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.TB_MINIMO = new LibControles.NumeroDecimal();
-            this.TB_MAXIMO = new LibControles.NumeroDecimal();
-            this.TB_EXISTENCIA = new LibControles.NumeroDecimal();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -225,6 +225,44 @@
             this.panel7.Size = new System.Drawing.Size(188, 155);
             this.panel7.TabIndex = 0;
             // 
+            // TB_EXISTENCIA
+            // 
+            this.TB_EXISTENCIA.BackColor = System.Drawing.Color.Yellow;
+            this.TB_EXISTENCIA.Enabled = false;
+            this.TB_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_EXISTENCIA.Location = new System.Drawing.Point(67, 35);
+            this.TB_EXISTENCIA.Name = "TB_EXISTENCIA";
+            this.TB_EXISTENCIA.Size = new System.Drawing.Size(100, 22);
+            this.TB_EXISTENCIA.TabIndex = 3;
+            this.TB_EXISTENCIA.Text = "0";
+            this.TB_EXISTENCIA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TB_MAXIMO
+            // 
+            this.TB_MAXIMO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_MAXIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_MAXIMO.Location = new System.Drawing.Point(67, 123);
+            this.TB_MAXIMO.Name = "TB_MAXIMO";
+            this.TB_MAXIMO.Size = new System.Drawing.Size(100, 22);
+            this.TB_MAXIMO.TabIndex = 1;
+            this.TB_MAXIMO.Text = "0";
+            this.TB_MAXIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_MAXIMO.TextChanged += new System.EventHandler(this.TB_MAXIMO_TextChanged);
+            this.TB_MAXIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            // 
+            // TB_MINIMO
+            // 
+            this.TB_MINIMO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_MINIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_MINIMO.Location = new System.Drawing.Point(67, 79);
+            this.TB_MINIMO.Name = "TB_MINIMO";
+            this.TB_MINIMO.Size = new System.Drawing.Size(100, 22);
+            this.TB_MINIMO.TabIndex = 0;
+            this.TB_MINIMO.Text = "0";
+            this.TB_MINIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_MINIMO.TextChanged += new System.EventHandler(this.TB_MINIMO_TextChanged);
+            this.TB_MINIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -256,44 +294,6 @@
             this.label3.Text = "Existencia:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // TB_MINIMO
-            // 
-            this.TB_MINIMO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_MINIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_MINIMO.Location = new System.Drawing.Point(67, 79);
-            this.TB_MINIMO.Name = "TB_MINIMO";
-            this.TB_MINIMO.Size = new System.Drawing.Size(100, 22);
-            this.TB_MINIMO.TabIndex = 0;
-            this.TB_MINIMO.Text = "0";
-            this.TB_MINIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_MINIMO.TextChanged += new System.EventHandler(this.TB_MINIMO_TextChanged);
-            this.TB_MINIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            // 
-            // TB_MAXIMO
-            // 
-            this.TB_MAXIMO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_MAXIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_MAXIMO.Location = new System.Drawing.Point(67, 123);
-            this.TB_MAXIMO.Name = "TB_MAXIMO";
-            this.TB_MAXIMO.Size = new System.Drawing.Size(100, 22);
-            this.TB_MAXIMO.TabIndex = 1;
-            this.TB_MAXIMO.Text = "0";
-            this.TB_MAXIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_MAXIMO.TextChanged += new System.EventHandler(this.TB_MAXIMO_TextChanged);
-            this.TB_MAXIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            // 
-            // TB_EXISTENCIA
-            // 
-            this.TB_EXISTENCIA.BackColor = System.Drawing.Color.Yellow;
-            this.TB_EXISTENCIA.Enabled = false;
-            this.TB_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_EXISTENCIA.Location = new System.Drawing.Point(67, 35);
-            this.TB_EXISTENCIA.Name = "TB_EXISTENCIA";
-            this.TB_EXISTENCIA.Size = new System.Drawing.Size(100, 22);
-            this.TB_EXISTENCIA.TabIndex = 3;
-            this.TB_EXISTENCIA.Text = "0";
-            this.TB_EXISTENCIA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // AjustarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +305,7 @@
             this.KeyPreview = true;
             this.Name = "AjustarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AjustarFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

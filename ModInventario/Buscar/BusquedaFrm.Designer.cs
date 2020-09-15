@@ -157,7 +157,12 @@
             this.BT_GENERAR_QR = new System.Windows.Forms.Button();
             this.panel54 = new System.Windows.Forms.Panel();
             this.TB_CAMBIO_ESTATUS = new System.Windows.Forms.Button();
+            this.panel55 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel56 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.panel45.SuspendLayout();
@@ -228,6 +233,9 @@
             this.tableLayoutPanel16.SuspendLayout();
             this.panel53.SuspendLayout();
             this.panel54.SuspendLayout();
+            this.panel55.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
+            this.panel56.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1442,6 +1450,7 @@
             this.tableLayoutPanel9.Controls.Add(this.panel22, 0, 1);
             this.tableLayoutPanel9.Controls.Add(this.panel40, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.panel49, 0, 3);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel17, 0, 4);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(1);
@@ -1813,6 +1822,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.Controls.Add(this.panel53, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.panel54, 1, 0);
+            this.tableLayoutPanel16.Controls.Add(this.panel55, 0, 1);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(1);
@@ -1877,10 +1887,80 @@
             this.TB_CAMBIO_ESTATUS.UseVisualStyleBackColor = true;
             this.TB_CAMBIO_ESTATUS.Click += new System.EventHandler(this.TB_CAMBIO_ESTATUS_Click);
             // 
+            // panel55
+            // 
+            this.panel55.Controls.Add(this.button1);
+            this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel55.Location = new System.Drawing.Point(1, 38);
+            this.panel55.Margin = new System.Windows.Forms.Padding(1);
+            this.panel55.Name = "panel55";
+            this.panel55.Padding = new System.Windows.Forms.Padding(2);
+            this.panel55.Size = new System.Drawing.Size(34, 36);
+            this.panel55.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::ModInventario.Properties.Resources.bt_imagen_2;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 32);
+            this.button1.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.button1, "Imagne del Producto");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 2;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Controls.Add(this.panel56, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(2, 318);
+            this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel17.RowCount = 2;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(76, 77);
+            this.tableLayoutPanel17.TabIndex = 3;
+            // 
+            // panel56
+            // 
+            this.panel56.Controls.Add(this.button2);
+            this.panel56.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel56.Location = new System.Drawing.Point(2, 2);
+            this.panel56.Margin = new System.Windows.Forms.Padding(1);
+            this.panel56.Name = "panel56";
+            this.panel56.Padding = new System.Windows.Forms.Padding(2);
+            this.panel56.Size = new System.Drawing.Size(35, 35);
+            this.panel56.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::ModInventario.Properties.Resources.bt_proveedor;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(2, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(31, 31);
+            this.button2.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.button2, "Proveedores Asignado");
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // BusquedaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIR;
             this.ClientSize = new System.Drawing.Size(1017, 574);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -1962,6 +2042,9 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.panel53.ResumeLayout(false);
             this.panel54.ResumeLayout(false);
+            this.panel55.ResumeLayout(false);
+            this.tableLayoutPanel17.ResumeLayout(false);
+            this.panel56.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2097,5 +2180,10 @@
         private System.Windows.Forms.Button BT_GENERAR_QR;
         private System.Windows.Forms.Panel panel54;
         private System.Windows.Forms.Button TB_CAMBIO_ESTATUS;
+        private System.Windows.Forms.Panel panel55;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.Panel panel56;
+        private System.Windows.Forms.Button button2;
     }
 }

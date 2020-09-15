@@ -126,6 +126,7 @@ namespace ModInventario.Producto.Costo.Editar
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            var tasa = r01.Entidad.tasaIva;
 
             var r02 = Sistema.MyData.Configuracion_TasaCambioActual();
             if (r02.Result == OOB.Enumerados.EnumResult.isError)
@@ -148,17 +149,44 @@ namespace ModInventario.Producto.Costo.Editar
                 return false;
             }
 
+            var r05 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta();
+            if (r05.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r05.Mensaje);
+                return false;
+            }
+            var redondeo = precio.enumModoRedondeo.SinRedondeo;
+            switch (r05.Entidad)
+            {
+                case  OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Unidad:
+                    redondeo = precio.enumModoRedondeo.Unidad;
+                    break;
+                case OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Decena:
+                    redondeo = precio.enumModoRedondeo.Decena;
+                    break;
+            }
+
+            var r06 = Sistema.MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (r06.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r06.Mensaje);
+                return false;
+            }
+            var prefPrec = precio.enumPreferenciaPrecio.Neto;
+            if (r06.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Full)
+                prefPrec = precio.enumPreferenciaPrecio.Full;
+
             var pr = r03.Entidad;
             var met = precio.enumUtilidadMetodo.Lineal;
             if (r04.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad.Financiero) 
             {
                 met = precio.enumUtilidadMetodo.Financiero;
             }
-            precio_1.setFicha(pr.utilidad1, pr.precioNeto1 ,met);
-            precio_2.setFicha(pr.utilidad2, pr.precioNeto2, met);
-            precio_3.setFicha(pr.utilidad3, pr.precioNeto3, met);
-            precio_4.setFicha(pr.utilidad4, pr.precioNeto4, met);
-            precio_5.setFicha(pr.utilidad5, pr.precioNeto5, met);
+            precio_1.setFicha(pr.utilidad1, pr.precioNeto1, tasa, met, redondeo, prefPrec);
+            precio_2.setFicha(pr.utilidad2, pr.precioNeto2, tasa, met, redondeo, prefPrec);
+            precio_3.setFicha(pr.utilidad3, pr.precioNeto3, tasa, met, redondeo, prefPrec);
+            precio_4.setFicha(pr.utilidad4, pr.precioNeto4, tasa, met, redondeo, prefPrec);
+            precio_5.setFicha(pr.utilidad5, pr.precioNeto5, tasa, met, redondeo, prefPrec);
 
             producto = r01.Entidad.codigo + Environment.NewLine + r01.Entidad.descripcion;
             empaqueContenido = r01.Entidad.empaqueCompra.Trim() + "/" + r01.Entidad.contEmpaqueCompra.ToString();

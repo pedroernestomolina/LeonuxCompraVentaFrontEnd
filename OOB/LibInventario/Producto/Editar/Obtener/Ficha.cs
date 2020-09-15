@@ -25,6 +25,11 @@ namespace OOB.LibInventario.Producto.Editar.Obtener
         public string referencia { get; set; }
         public int contenidoCompra { get; set; }
 
+        public byte[] imagen { get; set; }
+        public Enumerados.EnumPesado esPesado { get; set; }
+        public string plu { get; set; }
+        public int diasEmpaque { get; set; }
+
         public Enumerados.EnumOrigen origen { get; set; }
         public Enumerados.EnumCategoria categoria { get; set; }
         public Enumerados.EnumAdministradorPorDivisa AdmPorDivisa { get; set; }

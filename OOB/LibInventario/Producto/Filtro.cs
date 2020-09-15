@@ -11,6 +11,9 @@ namespace OOB.LibInventario.Producto
     public class Filtro
     {
 
+        public enum Existencia { SinDefinir = -1, MayorQueCero = 1, IgualCero, MenorQueCero };
+
+
         public string cadena { get; set; }
         public string autoProducto { get; set; }
         public string autoDepartamento { get; set; }
@@ -19,6 +22,7 @@ namespace OOB.LibInventario.Producto
         public string autoTasa { get; set; }
         public string autoProveedor { get; set; }
         public string autoMarca { get; set; }
+        public Existencia existencia { get; set; }
         public Enumerados.EnumOrigen origen { get; set; }
         public Enumerados.EnumEstatus estatus { get; set; }
         public Enumerados.EnumCategoria categoria { get; set; }
@@ -50,6 +54,7 @@ namespace OOB.LibInventario.Producto
             pesado = Enumerados.EnumPesado.SnDefinir;
             oferta = Enumerados.EnumOferta.SnDefinir;
             MetodoBusqueda = Enumerados.EnumMetodoBusqueda.SnDefinir;
+            existencia = Existencia.SinDefinir;
         }
 
     }

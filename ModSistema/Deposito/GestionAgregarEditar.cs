@@ -94,12 +94,12 @@ namespace ModSistema.Deposito
         {
             if (Deposito.Trim() == "")
             {
-                Helpers.Msg.Error("Campo [ Nombre Deposito ] No Puede Estar Vacio");
+                Helpers.Msg.Error("Campo [ Nombre Depósito ] No Puede Estar Vacio");
                 return;
             }
             if (Codigo.Trim() == "")
             {
-                Helpers.Msg.Error("Campo [ Codigo Deposito ] No Puede Estar Vacio");
+                Helpers.Msg.Error("Campo [ Codigo Depósito ] No Puede Estar Vacio");
                 return;
             }
             if (AutoSucursal.Trim() == "")
@@ -122,8 +122,8 @@ namespace ModSistema.Deposito
                 {
                     var ficha = new OOB.LibSistema.Deposito.Agregar()
                     {
-                        nombre = Deposito,
-                        codigo = Codigo,
+                        nombre = Deposito.Trim().ToUpper(),
+                        codigo = Codigo.Trim().ToUpper(),
                         autoSucursal = r00.Entidad.auto,
                         codigoSucursal = r00.Entidad.codigo,
                     };
@@ -144,8 +144,8 @@ namespace ModSistema.Deposito
                     var ficha = new OOB.LibSistema.Deposito.Editar()
                     {
                         auto = _ficha.auto,
-                        nombre = Deposito,
-                        codigo = Codigo,
+                        nombre = Deposito.Trim().ToUpper(),
+                        codigo = Codigo.Trim().ToUpper(),
                         autoSucursal = r00.Entidad.auto,
                         codigoSucursal = r00.Entidad.codigo,
                     };
@@ -183,7 +183,7 @@ namespace ModSistema.Deposito
                     frm = new AgregarEditarFrm();
                     frm.setControlador(this);
                 }
-                frm.setTitulo("Editar Deposito:");
+                frm.setTitulo("Editar Depósito:");
                 frm.ShowDialog();
             }
         }

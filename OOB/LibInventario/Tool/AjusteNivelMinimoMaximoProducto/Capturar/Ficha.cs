@@ -20,6 +20,7 @@ namespace OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar
         public decimal nivelMinimo { get; set; }
         public decimal nivelOptimo { get; set; }
         public bool esPesado { get; set; }
+        public string Estatus { get; set; }
 
     }
 

@@ -104,7 +104,7 @@ namespace ModSistema.Sucursal
             }
             if (AutoGrupo.Trim() == "")
             {
-                Helpers.Msg.Error("Campo [ Precio ] No Puede Estar Vacio");
+                Helpers.Msg.Error("Campo [ Grupo ] No Puede Estar Vacio");
                 return;
             }
 
@@ -116,8 +116,8 @@ namespace ModSistema.Sucursal
                 {
                     var ficha = new OOB.LibSistema.Sucursal.Agregar()
                     {
-                        nombre = Sucursal,
-                        codigo = Codigo,
+                        nombre = Sucursal.Trim().ToUpper(),
+                        codigo = Codigo.Trim().ToUpper(),
                         autoGrupo = AutoGrupo,
                     };
                     var r01 = Sistema.MyData.Sucursal_Agregar(ficha);
@@ -137,8 +137,8 @@ namespace ModSistema.Sucursal
                     var ficha = new OOB.LibSistema.Sucursal.Editar()
                     {
                         auto = _ficha.auto,
-                        nombre = Sucursal,
-                        codigo = Codigo,
+                        nombre = Sucursal.Trim().ToUpper(),
+                        codigo = Codigo.Trim().ToUpper(),
                         autoGrupo = AutoGrupo,
                     };
                     var r01 = Sistema.MyData.Sucursal_Editar(ficha);

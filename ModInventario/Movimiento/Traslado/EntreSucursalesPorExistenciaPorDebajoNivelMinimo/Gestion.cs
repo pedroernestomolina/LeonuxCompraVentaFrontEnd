@@ -287,6 +287,10 @@ namespace ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebaj
                     siglas = "TRA",
                     signo = -1,
                     total = it.Importe,
+                    codigoConcepto = conceptoPorTraslado.codigo,
+                    nombreConcepto = conceptoPorTraslado.nombre,
+                    codigoDeposito = sucOrigen.codigoDepositoPrincipal,
+                    nombreDeposito = sucOrigen.nombreDepositoPrincipal,
                 };
                 listKardex.Add(kardexS);
 
@@ -310,6 +314,10 @@ namespace ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebaj
                     siglas = "TRA",
                     signo = 1,
                     total = it.Importe,
+                    codigoConcepto = conceptoPorTraslado.codigo,
+                    nombreConcepto = conceptoPorTraslado.nombre,
+                    codigoDeposito = sucDestino.codigoDepositoPrincipal ,
+                    nombreDeposito = sucDestino.nombreDepositoPrincipal,
                 };
                 listKardex.Add(kardexE);
             }

@@ -30,7 +30,12 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
         public decimal PrecioUnd { get; set; }
         public string Codigo { get; set; }
         public string Siglas { get; set; }
+        //
         public string CodigoSucursal { get; set; }
+        public string CodigoDeposito { get; set; }
+        public string NombreDeposito { get; set; }
+        public string CodigoConcepto { get; set; }
+        public string NombreConcepto { get; set; }
 
         
         public ProductoKardex()
@@ -55,6 +60,10 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
             Codigo = "";
             Siglas = "";
             CodigoSucursal = "";
+            CodigoConcepto = "";
+            CodigoDeposito = "";
+            NombreDeposito = "";
+            NombreConcepto = "";
         }
 
     }

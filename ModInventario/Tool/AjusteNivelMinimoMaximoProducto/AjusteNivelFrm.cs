@@ -68,7 +68,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             c2.DataPropertyName = "NombrePrd";
             c2.HeaderText = "Nombre";
             c2.Visible = true;
-            c2.MinimumWidth = 120;
+            c2.MinimumWidth = 160;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
@@ -84,18 +84,18 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "Minimo";
-            c4.HeaderText = "Nivel Minimo";
+            c4.HeaderText = "N/Mínimo";
             c4.Visible = true;
-            c4.Width = 120;
+            c4.Width = 80;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
             c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             var c5 = new DataGridViewTextBoxColumn();
             c5.DataPropertyName = "Maximo";
-            c5.HeaderText = "Nivel Maximo";
+            c5.HeaderText = "N/Máximo";
             c5.Visible = true;
-            c5.Width = 120;
+            c5.Width = 80;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -108,12 +108,22 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             c6.DefaultCellStyle.Font = f1;
             c6.Width = 30;
 
+            var c8 = new DataGridViewTextBoxColumn();
+            c8.DataPropertyName = "Estatus";
+            c8.Name = "Estatus";
+            c8.HeaderText = "*";
+            c8.Visible = true;
+            c8.Width = 80;
+            c8.HeaderCell.Style.Font = f;
+            c8.DefaultCellStyle.Font = f1;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
+            DGV.Columns.Add(c8);
         }
 
         private void AjusteNivelFrm_Load(object sender, EventArgs e)
@@ -121,6 +131,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             Inicializar();
             DGV.DataSource = _controlador.Lista;
             DGV.Refresh();
+            L_ITEMS.Text = _controlador.Items;
         }
 
         private void BT_BUSCAR_Click(object sender, EventArgs e)
@@ -134,6 +145,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             L_DEPOSITO.Text = _controlador.Deposito;
             BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
             CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
+            L_ITEMS.Text = _controlador.Items;
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,6 +168,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             {
                 Limpiar2();
             }
+            L_ITEMS.Text = _controlador.Items;
         }
 
         private void Limpiar2()
@@ -244,11 +257,29 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
                 }
             }
 
+            if (DGV.Columns[e.ColumnIndex].Name.Equals("Estatus"))
+            {
+                DataGridViewCell cell = this.DGV.Rows[e.RowIndex].Cells["Estatus"];
+                if ((string)e.Value.ToString().Trim().ToUpper()=="SUSPENDIDO")
+                {
+                    cell.Style.BackColor = Color.Orange;
+                    cell.Style.ForeColor = Color.Black;
+                }
+                else
+                {
+                    cell.Style.BackColor = Color.Green;
+                    cell.Style.ForeColor = Color.White;
+                }
+            }
         }
 
         private void AjusteNivelFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = !_controlador.SalirIsOk;
+            if (!_controlador.SalirIsOk) 
+            {
+                _controlador.Salir();
+                e.Cancel = !_controlador.SalirIsOk;
+            }
         }
 
     }

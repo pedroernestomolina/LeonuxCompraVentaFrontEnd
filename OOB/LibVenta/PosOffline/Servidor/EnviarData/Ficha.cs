@@ -75,6 +75,14 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                     mfirma = c.mFirma,
                     msubtotal = c.mSubTotal,
                     mtotal = c.mTotal,
+                    //
+                    cntDivisa=c.cntDivisa,
+                    cntDivisaUsuario=c.cntDivisaUsu,
+                    cntDoc=c.cntDoc,
+                    cntDocFac=c.cntDocFac,
+                    cntDocNcr=c.cntDocNcr,
+                    montoFac=c.montoFac,
+                    montoNcr=c.montoNcr,
                 };
 
                 var listDoc = new List<Documento>();
@@ -321,6 +329,10 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                                 Siglas = d.Siglas,
                                 Signo = d.Signo * (-1),
                                 Total = dt.CostoVenta,
+                                CodigoConcepto=d.CodigoConceptoMov,
+                                NombreConcepto=d.NombreConceptoMov,
+                                CodigoDeposito=d.DepositoCodigo,
+                                NombreDeposito=d.DepositoNombre,
                             };
                             return mk;
                         }).ToList(),

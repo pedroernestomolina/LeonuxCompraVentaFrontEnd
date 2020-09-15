@@ -33,6 +33,9 @@ namespace DataProvInventario.Data
                 {
                     list = r01.Lista.Select(s =>
                     {
+                        var _estatus="Activo" ;
+                        if (s.esSuspendido == "1") { _estatus = "Suspendido"; }
+
                         return new OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar.Ficha()
                         {
                             autoProducto = s.autoProducto,
@@ -44,6 +47,7 @@ namespace DataProvInventario.Data
                             nombreProducto = s.nombreProducto,
                             referenciaProducto = s.referenciaProducto,
                             esPesado=s.esPesado=="S"?true:false,
+                            Estatus=_estatus,
                         };
                     }).ToList();
                 }

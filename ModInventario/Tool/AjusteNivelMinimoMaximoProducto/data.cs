@@ -22,6 +22,19 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         public decimal Minimo { get { return _minimo; } }
         public decimal Maximo { get { return _maximo; } }
         public bool EsPesado { get { return Ficha.esPesado; } }
+        public string Estatus { get { return Ficha.Estatus; } }
+        public bool IsEditado 
+        { 
+            get 
+            { 
+                var rt=false;
+                if (Ficha.nivelMinimo != Minimo || Ficha.nivelOptimo != Maximo) 
+                {
+                    rt = true;
+                }
+                return rt;
+            }
+        }
 
 
         public data(OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar.Ficha it)

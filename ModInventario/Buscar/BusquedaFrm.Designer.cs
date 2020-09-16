@@ -158,11 +158,11 @@
             this.panel54 = new System.Windows.Forms.Panel();
             this.TB_CAMBIO_ESTATUS = new System.Windows.Forms.Button();
             this.panel55 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.BT_IMAGEN = new System.Windows.Forms.Button();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.panel56 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.panel45.SuspendLayout();
@@ -1889,7 +1889,7 @@
             // 
             // panel55
             // 
-            this.panel55.Controls.Add(this.button1);
+            this.panel55.Controls.Add(this.BT_IMAGEN);
             this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel55.Location = new System.Drawing.Point(1, 38);
             this.panel55.Margin = new System.Windows.Forms.Padding(1);
@@ -1898,20 +1898,21 @@
             this.panel55.Size = new System.Drawing.Size(34, 36);
             this.panel55.TabIndex = 2;
             // 
-            // button1
+            // BT_IMAGEN
             // 
-            this.button1.BackgroundImage = global::ModInventario.Properties.Resources.bt_imagen_2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 32);
-            this.button1.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.button1, "Imagne del Producto");
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_IMAGEN.BackgroundImage = global::ModInventario.Properties.Resources.bt_imagen_2;
+            this.BT_IMAGEN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_IMAGEN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_IMAGEN.FlatAppearance.BorderSize = 0;
+            this.BT_IMAGEN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_IMAGEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_IMAGEN.Location = new System.Drawing.Point(2, 2);
+            this.BT_IMAGEN.Name = "BT_IMAGEN";
+            this.BT_IMAGEN.Size = new System.Drawing.Size(30, 32);
+            this.BT_IMAGEN.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.BT_IMAGEN, "Imagne del Producto");
+            this.BT_IMAGEN.UseVisualStyleBackColor = true;
+            this.BT_IMAGEN.Click += new System.EventHandler(this.BT_IMAGEN_Click);
             // 
             // tableLayoutPanel17
             // 
@@ -2181,7 +2182,7 @@
         private System.Windows.Forms.Panel panel54;
         private System.Windows.Forms.Button TB_CAMBIO_ESTATUS;
         private System.Windows.Forms.Panel panel55;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_IMAGEN;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Panel panel56;
         private System.Windows.Forms.Button button2;

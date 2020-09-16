@@ -436,6 +436,16 @@ namespace ModInventario.Buscar
         {
             _controlador.CambioEstatus();
         }
+
+        private void BT_IMAGEN_Click(object sender, EventArgs e)
+        {
+            GetImagen();
+        }
+
+        private void GetImagen()
+        {
+            _controlador.GetImagen();
+        }
       
     }
 

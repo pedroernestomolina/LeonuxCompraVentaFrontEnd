@@ -188,6 +188,15 @@
     <Compile Include="Maestros\Marcas\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Movimiento\Cargo\Gestion.cs" />
+    <Compile Include="Movimiento\Gestion.cs" />
+    <Compile Include="Movimiento\IGestion.cs" />
+    <Compile Include="Movimiento\MvFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimiento\MvFrm.Designer.cs">
+      <DependentUpon>MvFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Gestion.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\GestionLista.cs" />
     <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Item.cs" />
@@ -273,6 +282,21 @@
       <DependentUpon>EstatusFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Producto\Estatus\Gestion.cs" />
+    <Compile Include="Producto\Imagen\Gestion.cs" />
+    <Compile Include="Producto\Imagen\ImgFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Imagen\ImgFrm.Designer.cs">
+      <DependentUpon>ImgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Plu\data.cs" />
+    <Compile Include="Producto\Plu\Gestion.cs" />
+    <Compile Include="Producto\Plu\PluFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Plu\PluFrm.Designer.cs">
+      <DependentUpon>PluFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Producto\Precio\Editar\data.cs" />
     <Compile Include="Producto\Precio\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
@@ -391,6 +415,9 @@
     <EmbeddedResource Include="Maestros\Marcas\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Movimiento\MvFrm.resx">
+      <DependentUpon>MvFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +447,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Estatus\EstatusFrm.resx">
       <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Imagen\ImgFrm.resx">
+      <DependentUpon>ImgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Plu\PluFrm.resx">
+      <DependentUpon>PluFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Precio\Editar\EditarFrm.resx">
       <DependentUpon>EditarFrm.cs</DependentUpon>

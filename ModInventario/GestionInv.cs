@@ -20,6 +20,7 @@ namespace ModInventario
         private Maestros.Marcas.Gestion _gestionMarca;
         private Maestros.Conceptos.Gestion _gestionConcepto;
         private Buscar.Gestion _gestionBusqueda;
+        private Movimiento.Gestion _gestionMov;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -35,6 +36,7 @@ namespace ModInventario
             _gestionConcepto = new Maestros.Conceptos.Gestion();
             _gestionBusqueda = new Buscar.Gestion();
             _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
+            _gestionMov = new Movimiento.Gestion();
         }
 
 
@@ -94,6 +96,12 @@ namespace ModInventario
         public void MaestroConcepto()
         {
             _gestionConcepto.Inicia();
+        }
+
+        public void MovimientoCargo()
+        {
+            _gestionMov.setGestion(new Movimiento.Cargo.Gestion());
+            _gestionMov.Inicia();
         }
 
     }

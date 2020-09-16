@@ -123,6 +123,11 @@ namespace ModInventario.Producto.AgregarEditar
             miGestion.CargaMarcas();
         }
 
+        public void ListaPlu()
+        {
+            miGestion.ListaPlu();
+        }
+
     }
 
 }

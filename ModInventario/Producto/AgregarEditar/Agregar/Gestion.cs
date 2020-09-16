@@ -45,6 +45,8 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         private BindingSource bsClasificacion;
         private data miData;
 
+        private Plu.Gestion _gestionPlu;
+
 
         public BindingSource Departamentos
         {
@@ -343,6 +345,8 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
 
         public Gestion()
         {
+            _gestionPlu = new Producto.Plu.Gestion();
+
             _isAgregarEditarOk = false;
             _autoProductoAgregado = "";
             _isCerrarHabilitado = true;
@@ -633,6 +637,11 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
             bsMarca.CurrencyManager.Refresh();
 
             return rt;
+        }
+
+        public void ListaPlu()
+        {
+            _gestionPlu.Inicia();
         }
 
     }

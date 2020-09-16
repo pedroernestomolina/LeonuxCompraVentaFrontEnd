@@ -28,6 +28,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoAuto Producto_Nuevo_Agregar(OOB.LibInventario.Producto.Agregar.Ficha ficha);
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Estatus.Actual.Ficha> Producto_Estatus_GetFicha(string autoPrd);
 
+        OOB.ResultadoLista<OOB.LibInventario.Producto.Plu.Lista.Ficha> Producto_Plu_Lista();
         OOB.ResultadoLista<OOB.LibInventario.Producto.Origen.Ficha> Producto_Origen_Lista();
         OOB.ResultadoLista<OOB.LibInventario.Producto.Categoria.Ficha> Producto_Categoria_Lista();
         OOB.ResultadoLista<OOB.LibInventario.Producto.Estatus.Lista.Ficha> Producto_Estatus_Lista();

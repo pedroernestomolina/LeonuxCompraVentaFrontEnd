@@ -415,6 +415,16 @@ namespace ModInventario.Producto.AgregarEditar
             }
         }
 
+        private void BT_LISTA_PLU_Click(object sender, EventArgs e)
+        {
+            ListaPlu();
+        }
+
+        private void ListaPlu()
+        {
+            _controlador.ListaPlu();
+        }
+
     }
 
 }

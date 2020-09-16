@@ -47,7 +47,12 @@
             this.TSM_MAESTROS_Conceptos = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajusteInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlDeMovimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_Movimiento_Control_Cargo = new System.Windows.Forms.ToolStripMenuItem();
+            this.descargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trasladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_MOVIMIENTO_TRASLADOMERCANCIAPOREXISTENCIADEBAJOMINIMO = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -64,11 +69,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.controlDeMovimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.descargoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trasladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ajusteInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -266,6 +266,12 @@
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Text = "Definir Nivel Minimo/Maximo de los Productos";
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Click += new System.EventHandler(this.TSM_AJUSTE_DefinirNivelMinimoMaximo_Click);
             // 
+            // ajusteInventarioToolStripMenuItem
+            // 
+            this.ajusteInventarioToolStripMenuItem.Name = "ajusteInventarioToolStripMenuItem";
+            this.ajusteInventarioToolStripMenuItem.Size = new System.Drawing.Size(323, 22);
+            this.ajusteInventarioToolStripMenuItem.Text = "Ajuste Inventario";
+            // 
             // movimientosToolStripMenuItem
             // 
             this.movimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -274,6 +280,35 @@
             this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
             this.movimientosToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.movimientosToolStripMenuItem.Text = "Movimientos";
+            // 
+            // controlDeMovimientosToolStripMenuItem
+            // 
+            this.controlDeMovimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_Movimiento_Control_Cargo,
+            this.descargoToolStripMenuItem,
+            this.trasladoToolStripMenuItem});
+            this.controlDeMovimientosToolStripMenuItem.Name = "controlDeMovimientosToolStripMenuItem";
+            this.controlDeMovimientosToolStripMenuItem.Size = new System.Drawing.Size(356, 22);
+            this.controlDeMovimientosToolStripMenuItem.Text = "Control De Movimientos";
+            // 
+            // TSM_Movimiento_Control_Cargo
+            // 
+            this.TSM_Movimiento_Control_Cargo.Name = "TSM_Movimiento_Control_Cargo";
+            this.TSM_Movimiento_Control_Cargo.Size = new System.Drawing.Size(152, 22);
+            this.TSM_Movimiento_Control_Cargo.Text = "Cargo";
+            this.TSM_Movimiento_Control_Cargo.Click += new System.EventHandler(this.TSM_Movimiento_Control_Cargo_Click);
+            // 
+            // descargoToolStripMenuItem
+            // 
+            this.descargoToolStripMenuItem.Name = "descargoToolStripMenuItem";
+            this.descargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.descargoToolStripMenuItem.Text = "Descargo";
+            // 
+            // trasladoToolStripMenuItem
+            // 
+            this.trasladoToolStripMenuItem.Name = "trasladoToolStripMenuItem";
+            this.trasladoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.trasladoToolStripMenuItem.Text = "Traslado";
             // 
             // TSM_MOVIMIENTO_TRASLADOMERCANCIAPOREXISTENCIADEBAJOMINIMO
             // 
@@ -475,40 +510,6 @@
             this.panel10.Size = new System.Drawing.Size(228, 275);
             this.panel10.TabIndex = 0;
             // 
-            // controlDeMovimientosToolStripMenuItem
-            // 
-            this.controlDeMovimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargoToolStripMenuItem,
-            this.descargoToolStripMenuItem,
-            this.trasladoToolStripMenuItem});
-            this.controlDeMovimientosToolStripMenuItem.Name = "controlDeMovimientosToolStripMenuItem";
-            this.controlDeMovimientosToolStripMenuItem.Size = new System.Drawing.Size(356, 22);
-            this.controlDeMovimientosToolStripMenuItem.Text = "Control De Movimientos";
-            // 
-            // cargoToolStripMenuItem
-            // 
-            this.cargoToolStripMenuItem.Name = "cargoToolStripMenuItem";
-            this.cargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cargoToolStripMenuItem.Text = "Cargo";
-            // 
-            // descargoToolStripMenuItem
-            // 
-            this.descargoToolStripMenuItem.Name = "descargoToolStripMenuItem";
-            this.descargoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.descargoToolStripMenuItem.Text = "Descargo";
-            // 
-            // trasladoToolStripMenuItem
-            // 
-            this.trasladoToolStripMenuItem.Name = "trasladoToolStripMenuItem";
-            this.trasladoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.trasladoToolStripMenuItem.Text = "Traslado";
-            // 
-            // ajusteInventarioToolStripMenuItem
-            // 
-            this.ajusteInventarioToolStripMenuItem.Name = "ajusteInventarioToolStripMenuItem";
-            this.ajusteInventarioToolStripMenuItem.Size = new System.Drawing.Size(323, 22);
-            this.ajusteInventarioToolStripMenuItem.Text = "Ajuste Inventario";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -582,7 +583,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.ToolStripMenuItem controlDeMovimientosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cargoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_Movimiento_Control_Cargo;
         private System.Windows.Forms.ToolStripMenuItem descargoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trasladoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajusteInventarioToolStripMenuItem;

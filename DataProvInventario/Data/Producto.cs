@@ -850,6 +850,41 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Producto.Plu.Lista.Ficha> Producto_Plu_Lista()
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Producto.Plu.Lista.Ficha>();
+
+            var r01 = MyData.Producto_Plu_Lista ();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Producto.Plu.Lista.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Producto.Plu.Lista.Ficha()
+                        {
+                            autoId = s.autoId,
+                            codigo = s.codigo,
+                            descripcion = s.descripcion,
+                            nombre = s.nombre,
+                            plu = s.plu,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

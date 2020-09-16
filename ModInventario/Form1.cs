@@ -147,6 +147,16 @@ namespace ModInventario
             _controlador.MaestroConcepto();
         }
 
+        private void TSM_Movimiento_Control_Cargo_Click(object sender, EventArgs e)
+        {
+            MovimientoCargo();
+        }
+
+        private void MovimientoCargo()
+        {
+            _controlador.MovimientoCargo();
+        }
+
     }
 
 }

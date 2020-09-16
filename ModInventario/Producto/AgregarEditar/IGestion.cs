@@ -51,6 +51,7 @@ namespace ModInventario.Producto.AgregarEditar
         void CargaDepartamentos();
         void CargaGrupos();
         void CargaMarcas();
+        void ListaPlu();
 
         bool IsAgregarEditarOk { get; }
         string AutoProductoAgregado { get; }

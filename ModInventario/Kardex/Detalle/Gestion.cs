@@ -26,6 +26,7 @@ namespace ModInventario.Kardex.Detalle
         public string Producto { get { return ficha.codigoProducto + Environment.NewLine + ficha.nombreProducto; } }
         public string Deposito { get { return deposito; } }
         public string Concepto { get { return concepto; } }
+        public string NotaMovimiento { get; set; }
 
 
         public Gestion()
@@ -42,6 +43,7 @@ namespace ModInventario.Kardex.Detalle
         {
             if (bs.Current!=null)
             {
+                NotaMovimiento = ((data)bs.Current).Nota;
                 if (frm != null) 
                 {
                     frm.setNota(((data)bs.Current).Nota);

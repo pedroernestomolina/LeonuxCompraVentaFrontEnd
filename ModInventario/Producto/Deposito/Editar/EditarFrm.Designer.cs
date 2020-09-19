@@ -51,12 +51,15 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.TB_PEDIDO = new LibControles.NumeroEntero();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.TB_MAXIMO = new LibControles.NumeroEntero();
             this.panel20 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.TB_MINIMO = new LibControles.NumeroEntero();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -77,9 +80,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.TB_PEDIDO = new LibControles.NumeroEntero();
-            this.TB_MAXIMO = new LibControles.NumeroEntero();
-            this.TB_MINIMO = new LibControles.NumeroEntero();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -157,12 +157,15 @@
             // 
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
             this.BT_SALIR.Size = new System.Drawing.Size(146, 38);
-            this.BT_SALIR.TabIndex = 0;
+            this.BT_SALIR.TabIndex = 5;
             this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
@@ -182,11 +185,14 @@
             this.BT_PROCESAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_PROCESAR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_PROCESAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PROCESAR.Image = global::ModInventario.Properties.Resources.bt_guardar__2_;
+            this.BT_PROCESAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_PROCESAR.Location = new System.Drawing.Point(2, 2);
             this.BT_PROCESAR.Name = "BT_PROCESAR";
             this.BT_PROCESAR.Size = new System.Drawing.Size(145, 38);
-            this.BT_PROCESAR.TabIndex = 1;
+            this.BT_PROCESAR.TabIndex = 2;
             this.BT_PROCESAR.Text = "Guardar";
+            this.BT_PROCESAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_PROCESAR.UseVisualStyleBackColor = true;
             this.BT_PROCESAR.Click += new System.EventHandler(this.BT_PROCESAR_Click);
             // 
@@ -419,6 +425,21 @@
             this.panel23.Size = new System.Drawing.Size(246, 26);
             this.panel23.TabIndex = 6;
             // 
+            // TB_PEDIDO
+            // 
+            this.TB_PEDIDO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_PEDIDO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_PEDIDO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_PEDIDO.Location = new System.Drawing.Point(2, 2);
+            this.TB_PEDIDO.MaxLength = 10;
+            this.TB_PEDIDO.Name = "TB_PEDIDO";
+            this.TB_PEDIDO.Size = new System.Drawing.Size(100, 22);
+            this.TB_PEDIDO.TabIndex = 1;
+            this.TB_PEDIDO.Text = "0";
+            this.TB_PEDIDO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_PEDIDO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_PEDIDO.Leave += new System.EventHandler(this.TB_PEDIDO_Leave);
+            // 
             // panel22
             // 
             this.panel22.Controls.Add(this.label10);
@@ -452,6 +473,21 @@
             this.panel21.Size = new System.Drawing.Size(246, 26);
             this.panel21.TabIndex = 5;
             // 
+            // TB_MAXIMO
+            // 
+            this.TB_MAXIMO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_MAXIMO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_MAXIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_MAXIMO.Location = new System.Drawing.Point(2, 2);
+            this.TB_MAXIMO.MaxLength = 10;
+            this.TB_MAXIMO.Name = "TB_MAXIMO";
+            this.TB_MAXIMO.Size = new System.Drawing.Size(100, 22);
+            this.TB_MAXIMO.TabIndex = 1;
+            this.TB_MAXIMO.Text = "0";
+            this.TB_MAXIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_MAXIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_MAXIMO.Leave += new System.EventHandler(this.TB_MAXIMO_Leave);
+            // 
             // panel20
             // 
             this.panel20.Controls.Add(this.label9);
@@ -484,6 +520,21 @@
             this.panel19.Padding = new System.Windows.Forms.Padding(2);
             this.panel19.Size = new System.Drawing.Size(246, 26);
             this.panel19.TabIndex = 4;
+            // 
+            // TB_MINIMO
+            // 
+            this.TB_MINIMO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_MINIMO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_MINIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_MINIMO.Location = new System.Drawing.Point(2, 2);
+            this.TB_MINIMO.MaxLength = 10;
+            this.TB_MINIMO.Name = "TB_MINIMO";
+            this.TB_MINIMO.Size = new System.Drawing.Size(100, 22);
+            this.TB_MINIMO.TabIndex = 0;
+            this.TB_MINIMO.Text = "0";
+            this.TB_MINIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_MINIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_MINIMO.Leave += new System.EventHandler(this.TB_MINIMO_Leave);
             // 
             // panel18
             // 
@@ -718,51 +769,6 @@
             this.label4.Text = "Ubicación 1:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // TB_PEDIDO
-            // 
-            this.TB_PEDIDO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_PEDIDO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_PEDIDO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_PEDIDO.Location = new System.Drawing.Point(2, 2);
-            this.TB_PEDIDO.MaxLength = 10;
-            this.TB_PEDIDO.Name = "TB_PEDIDO";
-            this.TB_PEDIDO.Size = new System.Drawing.Size(100, 22);
-            this.TB_PEDIDO.TabIndex = 1;
-            this.TB_PEDIDO.Text = "0";
-            this.TB_PEDIDO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_PEDIDO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_PEDIDO.Leave += new System.EventHandler(this.TB_PEDIDO_Leave);
-            // 
-            // TB_MAXIMO
-            // 
-            this.TB_MAXIMO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_MAXIMO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_MAXIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_MAXIMO.Location = new System.Drawing.Point(2, 2);
-            this.TB_MAXIMO.MaxLength = 10;
-            this.TB_MAXIMO.Name = "TB_MAXIMO";
-            this.TB_MAXIMO.Size = new System.Drawing.Size(100, 22);
-            this.TB_MAXIMO.TabIndex = 1;
-            this.TB_MAXIMO.Text = "0";
-            this.TB_MAXIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_MAXIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_MAXIMO.Leave += new System.EventHandler(this.TB_MAXIMO_Leave);
-            // 
-            // TB_MINIMO
-            // 
-            this.TB_MINIMO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_MINIMO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_MINIMO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_MINIMO.Location = new System.Drawing.Point(2, 2);
-            this.TB_MINIMO.MaxLength = 10;
-            this.TB_MINIMO.Name = "TB_MINIMO";
-            this.TB_MINIMO.Size = new System.Drawing.Size(100, 22);
-            this.TB_MINIMO.TabIndex = 0;
-            this.TB_MINIMO.Text = "0";
-            this.TB_MINIMO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_MINIMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_MINIMO.Leave += new System.EventHandler(this.TB_MINIMO_Leave);
-            // 
             // EditarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -821,11 +827,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button BT_PROCESAR;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel5;
@@ -870,5 +874,7 @@
         private LibControles.NumeroEntero TB_PEDIDO;
         private LibControles.NumeroEntero TB_MAXIMO;
         private LibControles.NumeroEntero TB_MINIMO;
+        private System.Windows.Forms.Button BT_SALIR;
+        private System.Windows.Forms.Button BT_PROCESAR;
     }
 }

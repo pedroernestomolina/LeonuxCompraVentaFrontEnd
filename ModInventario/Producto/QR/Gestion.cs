@@ -13,6 +13,12 @@ namespace ModInventario.Producto.QR
 
 
         private string _autoPrd;
+        private string producto;
+        private byte[] imagen;
+
+
+        public byte[] Imagen { get { return imagen; } }
+        public string Producto { get { return producto; } }
         public string AutoPrd { get { return _autoPrd; } }
         public string Url 
         { 
@@ -21,6 +27,13 @@ namespace ModInventario.Producto.QR
                 var rt = @"http://"+Sistema._Instancia+"/info.php?auto="+AutoPrd;
                 return rt; 
             } 
+        }
+
+
+        public Gestion()
+        {
+            producto = "";
+            imagen = new byte[] { };
         }
 
 
@@ -48,19 +61,22 @@ namespace ModInventario.Producto.QR
         {
             var rt = true;
 
-            //var r01 = Sistema.MyData.Producto_GetCosto(_autoPrd);
-            //if (r01.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(r01.Mensaje);
-            //    return false;
-            //}
-            //_data.setFicha(r01.Entidad);
+            var r01 = Sistema.MyData.Producto_GetImagen(_autoPrd);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            imagen = r01.Entidad.imagen;
+            producto = r01.Entidad.codigo+Environment.NewLine+r01.Entidad.descripcion;
 
             return rt;
         }
 
         private void Limpiar()
         {
+            producto = "";
+            imagen = new byte[] { };
         }
 
     }

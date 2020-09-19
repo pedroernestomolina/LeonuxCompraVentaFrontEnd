@@ -133,7 +133,7 @@ namespace ModInventario.Kardex.Detalle
             L_PRODUCTO.Text = _controlador.Producto;
             L_DEPOSITO.Text = _controlador.Deposito;
             L_CONCEPTO.Text = _controlador.Concepto;
-            L_NOTA.Text = "";
+            L_NOTA.Text = _controlador.NotaMovimiento;
         }
 
         public void setNota(string p)
@@ -158,6 +158,16 @@ namespace ModInventario.Kardex.Detalle
                 }
             }
 
+        }
+
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void Salir()
+        {
+            this.Close();
         }
 
     }

@@ -45,6 +45,17 @@ namespace ModInventario.Producto.QR
             var imagenTemporal = new Bitmap(ms);
             var image = new Bitmap(imagenTemporal, new Size(new Point(280, 280)));
             P_RESULTADO.BackgroundImage = image;
+
+
+            L_PRODUCTO.Text = _controlador.Producto;
+            PB_IMAGEN.Image = PB_IMAGEN.InitialImage;
+            if (_controlador.Imagen.Length > 0)
+            {
+                using (var mss = new MemoryStream(_controlador.Imagen))
+                {
+                    PB_IMAGEN.Image = Image.FromStream(mss);
+                }
+            }
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)

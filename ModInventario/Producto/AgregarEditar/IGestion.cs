@@ -55,6 +55,7 @@ namespace ModInventario.Producto.AgregarEditar
 
         bool IsAgregarEditarOk { get; }
         string AutoProductoAgregado { get; }
+        string Titulo { get; }
 
     }
 

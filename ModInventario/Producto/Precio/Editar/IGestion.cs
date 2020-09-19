@@ -29,6 +29,8 @@ namespace ModInventario.Producto.Precio.Editar
         string TasaCambioActual { get; }
         string MetodoCalculoUtilidad { get; }
         string FechaUltActCosto { get; }
+        bool IsModoDivisa { get;  }
+
 
         data Precio_1 { get; }
         data Precio_2 { get; }

@@ -107,12 +107,15 @@
             // 
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
             this.BT_SALIR.Size = new System.Drawing.Size(144, 38);
-            this.BT_SALIR.TabIndex = 0;
+            this.BT_SALIR.TabIndex = 2;
             this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
@@ -224,7 +227,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(50, 16);
+            this.panel7.Size = new System.Drawing.Size(49, 16);
             this.panel7.TabIndex = 0;
             // 
             // label2
@@ -233,7 +236,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(2, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 12);
+            this.label2.Size = new System.Drawing.Size(45, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "Nota:";
             // 
@@ -242,12 +245,12 @@
             this.panel8.BackColor = System.Drawing.Color.Yellow;
             this.panel8.Controls.Add(this.L_NOTA);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(53, 1);
+            this.panel8.Location = new System.Drawing.Point(52, 1);
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.SetRowSpan(this.panel8, 2);
-            this.panel8.Size = new System.Drawing.Size(314, 31);
+            this.panel8.Size = new System.Drawing.Size(315, 31);
             this.panel8.TabIndex = 1;
             // 
             // L_NOTA
@@ -255,7 +258,7 @@
             this.L_NOTA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.L_NOTA.Location = new System.Drawing.Point(2, 2);
             this.L_NOTA.Name = "L_NOTA";
-            this.L_NOTA.Size = new System.Drawing.Size(310, 27);
+            this.L_NOTA.Size = new System.Drawing.Size(311, 27);
             this.L_NOTA.TabIndex = 0;
             this.L_NOTA.Text = "label3";
             // 
@@ -317,7 +320,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
@@ -332,5 +334,6 @@
         private System.Windows.Forms.Label L_NOTA;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label L_PRODUCTO;
+        private System.Windows.Forms.Button BT_SALIR;
     }
 }

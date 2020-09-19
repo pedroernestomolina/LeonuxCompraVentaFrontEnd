@@ -35,6 +35,7 @@ namespace OOB.LibInventario.Producto.Data
         public DateTime FechaAlta { get { return identidad.fechaAlta ; } }
         public string FechaUltimaActualizacion { get { return identidad.fechaUltActualizacion.HasValue ? identidad.fechaUltActualizacion.Value.ToShortDateString() : ""; } }
         public string Producto { get { return CodigoPrd + Environment.NewLine + DescripcionPrd; } }
+        public decimal CostoUnd { get { return costo.costoUnd; } }
 
 
         public Ficha()

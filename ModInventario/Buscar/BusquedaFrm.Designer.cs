@@ -42,7 +42,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -162,7 +161,10 @@
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.panel56 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.panel57 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.panel45.SuspendLayout();
@@ -236,6 +238,7 @@
             this.panel55.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.panel56.SuspendLayout();
+            this.panel57.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -415,19 +418,6 @@
             this.panel9.Padding = new System.Windows.Forms.Padding(2);
             this.panel9.Size = new System.Drawing.Size(170, 46);
             this.panel9.TabIndex = 1;
-            // 
-            // BT_SALIR
-            // 
-            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
-            this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(166, 42);
-            this.BT_SALIR.TabIndex = 2;
-            this.BT_SALIR.Text = "Salir";
-            this.BT_SALIR.UseVisualStyleBackColor = true;
-            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
             // panel3
             // 
@@ -1451,6 +1441,7 @@
             this.tableLayoutPanel9.Controls.Add(this.panel40, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.panel49, 0, 3);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel17, 0, 4);
+            this.tableLayoutPanel9.Controls.Add(this.panel57, 0, 5);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(1);
@@ -1681,7 +1672,7 @@
             this.BT_MOV_KARDEX.Name = "BT_MOV_KARDEX";
             this.BT_MOV_KARDEX.Size = new System.Drawing.Size(31, 32);
             this.BT_MOV_KARDEX.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.BT_MOV_KARDEX, "Movimiento / Kardex del Producto");
+            this.toolTip1.SetToolTip(this.BT_MOV_KARDEX, "Movimiento del Producto");
             this.BT_MOV_KARDEX.UseVisualStyleBackColor = true;
             this.BT_MOV_KARDEX.Click += new System.EventHandler(this.BT_MOV_KARDEX_Click);
             // 
@@ -1957,11 +1948,51 @@
             this.toolTip1.SetToolTip(this.button2, "Proveedores Asignado");
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // panel57
+            // 
+            this.panel57.Controls.Add(this.button1);
+            this.panel57.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel57.Location = new System.Drawing.Point(2, 397);
+            this.panel57.Margin = new System.Windows.Forms.Padding(1);
+            this.panel57.Name = "panel57";
+            this.panel57.Padding = new System.Windows.Forms.Padding(2);
+            this.panel57.Size = new System.Drawing.Size(76, 78);
+            this.panel57.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::ModInventario.Properties.Resources.bt_campana;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 74);
+            this.button1.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.button1, "Centro Notificación");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // BT_SALIR
+            // 
+            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_SALIR.Name = "BT_SALIR";
+            this.BT_SALIR.Size = new System.Drawing.Size(166, 42);
+            this.BT_SALIR.TabIndex = 1;
+            this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
+            // 
             // BusquedaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.BT_SALIR;
             this.ClientSize = new System.Drawing.Size(1017, 574);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -2046,6 +2077,7 @@
             this.panel55.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
             this.panel56.ResumeLayout(false);
+            this.panel57.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2056,7 +2088,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel4;
@@ -2186,5 +2217,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Panel panel56;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel57;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_SALIR;
     }
 }

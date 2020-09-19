@@ -91,6 +91,7 @@ namespace ModInventario.Producto.AgregarEditar
             tabControl1.SelectedIndex = 0;
             TB_CODIGO.Focus();
             inicializarData = true;
+            L_TITULO.Text = _controlador.Titulo;
             CB_DEPARTAMENTO.DataSource = _controlador.Departamentos;
             CB_GRUPO.DataSource = _controlador.Grupos;
             CB_MARCA.DataSource = _controlador.Marcas;

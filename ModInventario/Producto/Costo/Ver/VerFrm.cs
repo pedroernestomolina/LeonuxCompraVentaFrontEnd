@@ -68,6 +68,16 @@ namespace ModInventario.Producto.Costo.Ver
         {
             _controlador = ctr;
         }
+
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void Salir()
+        {
+            this.Close();
+        }
     
     }
 

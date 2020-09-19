@@ -138,12 +138,15 @@
             // 
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
             this.BT_SALIR.Size = new System.Drawing.Size(141, 38);
-            this.BT_SALIR.TabIndex = 0;
+            this.BT_SALIR.TabIndex = 5;
             this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
@@ -617,7 +620,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
@@ -653,5 +655,6 @@
         private System.Windows.Forms.Button BT_EDITAR_DEPOSITO;
         private System.Windows.Forms.Button BT_VER_DETALLE;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button BT_SALIR;
     }
 }

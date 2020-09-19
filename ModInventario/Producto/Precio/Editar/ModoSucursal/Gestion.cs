@@ -43,6 +43,8 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         private data precio_5;
 
 
+        public bool IsModoDivisa { get { return isModoActualDivisa; } }
+
         public List<OOB.LibInventario.EmpaqueMedida.Ficha> Empaque1 { get { return empaque1; } }
         public List<OOB.LibInventario.EmpaqueMedida.Ficha> Empaque2 { get { return empaque2; } }
         public List<OOB.LibInventario.EmpaqueMedida.Ficha> Empaque3 { get { return empaque3; } }

@@ -18,7 +18,7 @@ namespace ModInventario.Producto.AgregarEditar
         private Maestros.Grupos.Gestion _gestionMaestroGrupo;
         private Maestros.Marcas.Gestion _gestionMaestroMarca;
 
-
+        public string Titulo { get { return miGestion.Titulo; } }
         public bool IsAgregarEditarOk { get { return miGestion.IsAgregarEditarOk; } }
         public string AutoProductoAgregado { get { return miGestion.AutoProductoAgregado; } }
 

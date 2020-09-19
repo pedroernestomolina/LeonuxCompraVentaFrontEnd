@@ -21,6 +21,7 @@ namespace ModInventario.Producto.Costo.Historico
         public BindingSource Source { get { return bs; } }
         public data Item { get { return item; } }
         public string Producto { get; set; }
+        public string Nota { get; set; }
 
 
         public Gestion()
@@ -38,6 +39,7 @@ namespace ModInventario.Producto.Costo.Historico
             var it = (data)bs.Current;
             if (it != null)
             {
+                Nota = it.nota;
                 if (frm != null)
                 {
                     item = it;

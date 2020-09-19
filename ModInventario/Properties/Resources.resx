@@ -214,4 +214,70 @@
   <data name="bt_proveedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bt_proveedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_guardar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_usuario__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_usuario (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_lista" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_lista.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_campana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_campana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_mobil_notification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_mobil_notification.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_notificacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_notificacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mobile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mobile.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_setup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagenes\icon_setup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carpeta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\carpeta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="libro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\libro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fecha_derecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fecha_derecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flecha_izquierda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flecha_izquierda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="administrador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\administrador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transferencia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transferencia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_imprimir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_imprimir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Machine_learning_1024x682" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Machine-learning-1024x682.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_imprimir_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_imprimir_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_salida" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_salida.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_salida_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_salida_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_guardar__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_guardar (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_proceso" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_proceso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

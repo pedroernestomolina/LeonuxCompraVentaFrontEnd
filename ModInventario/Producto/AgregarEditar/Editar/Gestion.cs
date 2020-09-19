@@ -46,9 +46,13 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         private BindingList<OOB.LibInventario.Producto.ClasificacionAbc.Ficha> blClasificacion;
         private BindingSource bsClasificacion;
         private data miData;
-
         private Plu.Gestion _gestionPlu;
 
+
+        public string Titulo
+        {
+            get { return "Actualizar Ficha"; }
+        }
 
         public BindingSource Departamentos
         {

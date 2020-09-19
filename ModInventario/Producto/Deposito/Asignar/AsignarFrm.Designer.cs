@@ -33,7 +33,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.BT_PROCESAR = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -42,6 +41,7 @@
             this.DGV = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
             this.L_PRODUCTO = new System.Windows.Forms.Label();
+            this.BT_PROCESAR = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -101,12 +101,15 @@
             // 
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
             this.BT_SALIR.Size = new System.Drawing.Size(123, 38);
-            this.BT_SALIR.TabIndex = 0;
+            this.BT_SALIR.TabIndex = 4;
             this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
@@ -120,19 +123,6 @@
             this.panel5.Padding = new System.Windows.Forms.Padding(2);
             this.panel5.Size = new System.Drawing.Size(126, 42);
             this.panel5.TabIndex = 0;
-            // 
-            // BT_PROCESAR
-            // 
-            this.BT_PROCESAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_PROCESAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_PROCESAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_PROCESAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_PROCESAR.Name = "BT_PROCESAR";
-            this.BT_PROCESAR.Size = new System.Drawing.Size(122, 38);
-            this.BT_PROCESAR.TabIndex = 1;
-            this.BT_PROCESAR.Text = "Guardar";
-            this.BT_PROCESAR.UseVisualStyleBackColor = true;
-            this.BT_PROCESAR.Click += new System.EventHandler(this.BT_PROCESAR_Click);
             // 
             // panel3
             // 
@@ -231,6 +221,22 @@
             this.L_PRODUCTO.Text = "label9";
             this.L_PRODUCTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BT_PROCESAR
+            // 
+            this.BT_PROCESAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_PROCESAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PROCESAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PROCESAR.Image = global::ModInventario.Properties.Resources.bt_guardar__2_;
+            this.BT_PROCESAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PROCESAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_PROCESAR.Name = "BT_PROCESAR";
+            this.BT_PROCESAR.Size = new System.Drawing.Size(122, 38);
+            this.BT_PROCESAR.TabIndex = 2;
+            this.BT_PROCESAR.Text = "Guardar";
+            this.BT_PROCESAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_PROCESAR.UseVisualStyleBackColor = true;
+            this.BT_PROCESAR.Click += new System.EventHandler(this.BT_PROCESAR_Click);
+            // 
             // AsignarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,9 +270,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button BT_PROCESAR;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
@@ -275,5 +279,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label L_PRODUCTO;
         private System.Windows.Forms.DataGridView DGV;
+        private System.Windows.Forms.Button BT_SALIR;
+        private System.Windows.Forms.Button BT_PROCESAR;
     }
 }

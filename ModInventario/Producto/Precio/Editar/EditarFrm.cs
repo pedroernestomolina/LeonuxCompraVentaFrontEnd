@@ -113,6 +113,8 @@ namespace ModInventario.Producto.Precio.Editar
             TB_CONT_3.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
             TB_CONT_4.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
             TB_CONT_5.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
+
+            L_MODO_DIVISA.Visible = _controlador.IsModoDivisa;
             modoInicializar = false;
         }
 
@@ -353,6 +355,8 @@ namespace ModInventario.Producto.Precio.Editar
         private void ModoPrecioSw()
         {
             _controlador.ModoPrecioSw();
+
+            L_MODO_DIVISA.Visible = _controlador.IsModoDivisa;
             L_COSTO.Text = _controlador.CostoUnitario;
             TB_NETO_1.Text = _controlador.Precio_1.neto.ToString("N2").Replace(".", "");
             TB_FULL_1.Text = _controlador.Precio_1.full.ToString("N2").Replace(".", "");
@@ -469,6 +473,148 @@ namespace ModInventario.Producto.Precio.Editar
         {
             e.Cancel = !_controlador.IsCerrarHabilitado;
             _controlador.InicializarIsCerrarHabilitado();
+        }
+
+        private void TB_NETO_3_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_NETO_3.Text);
+            if (valor != 0.0m)
+            {
+                if (valor <= _controlador.Precio_3.Costo)
+                {
+                    errorProvider1.SetError(TB_NETO_3, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_NETO_3, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_NETO_3, "");
+            }
+
+            e.Cancel = !bStatus;  
+        }
+
+        private void TB_FULL_3_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_FULL_3.Text);
+            if (valor != 0.0m)
+            {
+                if (valor <= _controlador.Precio_3.CostoFull)
+                {
+                    errorProvider1.SetError(TB_FULL_3, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_FULL_3, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_FULL_3, "");
+            }
+
+            e.Cancel = !bStatus;
+        }
+
+        private void TB_NETO_4_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_NETO_4.Text);
+            if (valor != 0.0m)
+            {
+                if (valor <= _controlador.Precio_4.Costo)
+                {
+                    errorProvider1.SetError(TB_NETO_4, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_NETO_4, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_NETO_4, "");
+            }
+
+            e.Cancel = !bStatus;  
+        }
+
+        private void TB_FULL_4_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_FULL_4.Text);
+            if (valor != 0.0m)
+            {
+                if (valor <= _controlador.Precio_4.CostoFull)
+                {
+                    errorProvider1.SetError(TB_FULL_4, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_FULL_4, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_FULL_4, "");
+            }
+
+            e.Cancel = !bStatus;
+        }
+
+        private void TB_NETO_5_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_NETO_5.Text);
+            if (valor != 0.0m)
+            {
+                if (valor <= _controlador.Precio_5.Costo)
+                {
+                    errorProvider1.SetError(TB_NETO_5, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_NETO_5, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_NETO_5, "");
+            }
+
+            e.Cancel = !bStatus;  
+        }
+
+        private void TB_FULL_5_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_FULL_5.Text);
+            if (valor != 0.0m)
+            {
+                if (valor <= _controlador.Precio_5.CostoFull)
+                {
+                    errorProvider1.SetError(TB_FULL_5, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_FULL_5, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_FULL_5, "");
+            }
+
+            e.Cancel = !bStatus;
+        }
+
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void Salir()
+        {
+            this.Close();
         }
 
     }

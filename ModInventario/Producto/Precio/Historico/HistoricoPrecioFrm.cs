@@ -106,7 +106,7 @@ namespace ModInventario.Producto.Precio.Historico
         {
             L_NOTA.Text = _controlador.Item.nota;
         }
-
+     
     }
 
 }

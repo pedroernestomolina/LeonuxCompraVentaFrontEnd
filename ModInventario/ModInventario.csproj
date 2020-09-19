@@ -188,9 +188,22 @@
     <Compile Include="Maestros\Marcas\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Movimiento\Cargo\EntradaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimiento\Cargo\EntradaFrm.Designer.cs">
+      <DependentUpon>EntradaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento\Cargo\Entrada\Gestion.cs" />
     <Compile Include="Movimiento\Cargo\Gestion.cs" />
+    <Compile Include="Movimiento\Cargo\GestionDetalle.cs" />
+    <Compile Include="Movimiento\data.cs" />
+    <Compile Include="Movimiento\dataDetalle.cs" />
+    <Compile Include="Movimiento\enumerados.cs" />
     <Compile Include="Movimiento\Gestion.cs" />
     <Compile Include="Movimiento\IGestion.cs" />
+    <Compile Include="Movimiento\IGestionDetalle1.cs" />
+    <Compile Include="Movimiento\item.cs" />
     <Compile Include="Movimiento\MvFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +231,7 @@
     <Compile Include="Producto\AgregarEditar\Editar\Gestion.cs" />
     <Compile Include="Producto\AgregarEditar\Gestion.cs" />
     <Compile Include="Producto\AgregarEditar\IGestion.cs" />
+    <Compile Include="Producto\Busqueda\Gestion.cs" />
     <Compile Include="Producto\Costo\Editar\costo.cs" />
     <Compile Include="Producto\Costo\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
@@ -288,6 +302,14 @@
     </Compile>
     <Compile Include="Producto\Imagen\ImgFrm.Designer.cs">
       <DependentUpon>ImgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Lista\data.cs" />
+    <Compile Include="Producto\Lista\Gestion.cs" />
+    <Compile Include="Producto\Lista\ListaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Lista\ListaFrm.Designer.cs">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Producto\Plu\data.cs" />
     <Compile Include="Producto\Plu\Gestion.cs" />
@@ -415,6 +437,9 @@
     <EmbeddedResource Include="Maestros\Marcas\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Movimiento\Cargo\EntradaFrm.resx">
+      <DependentUpon>EntradaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\MvFrm.resx">
       <DependentUpon>MvFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +475,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Imagen\ImgFrm.resx">
       <DependentUpon>ImgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Lista\ListaFrm.resx">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Plu\PluFrm.resx">
       <DependentUpon>PluFrm.cs</DependentUpon>
@@ -534,8 +562,10 @@
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\administrador.png" />
     <Content Include="Imagenes\automatizacion.jpg" />
     <Content Include="Imagenes\bt_asignar.png" />
+    <Content Include="Imagenes\bt_campana.png" />
     <Content Include="Imagenes\bt_consulta.png" />
     <Content Include="Imagenes\bt_costo.png" />
     <Content Include="Imagenes\bt_dollar.png" />
@@ -547,24 +577,68 @@
     <Content Include="Imagenes\bt_exchange_32.png" />
     <Content Include="Imagenes\bt_exchange_48.png" />
     <Content Include="Imagenes\bt_gestion.png" />
+    <Content Include="Imagenes\bt_guardar %282%29.png" />
+    <Content Include="Imagenes\bt_guardar.png" />
     <Content Include="Imagenes\bt_historico_32.png" />
     <Content Include="Imagenes\bt_imagen.png" />
     <Content Include="Imagenes\bt_imagen_2.png" />
+    <Content Include="Imagenes\bt_imprimir.png" />
+    <Content Include="Imagenes\bt_imprimir_2.png" />
+    <Content Include="Imagenes\bt_lista.png" />
+    <Content Include="Imagenes\bt_mobil_notification.png" />
     <Content Include="Imagenes\bt_mov.png" />
     <Content Include="Imagenes\bt_mov_2.png" />
+    <Content Include="Imagenes\bt_notificacion.png" />
     <Content Include="Imagenes\bt_price.png" />
+    <Content Include="Imagenes\bt_proceso.png" />
     <Content Include="Imagenes\bt_proveedor.png" />
     <Content Include="Imagenes\bt_qr.png" />
+    <Content Include="Imagenes\bt_salida.png" />
+    <Content Include="Imagenes\bt_salida_2.png" />
+    <Content Include="Imagenes\bt_setup.png" />
     <Content Include="Imagenes\bt_status.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\bt_limpiar.png" />
+    <Content Include="Imagenes\bt_usuario %282%29.png" />
+    <Content Include="Imagenes\bt_usuario.png" />
     <Content Include="Imagenes\bt_warehouse.png" />
+    <Content Include="Imagenes\carpeta.png" />
     <Content Include="Imagenes\dollar.png" />
+    <Content Include="Imagenes\fecha_derecha.png" />
+    <Content Include="Imagenes\flecha_izquierda.png" />
+    <Content Include="Imagenes\icon_setup.png" />
     <Content Include="Imagenes\inventario.jpg" />
     <Content Include="Imagenes\inventario_2.jpg" />
+    <Content Include="Imagenes\libro.png" />
+    <Content Include="Imagenes\Machine-learning-1024x682.jpg" />
+    <Content Include="Imagenes\mobile.ico" />
     <Content Include="Imagenes\sinImagen.png" />
     <Content Include="Imagenes\TOOLS.ico" />
+    <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\Machine-learning-1024x682.jpg" />
+    <None Include="Resources\transferencia.png" />
+    <None Include="Resources\administrador.png" />
+    <None Include="Resources\bt_imprimir.png" />
+    <None Include="Resources\bt_imprimir_2.png" />
+    <None Include="Resources\bt_salida.png" />
+    <None Include="Resources\bt_salida_2.png" />
+    <None Include="Resources\bt_guardar %282%29.png" />
+    <None Include="Resources\bt_proceso.png" />
+    <Content Include="Resources\bt_setup.png" />
+    <None Include="Resources\libro.png" />
+    <None Include="Resources\carpeta.png" />
+    <None Include="Resources\flecha_izquierda.png" />
+    <None Include="Resources\fecha_derecha.png" />
+    <Content Include="Resources\icon_setup.png" />
+    <None Include="Resources\bt_campana.png" />
+    <None Include="Resources\bt_mobil_notification.png" />
+    <None Include="Resources\bt_notificacion.png" />
+    <None Include="Resources\mobile.ico" />
+    <None Include="Resources\bt_lista.png" />
+    <None Include="Resources\bt_usuario.png" />
+    <None Include="Resources\bt_usuario %282%29.png" />
+    <None Include="Resources\bt_guardar.png" />
     <None Include="Resources\bt_proveedor.png" />
     <None Include="Resources\sinImagen.png" />
     <None Include="Resources\bt_imagen_2.png" />

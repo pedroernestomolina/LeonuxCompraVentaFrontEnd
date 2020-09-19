@@ -351,6 +351,16 @@ namespace ModInventario.Kardex.Movimiento
             _controlador.VerDetalleInventario();
         }
 
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void Salir()
+        {
+            this.Close();
+        }
+
     }
 
 }

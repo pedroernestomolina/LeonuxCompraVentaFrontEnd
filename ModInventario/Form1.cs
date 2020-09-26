@@ -171,6 +171,76 @@ namespace ModInventario
             _controlador.MovimientoCargo();
         }
 
+        private void TSM_Movimiento_Control_DesCargo_Click(object sender, EventArgs e)
+        {
+            MovimientoDesCargo();
+        }
+
+        private void MovimientoDesCargo()
+        {
+            _controlador.MovimientoDesCargo();
+        }
+
+        private void TSM_Movimiento_Control_Traslado_Click(object sender, EventArgs e)
+        {
+            MovimientoTraslado();
+        }
+
+        private void MovimientoTraslado()
+        {
+            _controlador.MovimientoTraslado();
+        }
+
+        private void TSM_VISOR_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            VisorExistencia();
+        }
+
+        private void VisorExistencia()
+        {
+            _controlador.VisorExistencia();
+        }
+
+        private void TSM_VISOR_COSTOEDAD_Click(object sender, EventArgs e)
+        {
+            VisorCostoEdad();
+        }
+
+        private void VisorCostoEdad()
+        {
+            _controlador.VisorCostoEdad(); 
+        }
+
+        private void TSM_VISOR_TRASLADO_Click(object sender, EventArgs e)
+        {
+            VisorTraslados();
+        }
+
+        private void VisorTraslados()
+        {
+            _controlador.VisorTraslados();
+        }
+
+        private void TSM_VISOR_AJUSTE_Click(object sender, EventArgs e)
+        {
+            VisorAjuste();
+        }
+
+        private void VisorAjuste()
+        {
+            _controlador.VisorAjuste();
+        }
+
+        private void TSM_AJUSTE_MOVIMIENTO_Click(object sender, EventArgs e)
+        {
+            MovimientoAjuste();
+        }
+
+        private void MovimientoAjuste()
+        {
+            _controlador.MovimientoAjuste();
+        }
+
     }
 
 }

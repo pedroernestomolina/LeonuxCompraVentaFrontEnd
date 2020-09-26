@@ -58,7 +58,7 @@ namespace ModInventario.Movimiento
             c2.DefaultCellStyle.Font = f1;
 
             var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "Cantidad";
+            c3.DataPropertyName = "Cnt";
             c3.HeaderText = "Cant";
             c3.Visible = true;
             c3.Width = 80;
@@ -102,7 +102,26 @@ namespace ModInventario.Movimiento
             c7.Width = 30;
             c7.HeaderCell.Style.Font = f;
             c7.DefaultCellStyle.Font = f1;
-            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            var c8 = new DataGridViewTextBoxColumn(); 
+            c8.DataPropertyName = "TipoMovimientoDescripcion";
+            c8.Name = "TipoMov";
+            c8.HeaderText = "Mov";
+            c8.Visible = true;
+            c8.Width = 60;
+            c8.HeaderCell.Style.Font = f;
+            c8.DefaultCellStyle.Font = f1;
+
+            var c9 = new DataGridViewCheckBoxColumn();
+            c9.DataPropertyName = "Signo";
+            c9.Name = "Signo";
+            c9.HeaderText = "";
+            c9.Visible = false;
+            c9.Width = 0;
+            c9.HeaderCell.Style.Font = f;
+            c9.DefaultCellStyle.Font = f1;
+            c9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
@@ -111,6 +130,26 @@ namespace ModInventario.Movimiento
             DGV_DETALLE.Columns.Add(c5);
             DGV_DETALLE.Columns.Add(c6);
             DGV_DETALLE.Columns.Add(c7);
+            DGV_DETALLE.Columns.Add(c8);
+            DGV_DETALLE.Columns.Add(c9);
+        }
+
+        private void DGV_DETALLE_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DGV_DETALLE.Columns[e.ColumnIndex].Name == "TipoMov") 
+            {
+                if (e.Value.ToString() == "DESCARGO")
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                    e.CellStyle.ForeColor = Color.White;
+                    //DGV_DETALLE.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                }
+                else 
+                {
+                    e.CellStyle.BackColor = Color.Green;
+                    e.CellStyle.ForeColor = Color.White;
+                }
+            }
         }
 
         public void setControlador(Gestion ctr)
@@ -132,12 +171,28 @@ namespace ModInventario.Movimiento
         {
             Inicializar();
 
+            switch (_controlador.EnumTipoMovimiento)
+            {
+                case enumerados.enumTipoMovimiento.Cargo:
+                    P_TIPO_MOVIMIENTO.BackColor = Color.Green;
+                    break;
+                case enumerados.enumTipoMovimiento.Descargo:
+                    P_TIPO_MOVIMIENTO.BackColor = Color.Red;
+                    break;
+                case enumerados.enumTipoMovimiento.Traslado:
+                case enumerados.enumTipoMovimiento.Ajuste:
+                    P_TIPO_MOVIMIENTO.BackColor = Color.Orange;
+                    break;
+            }
+
+
             DTP_FECHA.Focus();
             L_TIPO_MOVIMIENTO.Text = _controlador.TipoMovimiento;
-            L_MONTO.Text = _controlador.MontoMovimiento;
+            L_MONTO.Text = _controlador.MontoMovimiento.ToString("n2");
             L_ITEMS.Text = _controlador.ItemsMovimiento;
             CB_DEP_DESTINO.Enabled = _controlador.Habilitar_DepDestino;
 
+            DGV_DETALLE.Columns["TipoMov"].Visible = _controlador.VisualizarColumnaTipoMovimiento;
             DGV_DETALLE.DataSource = _controlador.DetalleSource;
             DGV_DETALLE.Refresh();
         }
@@ -166,7 +221,7 @@ namespace ModInventario.Movimiento
         private void Limpiar()
         {
             L_TIPO_MOVIMIENTO.Text = _controlador.TipoMovimiento;
-            L_MONTO.Text = _controlador.MontoMovimiento;
+            L_MONTO.Text = _controlador.MontoMovimiento.ToString("n2");
             L_ITEMS.Text = _controlador.ItemsMovimiento;
 
             CB_CONCEPTO.SelectedIndex =-1;
@@ -245,6 +300,7 @@ namespace ModInventario.Movimiento
             if (CB_DEP_DESTINO.SelectedIndex != -1)
             {
                 _controlador.IdDepDestino = CB_DEP_DESTINO.SelectedValue.ToString();
+                CB_DEP_DESTINO.SelectedValue = _controlador.IdDepDestino;
             }
         }
 
@@ -280,7 +336,7 @@ namespace ModInventario.Movimiento
 
         private void ActualizarData()
         {
-            L_MONTO.Text = _controlador.MontoMovimiento;
+            L_MONTO.Text = _controlador.MontoMovimiento.ToString("n2");
             L_ITEMS.Text = _controlador.ItemsMovimiento;
         }
 

@@ -40,6 +40,7 @@ namespace OOB.LibInventario.Movimiento.Traslado.Insertar
 
         public List<FichaDetalle> detalles { get; set; }
         public List<FichaKardex> movKardex { get; set; }
+        public List<FichaPrdDeposito> prdDeposito { get; set; }
 
     }
 

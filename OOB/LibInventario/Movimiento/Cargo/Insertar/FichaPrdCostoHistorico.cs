@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace OOB.LibInventario.Movimiento.Cargo.Insertar  
+{
+    
+    public class FichaPrdCostoHistorico
+    {
+
+        public string autoProducto { get; set; }
+        public decimal costo { get; set; }
+        public decimal divisa { get; set; }
+        public decimal tasaCambio { get; set; }
+        public string nota { get; set; }
+        public string serie { get; set; }
+
+    }
+
+}

@@ -21,6 +21,10 @@ namespace ModInventario
         private Maestros.Conceptos.Gestion _gestionConcepto;
         private Buscar.Gestion _gestionBusqueda;
         private Movimiento.Gestion _gestionMov;
+        private Visor.Existencia.Gestion _gestionVisorExistencia;
+        private Visor.CostoEdad.Gestion _gestionVisorCostoEdad;
+        private Visor.Traslado.Gestion _gestionVisorTraslado;
+        private Visor.Ajuste.Gestion _gestionVisorAjuste;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -37,6 +41,10 @@ namespace ModInventario
             _gestionBusqueda = new Buscar.Gestion();
             _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
             _gestionMov = new Movimiento.Gestion();
+            _gestionVisorExistencia = new Visor.Existencia.Gestion();
+            _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
+            _gestionVisorTraslado = new Visor.Traslado.Gestion();
+            _gestionVisorAjuste = new Visor.Ajuste.Gestion();
         }
 
 
@@ -100,7 +108,53 @@ namespace ModInventario
 
         public void MovimientoCargo()
         {
+            _gestionMov = new Movimiento.Gestion();
             _gestionMov.setGestion(new Movimiento.Cargo.Gestion());
+            _gestionMov.Inicia();
+        }
+
+        public void MovimientoDesCargo()
+        {
+            _gestionMov = new Movimiento.Gestion();
+            _gestionMov.setGestion(new Movimiento.Descargo.Gestion());
+            _gestionMov.Inicia();
+        }
+
+        public void MovimientoTraslado()
+        {
+            _gestionMov = new Movimiento.Gestion();
+            _gestionMov.setGestion(new Movimiento.Traslado.Gestion());
+            _gestionMov.Inicia();
+        }
+
+        public void VisorExistencia()
+        {
+            _gestionVisorExistencia = new Visor.Existencia.Gestion();
+            _gestionVisorExistencia.Inicia();
+        }
+
+        public  void VisorCostoEdad()
+        {
+            _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
+            _gestionVisorCostoEdad.Inicia();
+        }
+
+        public void VisorTraslados()
+        {
+            _gestionVisorTraslado = new Visor.Traslado.Gestion();
+            _gestionVisorTraslado.Inicia();
+        }
+
+        public void VisorAjuste()
+        {
+            _gestionVisorAjuste= new Visor.Ajuste.Gestion();
+            _gestionVisorAjuste.Inicia();
+        }
+
+        public void MovimientoAjuste()
+        {
+            _gestionMov = new Movimiento.Gestion();
+            _gestionMov.setGestion(new Movimiento.Ajuste.Gestion());
             _gestionMov.Inicia();
         }
 

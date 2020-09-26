@@ -72,12 +72,11 @@ namespace ModInventario.Movimiento
                 return false;
             }
 
-            if (detalle.MontoMovimiento == 0.0m) 
+            if (detalle.ListaItems.Count == 0) 
             {
                 Helpers.Msg.Error("No Hay Items En El Documento ");
                 return false;
             }
-
 
             return rt;
         }

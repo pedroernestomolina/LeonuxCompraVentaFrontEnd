@@ -16,11 +16,13 @@ namespace ModInventario.Movimiento
         private IGestion miGestion;
 
 
+        public enumerados.enumTipoMovimiento EnumTipoMovimiento { get { return miGestion.EnumTipoMovimiento; } }
         public bool IsCerrarOk { get { return miGestion.IsCerrarOk; } }
         public string TipoMovimiento { get { return miGestion.TipoMovimiento; } }
-        public string MontoMovimiento { get { return miGestion.MontoMovimiento; } }
+        public decimal MontoMovimiento { get { return miGestion.MontoMovimiento; } }
         public string ItemsMovimiento { get { return miGestion.ItemsMovimiento; } }
         public bool Habilitar_DepDestino { get { return miGestion.Habilitar_DepDestino; } }
+        public bool VisualizarColumnaTipoMovimiento { get { return miGestion.VisualizarColumnaTipoMovimiento; } }
         public BindingSource ConceptoSource { get { return miGestion.ConceptoSource; } }
         public BindingSource SucursalSource { get { return miGestion.SucursalSource; } }
         public BindingSource DepOrigenSource { get { return miGestion.DepOrigenSource; } }
@@ -54,12 +56,12 @@ namespace ModInventario.Movimiento
             Limpiar();
             if (CargarData())
             {
-                if (frm == null)
+                if (frm == null) 
                 {
-                    frm = new MvFrm();
-                    frm.setControlador(this);
                 }
-                frm.ShowDialog();
+                frm = new MvFrm();
+                frm.setControlador(this);
+                frm.Show();
             }
         }
 

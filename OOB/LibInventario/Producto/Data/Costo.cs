@@ -27,6 +27,7 @@ namespace OOB.LibInventario.Producto.Data
         public decimal costoUnd { get; set; }
         public decimal costoPromedioUnd { get; set; }
         public string fechaUltCambio { get; set; }
+        public int Edad { get; set; }
 
 
         public Costo()
@@ -48,6 +49,7 @@ namespace OOB.LibInventario.Producto.Data
             costoUnd = 0.0m;
             costoVarioUnd = 0.0m;
             fechaUltCambio = "";
+            Edad = 0;
         }
 
     }

@@ -431,6 +431,7 @@ namespace DataProvInventario.Data
                 var fechaV="";
                 if (e.fechaUltCambio.HasValue) { fechaV = e.fechaUltCambio.Value.ToShortDateString(); }
                 nr.fechaUltCambio = fechaV;
+                nr.Edad = e.Edad;
             }
             rt.Entidad = nr;
 
@@ -881,6 +882,62 @@ namespace DataProvInventario.Data
                 }
             }
             rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Identificacion> Producto_GetIdentificacion(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Identificacion>();
+
+            var r01 = MyData.Producto_GetIdentificacion(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            if (r01.Entidad != null)
+            {
+                var s=r01.Entidad;
+                var id = new OOB.LibInventario.Producto.Data.Identificacion()
+                {
+                    AdmPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa) s.AdmPorDivisa,
+                    advertencia = s.advertencia,
+                    auto = s.auto,
+                    autoDepartamento = s.autoDepartamento,
+                    autoGrupo = s.autoGrupo,
+                    autoMarca = s.autoMarca,
+                    categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria) s.categoria,
+                    codigo = s.codigo,
+                    codigoDepartamento = s.codigoDepartamento,
+                    codigoGrupo = s.codigoGrupo,
+                    comentarios = s.comentarios,
+                    contenidoCompra = s.contenidoCompra,
+                    Decimales = s.decimales,
+                    departamento = s.departamento,
+                    descripcion = s.descripcion,
+                    empaqueCompra = s.empaqueCompra,
+                    estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus) s.estatus,
+                    fechaAlta = s.fechaAlta,
+                    fechaBaja = s.fechaBaja,
+                    fechaUltActualizacion = s.fechaUltActualizacion,
+                    grupo = s.grupo,
+                    marca = s.marca,
+                    modelo = s.modelo,
+                    nombre = s.nombre,
+                    nombreTasaIva = s.nombreTasaIva,
+                    origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen) s.origen,
+                    presentacion = s.presentacion,
+                    referencia = s.referencia,
+                    tasaIva = s.tasaIva,
+                    tipoABC = s.tipoABC,
+                };
+                rt.Entidad = id;
+            }
+            else
+                rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Identificacion>();
 
             return rt;
         }

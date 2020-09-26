@@ -30,9 +30,10 @@ namespace ModInventario.Movimiento.Cargo
 
         public bool IsCerrarOk { get { return isCerrarOk; } }
         public string TipoMovimiento { get {return "CARGO";} }
-        public string MontoMovimiento { get { return _gestionDetalle.MontoMovimiento; } }
+        public decimal MontoMovimiento { get { return _gestionDetalle.MontoMovimiento; } }
         public string ItemsMovimiento  { get { return _gestionDetalle.ItemsMovimiento; } }
         public bool Habilitar_DepDestino { get { return false; } }
+        public bool VisualizarColumnaTipoMovimiento { get { return false; } }
         public BindingSource ConceptoSource { get { return bsConcepto; } }
         public BindingSource SucursalSource { get { return bsSucursal; } }
         public BindingSource DepOrigenSource { get { return bsDepOrigen; } }
@@ -212,14 +213,335 @@ namespace ModInventario.Movimiento.Cargo
                     return;
                 }
 
+                if (!RegistrarDocumento()) 
+                {
+                    return;
+                }
+
+                Helpers.Msg.AgregarOk();
                 isCerrarOk = true;
             }
+        }
+
+        private bool RegistrarDocumento()
+        {
+            var concepto= lConcepto.FirstOrDefault(m=>m.auto==miData.IdConcepto);
+            var depOrigen = lDepOrigen.FirstOrDefault(m=>m.auto==miData.IdDepOrigen);
+            var sucursal = lSucursal.FirstOrDefault(m=>m.auto==miData.IdSucursal);
+
+            var ficha = new OOB.LibInventario.Movimiento.Cargo.Insertar.Ficha()
+            {
+                autoConcepto = miData.IdConcepto,
+                autoDepositoDestino = miData.IdDepOrigen,
+                autoDepositoOrigen = miData.IdDepOrigen,
+                autoRemision = "",
+                autorizado = miData.AutorizadoPor,
+                autoUsuario = Sistema.UsuarioP.auto,
+                cierreFtp = "",
+                codConcepto = concepto.codigo,
+                codDepositoDestino = depOrigen.codigo,
+                codDepositoOrigen = depOrigen.codigo,
+                codigoSucursal = sucursal.codigo,
+                codUsuario = Sistema.UsuarioP.codigo,
+                desConcepto = concepto.nombre,
+                desDepositoDestino = depOrigen.nombre,
+                desDepositoOrigen = depOrigen.nombre,
+                documentoNombre = "CARGOS",
+                estacion = Environment.MachineName,
+                estatusAnulado = "0",
+                estatusCierreContable = "0",
+                nota = miData.Motivo,
+                renglones = _gestionDetalle.TotalItems,
+                situacion = "Procesado",
+                tipo = "01",
+                total = MontoMovimiento,
+                usuario = Sistema.UsuarioP.nombre,
+            };
+
+            var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            {
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaDetalle()
+                {
+                    autoDepartamento = s.FichaPrd.identidad.autoDepartamento,
+                    autoGrupo = s.FichaPrd.identidad.autoGrupo,
+                    autoProducto = s.FichaPrd.AutoId,
+                    cantidad = s.Cantidad,
+                    cantidadBono = 0,
+                    cantidadUnd = s.CantidadUnd,
+                    categoria = s.FichaPrd.Categoria,
+                    codigoProducto = s.FichaPrd.CodigoPrd,
+                    contEmpaque = s.FichaPrd.identidad.contenidoCompra,
+                    costoCompra = s.CostoMonedaLocal,
+                    costoUnd = s.CostoUndMonedaLocal,
+                    decimales = s.FichaPrd.Decimales,
+                    empaque = s.EmpaquePrd,
+                    estatusAnulado = "0",
+                    estatusUnidad = s.TipoEmpaqueSeleccionado == enumerados.enumTipoEmpaque.PorUnidad ? "1" : "0",
+                    nombreProducto = s.DescripcionPrd,
+                    signo = 1,
+                    tipo = "01",
+                    total = s.ImporteMonedaLocal,
+                };
+                return rg;
+            }).ToList();
+            ficha.detalles = detalles;
+
+            var lDep = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            {
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdDeposito()
+                {
+                    autoDeposito = miData.IdDepOrigen,
+                    autoProducto = s.FichaPrd.AutoId,
+                    cantidadUnd = s.CantidadUnd,
+                };
+                return rg;
+            }).ToList();
+            ficha.prdDeposito = lDep;
+
+            var lCosto = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            {
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdCosto()
+                {
+                    autoProducto = s.FichaPrd.AutoId,
+                    cantidadEntranteUnd = s.CantidadUnd,
+                    costoDivisa = s.CostoDivisa,
+                    costoFinal = s.CostoMonedaLocal,
+                    costoFinalUnd = s.CostoUndMonedaLocal,
+                };
+                return rg;
+            }).ToList();
+            ficha.prdCosto = lCosto;
+
+            var lCostoHistorico = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            {
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdCostoHistorico()
+                {
+                    autoProducto = s.FichaPrd.AutoId,
+                    costo = s.CostoMonedaLocal,
+                    divisa = s.CostoDivisa,
+                    nota = "",
+                    tasaCambio = s.TasaCambio,
+                    serie="DOC",
+                };
+                return rg;
+            }).ToList();
+            ficha.prdCostoHistorico = lCostoHistorico;
+
+            var lKardex = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            {
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaKardex()
+                {
+                    autoConcepto = concepto.auto,
+                    autoDeposito = depOrigen.auto,
+                    autoProducto = s.FichaPrd.AutoId,
+                    cantidad = s.Cantidad,
+                    cantidadBono = 0.0m,
+                    cantidadUnd = s.CantidadUnd,
+                    codigoMov = "01",
+                    codigoConcepto = concepto.codigo,
+                    codigoDeposito = depOrigen.codigo,
+                    codigoSucursal = sucursal.codigo,
+                    costoUnd = s.CostoUndMonedaLocal,
+                    entidad = "",
+                    estatusAnulado = "0",
+                    modulo = "Inventario",
+                    nombreConcepto = concepto.nombre,
+                    nombreDeposito = depOrigen.nombre,
+                    nota = "",
+                    precioUnd = 0.0m,
+                    siglasMov = "CAR",
+                    signoMov = 1,
+                    total = s.ImporteMonedaLocal,
+                };
+                return rg;
+            }).ToList();
+            ficha.movKardex = lKardex;
+
+            var rt1 = Sistema.MyData.Configuracion_MetodoCalculoUtilidad();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return false;
+            }
+            var rt3 = Sistema.MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (rt3.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt3.Mensaje);
+                return false;
+            }
+            var rt4 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta();
+            if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt4.Mensaje);
+                return false;
+            }
+
+            var lMargen = new List<OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioMargen>();
+            var LPrecio = new List<OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecio>();
+            var lPrecioHistorico = new List<OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico>();
+            foreach (var it in _gestionDetalle.Detalle.ListaItems)
+            { 
+                if (it.EsAdmDivisa)
+                {
+                    var rt2 = Sistema.MyData.Producto_GetPrecio(it.FichaPrd.AutoId);
+                    if (rt2.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(rt2.Mensaje);
+                        return false;
+                    }
+                    var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecio();
+                    rg.autoProducto = it.FichaPrd.AutoId;
+                    rg.precio_1 = null;
+                    rg.precio_2 = null;
+                    rg.precio_3 = null;
+                    rg.precio_4 = null;
+                    rg.precio_5 = null;
+                    if (rt2.Entidad.precioNeto1 > 0)
+                    {
+                        var p = Helpers.Utilitis.RecalcularPrecio(it.CostoUndMonedaLocal , rt2.Entidad.utilidad1, rt2.Entidad.tasaIva, rt3.Entidad, rt4.Entidad, rt1.Entidad, tasaCambio);
+                        rg.precio_1 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = p.neto, precio_divisa_full = p.fullDivisa };
+                        var ph = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico()
+                        {
+                            autoProducto = it.FichaPrd.AutoId,
+                            nota = "",
+                            precio = p.neto,
+                            precio_id = "1",
+                        };
+                        lPrecioHistorico.Add(ph);
+                    }
+                    if (rt2.Entidad.precioNeto2 > 0)
+                    {
+                        var p = Helpers.Utilitis.RecalcularPrecio(it.CostoUndMonedaLocal, rt2.Entidad.utilidad2, rt2.Entidad.tasaIva, rt3.Entidad, rt4.Entidad, rt1.Entidad, tasaCambio);
+                        rg.precio_2 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = p.neto, precio_divisa_full = p.fullDivisa };
+                        var ph = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico()
+                        {
+                            autoProducto = it.FichaPrd.AutoId,
+                            nota = "",
+                            precio = p.neto,
+                            precio_id = "2",
+                        };
+                        lPrecioHistorico.Add(ph);
+                    }
+                    if (rt2.Entidad.precioNeto3 > 0)
+                    {
+                        var p = Helpers.Utilitis.RecalcularPrecio(it.CostoUndMonedaLocal, rt2.Entidad.utilidad3, rt2.Entidad.tasaIva, rt3.Entidad, rt4.Entidad, rt1.Entidad, tasaCambio);
+                        rg.precio_3 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = p.neto, precio_divisa_full = p.fullDivisa };
+                        var ph = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico()
+                        {
+                            autoProducto = it.FichaPrd.AutoId,
+                            nota = "",
+                            precio = p.neto,
+                            precio_id = "3",
+                        };
+                        lPrecioHistorico.Add(ph);
+                    }
+                    if (rt2.Entidad.precioNeto4 > 0)
+                    {
+                        var p = Helpers.Utilitis.RecalcularPrecio(it.CostoUndMonedaLocal, rt2.Entidad.utilidad4, rt2.Entidad.tasaIva, rt3.Entidad, rt4.Entidad, rt1.Entidad, tasaCambio);
+                        rg.precio_4 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = p.neto, precio_divisa_full = p.fullDivisa };
+                        var ph = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico()
+                        {
+                            autoProducto = it.FichaPrd.AutoId,
+                            nota = "",
+                            precio = p.neto,
+                            precio_id = "4",
+                        };
+                        lPrecioHistorico.Add(ph);
+                    }
+                    if (rt2.Entidad.precioNeto5 > 0)
+                    {
+                        var p = Helpers.Utilitis.RecalcularPrecio(it.CostoUndMonedaLocal, rt2.Entidad.utilidad5, rt2.Entidad.tasaIva, rt3.Entidad, rt4.Entidad, rt1.Entidad, tasaCambio);
+                        rg.precio_5 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = p.neto, precio_divisa_full = p.fullDivisa };
+                        var ph = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico()
+                        {
+                            autoProducto = it.FichaPrd.AutoId,
+                            nota = "",
+                            precio = p.neto,
+                            precio_id = "PTO",
+                        };
+                        lPrecioHistorico.Add(ph);
+                    }
+                    LPrecio.Add(rg);
+                }
+                else
+                {
+                    var rt2 = Sistema.MyData.Producto_GetPrecio(it.FichaPrd.AutoId);
+                    if (rt2.Result == OOB.Enumerados.EnumResult.isError) 
+                    {
+                        Helpers.Msg.Error(rt2.Mensaje);
+                        return false;
+                    }
+                    var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioMargen();
+                    rg.autoProducto = it.FichaPrd.AutoId;
+                    rg.precio_1=null;
+                    rg.precio_2=null;
+                    rg.precio_3=null;
+                    rg.precio_4=null;
+                    rg.precio_5=null;
+                    if (rt2.Entidad.precioNeto1>0)
+                    {
+                        rg.precio_1 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = ReCalcularMargen(rt2.Entidad.precioNeto1, it.CostoUndMonedaLocal, rt1.Entidad), };
+                    }
+                    if (rt2.Entidad.precioNeto2 > 0)
+                    {
+                        rg.precio_2 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = ReCalcularMargen(rt2.Entidad.precioNeto2, it.CostoUndMonedaLocal, rt1.Entidad), };
+                    }
+                    if (rt2.Entidad.precioNeto3 > 0)
+                    {
+                        rg.precio_3 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = ReCalcularMargen(rt2.Entidad.precioNeto3, it.CostoUndMonedaLocal, rt1.Entidad), };
+                    }
+                    if (rt2.Entidad.precioNeto4 > 0)
+                    {
+                        rg.precio_4 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = ReCalcularMargen(rt2.Entidad.precioNeto4, it.CostoUndMonedaLocal, rt1.Entidad), };
+                    }
+                    if (rt2.Entidad.precioNeto5 > 0)
+                    {
+                        rg.precio_5 = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = ReCalcularMargen(rt2.Entidad.precioNeto5, it.CostoUndMonedaLocal, rt1.Entidad), };
+                    }
+                    lMargen.Add(rg);
+                }
+            }
+            ficha.prdPrecioMargen = lMargen;
+            ficha.prdPrecio = LPrecio;
+            ficha.prdPrecioHistorico = lPrecioHistorico; 
+
+            var r01 = Sistema.MyData.Producto_Movimiento_Cargo_Insertar(ficha);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            return true;
+        }
+
+        private decimal ReCalcularMargen(decimal pn, decimal costo, OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad metodo)
+        {
+            var rt = 0.0m;
+
+            if (metodo == OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad.Financiero)
+            {
+                rt = (1 - (costo / pn)) * 100;
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+            }
+            else 
+            {
+                rt = ((pn / costo) - 1) * 100;
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+            }
+
+            return rt;
         }
 
         public bool AbandonarDocumento()
         {
             var msg = MessageBox.Show("Abandonar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             return (msg == DialogResult.Yes);
+        }
+
+        public enumerados.enumTipoMovimiento EnumTipoMovimiento
+        {
+            get { return  enumerados.enumTipoMovimiento.Cargo; }
         }
 
     }

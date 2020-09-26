@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace OOB.LibInventario.Movimiento.Cargo.Insertar  
+{
+    
+    public class FichaPrecioMargen
+    {
+
+        public decimal utilidad { get; set; }
+
+    }
+
+}

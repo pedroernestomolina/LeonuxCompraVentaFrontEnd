@@ -31,7 +31,7 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         public string ProductoFechaUltAct { get { return Prd.FechaUltimaActualizacion; } }
         public bool ProductoEsDivisa { get { return Prd.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si ? true : false; } }
         public string TasaCambio { get { return String.Format("{0:n2}", tasaCambio); } }
-        public string CntUnd { get { return string.Format("{0:n2}", (Cantidad * contenido)); } }
+        public string CntUnd { get { return string.Format("{0:n"+Prd.Decimales+"}", (Cantidad * contenido)); } }
         public string CostoUnd { get { return string.Format("{0:n2}", (Costo / contenido)); } }
         public Movimiento.enumerados.enumTipoEmpaque  TipoEmpaqueSeleccionado { get { return tipoEmpaque; } }
         public decimal Importe 
@@ -101,6 +101,7 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         {
             if (importe == 0.0m) 
             {
+                Helpers.Msg.Error("Monto Importe Movimiento Incorrecto, Verifique Por Favor");
                 return;
             }
             var msg = MessageBox.Show("Guardar Cambios ?","*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2 );

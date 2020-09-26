@@ -12,7 +12,6 @@ namespace ModInventario.Movimiento.Cargo
     public class GestionDetalle
     {
 
-
         private Entrada.Gestion _gestionEntrada;
         private Movimiento.dataDetalle detalle;
         private BindingSource bs;
@@ -20,7 +19,7 @@ namespace ModInventario.Movimiento.Cargo
 
 
         public System.Windows.Forms.BindingSource Souce { get { return bs; } }
-        public string MontoMovimiento { get { return string.Format("{0:n2}",detalle.MontoMovimiento); } }
+        public decimal MontoMovimiento { get { return detalle.MontoMovimiento; } }
         public string ItemsMovimiento { get { return string.Format("Total Items \n {0}", bs.Count); } }
         public int TotalItems { get { return bs.Count; } }
         public Movimiento.dataDetalle Detalle { get { return detalle; } }
@@ -57,6 +56,13 @@ namespace ModInventario.Movimiento.Cargo
                 return;
             }
             ficha.costo = rt2.Entidad;
+            var rt3 = Sistema.MyData.Producto_GetIdentificacion(ficha.identidad.auto);
+            if (rt3.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt3.Mensaje);
+                return;
+            }
+            ficha.identidad = rt3.Entidad;
 
             _gestionEntrada.setFicha(ficha);
             _gestionEntrada.Inicia();
@@ -64,7 +70,7 @@ namespace ModInventario.Movimiento.Cargo
             {
                 detalle.Agregar(ficha, _gestionEntrada.Cantidad, _gestionEntrada.Costo,
                     _gestionEntrada.TipoEmpaqueSeleccionado, tasaCambio, _gestionEntrada.Importe,
-                    _gestionEntrada.ImporteMonedaLocal);
+                    _gestionEntrada.ImporteMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada);
                 bs.CurrencyManager.Refresh();
             }
         }
@@ -89,8 +95,8 @@ namespace ModInventario.Movimiento.Cargo
                 {
                     detalle.Remover(it);
                     detalle.Agregar(it.FichaPrd, _gestionEntrada.Cantidad, _gestionEntrada.Costo, 
-                        _gestionEntrada.TipoEmpaqueSeleccionado, tasaCambio, _gestionEntrada.Importe, 
-                        _gestionEntrada.ImporteMonedaLocal );
+                        _gestionEntrada.TipoEmpaqueSeleccionado, tasaCambio, _gestionEntrada.Importe,
+                        _gestionEntrada.ImporteMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada);
                     bs.CurrencyManager.Refresh();
                 }
             }

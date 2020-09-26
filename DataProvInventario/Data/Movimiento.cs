@@ -126,7 +126,7 @@ namespace DataProvInventario.Data
                     cantidad = s.cantidad,
                     cantidadBono = s.cantidadBono,
                     cantidadUnd = s.cantidadUnd,
-                    codigo = s.codigo,
+                    codigo = s.codigoMov,
                     codigoSucursal = s.codigoSucursal,
                     costoUnd = s.costoUnd,
                     entidad = s.entidad,
@@ -134,8 +134,8 @@ namespace DataProvInventario.Data
                     modulo = s.modulo,
                     nota = s.nota,
                     precioUnd = s.precioUnd,
-                    siglas = s.siglas,
-                    signo = s.signo,
+                    siglas = s.siglasMov,
+                    signo = s.signoMov,
                     total = s.total,
                     codigoConcepto=s.codigoConcepto,
                     nombreConcepto=s.nombreConcepto,
@@ -145,6 +145,19 @@ namespace DataProvInventario.Data
                 return dt;
             }).ToList();
             fichaDTO.movKardex = listKardex; ;
+
+            var listPrdDep = ficha.prdDeposito.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Traslado.Insertar.FichaPrdDeposito()
+                {
+                    autoProducto = s.autoProducto,
+                    autoDepositoOrigen = s.autoDepositoOrigen,
+                    autoDepositoDestino=s.autoDepositoDestino,
+                    cantidadUnd = s.cantidadUnd,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdDeposito = listPrdDep;
 
             var r01 = MyData.Producto_Movimiento_Traslado_Insertar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError) 
@@ -205,6 +218,472 @@ namespace DataProvInventario.Data
             }).ToList();
             nr.detalles = det;
             rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoAuto Producto_Movimiento_Cargo_Insertar(OOB.LibInventario.Movimiento.Cargo.Insertar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoAuto();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Cargo.Insertar.Ficha()
+            {
+                autoConcepto = ficha.autoConcepto,
+                autoDepositoDestino = ficha.autoDepositoDestino,
+                autoDepositoOrigen = ficha.autoDepositoOrigen,
+                autoRemision = ficha.autoRemision,
+                autorizado = ficha.autorizado,
+                autoUsuario = ficha.autoUsuario,
+                cierreFtp = ficha.cierreFtp,
+                codConcepto = ficha.codConcepto,
+                codDepositoDestino = ficha.codDepositoDestino,
+                codDepositoOrigen = ficha.codDepositoOrigen,
+                codigoSucursal = ficha.codigoSucursal,
+                codUsuario = ficha.codUsuario,
+                desConcepto = ficha.desConcepto,
+                desDepositoDestino = ficha.desDepositoDestino,
+                desDepositoOrigen = ficha.desDepositoOrigen,
+                documentoNombre = ficha.documentoNombre,
+                estacion = ficha.estacion,
+                estatusAnulado = ficha.estatusAnulado,
+                estatusCierreContable = ficha.estatusCierreContable,
+                nota = ficha.nota,
+                renglones = ficha.renglones,
+                situacion = ficha.situacion,
+                tipo = ficha.tipo,
+                total = ficha.total,
+                usuario = ficha.usuario,
+            };
+            var listDet = ficha.detalles.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaDetalle()
+                {
+                    autoDepartamento = s.autoDepartamento,
+                    autoGrupo = s.autoGrupo,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    categoria = s.categoria,
+                    codigoProducto = s.codigoProducto,
+                    contEmpaque = s.contEmpaque,
+                    costoCompra = s.costoCompra,
+                    costoUnd = s.costoUnd,
+                    decimales = s.decimales,
+                    empaque = s.empaque,
+                    estatusAnulado = s.estatusAnulado,
+                    estatusUnidad = s.estatusUnidad,
+                    nombreProducto = s.nombreProducto,
+                    signo = s.signo,
+                    tipo = s.tipo,
+                    total = s.total,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.detalles = listDet; ;
+
+            var listKardex = ficha.movKardex.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaKardex()
+                {
+                    autoConcepto = s.autoConcepto,
+                    autoDeposito = s.autoDeposito,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    codigoMov = s.codigoMov,
+                    codigoSucursal = s.codigoSucursal,
+                    costoUnd = s.costoUnd,
+                    entidad = s.entidad,
+                    estatusAnulado = s.estatusAnulado,
+                    modulo = s.modulo,
+                    nota = s.nota,
+                    precioUnd = s.precioUnd,
+                    siglasMov = s.siglasMov,
+                    signoMov = s.signoMov,
+                    total = s.total,
+                    codigoConcepto = s.codigoConcepto,
+                    nombreConcepto = s.nombreConcepto,
+                    codigoDeposito = s.codigoDeposito,
+                    nombreDeposito = s.nombreDeposito,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.movKardex = listKardex;
+
+            var listPrdDep = ficha.prdDeposito.Select(s => 
+            {
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdDeposito()
+                {
+                    autoProducto = s.autoProducto,
+                    autoDeposito = s.autoDeposito,
+                    cantidadUnd = s.cantidadUnd,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdDeposito=listPrdDep;
+
+            var listPrdCosto= ficha.prdCosto.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdCosto()
+                {
+                    autoProducto = s.autoProducto,
+                    cantidadEntranteUnd = s.cantidadEntranteUnd,
+                    costoDivisa = s.costoDivisa,
+                    costoFinal = s.costoFinal,
+                    costoFinalUnd = s.costoFinalUnd,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdCosto = listPrdCosto;
+
+            var listPrdCostoHistorico = ficha.prdCostoHistorico.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdCostoHistorico()
+                {
+                    autoProducto = s.autoProducto,
+                    costo = s.costo,
+                    divisa = s.divisa,
+                    nota = s.nota,
+                    tasaCambio = s.tasaCambio,
+                    serie=s.serie,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdCostoHistorico = listPrdCostoHistorico;
+
+            var listPrdPrecio = ficha.prdPrecio.Select(s =>
+            {
+                 DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio p1 = null;
+                 DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio p2 = null;
+                 DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio p3 = null;
+                 DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio p4 = null;
+                 DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio p5 = null;
+
+                if (s.precio_1 != null)
+                {
+                    p1 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = s.precio_1.precioNeto, precio_divisa_full = s.precio_1.precio_divisa_full };
+                };
+                if (s.precio_2 != null)
+                {
+                    p2 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = s.precio_2.precioNeto, precio_divisa_full = s.precio_2.precio_divisa_full };
+                };
+                if (s.precio_3 != null)
+                {
+                    p3 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = s.precio_3.precioNeto, precio_divisa_full = s.precio_3.precio_divisa_full };
+                };
+                if (s.precio_4 != null)
+                {
+                    p4 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = s.precio_4.precioNeto, precio_divisa_full = s.precio_4.precio_divisa_full };
+                };
+                if (s.precio_5 != null)
+                {
+                    p5 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecio() { precioNeto = s.precio_5.precioNeto, precio_divisa_full = s.precio_5.precio_divisa_full };
+                };
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecio()
+                {
+                     autoProducto=s.autoProducto,
+                     precio_1 = p1,
+                     precio_2 = p2,
+                     precio_3 = p3,
+                     precio_4 = p4,
+                     precio_5 = p5,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdPrecio = listPrdPrecio;
+
+            var listPrdPrecioMargen = ficha.prdPrecioMargen.Select(s =>
+            {
+                DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen p1 = null;
+                DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen p2 = null;
+                DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen p3 = null;
+                DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen p4 = null;
+                DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen p5 = null;
+
+                if (s.precio_1 != null)
+                {
+                    p1 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = s.precio_1.utilidad };
+                };
+                if (s.precio_2 != null)
+                {
+                    p2 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = s.precio_2.utilidad };
+                };
+                if (s.precio_3 != null)
+                {
+                    p3 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = s.precio_3.utilidad };
+                };
+                if (s.precio_4 != null)
+                {
+                    p4 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = s.precio_4.utilidad };
+                };
+                if (s.precio_5 != null)
+                {
+                    p5 = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrecioMargen() { utilidad = s.precio_5.utilidad };
+                };
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioMargen()
+                {
+                    autoProducto = s.autoProducto,
+                    precio_1 = p1,
+                    precio_2 = p2,
+                    precio_3 = p3,
+                    precio_4 = p4,
+                    precio_5 = p5,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdPrecioMargen = listPrdPrecioMargen;
+
+            var listPrdPrecioHistorico = ficha.prdPrecioHistorico.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico()
+                {
+                    autoProducto = s.autoProducto,
+                    precio = s.precio,
+                    precio_id = s.precio_id,
+                    nota = s.nota,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdPrecioHistorico = listPrdPrecioHistorico;
+
+            var r01 = MyData.Producto_Movimiento_Cargo_Insertar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Auto = r01.Auto;
+
+            return rt;
+        }
+
+        public OOB.ResultadoAuto Producto_Movimiento_DesCargo_Insertar(OOB.LibInventario.Movimiento.DesCargo.Insertar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoAuto();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.DesCargo.Insertar.Ficha()
+            {
+                autoConcepto = ficha.autoConcepto,
+                autoDepositoDestino = ficha.autoDepositoDestino,
+                autoDepositoOrigen = ficha.autoDepositoOrigen,
+                autoRemision = ficha.autoRemision,
+                autorizado = ficha.autorizado,
+                autoUsuario = ficha.autoUsuario,
+                cierreFtp = ficha.cierreFtp,
+                codConcepto = ficha.codConcepto,
+                codDepositoDestino = ficha.codDepositoDestino,
+                codDepositoOrigen = ficha.codDepositoOrigen,
+                codigoSucursal = ficha.codigoSucursal,
+                codUsuario = ficha.codUsuario,
+                desConcepto = ficha.desConcepto,
+                desDepositoDestino = ficha.desDepositoDestino,
+                desDepositoOrigen = ficha.desDepositoOrigen,
+                documentoNombre = ficha.documentoNombre,
+                estacion = ficha.estacion,
+                estatusAnulado = ficha.estatusAnulado,
+                estatusCierreContable = ficha.estatusCierreContable,
+                nota = ficha.nota,
+                renglones = ficha.renglones,
+                situacion = ficha.situacion,
+                tipo = ficha.tipo,
+                total = ficha.total,
+                usuario = ficha.usuario,
+            };
+            var listDet = ficha.detalles.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.DesCargo.Insertar.FichaDetalle()
+                {
+                    autoDepartamento = s.autoDepartamento,
+                    autoGrupo = s.autoGrupo,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    categoria = s.categoria,
+                    codigoProducto = s.codigoProducto,
+                    contEmpaque = s.contEmpaque,
+                    costoCompra = s.costoCompra,
+                    costoUnd = s.costoUnd,
+                    decimales = s.decimales,
+                    empaque = s.empaque,
+                    estatusAnulado = s.estatusAnulado,
+                    estatusUnidad = s.estatusUnidad,
+                    nombreProducto = s.nombreProducto,
+                    signo = s.signo,
+                    tipo = s.tipo,
+                    total = s.total,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.detalles = listDet; ;
+
+            var listKardex = ficha.movKardex.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.DesCargo.Insertar.FichaKardex()
+                {
+                    autoConcepto = s.autoConcepto,
+                    autoDeposito = s.autoDeposito,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    codigoMov = s.codigoMov,
+                    codigoSucursal = s.codigoSucursal,
+                    costoUnd = s.costoUnd,
+                    entidad = s.entidad,
+                    estatusAnulado = s.estatusAnulado,
+                    modulo = s.modulo,
+                    nota = s.nota,
+                    precioUnd = s.precioUnd,
+                    siglasMov = s.siglasMov,
+                    signoMov = s.signoMov,
+                    total = s.total,
+                    codigoConcepto = s.codigoConcepto,
+                    nombreConcepto = s.nombreConcepto,
+                    codigoDeposito = s.codigoDeposito,
+                    nombreDeposito = s.nombreDeposito,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.movKardex = listKardex;
+
+            var listPrdDep = ficha.prdDeposito.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.DesCargo.Insertar.FichaPrdDeposito()
+                {
+                    autoProducto = s.autoProducto,
+                    autoDeposito = s.autoDeposito,
+                    cantidadUnd = s.cantidadUnd,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdDeposito = listPrdDep;
+
+            var r01 = MyData.Producto_Movimiento_DesCargo_Insertar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Auto = r01.Auto;
+
+            return rt;
+        }
+
+        public OOB.ResultadoAuto Producto_Movimiento_Ajuste_Insertar(OOB.LibInventario.Movimiento.Ajuste.Insertar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoAuto();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Ajuste.Insertar.Ficha()
+            {
+                autoConcepto = ficha.autoConcepto,
+                autoDepositoDestino = ficha.autoDepositoDestino,
+                autoDepositoOrigen = ficha.autoDepositoOrigen,
+                autoRemision = ficha.autoRemision,
+                autorizado = ficha.autorizado,
+                autoUsuario = ficha.autoUsuario,
+                cierreFtp = ficha.cierreFtp,
+                codConcepto = ficha.codConcepto,
+                codDepositoDestino = ficha.codDepositoDestino,
+                codDepositoOrigen = ficha.codDepositoOrigen,
+                codigoSucursal = ficha.codigoSucursal,
+                codUsuario = ficha.codUsuario,
+                desConcepto = ficha.desConcepto,
+                desDepositoDestino = ficha.desDepositoDestino,
+                desDepositoOrigen = ficha.desDepositoOrigen,
+                documentoNombre = ficha.documentoNombre,
+                estacion = ficha.estacion,
+                estatusAnulado = ficha.estatusAnulado,
+                estatusCierreContable = ficha.estatusCierreContable,
+                nota = ficha.nota,
+                renglones = ficha.renglones,
+                situacion = ficha.situacion,
+                tipo = ficha.tipo,
+                total = ficha.total,
+                usuario = ficha.usuario,
+            };
+            var listDet = ficha.detalles.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Ajuste.Insertar.FichaDetalle()
+                {
+                    autoDepartamento = s.autoDepartamento,
+                    autoGrupo = s.autoGrupo,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    categoria = s.categoria,
+                    codigoProducto = s.codigoProducto,
+                    contEmpaque = s.contEmpaque,
+                    costoCompra = s.costoCompra,
+                    costoUnd = s.costoUnd,
+                    decimales = s.decimales,
+                    empaque = s.empaque,
+                    estatusAnulado = s.estatusAnulado,
+                    estatusUnidad = s.estatusUnidad,
+                    nombreProducto = s.nombreProducto,
+                    signo = s.signo,
+                    tipo = s.tipo,
+                    total = s.total,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.detalles = listDet; ;
+
+            var listKardex = ficha.movKardex.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Ajuste.Insertar.FichaKardex()
+                {
+                    autoConcepto = s.autoConcepto,
+                    autoDeposito = s.autoDeposito,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    codigoMov = s.codigoMov,
+                    codigoSucursal = s.codigoSucursal,
+                    costoUnd = s.costoUnd,
+                    entidad = s.entidad,
+                    estatusAnulado = s.estatusAnulado,
+                    modulo = s.modulo,
+                    nota = s.nota,
+                    precioUnd = s.precioUnd,
+                    siglasMov = s.siglasMov,
+                    signoMov = s.signoMov,
+                    total = s.total,
+                    codigoConcepto = s.codigoConcepto,
+                    nombreConcepto = s.nombreConcepto,
+                    codigoDeposito = s.codigoDeposito,
+                    nombreDeposito = s.nombreDeposito,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.movKardex = listKardex;
+
+            var listPrdDep = ficha.prdDeposito.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Ajuste.Insertar.FichaPrdDeposito()
+                {
+                    autoProducto = s.autoProducto,
+                    autoDeposito = s.autoDeposito,
+                    cantidadUnd = s.cantidadUnd,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdDeposito = listPrdDep;
+
+            var r01 = MyData.Producto_Movimiento_Ajuste_Insertar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Auto = r01.Auto;
 
             return rt;
         }

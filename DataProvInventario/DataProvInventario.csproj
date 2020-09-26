@@ -67,6 +67,7 @@
     <Compile Include="Data\TasaImpuesto.cs" />
     <Compile Include="Data\Tool.cs" />
     <Compile Include="Data\Usuario.cs" />
+    <Compile Include="Data\Visor.cs" />
     <Compile Include="InfraEstructura\IConcepto.cs" />
     <Compile Include="InfraEstructura\IConfiguracion.cs" />
     <Compile Include="InfraEstructura\ICosto.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="InfraEstructura\ITasaImpuesto.cs" />
     <Compile Include="InfraEstructura\ITool.cs" />
     <Compile Include="InfraEstructura\IUsuario.cs" />
+    <Compile Include="InfraEstructura\IVisor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

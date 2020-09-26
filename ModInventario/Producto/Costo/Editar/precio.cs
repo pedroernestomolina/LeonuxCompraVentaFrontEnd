@@ -22,10 +22,12 @@ namespace ModInventario.Producto.Costo.Editar
         private decimal utilidad;
         private decimal neto; 
         private decimal tasa;
+        private bool recalcular;
 
 
         public decimal Neto { get { return neto; } }
         public decimal Utilidad { get { return utilidad; } }
+        public bool Recalcular { get { return recalcular; } }
 
 
         public precio()
@@ -46,6 +48,9 @@ namespace ModInventario.Producto.Costo.Editar
 
         public void setFicha(decimal ut, decimal nt, decimal ts, enumUtilidadMetodo metodo, enumModoRedondeo redondeo, enumPreferenciaPrecio prefPrec)
         {
+            recalcular = false;
+            if (nt > 0)
+                recalcular = true;
             utilidad = ut;
             neto = nt;
             tasa = ts;

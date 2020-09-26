@@ -101,6 +101,14 @@ namespace ModInventario.Movimiento.Cargo
             ActualizarData();
         }
 
+        private void Ctr_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
     }
 
 }

@@ -14,9 +14,10 @@ namespace ModInventario.Movimiento
 
         bool IsCerrarOk { get; }
         string TipoMovimiento { get; }
-        string MontoMovimiento { get; }
+        decimal MontoMovimiento { get; }
         string ItemsMovimiento { get; }
         bool Habilitar_DepDestino { get; }
+        bool VisualizarColumnaTipoMovimiento { get; }
         System.Windows.Forms.BindingSource ConceptoSource { get;  }
         System.Windows.Forms.BindingSource SucursalSource { get; }
         System.Windows.Forms.BindingSource DepOrigenSource { get; }
@@ -31,6 +32,7 @@ namespace ModInventario.Movimiento
         DateTime FechaMov { get; set; }
         OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
         string CadenaBusqueda { get; set; }
+        enumerados.enumTipoMovimiento EnumTipoMovimiento { get; }
 
 
         void Inicia();

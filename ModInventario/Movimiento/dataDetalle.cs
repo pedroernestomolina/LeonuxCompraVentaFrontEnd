@@ -15,7 +15,7 @@ namespace ModInventario.Movimiento
 
 
         public List<item> ListaItems { get { return lstItems; } }
-        public decimal MontoMovimiento { get { return ListaItems.Sum(s => s.ImporteMonedaLocal); } }
+        public decimal MontoMovimiento { get { return ListaItems.Sum(s => s.ImporteMonedaLocal *s.Signo); } }
 
 
 
@@ -31,9 +31,9 @@ namespace ModInventario.Movimiento
         }
 
         public void Agregar(OOB.LibInventario.Producto.Data.Ficha ficha, decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp,
-            decimal tasaCambio, decimal importe, decimal importeMonedaLocal)
+            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov)
         {
-            lstItems.Add(new item(ficha,cnt,costo, emp, tasaCambio, importe, importeMonedaLocal));
+            lstItems.Add(new item(ficha,cnt,costo, emp, tasaCambio, importe, importeMonedaLocal,tipoMov));
         }
         public void Remover(item it)
         {

@@ -238,19 +238,29 @@ namespace ModInventario.Producto.Costo.Editar
             {
                 if (_isAdmDivisa)
                 {
-                    precio_1.ActualizarPrecio(CostoFinal.UndNeto);
-                    precio_2.ActualizarPrecio(CostoFinal.UndNeto);
-                    precio_3.ActualizarPrecio(CostoFinal.UndNeto);
-                    precio_4.ActualizarPrecio(CostoFinal.UndNeto);
-                    precio_5.ActualizarPrecio(CostoFinal.UndNeto);
+                    if (precio_1.Recalcular)
+                        precio_1.ActualizarPrecio(CostoFinal.UndNeto);
+                    if (precio_2.Recalcular)
+                        precio_2.ActualizarPrecio(CostoFinal.UndNeto);
+                    if (precio_3.Recalcular)
+                        precio_3.ActualizarPrecio(CostoFinal.UndNeto);
+                    if (precio_4.Recalcular)
+                        precio_4.ActualizarPrecio(CostoFinal.UndNeto);
+                    if (precio_5.Recalcular)
+                        precio_5.ActualizarPrecio(CostoFinal.UndNeto);
                 }
                 else 
                 {
-                    precio_1.ActualizarUtilidad(CostoFinal.UndNeto);
-                    precio_2.ActualizarUtilidad(CostoFinal.UndNeto);
-                    precio_3.ActualizarUtilidad(CostoFinal.UndNeto);
-                    precio_4.ActualizarUtilidad(CostoFinal.UndNeto);
-                    precio_5.ActualizarUtilidad(CostoFinal.UndNeto);
+                    if (precio_1.Recalcular)
+                        precio_1.ActualizarUtilidad(CostoFinal.UndNeto);
+                    if (precio_2.Recalcular)
+                        precio_2.ActualizarUtilidad(CostoFinal.UndNeto);
+                    if (precio_3.Recalcular)
+                        precio_3.ActualizarUtilidad(CostoFinal.UndNeto);
+                    if (precio_4.Recalcular)
+                        precio_4.ActualizarUtilidad(CostoFinal.UndNeto);
+                    if (precio_5.Recalcular)
+                        precio_5.ActualizarUtilidad(CostoFinal.UndNeto);
                 }
                 _isCerrarHabilitado = Guardar();
             }

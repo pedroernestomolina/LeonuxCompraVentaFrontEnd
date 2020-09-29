@@ -446,6 +446,16 @@ namespace ModInventario.Buscar
         {
             _controlador.GetImagen();
         }
+
+        private void BT_PROVEEDORES_Click(object sender, EventArgs e)
+        {
+            Proveedores();
+        }
+
+        private void Proveedores()
+        {
+            _controlador.Proveedores();
+        }
       
     }
 

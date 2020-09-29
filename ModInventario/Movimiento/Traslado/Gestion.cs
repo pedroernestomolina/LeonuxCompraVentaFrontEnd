@@ -287,7 +287,7 @@ namespace ModInventario.Movimiento.Traslado
                     costoCompra = s.CostoMonedaLocal,
                     costoUnd = s.CostoUndMonedaLocal,
                     decimales = s.FichaPrd.Decimales,
-                    empaque = s.EmpaquePrd,
+                    empaque = s.FichaPrd.identidad.empaqueCompra,
                     estatusAnulado = "0",
                     estatusUnidad = s.TipoEmpaqueSeleccionado == enumerados.enumTipoEmpaque.PorUnidad ? "1" : "0",
                     nombreProducto = s.DescripcionPrd,

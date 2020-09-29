@@ -28,6 +28,7 @@ namespace ModInventario.Buscar
         private Kardex.Movimiento.Gestion _gestionKardex;
         private OOB.LibInventario.Producto.Filtro _filtros;
         private Producto.Imagen.Gestion _gestionImagen;
+        private Producto.Proveedor.Gestion _gestionProveedor;
 
 
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
@@ -58,6 +59,7 @@ namespace ModInventario.Buscar
             _gestionEstatus = new Producto.Estatus.Gestion();
             _gestionKardex = new Kardex.Movimiento.Gestion();
             _gestionImagen = new Producto.Imagen.Gestion();
+            _gestionProveedor = new Producto.Proveedor.Gestion();
             LimpiarEntradas();
         }
 
@@ -409,6 +411,15 @@ namespace ModInventario.Buscar
             {
                 _gestionImagen.setFicha(Item.identidad.auto);
                 _gestionImagen.Inicia();
+            }
+        }
+
+        public void Proveedores()
+        {
+            if (Item != null)
+            {
+                _gestionProveedor.setFicha(Item.identidad.auto);
+                _gestionProveedor.Inicia();
             }
         }
 

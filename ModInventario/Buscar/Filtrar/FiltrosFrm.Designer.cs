@@ -37,104 +37,104 @@
             this.BT_FILTRAR = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.CB_GRUPO = new System.Windows.Forms.ComboBox();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.L_ESTATUS = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.L_GRUPO = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.CB_DEPARTAMENTO = new System.Windows.Forms.ComboBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.L_DEPARTAMENTO = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.L_CATEGORIA = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.CB_CATEGORIA = new System.Windows.Forms.ComboBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.L_ORIGEN = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.CB_ORIGEN = new System.Windows.Forms.ComboBox();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.L_IMPUESTO = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.CB_IMPUESTO = new System.Windows.Forms.ComboBox();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.BT_LIMPIAR = new System.Windows.Forms.Button();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.L_MARCA = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.CB_MARCA = new System.Windows.Forms.ComboBox();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.L_DEPOSITO = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.CB_DEPOSITO = new System.Windows.Forms.ComboBox();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.CB_ESTATUS = new System.Windows.Forms.ComboBox();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.L_ADMDIVISA = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.CB_ADMDIVISA = new System.Windows.Forms.ComboBox();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.L_PESADO = new System.Windows.Forms.Label();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.CB_PESADO = new System.Windows.Forms.ComboBox();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.L_OFERTA = new System.Windows.Forms.Label();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.CB_OFERTA = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel32 = new System.Windows.Forms.Panel();
-            this.BT_PROVEED_BUSCAR = new System.Windows.Forms.Button();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.TB_PROVEEDOR = new System.Windows.Forms.TextBox();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.CB_EXISTENCIA = new System.Windows.Forms.ComboBox();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.L_EXISTENCIA = new System.Windows.Forms.Label();
             this.panel30 = new System.Windows.Forms.Panel();
             this.L_PROVEEDOR = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.L_EXISTENCIA = new System.Windows.Forms.Label();
-            this.CB_EXISTENCIA = new System.Windows.Forms.ComboBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.TB_PROVEEDOR = new System.Windows.Forms.TextBox();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.BT_PROVEED_BUSCAR = new System.Windows.Forms.Button();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.CB_OFERTA = new System.Windows.Forms.ComboBox();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.L_OFERTA = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.CB_PESADO = new System.Windows.Forms.ComboBox();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.L_PESADO = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.CB_ADMDIVISA = new System.Windows.Forms.ComboBox();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.L_ADMDIVISA = new System.Windows.Forms.Label();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.CB_ESTATUS = new System.Windows.Forms.ComboBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.CB_DEPOSITO = new System.Windows.Forms.ComboBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.L_DEPOSITO = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.CB_MARCA = new System.Windows.Forms.ComboBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.L_MARCA = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.BT_LIMPIAR = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.CB_IMPUESTO = new System.Windows.Forms.ComboBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.L_IMPUESTO = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.CB_ORIGEN = new System.Windows.Forms.ComboBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.L_ORIGEN = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.CB_CATEGORIA = new System.Windows.Forms.ComboBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.L_CATEGORIA = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.L_DEPARTAMENTO = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.CB_DEPARTAMENTO = new System.Windows.Forms.ComboBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.L_GRUPO = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.L_ESTATUS = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.CB_GRUPO = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel23.SuspendLayout();
-            this.panel24.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.panel29.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel33.SuspendLayout();
+            this.panel30.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel32.SuspendLayout();
             this.panel31.SuspendLayout();
-            this.panel30.SuspendLayout();
-            this.panel33.SuspendLayout();
-            this.panel34.SuspendLayout();
+            this.panel32.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel26.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -142,41 +142,41 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 456);
+            this.panel2.Location = new System.Drawing.Point(0, 461);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(441, 40);
+            this.panel2.Size = new System.Drawing.Size(455, 40);
             this.panel2.TabIndex = 3;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 6;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.Controls.Add(this.panel9, 5, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel17, 4, 0);
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.panel9, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel17, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(441, 40);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(455, 40);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.BT_SALIR);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(366, 1);
+            this.panel9.Location = new System.Drawing.Point(365, 1);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(2);
-            this.panel9.Size = new System.Drawing.Size(74, 38);
+            this.panel9.Size = new System.Drawing.Size(89, 38);
             this.panel9.TabIndex = 1;
             // 
             // BT_SALIR
@@ -184,11 +184,14 @@
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(70, 34);
+            this.BT_SALIR.Size = new System.Drawing.Size(85, 34);
             this.BT_SALIR.TabIndex = 2;
             this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
@@ -196,11 +199,11 @@
             // 
             this.panel17.Controls.Add(this.BT_FILTRAR);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(293, 1);
+            this.panel17.Location = new System.Drawing.Point(274, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(2);
-            this.panel17.Size = new System.Drawing.Size(71, 38);
+            this.panel17.Size = new System.Drawing.Size(89, 38);
             this.panel17.TabIndex = 2;
             // 
             // BT_FILTRAR
@@ -210,9 +213,10 @@
             this.BT_FILTRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_FILTRAR.Location = new System.Drawing.Point(2, 2);
             this.BT_FILTRAR.Name = "BT_FILTRAR";
-            this.BT_FILTRAR.Size = new System.Drawing.Size(67, 34);
+            this.BT_FILTRAR.Size = new System.Drawing.Size(85, 34);
             this.BT_FILTRAR.TabIndex = 3;
             this.BT_FILTRAR.Text = "Filtrar";
+            this.BT_FILTRAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_FILTRAR.UseVisualStyleBackColor = true;
             this.BT_FILTRAR.Click += new System.EventHandler(this.BT_FILTRAR_Click);
             // 
@@ -225,7 +229,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2);
-            this.panel1.Size = new System.Drawing.Size(441, 29);
+            this.panel1.Size = new System.Drawing.Size(455, 29);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -235,23 +239,14 @@
             this.label1.Location = new System.Drawing.Point(2, 2);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(437, 25);
+            this.label1.Size = new System.Drawing.Size(451, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Filtrar Por:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 29);
-            this.panel3.Margin = new System.Windows.Forms.Padding(1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(441, 427);
-            this.panel3.TabIndex = 5;
-            // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.41497F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.58503F));
@@ -303,273 +298,421 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(441, 427);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(455, 432);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // panel8
+            // panel34
             // 
-            this.panel8.Controls.Add(this.CB_GRUPO);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(146, 93);
-            this.panel8.Margin = new System.Windows.Forms.Padding(1);
-            this.panel8.Name = "panel8";
-            this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(241, 28);
-            this.panel8.TabIndex = 2;
+            this.panel34.Controls.Add(this.CB_EXISTENCIA);
+            this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel34.Location = new System.Drawing.Point(151, 393);
+            this.panel34.Margin = new System.Windows.Forms.Padding(1);
+            this.panel34.Name = "panel34";
+            this.panel34.Padding = new System.Windows.Forms.Padding(1);
+            this.panel34.Size = new System.Drawing.Size(250, 28);
+            this.panel34.TabIndex = 12;
             // 
-            // CB_GRUPO
+            // CB_EXISTENCIA
             // 
-            this.CB_GRUPO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_GRUPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_GRUPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_GRUPO.FormattingEnabled = true;
-            this.CB_GRUPO.Location = new System.Drawing.Point(2, 2);
-            this.CB_GRUPO.Name = "CB_GRUPO";
-            this.CB_GRUPO.Size = new System.Drawing.Size(237, 24);
-            this.CB_GRUPO.TabIndex = 1;
-            this.CB_GRUPO.SelectedIndexChanged += new System.EventHandler(this.CB_GRUPO_SelectedIndexChanged);
+            this.CB_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_EXISTENCIA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_EXISTENCIA.FormattingEnabled = true;
+            this.CB_EXISTENCIA.Items.AddRange(new object[] {
+            "Mayor A Cero ",
+            "Igual A Cero ",
+            "Menor A Cero"});
+            this.CB_EXISTENCIA.Location = new System.Drawing.Point(1, 1);
+            this.CB_EXISTENCIA.Name = "CB_EXISTENCIA";
+            this.CB_EXISTENCIA.Size = new System.Drawing.Size(248, 24);
+            this.CB_EXISTENCIA.TabIndex = 9;
+            this.CB_EXISTENCIA.SelectedIndexChanged += new System.EventHandler(this.CB_EXISTENCIA_SelectedIndexChanged);
             // 
-            // panel22
+            // panel33
             // 
-            this.panel22.Controls.Add(this.L_ESTATUS);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(1, 273);
-            this.panel22.Margin = new System.Windows.Forms.Padding(1);
-            this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(2);
-            this.panel22.Size = new System.Drawing.Size(143, 28);
-            this.panel22.TabIndex = 14;
+            this.panel33.Controls.Add(this.L_EXISTENCIA);
+            this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel33.Location = new System.Drawing.Point(1, 393);
+            this.panel33.Margin = new System.Windows.Forms.Padding(1);
+            this.panel33.Name = "panel33";
+            this.panel33.Padding = new System.Windows.Forms.Padding(1);
+            this.panel33.Size = new System.Drawing.Size(148, 28);
+            this.panel33.TabIndex = 19;
             // 
-            // L_ESTATUS
+            // L_EXISTENCIA
             // 
-            this.L_ESTATUS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ESTATUS.Location = new System.Drawing.Point(2, 2);
-            this.L_ESTATUS.Name = "L_ESTATUS";
-            this.L_ESTATUS.Size = new System.Drawing.Size(139, 24);
-            this.L_ESTATUS.TabIndex = 4;
-            this.L_ESTATUS.Text = "Estatus:";
-            this.L_ESTATUS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_ESTATUS.Click += new System.EventHandler(this.L_ESTATUS_Click);
+            this.L_EXISTENCIA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_EXISTENCIA.Location = new System.Drawing.Point(1, 1);
+            this.L_EXISTENCIA.Name = "L_EXISTENCIA";
+            this.L_EXISTENCIA.Size = new System.Drawing.Size(146, 26);
+            this.L_EXISTENCIA.TabIndex = 8;
+            this.L_EXISTENCIA.Text = "Existencia:";
+            this.L_EXISTENCIA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_EXISTENCIA.Click += new System.EventHandler(this.L_EXISTENCIA_Click);
             // 
-            // panel7
+            // panel30
             // 
-            this.panel7.Controls.Add(this.L_GRUPO);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(1, 93);
-            this.panel7.Margin = new System.Windows.Forms.Padding(1);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(143, 28);
-            this.panel7.TabIndex = 1;
+            this.panel30.Controls.Add(this.L_PROVEEDOR);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel30.Location = new System.Drawing.Point(1, 33);
+            this.panel30.Margin = new System.Windows.Forms.Padding(1);
+            this.panel30.Name = "panel30";
+            this.panel30.Padding = new System.Windows.Forms.Padding(2);
+            this.panel30.Size = new System.Drawing.Size(148, 28);
+            this.panel30.TabIndex = 18;
             // 
-            // L_GRUPO
+            // L_PROVEEDOR
             // 
-            this.L_GRUPO.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_GRUPO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_GRUPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_GRUPO.Location = new System.Drawing.Point(2, 2);
-            this.L_GRUPO.Name = "L_GRUPO";
-            this.L_GRUPO.Size = new System.Drawing.Size(139, 24);
-            this.L_GRUPO.TabIndex = 1;
-            this.L_GRUPO.Text = "Grupo:";
-            this.L_GRUPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_GRUPO.Click += new System.EventHandler(this.L_GRUPO_Click);
+            this.L_PROVEEDOR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_PROVEEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PROVEEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PROVEEDOR.Location = new System.Drawing.Point(2, 2);
+            this.L_PROVEEDOR.Name = "L_PROVEEDOR";
+            this.L_PROVEEDOR.Size = new System.Drawing.Size(144, 24);
+            this.L_PROVEEDOR.TabIndex = 1;
+            this.L_PROVEEDOR.Text = "Proveedor:";
+            this.L_PROVEEDOR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel6
+            // panel4
             // 
-            this.panel6.Controls.Add(this.CB_DEPARTAMENTO);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(146, 63);
-            this.panel6.Margin = new System.Windows.Forms.Padding(1);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(241, 28);
-            this.panel6.TabIndex = 1;
+            this.panel4.Controls.Add(this.tableLayoutPanel3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(151, 33);
+            this.panel4.Margin = new System.Windows.Forms.Padding(1);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(1);
+            this.panel4.Size = new System.Drawing.Size(250, 28);
+            this.panel4.TabIndex = 0;
             // 
-            // CB_DEPARTAMENTO
+            // tableLayoutPanel3
             // 
-            this.CB_DEPARTAMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_DEPARTAMENTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_DEPARTAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_DEPARTAMENTO.FormattingEnabled = true;
-            this.CB_DEPARTAMENTO.Location = new System.Drawing.Point(2, 2);
-            this.CB_DEPARTAMENTO.Name = "CB_DEPARTAMENTO";
-            this.CB_DEPARTAMENTO.Size = new System.Drawing.Size(237, 24);
-            this.CB_DEPARTAMENTO.TabIndex = 0;
-            this.CB_DEPARTAMENTO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPARTAMENTO_SelectedIndexChanged);
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.19247F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.80753F));
+            this.tableLayoutPanel3.Controls.Add(this.panel32, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel31, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(248, 26);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // panel5
+            // panel31
             // 
-            this.panel5.Controls.Add(this.L_DEPARTAMENTO);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(1, 63);
-            this.panel5.Margin = new System.Windows.Forms.Padding(1);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(2);
-            this.panel5.Size = new System.Drawing.Size(143, 28);
-            this.panel5.TabIndex = 1;
+            this.panel31.Controls.Add(this.TB_PROVEEDOR);
+            this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel31.Location = new System.Drawing.Point(1, 1);
+            this.panel31.Margin = new System.Windows.Forms.Padding(1);
+            this.panel31.Name = "panel31";
+            this.panel31.Padding = new System.Windows.Forms.Padding(1);
+            this.panel31.Size = new System.Drawing.Size(211, 24);
+            this.panel31.TabIndex = 0;
             // 
-            // L_DEPARTAMENTO
+            // TB_PROVEEDOR
             // 
-            this.L_DEPARTAMENTO.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_DEPARTAMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DEPARTAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DEPARTAMENTO.Location = new System.Drawing.Point(2, 2);
-            this.L_DEPARTAMENTO.Name = "L_DEPARTAMENTO";
-            this.L_DEPARTAMENTO.Size = new System.Drawing.Size(139, 24);
-            this.L_DEPARTAMENTO.TabIndex = 0;
-            this.L_DEPARTAMENTO.Text = "Departamento:";
-            this.L_DEPARTAMENTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_DEPARTAMENTO.Click += new System.EventHandler(this.L_DEPARTAMENTO_Click);
+            this.TB_PROVEEDOR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_PROVEEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_PROVEEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_PROVEEDOR.Location = new System.Drawing.Point(1, 1);
+            this.TB_PROVEEDOR.MaxLength = 30;
+            this.TB_PROVEEDOR.Name = "TB_PROVEEDOR";
+            this.TB_PROVEEDOR.ReadOnly = true;
+            this.TB_PROVEEDOR.Size = new System.Drawing.Size(209, 22);
+            this.TB_PROVEEDOR.TabIndex = 0;
             // 
-            // panel10
+            // panel32
             // 
-            this.panel10.Controls.Add(this.L_CATEGORIA);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(1, 183);
-            this.panel10.Margin = new System.Windows.Forms.Padding(1);
-            this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(2);
-            this.panel10.Size = new System.Drawing.Size(143, 28);
-            this.panel10.TabIndex = 5;
+            this.panel32.Controls.Add(this.BT_PROVEED_BUSCAR);
+            this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel32.Location = new System.Drawing.Point(214, 1);
+            this.panel32.Margin = new System.Windows.Forms.Padding(1);
+            this.panel32.Name = "panel32";
+            this.panel32.Padding = new System.Windows.Forms.Padding(1);
+            this.panel32.Size = new System.Drawing.Size(33, 24);
+            this.panel32.TabIndex = 1;
             // 
-            // L_CATEGORIA
+            // BT_PROVEED_BUSCAR
             // 
-            this.L_CATEGORIA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_CATEGORIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CATEGORIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CATEGORIA.Location = new System.Drawing.Point(2, 2);
-            this.L_CATEGORIA.Name = "L_CATEGORIA";
-            this.L_CATEGORIA.Size = new System.Drawing.Size(139, 24);
-            this.L_CATEGORIA.TabIndex = 2;
-            this.L_CATEGORIA.Text = "Categoria:";
-            this.L_CATEGORIA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_CATEGORIA.Click += new System.EventHandler(this.L_CATEGORIA_Click);
+            this.BT_PROVEED_BUSCAR.BackgroundImage = global::ModInventario.Properties.Resources.bt_consulta;
+            this.BT_PROVEED_BUSCAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_PROVEED_BUSCAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PROVEED_BUSCAR.FlatAppearance.BorderSize = 0;
+            this.BT_PROVEED_BUSCAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_PROVEED_BUSCAR.Location = new System.Drawing.Point(1, 1);
+            this.BT_PROVEED_BUSCAR.Name = "BT_PROVEED_BUSCAR";
+            this.BT_PROVEED_BUSCAR.Size = new System.Drawing.Size(31, 22);
+            this.BT_PROVEED_BUSCAR.TabIndex = 0;
+            this.BT_PROVEED_BUSCAR.UseVisualStyleBackColor = true;
+            this.BT_PROVEED_BUSCAR.Click += new System.EventHandler(this.BT_PROVEED_BUSCAR_Click);
             // 
-            // panel11
+            // panel29
             // 
-            this.panel11.Controls.Add(this.CB_CATEGORIA);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(146, 183);
-            this.panel11.Margin = new System.Windows.Forms.Padding(1);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(2);
-            this.panel11.Size = new System.Drawing.Size(241, 28);
-            this.panel11.TabIndex = 5;
+            this.panel29.Controls.Add(this.CB_OFERTA);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(151, 363);
+            this.panel29.Margin = new System.Windows.Forms.Padding(1);
+            this.panel29.Name = "panel29";
+            this.panel29.Padding = new System.Windows.Forms.Padding(2);
+            this.panel29.Size = new System.Drawing.Size(250, 28);
+            this.panel29.TabIndex = 11;
             // 
-            // CB_CATEGORIA
+            // CB_OFERTA
             // 
-            this.CB_CATEGORIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_CATEGORIA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_CATEGORIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_CATEGORIA.FormattingEnabled = true;
-            this.CB_CATEGORIA.Location = new System.Drawing.Point(2, 2);
-            this.CB_CATEGORIA.Name = "CB_CATEGORIA";
-            this.CB_CATEGORIA.Size = new System.Drawing.Size(237, 24);
-            this.CB_CATEGORIA.TabIndex = 2;
-            this.CB_CATEGORIA.SelectedIndexChanged += new System.EventHandler(this.CB_CATEGORIA_SelectedIndexChanged);
+            this.CB_OFERTA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_OFERTA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_OFERTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_OFERTA.FormattingEnabled = true;
+            this.CB_OFERTA.Location = new System.Drawing.Point(2, 2);
+            this.CB_OFERTA.Name = "CB_OFERTA";
+            this.CB_OFERTA.Size = new System.Drawing.Size(246, 24);
+            this.CB_OFERTA.TabIndex = 8;
+            this.CB_OFERTA.SelectedIndexChanged += new System.EventHandler(this.CB_OFERTA_SelectedIndexChanged);
             // 
-            // panel12
+            // panel28
             // 
-            this.panel12.Controls.Add(this.L_ORIGEN);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(1, 213);
-            this.panel12.Margin = new System.Windows.Forms.Padding(1);
-            this.panel12.Name = "panel12";
-            this.panel12.Padding = new System.Windows.Forms.Padding(2);
-            this.panel12.Size = new System.Drawing.Size(143, 28);
-            this.panel12.TabIndex = 7;
+            this.panel28.Controls.Add(this.L_OFERTA);
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel28.Location = new System.Drawing.Point(1, 363);
+            this.panel28.Margin = new System.Windows.Forms.Padding(1);
+            this.panel28.Name = "panel28";
+            this.panel28.Padding = new System.Windows.Forms.Padding(2);
+            this.panel28.Size = new System.Drawing.Size(148, 28);
+            this.panel28.TabIndex = 17;
             // 
-            // L_ORIGEN
+            // L_OFERTA
             // 
-            this.L_ORIGEN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_ORIGEN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ORIGEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ORIGEN.Location = new System.Drawing.Point(2, 2);
-            this.L_ORIGEN.Name = "L_ORIGEN";
-            this.L_ORIGEN.Size = new System.Drawing.Size(139, 24);
-            this.L_ORIGEN.TabIndex = 2;
-            this.L_ORIGEN.Text = "Origen:";
-            this.L_ORIGEN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_ORIGEN.Click += new System.EventHandler(this.L_ORIGEN_Click);
+            this.L_OFERTA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_OFERTA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_OFERTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_OFERTA.Location = new System.Drawing.Point(2, 2);
+            this.L_OFERTA.Name = "L_OFERTA";
+            this.L_OFERTA.Size = new System.Drawing.Size(144, 24);
+            this.L_OFERTA.TabIndex = 7;
+            this.L_OFERTA.Text = "Marcados Con Oferta:";
+            this.L_OFERTA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_OFERTA.Click += new System.EventHandler(this.L_OFERTA_Click);
             // 
-            // panel13
+            // panel27
             // 
-            this.panel13.Controls.Add(this.CB_ORIGEN);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(146, 213);
-            this.panel13.Margin = new System.Windows.Forms.Padding(1);
-            this.panel13.Name = "panel13";
-            this.panel13.Padding = new System.Windows.Forms.Padding(1);
-            this.panel13.Size = new System.Drawing.Size(241, 28);
-            this.panel13.TabIndex = 6;
+            this.panel27.Controls.Add(this.CB_PESADO);
+            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel27.Location = new System.Drawing.Point(151, 333);
+            this.panel27.Margin = new System.Windows.Forms.Padding(1);
+            this.panel27.Name = "panel27";
+            this.panel27.Padding = new System.Windows.Forms.Padding(2);
+            this.panel27.Size = new System.Drawing.Size(250, 28);
+            this.panel27.TabIndex = 10;
             // 
-            // CB_ORIGEN
+            // CB_PESADO
             // 
-            this.CB_ORIGEN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_ORIGEN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_ORIGEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_ORIGEN.FormattingEnabled = true;
-            this.CB_ORIGEN.Location = new System.Drawing.Point(1, 1);
-            this.CB_ORIGEN.Name = "CB_ORIGEN";
-            this.CB_ORIGEN.Size = new System.Drawing.Size(239, 24);
-            this.CB_ORIGEN.TabIndex = 3;
-            this.CB_ORIGEN.SelectedIndexChanged += new System.EventHandler(this.CB_ORIGEN_SelectedIndexChanged);
+            this.CB_PESADO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_PESADO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_PESADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_PESADO.FormattingEnabled = true;
+            this.CB_PESADO.Location = new System.Drawing.Point(2, 2);
+            this.CB_PESADO.Name = "CB_PESADO";
+            this.CB_PESADO.Size = new System.Drawing.Size(246, 24);
+            this.CB_PESADO.TabIndex = 7;
+            this.CB_PESADO.SelectedIndexChanged += new System.EventHandler(this.CB_PESADO_SelectedIndexChanged);
             // 
-            // panel14
+            // panel26
             // 
-            this.panel14.Controls.Add(this.L_IMPUESTO);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(1, 243);
-            this.panel14.Margin = new System.Windows.Forms.Padding(1);
-            this.panel14.Name = "panel14";
-            this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(143, 28);
-            this.panel14.TabIndex = 9;
+            this.panel26.Controls.Add(this.L_PESADO);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(1, 333);
+            this.panel26.Margin = new System.Windows.Forms.Padding(1);
+            this.panel26.Name = "panel26";
+            this.panel26.Padding = new System.Windows.Forms.Padding(2);
+            this.panel26.Size = new System.Drawing.Size(148, 28);
+            this.panel26.TabIndex = 16;
             // 
-            // L_IMPUESTO
+            // L_PESADO
             // 
-            this.L_IMPUESTO.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_IMPUESTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_IMPUESTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_IMPUESTO.Location = new System.Drawing.Point(2, 2);
-            this.L_IMPUESTO.Name = "L_IMPUESTO";
-            this.L_IMPUESTO.Size = new System.Drawing.Size(139, 24);
-            this.L_IMPUESTO.TabIndex = 3;
-            this.L_IMPUESTO.Text = "Impuesto:";
-            this.L_IMPUESTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_IMPUESTO.Click += new System.EventHandler(this.L_IMPUESTO_Click);
+            this.L_PESADO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_PESADO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PESADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PESADO.Location = new System.Drawing.Point(2, 2);
+            this.L_PESADO.Name = "L_PESADO";
+            this.L_PESADO.Size = new System.Drawing.Size(144, 24);
+            this.L_PESADO.TabIndex = 6;
+            this.L_PESADO.Text = "Pesado:";
+            this.L_PESADO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_PESADO.Click += new System.EventHandler(this.L_PESADO_Click);
             // 
-            // panel15
+            // panel25
             // 
-            this.panel15.Controls.Add(this.CB_IMPUESTO);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(146, 243);
-            this.panel15.Margin = new System.Windows.Forms.Padding(1);
-            this.panel15.Name = "panel15";
-            this.panel15.Padding = new System.Windows.Forms.Padding(2);
-            this.panel15.Size = new System.Drawing.Size(241, 28);
-            this.panel15.TabIndex = 7;
+            this.panel25.Controls.Add(this.CB_ADMDIVISA);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(151, 303);
+            this.panel25.Margin = new System.Windows.Forms.Padding(1);
+            this.panel25.Name = "panel25";
+            this.panel25.Padding = new System.Windows.Forms.Padding(2);
+            this.panel25.Size = new System.Drawing.Size(250, 28);
+            this.panel25.TabIndex = 9;
             // 
-            // CB_IMPUESTO
+            // CB_ADMDIVISA
             // 
-            this.CB_IMPUESTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_IMPUESTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_IMPUESTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_IMPUESTO.FormattingEnabled = true;
-            this.CB_IMPUESTO.Location = new System.Drawing.Point(2, 2);
-            this.CB_IMPUESTO.Name = "CB_IMPUESTO";
-            this.CB_IMPUESTO.Size = new System.Drawing.Size(237, 24);
-            this.CB_IMPUESTO.TabIndex = 4;
-            this.CB_IMPUESTO.SelectedIndexChanged += new System.EventHandler(this.CB_IMPUESTO_SelectedIndexChanged);
+            this.CB_ADMDIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_ADMDIVISA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_ADMDIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_ADMDIVISA.FormattingEnabled = true;
+            this.CB_ADMDIVISA.Location = new System.Drawing.Point(2, 2);
+            this.CB_ADMDIVISA.Name = "CB_ADMDIVISA";
+            this.CB_ADMDIVISA.Size = new System.Drawing.Size(246, 24);
+            this.CB_ADMDIVISA.TabIndex = 6;
+            this.CB_ADMDIVISA.SelectedIndexChanged += new System.EventHandler(this.CB_ADMDIVISA_SelectedIndexChanged);
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.L_ADMDIVISA);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(1, 303);
+            this.panel24.Margin = new System.Windows.Forms.Padding(1);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(2);
+            this.panel24.Size = new System.Drawing.Size(148, 28);
+            this.panel24.TabIndex = 15;
+            // 
+            // L_ADMDIVISA
+            // 
+            this.L_ADMDIVISA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_ADMDIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ADMDIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ADMDIVISA.Location = new System.Drawing.Point(2, 2);
+            this.L_ADMDIVISA.Name = "L_ADMDIVISA";
+            this.L_ADMDIVISA.Size = new System.Drawing.Size(144, 24);
+            this.L_ADMDIVISA.TabIndex = 5;
+            this.L_ADMDIVISA.Text = "Por Divisa:";
+            this.L_ADMDIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_ADMDIVISA.Click += new System.EventHandler(this.L_ADMDIVISA_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.CB_ESTATUS);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(151, 273);
+            this.panel23.Margin = new System.Windows.Forms.Padding(1);
+            this.panel23.Name = "panel23";
+            this.panel23.Padding = new System.Windows.Forms.Padding(2);
+            this.panel23.Size = new System.Drawing.Size(250, 28);
+            this.panel23.TabIndex = 8;
+            // 
+            // CB_ESTATUS
+            // 
+            this.CB_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_ESTATUS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_ESTATUS.FormattingEnabled = true;
+            this.CB_ESTATUS.Location = new System.Drawing.Point(2, 2);
+            this.CB_ESTATUS.Name = "CB_ESTATUS";
+            this.CB_ESTATUS.Size = new System.Drawing.Size(246, 24);
+            this.CB_ESTATUS.TabIndex = 5;
+            this.CB_ESTATUS.SelectedIndexChanged += new System.EventHandler(this.CB_ESTATUS_SelectedIndexChanged);
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.CB_DEPOSITO);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(151, 153);
+            this.panel21.Margin = new System.Windows.Forms.Padding(1);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(2);
+            this.panel21.Size = new System.Drawing.Size(250, 28);
+            this.panel21.TabIndex = 4;
+            // 
+            // CB_DEPOSITO
+            // 
+            this.CB_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_DEPOSITO.FormattingEnabled = true;
+            this.CB_DEPOSITO.Location = new System.Drawing.Point(2, 2);
+            this.CB_DEPOSITO.Name = "CB_DEPOSITO";
+            this.CB_DEPOSITO.Size = new System.Drawing.Size(246, 24);
+            this.CB_DEPOSITO.TabIndex = 3;
+            this.CB_DEPOSITO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPOSITO_SelectedIndexChanged);
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.L_DEPOSITO);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(1, 153);
+            this.panel20.Margin = new System.Windows.Forms.Padding(1);
+            this.panel20.Name = "panel20";
+            this.panel20.Padding = new System.Windows.Forms.Padding(2);
+            this.panel20.Size = new System.Drawing.Size(148, 28);
+            this.panel20.TabIndex = 13;
+            // 
+            // L_DEPOSITO
+            // 
+            this.L_DEPOSITO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DEPOSITO.Location = new System.Drawing.Point(2, 2);
+            this.L_DEPOSITO.Name = "L_DEPOSITO";
+            this.L_DEPOSITO.Size = new System.Drawing.Size(144, 24);
+            this.L_DEPOSITO.TabIndex = 3;
+            this.L_DEPOSITO.Text = "Deposito:";
+            this.L_DEPOSITO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_DEPOSITO.Click += new System.EventHandler(this.L_DEPOSITO_Click);
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.CB_MARCA);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(151, 123);
+            this.panel19.Margin = new System.Windows.Forms.Padding(1);
+            this.panel19.Name = "panel19";
+            this.panel19.Padding = new System.Windows.Forms.Padding(2);
+            this.panel19.Size = new System.Drawing.Size(250, 28);
+            this.panel19.TabIndex = 3;
+            // 
+            // CB_MARCA
+            // 
+            this.CB_MARCA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_MARCA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_MARCA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_MARCA.FormattingEnabled = true;
+            this.CB_MARCA.Location = new System.Drawing.Point(2, 2);
+            this.CB_MARCA.Name = "CB_MARCA";
+            this.CB_MARCA.Size = new System.Drawing.Size(246, 24);
+            this.CB_MARCA.TabIndex = 2;
+            this.CB_MARCA.SelectedIndexChanged += new System.EventHandler(this.CB_MARCA_SelectedIndexChanged);
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.L_MARCA);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(1, 123);
+            this.panel18.Margin = new System.Windows.Forms.Padding(1);
+            this.panel18.Name = "panel18";
+            this.panel18.Padding = new System.Windows.Forms.Padding(2);
+            this.panel18.Size = new System.Drawing.Size(148, 28);
+            this.panel18.TabIndex = 12;
+            // 
+            // L_MARCA
+            // 
+            this.L_MARCA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_MARCA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_MARCA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_MARCA.Location = new System.Drawing.Point(2, 2);
+            this.L_MARCA.Name = "L_MARCA";
+            this.L_MARCA.Size = new System.Drawing.Size(144, 24);
+            this.L_MARCA.TabIndex = 2;
+            this.L_MARCA.Text = "Marca:";
+            this.L_MARCA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_MARCA.Click += new System.EventHandler(this.L_MARCA_Click);
             // 
             // panel16
             // 
             this.panel16.Controls.Add(this.BT_LIMPIAR);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(389, 1);
+            this.panel16.Location = new System.Drawing.Point(403, 1);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
@@ -589,419 +732,283 @@
             this.BT_LIMPIAR.UseVisualStyleBackColor = true;
             this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
             // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.L_MARCA);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(1, 123);
-            this.panel18.Margin = new System.Windows.Forms.Padding(1);
-            this.panel18.Name = "panel18";
-            this.panel18.Padding = new System.Windows.Forms.Padding(2);
-            this.panel18.Size = new System.Drawing.Size(143, 28);
-            this.panel18.TabIndex = 12;
-            // 
-            // L_MARCA
-            // 
-            this.L_MARCA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_MARCA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_MARCA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_MARCA.Location = new System.Drawing.Point(2, 2);
-            this.L_MARCA.Name = "L_MARCA";
-            this.L_MARCA.Size = new System.Drawing.Size(139, 24);
-            this.L_MARCA.TabIndex = 2;
-            this.L_MARCA.Text = "Marca:";
-            this.L_MARCA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_MARCA.Click += new System.EventHandler(this.L_MARCA_Click);
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.CB_MARCA);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(146, 123);
-            this.panel19.Margin = new System.Windows.Forms.Padding(1);
-            this.panel19.Name = "panel19";
-            this.panel19.Padding = new System.Windows.Forms.Padding(2);
-            this.panel19.Size = new System.Drawing.Size(241, 28);
-            this.panel19.TabIndex = 3;
-            // 
-            // CB_MARCA
-            // 
-            this.CB_MARCA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_MARCA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_MARCA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_MARCA.FormattingEnabled = true;
-            this.CB_MARCA.Location = new System.Drawing.Point(2, 2);
-            this.CB_MARCA.Name = "CB_MARCA";
-            this.CB_MARCA.Size = new System.Drawing.Size(237, 24);
-            this.CB_MARCA.TabIndex = 2;
-            this.CB_MARCA.SelectedIndexChanged += new System.EventHandler(this.CB_MARCA_SelectedIndexChanged);
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.L_DEPOSITO);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(1, 153);
-            this.panel20.Margin = new System.Windows.Forms.Padding(1);
-            this.panel20.Name = "panel20";
-            this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(143, 28);
-            this.panel20.TabIndex = 13;
-            // 
-            // L_DEPOSITO
-            // 
-            this.L_DEPOSITO.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DEPOSITO.Location = new System.Drawing.Point(2, 2);
-            this.L_DEPOSITO.Name = "L_DEPOSITO";
-            this.L_DEPOSITO.Size = new System.Drawing.Size(139, 24);
-            this.L_DEPOSITO.TabIndex = 3;
-            this.L_DEPOSITO.Text = "Deposito:";
-            this.L_DEPOSITO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_DEPOSITO.Click += new System.EventHandler(this.L_DEPOSITO_Click);
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.CB_DEPOSITO);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(146, 153);
-            this.panel21.Margin = new System.Windows.Forms.Padding(1);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(2);
-            this.panel21.Size = new System.Drawing.Size(241, 28);
-            this.panel21.TabIndex = 4;
-            // 
-            // CB_DEPOSITO
-            // 
-            this.CB_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_DEPOSITO.FormattingEnabled = true;
-            this.CB_DEPOSITO.Location = new System.Drawing.Point(2, 2);
-            this.CB_DEPOSITO.Name = "CB_DEPOSITO";
-            this.CB_DEPOSITO.Size = new System.Drawing.Size(237, 24);
-            this.CB_DEPOSITO.TabIndex = 3;
-            this.CB_DEPOSITO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPOSITO_SelectedIndexChanged);
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.CB_ESTATUS);
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel23.Location = new System.Drawing.Point(146, 273);
-            this.panel23.Margin = new System.Windows.Forms.Padding(1);
-            this.panel23.Name = "panel23";
-            this.panel23.Padding = new System.Windows.Forms.Padding(2);
-            this.panel23.Size = new System.Drawing.Size(241, 28);
-            this.panel23.TabIndex = 8;
-            // 
-            // CB_ESTATUS
-            // 
-            this.CB_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_ESTATUS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_ESTATUS.FormattingEnabled = true;
-            this.CB_ESTATUS.Location = new System.Drawing.Point(2, 2);
-            this.CB_ESTATUS.Name = "CB_ESTATUS";
-            this.CB_ESTATUS.Size = new System.Drawing.Size(237, 24);
-            this.CB_ESTATUS.TabIndex = 5;
-            this.CB_ESTATUS.SelectedIndexChanged += new System.EventHandler(this.CB_ESTATUS_SelectedIndexChanged);
-            // 
-            // panel24
-            // 
-            this.panel24.Controls.Add(this.L_ADMDIVISA);
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.Location = new System.Drawing.Point(1, 303);
-            this.panel24.Margin = new System.Windows.Forms.Padding(1);
-            this.panel24.Name = "panel24";
-            this.panel24.Padding = new System.Windows.Forms.Padding(2);
-            this.panel24.Size = new System.Drawing.Size(143, 28);
-            this.panel24.TabIndex = 15;
-            // 
-            // L_ADMDIVISA
-            // 
-            this.L_ADMDIVISA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_ADMDIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ADMDIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ADMDIVISA.Location = new System.Drawing.Point(2, 2);
-            this.L_ADMDIVISA.Name = "L_ADMDIVISA";
-            this.L_ADMDIVISA.Size = new System.Drawing.Size(139, 24);
-            this.L_ADMDIVISA.TabIndex = 5;
-            this.L_ADMDIVISA.Text = "Por Divisa:";
-            this.L_ADMDIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_ADMDIVISA.Click += new System.EventHandler(this.L_ADMDIVISA_Click);
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.CB_ADMDIVISA);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(146, 303);
-            this.panel25.Margin = new System.Windows.Forms.Padding(1);
-            this.panel25.Name = "panel25";
-            this.panel25.Padding = new System.Windows.Forms.Padding(2);
-            this.panel25.Size = new System.Drawing.Size(241, 28);
-            this.panel25.TabIndex = 9;
-            // 
-            // CB_ADMDIVISA
-            // 
-            this.CB_ADMDIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_ADMDIVISA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_ADMDIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_ADMDIVISA.FormattingEnabled = true;
-            this.CB_ADMDIVISA.Location = new System.Drawing.Point(2, 2);
-            this.CB_ADMDIVISA.Name = "CB_ADMDIVISA";
-            this.CB_ADMDIVISA.Size = new System.Drawing.Size(237, 24);
-            this.CB_ADMDIVISA.TabIndex = 6;
-            this.CB_ADMDIVISA.SelectedIndexChanged += new System.EventHandler(this.CB_ADMDIVISA_SelectedIndexChanged);
-            // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.L_PESADO);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(1, 333);
-            this.panel26.Margin = new System.Windows.Forms.Padding(1);
-            this.panel26.Name = "panel26";
-            this.panel26.Padding = new System.Windows.Forms.Padding(2);
-            this.panel26.Size = new System.Drawing.Size(143, 28);
-            this.panel26.TabIndex = 16;
-            // 
-            // L_PESADO
-            // 
-            this.L_PESADO.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_PESADO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_PESADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PESADO.Location = new System.Drawing.Point(2, 2);
-            this.L_PESADO.Name = "L_PESADO";
-            this.L_PESADO.Size = new System.Drawing.Size(139, 24);
-            this.L_PESADO.TabIndex = 6;
-            this.L_PESADO.Text = "Pesado:";
-            this.L_PESADO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_PESADO.Click += new System.EventHandler(this.L_PESADO_Click);
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.CB_PESADO);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel27.Location = new System.Drawing.Point(146, 333);
-            this.panel27.Margin = new System.Windows.Forms.Padding(1);
-            this.panel27.Name = "panel27";
-            this.panel27.Padding = new System.Windows.Forms.Padding(2);
-            this.panel27.Size = new System.Drawing.Size(241, 28);
-            this.panel27.TabIndex = 10;
-            // 
-            // CB_PESADO
-            // 
-            this.CB_PESADO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_PESADO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_PESADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_PESADO.FormattingEnabled = true;
-            this.CB_PESADO.Location = new System.Drawing.Point(2, 2);
-            this.CB_PESADO.Name = "CB_PESADO";
-            this.CB_PESADO.Size = new System.Drawing.Size(237, 24);
-            this.CB_PESADO.TabIndex = 7;
-            this.CB_PESADO.SelectedIndexChanged += new System.EventHandler(this.CB_PESADO_SelectedIndexChanged);
-            // 
-            // panel28
-            // 
-            this.panel28.Controls.Add(this.L_OFERTA);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(1, 363);
-            this.panel28.Margin = new System.Windows.Forms.Padding(1);
-            this.panel28.Name = "panel28";
-            this.panel28.Padding = new System.Windows.Forms.Padding(2);
-            this.panel28.Size = new System.Drawing.Size(143, 28);
-            this.panel28.TabIndex = 17;
-            // 
-            // L_OFERTA
-            // 
-            this.L_OFERTA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_OFERTA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_OFERTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_OFERTA.Location = new System.Drawing.Point(2, 2);
-            this.L_OFERTA.Name = "L_OFERTA";
-            this.L_OFERTA.Size = new System.Drawing.Size(139, 24);
-            this.L_OFERTA.TabIndex = 7;
-            this.L_OFERTA.Text = "Marcados Con Oferta:";
-            this.L_OFERTA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_OFERTA.Click += new System.EventHandler(this.L_OFERTA_Click);
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.CB_OFERTA);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(146, 363);
-            this.panel29.Margin = new System.Windows.Forms.Padding(1);
-            this.panel29.Name = "panel29";
-            this.panel29.Padding = new System.Windows.Forms.Padding(2);
-            this.panel29.Size = new System.Drawing.Size(241, 28);
-            this.panel29.TabIndex = 11;
-            // 
-            // CB_OFERTA
-            // 
-            this.CB_OFERTA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_OFERTA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_OFERTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_OFERTA.FormattingEnabled = true;
-            this.CB_OFERTA.Location = new System.Drawing.Point(2, 2);
-            this.CB_OFERTA.Name = "CB_OFERTA";
-            this.CB_OFERTA.Size = new System.Drawing.Size(237, 24);
-            this.CB_OFERTA.TabIndex = 8;
-            this.CB_OFERTA.SelectedIndexChanged += new System.EventHandler(this.CB_OFERTA_SelectedIndexChanged);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.tableLayoutPanel3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(146, 33);
-            this.panel4.Margin = new System.Windows.Forms.Padding(1);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(1);
-            this.panel4.Size = new System.Drawing.Size(241, 28);
-            this.panel4.TabIndex = 0;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.19247F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.80753F));
-            this.tableLayoutPanel3.Controls.Add(this.panel32, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel31, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 1);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(239, 26);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // panel32
-            // 
-            this.panel32.Controls.Add(this.BT_PROVEED_BUSCAR);
-            this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel32.Location = new System.Drawing.Point(206, 1);
-            this.panel32.Margin = new System.Windows.Forms.Padding(1);
-            this.panel32.Name = "panel32";
-            this.panel32.Padding = new System.Windows.Forms.Padding(1);
-            this.panel32.Size = new System.Drawing.Size(32, 24);
-            this.panel32.TabIndex = 1;
-            // 
-            // BT_PROVEED_BUSCAR
-            // 
-            this.BT_PROVEED_BUSCAR.BackgroundImage = global::ModInventario.Properties.Resources.bt_consulta;
-            this.BT_PROVEED_BUSCAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BT_PROVEED_BUSCAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_PROVEED_BUSCAR.FlatAppearance.BorderSize = 0;
-            this.BT_PROVEED_BUSCAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_PROVEED_BUSCAR.Location = new System.Drawing.Point(1, 1);
-            this.BT_PROVEED_BUSCAR.Name = "BT_PROVEED_BUSCAR";
-            this.BT_PROVEED_BUSCAR.Size = new System.Drawing.Size(30, 22);
-            this.BT_PROVEED_BUSCAR.TabIndex = 0;
-            this.BT_PROVEED_BUSCAR.UseVisualStyleBackColor = true;
-            this.BT_PROVEED_BUSCAR.Click += new System.EventHandler(this.BT_PROVEED_BUSCAR_Click);
-            // 
-            // panel31
-            // 
-            this.panel31.Controls.Add(this.TB_PROVEEDOR);
-            this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(1, 1);
-            this.panel31.Margin = new System.Windows.Forms.Padding(1);
-            this.panel31.Name = "panel31";
-            this.panel31.Padding = new System.Windows.Forms.Padding(1);
-            this.panel31.Size = new System.Drawing.Size(203, 24);
-            this.panel31.TabIndex = 0;
-            // 
-            // TB_PROVEEDOR
-            // 
-            this.TB_PROVEEDOR.BackColor = System.Drawing.Color.Yellow;
-            this.TB_PROVEEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_PROVEEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_PROVEEDOR.Location = new System.Drawing.Point(1, 1);
-            this.TB_PROVEEDOR.MaxLength = 30;
-            this.TB_PROVEEDOR.Name = "TB_PROVEEDOR";
-            this.TB_PROVEEDOR.ReadOnly = true;
-            this.TB_PROVEEDOR.Size = new System.Drawing.Size(201, 22);
-            this.TB_PROVEEDOR.TabIndex = 0;
-            // 
-            // panel30
-            // 
-            this.panel30.Controls.Add(this.L_PROVEEDOR);
-            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(1, 33);
-            this.panel30.Margin = new System.Windows.Forms.Padding(1);
-            this.panel30.Name = "panel30";
-            this.panel30.Padding = new System.Windows.Forms.Padding(2);
-            this.panel30.Size = new System.Drawing.Size(143, 28);
-            this.panel30.TabIndex = 18;
-            // 
-            // L_PROVEEDOR
-            // 
-            this.L_PROVEEDOR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_PROVEEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_PROVEEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PROVEEDOR.Location = new System.Drawing.Point(2, 2);
-            this.L_PROVEEDOR.Name = "L_PROVEEDOR";
-            this.L_PROVEEDOR.Size = new System.Drawing.Size(139, 24);
-            this.L_PROVEEDOR.TabIndex = 1;
-            this.L_PROVEEDOR.Text = "Proveedor:";
-            this.L_PROVEEDOR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel33
-            // 
-            this.panel33.Controls.Add(this.L_EXISTENCIA);
-            this.panel33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel33.Location = new System.Drawing.Point(1, 393);
-            this.panel33.Margin = new System.Windows.Forms.Padding(1);
-            this.panel33.Name = "panel33";
-            this.panel33.Padding = new System.Windows.Forms.Padding(1);
-            this.panel33.Size = new System.Drawing.Size(143, 28);
-            this.panel33.TabIndex = 19;
-            // 
-            // panel34
-            // 
-            this.panel34.Controls.Add(this.CB_EXISTENCIA);
-            this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel34.Location = new System.Drawing.Point(146, 393);
-            this.panel34.Margin = new System.Windows.Forms.Padding(1);
-            this.panel34.Name = "panel34";
-            this.panel34.Padding = new System.Windows.Forms.Padding(1);
-            this.panel34.Size = new System.Drawing.Size(241, 28);
-            this.panel34.TabIndex = 12;
-            // 
-            // L_EXISTENCIA
-            // 
-            this.L_EXISTENCIA.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.L_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_EXISTENCIA.Location = new System.Drawing.Point(1, 1);
-            this.L_EXISTENCIA.Name = "L_EXISTENCIA";
-            this.L_EXISTENCIA.Size = new System.Drawing.Size(141, 26);
-            this.L_EXISTENCIA.TabIndex = 8;
-            this.L_EXISTENCIA.Text = "Existencia:";
-            this.L_EXISTENCIA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.L_EXISTENCIA.Click += new System.EventHandler(this.L_EXISTENCIA_Click);
-            // 
-            // CB_EXISTENCIA
-            // 
-            this.CB_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CB_EXISTENCIA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_EXISTENCIA.FormattingEnabled = true;
-            this.CB_EXISTENCIA.Items.AddRange(new object[] {
-            "Mayor A Cero ",
-            "Igual A Cero ",
-            "Menor A Cero"});
-            this.CB_EXISTENCIA.Location = new System.Drawing.Point(1, 1);
-            this.CB_EXISTENCIA.Name = "CB_EXISTENCIA";
-            this.CB_EXISTENCIA.Size = new System.Drawing.Size(239, 24);
-            this.CB_EXISTENCIA.TabIndex = 9;
-            this.CB_EXISTENCIA.SelectedIndexChanged += new System.EventHandler(this.CB_EXISTENCIA_SelectedIndexChanged);
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.CB_IMPUESTO);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(151, 243);
+            this.panel15.Margin = new System.Windows.Forms.Padding(1);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(2);
+            this.panel15.Size = new System.Drawing.Size(250, 28);
+            this.panel15.TabIndex = 7;
+            // 
+            // CB_IMPUESTO
+            // 
+            this.CB_IMPUESTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_IMPUESTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_IMPUESTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_IMPUESTO.FormattingEnabled = true;
+            this.CB_IMPUESTO.Location = new System.Drawing.Point(2, 2);
+            this.CB_IMPUESTO.Name = "CB_IMPUESTO";
+            this.CB_IMPUESTO.Size = new System.Drawing.Size(246, 24);
+            this.CB_IMPUESTO.TabIndex = 4;
+            this.CB_IMPUESTO.SelectedIndexChanged += new System.EventHandler(this.CB_IMPUESTO_SelectedIndexChanged);
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.L_IMPUESTO);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(1, 243);
+            this.panel14.Margin = new System.Windows.Forms.Padding(1);
+            this.panel14.Name = "panel14";
+            this.panel14.Padding = new System.Windows.Forms.Padding(2);
+            this.panel14.Size = new System.Drawing.Size(148, 28);
+            this.panel14.TabIndex = 9;
+            // 
+            // L_IMPUESTO
+            // 
+            this.L_IMPUESTO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_IMPUESTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_IMPUESTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_IMPUESTO.Location = new System.Drawing.Point(2, 2);
+            this.L_IMPUESTO.Name = "L_IMPUESTO";
+            this.L_IMPUESTO.Size = new System.Drawing.Size(144, 24);
+            this.L_IMPUESTO.TabIndex = 3;
+            this.L_IMPUESTO.Text = "Impuesto:";
+            this.L_IMPUESTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_IMPUESTO.Click += new System.EventHandler(this.L_IMPUESTO_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.CB_ORIGEN);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(151, 213);
+            this.panel13.Margin = new System.Windows.Forms.Padding(1);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(1);
+            this.panel13.Size = new System.Drawing.Size(250, 28);
+            this.panel13.TabIndex = 6;
+            // 
+            // CB_ORIGEN
+            // 
+            this.CB_ORIGEN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_ORIGEN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_ORIGEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_ORIGEN.FormattingEnabled = true;
+            this.CB_ORIGEN.Location = new System.Drawing.Point(1, 1);
+            this.CB_ORIGEN.Name = "CB_ORIGEN";
+            this.CB_ORIGEN.Size = new System.Drawing.Size(248, 24);
+            this.CB_ORIGEN.TabIndex = 3;
+            this.CB_ORIGEN.SelectedIndexChanged += new System.EventHandler(this.CB_ORIGEN_SelectedIndexChanged);
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.L_ORIGEN);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(1, 213);
+            this.panel12.Margin = new System.Windows.Forms.Padding(1);
+            this.panel12.Name = "panel12";
+            this.panel12.Padding = new System.Windows.Forms.Padding(2);
+            this.panel12.Size = new System.Drawing.Size(148, 28);
+            this.panel12.TabIndex = 7;
+            // 
+            // L_ORIGEN
+            // 
+            this.L_ORIGEN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_ORIGEN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ORIGEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ORIGEN.Location = new System.Drawing.Point(2, 2);
+            this.L_ORIGEN.Name = "L_ORIGEN";
+            this.L_ORIGEN.Size = new System.Drawing.Size(144, 24);
+            this.L_ORIGEN.TabIndex = 2;
+            this.L_ORIGEN.Text = "Origen:";
+            this.L_ORIGEN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_ORIGEN.Click += new System.EventHandler(this.L_ORIGEN_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.CB_CATEGORIA);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(151, 183);
+            this.panel11.Margin = new System.Windows.Forms.Padding(1);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(2);
+            this.panel11.Size = new System.Drawing.Size(250, 28);
+            this.panel11.TabIndex = 5;
+            // 
+            // CB_CATEGORIA
+            // 
+            this.CB_CATEGORIA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_CATEGORIA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_CATEGORIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_CATEGORIA.FormattingEnabled = true;
+            this.CB_CATEGORIA.Location = new System.Drawing.Point(2, 2);
+            this.CB_CATEGORIA.Name = "CB_CATEGORIA";
+            this.CB_CATEGORIA.Size = new System.Drawing.Size(246, 24);
+            this.CB_CATEGORIA.TabIndex = 2;
+            this.CB_CATEGORIA.SelectedIndexChanged += new System.EventHandler(this.CB_CATEGORIA_SelectedIndexChanged);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.L_CATEGORIA);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(1, 183);
+            this.panel10.Margin = new System.Windows.Forms.Padding(1);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(2);
+            this.panel10.Size = new System.Drawing.Size(148, 28);
+            this.panel10.TabIndex = 5;
+            // 
+            // L_CATEGORIA
+            // 
+            this.L_CATEGORIA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_CATEGORIA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CATEGORIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CATEGORIA.Location = new System.Drawing.Point(2, 2);
+            this.L_CATEGORIA.Name = "L_CATEGORIA";
+            this.L_CATEGORIA.Size = new System.Drawing.Size(144, 24);
+            this.L_CATEGORIA.TabIndex = 2;
+            this.L_CATEGORIA.Text = "Categoria:";
+            this.L_CATEGORIA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_CATEGORIA.Click += new System.EventHandler(this.L_CATEGORIA_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.L_DEPARTAMENTO);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(1, 63);
+            this.panel5.Margin = new System.Windows.Forms.Padding(1);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(2);
+            this.panel5.Size = new System.Drawing.Size(148, 28);
+            this.panel5.TabIndex = 1;
+            // 
+            // L_DEPARTAMENTO
+            // 
+            this.L_DEPARTAMENTO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_DEPARTAMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DEPARTAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DEPARTAMENTO.Location = new System.Drawing.Point(2, 2);
+            this.L_DEPARTAMENTO.Name = "L_DEPARTAMENTO";
+            this.L_DEPARTAMENTO.Size = new System.Drawing.Size(144, 24);
+            this.L_DEPARTAMENTO.TabIndex = 0;
+            this.L_DEPARTAMENTO.Text = "Departamento:";
+            this.L_DEPARTAMENTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_DEPARTAMENTO.Click += new System.EventHandler(this.L_DEPARTAMENTO_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.CB_DEPARTAMENTO);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(151, 63);
+            this.panel6.Margin = new System.Windows.Forms.Padding(1);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(2);
+            this.panel6.Size = new System.Drawing.Size(250, 28);
+            this.panel6.TabIndex = 1;
+            // 
+            // CB_DEPARTAMENTO
+            // 
+            this.CB_DEPARTAMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_DEPARTAMENTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPARTAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_DEPARTAMENTO.FormattingEnabled = true;
+            this.CB_DEPARTAMENTO.Location = new System.Drawing.Point(2, 2);
+            this.CB_DEPARTAMENTO.Name = "CB_DEPARTAMENTO";
+            this.CB_DEPARTAMENTO.Size = new System.Drawing.Size(246, 24);
+            this.CB_DEPARTAMENTO.TabIndex = 0;
+            this.CB_DEPARTAMENTO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPARTAMENTO_SelectedIndexChanged);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.L_GRUPO);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(1, 93);
+            this.panel7.Margin = new System.Windows.Forms.Padding(1);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(2);
+            this.panel7.Size = new System.Drawing.Size(148, 28);
+            this.panel7.TabIndex = 1;
+            // 
+            // L_GRUPO
+            // 
+            this.L_GRUPO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_GRUPO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_GRUPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_GRUPO.Location = new System.Drawing.Point(2, 2);
+            this.L_GRUPO.Name = "L_GRUPO";
+            this.L_GRUPO.Size = new System.Drawing.Size(144, 24);
+            this.L_GRUPO.TabIndex = 1;
+            this.L_GRUPO.Text = "Grupo:";
+            this.L_GRUPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_GRUPO.Click += new System.EventHandler(this.L_GRUPO_Click);
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.L_ESTATUS);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel22.Location = new System.Drawing.Point(1, 273);
+            this.panel22.Margin = new System.Windows.Forms.Padding(1);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(2);
+            this.panel22.Size = new System.Drawing.Size(148, 28);
+            this.panel22.TabIndex = 14;
+            // 
+            // L_ESTATUS
+            // 
+            this.L_ESTATUS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ESTATUS.Location = new System.Drawing.Point(2, 2);
+            this.L_ESTATUS.Name = "L_ESTATUS";
+            this.L_ESTATUS.Size = new System.Drawing.Size(144, 24);
+            this.L_ESTATUS.TabIndex = 4;
+            this.L_ESTATUS.Text = "Estatus:";
+            this.L_ESTATUS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_ESTATUS.Click += new System.EventHandler(this.L_ESTATUS_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.CB_GRUPO);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(151, 93);
+            this.panel8.Margin = new System.Windows.Forms.Padding(1);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(2);
+            this.panel8.Size = new System.Drawing.Size(250, 28);
+            this.panel8.TabIndex = 2;
+            // 
+            // CB_GRUPO
+            // 
+            this.CB_GRUPO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_GRUPO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_GRUPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_GRUPO.FormattingEnabled = true;
+            this.CB_GRUPO.Location = new System.Drawing.Point(2, 2);
+            this.CB_GRUPO.Name = "CB_GRUPO";
+            this.CB_GRUPO.Size = new System.Drawing.Size(246, 24);
+            this.CB_GRUPO.TabIndex = 1;
+            this.CB_GRUPO.SelectedIndexChanged += new System.EventHandler(this.CB_GRUPO_SelectedIndexChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.Controls.Add(this.tableLayoutPanel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 29);
+            this.panel3.Margin = new System.Windows.Forms.Padding(1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(455, 432);
+            this.panel3.TabIndex = 5;
             // 
             // FiltrosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.CancelButton = this.BT_SALIR;
-            this.ClientSize = new System.Drawing.Size(441, 496);
+            this.ClientSize = new System.Drawing.Size(455, 501);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -1014,39 +1021,39 @@
             this.panel9.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel23.ResumeLayout(false);
-            this.panel24.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel28.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
+            this.panel34.ResumeLayout(false);
+            this.panel33.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel32.ResumeLayout(false);
             this.panel31.ResumeLayout(false);
             this.panel31.PerformLayout();
-            this.panel30.ResumeLayout(false);
-            this.panel33.ResumeLayout(false);
-            this.panel34.ResumeLayout(false);
+            this.panel32.ResumeLayout(false);
+            this.panel29.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel24.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1059,21 +1066,24 @@
         private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button BT_FILTRAR;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox CB_DEPARTAMENTO;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.ComboBox CB_GRUPO;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Label L_ESTATUS;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label L_GRUPO;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox CB_DEPARTAMENTO;
+        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label L_DEPARTAMENTO;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label L_CATEGORIA;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.ComboBox CB_CATEGORIA;
-        private System.Windows.Forms.Label L_CATEGORIA;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label L_ORIGEN;
         private System.Windows.Forms.Panel panel13;
@@ -1084,9 +1094,6 @@
         private System.Windows.Forms.ComboBox CB_IMPUESTO;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button BT_LIMPIAR;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button BT_FILTRAR;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Label L_MARCA;
         private System.Windows.Forms.Panel panel19;
@@ -1095,8 +1102,6 @@
         private System.Windows.Forms.Label L_DEPOSITO;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.ComboBox CB_DEPOSITO;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label L_ESTATUS;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.ComboBox CB_ESTATUS;
         private System.Windows.Forms.Panel panel24;
@@ -1111,16 +1116,18 @@
         private System.Windows.Forms.Label L_OFERTA;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.ComboBox CB_OFERTA;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.Button BT_PROVEED_BUSCAR;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.TextBox TB_PROVEEDOR;
         private System.Windows.Forms.Panel panel30;
         private System.Windows.Forms.Label L_PROVEEDOR;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.TextBox TB_PROVEEDOR;
-        private System.Windows.Forms.Button BT_PROVEED_BUSCAR;
         private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Label L_EXISTENCIA;
+        private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.ComboBox CB_EXISTENCIA;
+        private System.Windows.Forms.Panel panel3;
     }
 }

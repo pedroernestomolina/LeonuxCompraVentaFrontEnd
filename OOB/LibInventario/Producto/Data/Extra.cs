@@ -13,7 +13,6 @@ namespace OOB.LibInventario.Producto.Data
         public Enumerados.EnumPesado esPesado { get; set; }
         public string lugar { get; set; }
         public List<string> codigosAlterno { get; set; }
-        public List<Proveedor> proveedores { get; set; }
 
 
         public Extra()
@@ -21,7 +20,6 @@ namespace OOB.LibInventario.Producto.Data
             esPesado = Enumerados.EnumPesado.SnDefinir;
             lugar = "";
             codigosAlterno = null;
-            proveedores = null;
         }
 
     }

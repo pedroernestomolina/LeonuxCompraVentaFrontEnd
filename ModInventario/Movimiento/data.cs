@@ -54,12 +54,6 @@ namespace ModInventario.Movimiento
                 return false;
             }
 
-            if (IdSucursal == "") 
-            {
-                Helpers.Msg.Error("[ Sucursal ] No Seleccionada");
-                return false;
-            }
-
             if (IdConcepto == "")
             {
                 Helpers.Msg.Error("[ Concepto ] No Seleccionada");
@@ -68,7 +62,13 @@ namespace ModInventario.Movimiento
 
             if (IdDepOrigen == "")
             {
-                Helpers.Msg.Error("[ Depósito Origen ] No Seleccionada");
+                Helpers.Msg.Error("[ Sucursal Origen ] No Seleccionada");
+                return false;
+            }
+
+            if (IdDepDestino == "")
+            {
+                Helpers.Msg.Error("[ Sucursal Destino ] No Seleccionada");
                 return false;
             }
 

@@ -58,34 +58,31 @@ namespace ModInventario.Producto.Deposito.Listar
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "ExFisica";
+            c3.DataPropertyName = "Fisica";
             c3.HeaderText = "Ex/Fisica";
             c3.Visible = true;
-            c3.Width = 90;
+            c3.Width = 100;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            c3.DefaultCellStyle.Format = "n2";
 
             var c4 = new DataGridViewTextBoxColumn();
-            c4.DataPropertyName = "ExReserva";
+            c4.DataPropertyName = "Reserva";
             c4.HeaderText = "Ex/Reserv";
             c4.Visible = true;
-            c4.Width = 90;
+            c4.Width = 100;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
             c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            c4.DefaultCellStyle.Format = "n2";
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "ExDisponible";
+            c5.DataPropertyName = "Disponible";
             c5.HeaderText = "Ex/Disponib";
             c5.Visible = true;
-            c5.Width = 90;
+            c5.Width = 100;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            c5.DefaultCellStyle.Format = "n2";
 
 
             DGV.Columns.Add(c1);

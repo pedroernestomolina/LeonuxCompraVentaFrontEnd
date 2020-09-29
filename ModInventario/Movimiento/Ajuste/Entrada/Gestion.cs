@@ -33,10 +33,23 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
         public string ProductoFechaUltAct { get { return Prd.FechaUltimaActualizacion; } }
         public bool ProductoEsDivisa { get { return Prd.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si ? true : false; } }
         public string TasaCambio { get { return String.Format("{0:n2}", tasaCambio); } }
-        public string CntUnd { get { return string.Format("{0:n2}", (Cantidad * contenido)); } }
+        public string CntUnd { get { return string.Format("{0:n"+Decimales+"}", (Cantidad * contenido)); } }
         public string CostoUnd { get { return string.Format("{0:n2}", (Costo / contenido)); } }
         public Movimiento.enumerados.enumTipoEmpaque  TipoEmpaqueSeleccionado { get { return tipoEmpaque; } }
         public Movimiento.enumerados.enumTipoMovimientoAjuste TipoMovimientoSeleccionado { get { return tipoMovimiento; } }
+        public decimal CntExistenciaDeposito 
+        {
+            get 
+            {
+                var vt = 0.0m;
+                vt = Prd.existencia.depositos.First(w => w.autoId == idDeposito).exFisica;
+                return vt;
+            }
+        }
+        public string Decimales { get { return Prd.Decimales; } }
+        public string ExistenciaDeposito { get { return CntExistenciaDeposito.ToString("n" + Decimales); } }
+
+
         public decimal TotalUnd { get { return (Cantidad * contenido); } }
         public decimal Importe 
         { 
@@ -106,6 +119,11 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
 
         public void Procesar()
         {
+            if (Prd.costo.Edad > 30)
+            {
+                Helpers.Msg.Error("Costo Edad No Permitido, Verifique Por Favor");
+                return;
+            }
             if (importe == 0.0m) 
             {
                 Helpers.Msg.Error("Monto Importe Movimiento Incorrecto, Verifique Por Favor");

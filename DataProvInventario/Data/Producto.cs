@@ -942,6 +942,58 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Proveedor.Ficha> Producto_GetProveedores(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Proveedor.Ficha>();
+
+            var r01 = MyData.Producto_GetProveedores(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            if (r01.Entidad != null)
+            {
+                var s = r01.Entidad;
+                var id = new OOB.LibInventario.Producto.Data.Proveedor.Ficha()
+                {
+                    autoProducto = s.autoProducto,
+                    codigoProducto = s.codigoProducto,
+                    nombreProducto = s.nombreProducto,
+                    referenciaProducto = s.referenciaProducto,
+                };
+                var list = new List<OOB.LibInventario.Producto.Data.Proveedor.Detalle>();
+                if (s.proveedores != null) 
+                {
+                    if (s.proveedores.Count > 0) 
+                    {
+                        list = s.proveedores.Select(ss =>
+                        {
+                            var rg = new OOB.LibInventario.Producto.Data.Proveedor.Detalle()
+                            {
+                                ciRif = ss.ciRif,
+                                codigo = ss.codigo,
+                                codigoRefPrd = ss.codigoRefPrd,
+                                direccionFiscal = ss.direccionFiscal,
+                                idAuto = ss.idAuto,
+                                razonSocial = ss.razonSocial,
+                                telefonos = ss.telefonos,
+                            };
+                            return rg;
+                        }).ToList();
+                    }
+                }
+                id.proveedores = list;
+                rt.Entidad = id;
+            }
+            else
+                rt = new OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Proveedor.Ficha>(); 
+
+            return rt;
+        }
+
     }
 
 }

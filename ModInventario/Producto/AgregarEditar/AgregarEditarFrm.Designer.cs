@@ -359,7 +359,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.04F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.96F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel12, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.panel35, 1, 3);
@@ -387,7 +387,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(1);
-            this.panel6.Size = new System.Drawing.Size(536, 265);
+            this.panel6.Size = new System.Drawing.Size(535, 265);
             this.panel6.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -424,7 +424,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(534, 263);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(533, 263);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel22
@@ -435,7 +435,7 @@
             this.panel22.Margin = new System.Windows.Forms.Padding(1);
             this.panel22.Name = "panel22";
             this.panel22.Padding = new System.Windows.Forms.Padding(2);
-            this.panel22.Size = new System.Drawing.Size(411, 28);
+            this.panel22.Size = new System.Drawing.Size(410, 28);
             this.panel22.TabIndex = 7;
             // 
             // CB_IMPUESTO
@@ -481,7 +481,7 @@
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(411, 28);
+            this.panel20.Size = new System.Drawing.Size(410, 28);
             this.panel20.TabIndex = 6;
             // 
             // CB_MARCA
@@ -531,7 +531,7 @@
             this.panel18.Margin = new System.Windows.Forms.Padding(1);
             this.panel18.Name = "panel18";
             this.panel18.Padding = new System.Windows.Forms.Padding(2);
-            this.panel18.Size = new System.Drawing.Size(411, 28);
+            this.panel18.Size = new System.Drawing.Size(410, 28);
             this.panel18.TabIndex = 4;
             // 
             // CB_GRUPO
@@ -581,7 +581,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(411, 28);
+            this.panel16.Size = new System.Drawing.Size(410, 28);
             this.panel16.TabIndex = 3;
             // 
             // CB_DEPARTAMENTO
@@ -631,7 +631,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(411, 26);
+            this.panel14.Size = new System.Drawing.Size(410, 26);
             this.panel14.TabIndex = 2;
             // 
             // TB_NOMBRE
@@ -688,7 +688,7 @@
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.SetRowSpan(this.panel10, 2);
-            this.panel10.Size = new System.Drawing.Size(411, 75);
+            this.panel10.Size = new System.Drawing.Size(410, 75);
             this.panel10.TabIndex = 1;
             // 
             // TB_DESCRIPCION
@@ -735,7 +735,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(411, 26);
+            this.panel8.Size = new System.Drawing.Size(410, 26);
             this.panel8.TabIndex = 0;
             // 
             // TB_CODIGO
@@ -781,7 +781,7 @@
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(1);
-            this.panel12.Size = new System.Drawing.Size(536, 70);
+            this.panel12.Size = new System.Drawing.Size(535, 70);
             this.panel12.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -812,7 +812,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(534, 68);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(533, 68);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel34
@@ -822,7 +822,7 @@
             this.panel34.Margin = new System.Windows.Forms.Padding(1);
             this.panel34.Name = "panel34";
             this.panel34.Padding = new System.Windows.Forms.Padding(2);
-            this.panel34.Size = new System.Drawing.Size(127, 8);
+            this.panel34.Size = new System.Drawing.Size(126, 8);
             this.panel34.TabIndex = 11;
             // 
             // panel33
@@ -863,7 +863,7 @@
             this.panel30.Margin = new System.Windows.Forms.Padding(1);
             this.panel30.Name = "panel30";
             this.panel30.Padding = new System.Windows.Forms.Padding(2);
-            this.panel30.Size = new System.Drawing.Size(127, 28);
+            this.panel30.Size = new System.Drawing.Size(126, 28);
             this.panel30.TabIndex = 7;
             // 
             // CB_DIVISA
@@ -874,7 +874,7 @@
             this.CB_DIVISA.FormattingEnabled = true;
             this.CB_DIVISA.Location = new System.Drawing.Point(2, 2);
             this.CB_DIVISA.Name = "CB_DIVISA";
-            this.CB_DIVISA.Size = new System.Drawing.Size(123, 24);
+            this.CB_DIVISA.Size = new System.Drawing.Size(122, 24);
             this.CB_DIVISA.TabIndex = 5;
             this.CB_DIVISA.SelectedIndexChanged += new System.EventHandler(this.CB_DIVISA_SelectedIndexChanged);
             this.CB_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
@@ -955,7 +955,7 @@
             this.panel26.Margin = new System.Windows.Forms.Padding(1);
             this.panel26.Name = "panel26";
             this.panel26.Padding = new System.Windows.Forms.Padding(2);
-            this.panel26.Size = new System.Drawing.Size(127, 28);
+            this.panel26.Size = new System.Drawing.Size(126, 28);
             this.panel26.TabIndex = 3;
             // 
             // CB_CATEGORIA
@@ -966,7 +966,7 @@
             this.CB_CATEGORIA.FormattingEnabled = true;
             this.CB_CATEGORIA.Location = new System.Drawing.Point(2, 2);
             this.CB_CATEGORIA.Name = "CB_CATEGORIA";
-            this.CB_CATEGORIA.Size = new System.Drawing.Size(123, 24);
+            this.CB_CATEGORIA.Size = new System.Drawing.Size(122, 24);
             this.CB_CATEGORIA.TabIndex = 4;
             this.CB_CATEGORIA.SelectedIndexChanged += new System.EventHandler(this.CB_CATEGORIA_SelectedIndexChanged);
             this.CB_CATEGORIA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
@@ -1048,7 +1048,7 @@
             this.panel35.Margin = new System.Windows.Forms.Padding(1);
             this.panel35.Name = "panel35";
             this.panel35.Padding = new System.Windows.Forms.Padding(1);
-            this.panel35.Size = new System.Drawing.Size(536, 40);
+            this.panel35.Size = new System.Drawing.Size(535, 40);
             this.panel35.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -1070,7 +1070,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(534, 38);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(533, 38);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // panel40
@@ -1081,7 +1081,7 @@
             this.panel40.Margin = new System.Windows.Forms.Padding(1);
             this.panel40.Name = "panel40";
             this.panel40.Padding = new System.Windows.Forms.Padding(2);
-            this.panel40.Size = new System.Drawing.Size(127, 27);
+            this.panel40.Size = new System.Drawing.Size(126, 27);
             this.panel40.TabIndex = 4;
             // 
             // TB_CONTENIDO
@@ -1186,7 +1186,7 @@
             this.panel41.Margin = new System.Windows.Forms.Padding(1);
             this.panel41.Name = "panel41";
             this.panel41.Padding = new System.Windows.Forms.Padding(1);
-            this.panel41.Size = new System.Drawing.Size(536, 70);
+            this.panel41.Size = new System.Drawing.Size(535, 70);
             this.panel41.TabIndex = 3;
             // 
             // tableLayoutPanel6
@@ -1207,7 +1207,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(534, 68);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(533, 68);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel45
@@ -1218,7 +1218,7 @@
             this.panel45.Margin = new System.Windows.Forms.Padding(1);
             this.panel45.Name = "panel45";
             this.panel45.Padding = new System.Windows.Forms.Padding(2);
-            this.panel45.Size = new System.Drawing.Size(410, 28);
+            this.panel45.Size = new System.Drawing.Size(409, 28);
             this.panel45.TabIndex = 3;
             // 
             // TB_REFERENCIA
@@ -1264,7 +1264,7 @@
             this.panel43.Margin = new System.Windows.Forms.Padding(1);
             this.panel43.Name = "panel43";
             this.panel43.Padding = new System.Windows.Forms.Padding(2);
-            this.panel43.Size = new System.Drawing.Size(410, 28);
+            this.panel43.Size = new System.Drawing.Size(409, 28);
             this.panel43.TabIndex = 1;
             // 
             // TB_MODELO

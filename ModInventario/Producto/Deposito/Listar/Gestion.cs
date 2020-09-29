@@ -93,7 +93,7 @@ namespace ModInventario.Producto.Deposito.Listar
 
             foreach (var it in r01.Entidad.depositos.OrderBy(o=>o.codigo).ToList()) 
             {
-                var nr = new data(it);
+                var nr = new data(it,_decimales);
                 _data.Add(nr);
             }
             _bs.CurrencyManager.Refresh();

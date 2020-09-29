@@ -31,9 +31,19 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         public string ProductoFechaUltAct { get { return Prd.FechaUltimaActualizacion; } }
         public bool ProductoEsDivisa { get { return Prd.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si ? true : false; } }
         public string TasaCambio { get { return String.Format("{0:n2}", tasaCambio); } }
-        public string CntUnd { get { return string.Format("{0:n"+Prd.Decimales+"}", (Cantidad * contenido)); } }
+        public string CntUnd { get { return string.Format("{0:n"+Decimales+"}", (Cantidad * contenido)); } }
         public string CostoUnd { get { return string.Format("{0:n2}", (Costo / contenido)); } }
         public Movimiento.enumerados.enumTipoEmpaque  TipoEmpaqueSeleccionado { get { return tipoEmpaque; } }
+        public decimal CntExistenciaDeposito
+        {
+            get
+            {
+                var vt = 0.0m;
+                return vt;
+            }
+        }
+        public string Decimales { get { return Prd.Decimales; } }
+        public string ExistenciaDeposito { get { return ""; } }
         public decimal Importe 
         { 
             get 

@@ -16,6 +16,7 @@ namespace OOB.LibInventario.Producto.Data
         public Costo costo { get; set; }
         public Existencia existencia { get; set; }
         public Extra extra { get; set; }
+        public Proveedor.Ficha proveedores { get; set; }
 
 
         public string AutoId { get { return identidad.auto; } }
@@ -67,7 +68,6 @@ namespace OOB.LibInventario.Producto.Data
         }
 
 
-
         public Ficha()
         {
             identidad = new Identificacion();
@@ -75,6 +75,7 @@ namespace OOB.LibInventario.Producto.Data
             costo = new Costo();
             existencia = new Existencia();
             extra = new Extra();
+            proveedores = new Proveedor.Ficha();
         }
 
     }

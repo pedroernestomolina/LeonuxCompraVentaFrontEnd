@@ -58,13 +58,6 @@ namespace ModInventario
             }
             frm.ShowDialog();
         }
-     
-        public void TrasladoMercanciaEntreSucursalPorNivelMinimo()
-        {
-            _gestionMovimiento.Inicializar();
-            _gestionMovimiento.TrasladoEntreSucursal_PorNivelMinimo();
-        }
-
 
         public void Ajuste_DefinirNivelMinimoMaximo()
         {
@@ -125,6 +118,15 @@ namespace ModInventario
             _gestionMov = new Movimiento.Gestion();
             _gestionMov.setGestion(new Movimiento.Traslado.Gestion());
             _gestionMov.Inicia();
+        }
+
+        public void TrasladoMercanciaEntreSucursalPorNivelMinimo()
+        {
+            //_gestionMovimiento.Inicializar();
+            //_gestionMovimiento.TrasladoEntreSucursal_PorNivelMinimo();
+            _gestionMov = new Movimiento.Gestion();
+            _gestionMov.setGestion(new Movimiento.TrasladoEntreSucursal.Gestion());
+            _gestionMov.Inicia2();
         }
 
         public void VisorExistencia()

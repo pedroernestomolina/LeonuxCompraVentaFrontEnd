@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -162,11 +163,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(707, 1);
+            this.panel2.Location = new System.Drawing.Point(706, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(136, 52);
+            this.panel2.Size = new System.Drawing.Size(137, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -177,7 +178,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(132, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(133, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -386,7 +387,7 @@
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(125, 52);
+            this.panel20.Size = new System.Drawing.Size(124, 52);
             this.panel20.TabIndex = 3;
             // 
             // tableLayoutPanel8
@@ -402,7 +403,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(121, 48);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(120, 48);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel21
@@ -627,8 +628,8 @@
             // 
             this.visorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_VISOR_COSTOEDAD,
-            this.TSM_VISOR_TRASLADO,
             this.TSM_VISOR_AJUSTE,
+            this.TSM_VISOR_TRASLADO,
             this.TSM_VISOR_EXISTENCIA,
             this.rotaciónToolStripMenuItem,
             this.depósitosToolStripMenuItem});
@@ -638,6 +639,7 @@
             // 
             // TSM_VISOR_COSTOEDAD
             // 
+            this.TSM_VISOR_COSTOEDAD.Image = ((System.Drawing.Image)(resources.GetObject("TSM_VISOR_COSTOEDAD.Image")));
             this.TSM_VISOR_COSTOEDAD.Name = "TSM_VISOR_COSTOEDAD";
             this.TSM_VISOR_COSTOEDAD.Size = new System.Drawing.Size(204, 22);
             this.TSM_VISOR_COSTOEDAD.Text = "Costo Edad ";
@@ -645,6 +647,7 @@
             // 
             // TSM_VISOR_TRASLADO
             // 
+            this.TSM_VISOR_TRASLADO.Image = ((System.Drawing.Image)(resources.GetObject("TSM_VISOR_TRASLADO.Image")));
             this.TSM_VISOR_TRASLADO.Name = "TSM_VISOR_TRASLADO";
             this.TSM_VISOR_TRASLADO.Size = new System.Drawing.Size(204, 22);
             this.TSM_VISOR_TRASLADO.Text = "Traslados";
@@ -652,6 +655,7 @@
             // 
             // TSM_VISOR_AJUSTE
             // 
+            this.TSM_VISOR_AJUSTE.Image = ((System.Drawing.Image)(resources.GetObject("TSM_VISOR_AJUSTE.Image")));
             this.TSM_VISOR_AJUSTE.Name = "TSM_VISOR_AJUSTE";
             this.TSM_VISOR_AJUSTE.Size = new System.Drawing.Size(204, 22);
             this.TSM_VISOR_AJUSTE.Text = "Ajustes ";
@@ -659,6 +663,7 @@
             // 
             // TSM_VISOR_EXISTENCIA
             // 
+            this.TSM_VISOR_EXISTENCIA.Image = global::ModInventario.Properties.Resources.bt_visor;
             this.TSM_VISOR_EXISTENCIA.Name = "TSM_VISOR_EXISTENCIA";
             this.TSM_VISOR_EXISTENCIA.Size = new System.Drawing.Size(204, 22);
             this.TSM_VISOR_EXISTENCIA.Text = "Existencia";

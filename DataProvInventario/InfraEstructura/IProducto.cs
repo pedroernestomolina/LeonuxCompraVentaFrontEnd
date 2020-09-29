@@ -18,6 +18,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Precio> Producto_GetPrecio(string autoPrd);
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Costo> Producto_GetCosto(string autoPrd);
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Imagen> Producto_GetImagen(string autoPrd);
+        OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Proveedor.Ficha> Producto_GetProveedores(string autoPrd);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Lista.Ficha> Producto_GetDepositos(string autoPrd);
         OOB.Resultado Producto_AsignarDepositos(OOB.LibInventario.Producto.Depositos.Asignar.Ficha ficha);

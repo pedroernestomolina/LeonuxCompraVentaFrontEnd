@@ -31,9 +31,9 @@ namespace ModInventario.Movimiento
         }
 
         public void Agregar(OOB.LibInventario.Producto.Data.Ficha ficha, decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp,
-            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov)
+            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov, bool disponible=true)
         {
-            lstItems.Add(new item(ficha,cnt,costo, emp, tasaCambio, importe, importeMonedaLocal,tipoMov));
+            lstItems.Add(new item(ficha,cnt,costo, emp, tasaCambio, importe, importeMonedaLocal,tipoMov, disponible));
         }
         public void Remover(item it)
         {

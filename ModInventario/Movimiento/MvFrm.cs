@@ -142,7 +142,6 @@ namespace ModInventario.Movimiento
                 {
                     e.CellStyle.BackColor = Color.Red;
                     e.CellStyle.ForeColor = Color.White;
-                    //DGV_DETALLE.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
                 }
                 else 
                 {

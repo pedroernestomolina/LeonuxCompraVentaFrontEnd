@@ -220,13 +220,27 @@
     <Compile Include="Movimiento\enumerados.cs" />
     <Compile Include="Movimiento\Gestion.cs" />
     <Compile Include="Movimiento\IGestion.cs" />
-    <Compile Include="Movimiento\IGestionDetalle1.cs" />
     <Compile Include="Movimiento\item.cs" />
     <Compile Include="Movimiento\MvFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Movimiento\MvFrm.Designer.cs">
       <DependentUpon>MvFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento\TrasladoEntreSucursal\EntradaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimiento\TrasladoEntreSucursal\EntradaFrm.Designer.cs">
+      <DependentUpon>EntradaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento\TrasladoEntreSucursal\Entrada\Gestion.cs" />
+    <Compile Include="Movimiento\TrasladoEntreSucursal\Gestion.cs" />
+    <Compile Include="Movimiento\TrasladoEntreSucursal\GestionDetalle.cs" />
+    <Compile Include="Movimiento\TrasladoEntreSucursal\MovimientoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimiento\TrasladoEntreSucursal\MovimientoFrm.Designer.cs">
+      <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Movimiento\Traslado\EntradaFrm.cs">
       <SubType>Form</SubType>
@@ -372,6 +386,14 @@
     <Compile Include="Producto\Precio\Ver\VerFrm.Designer.cs">
       <DependentUpon>VerFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\Proveedor\data.cs" />
+    <Compile Include="Producto\Proveedor\Gestion.cs" />
+    <Compile Include="Producto\Proveedor\ProveedoresFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Proveedor\ProveedoresFrm.Designer.cs">
+      <DependentUpon>ProveedoresFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Producto\QR\Gestion.cs" />
     <Compile Include="Producto\QR\QRFrm.cs">
       <SubType>Form</SubType>
@@ -508,6 +530,12 @@
     <EmbeddedResource Include="Movimiento\MvFrm.resx">
       <DependentUpon>MvFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Movimiento\TrasladoEntreSucursal\EntradaFrm.resx">
+      <DependentUpon>EntradaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimiento\TrasladoEntreSucursal\MovimientoFrm.resx">
+      <DependentUpon>MovimientoFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Traslado\EntradaFrm.resx">
       <DependentUpon>EntradaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -558,6 +586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Precio\Ver\VerFrm.resx">
       <DependentUpon>VerFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Proveedor\ProveedoresFrm.resx">
+      <DependentUpon>ProveedoresFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\QR\QRFrm.resx">
       <DependentUpon>QRFrm.cs</DependentUpon>
@@ -684,6 +715,7 @@
     <Content Include="Imagenes\bt_limpiar.png" />
     <Content Include="Imagenes\bt_usuario %282%29.png" />
     <Content Include="Imagenes\bt_usuario.png" />
+    <Content Include="Imagenes\bt_visor.png" />
     <Content Include="Imagenes\bt_warehouse.png" />
     <Content Include="Imagenes\carpeta.png" />
     <Content Include="Imagenes\dollar.png" />
@@ -716,6 +748,7 @@
     <None Include="Resources\carpeta.png" />
     <None Include="Resources\flecha_izquierda.png" />
     <None Include="Resources\fecha_derecha.png" />
+    <None Include="Resources\bt_visor.png" />
     <Content Include="Resources\icon_setup.png" />
     <None Include="Resources\bt_campana.png" />
     <None Include="Resources\bt_mobil_notification.png" />

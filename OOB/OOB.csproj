@@ -124,7 +124,8 @@
     <Compile Include="LibInventario\Producto\Data\Identificacion.cs" />
     <Compile Include="LibInventario\Producto\Data\Imagen.cs" />
     <Compile Include="LibInventario\Producto\Data\Precio.cs" />
-    <Compile Include="LibInventario\Producto\Data\Proveedor.cs" />
+    <Compile Include="LibInventario\Producto\Data\Proveedor\Detalle.cs" />
+    <Compile Include="LibInventario\Producto\Data\Proveedor\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Asignar\Deposito.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Asignar\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Editar\Ficha.cs" />

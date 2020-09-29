@@ -19,13 +19,14 @@ namespace ModInventario.Movimiento
         private decimal _tasaCambio;
         private decimal _importe;
         private decimal _importeMonedaLocal;
+        private bool _disponible;
 
 
         public OOB.LibInventario.Producto.Data.Ficha FichaPrd { get { return ficha; } }
         public string CodigoPrd { get { return ficha.CodigoPrd; } }
         public string DescripcionPrd { get { return ficha.DescripcionPrd; } }
         public bool EsAdmDivisa { get { return ficha.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si ? true : false; } }
-//        public int ContenidoEmpCompra { get { return ficha.identidad.contenidoCompra; } }
+        public bool Disponible { get { return _disponible; } }
         public int ContenidoEmpCompra 
         { 
             get 
@@ -126,7 +127,7 @@ namespace ModInventario.Movimiento
 
 
         public item(OOB.LibInventario.Producto.Data.Ficha ficha, decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp, 
-            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov )
+            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov, bool disponible)
         {
             this.ficha = ficha;
             _cnt = cnt;
@@ -136,6 +137,7 @@ namespace ModInventario.Movimiento
             _importe = importe;
             _importeMonedaLocal = importeMonedaLocal;
             _tipoMovimiento = tipoMov;
+            _disponible = disponible;
         }
 
     }

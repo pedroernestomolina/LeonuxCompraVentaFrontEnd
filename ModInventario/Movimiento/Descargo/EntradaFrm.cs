@@ -60,6 +60,7 @@ namespace ModInventario.Movimiento.Descargo
             L_ADM_DIVISA.Text = _controlador.ProductoAdmDivisa;
             L_TASA_IVA.Text = _controlador.ProductoTasaIva;
             L_FECHA_ACT.Text = _controlador.ProductoFechaUltAct;
+            L_EXISTENCIA.Text = _controlador.ExistenciaDeposito;
             TB_CNT.Text = _controlador.Cantidad.ToString();
             TB_COSTO.Text = _controlador.Costo.ToString();
             BT_CAMBIO_DIVISA.Visible = _controlador.ProductoEsDivisa;

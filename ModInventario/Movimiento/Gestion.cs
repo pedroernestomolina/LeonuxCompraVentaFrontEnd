@@ -65,6 +65,11 @@ namespace ModInventario.Movimiento
             }
         }
 
+        public void Inicia2()
+        {
+            miGestion.Inicia();
+        }
+
         private bool CargarData()
         {
             return miGestion.CargarData();

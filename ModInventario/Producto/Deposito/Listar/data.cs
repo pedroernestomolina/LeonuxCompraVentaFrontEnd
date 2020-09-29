@@ -13,6 +13,7 @@ namespace ModInventario.Producto.Deposito.Listar
 
         private OOB.LibInventario.Producto.Data.Deposito _deposito; 
         private int _empContenido;
+        private string _decimales;
 
         public string CodigoDep { get { return _deposito.codigo; } }
         public string NombreDep { get { return _deposito.nombre; } }
@@ -25,6 +26,8 @@ namespace ModInventario.Producto.Deposito.Listar
                 return ex;
             }
         }
+        public string Fisica { get { return ExFisica.ToString("n" + _decimales); } }
+
         public decimal ExReserva
         {
             get
@@ -34,6 +37,8 @@ namespace ModInventario.Producto.Deposito.Listar
                 return ex;
             }
         }
+        public string Reserva { get { return ExReserva.ToString("n" + _decimales); } }
+
         public decimal ExDisponible
         {
             get
@@ -43,6 +48,7 @@ namespace ModInventario.Producto.Deposito.Listar
                 return ex;
             }
         }
+        public string Disponible { get { return ExDisponible.ToString("n" + _decimales); } }
 
         public OOB.LibInventario.Producto.Data.Deposito Deposito 
         {
@@ -53,10 +59,11 @@ namespace ModInventario.Producto.Deposito.Listar
         }
 
 
-        public data(OOB.LibInventario.Producto.Data.Deposito dep)
+        public data(OOB.LibInventario.Producto.Data.Deposito dep, string decimales)
         {
             _deposito = dep;
             _empContenido = 1;
+            _decimales = decimales;
         }
 
         public void setContenido(int cnt) 

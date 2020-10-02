@@ -86,6 +86,17 @@ namespace ModInventario.Maestros.EmpaqueMedidas
             _controlador.Decimales = TB_DECIMALES.Text ;
         }
 
+        private void AgregarEditarFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_controlador.IsCerrarOk)
+            {
+                if (!_controlador.AbandonarDocumento())
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
     }
 
 }

@@ -32,6 +32,8 @@ namespace ModInventario.Producto.AgregarEditar
         public BindingSource Divisa { get { return miGestion.Divisa; } }
         public BindingSource Categoria { get { return miGestion.Categoria; } }
         public BindingSource Clasificacion { get { return miGestion.Clasificacion; } }
+        public BindingSource SourceCodAlterno { get { return miGestion.SourceCodAlterno; } }
+
 
         public string CodigoProducto { get { return miGestion.CodigoProducto; } set { miGestion.CodigoProducto = value; } }
         public string DescripcionProducto { get { return miGestion.DescripcionProducto; } set { miGestion.DescripcionProducto = value; } }
@@ -53,6 +55,7 @@ namespace ModInventario.Producto.AgregarEditar
         public string IdClasificacionAbc { get { return miGestion.IdClasificacionAbc; } set { miGestion.IdClasificacionAbc = value; } }
         public string IdDivisa { get { return miGestion.IdDivisa; } set { miGestion.IdDivisa = value; } }
         public string AutoEmpCompra { get { return miGestion.AutoEmpCompra; } set { miGestion.AutoEmpCompra = value; } }
+        public string CodigoAlterno { get { return miGestion.CodigoAlterno; } set { miGestion.CodigoAlterno = value; } }
 
 
         public Gestion(IGestion gestion)
@@ -126,6 +129,23 @@ namespace ModInventario.Producto.AgregarEditar
         public void ListaPlu()
         {
             miGestion.ListaPlu();
+        }
+
+        public bool AbandonarDocumento()
+        {
+            var msg = MessageBox.Show("Desechar Cambios Efectuados ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            return (msg == DialogResult.Yes);
+        }
+
+
+        public void AgregarCodigoAlterno()
+        {
+            miGestion.AgregarCodigoAlterno();
+        }
+
+        public void EliminarCodigoAlterno()
+        {
+            miGestion.EliminarCodigoAlterno(); 
         }
 
     }

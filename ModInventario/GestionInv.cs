@@ -13,7 +13,6 @@ namespace ModInventario
     {
 
 
-        private Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion _gestionMovimiento;
         private Maestros.Departamentos.Gestion _gestionDepart;
         private Maestros.Grupos.Gestion _gestionGrupo;
         private Maestros.EmpaqueMedidas.Gestion _gestionEmpaqueMedida;
@@ -25,6 +24,8 @@ namespace ModInventario
         private Visor.CostoEdad.Gestion _gestionVisorCostoEdad;
         private Visor.Traslado.Gestion _gestionVisorTraslado;
         private Visor.Ajuste.Gestion _gestionVisorAjuste;
+        private Visor.CostoExistencia.Gestion _gestionVisorCostoExistencia;
+        private Administrador.Gestion _gestionAdmMov; 
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -39,12 +40,13 @@ namespace ModInventario
             _gestionEmpaqueMedida = new Maestros.EmpaqueMedidas.Gestion();
             _gestionConcepto = new Maestros.Conceptos.Gestion();
             _gestionBusqueda = new Buscar.Gestion();
-            _gestionMovimiento = new Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebajoNivelMinimo.Gestion();
             _gestionMov = new Movimiento.Gestion();
             _gestionVisorExistencia = new Visor.Existencia.Gestion();
             _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
             _gestionVisorTraslado = new Visor.Traslado.Gestion();
             _gestionVisorAjuste = new Visor.Ajuste.Gestion();
+            _gestionVisorCostoExistencia = new Visor.CostoExistencia.Gestion();
+            _gestionAdmMov = new Administrador.Gestion(); 
         }
 
 
@@ -122,8 +124,6 @@ namespace ModInventario
 
         public void TrasladoMercanciaEntreSucursalPorNivelMinimo()
         {
-            //_gestionMovimiento.Inicializar();
-            //_gestionMovimiento.TrasladoEntreSucursal_PorNivelMinimo();
             _gestionMov = new Movimiento.Gestion();
             _gestionMov.setGestion(new Movimiento.TrasladoEntreSucursal.Gestion());
             _gestionMov.Inicia2();
@@ -158,6 +158,18 @@ namespace ModInventario
             _gestionMov = new Movimiento.Gestion();
             _gestionMov.setGestion(new Movimiento.Ajuste.Gestion());
             _gestionMov.Inicia();
+        }
+
+        public void AdministradorMovimiento()
+        {
+            _gestionAdmMov.setGestion(new Administrador.Movimiento.Gestion());
+            _gestionAdmMov.Inicia();
+        }
+
+        public void VisorCostoExistencia()
+        {
+            _gestionVisorCostoExistencia = new Visor.CostoExistencia.Gestion ();
+            _gestionVisorCostoExistencia.Inicia();
         }
 
     }

@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace DataProvInventario.Data
 {
-    
-    public partial class DataProv: IData
+
+    public partial class DataProv : IData
     {
 
         public OOB.ResultadoLista<OOB.LibInventario.Visor.Existencia.Ficha> Visor_Existencia(OOB.LibInventario.Visor.Existencia.Filtro filtro)
         {
-            var rt = new OOB.ResultadoLista<OOB.LibInventario.Visor.Existencia.Ficha >();
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Visor.Existencia.Ficha>();
 
             var filtroDto = new DtoLibInventario.Visor.Existencia.Filtro();
             filtroDto.autoDepartamento = filtro.autoDepartamento;
             filtroDto.autoDeposito = filtro.autoDeposito;
-            filtroDto.filtrarPor=  (DtoLibInventario.Visor.Existencia.Enumerados.enumFiltrarPor) filtro.filtrarPor;
+            filtroDto.filtrarPor = (DtoLibInventario.Visor.Existencia.Enumerados.enumFiltrarPor)filtro.filtrarPor;
 
             var r01 = MyData.Visor_Existencia(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -36,6 +36,13 @@ namespace DataProvInventario.Data
                 {
                     list = r01.Lista.Select(s =>
                     {
+                        var estatus = "Activo";
+                        if (s.estatusActivo == "1")
+                            estatus = "Inactivo";
+                        else
+                            if (s.estatusSuspendido == "1")
+                                estatus = "Suspendido";
+
                         return new OOB.LibInventario.Visor.Existencia.Ficha()
                         {
                             autoDepart = s.autoDepart,
@@ -51,7 +58,8 @@ namespace DataProvInventario.Data
                             nombreDepart = s.nombreDepart,
                             nombreDeposito = s.nombreDeposito,
                             nombrePrd = s.nombrePrd,
-                            esPesado=s.esPesado,
+                            esPesado = s.esPesado,
+                            estatus=estatus,
                         };
                     }).ToList();
                 }
@@ -88,6 +96,13 @@ namespace DataProvInventario.Data
                     {
                         list = se.detalles.Select(s =>
                         {
+                            var estatus = "Activo";
+                            if (s.estatusActivo == "1")
+                                estatus = "Inactivo";
+                            else
+                                if (s.estatusSuspendido == "1")
+                                    estatus = "Suspendido";
+
                             return new OOB.LibInventario.Visor.CostoEdad.FichaDetalle()
                             {
                                 autoDepart = s.autoDepart,
@@ -109,6 +124,7 @@ namespace DataProvInventario.Data
                                 costoDivisaUnd = s.costoDivisaUnd,
                                 esAdmDivisa = s.esAdmDivisa,
                                 esPesado = s.esPesado,
+                                estatus=estatus,
                             };
                         }).ToList();
                     }
@@ -228,6 +244,64 @@ namespace DataProvInventario.Data
                 rt.Entidad.montoVentaNeto = se.montoVentaNeto;
             }
             rt.Entidad.detalles = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibInventario.Visor.CostoExistencia.Ficha> Visor_CostoExistencia(OOB.LibInventario.Visor.CostoExistencia.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Visor.CostoExistencia.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Visor.CostoExistencia.Filtro();
+            filtroDto.autoDepartamento = filtro.autoDepartamento;
+            filtroDto.autoDeposito = filtro.autoDeposito;
+            var r01 = MyData.Visor_CostoExistencia(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Visor.CostoExistencia.Ficha>();
+            if (r01.Lista != null)
+            {
+                var se = r01.Lista;
+                if (se.Count > 0)
+                {
+                    list = se.Select(s =>
+                    {
+                        var estatus = "Activo";
+                        if (s.estatusActivo == "1")
+                            estatus = "Inactivo";
+                        else
+                            if (s.estatusSuspendido == "1")
+                                estatus = "Suspendido";
+
+                        return new OOB.LibInventario.Visor.CostoExistencia.Ficha()
+                        {
+                            autoDepart = s.autoDepart,
+                            autoDeposito = s.autoDeposito,
+                            autoPrd = s.autoPrd,
+                            cntFisica = s.cntFisica,
+                            codigoDepart = s.codigoDepart,
+                            codigoDeposito = s.codigoDeposito,
+                            codigoPrd = s.codigoPrd,
+                            decimales = s.decimales,
+                            nombreDepart = s.nombreDepart,
+                            nombreDeposito = s.nombreDeposito,
+                            nombrePrd = s.nombrePrd,
+                            costoUnd = s.costoUnd,
+                            fechaUltActCosto = s.fechaUltActCosto,
+                            costoDivisaUnd = s.costoDivisaUnd,
+                            esAdmDivisa = s.esAdmDivisa,
+                            esPesado = s.esPesado,
+                            estatus=estatus,
+                        };
+                    }).ToList();
+                }
+                rt.Lista =list;
+            }
 
             return rt;
         }

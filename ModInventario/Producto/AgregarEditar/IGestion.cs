@@ -22,6 +22,8 @@ namespace ModInventario.Producto.AgregarEditar
         System.Windows.Forms.BindingSource Divisa { get; }
         System.Windows.Forms.BindingSource Categoria { get; }
         System.Windows.Forms.BindingSource Clasificacion { get; }
+        System.Windows.Forms.BindingSource SourceCodAlterno { get; }
+
 
         string CodigoProducto { get; set; }
         string DescripcionProducto { get; set; }
@@ -42,6 +44,8 @@ namespace ModInventario.Producto.AgregarEditar
         bool Pesado { get; set; }
         string Plu { get; set; }
         int DiasEmpaque { get; set; }
+        string CodigoAlterno { get; set; }
+
 
         void SetFicha(string autoPrd);
         void Limpiar();
@@ -52,6 +56,9 @@ namespace ModInventario.Producto.AgregarEditar
         void CargaGrupos();
         void CargaMarcas();
         void ListaPlu();
+        void AgregarCodigoAlterno();
+        void EliminarCodigoAlterno();
+
 
         bool IsAgregarEditarOk { get; }
         string AutoProductoAgregado { get; }

@@ -206,6 +206,16 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             miData.detalle = _gestionDetalle.Detalle;
             if (miData.Verificar())
             {
+                if (IdDepOrigen == "")
+                {
+                    Helpers.Msg.Error("[ Sucursal Origen ] No Seleccionada");
+                    return;
+                }
+                if (IdDepDestino== "")
+                {
+                    Helpers.Msg.Error("[ Sucursal Destino ] No Seleccionada");
+                    return;
+                }
                 var msg = MessageBox.Show("Procesar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.No) 
                 {

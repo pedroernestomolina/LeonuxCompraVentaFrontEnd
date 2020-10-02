@@ -15,6 +15,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Visor.CostoEdad.Ficha> Visor_CostoEdad(OOB.LibInventario.Visor.CostoEdad.Filtro filtro);
         OOB.ResultadoLista<OOB.LibInventario.Visor.Traslado.Ficha> Visor_Traslado(OOB.LibInventario.Visor.Traslado.Filtro filtro);
         OOB.ResultadoEntidad<OOB.LibInventario.Visor.Ajuste.Ficha> Visor_Ajuste(OOB.LibInventario.Visor.Ajuste.Filtro filtro);
+        OOB.ResultadoLista<OOB.LibInventario.Visor.CostoExistencia.Ficha> Visor_CostoExistencia(OOB.LibInventario.Visor.CostoExistencia.Filtro filtro);
 
     }
 

@@ -153,6 +153,16 @@ namespace ModInventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_documento {
+            get {
+                object obj = ResourceManager.GetObject("bt_documento", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_dollar {
             get {
                 object obj = ResourceManager.GetObject("bt_dollar", resourceCulture);
@@ -333,6 +343,16 @@ namespace ModInventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_limpiar_3 {
+            get {
+                object obj = ResourceManager.GetObject("bt_limpiar_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_lista {
             get {
                 object obj = ResourceManager.GetObject("bt_lista", resourceCulture);
@@ -456,6 +476,16 @@ namespace ModInventario.Properties {
         internal static System.Drawing.Bitmap bt_sumar {
             get {
                 object obj = ResourceManager.GetObject("bt_sumar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_sumar_2 {
+            get {
+                object obj = ResourceManager.GetObject("bt_sumar_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

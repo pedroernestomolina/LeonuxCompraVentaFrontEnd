@@ -84,7 +84,8 @@ namespace ModInventario.Visor.Existencia
             c4.Width = 140;
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "CntFisica";
+            c5.DataPropertyName = "SCntFisica";
+            c5.Name = "SCntFisica";
             c5.HeaderText = "Cnt/Fisica";
             c5.Visible = true;
             c5.Width = 80;
@@ -132,6 +133,23 @@ namespace ModInventario.Visor.Existencia
             c8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //c8.DefaultCellStyle.Format = _controlador.Decimales;
 
+            var c2A = new DataGridViewTextBoxColumn();
+            c2A.Name = "Estatus";
+            c2A.DataPropertyName = "Estatus";
+            c2A.HeaderText = " ";
+            c2A.Visible = true;
+            c2A.HeaderCell.Style.Font = f;
+            c2A.DefaultCellStyle.Font = f1;
+            c2A.Width = 10;
+
+            var c2B = new DataGridViewTextBoxColumn();
+            c2B.DataPropertyName = "CntFisica";
+            c2B.Name = "CntFisica";
+            c2B.HeaderText = "";
+            c2B.Visible = false;
+            c2B.Width = 0;
+
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
@@ -141,6 +159,8 @@ namespace ModInventario.Visor.Existencia
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
+            DGV.Columns.Add(c2A);
+            DGV.Columns.Add(c2B);
         }
 
 
@@ -252,6 +272,34 @@ namespace ModInventario.Visor.Existencia
             if (e.KeyCode == Keys.Enter)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                if ((int)row.Cells["estatus"].Value == 1)
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Green;
+                    row.Cells["Estatus"].Style.ForeColor = Color.Green;
+                }
+                else if ((int)row.Cells["estatus"].Value == 2)
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Orange;
+                    row.Cells["Estatus"].Style.ForeColor = Color.Orange;
+                }
+                else
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Red;
+                    row.Cells["Estatus"].Style.ForeColor = Color.Red;
+                }
+
+                if ((decimal)row.Cells["CntFisica"].Value < 0)
+                {
+                    row.Cells["SCntFisica"].Style.BackColor = Color.Red;
+                    row.Cells["SCntFisica"].Style.ForeColor = Color.White;
+                }
             }
         }
 

@@ -19,7 +19,8 @@ namespace ModInventario.Visor.Existencia
         public string NombrePrd { get { return rg.nombrePrd; } }
         public string Deposito { get { return rg.nombreDeposito; } }
         public string Departamento { get { return rg.nombreDepart; } }
-        public string CntFisica { get { return rg.cntFisica.ToString("n"+rg.decimales); } }
+        public decimal CntFisica { get { return rg.cntFisica; } }
+        public string SCntFisica { get { return CntFisica.ToString("n"+rg.decimales); } }
         public bool EsPesado { get { return rg.esPesado == "S"; } }
         public string NivelMinimo 
         {
@@ -47,6 +48,26 @@ namespace ModInventario.Visor.Existencia
                 rt = rg.nivelOptimo - rg.cntFisica;
                 return rt.ToString("n"+rg.decimales); 
             } 
+        }
+        public int Estatus
+        {
+            get
+            {
+                var rt = 1;
+                switch (rg.estatus.Trim().ToUpper())
+                {
+                    case "ACTIVO":
+                        rt = 1;
+                        break;
+                    case "SUSPENDIDO":
+                        rt = 2;
+                        break;
+                    case "INACTIVO":
+                        rt = 3;
+                        break;
+                }
+                return rt;
+            }
         }
 
 

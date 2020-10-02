@@ -30,6 +30,7 @@ namespace OOB.LibInventario.Visor.CostoEdad
         public decimal costoDivisaUnd { get; set; }
         public string esPesado { get; set; }
         public string esAdmDivisa { get; set; }
+        public string estatus { get; set; }
 
     }
 

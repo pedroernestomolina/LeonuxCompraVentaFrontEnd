@@ -119,11 +119,20 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
 
         public void Procesar()
         {
-            if (Prd.costo.Edad > 30)
+            var rt1 = Sistema.MyData.Configuracion_CostoEdadProducto();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
             {
-                Helpers.Msg.Error("Costo Edad No Permitido, Verifique Por Favor");
+                Helpers.Msg.Error(rt1.Mensaje);
                 return;
             }
+            var costoEdad = rt1.Entidad;
+            if (costoEdad>0)
+                if (Prd.costo.Edad > costoEdad)
+                {
+                    Helpers.Msg.Error("Costo Edad No Permitido, Verifique Por Favor");
+                    return;
+                }
+            
             if (importe == 0.0m) 
             {
                 Helpers.Msg.Error("Monto Importe Movimiento Incorrecto, Verifique Por Favor");

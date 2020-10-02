@@ -571,6 +571,7 @@ namespace DataProvInventario.Data
             }
 
             var nr = new OOB.LibInventario.Producto.Editar.Obtener.Ficha();
+            var codigosAlt = new List<OOB.LibInventario.Producto.Editar.Obtener.FichaAlterno>();
             var e = r01.Entidad;
             if (e != null)
             {
@@ -597,7 +598,14 @@ namespace DataProvInventario.Data
                 nr.categoria= (OOB.LibInventario.Producto.Enumerados.EnumCategoria) e.categoria;
                 nr.AdmPorDivisa= (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)  e.AdmPorDivisa;
                 nr.Clasificacion= (OOB.LibInventario.Producto.Enumerados.EnumClasificacionABC) e.Clasificacion;
+
+                foreach (var rg in e.CodigosAlterno)
+                {
+                    codigosAlt.Add(new OOB.LibInventario.Producto.Editar.Obtener.FichaAlterno() { Codigo = rg.Codigo });
+                }
             }
+
+            nr.CodigosAlterno = codigosAlt;
             rt.Entidad = nr;
 
             return rt;
@@ -630,6 +638,13 @@ namespace DataProvInventario.Data
                 esPesado = ficha.esPesado,
                 plu = ficha.plu,
             };
+            var codAlterno = new List<DtoLibInventario.Producto.Editar.Actualizar.FichaCodAlterno>();
+            foreach (var rg in ficha.codigosAlterno) 
+            {
+                codAlterno.Add(new DtoLibInventario.Producto.Editar.Actualizar.FichaCodAlterno() { codigo = rg.Codigo });
+            }
+            fichaDTO.codigosAlterno = codAlterno;
+
             var r01 = MyData.Producto_Editar_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
@@ -669,6 +684,13 @@ namespace DataProvInventario.Data
                 esPesado = ficha.esPesado,
                 plu = ficha.plu,
             };
+            var codAlterno = new List<DtoLibInventario.Producto.Agregar.FichaCodAlterno>();
+            foreach (var rg in ficha.codigosAlterno)
+            {
+                codAlterno.Add(new DtoLibInventario.Producto.Agregar.FichaCodAlterno() { codigo = rg.Codigo });
+            }
+            fichaDTO.codigosAlterno = codAlterno;
+
             var r01 = MyData.Producto_Nuevo_Agregar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {

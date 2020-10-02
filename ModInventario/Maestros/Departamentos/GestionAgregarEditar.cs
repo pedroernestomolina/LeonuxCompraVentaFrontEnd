@@ -18,6 +18,7 @@ namespace ModInventario.Maestros.Departamentos
         private OOB.LibInventario.Departamento.Ficha _ficha;
 
 
+        public bool IsCerrarOk { get; set; }
         public enumModo Modo { get; set; }
         public bool IsAgregarEditarOk { get; set; }
         public string Nombre { get; set; }
@@ -26,6 +27,7 @@ namespace ModInventario.Maestros.Departamentos
 
         public GestionAgregarEditar()
         {
+            IsCerrarOk = false;
             Modo = enumModo.SinDefinir;
             LimpiarEntradas();
         }
@@ -49,6 +51,7 @@ namespace ModInventario.Maestros.Departamentos
 
         private void LimpiarEntradas()
         {
+            IsCerrarOk = false;
             IsAgregarEditarOk = false;
             Nombre = "";
             Codigo = "";
@@ -90,6 +93,7 @@ namespace ModInventario.Maestros.Departamentos
                         return;
                     }
                     IsAgregarEditarOk = true;
+                    IsCerrarOk = true;
                 }
             }
             if (Modo == enumModo.Editar)
@@ -110,6 +114,7 @@ namespace ModInventario.Maestros.Departamentos
                         return;
                     }
                     IsAgregarEditarOk = true;
+                    IsCerrarOk = true;
                 }
             }
         }
@@ -137,6 +142,12 @@ namespace ModInventario.Maestros.Departamentos
                 frm.setTitulo("Editar Departamento:");
                 frm.ShowDialog();
             }
+        }
+
+        public bool AbandonarDocumento()
+        {
+            var msg = MessageBox.Show("Abandonar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            return (msg == DialogResult.Yes);
         }
 
     }

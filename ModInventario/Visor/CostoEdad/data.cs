@@ -28,6 +28,26 @@ namespace ModInventario.Visor.CostoEdad
         public bool EsAdmDivisa { get { return rg.esAdmDivisa=="S"; } }
         public bool EsPesado { get { return rg.esPesado == "S"; } }
         public decimal ExFisica { get { return rg.cntFisica; } }
+        public int Estatus
+        {
+            get
+            {
+                var rt = 1;
+                switch (rg.estatus.Trim().ToUpper())
+                {
+                    case "ACTIVO":
+                        rt = 1;
+                        break;
+                    case "SUSPENDIDO":
+                        rt = 2;
+                        break;
+                    case "INACTIVO":
+                        rt = 3;
+                        break;
+                }
+                return rt;
+            }
+        }
 
 
         public data(OOB.LibInventario.Visor.CostoEdad.FichaDetalle rg, DateTime fecha)

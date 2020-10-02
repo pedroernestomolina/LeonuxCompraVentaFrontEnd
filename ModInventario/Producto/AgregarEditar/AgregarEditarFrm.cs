@@ -26,6 +26,34 @@ namespace ModInventario.Producto.AgregarEditar
         {
             InitializeComponent();
             Inicializar();
+            InicializarGridAlterno();
+        }
+
+        private void InicializarGridAlterno()
+        {
+            var f = new Font("Serif", 8, FontStyle.Bold);
+            var f1 = new Font("Serif", 10, FontStyle.Regular);
+
+            DGV.AllowUserToAddRows = false;
+            DGV.AllowUserToDeleteRows = false;
+            DGV.AutoGenerateColumns = false;
+            DGV.AllowUserToResizeRows = false;
+            DGV.AllowUserToResizeColumns = false;
+            DGV.AllowUserToOrderColumns = false;
+            DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DGV.MultiSelect = false;
+            DGV.ReadOnly = true;
+
+            var c1 = new DataGridViewTextBoxColumn();
+            c1.DataPropertyName = "Codigo";
+            c1.HeaderText = "Codigo";
+            c1.Visible = true;
+            c1.HeaderCell.Style.Font = f;
+            c1.DefaultCellStyle.Font = f1;
+            c1.MinimumWidth = 180;
+            c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            DGV.Columns.Add(c1);
         }
 
         private void Inicializar()
@@ -90,7 +118,10 @@ namespace ModInventario.Producto.AgregarEditar
         {
             tabControl1.SelectedIndex = 0;
             TB_CODIGO.Focus();
+
             inicializarData = true;
+
+            DGV.DataSource = _controlador.SourceCodAlterno;
             L_TITULO.Text = _controlador.Titulo;
             CB_DEPARTAMENTO.DataSource = _controlador.Departamentos;
             CB_GRUPO.DataSource = _controlador.Grupos;
@@ -139,10 +170,15 @@ namespace ModInventario.Producto.AgregarEditar
 
         private void AgregarEditarFrm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = !_controlador.IsCerrarHabilitado;
-            _controlador.InicializarIsCerrarHabilitado();
-        }
+            if (!_controlador.IsCerrarHabilitado)
+            {
+                if (!_controlador.AbandonarDocumento())
+                {
+                    e.Cancel = true;
+                }
+            }
 
+        }
 
         private void Ctr_KeyDown(object sender, KeyEventArgs e)
         {
@@ -424,6 +460,33 @@ namespace ModInventario.Producto.AgregarEditar
         private void ListaPlu()
         {
             _controlador.ListaPlu();
+        }
+
+        private void BT_AGREGAR_COD_ALTERNO_Click(object sender, EventArgs e)
+        {
+            AgregarCodigoAlterno();
+        }
+
+        private void AgregarCodigoAlterno()
+        {
+            _controlador.AgregarCodigoAlterno();
+            TB_ALTERNO.Text = "";
+            TB_ALTERNO.Focus();
+        }
+
+        private void BT_ELIMINAR_COD_ALTERNO_Click(object sender, EventArgs e)
+        {
+            EliminarCodigoAlterno();
+        }
+
+        private void EliminarCodigoAlterno()
+        {
+            _controlador.EliminarCodigoAlterno();
+        }
+
+        private void TB_ALTERNO_Leave(object sender, EventArgs e)
+        {
+            _controlador.CodigoAlterno = TB_ALTERNO.Text;
         }
 
     }

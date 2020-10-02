@@ -158,7 +158,6 @@ namespace ModInventario.Visor.Ajuste
                     row.Cells["TipoMov"].Style.BackColor = Color.Green;
                     row.Cells["TipoMov"].Style.ForeColor = Color.White;
                 }
-                //row.DefaultCellStyle.ForeColor = (int)row.Cells["Signo"].Value ==-1 ? Color.Red : Color.Black;
             }
         }
 

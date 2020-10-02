@@ -33,7 +33,8 @@ namespace OOB.LibInventario.Producto.Editar.Obtener
         public Enumerados.EnumOrigen origen { get; set; }
         public Enumerados.EnumCategoria categoria { get; set; }
         public Enumerados.EnumAdministradorPorDivisa AdmPorDivisa { get; set; }
-        public Enumerados.EnumClasificacionABC Clasificacion { get; set; }
+        public Enumerados.EnumClasificacionABC Clasificacion { get; set; }   
+        public List<FichaAlterno> CodigosAlterno { get; set; }
 
     }
 

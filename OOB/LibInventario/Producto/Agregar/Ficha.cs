@@ -36,6 +36,8 @@ namespace OOB.LibInventario.Producto.Agregar
         public string plu { get; set; }
         public int diasEmpaque { get; set; }
 
+        public List<FichaCodAlterno> codigosAlterno { get; set; }
+
     }
 
 }

@@ -45,6 +45,7 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         private BindingSource bsClasificacion;
         private data miData;
         private Plu.Gestion _gestionPlu;
+        private CodAlterno.Gestion _gestionCodAlterno;
 
 
         public string Titulo
@@ -350,10 +351,12 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public Gestion()
         {
             _gestionPlu = new Producto.Plu.Gestion();
+            _gestionCodAlterno = new CodAlterno.Gestion();
 
+            CodigoAlterno = "";
             _isAgregarEditarOk = false;
             _autoProductoAgregado = "";
-            _isCerrarHabilitado = true;
+            _isCerrarHabilitado = false;
             miData = new data();
 
             depart = new List<OOB.LibInventario.Departamento.Ficha>();
@@ -409,10 +412,11 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
 
         void IGestion.Limpiar()
         {
-            _isCerrarHabilitado = true;
+            _isCerrarHabilitado = false;
             _isAgregarEditarOk = false;
             _autoProductoAgregado = "";
             miData.Limpiar();
+            _gestionCodAlterno.Limpiar();
         }
 
         bool IGestion.CargarData()
@@ -557,6 +561,13 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
                 plu = _plu,
                 diasEmpaque = _diasEmpaque,
             };
+            var codAlterno = new List<OOB.LibInventario.Producto.Agregar.FichaCodAlterno>();
+            foreach (var rg in _gestionCodAlterno.ListaCodigos) 
+            {
+                codAlterno.Add(new OOB.LibInventario.Producto.Agregar.FichaCodAlterno() { Codigo = rg.codigo });
+            }
+            ficha.codigosAlterno = codAlterno;
+
             var r01 = Sistema.MyData.Producto_Nuevo_Agregar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {
@@ -646,6 +657,24 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public void ListaPlu()
         {
             _gestionPlu.Inicia();
+        }
+
+
+        public string CodigoAlterno { get; set; }
+
+        public void AgregarCodigoAlterno()
+        {
+            _gestionCodAlterno.Agregar(CodigoAlterno);
+        }
+
+        public void EliminarCodigoAlterno()
+        {
+            _gestionCodAlterno.Eliminar();
+        }
+
+        public BindingSource SourceCodAlterno
+        {
+            get { return _gestionCodAlterno.Source; }
         }
 
     }

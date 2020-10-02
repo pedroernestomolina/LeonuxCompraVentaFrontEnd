@@ -97,6 +97,9 @@
     <Compile Include="LibInventario\Movimiento\DesCargo\Insertar\FichaDetalle.cs" />
     <Compile Include="LibInventario\Movimiento\DesCargo\Insertar\FichaKardex.cs" />
     <Compile Include="LibInventario\Movimiento\DesCargo\Insertar\FichaPrdDeposito.cs" />
+    <Compile Include="LibInventario\Movimiento\enumerados.cs" />
+    <Compile Include="LibInventario\Movimiento\Lista\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\Lista\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\ProductoPorDebajoNivelMinimo.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\Ficha.cs" />
@@ -114,6 +117,7 @@
     <Compile Include="LibInventario\Precio\PrecioCosto\Ficha.cs" />
     <Compile Include="LibInventario\Producto\AdmDivisa\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Agregar\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Agregar\FichaCodAlterno.cs" />
     <Compile Include="LibInventario\Producto\Categoria\Ficha.cs" />
     <Compile Include="LibInventario\Producto\ClasificacionAbc\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Data\Costo.cs" />
@@ -134,7 +138,9 @@
     <Compile Include="LibInventario\Producto\Depositos\Ver\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Ver\Filtro.cs" />
     <Compile Include="LibInventario\Producto\Editar\Actualizar\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Editar\Actualizar\FichaCodigoAlterno.cs" />
     <Compile Include="LibInventario\Producto\Editar\Obtener\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Editar\Obtener\FichaAlterno.cs" />
     <Compile Include="LibInventario\Producto\Enumerados.cs" />
     <Compile Include="LibInventario\Producto\Estatus\Actual\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Estatus\Lista\Ficha.cs" />
@@ -160,6 +166,8 @@
     <Compile Include="LibInventario\Visor\CostoEdad\Ficha.cs" />
     <Compile Include="LibInventario\Visor\CostoEdad\FichaDetalle.cs" />
     <Compile Include="LibInventario\Visor\CostoEdad\Filtro.cs" />
+    <Compile Include="LibInventario\Visor\CostoExistencia\Ficha.cs" />
+    <Compile Include="LibInventario\Visor\CostoExistencia\Filtro.cs" />
     <Compile Include="LibInventario\Visor\Existencia\Enumerados.cs" />
     <Compile Include="LibInventario\Visor\Existencia\Ficha.cs" />
     <Compile Include="LibInventario\Visor\Existencia\Filtro.cs" />

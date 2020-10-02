@@ -35,6 +35,8 @@ namespace OOB.LibInventario.Producto.Editar.Actualizar
         public string plu { get; set; }
         public int diasEmpaque { get; set; }
 
+        public List<FichaCodigoAlterno> codigosAlterno { get; set; }
+
     }
 
 }

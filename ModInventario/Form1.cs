@@ -241,6 +241,26 @@ namespace ModInventario
             _controlador.MovimientoAjuste();
         }
 
+        private void TSM_MOVIMIENTO_ADMINISTRADOR_Click(object sender, EventArgs e)
+        {
+            AdministradorMovimiento();
+        }
+
+        private void AdministradorMovimiento()
+        {
+            _controlador.AdministradorMovimiento();
+        }
+
+        private void TSM_VISOR_COSTO_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            VisorCostoExistencia();
+        }
+
+        private void VisorCostoExistencia()
+        {
+            _controlador.VisorCostoExistencia();
+        }
+
     }
 
 }

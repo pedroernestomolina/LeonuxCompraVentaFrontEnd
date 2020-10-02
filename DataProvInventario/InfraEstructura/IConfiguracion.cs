@@ -16,6 +16,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<decimal> Configuracion_TasaCambioActual();
         OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta();
         OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio();
+        OOB.ResultadoEntidad<int> Configuracion_CostoEdadProducto();
 
     }
 

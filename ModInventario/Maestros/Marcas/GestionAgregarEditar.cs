@@ -21,10 +21,12 @@ namespace ModInventario.Maestros.Marcas
         public enumModo Modo { get; set; }
         public bool IsAgregarEditarOk { get; set; }
         public string Nombre { get; set; }
+        public bool IsCerrarOk { get; set; }
 
 
         public GestionAgregarEditar()
         {
+            IsCerrarOk = false;
             Modo = enumModo.SinDefinir;
             LimpiarEntradas();
         }
@@ -48,6 +50,7 @@ namespace ModInventario.Maestros.Marcas
 
         private void LimpiarEntradas()
         {
+            IsCerrarOk = false;
             IsAgregarEditarOk = false;
             Nombre = "";
         }
@@ -82,6 +85,7 @@ namespace ModInventario.Maestros.Marcas
                         return;
                     }
                     IsAgregarEditarOk = true;
+                    IsCerrarOk = true;
                 }
             }
             if (Modo == enumModo.Editar)
@@ -101,6 +105,7 @@ namespace ModInventario.Maestros.Marcas
                         return;
                     }
                     IsAgregarEditarOk = true;
+                    IsCerrarOk = true;
                 }
             }
         }
@@ -127,6 +132,12 @@ namespace ModInventario.Maestros.Marcas
                 frm.setTitulo("Editar Marca:");
                 frm.ShowDialog();
             }
+        }
+
+        public bool AbandonarDocumento()
+        {
+            var msg = MessageBox.Show("Abandonar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            return (msg == DialogResult.Yes);
         }
 
     }

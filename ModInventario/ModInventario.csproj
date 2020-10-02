@@ -71,6 +71,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\AdministradorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\AdministradorFrm.Designer.cs">
+      <DependentUpon>AdministradorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\enumerados.cs" />
+    <Compile Include="Administrador\Gestion.cs" />
+    <Compile Include="Administrador\IGestion.cs" />
+    <Compile Include="Administrador\IGestionListaDetalle.cs" />
+    <Compile Include="Administrador\Movimiento\data.cs" />
+    <Compile Include="Administrador\Movimiento\Gestion.cs" />
+    <Compile Include="Administrador\Movimiento\GestionListaDetalle.cs" />
+    <Compile Include="Administrador\Tomas\Gestion.cs" />
+    <Compile Include="Administrador\Tomas\TomasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\Tomas\TomasFrm.Designer.cs">
+      <DependentUpon>TomasFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\BusquedaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,13 +269,13 @@
       <DependentUpon>EntradaFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Movimiento\Traslado\Entrada\Gestion.cs" />
-    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Gestion.cs" />
-    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\GestionLista.cs" />
-    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Item.cs" />
-    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.cs">
+    <Compile Include="ELIMINAR\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Gestion.cs" />
+    <Compile Include="ELIMINAR\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\GestionLista.cs" />
+    <Compile Include="ELIMINAR\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\Item.cs" />
+    <Compile Include="ELIMINAR\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.Designer.cs">
+    <Compile Include="ELIMINAR\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.Designer.cs">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Movimiento\Traslado\Gestion.cs" />
@@ -268,6 +288,9 @@
     </Compile>
     <Compile Include="Producto\AgregarEditar\Agregar\data.cs" />
     <Compile Include="Producto\AgregarEditar\Agregar\Gestion.cs" />
+    <Compile Include="Producto\AgregarEditar\CodAlterno\data.cs" />
+    <Compile Include="Producto\AgregarEditar\CodAlterno\Gestion.cs" />
+    <Compile Include="Producto\AgregarEditar\CodAlterno\GestionLista.cs" />
     <Compile Include="Producto\AgregarEditar\Editar\data.cs" />
     <Compile Include="Producto\AgregarEditar\Editar\Gestion.cs" />
     <Compile Include="Producto\AgregarEditar\Gestion.cs" />
@@ -457,6 +480,14 @@
     </Compile>
     <Compile Include="Visor\CostoEdad\data.cs" />
     <Compile Include="Visor\CostoEdad\Gestion.cs" />
+    <Compile Include="Visor\CostoExistencia\CostoExistenciaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor\CostoExistencia\CostoExistenciaFrm.Designer.cs">
+      <DependentUpon>CostoExistenciaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visor\CostoExistencia\data.cs" />
+    <Compile Include="Visor\CostoExistencia\Gestion.cs" />
     <Compile Include="Visor\Existencia\data.cs" />
     <Compile Include="Visor\Existencia\ExistenciaFrm.cs">
       <SubType>Form</SubType>
@@ -473,6 +504,12 @@
     <Compile Include="Visor\Traslado\TrasladoFrm.Designer.cs">
       <DependentUpon>TrasladoFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrador\AdministradorFrm.resx">
+      <DependentUpon>AdministradorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\Tomas\TomasFrm.resx">
+      <DependentUpon>TomasFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscar\BusquedaFrm.resx">
       <DependentUpon>BusquedaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -539,7 +576,7 @@
     <EmbeddedResource Include="Movimiento\Traslado\EntradaFrm.resx">
       <DependentUpon>EntradaFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Movimiento\Traslado\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
+    <EmbeddedResource Include="ELIMINAR\EntreSucursalesPorExistenciaPorDebajoNivelMinimo\MovimientoFrm.resx">
       <DependentUpon>MovimientoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\AgregarEditar\AgregarEditarFrm.resx">
@@ -624,6 +661,9 @@
     <EmbeddedResource Include="Visor\CostoEdad\CostoEdadFrm.resx">
       <DependentUpon>CostoEdadFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Visor\CostoExistencia\CostoExistenciaFrm.resx">
+      <DependentUpon>CostoExistenciaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Visor\Existencia\ExistenciaFrm.resx">
       <DependentUpon>ExistenciaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -681,6 +721,7 @@
     <Content Include="Imagenes\bt_campana.png" />
     <Content Include="Imagenes\bt_consulta.png" />
     <Content Include="Imagenes\bt_costo.png" />
+    <Content Include="Imagenes\bt_documento.png" />
     <Content Include="Imagenes\bt_dollar.png" />
     <Content Include="Imagenes\bt_editar_32.png" />
     <Content Include="Imagenes\bt_editar_48.png" />
@@ -698,6 +739,7 @@
     <Content Include="Imagenes\bt_imprimir.png" />
     <Content Include="Imagenes\bt_imprimir_2.png" />
     <Content Include="Imagenes\bt_limpiar_2.png" />
+    <Content Include="Imagenes\bt_limpiar_3.png" />
     <Content Include="Imagenes\bt_lista.png" />
     <Content Include="Imagenes\bt_mobil_notification.png" />
     <Content Include="Imagenes\bt_mov.png" />
@@ -713,6 +755,7 @@
     <Content Include="Imagenes\bt_status.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\bt_limpiar.png" />
+    <Content Include="Imagenes\bt_sumar_2.png" />
     <Content Include="Imagenes\bt_usuario %282%29.png" />
     <Content Include="Imagenes\bt_usuario.png" />
     <Content Include="Imagenes\bt_visor.png" />
@@ -743,12 +786,15 @@
     <None Include="Resources\bt_buscar.png" />
     <None Include="Resources\bt_limpiar_2.png" />
     <None Include="Resources\bt_borrar.png" />
+    <None Include="Resources\bt_limpiar_3.png" />
+    <None Include="Resources\bt_documento.png" />
     <Content Include="Resources\bt_setup.png" />
     <None Include="Resources\libro.png" />
     <None Include="Resources\carpeta.png" />
     <None Include="Resources\flecha_izquierda.png" />
     <None Include="Resources\fecha_derecha.png" />
     <None Include="Resources\bt_visor.png" />
+    <None Include="Resources\bt_sumar_2.png" />
     <Content Include="Resources\icon_setup.png" />
     <None Include="Resources\bt_campana.png" />
     <None Include="Resources\bt_mobil_notification.png" />

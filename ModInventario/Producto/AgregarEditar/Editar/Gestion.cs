@@ -47,6 +47,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         private BindingSource bsClasificacion;
         private data miData;
         private Plu.Gestion _gestionPlu;
+        private CodAlterno.Gestion _gestionCodAlterno;
 
 
         public string Titulo
@@ -349,12 +350,16 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             }
         }
 
+        public string CodigoAlterno { get; set; }
+
+
 
         public Gestion()
         {
             _gestionPlu = new Producto.Plu.Gestion();
+            _gestionCodAlterno = new CodAlterno.Gestion();
 
-            _isCerrarHabilitado = true;
+            _isCerrarHabilitado = false;
             _autoProductoAgregado="";
             _isAgregarEditarOk = false;
             miData = new data();
@@ -403,6 +408,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             blClasificacion= new BindingList<OOB.LibInventario.Producto.ClasificacionAbc.Ficha>(clasificacion);
             bsClasificacion = new BindingSource();
             bsClasificacion.DataSource = blClasificacion;
+            CodigoAlterno = "";
         }
         
 
@@ -413,10 +419,11 @@ namespace ModInventario.Producto.AgregarEditar.Editar
 
         void IGestion.Limpiar()
         {
-            _isCerrarHabilitado = true;
+            _isCerrarHabilitado = false;
             _autoProductoAgregado = "";
             _isAgregarEditarOk = false;
             miData.Limpiar();
+            _gestionCodAlterno.Limpiar();
         }
 
         bool IGestion.CargarData()
@@ -500,6 +507,8 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             }
             miData.setFicha(r0A.Entidad);
 
+            _gestionCodAlterno.CargarData(r0A.Entidad.CodigosAlterno);
+
             return rt;
         }
 
@@ -559,6 +568,13 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 plu = _plu,
                 diasEmpaque = _diasEmpaque,
             };
+            var codAlterno = new List<OOB.LibInventario.Producto.Editar.Actualizar.FichaCodigoAlterno>();
+            foreach (var rg in _gestionCodAlterno.ListaCodigos)
+            {
+                codAlterno.Add(new OOB.LibInventario.Producto.Editar.Actualizar.FichaCodigoAlterno() { Codigo = rg.codigo });
+            }
+            ficha.codigosAlterno = codAlterno;
+
             var r01 = Sistema.MyData.Producto_Editar_Actualizar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {
@@ -646,6 +662,22 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         public void ListaPlu()
         {
             _gestionPlu.Inicia();
+        }
+
+
+        public void AgregarCodigoAlterno()
+        {
+            _gestionCodAlterno.Agregar(CodigoAlterno);
+        }
+
+        public void EliminarCodigoAlterno()
+        {
+            _gestionCodAlterno.Eliminar();
+        }
+
+        public BindingSource SourceCodAlterno
+        {
+            get {  return _gestionCodAlterno.Source; }
         }
 
     }

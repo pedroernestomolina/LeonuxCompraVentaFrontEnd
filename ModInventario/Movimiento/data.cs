@@ -60,18 +60,6 @@ namespace ModInventario.Movimiento
                 return false;
             }
 
-            if (IdDepOrigen == "")
-            {
-                Helpers.Msg.Error("[ Sucursal Origen ] No Seleccionada");
-                return false;
-            }
-
-            if (IdDepDestino == "")
-            {
-                Helpers.Msg.Error("[ Sucursal Destino ] No Seleccionada");
-                return false;
-            }
-
             if (detalle.ListaItems.Count == 0) 
             {
                 Helpers.Msg.Error("No Hay Items En El Documento ");

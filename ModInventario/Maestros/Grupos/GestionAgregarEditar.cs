@@ -22,10 +22,12 @@ namespace ModInventario.Maestros.Grupos
         public bool IsAgregarEditarOk { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
+        public bool IsCerrarOk { get; set; }
 
 
         public GestionAgregarEditar()
         {
+            IsCerrarOk = false;
             Modo = enumModo.SinDefinir;
             LimpiarEntradas();
         }
@@ -49,6 +51,7 @@ namespace ModInventario.Maestros.Grupos
 
         private void LimpiarEntradas()
         {
+            IsCerrarOk = false;
             IsAgregarEditarOk = false;
             Nombre = "";
             Codigo = "";
@@ -90,6 +93,7 @@ namespace ModInventario.Maestros.Grupos
                         return;
                     }
                     IsAgregarEditarOk = true;
+                    IsCerrarOk = true;
                 }
             }
             if (Modo == enumModo.Editar)
@@ -110,6 +114,7 @@ namespace ModInventario.Maestros.Grupos
                         return;
                     }
                     IsAgregarEditarOk = true;
+                    IsCerrarOk = true;
                 }
             }
         }
@@ -137,6 +142,12 @@ namespace ModInventario.Maestros.Grupos
                 frm.setTitulo("Editar Grupo:");
                 frm.ShowDialog();
             }
+        }
+
+        public bool AbandonarDocumento()
+        {
+            var msg = MessageBox.Show("Abandonar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            return (msg == DialogResult.Yes);
         }
 
     }

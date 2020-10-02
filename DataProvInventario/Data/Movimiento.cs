@@ -688,6 +688,57 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Movimiento.Lista.Ficha> Producto_Movimiento_GetLista(OOB.LibInventario.Movimiento.Lista.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Movimiento.Lista.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Movimiento.Lista.Filtro()
+            {
+                Desde = filtro.Desde,
+                Hasta = filtro.Hasta,
+                TipoDocumento =  (DtoLibInventario.Movimiento.enumerados.EnumTipoDocumento) filtro.TipoDocumento,
+                IdSucursal= filtro.idSucursal,
+            };
+            var r01 = MyData.Producto_Movimiento_GetLista(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Movimiento.Lista.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Movimiento.Lista.Ficha()
+                        {
+                            autoId = s.autoId,
+                            fecha = s.fecha,
+                            hora = s.hora,
+                            docConcepto = s.docConcepto,
+                            docMonto = s.docMonto,
+                            docMotivo = s.docMotivo,
+                            docNro = s.docNro,
+                            docRenglones = s.docRenglones,
+                            docSituacion = s.docSituacion,
+                            docSucursal = s.docSucursal,
+                            docTipo = (OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento)s.docTipo,
+                            estacion = s.estacion,
+                            isDocAnulado = s.isDocAnulado,
+                            usuario = s.usuario,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

@@ -25,6 +25,7 @@ namespace OOB.LibInventario.Visor.Existencia
         public decimal nivelOptimo { get; set; }
         public string decimales { get; set; }
         public string esPesado { get; set; }
+        public string estatus { get; set; }
 
     }
 

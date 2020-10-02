@@ -82,6 +82,7 @@ namespace ModInventario.Visor.CostoEdad
 
             var c5 = new DataGridViewTextBoxColumn();
             c5.DataPropertyName = "CntFisica";
+            c5.Name = "CntFisica";
             c5.HeaderText = "Cnt/Fisica";
             c5.Visible = true;
             c5.Width = 80;
@@ -155,6 +156,22 @@ namespace ModInventario.Visor.CostoEdad
             c8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //c8.DefaultCellStyle.Format = _controlador.Decimales;
 
+            var c5D = new DataGridViewTextBoxColumn();
+            c5D.DataPropertyName = "ExFisica";
+            c5D.Name = "Cnt";
+            c5D.HeaderText = "";
+            c5D.Visible = false;
+            c5D.Width = 0;
+
+            var c2A = new DataGridViewTextBoxColumn();
+            c2A.Name = "Estatus";
+            c2A.DataPropertyName = "Estatus";
+            c2A.HeaderText = " ";
+            c2A.Visible = true;
+            c2A.HeaderCell.Style.Font = f;
+            c2A.DefaultCellStyle.Font = f1;
+            c2A.Width = 10;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
@@ -167,8 +184,9 @@ namespace ModInventario.Visor.CostoEdad
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
+            DGV.Columns.Add(c5D);
+            DGV.Columns.Add(c2A);
         }
-
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
@@ -283,6 +301,34 @@ namespace ModInventario.Visor.CostoEdad
         private void L_FILTRAR_Click(object sender, EventArgs e)
         {
             CB_FILTRO.SelectedIndex = -1;
+        }
+
+        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                if ((int)row.Cells["estatus"].Value == 1)
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Green;
+                    row.Cells["Estatus"].Style.ForeColor = Color.Green;
+                }
+                else if ((int)row.Cells["estatus"].Value == 2)
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Orange;
+                    row.Cells["Estatus"].Style.ForeColor = Color.Orange;
+                }
+                else
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Red;
+                    row.Cells["Estatus"].Style.ForeColor = Color.Red;
+                }
+
+                if ((decimal)row.Cells["Cnt"].Value < 0)
+                {
+                    row.Cells["CntFisica"].Style.BackColor = Color.Red;
+                    row.Cells["CntFisica"].Style.ForeColor = Color.White;
+                }
+            }
         }
 
     }

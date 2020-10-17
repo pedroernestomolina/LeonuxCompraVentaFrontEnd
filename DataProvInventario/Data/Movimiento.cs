@@ -202,6 +202,7 @@ namespace DataProvInventario.Data
                 total = s.total,
                 usuario = s.usuario,
                 usuarioCodigo = s.usuarioCodigo,
+                nombreDocumento = s.nombreDocumento,
             };
             var det = s.detalles.Select(ss =>
             {
@@ -213,6 +214,11 @@ namespace DataProvInventario.Data
                     descripcion = ss.descripcion,
                     importe = ss.importe,
                     signo = ss.signo,
+                    cantidadUnd = ss.cantidadUnd,
+                    contenido = ss.contenido,
+                    empaque = ss.empaque,
+                    esUnidad = ss.esUnidad,
+                    decimales = ss.decimales,
                 };
                 return dt;
             }).ToList();
@@ -735,6 +741,106 @@ namespace DataProvInventario.Data
                 }
             }
             rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_Movimiento_Cargo_Anular(OOB.LibInventario.Movimiento.Anular.Cargo.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Anular.Cargo.Ficha()
+            {
+                autoDocumento = ficha.autoDocumento,
+                autoSistemaDocumento = ficha.autoSistemaDocumento,
+                autoUsuario = ficha.autoUsuario,
+                codigo = ficha.codigoUsuario,
+                estacion = ficha.estacion,
+                motivo = ficha.motivo,
+                usuario = ficha.nombreUsuario,
+            };
+            var r01 = MyData.Producto_Movimiento_Cargo_Anular(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_Movimiento_Descargo_Anular(OOB.LibInventario.Movimiento.Anular.Descargo.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Anular.Descargo.Ficha()
+            {
+                autoDocumento = ficha.autoDocumento,
+                autoSistemaDocumento = ficha.autoSistemaDocumento,
+                autoUsuario = ficha.autoUsuario,
+                codigo = ficha.codigoUsuario,
+                estacion = ficha.estacion,
+                motivo = ficha.motivo,
+                usuario = ficha.nombreUsuario,
+            };
+            var r01 = MyData.Producto_Movimiento_Descargo_Anular(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_Movimiento_Traslado_Anular(OOB.LibInventario.Movimiento.Anular.Traslado.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Anular.Traslado.Ficha()
+            {
+                autoDocumento = ficha.autoDocumento,
+                autoSistemaDocumento = ficha.autoSistemaDocumento,
+                autoUsuario = ficha.autoUsuario,
+                codigo = ficha.codigoUsuario,
+                estacion = ficha.estacion,
+                motivo = ficha.motivo,
+                usuario = ficha.nombreUsuario,
+            };
+            var r01 = MyData.Producto_Movimiento_Traslado_Anular(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Producto_Movimiento_Ajuste_Anular(OOB.LibInventario.Movimiento.Anular.Ajuste.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Anular.Ajuste.Ficha()
+            {
+                autoDocumento = ficha.autoDocumento,
+                autoSistemaDocumento = ficha.autoSistemaDocumento,
+                autoUsuario = ficha.autoUsuario,
+                codigo = ficha.codigoUsuario,
+                estacion = ficha.estacion,
+                motivo = ficha.motivo,
+                usuario = ficha.nombreUsuario,
+            };
+            var r01 = MyData.Producto_Movimiento_Ajuste_Anular(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
 
             return rt;
         }

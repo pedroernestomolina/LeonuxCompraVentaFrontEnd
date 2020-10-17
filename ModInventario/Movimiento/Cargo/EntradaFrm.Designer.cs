@@ -60,6 +60,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel53 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.L_EXISTENCIA = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -94,10 +98,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.L_EMP_COMPRA = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.L_EXISTENCIA = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -118,6 +118,8 @@
             this.panel54.SuspendLayout();
             this.panel52.SuspendLayout();
             this.panel53.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel26.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -138,8 +140,6 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -341,7 +341,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel4.Controls.Add(this.panel63, 4, 1);
             this.tableLayoutPanel4.Controls.Add(this.panel61, 3, 1);
             this.tableLayoutPanel4.Controls.Add(this.panel60, 2, 1);
@@ -533,6 +533,49 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Adm \r\nDivisa";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.label8);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(329, 1);
+            this.panel25.Margin = new System.Windows.Forms.Padding(1);
+            this.panel25.Name = "panel25";
+            this.panel25.Padding = new System.Windows.Forms.Padding(2);
+            this.panel25.Size = new System.Drawing.Size(75, 42);
+            this.panel25.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Location = new System.Drawing.Point(2, 2);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 38);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Existencia Depósito";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.L_EXISTENCIA);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(329, 45);
+            this.panel26.Margin = new System.Windows.Forms.Padding(1);
+            this.panel26.Name = "panel26";
+            this.panel26.Padding = new System.Windows.Forms.Padding(2);
+            this.panel26.Size = new System.Drawing.Size(75, 22);
+            this.panel26.TabIndex = 14;
+            // 
+            // L_EXISTENCIA
+            // 
+            this.L_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_EXISTENCIA.Location = new System.Drawing.Point(2, 2);
+            this.L_EXISTENCIA.Name = "L_EXISTENCIA";
+            this.L_EXISTENCIA.Size = new System.Drawing.Size(71, 18);
+            this.L_EXISTENCIA.TabIndex = 2;
+            this.L_EXISTENCIA.Text = "99/99/9999";
+            this.L_EXISTENCIA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel8
             // 
@@ -958,49 +1001,6 @@
             this.L_EMP_COMPRA.Text = "Emp/Compra:";
             this.L_EMP_COMPRA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.label8);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(329, 1);
-            this.panel25.Margin = new System.Windows.Forms.Padding(1);
-            this.panel25.Name = "panel25";
-            this.panel25.Padding = new System.Windows.Forms.Padding(2);
-            this.panel25.Size = new System.Drawing.Size(75, 42);
-            this.panel25.TabIndex = 13;
-            // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.L_EXISTENCIA);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(329, 45);
-            this.panel26.Margin = new System.Windows.Forms.Padding(1);
-            this.panel26.Name = "panel26";
-            this.panel26.Padding = new System.Windows.Forms.Padding(2);
-            this.panel26.Size = new System.Drawing.Size(75, 22);
-            this.panel26.TabIndex = 14;
-            // 
-            // label8
-            // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(2, 2);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 38);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Existencia Depósito";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // L_EXISTENCIA
-            // 
-            this.L_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_EXISTENCIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_EXISTENCIA.Location = new System.Drawing.Point(2, 2);
-            this.L_EXISTENCIA.Name = "L_EXISTENCIA";
-            this.L_EXISTENCIA.Size = new System.Drawing.Size(71, 18);
-            this.L_EXISTENCIA.TabIndex = 2;
-            this.L_EXISTENCIA.Text = "99/99/9999";
-            this.L_EXISTENCIA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // EntradaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,6 +1032,8 @@
             this.panel54.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel53.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -1054,8 +1056,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

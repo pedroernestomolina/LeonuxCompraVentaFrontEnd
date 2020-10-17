@@ -261,6 +261,36 @@ namespace ModInventario
             _controlador.VisorCostoExistencia();
         }
 
+        private void TSM_REPORTE_MAESTRO_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            ReporteMaestroProductos();
+        }
+
+        private void ReporteMaestroProductos()
+        {
+            _controlador.ReporteMaestroProductos();
+        }
+
+        private void TSM_REPORTE_MAESTRO_INVENTARIO_Click(object sender, EventArgs e)
+        {
+            ReporteMaestroInventario();
+        }
+
+        private void ReporteMaestroInventario()
+        {
+            _controlador.ReporteMaestroInventario();
+        }
+
+        private void TSM_GRAFICA_TOP_30_Click(object sender, EventArgs e)
+        {
+            GraficaTop30();
+        }
+
+        private void GraficaTop30()
+        {
+            _controlador.GraficaTop30();
+        }
+
     }
 
 }

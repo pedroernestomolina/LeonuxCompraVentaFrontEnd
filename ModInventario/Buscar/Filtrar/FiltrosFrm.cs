@@ -66,6 +66,7 @@ namespace ModInventario.Buscar.Filtrar
             CB_OFERTA.DataSource = _controlador.SourceOferta;
             CB_ESTATUS.SelectedValue = _controlador.IdEstatus;
             CB_EXISTENCIA.SelectedIndex = -1;
+            CB_CATALOGO.SelectedIndex = -1;
             TB_PROVEEDOR.Focus();
         }
 
@@ -164,6 +165,15 @@ namespace ModInventario.Buscar.Filtrar
             }
         }
 
+        private void CB_CATALOGO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.IdCatalogo = "";
+            if (CB_CATALOGO.SelectedIndex != -1)
+            {
+                _controlador.IdCatalogo = CB_CATALOGO.SelectedItem.ToString();
+            }
+        }
+
         private void CB_OFERTA_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controlador.IdOferta = "";
@@ -227,6 +237,7 @@ namespace ModInventario.Buscar.Filtrar
                 CB_PESADO.SelectedIndex = -1;
                 CB_OFERTA.SelectedIndex = -1;
                 CB_EXISTENCIA.SelectedIndex = -1;
+                CB_CATALOGO.SelectedIndex = -1;
             }
         }
 
@@ -290,6 +301,11 @@ namespace ModInventario.Buscar.Filtrar
             CB_EXISTENCIA.SelectedIndex = -1;
         }
 
+        private void L_CATALOGO_Click(object sender, EventArgs e)
+        {
+            CB_CATALOGO.SelectedIndex = -1;
+        }
+
         private void BT_PROVEED_BUSCAR_Click(object sender, EventArgs e)
         {
             BuscarProveedor();
@@ -300,7 +316,8 @@ namespace ModInventario.Buscar.Filtrar
             _controlador.BuscarProveedor();
             TB_PROVEEDOR.Text = _controlador.NombreProveedor;
         }
-          
+
+             
     }
 
 }

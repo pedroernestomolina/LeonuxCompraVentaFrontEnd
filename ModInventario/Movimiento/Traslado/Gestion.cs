@@ -259,13 +259,13 @@ namespace ModInventario.Movimiento.Traslado
                 autoDepositoOrigen = miData.IdDepOrigen,
                 autoRemision = "",
                 autorizado = miData.AutorizadoPor,
-                autoUsuario = Sistema.UsuarioP.auto,
+                autoUsuario = Sistema.UsuarioP.autoUsu,
                 cierreFtp = "",
                 codConcepto = concepto.codigo,
                 codDepositoDestino = depDestino.codigo,
                 codDepositoOrigen = depOrigen.codigo,
                 codigoSucursal = sucursal.codigo,
-                codUsuario = Sistema.UsuarioP.codigo,
+                codUsuario = Sistema.UsuarioP.codigoUsu,
                 desConcepto = concepto.nombre,
                 desDepositoDestino = depDestino.nombre,
                 desDepositoOrigen = depOrigen.nombre,
@@ -278,7 +278,7 @@ namespace ModInventario.Movimiento.Traslado
                 situacion = "Procesado",
                 tipo = "03",
                 total = MontoMovimiento,
-                usuario = Sistema.UsuarioP.nombre,
+                usuario = Sistema.UsuarioP.nombreUsu,
             };
 
             var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
@@ -400,6 +400,11 @@ namespace ModInventario.Movimiento.Traslado
         public enumerados.enumTipoMovimiento EnumTipoMovimiento
         {
             get { return  enumerados.enumTipoMovimiento.Traslado; }
+        }
+
+        public void setFiltros(Buscar.Filtrar.data data)
+        {
+            _gestionBusquedaPrd.setFiltros(data);
         }
 
     }

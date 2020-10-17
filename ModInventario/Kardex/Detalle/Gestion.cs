@@ -94,7 +94,7 @@ namespace ModInventario.Kardex.Detalle
             lData.Clear();
             foreach (var reg in r01.Entidad.Data.OrderByDescending(o=>o.fecha).ThenByDescending(o=>o.hora).ToList()) 
             {
-                lData.Add(new data(reg));
+                lData.Add(new data(reg, ficha.decimales));
             }
             bs.CurrencyManager.Refresh();
 

@@ -277,8 +277,8 @@ namespace ModInventario.Producto.Costo.Editar
             var ficha = new OOB.LibInventario.Costo.Editar.Ficha()
             {
                 autoProducto = _autoPrd,
-                autoUsuario = Sistema.UsuarioP.auto,
-                codigoUsuario = Sistema.UsuarioP.codigo,
+                autoUsuario = Sistema.UsuarioP.autoUsu,
+                codigoUsuario = Sistema.UsuarioP.codigoUsu,
                 costoDivisa = CostoDivisa.EmpNeto,
                 costoFinal = CostoFinal.EmpNeto,
                 costoFinalUnd = CostoFinal.UndNeto,
@@ -291,7 +291,7 @@ namespace ModInventario.Producto.Costo.Editar
                 costoVario = CostoVario.EmpNeto,
                 costoVarioUnd = CostoVario.UndNeto,
                 estacion = Environment.MachineName,
-                nombreUsuario = Sistema.UsuarioP.nombre,
+                nombreUsuario = Sistema.UsuarioP.nombreUsu,
             };
             var historia = new OOB.LibInventario.Costo.Editar.FichaHistorica()
             {

@@ -125,9 +125,9 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
             var cA = new DataGridViewCheckBoxColumn();
             cA.DataPropertyName = "Disponible";
-            cA.HeaderText = "Disp";
+            cA.HeaderText = "Hay/Disp";
             cA.Visible = true;
-            cA.Width = 50;
+            cA.Width = 60;
             cA.HeaderCell.Style.Font = f;
             cA.DefaultCellStyle.Font = f1;
             cA.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;

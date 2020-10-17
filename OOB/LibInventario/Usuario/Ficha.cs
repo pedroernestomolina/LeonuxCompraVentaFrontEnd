@@ -11,9 +11,13 @@ namespace OOB.LibInventario.Usuario
     public class Ficha
     {
 
-        public string auto { get; set; }
-        public string nombre { get; set; }
-        public string codigo { get; set; }
+        public string autoUsu { get; set; }
+        public string autoGru { get; set; }
+        public string nombreUsu { get; set; }
+        public string apellidoUsu { get; set; }
+        public string codigoUsu { get; set; }
+        public string NombreGru { get; set; }
+        public bool isActivo { get; set; }
 
     }
 

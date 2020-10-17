@@ -13,6 +13,7 @@ namespace ModInventario.Administrador.Movimiento
     {
 
         private IGestionListaDetalle _gestionListaDetalle;
+        private Anular.Gestion _gestionAnular;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
         private BindingSource bsSucursal;
 
@@ -36,7 +37,9 @@ namespace ModInventario.Administrador.Movimiento
 
             LimpiarFiltros();
 
+            _gestionAnular = new Anular.Gestion();
             _gestionListaDetalle = new GestionListaDetalle();
+            _gestionListaDetalle.setGestionAnular(_gestionAnular);
         }
 
 
@@ -48,7 +51,7 @@ namespace ModInventario.Administrador.Movimiento
             {
                 frm = new AdministradorFrm();
                 frm.setControlador(this);
-                frm.ShowDialog();
+                frm.Show();
             }
         }
 
@@ -140,6 +143,16 @@ namespace ModInventario.Administrador.Movimiento
         public void LimpiarData()
         {
             _gestionListaDetalle.LimpiarData();
+        }
+
+        public void VisualizarDocumento()
+        {
+            _gestionListaDetalle.VisualizarDocumento();
+        }
+
+        public void Imprimir()
+        {
+            _gestionListaDetalle.Imprimir();
         }
 
     }

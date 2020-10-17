@@ -45,6 +45,7 @@ namespace ModInventario.Producto.AgregarEditar
         string Plu { get; set; }
         int DiasEmpaque { get; set; }
         string CodigoAlterno { get; set; }
+        bool ActivarCatlogo { get; set; }
 
 
         void SetFicha(string autoPrd);

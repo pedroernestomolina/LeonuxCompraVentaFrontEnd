@@ -61,6 +61,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,12 +92,20 @@
     <Compile Include="Administrador\Tomas\TomasFrm.Designer.cs">
       <DependentUpon>TomasFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Anular\AnularFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anular\AnularFrm.Designer.cs">
+      <DependentUpon>AnularFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Anular\Gestion.cs" />
     <Compile Include="Buscar\BusquedaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Buscar\BusquedaFrm.Designer.cs">
       <DependentUpon>BusquedaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Buscar\Filtrar\data.cs" />
     <Compile Include="Buscar\Filtrar\FiltrosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +122,14 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionInv.cs" />
+    <Compile Include="Graficas\data.cs" />
+    <Compile Include="Graficas\Gestion.cs" />
+    <Compile Include="Graficas\GraficaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graficas\GraficaFrm.Designer.cs">
+      <DependentUpon>GraficaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
@@ -435,17 +452,52 @@
     <Compile Include="Proveedor\Buscar\Gestion.cs" />
     <Compile Include="Proveedor\Buscar\Lista\data.cs" />
     <Compile Include="Proveedor\Buscar\Lista\Gestion.cs" />
+    <Compile Include="Reportes\Documentos\data.cs" />
+    <Compile Include="Reportes\Documentos\dataDetalle.cs" />
     <Compile Include="Reportes\Documentos\dsDocumento.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDocumento.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Documentos\MovimientoTraslado.cs" />
+    <Compile Include="Reportes\Documentos\Movimiento.cs" />
+    <Compile Include="Reportes\Filtros\data.cs" />
+    <Compile Include="Reportes\Filtros\DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Filtros\FiltrosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Filtros\FiltrosFrm.Designer.cs">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Filtros\Gestion.cs" />
+    <Compile Include="Reportes\Filtros\IFiltros.cs" />
+    <Compile Include="Reportes\Filtros\MaestroInventario\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\MaestroInventario\GestionRep.cs" />
+    <Compile Include="Reportes\Filtros\MaestroProducto\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\MaestroProducto\GestionRep.cs" />
+    <Compile Include="Reportes\Movimientos\data.cs" />
+    <Compile Include="Reportes\Movimientos\DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Movimientos\gestionRep.cs" />
     <Compile Include="Reportes\ReporteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\ReporteFrm.Designer.cs">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Enumerados.cs" />
+    <Compile Include="Seguridad\Gestion.cs" />
+    <Compile Include="Seguridad\SeguridadFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\SeguridadFrm.Designer.cs">
+      <DependentUpon>SeguridadFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema.cs" />
     <Compile Include="Tool\AjusteNivelMinimoMaximoProducto\AjustarFrm.cs">
@@ -510,6 +562,9 @@
     <EmbeddedResource Include="Administrador\Tomas\TomasFrm.resx">
       <DependentUpon>TomasFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Anular\AnularFrm.resx">
+      <DependentUpon>AnularFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscar\BusquedaFrm.resx">
       <DependentUpon>BusquedaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -518,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graficas\GraficaFrm.resx">
+      <DependentUpon>GraficaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kardex\Detalle\DetalleFrm.resx">
       <DependentUpon>DetalleFrm.cs</DependentUpon>
@@ -646,8 +704,23 @@
     <EmbeddedResource Include="Reportes\Documentos\MovTraslado.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\MaestroInventario.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\MaestroProductos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Movimientos\Movimientos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteFrm.resx">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\SeguridadFrm.resx">
+      <DependentUpon>SeguridadFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tool\AjusteNivelMinimoMaximoProducto\AjustarFrm.resx">
       <DependentUpon>AjustarFrm.cs</DependentUpon>
@@ -715,6 +788,7 @@
     </Content>
     <Content Include="Imagenes\administrador.png" />
     <Content Include="Imagenes\automatizacion.jpg" />
+    <Content Include="Imagenes\bt_alerta.png" />
     <Content Include="Imagenes\bt_asignar.png" />
     <Content Include="Imagenes\bt_borrar.png" />
     <Content Include="Imagenes\bt_buscar.png" />
@@ -731,6 +805,7 @@
     <Content Include="Imagenes\bt_exchange_32.png" />
     <Content Include="Imagenes\bt_exchange_48.png" />
     <Content Include="Imagenes\bt_gestion.png" />
+    <Content Include="Imagenes\bt_grafico.png" />
     <Content Include="Imagenes\bt_guardar %282%29.png" />
     <Content Include="Imagenes\bt_guardar.png" />
     <Content Include="Imagenes\bt_historico_32.png" />
@@ -738,6 +813,7 @@
     <Content Include="Imagenes\bt_imagen_2.png" />
     <Content Include="Imagenes\bt_imprimir.png" />
     <Content Include="Imagenes\bt_imprimir_2.png" />
+    <Content Include="Imagenes\bt_imprimir_3.png" />
     <Content Include="Imagenes\bt_limpiar_2.png" />
     <Content Include="Imagenes\bt_limpiar_3.png" />
     <Content Include="Imagenes\bt_lista.png" />
@@ -745,6 +821,8 @@
     <Content Include="Imagenes\bt_mov.png" />
     <Content Include="Imagenes\bt_mov_2.png" />
     <Content Include="Imagenes\bt_notificacion.png" />
+    <Content Include="Imagenes\bt_ok_2.png" />
+    <Content Include="Imagenes\bt_ok_3.png" />
     <Content Include="Imagenes\bt_price.png" />
     <Content Include="Imagenes\bt_proceso.png" />
     <Content Include="Imagenes\bt_proveedor.png" />
@@ -774,6 +852,28 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Reportes\Filtros\DS.xsc">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Filtros\DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Filtros\DS.xss">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Movimientos\DS.xsc">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Movimientos\DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Movimientos\DS.xss">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Machine-learning-1024x682.jpg" />
     <None Include="Resources\transferencia.png" />
     <None Include="Resources\administrador.png" />
@@ -788,6 +888,11 @@
     <None Include="Resources\bt_borrar.png" />
     <None Include="Resources\bt_limpiar_3.png" />
     <None Include="Resources\bt_documento.png" />
+    <None Include="Resources\bt_alerta.png" />
+    <None Include="Resources\bt_ok_2.png" />
+    <None Include="Resources\bt_ok_3.png" />
+    <None Include="Resources\bt_grafico.png" />
+    <None Include="Resources\bt_imprimir_3.png" />
     <Content Include="Resources\bt_setup.png" />
     <None Include="Resources\libro.png" />
     <None Include="Resources\carpeta.png" />

@@ -94,6 +94,7 @@ namespace DataProvInventario.Data
                 existencia = s.existencia,
                 nombreProducto = s.nombreProducto,
                 referenciaProducto = s.referenciaProducto,
+                decimales = s.decimales,
             };
             var lst = s.Data.Select(ss =>
             {

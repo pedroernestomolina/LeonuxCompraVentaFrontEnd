@@ -14,6 +14,7 @@ namespace ModInventario.Movimiento
 
 
         private IGestion miGestion;
+        private Buscar.Filtrar.Gestion _gestionFiltroBusqueda;
 
 
         public enumerados.enumTipoMovimiento EnumTipoMovimiento { get { return miGestion.EnumTipoMovimiento; } }
@@ -41,6 +42,7 @@ namespace ModInventario.Movimiento
 
         public Gestion()
         {
+            _gestionFiltroBusqueda = new Buscar.Filtrar.Gestion();
         }
 
 
@@ -108,6 +110,15 @@ namespace ModInventario.Movimiento
         public bool AbandonarDocumento()
         {
             return miGestion.AbandonarDocumento();
+        }
+
+        public void Filtrar()
+        {
+            _gestionFiltroBusqueda.Inicia(false);
+            if (_gestionFiltroBusqueda.IsFiltrarOk)
+            {
+                miGestion.setFiltros(_gestionFiltroBusqueda.FiltrosSeleccionados);
+            }
         }
 
     }

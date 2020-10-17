@@ -28,6 +28,7 @@ namespace OOB.LibInventario.Producto
         public Enumerados.EnumCategoria categoria { get; set; }
         public Enumerados.EnumAdministradorPorDivisa admPorDivisa { get; set; }
         public Enumerados.EnumPesado pesado { get; set; }
+        public Enumerados.EnumCatalogo catalogo { get; set; }
         public Enumerados.EnumOferta oferta { get; set; }
         public Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
 
@@ -52,9 +53,35 @@ namespace OOB.LibInventario.Producto
             categoria = Enumerados.EnumCategoria.SnDefinir;
             admPorDivisa = Enumerados.EnumAdministradorPorDivisa.SnDefinir;
             pesado = Enumerados.EnumPesado.SnDefinir;
+            catalogo = Enumerados.EnumCatalogo.SnDefinir;
             oferta = Enumerados.EnumOferta.SnDefinir;
             MetodoBusqueda = Enumerados.EnumMetodoBusqueda.SnDefinir;
             existencia = Existencia.SinDefinir;
+        }
+
+        public bool BusquedaOk 
+        {
+            get
+            {
+                var rt = false;
+                if (cadena != "")
+                    return true;
+                if (autoProducto != "")
+                    return true;
+                if (autoDepartamento != "")
+                    return true;
+                if (autoGrupo != "")
+                    return true;
+                if (autoMarca != "")
+                    return true;
+                if (autoDeposito != "")
+                    return true;
+                if (autoTasa!= "")
+                    return true;
+                if (autoProveedor != "")
+                    return true;
+                return rt;
+            }
         }
 
     }

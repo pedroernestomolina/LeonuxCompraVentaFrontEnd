@@ -59,10 +59,11 @@
     <Compile Include="Data\Kardex.cs" />
     <Compile Include="Data\Marca.cs" />
     <Compile Include="Data\Movimiento.cs" />
+    <Compile Include="Data\Permisos.cs" />
     <Compile Include="Data\Precio.cs" />
     <Compile Include="Data\Producto.cs" />
     <Compile Include="Data\Proveedor.cs" />
-    <Compile Include="Data\ReporteMovimientos.cs" />
+    <Compile Include="Data\Reportes.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\TasaImpuesto.cs" />
     <Compile Include="Data\Tool.cs" />
@@ -79,10 +80,11 @@
     <Compile Include="InfraEstructura\IKardex.cs" />
     <Compile Include="InfraEstructura\IMarca.cs" />
     <Compile Include="InfraEstructura\IMovimiento.cs" />
+    <Compile Include="InfraEstructura\IPermisos.cs" />
     <Compile Include="InfraEstructura\IPrecio.cs" />
     <Compile Include="InfraEstructura\IProducto.cs" />
     <Compile Include="InfraEstructura\IProveedor.cs" />
-    <Compile Include="InfraEstructura\IReporteMovimientos.cs" />
+    <Compile Include="InfraEstructura\IReportes.cs" />
     <Compile Include="InfraEstructura\ISucursal.cs" />
     <Compile Include="InfraEstructura\ITasaImpuesto.cs" />
     <Compile Include="InfraEstructura\ITool.cs" />

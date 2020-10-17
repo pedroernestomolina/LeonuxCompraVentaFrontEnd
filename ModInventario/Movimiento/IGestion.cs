@@ -44,6 +44,7 @@ namespace ModInventario.Movimiento
         void EditarItem();
         void Procesar();
         bool AbandonarDocumento();
+        void setFiltros(Buscar.Filtrar.data data);
 
     }
 

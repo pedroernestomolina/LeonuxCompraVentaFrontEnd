@@ -193,6 +193,7 @@ namespace ModInventario.Buscar
             L_ESTATUS.Text = _controlador.Item.Estatus;
             L_DIVISA.Text = _controlador.Item.Divisa;
             L_OFERTA.Text = _controlador.Item.EstatusOferta;
+            L_CATALOGO.Text = _controlador.Item.ActivarCatalogo;
 
             L_PESADO.Text = _controlador.Item.Pesado;
             L_FECHA_ALTA.Text = _controlador.Item.FechaAlta.ToShortDateString();
@@ -211,6 +212,7 @@ namespace ModInventario.Buscar
             L_CATEGORIA.Text = "";
             L_ORIGEN.Text = "";
             L_ESTATUS.Text = "";
+            L_CATALOGO.Text = "";
             L_DIVISA.Text = "";
             L_PESADO.Text = "";
             L_OFERTA.Text = "";

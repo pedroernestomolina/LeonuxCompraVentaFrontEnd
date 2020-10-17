@@ -10,8 +10,6 @@ namespace ModInventario.Producto.AgregarEditar.CodAlterno
     
     public class data
     {
-        private string CodigoAlterno;
-
 
         public string codigo { get; set; }
 

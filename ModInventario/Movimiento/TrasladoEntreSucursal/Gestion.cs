@@ -257,13 +257,13 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 autoDepositoOrigen = sucOrigen.autoDepositoPrincipal ,
                 autoRemision = "",
                 autorizado = miData.AutorizadoPor,
-                autoUsuario = Sistema.UsuarioP.auto,
+                autoUsuario = Sistema.UsuarioP.autoUsu,
                 cierreFtp = "",
                 codConcepto = concepto.codigo,
                 codDepositoDestino = sucDestino.codigoDepositoPrincipal ,
                 codDepositoOrigen = sucOrigen.codigoDepositoPrincipal ,
                 codigoSucursal = sucOrigen.codigo,
-                codUsuario = Sistema.UsuarioP.codigo,
+                codUsuario = Sistema.UsuarioP.codigoUsu,
                 desConcepto = concepto.nombre,
                 desDepositoDestino = sucDestino.nombreDepositoPrincipal ,
                 desDepositoOrigen = sucOrigen.nombreDepositoPrincipal ,
@@ -276,7 +276,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 situacion = "Procesado",
                 tipo = "03",
                 total = MontoMovimiento,
-                usuario = Sistema.UsuarioP.nombre,
+                usuario = Sistema.UsuarioP.nombreUsu,
             };
 
             var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
@@ -455,6 +455,10 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         public BindingSource DetalleSouce
         {
             get { return _gestionDetalle.Souce; } 
+        }
+
+        public void setFiltros(Buscar.Filtrar.data data)
+        {
         }
 
     }

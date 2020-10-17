@@ -425,6 +425,16 @@ namespace ModInventario.Movimiento
             }
         }
 
+        private void BT_FILTRAR_Click(object sender, EventArgs e)
+        {
+            Filtrar();
+        }
+
+        private void Filtrar()
+        {
+            _controlador.Filtrar();
+        }
+
     }
 
 }

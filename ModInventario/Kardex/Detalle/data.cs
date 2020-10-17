@@ -15,7 +15,7 @@ namespace ModInventario.Kardex.Detalle
         private OOB.LibInventario.Kardex.Movimiento.Detalle.Data reg;
         private decimal precioCosto;
         private string estatus;
-
+        private string decimales;
 
 
         public string FechaHora { get { return reg.fecha.ToShortDateString() + "/" + reg.hora; } }
@@ -23,13 +23,14 @@ namespace ModInventario.Kardex.Detalle
         public string Documento { get { return reg.documento; } }
         public string Entidad { get { return reg.entidad; } }
         public decimal PrecioCosto { get { return precioCosto; } }
-        public string CntInventario { get { return reg.cantidadUnd.ToString(); } }
+        public string SCntInventario { get { return reg.cantidadUnd.ToString("n"+decimales); } }
         public string Nota { get { return reg.nota; } }
         public string Estatus { get { return estatus; } }
 
 
-        public data(OOB.LibInventario.Kardex.Movimiento.Detalle.Data reg)
+        public data(OOB.LibInventario.Kardex.Movimiento.Detalle.Data reg, string decimales)
         {
+            this.decimales = decimales;
             this.reg = reg;
             precioCosto = reg.costoUnd;
             estatus = "OK";

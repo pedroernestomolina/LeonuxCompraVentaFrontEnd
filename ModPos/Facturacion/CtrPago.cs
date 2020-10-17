@@ -100,7 +100,7 @@ namespace ModPos.Facturacion
             {
                 seguir = false;
             }
-            if (_permisos.DarDesctoGlobal.RequiereClave== OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave)
+            if (_permisos.DarDesctoGlobal.RequiereClave == OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.PedirClave)
             {
                 seguir = _seguridad.SolicitarClave();
             }
@@ -112,9 +112,9 @@ namespace ModPos.Facturacion
 
         public bool ActivarCredito() 
         {
-            var rt = false;
+            var rt = true;
 
-            var seguir = true;
+            var seguir = false;
             switch (_permisos.CtaCredito.RequiereClave)
             {
                 case OOB.LibVenta.PosOffline.Permiso.Pos.Permiso.EnumAcceso.SinAcceso:

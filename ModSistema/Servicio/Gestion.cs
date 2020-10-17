@@ -44,8 +44,7 @@ namespace ModSistema.Servicio
 
         public void IniciaBD_Sucursal()
         {
-            Sucursal = "";
-            Equipo = "";
+            Limpiar();
             HabilitarEntrada = true;
             if (frm == null)
             {

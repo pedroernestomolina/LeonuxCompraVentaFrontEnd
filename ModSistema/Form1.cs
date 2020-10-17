@@ -16,11 +16,22 @@ namespace ModSistema
     {
 
         private Gestion _controlador;
+        private Timer timer;
 
 
         public Form1()
         {
             InitializeComponent();
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            var s = DateTime.Now;
+            L_FECHA.Text = s.ToLongDateString();
+            L_HORA.Text = s.ToLongTimeString();
         }
 
         public void setControlador(Gestion ctr)
@@ -45,8 +56,11 @@ namespace ModSistema
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            timer.Start();
             L_VERSION.Text = _controlador.Version;
             L_HOST.Text = _controlador.Host;
+            L_FECHA.Text = "";
+            L_HORA.Text = "";
         }
 
         private void TSM_MAESTRO_SucursalGrupo_Click(object sender, EventArgs e)

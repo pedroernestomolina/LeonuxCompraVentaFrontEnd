@@ -81,9 +81,9 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BT_IMPRIMIR = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BT_VISUALIZAR = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.BT_ANULAR = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -432,6 +432,7 @@
             this.BT_LIMPIAR_FILTROS.Name = "BT_LIMPIAR_FILTROS";
             this.BT_LIMPIAR_FILTROS.Size = new System.Drawing.Size(37, 26);
             this.BT_LIMPIAR_FILTROS.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_LIMPIAR_FILTROS, "Limpiar Filtros Busqueda");
             this.BT_LIMPIAR_FILTROS.UseVisualStyleBackColor = true;
             this.BT_LIMPIAR_FILTROS.Click += new System.EventHandler(this.BT_LIMPIAR_FILTROS_Click);
             // 
@@ -821,7 +822,7 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.button5);
+            this.panel12.Controls.Add(this.BT_IMPRIMIR);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(52, 34);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
@@ -830,22 +831,24 @@
             this.panel12.Size = new System.Drawing.Size(49, 32);
             this.panel12.TabIndex = 4;
             // 
-            // button5
+            // BT_IMPRIMIR
             // 
-            this.button5.BackgroundImage = global::ModInventario.Properties.Resources.bt_imprimir_2;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(2, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(45, 28);
-            this.button5.TabIndex = 1;
-            this.button5.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.BackgroundImage = global::ModInventario.Properties.Resources.bt_imprimir_2;
+            this.BT_IMPRIMIR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_IMPRIMIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_IMPRIMIR.FlatAppearance.BorderSize = 0;
+            this.BT_IMPRIMIR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_IMPRIMIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_IMPRIMIR.Name = "BT_IMPRIMIR";
+            this.BT_IMPRIMIR.Size = new System.Drawing.Size(45, 28);
+            this.BT_IMPRIMIR.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_IMPRIMIR, "Generar Reporte Vista Actual");
+            this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.button4);
+            this.panel11.Controls.Add(this.BT_VISUALIZAR);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(1, 34);
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
@@ -854,18 +857,20 @@
             this.panel11.Size = new System.Drawing.Size(49, 32);
             this.panel11.TabIndex = 3;
             // 
-            // button4
+            // BT_VISUALIZAR
             // 
-            this.button4.BackgroundImage = global::ModInventario.Properties.Resources.bt_documento;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(2, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(45, 28);
-            this.button4.TabIndex = 1;
-            this.button4.UseVisualStyleBackColor = true;
+            this.BT_VISUALIZAR.BackgroundImage = global::ModInventario.Properties.Resources.bt_documento;
+            this.BT_VISUALIZAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_VISUALIZAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_VISUALIZAR.FlatAppearance.BorderSize = 0;
+            this.BT_VISUALIZAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_VISUALIZAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_VISUALIZAR.Name = "BT_VISUALIZAR";
+            this.BT_VISUALIZAR.Size = new System.Drawing.Size(45, 28);
+            this.BT_VISUALIZAR.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_VISUALIZAR, "Visualizar Documento");
+            this.BT_VISUALIZAR.UseVisualStyleBackColor = true;
+            this.BT_VISUALIZAR.Click += new System.EventHandler(this.BT_VISUALIZAR_Click);
             // 
             // panel10
             // 
@@ -939,6 +944,7 @@
             this.BT_LIMPIAR_DATA.Name = "BT_LIMPIAR_DATA";
             this.BT_LIMPIAR_DATA.Size = new System.Drawing.Size(45, 27);
             this.BT_LIMPIAR_DATA.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.BT_LIMPIAR_DATA, "Limpiar Vista Actual");
             this.BT_LIMPIAR_DATA.UseVisualStyleBackColor = true;
             this.BT_LIMPIAR_DATA.Click += new System.EventHandler(this.BT_LIMPIAR_DATA_Click);
             // 
@@ -1102,8 +1108,8 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BT_IMPRIMIR;
+        private System.Windows.Forms.Button BT_VISUALIZAR;
         private System.Windows.Forms.Button BT_ANULAR;
         private System.Windows.Forms.Button BT_LIMPIAR_DATA;
         private System.Windows.Forms.Panel panel14;

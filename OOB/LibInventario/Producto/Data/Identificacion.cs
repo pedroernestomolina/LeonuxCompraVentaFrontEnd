@@ -41,6 +41,7 @@ namespace OOB.LibInventario.Producto.Data
         public string comentarios { get; set; }
         public string advertencia { get; set; }
         public string presentacion { get; set; }
+        public Enumerados.EnumCatalogo activarCatalogo { get; set; }
 
 
         public Identificacion()
@@ -76,6 +77,7 @@ namespace OOB.LibInventario.Producto.Data
             comentarios = "";
             advertencia = "";
             presentacion = "";
+            activarCatalogo = Enumerados.EnumCatalogo.SnDefinir;
         }
 
 

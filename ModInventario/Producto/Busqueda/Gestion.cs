@@ -12,6 +12,7 @@ namespace ModInventario.Producto.Busqueda
     {
 
 
+        private OOB.LibInventario.Producto.Filtro filtros;
         private OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda metodoBusqueda;
         private string cadenaBusq;
         private List<OOB.LibInventario.Producto.Data.Ficha> result;
@@ -25,6 +26,7 @@ namespace ModInventario.Producto.Busqueda
 
         public Gestion() 
         {
+            filtros = new OOB.LibInventario.Producto.Filtro();
             metodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.SnDefinir;
             cadenaBusq = "";
             result = new List<OOB.LibInventario.Producto.Data.Ficha>();
@@ -41,6 +43,7 @@ namespace ModInventario.Producto.Busqueda
 
         private void Limpiar()
         {
+            filtros.Limpiar();
             cadenaBusq = ""; 
             metodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.SnDefinir;
             result.Clear();
@@ -75,20 +78,17 @@ namespace ModInventario.Producto.Busqueda
         public void Buscar()
         {
             IsOk = false;
-            if (CadenaBusqueda.Trim() != "" && CadenaBusqueda.Trim()!="*")
-            {
+            filtros.cadena = CadenaBusqueda;
+            filtros.MetodoBusqueda = metodoBusqueda;
+            if (filtros.BusquedaOk)
                 RealizarBusqueda();
-            }
             CadenaBusqueda = "";
+            filtros.Limpiar();
         }
 
         private void RealizarBusqueda()
         {
-            var filtro = new OOB.LibInventario.Producto.Filtro();
-            filtro.cadena = CadenaBusqueda;
-            filtro.MetodoBusqueda = metodoBusqueda;
-
-            var r01 = Sistema.MyData.Producto_GetLista(filtro);
+            var r01 = Sistema.MyData.Producto_GetLista(filtros);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 IsOk = false;
@@ -97,6 +97,66 @@ namespace ModInventario.Producto.Busqueda
             IsOk = true;
             result.Clear();
             result.AddRange(r01.Lista);
+        }
+
+        private void CargarFiltros(ModInventario.Buscar.Filtrar.data data)
+        {
+            filtros.autoProveedor = data.AutoProveedor;
+            filtros.autoDepartamento = data.AutoDepartamento;
+            filtros.autoGrupo = data.AutoGrupo;
+            filtros.autoTasa = data.AutoTasa;
+            filtros.autoMarca = data.AutoMarca;
+            filtros.autoDeposito = data.AutoDeposito;
+            if (data.IdOrigen != "")
+            {
+                filtros.origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen)int.Parse(data.IdOrigen);
+            }
+            if (data.IdCategoria != "")
+            {
+                filtros.categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria)int.Parse(data.IdCategoria);
+            }
+            if (data.IdEstatus != "")
+            {
+                filtros.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)int.Parse(data.IdEstatus);
+            }
+            if (data.IdAdmDivisa != "")
+            {
+                filtros.admPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)int.Parse(data.IdAdmDivisa);
+            }
+            if (data.IdPesado != "")
+            {
+                filtros.pesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado)int.Parse(data.IdPesado);
+            }
+            if (data.IdCatalogo != "")
+            {
+                filtros.catalogo = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.No ;
+                if (data.IdCatalogo=="Si")
+                    filtros.catalogo = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.Si;
+            }
+            if (data.IdOferta != "")
+            {
+                filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(data.IdOferta);
+            }
+            if (data.IdExistencia != "")
+            {
+                switch (data.IdExistencia) 
+                {
+                    case "0":
+                        filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.MayorQueCero;
+                        break;
+                    case "1":
+                        filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.IgualCero;
+                        break;
+                    case "2":
+                        filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.MenorQueCero;
+                        break;
+                }
+            }
+        }
+
+        public void setFiltros(ModInventario.Buscar.Filtrar.data data)
+        {
+            CargarFiltros(data);
         }
 
     }

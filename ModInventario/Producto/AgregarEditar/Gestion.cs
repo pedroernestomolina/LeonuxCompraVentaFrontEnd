@@ -43,6 +43,7 @@ namespace ModInventario.Producto.AgregarEditar
         public int ContEmpProducto { get { return miGestion.ContEmpProducto; } set { miGestion.ContEmpProducto = value; } }
         public byte[] Imagen { get { return miGestion.Imagen; } set { miGestion.Imagen = value; } }
         public bool Pesado { get { return miGestion.Pesado; } set { miGestion.Pesado = value; } }
+        public bool ActivarCatlogo { get { return miGestion.ActivarCatlogo; } set { miGestion.ActivarCatlogo = value; } }
         public string Plu { get { return miGestion.Plu; } set { miGestion.Plu = value; } } 
         public int DiasEmpaque { get { return miGestion.DiasEmpaque; } set { miGestion.DiasEmpaque = value; } } 
 

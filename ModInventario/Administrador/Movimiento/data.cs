@@ -13,7 +13,7 @@ namespace ModInventario.Administrador.Movimiento
 
         private OOB.LibInventario.Movimiento.Lista.Ficha rg;
 
-
+        public OOB.LibInventario.Movimiento.Lista.Ficha Ficha { get { return rg; } }
         public string FechaHora { get { return rg.fecha.ToShortDateString() + ", " + rg.hora; } }
         public string DocumentoNro { get { return rg.docNro; } }
         public string Sucursal { get { return rg.docSucursal; } }

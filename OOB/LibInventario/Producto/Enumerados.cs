@@ -19,6 +19,7 @@ namespace OOB.LibInventario.Producto
         public enum EnumAdministradorPorDivisa { SnDefinir = -1, Si = 1, No };
         public enum EnumOferta { SnDefinir = -1, Si = 1, No };
         public enum EnumPesado { SnDefinir = -1, Si = 1, No };
+        public enum EnumCatalogo { SnDefinir = -1, Si = 1, No };
 
     }
 

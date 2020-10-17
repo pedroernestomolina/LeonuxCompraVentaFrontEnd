@@ -97,7 +97,7 @@ namespace ModPos.Facturacion
                 {
                     direcionFiscal_1 = nd.Substring(0, 40);
                     direcionFiscal_2 = nd.Substring(40, 40);
-                    direcionFiscal_3 = nd.Substring(80, ld);
+                    direcionFiscal_3 = nd.Substring(80);
                 }
                 if (nd.Length > 40 && nd.Length <=80)
                 {

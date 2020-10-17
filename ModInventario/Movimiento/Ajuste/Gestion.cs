@@ -236,13 +236,13 @@ namespace ModInventario.Movimiento.Ajuste
                 autoDepositoOrigen = miData.IdDepOrigen,
                 autoRemision = "",
                 autorizado = miData.AutorizadoPor,
-                autoUsuario = Sistema.UsuarioP.auto,
+                autoUsuario = Sistema.UsuarioP.autoUsu,
                 cierreFtp = "",
                 codConcepto = concepto.codigo,
                 codDepositoDestino = depOrigen.codigo,
                 codDepositoOrigen = depOrigen.codigo,
                 codigoSucursal = sucursal.codigo,
-                codUsuario = Sistema.UsuarioP.codigo,
+                codUsuario = Sistema.UsuarioP.codigoUsu,
                 desConcepto = concepto.nombre,
                 desDepositoDestino = depOrigen.nombre,
                 desDepositoOrigen = depOrigen.nombre,
@@ -255,7 +255,7 @@ namespace ModInventario.Movimiento.Ajuste
                 situacion = "Procesado",
                 tipo = "04",
                 total = MontoMovimiento,
-                usuario = Sistema.UsuarioP.nombre,
+                usuario = Sistema.UsuarioP.nombreUsu,
             };
 
             var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
@@ -365,6 +365,11 @@ namespace ModInventario.Movimiento.Ajuste
         public enumerados.enumTipoMovimiento EnumTipoMovimiento
         {
             get { return  enumerados.enumTipoMovimiento.Ajuste; }
+        }
+
+        public void setFiltros(Buscar.Filtrar.data data)
+        {
+            _gestionBusquedaPrd.setFiltros(data);
         }
 
     }

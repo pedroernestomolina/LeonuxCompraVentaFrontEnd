@@ -14,9 +14,10 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
 
         private GestionLista _gestionLista;
         private BindingSource bs_Deposito;
+        private BindingSource bs_Departamento;
         private List<OOB.LibInventario.Deposito.Ficha> lDeposito;
+        private List<OOB.LibInventario.Departamento.Ficha> lDepartamento;
         private OOB.LibInventario.Deposito.Ficha _deposito;
-        private string _autoDeposito;
 
 
         public bool IsLimpiarOk { get; set; }
@@ -24,14 +25,13 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         public bool ProcesoIsOk { get; set; }
         public bool SalirIsOk { get; set; } 
         public BindingSource _bsDeposito { get { return bs_Deposito; } }
+        public BindingSource _bsDepartamento { get { return bs_Departamento; } }
         public BindingSource Lista { get { return _gestionLista.Source; } }
         public string Items { get { return Lista.Count.ToString(); } }
+        public string AutoDeposito { get; set; }
+        public string AutoDepartamento { get; set; }
 
-        public string AutoDeposito 
-        {
-            get { return _autoDeposito ; }
-            set { _autoDeposito = value; }
-        }
+
         public string Deposito 
         { 
             get 
@@ -50,9 +50,17 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         public Gestion()
         {
             _gestionLista = new GestionLista();
+            AutoDeposito = "";
+            AutoDepartamento = "";
+
             lDeposito = new List<OOB.LibInventario.Deposito.Ficha>();
             bs_Deposito = new BindingSource();
             bs_Deposito.DataSource = lDeposito;
+            
+            lDepartamento = new List<OOB.LibInventario.Departamento.Ficha>();
+            bs_Departamento = new BindingSource();
+            bs_Departamento.DataSource = lDepartamento;
+
             _deposito = new OOB.LibInventario.Deposito.Ficha();
         }
 
@@ -63,6 +71,9 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             IsBuscarHabilitado = true;
             ProcesoIsOk = false;
             SalirIsOk = false;
+            AutoDeposito = "";
+            AutoDepartamento = "";
+
             if (CargarData()) 
             {
                 var frm = new AjusteNivelFrm();
@@ -81,8 +92,19 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+
+            var r02 = Sistema.MyData.Departamento_GetLista ();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+
             lDeposito.Clear();
             lDeposito.AddRange(r01.Lista);
+
+            lDepartamento.Clear();
+            lDepartamento.AddRange(r02.Lista);
 
             return rt;
         }
@@ -91,11 +113,13 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         {
             if (AutoDeposito == "") 
             {
+                Helpers.Msg.Error("DEPOSITO NO SELECCIONADO");
                 return;
             }
 
             var filtro= new OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar.Filtro();
             filtro.autoDeposito=AutoDeposito;
+            filtro.autoDepartamento = AutoDepartamento;
             var r01 = Sistema.MyData.Tools_AjusteNivelMinimoMaximo_GetLista(filtro);
             if (r01.Result== OOB.Enumerados.EnumResult.isError)
             {
@@ -124,7 +148,8 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
                 IsBuscarHabilitado = true;
                 ProcesoIsOk = false;
                 SalirIsOk = false;
-                _autoDeposito = "";
+                AutoDeposito = "";
+                AutoDepartamento = "";
                 _deposito.Limpiar();
                 _gestionLista.Limpiar();
             }

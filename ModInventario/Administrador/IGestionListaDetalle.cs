@@ -19,6 +19,9 @@ namespace ModInventario.Administrador
         void setLista(List<OOB.LibInventario.Movimiento.Lista.Ficha> list);
         void AnularItem();
         void LimpiarData();
+        void setGestionAnular(Anular.Gestion _gestionAnular);
+        void VisualizarDocumento();
+        void Imprimir();
 
     }
 

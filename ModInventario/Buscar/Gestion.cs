@@ -167,6 +167,12 @@ namespace ModInventario.Buscar
             {
                 _filtros.pesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado)int.Parse(_gestionFiltro.IdPesado);
             }
+            if (_gestionFiltro.IdCatalogo != "")
+            {
+                _filtros.catalogo = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.No ;
+                if (_gestionFiltro.IdCatalogo=="Si")
+                    _filtros.catalogo = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.Si;
+            }
             if (_gestionFiltro.IdOferta != "")
             {
                 _filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(_gestionFiltro.IdOferta);
@@ -224,8 +230,17 @@ namespace ModInventario.Buscar
             {
                 if (Item.identidad.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
                 {
-                    _gestionEditarPrecio.setFicha(Item.identidad.auto);
-                    _gestionEditarPrecio.Inicia();
+                    var r00 = Sistema.MyData.Permiso_CambiarPrecios(Sistema.UsuarioP.autoGru);
+                    if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                        return;
+                    }
+                    if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                    {
+                        _gestionEditarPrecio.setFicha(Item.identidad.auto);
+                        _gestionEditarPrecio.Inicia();
+                    }
                 }
                 else
                     Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
@@ -265,8 +280,17 @@ namespace ModInventario.Buscar
             {
                 if (Item.identidad.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
                 {
-                    _gestionEditarCosto.setFicha(Item.identidad.auto);
-                    _gestionEditarCosto.Inicia();
+                    var r00 = Sistema.MyData.Permiso_CambiarCostos(Sistema.UsuarioP.autoGru);
+                    if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                        return;
+                    }
+                    if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                    {
+                        _gestionEditarCosto.setFicha(Item.identidad.auto);
+                        _gestionEditarCosto.Inicia();
+                    }
                 }
                 else
                     Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
@@ -286,8 +310,17 @@ namespace ModInventario.Buscar
         {
             if (Item != null)
             {
-                _gestionDeposito.setFicha(Item.identidad.auto);
-                _gestionDeposito.Inicia();
+                var r00 = Sistema.MyData.Permiso_AsignarDepositos(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionDeposito.setFicha(Item.identidad.auto);
+                    _gestionDeposito.Inicia();
+                }
             }
         }
 
@@ -310,23 +343,32 @@ namespace ModInventario.Buscar
                     return;
                 }
 
-                _gestionEditarFicha.setFicha(Item.identidad.auto);
-                _gestionEditarFicha.Inicia();
-                if (_gestionEditarFicha.IsAgregarEditarOk)
+                var r00 = Sistema.MyData.Permiso_ModificarProducto(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
                 {
-                    var filtros = new OOB.LibInventario.Producto.Filtro();
-                    filtros.autoProducto = Item.identidad.auto;
-                    var r01 = Sistema.MyData.Producto_GetLista(filtros);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionEditarFicha.setFicha(Item.identidad.auto);
+                    _gestionEditarFicha.Inicia();
+                    if (_gestionEditarFicha.IsAgregarEditarOk)
                     {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    if (r01.Lista !=null) 
-                    {
-                        if (r01.Lista.Count > 0) 
+                        var filtros = new OOB.LibInventario.Producto.Filtro();
+                        filtros.autoProducto = Item.identidad.auto;
+                        var r01 = Sistema.MyData.Producto_GetLista(filtros);
+                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
                         {
-                            _gestionLista.Reemplazar(r01.Lista);
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+                        if (r01.Lista != null)
+                        {
+                            if (r01.Lista.Count > 0)
+                            {
+                                _gestionLista.Reemplazar(r01.Lista);
+                            }
                         }
                     }
                 }
@@ -335,38 +377,20 @@ namespace ModInventario.Buscar
 
         public void AgregarFicha()
         {
-            _gestionAgregarFicha.Inicia();
-            if (_gestionAgregarFicha.IsAgregarEditarOk) 
+            var r00 = Sistema.MyData.Permiso_CrearProducto(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
             {
-                var filtros = new OOB.LibInventario.Producto.Filtro();
-                filtros.autoProducto = _gestionAgregarFicha.AutoProductoAgregado ;
-                var r01 = Sistema.MyData.Producto_GetLista(filtros);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                if (r01.Lista != null)
-                {
-                    if (r01.Lista.Count > 0)
-                    {
-                        _gestionLista.Agregar(r01.Lista);
-                    }
-                }
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
             }
-        }
 
-        public void CambioEstatus()
-        {
-            if (Item != null)
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionEstatus.setFicha(Item.identidad.auto);
-                _gestionEstatus.Inicia();
-
-                if (_gestionEstatus.IsCambioOk)
+                _gestionAgregarFicha.Inicia();
+                if (_gestionAgregarFicha.IsAgregarEditarOk)
                 {
                     var filtros = new OOB.LibInventario.Producto.Filtro();
-                    filtros.autoProducto = Item.identidad.auto;
+                    filtros.autoProducto = _gestionAgregarFicha.AutoProductoAgregado;
                     var r01 = Sistema.MyData.Producto_GetLista(filtros);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
@@ -377,11 +401,47 @@ namespace ModInventario.Buscar
                     {
                         if (r01.Lista.Count > 0)
                         {
-                            _gestionLista.Reemplazar(r01.Lista);
+                            _gestionLista.Agregar(r01.Lista);
                         }
                     }
                 }
+            }
+        }
 
+        public void CambioEstatus()
+        {
+            if (Item != null)
+            {
+                var r00 = Sistema.MyData.Permiso_ActualizarEstatusDelProducto(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionEstatus.setFicha(Item.identidad.auto);
+                    _gestionEstatus.Inicia();
+
+                    if (_gestionEstatus.IsCambioOk)
+                    {
+                        var filtros = new OOB.LibInventario.Producto.Filtro();
+                        filtros.autoProducto = Item.identidad.auto;
+                        var r01 = Sistema.MyData.Producto_GetLista(filtros);
+                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+                        if (r01.Lista != null)
+                        {
+                            if (r01.Lista.Count > 0)
+                            {
+                                _gestionLista.Reemplazar(r01.Lista);
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -409,8 +469,17 @@ namespace ModInventario.Buscar
         {
             if (Item != null)
             {
-                _gestionImagen.setFicha(Item.identidad.auto);
-                _gestionImagen.Inicia();
+                var r00 = Sistema.MyData.Permiso_CambiarImagenDelProducto(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionImagen.setFicha(Item.identidad.auto);
+                    _gestionImagen.Inicia();
+                }
             }
         }
 

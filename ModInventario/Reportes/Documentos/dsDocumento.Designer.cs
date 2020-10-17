@@ -334,6 +334,8 @@ namespace ModInventario.Reportes.Documentos {
             
             private global::System.Data.DataColumn columnequipo;
             
+            private global::System.Data.DataColumn columnnombreDocumento;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MovimientoDataTable() {
@@ -449,6 +451,14 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nombreDocumentoColumn {
+                get {
+                    return this.columnnombreDocumento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -484,7 +494,7 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MovimientoRow AddMovimientoRow(string documentoNro, string autorizadoPor, string notas, string depOrigen, string depDestino, string tipoMovimiento, string concepto, System.DateTime fecha, string usuario, string equipo) {
+            public MovimientoRow AddMovimientoRow(string documentoNro, string autorizadoPor, string notas, string depOrigen, string depDestino, string tipoMovimiento, string concepto, System.DateTime fecha, string usuario, string equipo, string nombreDocumento) {
                 MovimientoRow rowMovimientoRow = ((MovimientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         documentoNro,
@@ -496,7 +506,8 @@ namespace ModInventario.Reportes.Documentos {
                         concepto,
                         fecha,
                         usuario,
-                        equipo};
+                        equipo,
+                        nombreDocumento};
                 rowMovimientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMovimientoRow);
                 return rowMovimientoRow;
@@ -529,6 +540,7 @@ namespace ModInventario.Reportes.Documentos {
                 this.columnfecha = base.Columns["fecha"];
                 this.columnusuario = base.Columns["usuario"];
                 this.columnequipo = base.Columns["equipo"];
+                this.columnnombreDocumento = base.Columns["nombreDocumento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -554,6 +566,8 @@ namespace ModInventario.Reportes.Documentos {
                 base.Columns.Add(this.columnusuario);
                 this.columnequipo = new global::System.Data.DataColumn("equipo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnequipo);
+                this.columnnombreDocumento = new global::System.Data.DataColumn("nombreDocumento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombreDocumento);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -699,6 +713,10 @@ namespace ModInventario.Reportes.Documentos {
             
             private global::System.Data.DataColumn columnimporte;
             
+            private global::System.Data.DataColumn columncantidadUnd;
+            
+            private global::System.Data.DataColumn columnempaque;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MovimientoDetalleDataTable() {
@@ -782,6 +800,22 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cantidadUndColumn {
+                get {
+                    return this.columncantidadUnd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn empaqueColumn {
+                get {
+                    return this.columnempaque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -817,7 +851,7 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MovimientoDetalleRow AddMovimientoDetalleRow(string codigo, string descripcion, decimal cantidad, int signo, decimal costo, decimal importe) {
+            public MovimientoDetalleRow AddMovimientoDetalleRow(string codigo, string descripcion, string cantidad, int signo, decimal costo, decimal importe, string cantidadUnd, string empaque) {
                 MovimientoDetalleRow rowMovimientoDetalleRow = ((MovimientoDetalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codigo,
@@ -825,7 +859,9 @@ namespace ModInventario.Reportes.Documentos {
                         cantidad,
                         signo,
                         costo,
-                        importe};
+                        importe,
+                        cantidadUnd,
+                        empaque};
                 rowMovimientoDetalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMovimientoDetalleRow);
                 return rowMovimientoDetalleRow;
@@ -854,6 +890,8 @@ namespace ModInventario.Reportes.Documentos {
                 this.columnsigno = base.Columns["signo"];
                 this.columncosto = base.Columns["costo"];
                 this.columnimporte = base.Columns["importe"];
+                this.columncantidadUnd = base.Columns["cantidadUnd"];
+                this.columnempaque = base.Columns["empaque"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -863,7 +901,7 @@ namespace ModInventario.Reportes.Documentos {
                 base.Columns.Add(this.columncodigo);
                 this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescripcion);
-                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidad);
                 this.columnsigno = new global::System.Data.DataColumn("signo", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsigno);
@@ -871,6 +909,10 @@ namespace ModInventario.Reportes.Documentos {
                 base.Columns.Add(this.columncosto);
                 this.columnimporte = new global::System.Data.DataColumn("importe", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimporte);
+                this.columncantidadUnd = new global::System.Data.DataColumn("cantidadUnd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidadUnd);
+                this.columnempaque = new global::System.Data.DataColumn("empaque", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempaque);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1173,6 +1215,22 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nombreDocumento {
+                get {
+                    try {
+                        return ((string)(this[this.tableMovimiento.nombreDocumentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombreDocumento\' in table \'Movimiento\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMovimiento.nombreDocumentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdocumentoNroNull() {
                 return this.IsNull(this.tableMovimiento.documentoNroColumn);
             }
@@ -1290,6 +1348,18 @@ namespace ModInventario.Reportes.Documentos {
             public void SetequipoNull() {
                 this[this.tableMovimiento.equipoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnombreDocumentoNull() {
+                return this.IsNull(this.tableMovimiento.nombreDocumentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnombreDocumentoNull() {
+                this[this.tableMovimiento.nombreDocumentoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1340,10 +1410,10 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal cantidad {
+            public string cantidad {
                 get {
                     try {
-                        return ((decimal)(this[this.tableMovimientoDetalle.cantidadColumn]));
+                        return ((string)(this[this.tableMovimientoDetalle.cantidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'cantidad\' in table \'MovimientoDetalle\' is DBNull.", e);
@@ -1399,6 +1469,38 @@ namespace ModInventario.Reportes.Documentos {
                 }
                 set {
                     this[this.tableMovimientoDetalle.importeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cantidadUnd {
+                get {
+                    try {
+                        return ((string)(this[this.tableMovimientoDetalle.cantidadUndColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cantidadUnd\' in table \'MovimientoDetalle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMovimientoDetalle.cantidadUndColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string empaque {
+                get {
+                    try {
+                        return ((string)(this[this.tableMovimientoDetalle.empaqueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'empaque\' in table \'MovimientoDetalle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMovimientoDetalle.empaqueColumn] = value;
                 }
             }
             
@@ -1472,6 +1574,30 @@ namespace ModInventario.Reportes.Documentos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetimporteNull() {
                 this[this.tableMovimientoDetalle.importeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscantidadUndNull() {
+                return this.IsNull(this.tableMovimientoDetalle.cantidadUndColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcantidadUndNull() {
+                this[this.tableMovimientoDetalle.cantidadUndColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsempaqueNull() {
+                return this.IsNull(this.tableMovimientoDetalle.empaqueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetempaqueNull() {
+                this[this.tableMovimientoDetalle.empaqueColumn] = global::System.Convert.DBNull;
             }
         }
         

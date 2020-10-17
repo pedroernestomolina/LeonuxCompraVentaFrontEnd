@@ -38,6 +38,11 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             CB_DEPOSITO.DisplayMember = "Nombre";
             CB_DEPOSITO.ValueMember = "Auto";
             CB_DEPOSITO.DataSource = _controlador._bsDeposito;
+
+            CB_DEPARTAMENTO.DisplayMember = "Nombre";
+            CB_DEPARTAMENTO.ValueMember = "Auto";
+            CB_DEPARTAMENTO.DataSource = _controlador._bsDepartamento;
+
             Limpiar2();
         }
 
@@ -145,14 +150,25 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             L_DEPOSITO.Text = _controlador.Deposito;
             BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
             CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
+            CB_DEPARTAMENTO.Enabled = _controlador.IsBuscarHabilitado;
             L_ITEMS.Text = _controlador.Items;
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.AutoDeposito = "";
             if (CB_DEPOSITO.SelectedIndex != -1)
             {
                 _controlador.AutoDeposito = CB_DEPOSITO.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_DEPARTAMENTO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.AutoDepartamento = "";
+            if (CB_DEPARTAMENTO.SelectedIndex != -1)
+            {
+                _controlador.AutoDepartamento = CB_DEPARTAMENTO.SelectedValue.ToString();
             }
         }
 
@@ -174,9 +190,11 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         private void Limpiar2()
         {
             CB_DEPOSITO.SelectedIndex = -1;
+            CB_DEPARTAMENTO.SelectedIndex = -1;
             L_DEPOSITO.Text = _controlador.Deposito;
             BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
             CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
+            CB_DEPARTAMENTO.Enabled = _controlador.IsBuscarHabilitado;
             DGV.Refresh();
         }
 
@@ -279,6 +297,14 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             {
                 _controlador.Salir();
                 e.Cancel = !_controlador.SalirIsOk;
+            }
+        }
+
+        private void Ctr_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
 

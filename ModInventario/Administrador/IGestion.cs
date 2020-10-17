@@ -28,6 +28,8 @@ namespace ModInventario.Administrador
         void AnularItem();
         void LimpiarFiltros();
         void LimpiarData();
+        void VisualizarDocumento();
+        void Imprimir();
 
     }
 

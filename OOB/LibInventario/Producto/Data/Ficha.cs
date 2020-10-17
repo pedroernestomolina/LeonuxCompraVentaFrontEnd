@@ -31,6 +31,7 @@ namespace OOB.LibInventario.Producto.Data
         public string Origen { get { return identidad.origen.ToString(); ; } }
         public string Estatus { get { return identidad.estatus.ToString(); } }
         public string EstatusOferta { get { return precio.estatusOferta.ToString(); } }
+        public string ActivarCatalogo { get { return identidad.activarCatalogo.ToString(); } }
         public string Divisa { get { return identidad.AdmPorDivisa.ToString(); } }
         public string Pesado { get { return  extra.esPesado.ToString(); } }
         public DateTime FechaAlta { get { return identidad.fechaAlta ; } }

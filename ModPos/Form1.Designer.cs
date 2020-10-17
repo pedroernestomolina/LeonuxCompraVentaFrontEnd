@@ -468,18 +468,17 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 11;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(558, 383);
             this.tableLayoutPanel2.TabIndex = 18;
             // 
@@ -487,11 +486,11 @@
             // 
             this.panel15.Controls.Add(this.BT_ENVIAR_SERVIDOR);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(1, 307);
+            this.panel15.Location = new System.Drawing.Point(1, 271);
             this.panel15.Margin = new System.Windows.Forms.Padding(1);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(2);
-            this.panel15.Size = new System.Drawing.Size(329, 32);
+            this.panel15.Size = new System.Drawing.Size(329, 52);
             this.panel15.TabIndex = 8;
             // 
             // BT_ENVIAR_SERVIDOR
@@ -500,7 +499,7 @@
             this.BT_ENVIAR_SERVIDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_ENVIAR_SERVIDOR.Location = new System.Drawing.Point(2, 2);
             this.BT_ENVIAR_SERVIDOR.Name = "BT_ENVIAR_SERVIDOR";
-            this.BT_ENVIAR_SERVIDOR.Size = new System.Drawing.Size(325, 28);
+            this.BT_ENVIAR_SERVIDOR.Size = new System.Drawing.Size(325, 48);
             this.BT_ENVIAR_SERVIDOR.TabIndex = 9;
             this.BT_ENVIAR_SERVIDOR.Text = "EXPORTAR DATA AL SERVIDOR";
             this.BT_ENVIAR_SERVIDOR.UseVisualStyleBackColor = true;
@@ -510,11 +509,11 @@
             // 
             this.panel14.Controls.Add(this.BT_JORNADA_CERRAR);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(1, 273);
+            this.panel14.Location = new System.Drawing.Point(1, 271);
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(329, 32);
+            this.panel14.Size = new System.Drawing.Size(329, 1);
             this.panel14.TabIndex = 7;
             // 
             // BT_JORNADA_CERRAR
@@ -524,7 +523,7 @@
             this.BT_JORNADA_CERRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_JORNADA_CERRAR.Location = new System.Drawing.Point(2, 2);
             this.BT_JORNADA_CERRAR.Name = "BT_JORNADA_CERRAR";
-            this.BT_JORNADA_CERRAR.Size = new System.Drawing.Size(325, 28);
+            this.BT_JORNADA_CERRAR.Size = new System.Drawing.Size(325, 0);
             this.BT_JORNADA_CERRAR.TabIndex = 8;
             this.BT_JORNADA_CERRAR.Text = "CERRAR JORNADA";
             this.BT_JORNADA_CERRAR.UseVisualStyleBackColor = true;
@@ -534,11 +533,11 @@
             // 
             this.panel13.Controls.Add(this.BT_OPERADOR_CERRAR);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(1, 239);
+            this.panel13.Location = new System.Drawing.Point(1, 217);
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(2);
-            this.panel13.Size = new System.Drawing.Size(329, 32);
+            this.panel13.Size = new System.Drawing.Size(329, 52);
             this.panel13.TabIndex = 6;
             // 
             // BT_OPERADOR_CERRAR
@@ -547,9 +546,9 @@
             this.BT_OPERADOR_CERRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_OPERADOR_CERRAR.Location = new System.Drawing.Point(2, 2);
             this.BT_OPERADOR_CERRAR.Name = "BT_OPERADOR_CERRAR";
-            this.BT_OPERADOR_CERRAR.Size = new System.Drawing.Size(325, 28);
+            this.BT_OPERADOR_CERRAR.Size = new System.Drawing.Size(325, 48);
             this.BT_OPERADOR_CERRAR.TabIndex = 7;
-            this.BT_OPERADOR_CERRAR.Text = "CERRAR OPERADOR";
+            this.BT_OPERADOR_CERRAR.Text = "CERRAR POS";
             this.BT_OPERADOR_CERRAR.UseVisualStyleBackColor = true;
             this.BT_OPERADOR_CERRAR.Click += new System.EventHandler(this.BT_OPERADOR_CERRAR_Click);
             // 
@@ -557,20 +556,21 @@
             // 
             this.panel12.Controls.Add(this.BT_CONTROL_FISCAL);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(1, 205);
+            this.panel12.Location = new System.Drawing.Point(1, 217);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
-            this.panel12.Size = new System.Drawing.Size(329, 32);
+            this.panel12.Size = new System.Drawing.Size(329, 1);
             this.panel12.TabIndex = 5;
             // 
             // BT_CONTROL_FISCAL
             // 
             this.BT_CONTROL_FISCAL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_CONTROL_FISCAL.Enabled = false;
             this.BT_CONTROL_FISCAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_CONTROL_FISCAL.Location = new System.Drawing.Point(2, 2);
             this.BT_CONTROL_FISCAL.Name = "BT_CONTROL_FISCAL";
-            this.BT_CONTROL_FISCAL.Size = new System.Drawing.Size(325, 28);
+            this.BT_CONTROL_FISCAL.Size = new System.Drawing.Size(325, 0);
             this.BT_CONTROL_FISCAL.TabIndex = 6;
             this.BT_CONTROL_FISCAL.Text = "CONTROL FISCAL";
             this.BT_CONTROL_FISCAL.UseVisualStyleBackColor = true;
@@ -580,11 +580,11 @@
             // 
             this.panel11.Controls.Add(this.BT_ADM_DOC);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(1, 171);
+            this.panel11.Location = new System.Drawing.Point(1, 163);
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(2);
-            this.panel11.Size = new System.Drawing.Size(329, 32);
+            this.panel11.Size = new System.Drawing.Size(329, 52);
             this.panel11.TabIndex = 4;
             // 
             // BT_ADM_DOC
@@ -593,7 +593,7 @@
             this.BT_ADM_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_ADM_DOC.Location = new System.Drawing.Point(2, 2);
             this.BT_ADM_DOC.Name = "BT_ADM_DOC";
-            this.BT_ADM_DOC.Size = new System.Drawing.Size(325, 28);
+            this.BT_ADM_DOC.Size = new System.Drawing.Size(325, 48);
             this.BT_ADM_DOC.TabIndex = 4;
             this.BT_ADM_DOC.Text = "ADMINISTRADOR DOCUMENTOS";
             this.BT_ADM_DOC.UseVisualStyleBackColor = true;
@@ -603,20 +603,21 @@
             // 
             this.panel10.Controls.Add(this.BT_POS);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(1, 137);
+            this.panel10.Location = new System.Drawing.Point(1, 163);
             this.panel10.Margin = new System.Windows.Forms.Padding(1);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(2);
-            this.panel10.Size = new System.Drawing.Size(329, 32);
+            this.panel10.Size = new System.Drawing.Size(329, 1);
             this.panel10.TabIndex = 3;
             // 
             // BT_POS
             // 
             this.BT_POS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_POS.Enabled = false;
             this.BT_POS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_POS.Location = new System.Drawing.Point(2, 2);
             this.BT_POS.Name = "BT_POS";
-            this.BT_POS.Size = new System.Drawing.Size(325, 28);
+            this.BT_POS.Size = new System.Drawing.Size(325, 0);
             this.BT_POS.TabIndex = 3;
             this.BT_POS.Text = "ACTIVAR POS";
             this.BT_POS.UseVisualStyleBackColor = true;
@@ -626,11 +627,11 @@
             // 
             this.panel9.Controls.Add(this.BT_OPERADOR_ABRIR);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(1, 103);
+            this.panel9.Location = new System.Drawing.Point(1, 109);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(2);
-            this.panel9.Size = new System.Drawing.Size(329, 32);
+            this.panel9.Size = new System.Drawing.Size(329, 52);
             this.panel9.TabIndex = 2;
             // 
             // BT_OPERADOR_ABRIR
@@ -639,9 +640,9 @@
             this.BT_OPERADOR_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_OPERADOR_ABRIR.Location = new System.Drawing.Point(2, 2);
             this.BT_OPERADOR_ABRIR.Name = "BT_OPERADOR_ABRIR";
-            this.BT_OPERADOR_ABRIR.Size = new System.Drawing.Size(325, 28);
+            this.BT_OPERADOR_ABRIR.Size = new System.Drawing.Size(325, 48);
             this.BT_OPERADOR_ABRIR.TabIndex = 2;
-            this.BT_OPERADOR_ABRIR.Text = "ABRIR OPERADOR";
+            this.BT_OPERADOR_ABRIR.Text = "ABRIR POS";
             this.BT_OPERADOR_ABRIR.UseVisualStyleBackColor = true;
             this.BT_OPERADOR_ABRIR.Click += new System.EventHandler(this.BT_OPERADOR_ABRIR_Click);
             // 
@@ -649,11 +650,11 @@
             // 
             this.panel8.Controls.Add(this.BT_JORNADA_ABRIR);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(1, 69);
+            this.panel8.Location = new System.Drawing.Point(1, 109);
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(329, 32);
+            this.panel8.Size = new System.Drawing.Size(329, 1);
             this.panel8.TabIndex = 1;
             // 
             // BT_JORNADA_ABRIR
@@ -663,7 +664,7 @@
             this.BT_JORNADA_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_JORNADA_ABRIR.Location = new System.Drawing.Point(2, 2);
             this.BT_JORNADA_ABRIR.Name = "BT_JORNADA_ABRIR";
-            this.BT_JORNADA_ABRIR.Size = new System.Drawing.Size(325, 28);
+            this.BT_JORNADA_ABRIR.Size = new System.Drawing.Size(325, 0);
             this.BT_JORNADA_ABRIR.TabIndex = 1;
             this.BT_JORNADA_ABRIR.Text = "INICIAR JORNADA";
             this.BT_JORNADA_ABRIR.UseVisualStyleBackColor = true;
@@ -674,11 +675,11 @@
             this.panel7.Controls.Add(this.tableLayoutPanel4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.Location = new System.Drawing.Point(334, 37);
+            this.panel7.Location = new System.Drawing.Point(334, 57);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.SetRowSpan(this.panel7, 10);
-            this.panel7.Size = new System.Drawing.Size(221, 343);
+            this.panel7.Size = new System.Drawing.Size(221, 323);
             this.panel7.TabIndex = 18;
             // 
             // tableLayoutPanel4
@@ -698,18 +699,18 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.96947F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(217, 339);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(217, 319);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel20
             // 
             this.panel20.Controls.Add(this.L_ESTATUS_ACTUALIZACION);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(1, 262);
+            this.panel20.Location = new System.Drawing.Point(1, 248);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(215, 76);
+            this.panel20.Size = new System.Drawing.Size(215, 70);
             this.panel20.TabIndex = 3;
             // 
             // L_ESTATUS_ACTUALIZACION
@@ -718,7 +719,7 @@
             this.L_ESTATUS_ACTUALIZACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_ESTATUS_ACTUALIZACION.Location = new System.Drawing.Point(2, 2);
             this.L_ESTATUS_ACTUALIZACION.Name = "L_ESTATUS_ACTUALIZACION";
-            this.L_ESTATUS_ACTUALIZACION.Size = new System.Drawing.Size(211, 72);
+            this.L_ESTATUS_ACTUALIZACION.Size = new System.Drawing.Size(211, 66);
             this.L_ESTATUS_ACTUALIZACION.TabIndex = 0;
             this.L_ESTATUS_ACTUALIZACION.Text = "label4";
             this.L_ESTATUS_ACTUALIZACION.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -729,11 +730,11 @@
             this.panel19.Controls.Add(this.L_USUARIO_CODIGO);
             this.panel19.Controls.Add(this.label6);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(1, 183);
+            this.panel19.Location = new System.Drawing.Point(1, 176);
             this.panel19.Margin = new System.Windows.Forms.Padding(1);
             this.panel19.Name = "panel19";
             this.panel19.Padding = new System.Windows.Forms.Padding(2);
-            this.panel19.Size = new System.Drawing.Size(215, 77);
+            this.panel19.Size = new System.Drawing.Size(215, 70);
             this.panel19.TabIndex = 2;
             // 
             // L_USUARIO_NOMBRE
@@ -776,7 +777,7 @@
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(2);
-            this.panel17.Size = new System.Drawing.Size(215, 73);
+            this.panel17.Size = new System.Drawing.Size(215, 66);
             this.panel17.TabIndex = 0;
             // 
             // L_JORNADA_FECHA
@@ -817,7 +818,7 @@
             this.panel18.Controls.Add(this.L_OPERADOR_ESTATUS);
             this.panel18.Controls.Add(this.label3);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(1, 76);
+            this.panel18.Location = new System.Drawing.Point(1, 69);
             this.panel18.Margin = new System.Windows.Forms.Padding(1);
             this.panel18.Name = "panel18";
             this.panel18.Padding = new System.Windows.Forms.Padding(2);
@@ -878,11 +879,11 @@
             // 
             this.panel6.Controls.Add(this.BT_ACTUALIZAR_DATA);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(1, 35);
+            this.panel6.Location = new System.Drawing.Point(1, 55);
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(329, 32);
+            this.panel6.Size = new System.Drawing.Size(329, 52);
             this.panel6.TabIndex = 0;
             // 
             // BT_ACTUALIZAR_DATA
@@ -891,7 +892,7 @@
             this.BT_ACTUALIZAR_DATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_ACTUALIZAR_DATA.Location = new System.Drawing.Point(2, 2);
             this.BT_ACTUALIZAR_DATA.Name = "BT_ACTUALIZAR_DATA";
-            this.BT_ACTUALIZAR_DATA.Size = new System.Drawing.Size(325, 28);
+            this.BT_ACTUALIZAR_DATA.Size = new System.Drawing.Size(325, 48);
             this.BT_ACTUALIZAR_DATA.TabIndex = 0;
             this.BT_ACTUALIZAR_DATA.Text = "ACTUALIZAR DATA DEL SERVIDOR";
             this.BT_ACTUALIZAR_DATA.UseVisualStyleBackColor = true;

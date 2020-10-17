@@ -27,9 +27,13 @@ namespace DataProvInventario.Data
             var s = r01.Entidad;
             var nr = new OOB.LibInventario.Usuario.Ficha()
             {
-                auto = s.auto,
-                codigo = s.codigo,
-                nombre = s.nombre,
+                autoUsu = s.autoUsu,
+                codigoUsu = s.codigoUsu,
+                nombreUsu = s.nombreUsu,
+                apellidoUsu = s.apellidoUsu,
+                isActivo = s.isActivo,
+                autoGru = s.autoGru,
+                NombreGru = s.nombreGru,
             };
             rt.Entidad = nr;
 

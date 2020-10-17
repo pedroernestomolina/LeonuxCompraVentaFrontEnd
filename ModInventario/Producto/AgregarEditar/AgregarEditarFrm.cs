@@ -159,6 +159,7 @@ namespace ModInventario.Producto.AgregarEditar
                 }
             }
 
+            CHB_CATALOGO.Checked=_controlador.ActivarCatlogo;
             CHB_PESADO.Checked = _controlador.Pesado;
             TB_PLU.Enabled = CHB_PESADO.Checked;
             TB_DIAS_EMPAQUE.Enabled = CHB_PESADO.Checked;
@@ -487,6 +488,14 @@ namespace ModInventario.Producto.AgregarEditar
         private void TB_ALTERNO_Leave(object sender, EventArgs e)
         {
             _controlador.CodigoAlterno = TB_ALTERNO.Text;
+        }
+
+        private void CHB_CATALOGO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!inicializarData)
+            {
+                _controlador.ActivarCatlogo = CHB_CATALOGO.Checked;
+            }
         }
 
     }

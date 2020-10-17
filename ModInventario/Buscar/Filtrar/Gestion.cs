@@ -60,6 +60,7 @@ namespace ModInventario.Buscar.Filtrar
         public string IdEstatus { get; set; }
         public string IdAdmDivisa{ get; set; }
         public string IdPesado { get; set; }
+        public string IdCatalogo { get; set; }
         public string IdOferta { get; set; }
         public string IdExistencia { get; set; }
 
@@ -130,9 +131,10 @@ namespace ModInventario.Buscar.Filtrar
             AutoDeposito = "";
             IdCategoria = "";
             IdOrigen = "";
-            IdEstatus = "1";
+            IdEstatus = "";
             IdAdmDivisa = "";
             IdPesado = "";
+            IdCatalogo = "";
             IdOferta = "";
             IdExistencia = "";
             IsFiltrarOk=true;
@@ -141,9 +143,11 @@ namespace ModInventario.Buscar.Filtrar
         }
 
 
-        public void Inicia()
+        public void Inicia(bool ActivarEstatus=true)
         {
             LimpiarEntradas();
+            if (ActivarEstatus) 
+                IdEstatus = "1";
             if (CargarData()) 
             {
                 var frm = new FiltrosFrm();
@@ -317,6 +321,11 @@ namespace ModInventario.Buscar.Filtrar
                 IsFiltrarOk = true;
                 return;
             }
+            if (IdCatalogo != "")
+            {
+                IsFiltrarOk = true;
+                return;
+            }
             if (IdOferta != "")
             {
                 IsFiltrarOk = true;
@@ -358,6 +367,30 @@ namespace ModInventario.Buscar.Filtrar
                 AutoProveedor = _gestionProveedor.ItemSeleccionado.Auto;
                 NombreProveedor = _gestionProveedor.ItemSeleccionado.NombreRazonSocial;
             }
+        }
+
+        public data FiltrosSeleccionados 
+        { 
+            get 
+            {
+                return new data()
+                {
+                    AutoDepartamento = AutoDepartamento,
+                    AutoDeposito = AutoDeposito,
+                    AutoGrupo = AutoGrupo,
+                    AutoMarca = AutoMarca,
+                    AutoProveedor = AutoProveedor,
+                    AutoTasa = AutoTasa,
+                    IdAdmDivisa = IdAdmDivisa,
+                    IdCatalogo = IdCatalogo,
+                    IdCategoria = IdCategoria,
+                    IdEstatus = IdEstatus,
+                    IdExistencia = IdExistencia,
+                    IdOferta = IdOferta,
+                    IdOrigen = IdOrigen,
+                    IdPesado = IdPesado,
+                };
+            } 
         }
 
     }

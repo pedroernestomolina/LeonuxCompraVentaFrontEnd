@@ -134,8 +134,17 @@ namespace ModInventario.Producto.Deposito.Listar
             if (_bs.Current != null)
             {
                 var item = (data)_bs.Current;
-                _gestionEditar.setFicha(_autoPrd, item.Deposito.autoId);
-                _gestionEditar.Inicia();
+                var r00 = Sistema.MyData.Permiso_CambiarDatosDelDeposito(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionEditar.setFicha(_autoPrd, item.Deposito.autoId);
+                    _gestionEditar.Inicia();
+                }
             }
         }
 

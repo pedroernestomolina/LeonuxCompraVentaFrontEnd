@@ -82,6 +82,11 @@
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaDetalle.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaKardex.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaPrdDeposito.cs" />
+    <Compile Include="LibInventario\Movimiento\Anular\Ajuste\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\Anular\Cargo\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\Anular\Descargo\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\Anular\FichaBase.cs" />
+    <Compile Include="LibInventario\Movimiento\Anular\Traslado\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Cargo\Insertar\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Cargo\Insertar\FichaDetalle.cs" />
     <Compile Include="LibInventario\Movimiento\Cargo\Insertar\FichaKardex.cs" />
@@ -108,6 +113,8 @@
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\FichaPrdDeposito.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Detalle.cs" />
     <Compile Include="LibInventario\Movimiento\Ver\Ficha.cs" />
+    <Compile Include="LibInventario\Permiso\Enumerados.cs" />
+    <Compile Include="LibInventario\Permiso\Ficha.cs" />
     <Compile Include="LibInventario\Precio\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Precio\Editar\FichaHistorica.cs" />
     <Compile Include="LibInventario\Precio\Editar\FichaPrecio.cs" />
@@ -152,8 +159,13 @@
     <Compile Include="LibInventario\Proveedor\Enumerados.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Ficha.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Filtro.cs" />
-    <Compile Include="LibInventario\Reportes\Movimientos\ArqueoCajaPos\Ficha.cs" />
-    <Compile Include="LibInventario\Reportes\Movimientos\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\enumerados.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroInventario\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroInventario\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroProducto\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroProducto\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\Top20\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\Top20\Filtro.cs" />
     <Compile Include="LibInventario\Sucursal\Ficha.cs" />
     <Compile Include="LibInventario\TasaImpuesto\Ficha.cs" />
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Ajustar\Ficha.cs" />

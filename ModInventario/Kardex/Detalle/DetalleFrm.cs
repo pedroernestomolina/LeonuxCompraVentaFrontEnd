@@ -83,8 +83,8 @@ namespace ModInventario.Kardex.Detalle
             c5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c6 = new DataGridViewTextBoxColumn();
-            c6.DataPropertyName = "CntInventario";
-            c6.HeaderText = "Cantidad";
+            c6.DataPropertyName = "SCntInventario";
+            c6.HeaderText = "Cant/Und";
             c6.Visible = true;
             c6.Width = 120;
             c6.HeaderCell.Style.Font = f;

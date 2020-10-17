@@ -83,7 +83,7 @@ namespace ModInventario.Kardex.Movimiento
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "CntInventario";
-            c4.HeaderText = "Cnt/Invent";
+            c4.HeaderText = "Cnt/Und";
             c4.Visible = true;
             c4.Width = 120;
             c4.HeaderCell.Style.Font = f;
@@ -150,7 +150,7 @@ namespace ModInventario.Kardex.Movimiento
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "CntInventario";
-            c4.HeaderText = "Cnt/Invent";
+            c4.HeaderText = "Cnt/Und";  
             c4.Visible = true;
             c4.Width = 120;
             c4.HeaderCell.Style.Font = f;
@@ -217,7 +217,7 @@ namespace ModInventario.Kardex.Movimiento
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "CntInventario";
-            c4.HeaderText = "Cnt/Invent";
+            c4.HeaderText = "Cnt/Und"; 
             c4.Visible = true;
             c4.Width = 120;
             c4.HeaderCell.Style.Font = f;
@@ -254,6 +254,7 @@ namespace ModInventario.Kardex.Movimiento
             DGV_INV.Refresh();
 
             ActualizarData();
+            L_INVENTARIO_Click(this,System.EventArgs.Empty);
         }
 
         private void ActualizarData()
@@ -261,13 +262,6 @@ namespace ModInventario.Kardex.Movimiento
             L_EX_ACTUAL.Text = _controlador.ExActual;
             L_EX_FECHA.Text = _controlador.ExFecha;
             L_FECHA.Text = _controlador.Fecha;
-            L_COMPRA_FAC.Text = _controlador.CompraFac;
-            L_COMPRA_NCR.Text = _controlador.CompraNcr; ;
-            L_VENTA_FAC.Text = _controlador.VentaFac;
-            L_VENTA_NCR.Text = _controlador.VentaNcr;
-            L_CARG_DESC.Text = _controlador.CargoDescgargo;
-            L_AJUSTE.Text = _controlador.Ajuste;
-            L_TRASLADO.Text = _controlador.Traslado;
         }
 
         private void BT_BUSCAR_Click(object sender, EventArgs e)
@@ -359,6 +353,36 @@ namespace ModInventario.Kardex.Movimiento
         private void Salir()
         {
             this.Close();
+        }
+
+        private void L_VENTAS_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel3.RowStyles[1].SizeType = SizeType.Percent;
+            tableLayoutPanel3.RowStyles[1].Height = 100;
+            tableLayoutPanel3.RowStyles[0].SizeType = SizeType.Absolute;
+            tableLayoutPanel3.RowStyles[0].Height = 40;
+            tableLayoutPanel3.RowStyles[2].SizeType = SizeType.Absolute;
+            tableLayoutPanel3.RowStyles[2].Height = 40;
+        }
+
+        private void L_COMPRAS_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel3.RowStyles[0].SizeType = SizeType.Percent;
+            tableLayoutPanel3.RowStyles[0].Height = 100;
+            tableLayoutPanel3.RowStyles[1].SizeType = SizeType.Absolute;
+            tableLayoutPanel3.RowStyles[1].Height= 40 ;
+            tableLayoutPanel3.RowStyles[2].SizeType = SizeType.Absolute;
+            tableLayoutPanel3.RowStyles[2].Height = 40;
+        }
+
+        private void L_INVENTARIO_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel3.RowStyles[2].SizeType = SizeType.Percent;
+            tableLayoutPanel3.RowStyles[2].Height = 100;
+            tableLayoutPanel3.RowStyles[0].SizeType = SizeType.Absolute;
+            tableLayoutPanel3.RowStyles[0].Height = 40;
+            tableLayoutPanel3.RowStyles[1].SizeType = SizeType.Absolute;
+            tableLayoutPanel3.RowStyles[1].Height = 40;
         }
 
     }

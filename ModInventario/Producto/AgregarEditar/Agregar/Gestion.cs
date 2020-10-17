@@ -48,304 +48,39 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         private CodAlterno.Gestion _gestionCodAlterno;
 
 
-        public string Titulo
-        {
-            get { return "Agregar Ficha"; }
-        }
-
-        public BindingSource Departamentos
-        {
-            get { return bsDepart; }
-        }
-
-        public BindingSource Grupos
-        {
-            get { return bsGrupo; }
-        }
-
-        public BindingSource Marcas
-        {
-            get { return bsMarca; }
-        }
-
-        public BindingSource Impuesto
-        {
-            get { return bsImpuesto; }
-        }
-
-        public BindingSource Origen
-        {
-            get { return bsOrigen; }
-        }
-
-        public BindingSource EmpCompra
-        {
-            get { return bsEmpCompra; }
-        }
-
-        public BindingSource Divisa
-        {
-            get { return bsDivisa; }
-        }
-
-        public BindingSource Categoria
-        {
-            get { return bsCategoria; }
-        }
-
-        public BindingSource Clasificacion
-        {
-            get { return bsClasificacion; }
-        }
-
-        public bool IsCerrarHabilitado
-        {
-            get { return _isCerrarHabilitado; }
-        }
-
-        public string CodigoProducto
-        {
-            get
-            {
-                return miData.Codigo;
-            }
-            set
-            {
-                miData.Codigo=value;
-            }
-        }
-
-        public string DescripcionProducto
-        {
-            get
-            {
-                return miData.Descripcion;
-            }
-            set
-            {
-                miData.Descripcion = value;
-            }
-        }
-
-        public string NombreProducto
-        {
-            get
-            {
-                return miData.NombreProducto;
-            }
-            set
-            {
-                miData.NombreProducto = value;
-            }
-        }
-
-        public string ModeloProducto
-        {
-            get
-            {
-                return miData.ModeloProducto;
-            }
-            set
-            {
-                miData.ModeloProducto=value;
-            }
-        }
-
-        public string ReferenciaProducto
-        {
-            get
-            {
-                return miData.ReferenciaProducto;
-            }
-            set
-            {
-                miData.ReferenciaProducto=value;
-            }
-        }
-
-        public int ContEmpProducto
-        {
-            get
-            {
-                return miData.ContEmpProducto;
-            }
-            set
-            {
-                miData.ContEmpProducto = value;
-            }
-        }
-
-        public string AutoDepartamento
-        {
-            get
-            {
-                return miData.AutoDepartamento;
-            }
-            set
-            {
-                miData.AutoDepartamento=value;
-            }
-        }
-
-        public string AutoGrupo
-        {
-            get
-            {
-                return miData.AutoGrupo;
-            }
-            set
-            {
-                miData.AutoGrupo = value;
-            }
-        }
-
-        public string AutoMarca
-        {
-            get
-            {
-                return miData.AutoMarca;
-            }
-            set
-            {
-                miData.AutoMarca=value;
-            }
-        }
-
-        public string AutoImpuesto
-        {
-            get
-            {
-                return miData.AutoImpuesto;
-            }
-            set
-            {
-                miData.AutoImpuesto=value;
-            }
-        }
-
-        public string IdOrigen
-        {
-            get
-            {
-                return miData.IdOrigen;
-            }
-            set
-            {
-                miData.IdOrigen=value;
-            }
-        }
-
-        public string IdCategoria
-        {
-            get
-            {
-                return miData.IdCategoria;
-            }
-            set
-            {
-                miData.IdCategoria=value;
-            }
-        }
-
-        public string AutoEmpCompra
-        {
-            get
-            {
-                return miData.AutoEmpCompra;
-            }
-            set
-            {
-                miData.AutoEmpCompra=value;
-            }
-        }
-
-        public string IdClasificacionAbc
-        {
-            get
-            {
-                return miData.IdClasificacionAbc;
-            }
-            set
-            {
-                miData.IdClasificacionAbc=value;
-            }
-        }
-
-        public string IdDivisa
-        {
-            get
-            {
-                return miData.IdDivisa;
-            }
-            set
-            {
-                miData.IdDivisa=value;
-            }
-        }
-
-        public byte[] Imagen
-        {
-            get
-            {
-                return miData.Imagen;
-            }
-            set
-            {
-                miData.Imagen = value;
-            }
-        }
-
-        public bool Pesado
-        {
-            get
-            {
-                return miData.EsPesado;
-            }
-            set
-            {
-                miData.EsPesado = value;
-            }
-        }
-
-        public string Plu
-        {
-            get
-            {
-                return miData.Plu;
-            }
-            set
-            {
-                miData.Plu = value;
-            }
-        }
-
-        public int DiasEmpaque
-        {
-            get
-            {
-                return miData.DiasEmpaque;
-            }
-            set
-            {
-                miData.DiasEmpaque = value;
-            }
-        }
-
-        public bool IsAgregarEditarOk
-        {
-            get
-            {
-                return _isAgregarEditarOk;
-            }
-        }
-
-        public string AutoProductoAgregado
-        {
-            get
-            {
-                return _autoProductoAgregado;
-            }
-        }
+        public string Titulo { get { return "Agregar Ficha"; } }
+        public BindingSource Departamentos { get { return bsDepart; } }
+        public BindingSource Grupos { get { return bsGrupo; } }
+        public BindingSource Marcas { get { return bsMarca; } }
+        public BindingSource Impuesto { get { return bsImpuesto; } }
+        public BindingSource Origen { get { return bsOrigen; } }
+        public BindingSource EmpCompra { get { return bsEmpCompra; } }
+        public BindingSource Divisa { get { return bsDivisa; } }
+        public BindingSource Categoria { get { return bsCategoria; } }
+        public BindingSource Clasificacion { get { return bsClasificacion; } }
+        public bool IsCerrarHabilitado { get { return _isCerrarHabilitado; } }
+        public string CodigoProducto { get { return miData.Codigo; } set { miData.Codigo = value; } }
+        public string DescripcionProducto { get { return miData.Descripcion; } set { miData.Descripcion = value; } }
+        public string NombreProducto{get{return miData.NombreProducto;}set{miData.NombreProducto = value;}}
+        public string ModeloProducto { get { return miData.ModeloProducto; } set { miData.ModeloProducto = value; } }
+        public string ReferenciaProducto { get { return miData.ReferenciaProducto; } set { miData.ReferenciaProducto = value; } }
+        public int ContEmpProducto { get { return miData.ContEmpProducto; } set { miData.ContEmpProducto = value; } }
+        public string AutoDepartamento { get { return miData.AutoDepartamento; } set { miData.AutoDepartamento = value; } }
+        public string AutoGrupo { get { return miData.AutoGrupo; } set { miData.AutoGrupo = value; } }
+        public string AutoMarca { get { return miData.AutoMarca; } set { miData.AutoMarca = value; } }
+        public string AutoImpuesto { get { return miData.AutoImpuesto; } set { miData.AutoImpuesto = value; } }
+        public string IdOrigen { get { return miData.IdOrigen; } set { miData.IdOrigen = value; } }
+        public string IdCategoria { get { return miData.IdCategoria; } set { miData.IdCategoria = value; } }
+        public string AutoEmpCompra { get { return miData.AutoEmpCompra; } set { miData.AutoEmpCompra = value; } }
+        public string IdClasificacionAbc { get { return miData.IdClasificacionAbc; } set { miData.IdClasificacionAbc = value; } }
+        public string IdDivisa { get { return miData.IdDivisa; } set { miData.IdDivisa = value; } }
+        public byte[] Imagen { get { return miData.Imagen; } set { miData.Imagen = value; } }
+        public bool Pesado { get { return miData.EsPesado; } set { miData.EsPesado = value; } }
+        public bool ActivarCatlogo { get { return miData.ActivarCatalogo; } set { miData.ActivarCatalogo = value; } }
+        public string Plu { get { return miData.Plu; } set { miData.Plu = value; } }
+        public int DiasEmpaque{get{return miData.DiasEmpaque;}set{miData.DiasEmpaque = value;}}
+        public bool IsAgregarEditarOk { get { return _isAgregarEditarOk; } }
+        public string AutoProductoAgregado { get { return _autoProductoAgregado; } }
 
 
         public Gestion()
@@ -536,6 +271,9 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
                 _diasEmpaque = 0;
                 _pesado = "0";
             }
+            var _catalogo = "0";
+            if (miData.ActivarCatalogo)
+                _catalogo = "1";
 
             var ficha = new OOB.LibInventario.Producto.Agregar.Ficha()
             {
@@ -560,6 +298,7 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
                 esPesado = _pesado,
                 plu = _plu,
                 diasEmpaque = _diasEmpaque,
+                estatusCatalogo=_catalogo,
             };
             var codAlterno = new List<OOB.LibInventario.Producto.Agregar.FichaCodAlterno>();
             foreach (var rg in _gestionCodAlterno.ListaCodigos) 
@@ -660,6 +399,7 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         }
 
 
+        public BindingSource SourceCodAlterno { get { return _gestionCodAlterno.Source; } }
         public string CodigoAlterno { get; set; }
 
         public void AgregarCodigoAlterno()
@@ -670,11 +410,6 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public void EliminarCodigoAlterno()
         {
             _gestionCodAlterno.Eliminar();
-        }
-
-        public BindingSource SourceCodAlterno
-        {
-            get { return _gestionCodAlterno.Source; }
         }
 
     }

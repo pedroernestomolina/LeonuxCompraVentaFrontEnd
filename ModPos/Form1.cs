@@ -178,6 +178,7 @@ namespace ModPos
         {
             _controlador.AbrirOperador();
             ActualizarJornadaOperadorUsuario();
+            _controlador.ActivarPos();
         }
 
         private void BT_OPERADOR_CERRAR_Click(object sender, EventArgs e)

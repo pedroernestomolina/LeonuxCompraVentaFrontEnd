@@ -309,6 +309,9 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             }
         }
 
+        public bool ActivarCatlogo { get { return miData.ActivarCatalogo; } set { miData.ActivarCatalogo=value; } }
+
+
         public string Plu
         {
             get
@@ -544,6 +547,9 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 _diasEmpaque = 0;
                 _pesado = "0";
             }
+            var _catalogo="0";
+            if (miData.ActivarCatalogo)
+                _catalogo = "1";
 
             var ficha = new OOB.LibInventario.Producto.Editar.Actualizar.Ficha()
             {
@@ -567,6 +573,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 esPesado = _pesado,
                 plu = _plu,
                 diasEmpaque = _diasEmpaque,
+                estatusCatalogo=_catalogo,
             };
             var codAlterno = new List<OOB.LibInventario.Producto.Editar.Actualizar.FichaCodigoAlterno>();
             foreach (var rg in _gestionCodAlterno.ListaCodigos)

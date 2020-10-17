@@ -30,6 +30,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         public string Plu { get; set; }
         public int DiasEmpaque { get; set; }
         public bool EsPesado { get; set; }
+        public bool ActivarCatalogo { get; set; }
 
 
         public data()
@@ -59,6 +60,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             EsPesado = ficha.esPesado == OOB.LibInventario.Producto.Enumerados.EnumPesado.Si ? true : false;
             Plu = ficha.plu;
             DiasEmpaque = ficha.diasEmpaque;
+            ActivarCatalogo = ficha.activarCatalogo== OOB.LibInventario.Producto.Enumerados.EnumCatalogo.Si ? true : false;
         }
 
         public void Limpiar()
@@ -82,6 +84,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             EsPesado = false;
             Plu = "";
             DiasEmpaque = 0;
+            ActivarCatalogo = false;
         }
 
         public string Clasificacion 
@@ -174,12 +177,6 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         public bool IsOk()
         {
             var rt = true;
-
-            //if (Codigo.Trim() == "")
-            //{
-            //    Helpers.Msg.Error("CAMPO [ CODIGO ] DEBE SER LLENADO");
-            //    return false;
-            //}
 
             if (Descripcion.Trim() == "")
             {

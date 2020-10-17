@@ -30,6 +30,7 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public string Plu { get; set; }
         public int DiasEmpaque { get; set; }
         public bool EsPesado { get; set; }
+        public bool ActivarCatalogo { get; set; }
 
 
         public data()
@@ -59,6 +60,7 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
             Plu = "";
             DiasEmpaque = 0;
             EsPesado = false;
+            ActivarCatalogo = false;
         }
 
         public string Clasificacion
@@ -151,12 +153,6 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
         public bool IsOk()
         {
             var rt = true;
-
-            //if (Codigo.Trim() == "")
-            //{
-            //    Helpers.Msg.Error("CAMPO [ CODIGO ] DEBE SER LLENADO");
-            //    return false;
-            //}
 
             if (Descripcion.Trim() == "")
             {

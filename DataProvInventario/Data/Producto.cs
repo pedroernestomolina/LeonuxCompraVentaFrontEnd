@@ -33,6 +33,7 @@ namespace DataProvInventario.Data
                 oferta = (DtoLibInventario.Producto.Enumerados.EnumOferta)filtro.oferta,
                 origen = (DtoLibInventario.Producto.Enumerados.EnumOrigen)filtro.origen,
                 pesado = (DtoLibInventario.Producto.Enumerados.EnumPesado)filtro.pesado,
+                catalogo=  (DtoLibInventario.Producto.Enumerados.EnumCatalogo)filtro.catalogo,
                 existencia = (DtoLibInventario.Producto.Filtro.Existencia )filtro.existencia,
             };
             var r01 = MyData.Producto_GetLista(filtroDto);
@@ -71,6 +72,7 @@ namespace DataProvInventario.Data
                         id.AdmPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa) s.admPorDivisa;
                         id.fechaAlta=s.fechaAlta.Value;
                         id.fechaUltActualizacion = s.fechaUltActualizacion;
+                        id.activarCatalogo = (OOB.LibInventario.Producto.Enumerados.EnumCatalogo) s.activarCatalogo;
 
                         var fechaV = "";
                         if (s.fechaUltCambioCosto.HasValue) 
@@ -598,6 +600,7 @@ namespace DataProvInventario.Data
                 nr.categoria= (OOB.LibInventario.Producto.Enumerados.EnumCategoria) e.categoria;
                 nr.AdmPorDivisa= (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)  e.AdmPorDivisa;
                 nr.Clasificacion= (OOB.LibInventario.Producto.Enumerados.EnumClasificacionABC) e.Clasificacion;
+                nr.activarCatalogo = (OOB.LibInventario.Producto.Enumerados.EnumCatalogo)e.activarCatalogo;
 
                 foreach (var rg in e.CodigosAlterno)
                 {
@@ -637,6 +640,7 @@ namespace DataProvInventario.Data
                 diasEmpaque = ficha.diasEmpaque,
                 esPesado = ficha.esPesado,
                 plu = ficha.plu,
+                estatusCatalogo=ficha.estatusCatalogo,
             };
             var codAlterno = new List<DtoLibInventario.Producto.Editar.Actualizar.FichaCodAlterno>();
             foreach (var rg in ficha.codigosAlterno) 
@@ -683,6 +687,7 @@ namespace DataProvInventario.Data
                 diasEmpaque = ficha.diasEmpaque,
                 esPesado = ficha.esPesado,
                 plu = ficha.plu,
+                estatusCatalogo=ficha.estatusCatalogo,
             };
             var codAlterno = new List<DtoLibInventario.Producto.Agregar.FichaCodAlterno>();
             foreach (var rg in ficha.codigosAlterno)
@@ -955,6 +960,7 @@ namespace DataProvInventario.Data
                     referencia = s.referencia,
                     tasaIva = s.tasaIva,
                     tipoABC = s.tipoABC,
+                    activarCatalogo= (OOB.LibInventario.Producto.Enumerados.EnumCatalogo) s.activarCatalogo,
                 };
                 rt.Entidad = id;
             }

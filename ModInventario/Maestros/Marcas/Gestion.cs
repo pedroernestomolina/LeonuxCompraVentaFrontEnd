@@ -51,12 +51,31 @@ namespace ModInventario.Maestros.Marcas
 
         public void AgregarItem()
         {
-            _gestionLista.AgregarItem();
+            var r00 = Sistema.MyData.Permiso_CrearMarca(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionLista.AgregarItem();
+            }
         }
 
         public void EditarItem()
         {
-            _gestionLista.EditarItem();
+            var r00 = Sistema.MyData.Permiso_ModificarMarca(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionLista.EditarItem();
+            }
         }
 
     }

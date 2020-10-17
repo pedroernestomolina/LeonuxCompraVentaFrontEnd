@@ -217,13 +217,13 @@ namespace ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebaj
                 autoDepositoOrigen = sucOrigen.autoDepositoPrincipal,
                 autorizado = _autorizadoPor,
                 autoRemision = "",
-                autoUsuario = Sistema.UsuarioP.auto,
+                autoUsuario = Sistema.UsuarioP.autoUsu,
                 cierreFtp = "",
                 codConcepto = conceptoPorTraslado.codigo,
                 codDepositoDestino = sucDestino.codigoDepositoPrincipal,
                 codDepositoOrigen = sucOrigen.codigoDepositoPrincipal,
                 codigoSucursal = sucOrigen.codigo,
-                codUsuario = Sistema.UsuarioP.codigo,
+                codUsuario = Sistema.UsuarioP.codigoUsu,
                 desConcepto = conceptoPorTraslado.nombre,
                 desDepositoDestino = sucDestino.nombre,
                 desDepositoOrigen = sucOrigen.nombre,
@@ -236,7 +236,7 @@ namespace ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebaj
                 situacion = "Procesado",
                 tipo = "03",
                 total = gestionLista.Total,
-                usuario = Sistema.UsuarioP.nombre,
+                usuario = Sistema.UsuarioP.nombreUsu,
             };
 
             var listDet = new List<OOB.LibInventario.Movimiento.Traslado.Insertar.FichaDetalle>();
@@ -376,39 +376,39 @@ namespace ModInventario.Movimiento.Traslado.EntreSucursalesPorExistenciaPorDebaj
             //};
 
 
-            var ficha = new Reportes.Documentos.MovimientoTraslado.Movimiento();
-            ficha.documentoNro = xficha.documentoNro ;
-            ficha.fecha = xficha.fecha;
-            ficha.notas = xficha.notas ;
-            ficha.autorizadoPor = xficha.autorizadoPor;
-            ficha.depositoOrigen = xficha.depositoOrigen ;
-            ficha.codigoDepositoOrigen = xficha.codigoDepositoOrigen ;
-            ficha.depositoDestino = xficha.depositoDestino ;
-            ficha.codigoDepositoDestino = xficha.codigoDepositoDestino ;
-            ficha.tipoDocumento = "TRASLADO/TRANSFERENCIA";
-            ficha.codigoConcepto = xficha.codigoConcepto;
-            ficha.concepto = xficha.concepto ;
-            ficha.estacion = xficha.estacion;
-            ficha.usuario = xficha.usuario ;
-            ficha.usuarioCodigo = xficha.usuarioCodigo ;
+            //var ficha = new Reportes.Documentos.Movimiento.Movimiento();
+            //ficha.documentoNro = xficha.documentoNro ;
+            //ficha.fecha = xficha.fecha;
+            //ficha.notas = xficha.notas ;
+            //ficha.autorizadoPor = xficha.autorizadoPor;
+            //ficha.depositoOrigen = xficha.depositoOrigen ;
+            //ficha.codigoDepositoOrigen = xficha.codigoDepositoOrigen ;
+            //ficha.depositoDestino = xficha.depositoDestino ;
+            //ficha.codigoDepositoDestino = xficha.codigoDepositoDestino ;
+            //ficha.tipoDocumento = "TRASLADO/TRANSFERENCIA";
+            //ficha.codigoConcepto = xficha.codigoConcepto;
+            //ficha.concepto = xficha.concepto ;
+            //ficha.estacion = xficha.estacion;
+            //ficha.usuario = xficha.usuario ;
+            //ficha.usuarioCodigo = xficha.usuarioCodigo ;
 
-            ficha.detalles = new List<Reportes.Documentos.MovimientoTraslado.Detalle>();
-            foreach (var it in xficha.detalles)
-            {
-                var det = new Reportes.Documentos.MovimientoTraslado.Detalle()
-                {
-                    cantidad = it.cantidad,
-                    codigo = it.codigo,
-                    costoUnd = it.costoUnd,
-                    descripcion = it.descripcion,
-                    importe = it.importe,
-                    signo = it.signo,
-                };
-                ficha.detalles.Add(det);
-            };
+            //ficha.detalles = new List<Reportes.Documentos.Movimiento.Detalle>();
+            //foreach (var it in xficha.detalles)
+            //{
+            //    var det = new Reportes.Documentos.Movimiento.Detalle()
+            //    {
+            //        cantidad = it.cantidad,
+            //        codigo = it.codigo,
+            //        costoUnd = it.costoUnd,
+            //        descripcion = it.descripcion,
+            //        importe = it.importe,
+            //        signo = it.signo,
+            //    };
+            //    ficha.detalles.Add(det);
+            //};
 
-            var rp1 = new Reportes.Documentos.MovimientoTraslado(ficha);
-            rp1.Generar();
+            //var rp1 = new Reportes.Documentos.Movimiento(ficha);
+            //rp1.Generar();
         }
 
     }

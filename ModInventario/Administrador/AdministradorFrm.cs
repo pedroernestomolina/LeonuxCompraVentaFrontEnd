@@ -125,6 +125,13 @@ namespace ModInventario.Administrador
             c8.HeaderCell.Style.Font = f;
             c8.DefaultCellStyle.Font = f1;
 
+            var c8A = new DataGridViewImageColumn();
+            c8A.Name = "Anulado";
+            c8A.Visible = true;
+            c8A.Width = 40;
+            c8A.HeaderCell.Style.Font = f;
+            c8A.DefaultCellStyle.Font = f1;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
@@ -135,6 +142,7 @@ namespace ModInventario.Administrador
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
+            //DGV.Columns.Add(c8A);
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -143,13 +151,18 @@ namespace ModInventario.Administrador
             {
                 if ((string)row.Cells["Situacion"].Value == "Pendiente")
                 {
-                    row.Cells["Situacion"].Style.BackColor = Color.Red;
+                    row.Cells["Situacion"].Style.BackColor = Color.Orange;
                     row.Cells["Situacion"].Style.ForeColor = Color.White;
                 }
 
-                if ((bool)row.Cells["IsAnulado"].Value==true)
+                if ((bool)row.Cells["IsAnulado"].Value == true)
                 {
                     row.DefaultCellStyle.ForeColor = Color.Red;
+                    //row.Cells["Anulado"].Value = Properties.Resources.bt_eliminar;
+                }
+                else
+                {
+                    //row.Cells["Anulado"].Value = Properties.Resources.bt_ok_3;
                 }
             }
         }
@@ -290,6 +303,26 @@ namespace ModInventario.Administrador
         {
             _controlador.LimpiarData();
             Actualizar();
+        }
+
+        private void BT_VISUALIZAR_Click(object sender, EventArgs e)
+        {
+            VisualizarDocumento();
+        }
+
+        private void VisualizarDocumento()
+        {
+            _controlador.VisualizarDocumento();
+        }
+
+        private void BT_IMPRIMIR_Click(object sender, EventArgs e)
+        {
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            _controlador.Imprimir();
         }
 
     }

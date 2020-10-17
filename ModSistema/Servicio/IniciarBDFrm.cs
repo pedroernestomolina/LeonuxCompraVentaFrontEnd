@@ -40,21 +40,9 @@ namespace ModSistema.Servicio
 
         private void IniciarBDFrm_Load(object sender, EventArgs e)
         {
-            TB_SUCURSAL.Text = _controlador.Sucursal;
-            TB_EQUIPO.Text = _controlador.Equipo;
+            ND_EQUIPO.Value = 1;
+            ND_SUCURSAL.Value = 1;
             P_DATA.Enabled = _controlador.HabilitarEntrada;
-        }
-
-        private void TB_SUCURSAL_Leave(object sender, EventArgs e)
-        {
-            TB_SUCURSAL.Text=TB_SUCURSAL.Text.Trim().ToUpper();
-            _controlador.Sucursal = TB_SUCURSAL.Text;
-        }
-
-        private void TB_EQUIPO_Leave(object sender, EventArgs e)
-        {
-            TB_EQUIPO.Text = TB_EQUIPO.Text.Trim().ToUpper();
-            _controlador.Equipo = TB_EQUIPO.Text;
         }
 
         private void TB_KeyDown(object sender, KeyEventArgs e)
@@ -64,15 +52,25 @@ namespace ModSistema.Servicio
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
-
-        private void TB_SUCURSAL_Validating(object sender, CancelEventArgs e)
+     
+        private void Salir()
         {
-            e.Cancel = TB_SUCURSAL.Text.Trim() == "";
+            this.Close();
         }
 
-        private void TB_EQUIPO_Validating(object sender, CancelEventArgs e)
+        private void BT_SALIR_Click(object sender, EventArgs e)
         {
-            e.Cancel = TB_EQUIPO.Text.Trim() == "";
+            Salir();
+        }
+
+        private void ND_SUCURSAL_ValueChanged(object sender, EventArgs e)
+        {
+            _controlador.Sucursal =  ND_SUCURSAL.Value.ToString().Trim().PadLeft(2,'0');
+        }
+
+        private void ND_EQUIPO_ValueChanged(object sender, EventArgs e)
+        {
+            _controlador.Equipo = ND_EQUIPO.Value.ToString().Trim().PadLeft(2, '0');
         }
 
     }

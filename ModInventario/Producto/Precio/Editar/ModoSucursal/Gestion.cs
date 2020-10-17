@@ -325,10 +325,10 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
             var ficha = new OOB.LibInventario.Precio.Editar.Ficha()
             {
                 autoProducto = autoPrd,
-                autoUsuario = Sistema.UsuarioP.auto,
-                codigoUsuario = Sistema.UsuarioP.codigo,
+                autoUsuario = Sistema.UsuarioP.autoUsu,
+                codigoUsuario = Sistema.UsuarioP.codigoUsu,
                 estacion = Environment.MachineName,
-                nombreUsuario = Sistema.UsuarioP.nombre,
+                nombreUsuario = Sistema.UsuarioP.nombreUsu,
             };
 
             var p1 = new OOB.LibInventario.Precio.Editar.FichaPrecio()

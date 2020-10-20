@@ -152,6 +152,52 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroExistencia.Ficha> Reportes_MaestroExistencia(OOB.LibInventario.Reportes.MaestroExistencia.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroExistencia.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.MaestroExistencia.Filtro()
+            {
+                autoDepartamento = filtro.autoDepartamento,
+                autoDeposito = filtro.autoDeposito,
+            };
+            var r01 = MyData.Reportes_MaestroExistencia(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.MaestroExistencia.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var exFisica = 0.0m;
+                        if (s.exFisica.HasValue)
+                            exFisica = s.exFisica.Value;
+                        return new OOB.LibInventario.Reportes.MaestroExistencia.Ficha()
+                        {
+                            autoDep = s.autoDep,
+                            autoPrd = s.autoPrd,
+                            codigoDep = s.codigoDep,
+                            codigoPrd = s.codigoPrd,
+                            decimales = s.decimales,
+                            exFisica = exFisica,
+                            nombreDep = s.nombreDep,
+                            nombrePrd = s.nombrePrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

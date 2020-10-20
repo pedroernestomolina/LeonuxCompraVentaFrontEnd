@@ -234,6 +234,21 @@ namespace ModInventario.Reportes.Filtros
             CB_ORIGEN.SelectedIndex = -1;
         }
 
+        private void L_SUCURSAL_Click(object sender, EventArgs e)
+        {
+            CB_SUCURSAL.SelectedIndex = -1;
+        }
+
+        private void L_DESDE_Click(object sender, EventArgs e)
+        {
+            DTP_DESDE.Value = DateTime.Now.Date;
+        }
+
+        private void L_HASTA_Click(object sender, EventArgs e)
+        {
+            DTP_HASTA.Value = DateTime.Now.Date;
+        }
+
         private void BT_PRODUCTO_BUSCAR_Click(object sender, EventArgs e)
         {
             BuscarProducto();
@@ -244,7 +259,7 @@ namespace ModInventario.Reportes.Filtros
             //_controlador.BuscarProveedor();
             //TB_PROVEEDOR.Text = _controlador.NombreProveedor;
         }
-    
+     
     }
 
 }

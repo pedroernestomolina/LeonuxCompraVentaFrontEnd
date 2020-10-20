@@ -160,6 +160,8 @@
     <Compile Include="LibInventario\Proveedor\Lista\Ficha.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\enumerados.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroExistencia\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroExistencia\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroInventario\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\MaestroInventario\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroProducto\Ficha.cs" />

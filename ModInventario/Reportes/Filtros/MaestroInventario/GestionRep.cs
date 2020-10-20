@@ -107,7 +107,6 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
             frp.ShowDialog();
         }
 
-
     }
 
 }

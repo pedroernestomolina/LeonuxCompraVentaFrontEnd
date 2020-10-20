@@ -52,6 +52,9 @@ namespace ModInventario
             L_HOST.Text = _controlador.Host;
             L_FECHA.Text = "";
             L_HORA.Text = "";
+            L_USUARIO.Text = Sistema.UsuarioP.codigoUsu+ 
+                Environment.NewLine+Sistema.UsuarioP.nombreUsu+
+                Environment.NewLine+Sistema.UsuarioP.NombreGru;
         }
 
         public void setControlador(GestionInv ctr) 
@@ -289,6 +292,16 @@ namespace ModInventario
         private void GraficaTop30()
         {
             _controlador.GraficaTop30();
+        }
+
+        private void TSM_REPORTE_MAESTRO_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            ReporteMaestroExistencia();
+        }
+
+        private void ReporteMaestroExistencia()
+        {
+            _controlador.ReporteMaestroExistencia();
         }
 
     }

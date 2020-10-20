@@ -275,6 +275,18 @@ namespace ModInventario
             gestion.Inicia();
         }
 
+        public void ReporteMaestroExistencia()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.MaestroExistencia.Filtros());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                var rp = new Reportes.Filtros.MaestroExistencia.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.Generar();
+            }
+        }
+
     }
 
 }

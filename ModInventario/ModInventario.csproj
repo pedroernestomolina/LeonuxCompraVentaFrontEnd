@@ -461,6 +461,10 @@
     </Compile>
     <Compile Include="Reportes\Documentos\Movimiento.cs" />
     <Compile Include="Reportes\Filtros\data.cs" />
+    <Compile Include="Reportes\Filtros\DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\Filtros\DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -474,6 +478,8 @@
     </Compile>
     <Compile Include="Reportes\Filtros\Gestion.cs" />
     <Compile Include="Reportes\Filtros\IFiltros.cs" />
+    <Compile Include="Reportes\Filtros\MaestroExistencia\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\MaestroExistencia\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroInventario\Filtros.cs" />
     <Compile Include="Reportes\Filtros\MaestroInventario\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\Filtros.cs" />
@@ -706,6 +712,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">
       <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\MaestroExistencia.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\MaestroInventario.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

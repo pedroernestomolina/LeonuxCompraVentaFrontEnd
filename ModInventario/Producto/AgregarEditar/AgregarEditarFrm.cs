@@ -340,7 +340,7 @@ namespace ModInventario.Producto.AgregarEditar
             var ind = CB_DEPARTAMENTO.SelectedIndex;
             _controlador.MaestroDepartamento();
             CB_DEPARTAMENTO.Refresh();
-            CB_DEPARTAMENTO.SelectedIndex = ind;
+            CB_DEPARTAMENTO.SelectedIndex = -1;
         }
 
         private void L_GRUPO_Click(object sender, EventArgs e)
@@ -353,7 +353,7 @@ namespace ModInventario.Producto.AgregarEditar
             var ind = CB_GRUPO.SelectedIndex;
             _controlador.MaestroGrupo();
             CB_GRUPO.Refresh();
-            CB_GRUPO.SelectedIndex = ind;
+            CB_GRUPO.SelectedIndex = -1;
         }
 
         private void L_MARCA_Click(object sender, EventArgs e)
@@ -366,7 +366,7 @@ namespace ModInventario.Producto.AgregarEditar
             var ind = CB_MARCA.SelectedIndex;
             _controlador.MaestroMarca();
             CB_MARCA.Refresh();
-            CB_MARCA.SelectedIndex = ind;
+            CB_MARCA.SelectedIndex = -1;
         }
 
         private void BT_ABRIR_Click(object sender, EventArgs e)

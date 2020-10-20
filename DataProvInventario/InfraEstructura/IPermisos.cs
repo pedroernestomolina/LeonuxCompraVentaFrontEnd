@@ -51,6 +51,9 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_DefinirNivelMinimoMaximoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoTrasladoEntreSucursales_PorExistenciaDebajoDelMinimo(string autoGrupoUsuario);
 
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_Reportes(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_Visor(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_Estadistica(string autoGrupoUsuario);
 
     }
 

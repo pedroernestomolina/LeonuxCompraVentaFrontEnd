@@ -109,11 +109,14 @@
             // 
             this.BT_GUARDAR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_GUARDAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_GUARDAR.Image = global::ModSistema.Properties.Resources.bt_ok_3;
+            this.BT_GUARDAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_GUARDAR.Location = new System.Drawing.Point(2, 2);
             this.BT_GUARDAR.Name = "BT_GUARDAR";
             this.BT_GUARDAR.Size = new System.Drawing.Size(100, 42);
             this.BT_GUARDAR.TabIndex = 1;
             this.BT_GUARDAR.Text = "Guardar";
+            this.BT_GUARDAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_GUARDAR.UseVisualStyleBackColor = true;
             this.BT_GUARDAR.Click += new System.EventHandler(this.BT_GUARDAR_Click);
             // 
@@ -133,11 +136,14 @@
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModSistema.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
             this.BT_SALIR.Size = new System.Drawing.Size(103, 42);
             this.BT_SALIR.TabIndex = 2;
             this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 

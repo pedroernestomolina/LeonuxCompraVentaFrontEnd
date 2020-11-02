@@ -2,6 +2,6 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>cristal</Catalogo>
+    <Catalogo>pita</Catalogo>
   </Servidor>
 </Configuracion>

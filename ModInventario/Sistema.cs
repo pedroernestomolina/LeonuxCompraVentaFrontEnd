@@ -13,6 +13,7 @@ namespace ModInventario
 
         static public DataProvInventario.InfraEstructura.IData MyData;
         static public OOB.LibInventario.Usuario.Ficha UsuarioP;
+        static public OOB.LibInventario.Empresa.Data.Ficha Negocio;
         static public string _Instancia { get; set; }
         static public string _BaseDatos { get; set; }
 

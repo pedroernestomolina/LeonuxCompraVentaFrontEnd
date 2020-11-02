@@ -100,6 +100,8 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
             Rds.Add(new ReportDataSource("MaestroProducto", ds.Tables["MaestroProducto"]));
 
             var frp = new ReporteFrm();

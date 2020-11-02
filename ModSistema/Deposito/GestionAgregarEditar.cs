@@ -54,7 +54,7 @@ namespace ModSistema.Deposito
                     frm = new AgregarEditarFrm();
                     frm.setControlador(this);
                 }
-                frm.setTitulo("Agregar Deposito:");
+                frm.setTitulo("Agregar Depósito:");
                 frm.ShowDialog();
             }
         }

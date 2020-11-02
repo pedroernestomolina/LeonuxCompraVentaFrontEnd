@@ -160,6 +160,7 @@
   <ItemGroup>
     <Content Include="Conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Imagenes\TOOLS.ico" />
     <None Include="Resources\TOOLS.ico" />

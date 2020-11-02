@@ -2,4 +2,3 @@ D:\Proyectos FoxSystem\CompraVentaFront\OOB\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\OOB\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\OOB\obj\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\OOB\obj\Debug\OOB.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\OOB\obj\Debug\OOB.csprojResolveAssemblyReference.cache

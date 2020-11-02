@@ -130,10 +130,24 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         {
             contenido = Prd.identidad.contenidoCompra; 
             tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra ;
-            if (p == 1) 
+            if (p == 1)
             {
                 contenido = 1;
-                tipoEmpaque = enumerados.enumTipoEmpaque.PorUnidad ;
+                tipoEmpaque = enumerados.enumTipoEmpaque.PorUnidad;
+
+                Costo = (Prd.costo.costoUnd);
+                if (Prd.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si)
+                {
+                    Costo = (Prd.costo.costoDivisaUnd);
+                }
+            }
+            else 
+            {
+                Costo = (Prd.costo.costoUnd * contenido);
+                if (Prd.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si)
+                {
+                    Costo = (Prd.costo.costoDivisaUnd*contenido);
+                }
             }
         }
 

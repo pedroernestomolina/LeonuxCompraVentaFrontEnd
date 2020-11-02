@@ -87,6 +87,7 @@
             this.TSM_REPORTE_MAESTRO_PRODUCTO = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_MAESTRO_INVENTARIO = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_MAESTRO_EXISTENCIA = new System.Windows.Forms.ToolStripMenuItem();
+            this.maestroKardexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_GRAFICA_TOP_30 = new System.Windows.Forms.ToolStripMenuItem();
             this.graficaDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -169,11 +170,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(690, 1);
+            this.panel2.Location = new System.Drawing.Point(688, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(153, 52);
+            this.panel2.Size = new System.Drawing.Size(155, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -184,7 +185,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(149, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(151, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -199,7 +200,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(363, 52);
+            this.panel7.Size = new System.Drawing.Size(361, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -218,7 +219,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(359, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(357, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -252,7 +253,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(272, 22);
+            this.panel14.Size = new System.Drawing.Size(270, 22);
             this.panel14.TabIndex = 3;
             // 
             // L_FECHA
@@ -262,7 +263,7 @@
             this.L_FECHA.ForeColor = System.Drawing.Color.Yellow;
             this.L_FECHA.Location = new System.Drawing.Point(2, 2);
             this.L_FECHA.Name = "L_FECHA";
-            this.L_FECHA.Size = new System.Drawing.Size(268, 18);
+            this.L_FECHA.Size = new System.Drawing.Size(266, 18);
             this.L_FECHA.TabIndex = 5;
             this.L_FECHA.Text = "Hoy";
             this.L_FECHA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -298,7 +299,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(272, 22);
+            this.panel16.Size = new System.Drawing.Size(270, 22);
             this.panel16.TabIndex = 4;
             // 
             // L_HOST
@@ -308,7 +309,7 @@
             this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
             this.L_HOST.Location = new System.Drawing.Point(2, 2);
             this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(268, 18);
+            this.L_HOST.Size = new System.Drawing.Size(266, 18);
             this.L_HOST.TabIndex = 4;
             this.L_HOST.Text = "label2";
             this.L_HOST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,7 +318,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(366, 1);
+            this.panel17.Location = new System.Drawing.Point(364, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -389,7 +390,7 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(568, 1);
+            this.panel20.Location = new System.Drawing.Point(566, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -462,8 +463,9 @@
             // 
             // TSM_ARCHIVO_SALIR
             // 
+            this.TSM_ARCHIVO_SALIR.Image = global::ModInventario.Properties.Resources.bt_salida_2;
             this.TSM_ARCHIVO_SALIR.Name = "TSM_ARCHIVO_SALIR";
-            this.TSM_ARCHIVO_SALIR.Size = new System.Drawing.Size(96, 22);
+            this.TSM_ARCHIVO_SALIR.Size = new System.Drawing.Size(152, 22);
             this.TSM_ARCHIVO_SALIR.Text = "Salir";
             this.TSM_ARCHIVO_SALIR.Click += new System.EventHandler(this.TSM_ARCHIVO_SALIR_Click);
             // 
@@ -698,7 +700,8 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_REPORTE_MAESTRO_PRODUCTO,
             this.TSM_REPORTE_MAESTRO_INVENTARIO,
-            this.TSM_REPORTE_MAESTRO_EXISTENCIA});
+            this.TSM_REPORTE_MAESTRO_EXISTENCIA,
+            this.maestroKardexToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -726,6 +729,12 @@
             this.TSM_REPORTE_MAESTRO_EXISTENCIA.Size = new System.Drawing.Size(280, 22);
             this.TSM_REPORTE_MAESTRO_EXISTENCIA.Text = "Maestro Existencia Resumen";
             this.TSM_REPORTE_MAESTRO_EXISTENCIA.Click += new System.EventHandler(this.TSM_REPORTE_MAESTRO_EXISTENCIA_Click);
+            // 
+            // maestroKardexToolStripMenuItem
+            // 
+            this.maestroKardexToolStripMenuItem.Name = "maestroKardexToolStripMenuItem";
+            this.maestroKardexToolStripMenuItem.Size = new System.Drawing.Size(280, 22);
+            this.maestroKardexToolStripMenuItem.Text = "Maestro Kardex";
             // 
             // estadisticasToolStripMenuItem
             // 
@@ -1070,6 +1079,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_GRAFICA_TOP_30;
         private System.Windows.Forms.ToolStripMenuItem graficaDepartamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_MAESTRO_EXISTENCIA;
+        private System.Windows.Forms.ToolStripMenuItem maestroKardexToolStripMenuItem;
     }
 }
 

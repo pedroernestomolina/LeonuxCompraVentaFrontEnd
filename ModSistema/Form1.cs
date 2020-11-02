@@ -59,6 +59,7 @@ namespace ModSistema
             timer.Start();
             L_VERSION.Text = _controlador.Version;
             L_HOST.Text = _controlador.Host;
+            L_USUARIO.Text = _controlador.Usuario;
             L_FECHA.Text = "";
             L_HORA.Text = "";
         }
@@ -151,6 +152,26 @@ namespace ModSistema
         private void InicializarBD_Sucursal()
         {
             _controlador.InicializarBD_Sucursal();
+        }
+
+        private void Menu_Ajuste_TasaRecepciónDivisa_POS_Click(object sender, EventArgs e)
+        {
+            TasaRecepcionDivisaPos();
+        }
+
+        private void TasaRecepcionDivisaPos()
+        {
+            _controlador.TasaRecepcionDivisaPos();
+        }
+
+        private void Menu_Ajuste_TasaDivisa_Click(object sender, EventArgs e)
+        {
+            TasaDivisa();
+        }
+
+        private void TasaDivisa()
+        {
+            _controlador.TasaDivisa();
         }
 
     }

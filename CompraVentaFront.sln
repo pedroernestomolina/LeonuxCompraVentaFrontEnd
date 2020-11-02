@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProvSistema", "DataProv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModSistema", "ModSistema\ModSistema.csproj", "{30895850-8BC9-4238-80A3-1CAD7A3AF30A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProvCompra", "DataProvCompra\DataProvCompra.csproj", "{CF74BFDA-9E08-46EE-A77E-2DBC332843AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModCompra", "ModCompra\ModCompra.csproj", "{81824BB5-8525-4AE6-AF80-82B3F0C2CEA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{30895850-8BC9-4238-80A3-1CAD7A3AF30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30895850-8BC9-4238-80A3-1CAD7A3AF30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30895850-8BC9-4238-80A3-1CAD7A3AF30A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF74BFDA-9E08-46EE-A77E-2DBC332843AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF74BFDA-9E08-46EE-A77E-2DBC332843AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF74BFDA-9E08-46EE-A77E-2DBC332843AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF74BFDA-9E08-46EE-A77E-2DBC332843AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81824BB5-8525-4AE6-AF80-82B3F0C2CEA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81824BB5-8525-4AE6-AF80-82B3F0C2CEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81824BB5-8525-4AE6-AF80-82B3F0C2CEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81824BB5-8525-4AE6-AF80-82B3F0C2CEA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

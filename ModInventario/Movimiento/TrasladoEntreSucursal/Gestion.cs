@@ -216,11 +216,10 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                     Helpers.Msg.Error("[ Sucursal Destino ] No Seleccionada");
                     return;
                 }
+
                 var msg = MessageBox.Show("Procesar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == DialogResult.No) 
-                {
+                if (msg == DialogResult.No)
                     return;
-                }
 
                 if (!RegistrarDocumento()) 
                 {
@@ -459,6 +458,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         public void setFiltros(Buscar.Filtrar.data data)
         {
+        }
+
+        public void EliminarItemsNoDisponible()
+        {
+            _gestionDetalle.EliminarItemsNoDisponible(); 
         }
 
     }

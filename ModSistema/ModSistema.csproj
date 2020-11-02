@@ -86,8 +86,16 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion.cs" />
+    <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Identificacion\Gestion.cs" />
+    <Compile Include="Identificacion\IdentificacionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Precio\ActualizarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +158,18 @@
     <Compile Include="Sucursal\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TasaDivisa\Gestion.cs" />
+    <Compile Include="TasaDivisa\IGestion.cs" />
+    <Compile Include="TasaDivisa\Pos\Gestion.cs" />
+    <Compile Include="TasaDivisa\Sist\data.cs" />
+    <Compile Include="TasaDivisa\Sist\data2.cs" />
+    <Compile Include="TasaDivisa\Sist\Gestion.cs" />
+    <Compile Include="TasaDivisa\TasaDivisaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TasaDivisa\TasaDivisaFrm.Designer.cs">
+      <DependentUpon>TasaDivisaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioGrupo\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +209,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Precio\ActualizarFrm.resx">
       <DependentUpon>ActualizarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +246,9 @@
     <EmbeddedResource Include="Sucursal\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TasaDivisa\TasaDivisaFrm.resx">
+      <DependentUpon>TasaDivisaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsuarioGrupo\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +280,10 @@
       <Project>{7ca91573-814f-4773-bfa1-ee0badcfdd2c}</Project>
       <Name>DataProvSistema</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LibControles\LibControles.csproj">
+      <Project>{1ED1D146-C74F-41D5-92FD-2F651C40698E}</Project>
+      <Name>LibControles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OOB\OOB.csproj">
       <Project>{e2d2a709-86b4-4801-adfe-d16ce6b272a5}</Project>
       <Name>OOB</Name>
@@ -279,6 +309,7 @@
     <Content Include="Imagenes\bt_editar_48.png" />
     <Content Include="Imagenes\bt_editar_ficha.png" />
     <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_enEspera.png" />
     <Content Include="Imagenes\bt_exchange.png" />
     <Content Include="Imagenes\bt_exchange_32.png" />
     <Content Include="Imagenes\bt_exchange_48.png" />
@@ -328,6 +359,7 @@
     <Content Include="Imagenes\gestionSistema_2.png" />
     <Content Include="Imagenes\gestionSistema_3.jpg" />
     <Content Include="Imagenes\icon_setup.png" />
+    <Content Include="Imagenes\images.jpg" />
     <Content Include="Imagenes\inventario.jpg" />
     <Content Include="Imagenes\inventario_2.jpg" />
     <Content Include="Imagenes\libro.png" />
@@ -337,6 +369,7 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\images.jpg" />
     <None Include="Resources\configuracionTool_4.jpg" />
     <None Include="Resources\bt_inicializar.png" />
     <None Include="Resources\automatizacion_2.jpg" />

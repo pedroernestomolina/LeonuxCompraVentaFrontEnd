@@ -129,6 +129,8 @@
             this.panel40 = new System.Windows.Forms.Panel();
             this.DGV_DETALLE = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.BT_ELIMINAR_NO_DISPONIBLE = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -195,6 +197,7 @@
             this.panel49.SuspendLayout();
             this.panel40.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).BeginInit();
+            this.panel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -1106,7 +1109,7 @@
             this.tableLayoutPanel15.ColumnCount = 3;
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 222F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 251F));
             this.tableLayoutPanel15.Controls.Add(this.panel41, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.panel39, 0, 0);
             this.tableLayoutPanel15.Controls.Add(this.panel13, 2, 0);
@@ -1356,7 +1359,7 @@
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
-            this.panel12.Size = new System.Drawing.Size(174, 56);
+            this.panel12.Size = new System.Drawing.Size(175, 56);
             this.panel12.TabIndex = 0;
             // 
             // BT_CARGAR_DATA
@@ -1365,7 +1368,7 @@
             this.BT_CARGAR_DATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_CARGAR_DATA.Location = new System.Drawing.Point(2, 2);
             this.BT_CARGAR_DATA.Name = "BT_CARGAR_DATA";
-            this.BT_CARGAR_DATA.Size = new System.Drawing.Size(170, 52);
+            this.BT_CARGAR_DATA.Size = new System.Drawing.Size(171, 52);
             this.BT_CARGAR_DATA.TabIndex = 2;
             this.BT_CARGAR_DATA.Text = "Productos Con Nivel Mínimo ";
             this.BT_CARGAR_DATA.UseVisualStyleBackColor = true;
@@ -1393,6 +1396,7 @@
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel18.Controls.Add(this.panel48, 5, 1);
             this.tableLayoutPanel18.Controls.Add(this.panel49, 6, 1);
+            this.tableLayoutPanel18.Controls.Add(this.panel29, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -1476,6 +1480,32 @@
             this.DGV_DETALLE.Size = new System.Drawing.Size(914, 351);
             this.DGV_DETALLE.TabIndex = 0;
             this.DGV_DETALLE.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DETALLE_CellFormatting);
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.BT_ELIMINAR_NO_DISPONIBLE);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(1, 1);
+            this.panel29.Margin = new System.Windows.Forms.Padding(1);
+            this.panel29.Name = "panel29";
+            this.panel29.Padding = new System.Windows.Forms.Padding(2);
+            this.panel29.Size = new System.Drawing.Size(35, 28);
+            this.panel29.TabIndex = 2;
+            // 
+            // BT_ELIMINAR_NO_DISPONIBLE
+            // 
+            this.BT_ELIMINAR_NO_DISPONIBLE.BackgroundImage = global::ModInventario.Properties.Resources.bt_limpiar_3;
+            this.BT_ELIMINAR_NO_DISPONIBLE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ELIMINAR_NO_DISPONIBLE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ELIMINAR_NO_DISPONIBLE.FlatAppearance.BorderSize = 0;
+            this.BT_ELIMINAR_NO_DISPONIBLE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ELIMINAR_NO_DISPONIBLE.Location = new System.Drawing.Point(2, 2);
+            this.BT_ELIMINAR_NO_DISPONIBLE.Name = "BT_ELIMINAR_NO_DISPONIBLE";
+            this.BT_ELIMINAR_NO_DISPONIBLE.Size = new System.Drawing.Size(31, 24);
+            this.BT_ELIMINAR_NO_DISPONIBLE.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.BT_ELIMINAR_NO_DISPONIBLE, "Quitar Items Donde No Tenga Disponibilidad");
+            this.BT_ELIMINAR_NO_DISPONIBLE.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR_NO_DISPONIBLE.Click += new System.EventHandler(this.BT_ELIMINAR_NO_DISPONIBLE_Click);
             // 
             // MovimientoFrm
             // 
@@ -1562,6 +1592,7 @@
             this.panel49.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).EndInit();
+            this.panel29.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1668,5 +1699,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button BT_CARGAR_DATA;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.Button BT_ELIMINAR_NO_DISPONIBLE;
     }
 }

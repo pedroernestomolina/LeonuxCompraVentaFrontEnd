@@ -416,7 +416,7 @@
   <Width>8.45833in</Width>
   <Page>
     <PageHeader>
-      <Height>2.19604cm</Height>
+      <Height>2.89292cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -601,7 +601,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox106</rd:DefaultName>
-          <Top>1.34042cm</Top>
+          <Top>1.97542cm</Top>
           <Left>0.35813cm</Left>
           <Height>0.70583cm</Height>
           <Width>10.19986cm</Width>
@@ -617,7 +617,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>2.15209cm</Top>
+          <Top>2.78709cm</Top>
           <Height>0cm</Height>
           <Width>21.05611cm</Width>
           <ZIndex>6</ZIndex>
@@ -627,6 +627,71 @@
             </Border>
           </Style>
         </Line>
+        <Textbox Name="EMPRESA_RIF">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!EMPRESA_RIF.Value</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>EMPRESA_RIF</rd:DefaultName>
+          <Top>0.35807cm</Top>
+          <Left>0.28787cm</Left>
+          <Height>0.53269cm</Height>
+          <Width>5.67839cm</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="EMPRESA_NOMBRE">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!EMPRESA_NOMBRE.Value</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>EMPRESA_NOMBRE</rd:DefaultName>
+          <Top>0.96132cm</Top>
+          <Left>0.28787cm</Left>
+          <Height>0.6cm</Height>
+          <Width>13.99482cm</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -705,6 +770,16 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="EMPRESA_RIF">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EMPRESA_NOMBRE">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>29d56cad-6bb0-4970-8e95-c3ed7a6e9c86</rd:ReportID>
 </Report>

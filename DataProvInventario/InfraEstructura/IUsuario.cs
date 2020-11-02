@@ -12,6 +12,7 @@ namespace DataProvInventario.InfraEstructura
     {
 
         OOB.ResultadoEntidad<OOB.LibInventario.Usuario.Ficha> Usuario_Principal();
+        OOB.ResultadoEntidad<OOB.LibInventario.Usuario.Ficha> Usuario_Cargar(OOB.LibInventario.Usuario.Buscar.Ficha ficha);
 
     }
 

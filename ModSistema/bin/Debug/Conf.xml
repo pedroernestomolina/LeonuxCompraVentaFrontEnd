@@ -2,6 +2,6 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>pitasuc5</Catalogo>
+    <Catalogo>pita</Catalogo>
   </Servidor>
 </Configuracion>

@@ -29,9 +29,32 @@ namespace ModInventario
         private Reportes.Filtros.Gestion _gestionReporteFiltros;
 
 
+        public string Version 
+        { 
+            get 
+            { 
+                return "Ver. " + Application.ProductVersion; 
+            } 
+        }
+        public string Host 
+        { 
+            get 
+            { 
+                return Sistema._Instancia + "/" + Sistema._BaseDatos; 
+            } 
+        }
+        public string Usuario
+        {
+            get
+            {
+                var rt = "";
+                rt = Sistema.UsuarioP.codigoUsu +
+                    Environment.NewLine + Sistema.UsuarioP.nombreUsu +
+                    Environment.NewLine + Sistema.UsuarioP.NombreGru;
+                return rt;
+            }
+        }
 
-        public string Version { get { return "Ver. " + Application.ProductVersion; } }
-        public string Host { get { return Sistema._Instancia + "/" + Sistema._BaseDatos; } }
 
 
         public GestionInv()

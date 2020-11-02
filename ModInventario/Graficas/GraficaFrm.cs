@@ -138,6 +138,11 @@ namespace ModInventario.Graficas
 
         private void Buscar()
         {
+            chart1.Titles.Clear();
+            chart1.Series.Clear();
+            chart1.Legends.Clear();
+            chart1.ChartAreas[0].Area3DStyle.Enable3D = false;
+            chart1.Legends.Add("Series 1");
             _controlador.Buscar();
         }
 
@@ -188,6 +193,16 @@ namespace ModInventario.Graficas
             //chart1.Series[1].LegendText = "#VALX";
 
             //chart1.Series[1].ChartType = SeriesChartType.Pie; //Tipo de grafico de linea para la serie 2
+        }
+
+        private void BT_IMPRIMIR_Click(object sender, EventArgs e)
+        {
+            ImprimirResultados();
+        }
+
+        private void ImprimirResultados()
+        {
+            _controlador.ImprimirResultados();
         }
     
     }

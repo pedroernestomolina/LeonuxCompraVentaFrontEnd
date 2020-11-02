@@ -133,6 +133,13 @@
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Identificacion\Gestion.cs" />
+    <Compile Include="Identificacion\IdentificacionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kardex\Detalle\data.cs" />
     <Compile Include="Kardex\Detalle\DetalleFrm.cs">
       <SubType>Form</SubType>
@@ -484,6 +491,12 @@
     <Compile Include="Reportes\Filtros\MaestroInventario\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\Filtros.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\GestionRep.cs" />
+    <Compile Include="Reportes\Graficas\DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Graficas\Top20\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\data.cs" />
     <Compile Include="Reportes\Movimientos\DS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -582,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Graficas\GraficaFrm.resx">
       <DependentUpon>GraficaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kardex\Detalle\DetalleFrm.resx">
       <DependentUpon>DetalleFrm.cs</DependentUpon>
@@ -722,6 +738,9 @@
     <EmbeddedResource Include="Reportes\Filtros\MaestroProductos.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Graficas\Top20.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Movimientos\Movimientos.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -810,6 +829,7 @@
     <Content Include="Imagenes\bt_editar_48.png" />
     <Content Include="Imagenes\bt_editar_ficha.png" />
     <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_enEspera.png" />
     <Content Include="Imagenes\bt_exchange.png" />
     <Content Include="Imagenes\bt_exchange_32.png" />
     <Content Include="Imagenes\bt_exchange_48.png" />
@@ -872,6 +892,17 @@
     <None Include="Reportes\Filtros\DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
+    <None Include="Reportes\Graficas\DS.xsc">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Graficas\DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Graficas\DS.xss">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\Movimientos\DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
@@ -902,6 +933,7 @@
     <None Include="Resources\bt_ok_3.png" />
     <None Include="Resources\bt_grafico.png" />
     <None Include="Resources\bt_imprimir_3.png" />
+    <None Include="Resources\bt_enEspera.png" />
     <Content Include="Resources\bt_setup.png" />
     <None Include="Resources\libro.png" />
     <None Include="Resources\carpeta.png" />

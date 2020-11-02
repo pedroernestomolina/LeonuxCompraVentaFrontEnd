@@ -79,6 +79,7 @@ namespace ModInventario.Movimiento.Cargo
             L_CNT_UND.Text = _controlador.CntUnd;
             L_COSTO_UND.Text = _controlador.CostoUnd;
             L_IMPORTE.Text = _controlador.Importe.ToString("n2");
+            TB_COSTO.Text = _controlador.Costo.ToString();
         }
 
         private void CB_EMPAQUE_SelectedIndexChanged(object sender, EventArgs e)

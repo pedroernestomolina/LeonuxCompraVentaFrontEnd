@@ -194,6 +194,39 @@ namespace DataProvSistema.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibSistema.Usuario.Ficha> Usuario_Cargar(OOB.LibSistema.Usuario.Buscar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Usuario.Ficha>();
+
+            var fichaBuscar = new DtoLibSistema.Usuario.Buscar.Ficha()
+            {
+                codigo = ficha.Codigo,
+                clave = ficha.Clave,
+            };
+            var r01 = MyData.Usuario_Buscar(fichaBuscar);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var u = r01.Entidad;
+            var nr = new OOB.LibSistema.Usuario.Ficha()
+            {
+                auto = u.autoUsu,
+                codigo = u.codigoUsu,
+                nombre = u.nombreUsu,
+                apellido = u.apellidoUsu,
+                estatus = u.isActivo ? OOB.LibSistema.Usuario.Enumerados.EnumModo.Activo : OOB.LibSistema.Usuario.Enumerados.EnumModo.Inactivo,
+                autoGrupo = u.autoGru,
+                grupo = u.nombreGru,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

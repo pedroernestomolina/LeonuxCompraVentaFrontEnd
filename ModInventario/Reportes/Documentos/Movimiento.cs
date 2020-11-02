@@ -62,6 +62,9 @@ namespace ModInventario.Reportes.Documentos
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("EMPRESA_DIRECCION", Sistema.Negocio.DireccionFiscal));
             Rds.Add(new ReportDataSource("Movimiento", ds.Tables["Movimiento"]));
             Rds.Add(new ReportDataSource("MovimientoDetalle", ds.Tables["MovimientoDetalle"]));
 

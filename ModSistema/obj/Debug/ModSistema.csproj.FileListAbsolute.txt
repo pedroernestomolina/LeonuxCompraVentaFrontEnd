@@ -5,6 +5,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DataProvSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ServiceSistema.dll
@@ -14,6 +15,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ILibSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ProvLibSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibEntitySistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DataProvSistema.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.SqlServer.xml
@@ -27,6 +29,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.csprojRe
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Form1.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Identificacion.IdentificacionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Precio.ActualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Servicio.IniciarBDFrm.resources
@@ -36,6 +39,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Sucursal
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.SucursalGrupo.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Sucursal.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Sucursal.MaestroFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.TasaDivisa.TasaDivisaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.UsuarioGrupo.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.UsuarioGrupo.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Usuario.AgregarEditarFrm.resources

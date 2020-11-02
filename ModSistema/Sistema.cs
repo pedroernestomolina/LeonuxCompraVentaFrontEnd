@@ -13,6 +13,8 @@ namespace ModSistema
 
         static public DataProvSistema.Infra.IData MyData;
         static public OOB.LibSistema.Usuario.Ficha UsuarioP;
+        static public OOB.LibSistema.Empresa.Data.Ficha Negocio;
+
         static public string _Instancia { get; set; }
         static public string _BaseDatos { get; set; }
         static public string Host 

@@ -21,6 +21,7 @@ namespace ModSistema
         private Usuario.Gestion _gestionUsuario;
         private SucursalDeposito.Gestion _gestionSucDep;
         private Servicio.Gestion _gestionServicio;
+        private TasaDivisa.Gestion _gestionTasaDivisa;
 
 
         public string Host 
@@ -39,6 +40,18 @@ namespace ModSistema
             }
         }
 
+        public string Usuario
+        {
+            get
+            {
+                var rt = "";
+                rt = Sistema.UsuarioP.codigo +
+                    Environment.NewLine + Sistema.UsuarioP.nombre +
+                    Environment.NewLine + Sistema.UsuarioP.grupo;
+                return rt;
+            }
+        }
+
 
         public Gestion()
         {
@@ -50,6 +63,7 @@ namespace ModSistema
             _gestionUsuario = new Usuario.Gestion();
             _gestionSucDep = new SucursalDeposito.Gestion();
             _gestionServicio = new Servicio.Gestion();
+            _gestionTasaDivisa = new TasaDivisa.Gestion();
         }
 
 
@@ -104,6 +118,20 @@ namespace ModSistema
         public void InicializarBD_Sucursal()
         {
             _gestionServicio.IniciaBD_Sucursal();
+        }
+
+        public void TasaRecepcionDivisaPos()
+        {
+            var gestion= new TasaDivisa.Pos.Gestion();
+            _gestionTasaDivisa.setGestion(gestion);
+            _gestionTasaDivisa.Inicia();
+        }
+
+        public void TasaDivisa()
+        {
+            var gestion = new TasaDivisa.Sist.Gestion();
+            _gestionTasaDivisa.setGestion(gestion);
+            _gestionTasaDivisa.Inicia();
         }
 
     }

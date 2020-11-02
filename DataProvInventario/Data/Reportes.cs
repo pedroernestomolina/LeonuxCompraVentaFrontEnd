@@ -141,6 +141,7 @@ namespace DataProvInventario.Data
                             cntUnd = s.cntUnd,
                             cntDoc = s.cntDoc,
                             nombre = s.nombre,
+                            codigo= s.codigo,
                             decimales = s.decimales,
                             esPesado = s.esPesado,
                         };

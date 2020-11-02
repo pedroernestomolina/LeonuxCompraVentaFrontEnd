@@ -95,7 +95,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(767, 38);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Maestro: Depositos";
+            this.label1.Text = "Maestro: Depósitos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
@@ -171,11 +171,11 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(533, 1);
+            this.panel5.Location = new System.Drawing.Point(532, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(117, 44);
+            this.panel5.Size = new System.Drawing.Size(118, 44);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -193,7 +193,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(115, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(116, 42);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel6
@@ -204,7 +204,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(54, 38);
+            this.panel6.Size = new System.Drawing.Size(55, 38);
             this.panel6.TabIndex = 0;
             // 
             // BT_AGREGAR
@@ -217,7 +217,7 @@
             this.BT_AGREGAR.Location = new System.Drawing.Point(2, 2);
             this.BT_AGREGAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_AGREGAR.Name = "BT_AGREGAR";
-            this.BT_AGREGAR.Size = new System.Drawing.Size(50, 34);
+            this.BT_AGREGAR.Size = new System.Drawing.Size(51, 34);
             this.BT_AGREGAR.TabIndex = 0;
             this.toolTip1.SetToolTip(this.BT_AGREGAR, "Agregar Item");
             this.BT_AGREGAR.UseVisualStyleBackColor = true;
@@ -227,7 +227,7 @@
             // 
             this.panel7.Controls.Add(this.BT_EDITAR);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(58, 2);
+            this.panel7.Location = new System.Drawing.Point(59, 2);
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
@@ -386,9 +386,11 @@
             // 
             // TSM_ARCHIVO_Salir
             // 
+            this.TSM_ARCHIVO_Salir.Image = global::ModSistema.Properties.Resources.bt_salida_2;
             this.TSM_ARCHIVO_Salir.Name = "TSM_ARCHIVO_Salir";
-            this.TSM_ARCHIVO_Salir.Size = new System.Drawing.Size(96, 22);
+            this.TSM_ARCHIVO_Salir.Size = new System.Drawing.Size(152, 22);
             this.TSM_ARCHIVO_Salir.Text = "Salir";
+            this.TSM_ARCHIVO_Salir.Click += new System.EventHandler(this.TSM_ARCHIVO_Salir_Click);
             // 
             // MaestroFrm
             // 

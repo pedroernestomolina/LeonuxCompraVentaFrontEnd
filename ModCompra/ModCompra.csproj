@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81824BB5-8525-4AE6-AF80-82B3F0C2CEA0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ModCompra</RootNamespace>
+    <AssemblyName>ModCompra</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\TOOLS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Documento\Cargar\Controlador\Gestion.cs" />
+    <Compile Include="Documento\Cargar\Controlador\GestionDocumento.cs" />
+    <Compile Include="Documento\Cargar\Formulario\DatosDocumentoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\DatosDocumentoFrm.Designer.cs">
+      <DependentUpon>DatosDocumentoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\DocumentoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\DocumentoFrm.Designer.cs">
+      <DependentUpon>DocumentoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion.cs" />
+    <Compile Include="Helpers\Msg.cs" />
+    <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Identificacion\Gestion.cs" />
+    <Compile Include="Identificacion\IdentificacionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sistema.cs" />
+    <EmbeddedResource Include="Documento\Cargar\Formulario\DatosDocumentoFrm.resx">
+      <DependentUpon>DatosDocumentoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documento\Cargar\Formulario\DocumentoFrm.resx">
+      <DependentUpon>DocumentoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataProvCompra\DataProvCompra.csproj">
+      <Project>{cf74bfda-9e08-46ee-a77e-2dbc332843ab}</Project>
+      <Name>DataProvCompra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibControles\LibControles.csproj">
+      <Project>{1ed1d146-c74f-41d5-92fd-2f651c40698e}</Project>
+      <Name>LibControles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OOB\OOB.csproj">
+      <Project>{e2d2a709-86b4-4801-adfe-d16ce6b272a5}</Project>
+      <Name>OOB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="conf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\administracion-compras-logistica.jpg" />
+    <Content Include="Imagenes\administrador.png" />
+    <Content Include="Imagenes\automatizacion.jpg" />
+    <Content Include="Imagenes\aydai-logistica.jpg" />
+    <Content Include="Imagenes\bt_alerta.png" />
+    <Content Include="Imagenes\bt_asignar.png" />
+    <Content Include="Imagenes\bt_borrar.png" />
+    <Content Include="Imagenes\bt_buscar.png" />
+    <Content Include="Imagenes\bt_campana.png" />
+    <Content Include="Imagenes\bt_consulta.png" />
+    <Content Include="Imagenes\bt_costo.png" />
+    <Content Include="Imagenes\bt_documento.png" />
+    <Content Include="Imagenes\bt_dollar.png" />
+    <Content Include="Imagenes\bt_editar_32.png" />
+    <Content Include="Imagenes\bt_editar_48.png" />
+    <Content Include="Imagenes\bt_editar_ficha.png" />
+    <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_enEspera.png" />
+    <Content Include="Imagenes\bt_exchange.png" />
+    <Content Include="Imagenes\bt_exchange_32.png" />
+    <Content Include="Imagenes\bt_exchange_48.png" />
+    <Content Include="Imagenes\bt_gestion.png" />
+    <Content Include="Imagenes\bt_grafico.png" />
+    <Content Include="Imagenes\bt_guardar %282%29.png" />
+    <Content Include="Imagenes\bt_guardar.png" />
+    <Content Include="Imagenes\bt_historico_32.png" />
+    <Content Include="Imagenes\bt_imagen.png" />
+    <Content Include="Imagenes\bt_imagen_2.png" />
+    <Content Include="Imagenes\bt_imprimir.png" />
+    <Content Include="Imagenes\bt_imprimir_2.png" />
+    <Content Include="Imagenes\bt_imprimir_3.png" />
+    <Content Include="Imagenes\bt_limpiar.png" />
+    <Content Include="Imagenes\bt_limpiar_2.png" />
+    <Content Include="Imagenes\bt_limpiar_3.png" />
+    <Content Include="Imagenes\bt_lista.png" />
+    <Content Include="Imagenes\bt_mobil_notification.png" />
+    <Content Include="Imagenes\bt_mov.png" />
+    <Content Include="Imagenes\bt_mov_2.png" />
+    <Content Include="Imagenes\bt_notificacion.png" />
+    <Content Include="Imagenes\bt_ok_2.png" />
+    <Content Include="Imagenes\bt_ok_3.png" />
+    <Content Include="Imagenes\bt_price.png" />
+    <Content Include="Imagenes\bt_proceso.png" />
+    <Content Include="Imagenes\bt_proveedor.png" />
+    <Content Include="Imagenes\bt_qr.png" />
+    <Content Include="Imagenes\bt_salida.png" />
+    <Content Include="Imagenes\bt_salida_2.png" />
+    <Content Include="Imagenes\bt_setup.png" />
+    <Content Include="Imagenes\bt_status.png" />
+    <Content Include="Imagenes\bt_sumar.png" />
+    <Content Include="Imagenes\bt_sumar_2.png" />
+    <Content Include="Imagenes\bt_usuario %282%29.png" />
+    <Content Include="Imagenes\bt_usuario.png" />
+    <Content Include="Imagenes\bt_visor.png" />
+    <Content Include="Imagenes\bt_warehouse.png" />
+    <Content Include="Imagenes\carpeta.png" />
+    <Content Include="Imagenes\dollar.png" />
+    <Content Include="Imagenes\fecha_derecha.png" />
+    <Content Include="Imagenes\flecha_izquierda.png" />
+    <Content Include="Imagenes\Gestion-Logistica-Integral-768x400.jpeg" />
+    <Content Include="Imagenes\icon_setup.png" />
+    <Content Include="Imagenes\inventario.jpg" />
+    <Content Include="Imagenes\inventario_2.jpg" />
+    <Content Include="Imagenes\libro.png" />
+    <Content Include="Imagenes\Machine-learning-1024x682.jpg" />
+    <Content Include="Imagenes\mobile.ico" />
+    <Content Include="Imagenes\plataforma-efosearch.jpg" />
+    <Content Include="Imagenes\sinImagen.png" />
+    <Content Include="Imagenes\TOOLS.ico" />
+    <Content Include="Imagenes\transferencia.png" />
+    <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\plataforma-efosearch.jpg" />
+    <None Include="Resources\administracion-compras-logistica.jpg" />
+    <None Include="Resources\aydai-logistica.jpg" />
+    <None Include="Resources\Gestion-Logistica-Integral-768x400.jpeg" />
+    <None Include="Resources\transferencia.png" />
+    <None Include="Resources\TOOLS.ico" />
+    <None Include="Resources\sinImagen.png" />
+    <None Include="Resources\mobile.ico" />
+    <None Include="Resources\Machine-learning-1024x682.jpg" />
+    <None Include="Resources\libro.png" />
+    <None Include="Resources\inventario_2.jpg" />
+    <None Include="Resources\inventario.jpg" />
+    <None Include="Resources\icon_setup.png" />
+    <None Include="Resources\flecha_izquierda.png" />
+    <None Include="Resources\fecha_derecha.png" />
+    <None Include="Resources\dollar.png" />
+    <None Include="Resources\carpeta.png" />
+    <None Include="Resources\bt_warehouse.png" />
+    <None Include="Resources\bt_visor.png" />
+    <None Include="Resources\bt_usuario.png" />
+    <None Include="Resources\bt_usuario %282%29.png" />
+    <None Include="Resources\bt_sumar_2.png" />
+    <None Include="Resources\bt_sumar.png" />
+    <None Include="Resources\bt_status.png" />
+    <None Include="Resources\bt_setup.png" />
+    <None Include="Resources\bt_salida_2.png" />
+    <None Include="Resources\bt_salida.png" />
+    <None Include="Resources\bt_qr.png" />
+    <None Include="Resources\bt_proveedor.png" />
+    <None Include="Resources\bt_proceso.png" />
+    <None Include="Resources\bt_price.png" />
+    <None Include="Resources\bt_ok_3.png" />
+    <None Include="Resources\bt_ok_2.png" />
+    <None Include="Resources\bt_notificacion.png" />
+    <None Include="Resources\bt_mov_2.png" />
+    <None Include="Resources\bt_mov.png" />
+    <None Include="Resources\bt_mobil_notification.png" />
+    <None Include="Resources\bt_lista.png" />
+    <None Include="Resources\bt_limpiar_3.png" />
+    <None Include="Resources\bt_limpiar_2.png" />
+    <None Include="Resources\bt_limpiar.png" />
+    <None Include="Resources\bt_imprimir_3.png" />
+    <None Include="Resources\bt_imprimir_2.png" />
+    <None Include="Resources\bt_imprimir.png" />
+    <None Include="Resources\bt_imagen_2.png" />
+    <None Include="Resources\bt_imagen.png" />
+    <None Include="Resources\bt_historico_32.png" />
+    <None Include="Resources\bt_guardar.png" />
+    <None Include="Resources\bt_guardar %282%29.png" />
+    <None Include="Resources\bt_grafico.png" />
+    <None Include="Resources\bt_gestion.png" />
+    <None Include="Resources\bt_exchange_48.png" />
+    <None Include="Resources\bt_exchange_32.png" />
+    <None Include="Resources\bt_exchange.png" />
+    <None Include="Resources\bt_enEspera.png" />
+    <None Include="Resources\bt_eliminar.png" />
+    <None Include="Resources\bt_editar_ficha.png" />
+    <None Include="Resources\bt_editar_48.png" />
+    <None Include="Resources\bt_editar_32.png" />
+    <None Include="Resources\bt_dollar.png" />
+    <None Include="Resources\bt_documento.png" />
+    <None Include="Resources\bt_costo.png" />
+    <None Include="Resources\bt_consulta.png" />
+    <None Include="Resources\bt_campana.png" />
+    <None Include="Resources\bt_buscar.png" />
+    <None Include="Resources\bt_borrar.png" />
+    <None Include="Resources\bt_asignar.png" />
+    <None Include="Resources\bt_alerta.png" />
+    <None Include="Resources\automatizacion.jpg" />
+    <None Include="Resources\administrador.png" />
+    <None Include="Resources\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

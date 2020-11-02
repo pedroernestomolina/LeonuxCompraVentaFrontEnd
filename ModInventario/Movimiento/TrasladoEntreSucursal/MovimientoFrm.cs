@@ -430,6 +430,19 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             ActivarFocoBusqueda();
             DGV_DETALLE.Refresh();
         }
+
+        private void BT_ELIMINAR_NO_DISPONIBLE_Click(object sender, EventArgs e)
+        {
+            EliminarItemsNoDisponible();
+        }
+
+        private void EliminarItemsNoDisponible()
+        {
+            _controlador.EliminarItemsNoDisponible();
+            ActualizarData();
+            ActivarFocoBusqueda();
+            DGV_DETALLE.Refresh();
+        }
     
     }
 

@@ -179,6 +179,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             }
         }
 
+        public void EliminarItemsNoDisponible()
+        {
+            detalle.EliminarItemsNoDisponible();
+            bs.CurrencyManager.Refresh();
+        }
+
     }
 
 }

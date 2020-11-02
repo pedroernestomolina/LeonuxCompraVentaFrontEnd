@@ -50,11 +50,9 @@ namespace ModInventario
             timer.Start();
             L_VERSION.Text = _controlador.Version;
             L_HOST.Text = _controlador.Host;
+            L_USUARIO.Text = _controlador.Usuario;
             L_FECHA.Text = "";
             L_HORA.Text = "";
-            L_USUARIO.Text = Sistema.UsuarioP.codigoUsu+ 
-                Environment.NewLine+Sistema.UsuarioP.nombreUsu+
-                Environment.NewLine+Sistema.UsuarioP.NombreGru;
         }
 
         public void setControlador(GestionInv ctr) 

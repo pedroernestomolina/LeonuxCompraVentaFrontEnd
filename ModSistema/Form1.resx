@@ -1211,7 +1211,7 @@
         YmdINgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="tasaDivisaActualToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Menu_Ajuste_TasaDivisa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAer5JREFUeF7tnQeYJFXV92c2V1XPzlZVzy4Iivhizgmzr4o5YFwjYl4jCMLu3Ht7
@@ -1741,7 +1741,7 @@
         YmdINgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="tasaRecepciónDivisaPOSToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Menu_Ajuste_TasaRecepciónDivisa_POS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         EwAACxMBAJqcGAAAer5JREFUeF7tnQeYJFXV92c2V1XPzlZVzy4Iivhizgmzr4o5YFwjYl4jCMLu3Ht7

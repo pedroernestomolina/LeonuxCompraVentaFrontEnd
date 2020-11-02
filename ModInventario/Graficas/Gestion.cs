@@ -16,6 +16,9 @@ namespace ModInventario.Graficas
         private data dataFiltro;
         private List<OOB.LibInventario.Deposito.Ficha> lDeposito;
         private BindingSource bsDeposito;
+        private List<OOB.LibInventario.Reportes.Top20.Ficha> lTop20;
+        private OOB.LibInventario.Deposito.Ficha deposito;
+        private string reportTitulo;
 
 
         public BindingSource SourceDeposito { get { return bsDeposito; } }
@@ -29,10 +32,13 @@ namespace ModInventario.Graficas
 
         public Gestion()
         {
+            lTop20 = new List<OOB.LibInventario.Reportes.Top20.Ficha>();
             dataFiltro=new data ();
             lDeposito = new List<OOB.LibInventario.Deposito.Ficha>();
             bsDeposito = new BindingSource();
             bsDeposito.DataSource = lDeposito;
+            deposito = null;
+            reportTitulo = "";
         }
 
 
@@ -66,6 +72,8 @@ namespace ModInventario.Graficas
 
         private void Limpiar()
         {
+            deposito = null;
+            lTop20.Clear();
             dataFiltro.Limpiar();
         }
 
@@ -99,21 +107,29 @@ namespace ModInventario.Graficas
                 filtro.autoDeposito = dataFiltro.AutoDeposito;
                 if (dataFiltro.Modulo.Trim().ToUpper() == "ENTRADA")
                 {
-                    titulo = "TOP 20 PRODUCTOS CON MAYOR ENTRADA: COMPRAS"; 
+                    titulo = "TOP PRODUCTOS CON MAYOR ENTRADA: COMPRAS"; 
                     filtro.Modulo = OOB.LibInventario.Reportes.enumerados.EnumModulo.Compras;
                 }
                 if (dataFiltro.Modulo.Trim().ToUpper() == "SALIDA")
                 {
-                    titulo = "TOP 20 PRODUCTOS CON MAYOR SALIDA: VENTAS"; 
+                    titulo = "TOP PRODUCTOS CON MAYOR SALIDA: VENTAS"; 
                     filtro.Modulo = OOB.LibInventario.Reportes.enumerados.EnumModulo.Ventas;
                 }
+                if (dataFiltro.Modulo.Trim().ToUpper() == "AJUSTE")
+                {
+                    titulo = "TOP PRODUCTOS CON MAYOR AJUSTE: INVENTARIO";
+                    filtro.Modulo = OOB.LibInventario.Reportes.enumerados.EnumModulo.Inventario;
+                }
 
+                reportTitulo = titulo;
+                deposito = lDeposito.FirstOrDefault(f => f.auto == dataFiltro.AutoDeposito);
                 var r01 = Sistema.MyData.Reportes_Top20(filtro);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
+                lTop20 = r01.Lista;
 
                 var dg = new List<DataGrafico>();
                 foreach (var rg in r01.Lista.OrderByDescending(o => o.cntUnd).Take(20).ToList()) 
@@ -153,6 +169,21 @@ namespace ModInventario.Graficas
             //    };
             //    datosGV.Add(reg);
             //}
+        }
+
+        public void ImprimirResultados()
+        {
+            if (lTop20 != null)
+            {
+                if (lTop20.Count > 0)
+                {
+                    var rp = new Reportes.Graficas.Top20.GestionRep();
+                    var dep = "N/A";
+                    if (deposito != null)
+                        dep = deposito.nombre;
+                    rp.Imprimir(lTop20, dataFiltro.Desde.Date, dataFiltro.Hasta.Date,dep, reportTitulo);
+                }
+            }
         }
 
     }

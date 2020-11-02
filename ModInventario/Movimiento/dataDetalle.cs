@@ -40,6 +40,14 @@ namespace ModInventario.Movimiento
             lstItems.Remove(it);
         }
 
+        public void EliminarItemsNoDisponible()
+        {
+            foreach (var rg in lstItems.Where(w=> !w.Disponible).ToList()) 
+            {
+                Remover(rg);
+            }
+        }
+
     }
 
 }

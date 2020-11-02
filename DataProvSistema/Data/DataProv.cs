@@ -39,6 +39,31 @@ namespace DataProvSistema.Data
             return result;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha> Empresa_Datos()
+        {
+            var result = new OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha>();
+
+            var r01 = MyData.Empresa_Datos();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Empresa.Data.Ficha()
+            {
+                CiRif = s.CiRif,
+                DireccionFiscal = s.DireccionFiscal,
+                Nombre = s.Nombre,
+                Telefono = s.Telefono,
+            };
+            result.Entidad = nr;
+
+            return result;
+        }
+
     }
 
 }

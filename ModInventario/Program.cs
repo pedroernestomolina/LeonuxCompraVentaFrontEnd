@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ModInventario
 {
     static class Program
@@ -21,7 +22,7 @@ namespace ModInventario
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                var r02 = Sistema.MyData.Usuario_Principal();
+                var r02 = Sistema.MyData.Empresa_Datos();
                 if (r02.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r02.Mensaje);
@@ -29,9 +30,15 @@ namespace ModInventario
                 }
                 else
                 {
-                    Sistema.UsuarioP = r02.Entidad;
-                    var _gestionInv = new GestionInv();
-                    _gestionInv.Inicia();
+                    Sistema.Negocio = r02.Entidad;
+
+                    var _gestionId = new Identificacion.Gestion();
+                    _gestionId.Inicia();
+                    if (_gestionId.IsUsuarioOk)
+                    {
+                        var _gestionInv = new GestionInv();
+                        _gestionInv.Inicia();
+                    }
                 }
                 //Application.EnableVisualStyles();
                 //Application.SetCompatibleTextRenderingDefault(false);

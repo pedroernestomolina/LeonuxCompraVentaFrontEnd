@@ -9,11 +9,12 @@ namespace DataProvSistema.Infra
 {
     
     public interface IData: IDeposito, ISucursalGrupo, ISucursal, IUsuario, IPrecio,
-        IFuncion, IUsuarioGrupo, IServConf
+        IFuncion, IUsuarioGrupo, IServConf, IPermisos, IConfiguracion
 
     {
 
         OOB.ResultadoEntidad<DateTime> FechaServidor();
+        OOB.ResultadoEntidad<OOB.LibSistema.Empresa.Data.Ficha> Empresa_Datos();
 
     }
 

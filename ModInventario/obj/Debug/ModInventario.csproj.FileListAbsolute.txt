@@ -1,7 +1,9 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Documentos\MovTraslado.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroExistencia.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroInventario.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroProductos.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Graficas\Top20.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Movimientos\Movimientos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe
@@ -40,6 +42,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Bu
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Buscar.Filtrar.FiltrosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Form1.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Graficas.GraficaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Identificacion.IdentificacionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Kardex.Detalle.DetalleFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Kardex.Movimiento.KardexFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Conceptos.AgregarEditarFrm.resources
@@ -94,4 +97,3 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroExistencia.rdlc

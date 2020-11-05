@@ -20,6 +20,8 @@ namespace ModInventario.Reportes.Filtros
         private List<OOB.LibInventario.Producto.Origen.Ficha> lOrigen;
         private List<OOB.LibInventario.TasaImpuesto.Ficha> lTasa;
         private List<OOB.LibInventario.Producto.Estatus.Lista.Ficha> lEstatus;
+        private List<OOB.LibInventario.Marca.Ficha> lMarca;
+        private List<OOB.LibInventario.Grupo.Ficha> lGrupo;
         private BindingSource bsDepart;
         private BindingSource bsDeposito;
         private BindingSource bsAdmDivisa;
@@ -28,6 +30,8 @@ namespace ModInventario.Reportes.Filtros
         private BindingSource bsOrigen;
         private BindingSource bsTasa;
         private BindingSource bsEstatus;
+        private BindingSource bsMarca;
+        private BindingSource bsGrupo;
         private data dataFiltro;
         private Filtros.IFiltros filtros;
 
@@ -40,6 +44,8 @@ namespace ModInventario.Reportes.Filtros
         public BindingSource SourceOrigen { get { return bsOrigen; } }
         public BindingSource SourceTasa { get { return bsTasa; } }
         public BindingSource SourceEstatus { get { return bsEstatus; } }
+        public BindingSource SourceMarca { get { return bsMarca; } }
+        public BindingSource SourceGrupo { get { return bsGrupo; } }
         public Filtros.IFiltros Filtros { get { return filtros; } }
         public data  DataFiltros { get { return dataFiltro; } }
 
@@ -48,14 +54,18 @@ namespace ModInventario.Reportes.Filtros
         public bool ActivarFiltros_IsOK { get; set; }
 
 
+        public string AutoGrupo { get { return dataFiltro.AutoGrupo; } set { dataFiltro.AutoGrupo= value; } } 
+        public string AutoMarca { get { return dataFiltro.AutoMarca; } set { dataFiltro.AutoMarca= value; } } 
         public string AutoDepartamento { get { return dataFiltro.AutoDepartamento; } set { dataFiltro.AutoDepartamento = value; } }
-        public string AutoDeposito { get { return dataFiltro.AutoDeposito; } set { dataFiltro.AutoDeposito = value; } }
+        public string AutoDeposito { get { return dataFiltro.AutoDeposito; } set { dataFiltro.AutoDeposito = value; setNombreDeposito(); } }
         public string AutoTasa { get { return dataFiltro.AutoTasa; } set { dataFiltro.AutoTasa = value; } }
         public string IdAdmDivisa { get { return dataFiltro.IdAdmDivisa; } set { dataFiltro.IdAdmDivisa = value; } }
         public string IdEstatus { get { return dataFiltro.IdEstatus; } set { dataFiltro.IdEstatus= value; } }
         public string IdOrigen  { get { return dataFiltro.IdOrigen; } set { dataFiltro.IdOrigen= value; } }
         public string IdCategoria { get { return dataFiltro.IdCategoria; } set { dataFiltro.IdCategoria = value; } } 
         public string CodigoSucursal { get { return dataFiltro.CodigoSucursal; } set { dataFiltro.CodigoSucursal= value; } }
+        public DateTime Desde { get { return dataFiltro.Desde; } set { dataFiltro.Desde= value; } } 
+        public DateTime Hasta { get { return dataFiltro.Hasta; } set { dataFiltro.Hasta= value; } } 
 
 
         public Gestion()
@@ -93,6 +103,14 @@ namespace ModInventario.Reportes.Filtros
             lEstatus = new List<OOB.LibInventario.Producto.Estatus.Lista.Ficha>();
             bsEstatus = new BindingSource();
             bsEstatus.DataSource = lEstatus;
+
+            lMarca= new List<OOB.LibInventario.Marca.Ficha>();
+            bsMarca= new BindingSource();
+            bsMarca.DataSource = lMarca;
+
+            lGrupo= new List<OOB.LibInventario.Grupo.Ficha>();
+            bsGrupo= new BindingSource();
+            bsGrupo.DataSource = lGrupo;
         }
 
 
@@ -180,6 +198,24 @@ namespace ModInventario.Reportes.Filtros
             lTasa.Clear();
             lTasa.AddRange(r07.Lista.OrderBy(o => o.tasa));
 
+            var r08 = Sistema.MyData.Grupo_GetLista ();
+            if (r08.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r08.Mensaje);
+                return false;
+            }
+            lGrupo.Clear();
+            lGrupo.AddRange(r08.Lista.OrderBy(o => o.nombre));
+
+            var r09 = Sistema.MyData.Marca_GetLista();
+            if (r09.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r09.Mensaje);
+                return false;
+            }
+            lMarca.Clear();
+            lMarca.AddRange(r09.Lista.OrderBy(o => o.nombre));
+
             lEstatus.Clear();
             lEstatus.Add(new OOB.LibInventario.Producto.Estatus.Lista.Ficha() { Id = "1", Descripcion = "Activo" });
             lEstatus.Add(new OOB.LibInventario.Producto.Estatus.Lista.Ficha() { Id = "3", Descripcion = "Inactivo" });
@@ -206,6 +242,20 @@ namespace ModInventario.Reportes.Filtros
         public void ActivarFiltros()
         {
             ActivarFiltros_IsOK = true;
+        }
+
+        private void setNombreDeposito()
+        {
+            var dp =lDeposito.FirstOrDefault(f=>f.auto==dataFiltro.AutoDeposito);
+            if (dp != null)
+                dataFiltro.NombreDeposito = dp.nombre;
+        }
+
+        private void setNombreDepartamento ()
+        {
+            var dp = lDepart.FirstOrDefault(f => f.auto == dataFiltro.AutoDepartamento);
+            if (dp != null)
+                dataFiltro.NombreDepartamento = dp.nombre;
         }
 
     }

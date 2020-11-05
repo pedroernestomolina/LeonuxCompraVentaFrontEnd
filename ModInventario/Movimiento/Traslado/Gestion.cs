@@ -388,6 +388,8 @@ namespace ModInventario.Movimiento.Traslado
                 return false;
             }
 
+            Helpers.VisualizarDocumento.CargarVisualizarDocumento(r01.Auto);
+
             return true;
         }
 

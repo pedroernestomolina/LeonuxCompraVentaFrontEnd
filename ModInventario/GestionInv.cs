@@ -310,6 +310,35 @@ namespace ModInventario
             }
         }
 
+        public void ReporteMaestroPrecio()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.MaestroPrecio.Filtros());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                var rp = new Reportes.Filtros.MaestroPrecio.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.Generar();
+            }
+        }
+
+        public void Kardex()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.Kardex.Filtros());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                if (_gestionReporteFiltros.Hasta >= _gestionReporteFiltros.Desde)
+                {
+                    var rp = new Reportes.Filtros.Kardex.GestionRep();
+                    rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                    rp.Generar();
+                }
+                else
+                    Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+            }
+        }
+
     }
 
 }

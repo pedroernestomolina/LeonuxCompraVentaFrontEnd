@@ -18,7 +18,7 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
 
         public bool ActivarDeposito
         {
-            get { return false ; }
+            get { return true; }
         }
 
         public bool ActivarSucursal
@@ -64,6 +64,21 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
         public bool ActivarCategoria
         {
             get { return false ; }
+        }
+
+        public bool ActivarMarca
+        {
+            get { return false; }
+        }
+
+        public bool ActivarGrupo
+        {
+            get { return false; }
+        }
+
+        public bool ActivarPrecio
+        {
+            get { return false; }
         }
 
 

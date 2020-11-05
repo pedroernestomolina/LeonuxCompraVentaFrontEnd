@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 namespace DataProvCompra.InfraEstructura
 {
     
-    public interface IData: ISucursal, IDeposito, IUsuario, IProveedor, IProducto, IEmpresa, IPermiso
+    public interface IData: ISucursal, IDeposito, IUsuario, IProveedor, IProducto, IEmpresa, 
+        IPermiso, IConfiguracion
     {
+
+        OOB.ResultadoEntidad<DateTime> FechaServidor();
+
     }
 
 }

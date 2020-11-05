@@ -46,6 +46,7 @@
     <Compile Include="LibCajaBanco\Reporte\Movimiento\Filtro.cs" />
     <Compile Include="LibCajaBanco\Sucursal\Ficha.cs" />
     <Compile Include="LibCajaBanco\Usuario\Ficha.cs" />
+    <Compile Include="LibCompra\Configuracion\Enumerados.cs" />
     <Compile Include="LibCompra\Deposito\Data\Ficha.cs" />
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
     <Compile Include="LibCompra\Permiso\Enumerados.cs" />
@@ -176,10 +177,14 @@
     <Compile Include="LibInventario\Proveedor\Lista\Ficha.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\enumerados.cs" />
+    <Compile Include="LibInventario\Reportes\Kardex\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\Kardex\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroExistencia\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\MaestroExistencia\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroInventario\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\MaestroInventario\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroPrecio\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\MaestroPrecio\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroProducto\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\MaestroProducto\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\Top20\Ficha.cs" />

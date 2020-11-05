@@ -551,6 +551,8 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             if (miData.ActivarCatalogo)
                 _catalogo = "1";
 
+            var entImpuesto= impuesto.FirstOrDefault(f=>f.auto==miData.AutoImpuesto);
+
             var ficha = new OOB.LibInventario.Producto.Editar.Actualizar.Ficha()
             {
                 auto = autoPrd,
@@ -574,6 +576,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 plu = _plu,
                 diasEmpaque = _diasEmpaque,
                 estatusCatalogo=_catalogo,
+                tasaImpuesto= entImpuesto.tasa,
             };
             var codAlterno = new List<OOB.LibInventario.Producto.Editar.Actualizar.FichaCodigoAlterno>();
             foreach (var rg in _gestionCodAlterno.ListaCodigos)

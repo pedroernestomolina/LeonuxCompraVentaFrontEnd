@@ -641,6 +641,7 @@ namespace DataProvInventario.Data
                 esPesado = ficha.esPesado,
                 plu = ficha.plu,
                 estatusCatalogo=ficha.estatusCatalogo,
+                tasaImpuesto=ficha.tasaImpuesto,
             };
             var codAlterno = new List<DtoLibInventario.Producto.Editar.Actualizar.FichaCodAlterno>();
             foreach (var rg in ficha.codigosAlterno) 

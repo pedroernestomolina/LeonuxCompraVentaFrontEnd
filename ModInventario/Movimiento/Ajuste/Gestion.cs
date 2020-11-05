@@ -335,6 +335,8 @@ namespace ModInventario.Movimiento.Ajuste
                 return false;
             }
 
+            Helpers.VisualizarDocumento.CargarVisualizarDocumento(r01.Auto);
+
             return true;
         }
 

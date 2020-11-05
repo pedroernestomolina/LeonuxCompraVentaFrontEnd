@@ -302,6 +302,26 @@ namespace ModInventario
             _controlador.ReporteMaestroExistencia();
         }
 
+        private void TSM_REPORTE_MAESTRO_PRECIO_Click(object sender, EventArgs e)
+        {
+            ReporteMaestroPrecio();
+        }
+
+        private void ReporteMaestroPrecio()
+        {
+            _controlador.ReporteMaestroPrecio();
+        }
+
+        private void TSM_REPORTE_KARDEX_Click(object sender, EventArgs e)
+        {
+            Kardex();
+        }
+
+        private void Kardex()
+        {
+            _controlador.Kardex();
+        }
+
     }
 
 }

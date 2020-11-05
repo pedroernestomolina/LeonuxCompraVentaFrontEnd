@@ -28,21 +28,35 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
 
         public void Generar()
         {
+            var sFiltro = "";
             var filtro = new OOB.LibInventario.Reportes.MaestroInventario.Filtro();
             if (dataFiltros != null)
             {
                 if (dataFiltros.IdAdmDivisa != "")
                 {
+                    sFiltro += "Por Divisa=";
                     var rt = OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.Si;
                     if (dataFiltros.IdAdmDivisa == "No")
+                    {
                         rt = OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.No;
+                        sFiltro += "NO, ";
+                    }
+                    else 
+                        sFiltro += "SI, ";
                     filtro.admDivisa = rt;
                 }
                 if (dataFiltros.IdEstatus != "")
                 {
                     filtro.estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus)int.Parse(dataFiltros.IdEstatus);
+                    sFiltro += "Por Estatus= "+filtro.estatus.ToString()+", ";
                 }
                 filtro.autoDepartamento = dataFiltros.AutoDepartamento;
+                filtro.autoDeposito= dataFiltros.AutoDeposito;
+
+                if (filtro.autoDeposito != "")
+                    sFiltro += "Por Deposito= "+dataFiltros.NombreDeposito+", ";
+                if (filtro.autoDepartamento != "")
+                    sFiltro += "Por Departamento= " + dataFiltros.NombreDepartamento + ", ";
             }
             var r01 = Sistema.MyData.Reportes_MaestroInventario (filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -51,10 +65,10 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
                 return;
             }
 
-            Imprimir(r01.Lista);
+            Imprimir(r01.Lista, sFiltro);
         }
 
-        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroInventario.Ficha> lista)
+        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroInventario.Ficha> lista, string sFiltro)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\MaestroInventario.rdlc";
             var ds = new DS();
@@ -100,6 +114,7 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
             var pmt = new List<ReportParameter>();
             pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
             pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("FILTROS", sFiltro));
             Rds.Add(new ReportDataSource("MaestroInventario", ds.Tables["MaestroInventario"]));
 
             var frp = new ReporteFrm();

@@ -66,6 +66,21 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
             get { return true; }
         }
 
+        public bool ActivarMarca
+        {
+            get { return false; }
+        }
+
+        public bool ActivarGrupo
+        {
+            get { return false; }
+        }
+
+        public bool ActivarPrecio
+        {
+            get { return false; }
+        }
+
 
         public Filtros()
         {

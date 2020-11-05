@@ -517,6 +517,8 @@ namespace ModInventario.Movimiento.Cargo
                 return false;
             }
 
+            Helpers.VisualizarDocumento.CargarVisualizarDocumento(r01.Auto);
+
             return true;
         }
 

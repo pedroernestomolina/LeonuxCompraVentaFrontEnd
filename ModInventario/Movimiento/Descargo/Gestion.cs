@@ -340,6 +340,8 @@ namespace ModInventario.Movimiento.Descargo
                 return false;
             }
 
+            Helpers.VisualizarDocumento.CargarVisualizarDocumento(r01.Auto);
+
             return true;
         }
 

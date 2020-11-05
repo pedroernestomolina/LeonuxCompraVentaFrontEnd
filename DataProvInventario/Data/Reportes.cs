@@ -71,6 +71,7 @@ namespace DataProvInventario.Data
             {
                 admDivisa = (DtoLibInventario.Reportes.enumerados.EnumAdministradorPorDivisa)filtro.admDivisa,
                 autoDepartamento = filtro.autoDepartamento,
+                autoDeposito=filtro.autoDeposito,
                 estatus = (DtoLibInventario.Reportes.enumerados.EnumEstatus)filtro.estatus,
             };
             var r01 = MyData.Reportes_MaestroInventario(filtroDto);
@@ -190,6 +191,118 @@ namespace DataProvInventario.Data
                             exFisica = exFisica,
                             nombreDep = s.nombreDep,
                             nombrePrd = s.nombrePrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroPrecio.Ficha> Reportes_MaestroPrecio(OOB.LibInventario.Reportes.MaestroPrecio.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroPrecio.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.MaestroPrecio.Filtro()
+            {
+                autoGrupo = filtro.autoGrupo,
+                autoMarca = filtro.autoMarca,
+                autoTasa = filtro.autoTasa,
+                admDivisa = (DtoLibInventario.Reportes.enumerados.EnumAdministradorPorDivisa) filtro.admDivisa,
+                autoDepartamento = filtro.autoDepartamento,
+                categoria = (DtoLibInventario.Reportes.enumerados.EnumCategoria) filtro.categoria,
+                origen = (DtoLibInventario.Reportes.enumerados.EnumOrigen) filtro.origen,
+                precio = (DtoLibInventario.Reportes.enumerados.EnumPrecio) filtro.precio,
+            };
+            var r01 = MyData.Reportes_MaestroPrecio(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.MaestroPrecio.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.MaestroPrecio.Ficha()
+                        {
+                            codigoPrd = s.codigoPrd,
+                            fechaUltCambioPrd = s.fechaUltCambioPrd,
+                            isAdmDivisaPrd = (OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa) s.isAdmDivisaPrd,
+                            modeloPrd = s.modeloPrd,
+                            nombrePrd = s.nombrePrd,
+                            departamento=s.departamento,
+                            precioDivisaFull_1 = s.precioDivisaFull_1,
+                            precioDivisaFull_2 = s.precioDivisaFull_2,
+                            precioDivisaFull_3 = s.precioDivisaFull_3,
+                            precioDivisaFull_4 = s.precioDivisaFull_4,
+                            precioDivisaFull_5 = s.precioDivisaFull_5,
+                            precioNeto_1 = s.precioNeto_1,
+                            precioNeto_2 = s.precioNeto_2,
+                            precioNeto_3 = s.precioNeto_3,
+                            precioNeto_4 = s.precioNeto_4,
+                            precioNeto_5 = s.precioNeto_5,
+                            referenciaPrd = s.referenciaPrd,
+                            tasaIvaPrd = s.tasaIvaPrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.Kardex.Ficha> Reportes_Kardex(OOB.LibInventario.Reportes.Kardex.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.Kardex.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.Kardex.Filtro()
+            {
+                autoDeposito = filtro.autoDeposito,
+                autoProducto = filtro.autoProducto,
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reportes_Kardex(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.Kardex.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.Kardex.Ficha()
+                        {
+                            codigoPrd = s.codigoPrd,
+                            modeloPrd = s.modeloPrd,
+                            nombrePrd = s.nombrePrd,
+                            referenciaPrd = s.referenciaPrd,
+                            cantidadUnd = s.cantidadUnd,
+                            concepto = s.concepto,
+                            decimalesPrd = s.decimalesPrd,
+                            deposito = s.deposito,
+                            documentoNro = s.documentoNro,
+                            entidadMov = s.entidadMov,
+                            existenciaInicial = s.existenciaInicial,
+                            fechaMov = s.fechaMov,
+                            horaMov = s.horaMov,
+                            moduloMov = s.moduloMov,
+                            siglasMov = s.siglasMov,
+                            signoMov = s.signoMov,
                         };
                     }).ToList();
                 }

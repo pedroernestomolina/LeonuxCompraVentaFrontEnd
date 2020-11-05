@@ -61,10 +61,11 @@ namespace ModInventario.Buscar
             c3.Name = "VEstatus";
             c3.HeaderText = "*";
             c3.Visible = true;
-            c3.Width = 20;
+            c3.Width = 60;
             c3.HeaderCell.Style.Font = f;
-            c3.DefaultCellStyle.Font = f1;
+            c3.DefaultCellStyle.Font = f;
             c3.DefaultCellStyle.BackColor = Color.Green;
+            c3.DefaultCellStyle.ForeColor= Color.White;
 
             //var c3 = new DataGridViewTextBoxColumn();
             //c3.DataPropertyName = "Estatus";
@@ -92,12 +93,25 @@ namespace ModInventario.Buscar
             foreach (DataGridViewRow row in DGV.Rows)
             {
                 var xcolor = Color.Green;
-                if (row.Cells["Estatus"].Value.ToString() == "Suspendido")
-                    xcolor = Color.Orange;
-                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
-                    xcolor = Color.Red;
+                var xestatus = "Activo";
 
+                if (row.Cells["Estatus"].Value.ToString() == "Activo") 
+                {
+                    xcolor = Color.Green;
+                    xestatus = "Activo";
+                }
+                if (row.Cells["Estatus"].Value.ToString() == "Suspendido")
+                {
+                    xcolor = Color.Orange;
+                    xestatus = "Suspendido";
+                }
+                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
+                {
+                    xcolor = Color.Red;
+                    xestatus = "Inactivo";
+                }
                 row.Cells["VEstatus"].Style.BackColor = xcolor;
+                row.Cells["VEstatus"].Value= xestatus;
             }
         }
 

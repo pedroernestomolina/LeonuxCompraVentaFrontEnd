@@ -15,6 +15,10 @@ namespace ModCompra.Documento.Cargar.Formulario
     public partial class DocumentoFrm : Form
     {
 
+
+        private Controlador.Gestion _controlador;
+
+
         public DocumentoFrm()
         {
             InitializeComponent();
@@ -22,7 +26,27 @@ namespace ModCompra.Documento.Cargar.Formulario
 
         private void DocumentoFrm_Load(object sender, EventArgs e)
         {
+            Inicializar_1();
+        }
 
+        private void Inicializar_1()
+        {
+            L_TITULO_DOCUMENTO.Text = _controlador.TituloDocumento;
+        }
+
+        public void setControlador(Controlador.Gestion ctr)
+        {
+            _controlador = ctr;
+        }
+
+        private void BT_NUEVO_Click(object sender, EventArgs e)
+        {
+            NuevoDocumento();
+        }
+
+        private void NuevoDocumento()
+        {
+            _controlador.NuevoDocumento();
         }
 
     }

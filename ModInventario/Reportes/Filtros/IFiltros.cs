@@ -22,6 +22,9 @@ namespace ModInventario.Reportes.Filtros
         bool ActivarEstatus { get; }
         bool ActivarOrigen { get; }
         bool ActivarCategoria { get; }
+        bool ActivarMarca { get; }
+        bool ActivarGrupo { get; }
+        bool ActivarPrecio { get; }
 
     }
 

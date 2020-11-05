@@ -55,8 +55,9 @@ namespace ModCompra
         {
             frm.setVisibilidadOff();
 
-            var gestionDoc = new Documento.Cargar.Controlador.Gestion();
-            gestionDoc.Inicia();
+            var gestionEntrada = new Documento.Cargar.Controlador.Gestion();
+            gestionEntrada.setGestion(new Documento.Cargar.Factura.GestionFac());
+            gestionEntrada.Inicia();
 
             frm.setVisibilidadOn();
         }

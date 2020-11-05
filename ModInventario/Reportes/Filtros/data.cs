@@ -11,6 +11,9 @@ namespace ModInventario.Reportes.Filtros
     public class data
     {
 
+        public string AutoProducto { get; set; }
+        public string AutoGrupo { get; set; }
+        public string AutoMarca { get; set; }
         public string AutoDepartamento { get; set; }
         public string AutoDeposito { get; set; }
         public string AutoTasa { get; set; }
@@ -19,6 +22,10 @@ namespace ModInventario.Reportes.Filtros
         public string IdOrigen { get; set; }
         public string IdCategoria { get; set; }
         public string CodigoSucursal { get; set; }
+        public string NombreDepartamento { get; set; }
+        public string NombreDeposito { get; set; }
+        public DateTime Desde { get; set; }
+        public DateTime Hasta { get; set; }
 
 
         public data()
@@ -28,6 +35,8 @@ namespace ModInventario.Reportes.Filtros
 
         public void Limpiar()
         {
+            AutoGrupo = "";
+            AutoMarca = "";
             AutoDepartamento = "";
             AutoDeposito = "";
             AutoTasa = "";
@@ -36,6 +45,11 @@ namespace ModInventario.Reportes.Filtros
             IdCategoria = "";
             IdAdmDivisa = "";
             CodigoSucursal = "";
+            NombreDepartamento = "";
+            NombreDeposito = "";
+            AutoProducto = "";
+            Desde = DateTime.Now.Date;
+            Hasta = DateTime.Now.Date;
         }
 
     }

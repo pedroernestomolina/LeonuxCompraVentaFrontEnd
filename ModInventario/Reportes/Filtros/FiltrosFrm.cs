@@ -42,6 +42,10 @@ namespace ModInventario.Reportes.Filtros
             CB_IMPUESTO.ValueMember = "Auto";
             CB_ESTATUS.DisplayMember = "Descripcion";
             CB_ESTATUS.ValueMember = "Id";
+            CB_GRUPO.DisplayMember = "Nombre";
+            CB_GRUPO.ValueMember = "Auto";
+            CB_MARCA.DisplayMember = "Nombre";
+            CB_MARCA.ValueMember = "Auto";
         }
 
         private void FiltrosFrm_Load(object sender, EventArgs e)
@@ -55,6 +59,8 @@ namespace ModInventario.Reportes.Filtros
             CB_ORIGEN.DataSource = _controlador.SourceOrigen;
             CB_IMPUESTO.DataSource = _controlador.SourceTasa;
             CB_ESTATUS.DataSource = _controlador.SourceEstatus;
+            CB_MARCA.DataSource = _controlador.SourceMarca;
+            CB_GRUPO.DataSource = _controlador.SourceGrupo;
             TB_PRODUCTO.Focus();
 
             TB_PRODUCTO.Enabled = _controlador.Filtros.ActivarProducto;
@@ -67,6 +73,8 @@ namespace ModInventario.Reportes.Filtros
             CB_ESTATUS.Enabled = _controlador.Filtros.ActivarEstatus;
             CB_ORIGEN.Enabled = _controlador.Filtros.ActivarOrigen;
             CB_CATEGORIA.Enabled = _controlador.Filtros.ActivarCategoria;
+            CB_MARCA.Enabled = _controlador.Filtros.ActivarMarca;
+            CB_GRUPO.Enabled = _controlador.Filtros.ActivarGrupo;
             DTP_DESDE.Enabled = _controlador.Filtros.ActivarDesde;
             DTP_HASTA.Enabled = _controlador.Filtros.ActivarHasta;
         }
@@ -148,6 +156,34 @@ namespace ModInventario.Reportes.Filtros
             }
         }
 
+        private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.AutoGrupo = "";
+            if (CB_GRUPO.SelectedIndex != -1)
+            {
+                _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_MARCA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.AutoMarca= "";
+            if (CB_MARCA.SelectedIndex != -1)
+            {
+                _controlador.AutoMarca = CB_MARCA.SelectedValue.ToString();
+            }
+        }
+
+        private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
+        {
+            _controlador.Desde = DTP_DESDE.Value.Date;
+        }
+
+        private void DTP_HASTA_ValueChanged(object sender, EventArgs e)
+        {
+            _controlador.Hasta = DTP_HASTA.Value.Date;
+        }
+
         private void BT_FILTRAR_Click(object sender, EventArgs e)
         {
             Filtrar();
@@ -188,6 +224,8 @@ namespace ModInventario.Reportes.Filtros
                 CB_ORIGEN.SelectedIndex=-1;
                 CB_IMPUESTO.SelectedIndex=-1;
                 CB_ESTATUS.SelectedIndex=-1;
+                CB_GRUPO.SelectedIndex = -1;
+                CB_MARCA.SelectedIndex = -1;
 
                 DTP_DESDE.Value = DateTime.Now.Date;
                 DTP_HASTA.Value = DateTime.Now.Date;
@@ -247,6 +285,16 @@ namespace ModInventario.Reportes.Filtros
         private void L_HASTA_Click(object sender, EventArgs e)
         {
             DTP_HASTA.Value = DateTime.Now.Date;
+        }
+
+        private void L_GRUPO_Click(object sender, EventArgs e)
+        {
+            CB_GRUPO.SelectedIndex = -1;
+        }
+
+        private void L_MARCA_Click(object sender, EventArgs e)
+        {
+            CB_MARCA.SelectedIndex = -1;
         }
 
         private void BT_PRODUCTO_BUSCAR_Click(object sender, EventArgs e)

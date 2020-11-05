@@ -25,6 +25,24 @@ namespace OOB.LibCompra.Proveedor.Data
         public string nombreContacto { get; set; }
         public Enumerados.EnumEstatus estatus { get; set; }
 
+
+        public Identificacion()
+        {
+            auto = "";
+            autoGrupo = "";
+            autoEstado = "";
+
+            ciRif = "";
+            codigo = "";
+            nombreRazonSocial = "";
+            dirFiscal = "";
+            telefono = "";
+            nombreGrupo = "";
+            nombreEstado = "";
+            nombreContacto = "";
+            estatus = Enumerados.EnumEstatus.SnDefinir;
+        }
+
     }
 
 }

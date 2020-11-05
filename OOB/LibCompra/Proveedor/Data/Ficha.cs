@@ -13,6 +13,11 @@ namespace OOB.LibCompra.Proveedor.Data
 
         public Identificacion identidad { get; set; }
 
+        public string autoId { get { return identidad.auto; } }
+        public string ciRif { get { return identidad.ciRif; } }
+        public string nombreRazonSocial { get { return identidad.nombreRazonSocial; } }
+        public string direccionFiscal { get { return identidad.dirFiscal; } }
+
 
         public Ficha()
         {

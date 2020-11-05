@@ -68,21 +68,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\MaestroProductos.rdlc";
             var ds = new DS();
-
-  //public string codigoPrd { get; set; }
-  //      public string nombrePrd { get; set; }
-  //      public string referenciaPrd { get; set; }
-  //      public string modeloPrd { get; set; }
-  //      public int contenidoPrd { get; set; }
-  //      public string departamento { get; set; }
-  //      public string empaque { get; set; }
-  //      public decimal tasaIva { get; set; }
-  //      public enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
-  //      public enumerados.EnumEstatus estatus { get; set; }
-  //      public enumerados.EnumCategoria categoria { get; set; }
-  //      public enumerados.EnumOrigen origen { get; set; }
-
-            foreach (var it in lista.ToList().OrderBy(o=>o.departamento).OrderBy(o=>o.nombrePrd).ToList())
+            foreach (var it in lista.ToList().OrderBy(o=>o.departamento).ThenBy(o=>o.nombrePrd).ToList())
             {
                 DataRow rt = ds.Tables["MaestroProducto"].NewRow();
                 rt["codigo"] = it.codigoPrd;

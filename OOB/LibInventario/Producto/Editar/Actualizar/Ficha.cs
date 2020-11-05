@@ -24,6 +24,7 @@ namespace OOB.LibInventario.Producto.Editar.Actualizar
         public string modelo { get; set; }
         public string referencia { get; set; }
         public int contenidoCompra { get; set; }
+        public decimal tasaImpuesto { get; set; }
 
         public string origen { get; set; }
         public string categoria { get; set; }

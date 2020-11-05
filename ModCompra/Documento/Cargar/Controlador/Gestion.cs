@@ -11,19 +11,37 @@ namespace ModCompra.Documento.Cargar.Controlador
     public class Gestion
     {
 
-        private GestionDocumento gestionDoc;
+        private IGestion _gestion;
+        private GestionDocumento _gestionDoc;
+
+
+        public string TituloDocumento { get { return _gestion.TituloDocumento; } }
+
 
 
         public Gestion()
         {
-            gestionDoc=new GestionDocumento();
+            _gestionDoc = new GestionDocumento();
         }
 
+
+        public void setGestion(IGestion gestion) 
+        {
+            _gestion = gestion;
+            _gestionDoc.setGestion(_gestion.GestionDoc);
+        }
+
+        Formulario.DocumentoFrm frm;
         public void Inicia() 
         {
-            var frm = new Formulario.DocumentoFrm();
+            frm = new Formulario.DocumentoFrm();
+            frm.setControlador(this);
             frm.ShowDialog();
-            gestionDoc.Inicia();
+        }
+
+        public void NuevoDocumento()
+        {
+            _gestionDoc.Inicia();
         }
 
     }

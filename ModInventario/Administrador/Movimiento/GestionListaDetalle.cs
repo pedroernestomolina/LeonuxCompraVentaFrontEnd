@@ -63,7 +63,7 @@ namespace ModInventario.Administrador.Movimiento
             {
                 if (!Item.IsAnulado)
                 {
-                    var r00 = Sistema.MyData.Permiso_AnularMovimientoInventario(Sistema.UsuarioP.autoGru);
+                    var r00 = Sistema.MyData.Permiso_AdmAnularMovimientoInventario(Sistema.UsuarioP.autoGru);
                     if (r00.Result == OOB.Enumerados.EnumResult.isError) 
                     {
                         Helpers.Msg.Error(r00.Mensaje);
@@ -206,24 +206,38 @@ namespace ModInventario.Administrador.Movimiento
         {
             if (Item != null)
             {
-                var rt1 = Sistema.MyData.Producto_Movimiento_GetFicha(Item.Ficha.autoId);
-                if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+                var r00 = Sistema.MyData.Permiso_AdmVisualizarMovimientoInventario(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
                 {
-                    Helpers.Msg.Error(rt1.Mensaje);
+                    Helpers.Msg.Error(r00.Mensaje);
                     return;
                 }
-
-                switch (Item.Ficha.docTipo)
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
                 {
-                    case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Cargo:
-                    case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Descargo:
-                    case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Traslado:
-                        Visualizar(rt1.Entidad);
-                        break;
-                    case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Ajuste:
-                        VisualizarAjuste(rt1.Entidad);
-                        break;
+                    CargarVisualizarDocumento(Item.Ficha.autoId);
                 }
+            }
+        }
+
+        public void CargarVisualizarDocumento(string idMov) 
+        {
+            var rt1 = Sistema.MyData.Producto_Movimiento_GetFicha(idMov);
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return;
+            }
+
+            switch (Item.Ficha.docTipo)
+            {
+                case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Cargo:
+                case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Descargo:
+                case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Traslado:
+                    Visualizar(rt1.Entidad);
+                    break;
+                case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Ajuste:
+                    VisualizarAjuste(rt1.Entidad);
+                    break;
             }
         }
 
@@ -316,28 +330,37 @@ namespace ModInventario.Administrador.Movimiento
 
         public void Imprimir()
         {
-            if (bl.Count > 0)
+            var r00 = Sistema.MyData.Permiso_AdmReporteMovimientoInventario(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
-                var data = new List<Reportes.Movimientos.data>();
-                foreach (var rg in bl)
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                if (bl.Count > 0)
                 {
-                    var nr = new Reportes.Movimientos.data()
+                    var data = new List<Reportes.Movimientos.data>();
+                    foreach (var rg in bl)
                     {
-                        documentoNro = rg.DocumentoNro,
-                        concepto = rg.Concepto,
-                        fechaHora = rg.FechaHora,
-                        importe = rg.Ficha.docMonto,
-                        isAnulado = rg.IsAnulado,
-                        nombreDocumento = rg.STipoDoc,
-                        renglones = rg.SRenglones,
-                        situacion = rg.Situacion,
-                        sucursal = rg.Sucursal,
-                        usuarioEstacion = rg.UsuarioEstacion,
-                    };
-                    data.Add(nr);
+                        var nr = new Reportes.Movimientos.data()
+                        {
+                            documentoNro = rg.DocumentoNro,
+                            concepto = rg.Concepto,
+                            fechaHora = rg.FechaHora,
+                            importe = rg.Ficha.docMonto,
+                            isAnulado = rg.IsAnulado,
+                            nombreDocumento = rg.STipoDoc,
+                            renglones = rg.SRenglones,
+                            situacion = rg.Situacion,
+                            sucursal = rg.Sucursal,
+                            usuarioEstacion = rg.UsuarioEstacion,
+                        };
+                        data.Add(nr);
+                    }
+                    var rp = new Reportes.Movimientos.gestionRep(data);
+                    rp.Generar();
                 }
-                var rp = new Reportes.Movimientos.gestionRep(data);
-                rp.Generar();
             }
         }
 

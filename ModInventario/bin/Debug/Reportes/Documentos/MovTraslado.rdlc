@@ -24,10 +24,10 @@
               <Width>0.78635cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.74253cm</Width>
+              <Width>2.33242cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.39858cm</Width>
+              <Width>2.98066cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -796,7 +796,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total Documento</Value>
+                              <Value>Total </Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -898,7 +898,7 @@
         <Top>0.17639cm</Top>
         <Left>0.26141cm</Left>
         <Height>1.8cm</Height>
-        <Width>20.43784cm</Width>
+        <Width>20.60981cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

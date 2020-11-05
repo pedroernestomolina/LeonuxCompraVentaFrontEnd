@@ -133,6 +133,7 @@
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Helpers\VisualizarDocumento.cs" />
     <Compile Include="Identificacion\Gestion.cs" />
     <Compile Include="Identificacion\IdentificacionFrm.cs">
       <SubType>Form</SubType>
@@ -485,10 +486,14 @@
     </Compile>
     <Compile Include="Reportes\Filtros\Gestion.cs" />
     <Compile Include="Reportes\Filtros\IFiltros.cs" />
+    <Compile Include="Reportes\Filtros\Kardex\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\Kardex\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroExistencia\Filtros.cs" />
     <Compile Include="Reportes\Filtros\MaestroExistencia\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroInventario\Filtros.cs" />
     <Compile Include="Reportes\Filtros\MaestroInventario\GestionRep.cs" />
+    <Compile Include="Reportes\Filtros\MaestroPrecio\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\MaestroPrecio\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\Filtros.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\GestionRep.cs" />
     <Compile Include="Reportes\Graficas\DS.Designer.cs">
@@ -729,10 +734,16 @@
     <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">
       <DependentUpon>FiltrosFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\Kardex.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\MaestroExistencia.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\MaestroInventario.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\MaestroPrecio.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\MaestroProductos.rdlc">

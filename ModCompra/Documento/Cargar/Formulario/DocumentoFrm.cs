@@ -47,6 +47,12 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void NuevoDocumento()
         {
             _controlador.NuevoDocumento();
+            ActualizarProveedor();
+        }
+
+        private void ActualizarProveedor()
+        {
+            L_PROVEEDOR.Text = _controlador.Proveedor;
         }
 
     }

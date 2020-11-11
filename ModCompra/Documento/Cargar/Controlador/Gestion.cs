@@ -15,6 +15,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         private GestionDocumento _gestionDoc;
 
 
+        public string Proveedor { get { return _gestionDoc.Proveedor; } }
         public string TituloDocumento { get { return _gestion.TituloDocumento; } }
 
 

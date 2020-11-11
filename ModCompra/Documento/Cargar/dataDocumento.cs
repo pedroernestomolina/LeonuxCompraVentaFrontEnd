@@ -61,16 +61,7 @@ namespace ModCompra.Documento.Cargar
 
         public dataDocumento()
         {
-            proveedor = null;
-            documentoNro = "";
-            fechaEmision = DateTime.Now.Date;
-            diasCredito = 0;
-            controlNro = "";
-            ordenCompra = "";
-            factorDivisa = 0.0m;
-            notas = "";
-            IdDeposito = "";
-            IdSucursal = "";
+            limpiarData();
         }
 
 
@@ -88,6 +79,11 @@ namespace ModCompra.Documento.Cargar
         {
             var rt=true;
 
+            if (proveedor== null)
+            {
+                Helpers.Msg.Alerta("Falta Por Ingresar Campo [Proveedor]");
+                return false;
+            }
             if (documentoNro == "")
             {
                 Helpers.Msg.Alerta("Falta Por Ingresar Campo [Documento Nro]");
@@ -111,6 +107,25 @@ namespace ModCompra.Documento.Cargar
 
 
             return rt;
+        }
+
+        public void Limpiar()
+        {
+            limpiarData();
+        }
+
+        private void limpiarData()
+        {
+            proveedor = null;
+            documentoNro = "";
+            fechaEmision = DateTime.Now.Date;
+            diasCredito = 0;
+            controlNro = "";
+            ordenCompra = "";
+            factorDivisa = 0.0m;
+            notas = "";
+            IdDeposito = "";
+            IdSucursal = "";
         }
 
     }

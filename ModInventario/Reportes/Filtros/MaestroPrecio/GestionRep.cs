@@ -85,8 +85,8 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
-            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
             Rds.Add(new ReportDataSource("MaestroPrecio", ds.Tables["MaestroPrecio"]));
 
             var frp = new ReporteFrm();

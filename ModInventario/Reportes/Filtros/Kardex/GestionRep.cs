@@ -43,11 +43,15 @@ namespace ModInventario.Reportes.Filtros.Kardex
                 return;
             }
 
-            Imprimir(r01.Lista);
+            var filt = "DESDE: "+dataFiltros.Desde.ToShortDateString()+", HASTA: "+dataFiltros.Hasta.ToShortDateString();
+            if (dataFiltros.AutoDeposito!="")
+                filt += ", DEPOSITO: "+dataFiltros.NombreDeposito;
+
+            Imprimir(r01.Lista,filt);
         }
 
 
-        public void Imprimir(List<OOB.LibInventario.Reportes.Kardex.Ficha> lista)
+        public void Imprimir(List<OOB.LibInventario.Reportes.Kardex.Ficha> lista, string filt)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\Kardex.rdlc";
             var ds = new DS();
@@ -93,8 +97,9 @@ namespace ModInventario.Reportes.Filtros.Kardex
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
-            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("FILTROS", filt));
             Rds.Add(new ReportDataSource("Kardex", ds.Tables["Kardex"]));
 
             var frp = new ReporteFrm();

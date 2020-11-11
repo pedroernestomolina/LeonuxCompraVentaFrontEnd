@@ -28,7 +28,7 @@ namespace ModCajaBanco.Reportes.Movimientos
         public void Generar()
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Movimientos\ArqueoVentaPos.rdlc";
-            var ds = new ModInventario.ReporteMovimiento.dsMovimiento();
+            var ds = new dsMovimiento();
             foreach (var it in _arqueos.OrderBy(o=>o.fecha).ThenBy(o=>o.sucursal).ThenBy(o=>o.autoCierre).ToList())
             {
                 DataRow r = ds.Tables["ArqueoVentaPos"].NewRow();

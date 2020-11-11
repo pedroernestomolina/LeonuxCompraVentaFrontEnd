@@ -42,6 +42,8 @@
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.CB_DEPOSITO = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -96,6 +98,7 @@
             // CB_SUCURSAL
             // 
             this.CB_SUCURSAL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_SUCURSAL.Enabled = false;
             this.CB_SUCURSAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_SUCURSAL.FormattingEnabled = true;
             this.CB_SUCURSAL.Location = new System.Drawing.Point(149, 124);
@@ -212,11 +215,35 @@
             this.label3.Text = "Filtros";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // CB_DEPOSITO
+            // 
+            this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPOSITO.Enabled = false;
+            this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_DEPOSITO.FormattingEnabled = true;
+            this.CB_DEPOSITO.Location = new System.Drawing.Point(149, 154);
+            this.CB_DEPOSITO.Name = "CB_DEPOSITO";
+            this.CB_DEPOSITO.Size = new System.Drawing.Size(200, 24);
+            this.CB_DEPOSITO.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(69, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 16);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Depósito:";
+            // 
             // FiltroFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 346);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.CB_DEPOSITO);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.L_SUCURSAL);
@@ -255,5 +282,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button BT_SALIR;
+        private System.Windows.Forms.ComboBox CB_DEPOSITO;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -37,6 +37,10 @@ namespace ModCajaBanco.Reportes.Movimientos
             CB_SUCURSAL.DisplayMember = "Nombre";
             CB_SUCURSAL.ValueMember = "Codigo";
             CB_SUCURSAL.DataSource = _controlador._bsSucursal;
+
+            CB_DEPOSITO.DisplayMember = "Nombre";
+            CB_DEPOSITO.ValueMember = "auto";
+            CB_DEPOSITO.DataSource = _controlador._bsDeposito;
         }
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)

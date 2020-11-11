@@ -12,6 +12,7 @@ namespace DataProvCompra.InfraEstructura
     {
 
         OOB.ResultadoLista<OOB.LibCompra.Proveedor.Data.Ficha> Proveedor_GetLista(OOB.LibCompra.Proveedor.Lista.Filtro filtro);
+        OOB.ResultadoEntidad<OOB.LibCompra.Proveedor.Data.Ficha> Proveedor_GetFicha(string autoPrv);
 
     }
 

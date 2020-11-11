@@ -34,6 +34,18 @@ namespace ModCompra.Documento.Cargar.Controlador
         public BindingSource DepositoSource { get { return _gestion.DepositoSource; } }
         public Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda PreferenciaBusquedaProveedor { get { return _gestion.PreferenciaBusquedaProveedor; } }
         public bool IsAceptarOk { get { return _gestion.IsAceptarOk; } }
+        public string CadenaBuscar { get { return _gestion.CadenaBuscar; } set { _gestion.CadenaBuscar = value; } }
+        public bool ProveedorIsOk { get { return _gestion.ProveedorIsOk; } }
+        public bool LimpiarDatosIsOk { get { return _gestion.LimpiarDatosIsOk; } }
+        public string Proveedor 
+        {
+            get 
+            {
+                var rt = "";
+                rt = RifProveedor + Environment.NewLine + RazonSocialProveedor + Environment.NewLine;
+                return rt;
+            }
+        }
 
 
         Formulario.DatosDocumentoFrm frm;
@@ -58,6 +70,21 @@ namespace ModCompra.Documento.Cargar.Controlador
         public void Aceptar()
         {
             _gestion.Aceptar();
+        }
+
+        public void BuscarProveedor()
+        {
+            _gestion.BuscarProveedor();
+        }
+
+        public void setMetodoBusqueda(Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda metodo)
+        {
+            _gestion.setMetodoBusqueda(metodo);
+        }
+
+        public void LimpiarDatos()
+        {
+            _gestion.LimpiarDatos();
         }
 
     }

@@ -42,8 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerados.cs" />
+    <Compile Include="LibCajaBanco\Deposito\Ficha.cs" />
+    <Compile Include="LibCajaBanco\EmpresaGrupo\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Habladores\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Habladores\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ArqueoCajaPos\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenInventario\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenInventario\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVenta\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVenta\Filtro.cs" />
     <Compile Include="LibCajaBanco\Sucursal\Ficha.cs" />
     <Compile Include="LibCajaBanco\Usuario\Ficha.cs" />
     <Compile Include="LibCompra\Configuracion\Enumerados.cs" />

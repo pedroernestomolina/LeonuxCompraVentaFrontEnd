@@ -11,6 +11,7 @@ namespace ModCompra.Documento.Cargar.Controlador
     public interface IGestionDocumento
     {
 
+        string CadenaBuscar { get; set; }
         string DocumentoNro { get; set; }
         string ControlNro { get; set; }
         string OrdenCompraNro { get; set; }
@@ -30,11 +31,15 @@ namespace ModCompra.Documento.Cargar.Controlador
         System.Windows.Forms.BindingSource DepositoSource { get; }
         Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda PreferenciaBusquedaProveedor { get; }
         bool IsAceptarOk { get; }
+        bool ProveedorIsOk { get; set; }
+        bool LimpiarDatosIsOk { get; set; }
 
 
         bool CargarData();
         void Aceptar();
-
+        void setMetodoBusqueda(Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda metodo);
+        void BuscarProveedor();
+        void LimpiarDatos();
 
     }
 

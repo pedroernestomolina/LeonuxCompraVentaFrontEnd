@@ -111,37 +111,20 @@ namespace ModCompra.Documento.Cargar.Formulario
 
         private void DatosDocumentoFrm_Load(object sender, EventArgs e)
         {
-            L_RIF.Text = _controlador.RifProveedor;
-            L_RAZON_SOCIAL.Text = _controlador.RazonSocialProveedor;
-            L_DIRECCION_FISCAL.Text=_controlador.DireccionProveedor;
-
-            DTP_FECHA_EIMSION.Value = _controlador.FechaEmision;
-            TB_DOCUMENTO_NRO.Text = _controlador.DocumentoNro;
-            TB_CONTROL_NRO.Text = _controlador.ControlNro;
-            TB_DIAS_CREDITO.Value = _controlador.DiasCredito;
-            TB_ORDEN_COMPRA.Text = _controlador.OrdenCompraNro;
-            TB_FACTOR_DIVISA.Text = _controlador.FactorDivisa.ToString();
-            TB_NOTAS.Text = _controlador.Notas;
-            L_FECHA_VENCIMIENTO.Text = _controlador.FechaVencimiento.ToShortDateString();
-            L_ANO_RELACION.Text = _controlador.AnoRelacion;
-            L_MES_RELACION.Text = _controlador.MesRelacion;
-
+            TB_BUSCAR.Focus();
+            RefrescarData();
             CB_SUCURSAL.DataSource = _controlador.SucursalSource;
             CB_DEPOSITO.DataSource = _controlador.DepositoSource;
-            CB_SUCURSAL.SelectedIndex=-1;
-            CB_DEPOSITO.SelectedIndex=-1;
 
-            switch (_controlador.PreferenciaBusquedaProveedor) 
+            if (_controlador.IsAceptarOk)
             {
-                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Codigo:
-                    RB_BUSCAR_POR_CODIGO.Checked = true;
-                    break;
-                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.CiRif:
-                    RB_BUSCAR_POR_RIF.Checked = true;
-                    break;
-                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Nombre:
-                    RB_BUSCAR_POR_NOMBRE.Checked = true;
-                    break;
+                CB_SUCURSAL.SelectedValue  = _controlador.IdSucursal;
+                CB_DEPOSITO.SelectedValue = _controlador.IdDeposito;
+            }
+            else 
+            {
+                CB_SUCURSAL.SelectedIndex = -1;
+                CB_DEPOSITO.SelectedIndex = -1;
             }
         }
 
@@ -159,7 +142,8 @@ namespace ModCompra.Documento.Cargar.Formulario
             salirIsOk = false;
             var msg = MessageBox.Show("Abandonar Ficha ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == System.Windows.Forms.DialogResult.Yes)
-            { 
+            {
+                _controlador.LimpiarDatos();
                 salirIsOk=true;
                 Salir();
             }
@@ -177,6 +161,94 @@ namespace ModCompra.Documento.Cargar.Formulario
             else 
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void BT_BUSCAR_PROVEEDOR_Click(object sender, EventArgs e)
+        {
+            BuscarProveedor();
+        }
+
+        private void BuscarProveedor()
+        {
+            _controlador.BuscarProveedor();
+            TB_BUSCAR.Text = "";
+            if (_controlador.ProveedorIsOk)
+            {
+                L_RIF.Text = _controlador.RifProveedor;
+                L_RAZON_SOCIAL.Text = _controlador.RazonSocialProveedor;
+                L_DIRECCION_FISCAL.Text = _controlador.DireccionProveedor;
+                TB_DOCUMENTO_NRO.Focus();
+            }
+            else
+                TB_BUSCAR.Focus();
+        }
+
+        private void TB_BUSCAR_Leave(object sender, EventArgs e)
+        {
+            _controlador.CadenaBuscar = TB_BUSCAR.Text.Trim().ToUpper();
+        }
+
+        private void RB_BUSCAR_POR_CODIGO_CheckedChanged(object sender, EventArgs e)
+        {
+            _controlador.setMetodoBusqueda(Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Codigo);
+        }
+
+        private void RB_BUSCAR_POR_RIF_CheckedChanged(object sender, EventArgs e)
+        {
+            _controlador.setMetodoBusqueda(Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.CiRif);
+        }
+
+        private void RB_BUSCAR_POR_NOMBRE_CheckedChanged(object sender, EventArgs e)
+        {
+            _controlador.setMetodoBusqueda(Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Nombre);
+        }
+
+        private void BT_LIMPIAR_Click(object sender, EventArgs e)
+        {
+            LimpiarDatos();
+        }
+
+        private void LimpiarDatos()
+        {
+            _controlador.LimpiarDatos();
+            if (_controlador.LimpiarDatosIsOk) 
+            {
+                RefrescarData();
+                CB_SUCURSAL.SelectedIndex = -1;
+                CB_DEPOSITO.SelectedIndex = -1;
+                TB_BUSCAR.Focus();
+            }
+        }
+
+        private void RefrescarData()
+        {
+            L_RIF.Text = _controlador.RifProveedor;
+            L_RAZON_SOCIAL.Text = _controlador.RazonSocialProveedor;
+            L_DIRECCION_FISCAL.Text = _controlador.DireccionProveedor;
+
+            DTP_FECHA_EIMSION.Value = _controlador.FechaEmision;
+            TB_DOCUMENTO_NRO.Text = _controlador.DocumentoNro;
+            TB_CONTROL_NRO.Text = _controlador.ControlNro;
+            TB_DIAS_CREDITO.Value = _controlador.DiasCredito;
+            TB_ORDEN_COMPRA.Text = _controlador.OrdenCompraNro;
+            TB_FACTOR_DIVISA.Text = _controlador.FactorDivisa.ToString();
+            TB_NOTAS.Text = _controlador.Notas;
+            L_FECHA_VENCIMIENTO.Text = _controlador.FechaVencimiento.ToShortDateString();
+            L_ANO_RELACION.Text = _controlador.AnoRelacion;
+            L_MES_RELACION.Text = _controlador.MesRelacion;
+
+            switch (_controlador.PreferenciaBusquedaProveedor)
+            {
+                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Codigo:
+                    RB_BUSCAR_POR_CODIGO.Checked = true;
+                    break;
+                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.CiRif:
+                    RB_BUSCAR_POR_RIF.Checked = true;
+                    break;
+                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Nombre:
+                    RB_BUSCAR_POR_NOMBRE.Checked = true;
+                    break;
             }
         }
 

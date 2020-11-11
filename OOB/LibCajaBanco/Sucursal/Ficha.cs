@@ -12,8 +12,10 @@ namespace OOB.LibCajaBanco.Sucursal
     {
 
         public string auto { get; set; }
+        public string autoGrupoEmpresa { get; set; }
         public string codigo { get; set; }
         public string nombre { get; set; }
+        public string nombreGrupoEmpresa { get; set; }
 
     }
 

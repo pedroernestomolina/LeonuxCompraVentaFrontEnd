@@ -55,6 +55,36 @@ namespace ModCajaBanco
             _controlador.ArqueoCajaPos();
         }
 
+        private void TSM_REPORTES_INVENTARIO_RESUMEN_Click(object sender, EventArgs e)
+        {
+            ReporteResumenInventario();
+        }
+
+        private void ReporteResumenInventario()
+        {
+            _controlador.ReporteResumenInventario();
+        }
+
+        private void TSM_REPORTES_VENTA_RESUMEN_Click(object sender, EventArgs e)
+        {
+            ReporteResumenVenta();
+        }
+
+        private void ReporteResumenVenta()
+        {
+            _controlador.ReporteResumenVenta();
+        }
+
+        private void TSM_REPORTES_HABLADORES_Click(object sender, EventArgs e)
+        {
+            ReporteHabladores();
+        }
+
+        private void ReporteHabladores()
+        {
+            _controlador.ReporteHabladores();
+        }
+
     }
 
 }

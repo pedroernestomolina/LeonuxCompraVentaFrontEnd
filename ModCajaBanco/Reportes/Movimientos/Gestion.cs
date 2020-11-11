@@ -13,11 +13,17 @@ namespace ModCajaBanco.Reportes.Movimientos
     {
 
         private BindingSource bs_Sucursal;
+        private BindingSource bs_Deposito;
         private List<OOB.LibCajaBanco.Sucursal.Ficha> lSucursal;
+        private List<OOB.LibCajaBanco.Deposito.Ficha> lDeposito;
 
 
         public BindingSource _bsSucursal { get { return bs_Sucursal; } }
+        public BindingSource _bsDeposito { get { return bs_Deposito; } }
+
+
         public string autoSucursal { get; set; }
+        public string autoDeposito { get; set; }
         public DateTime desdeFecha { get; set; }
         public DateTime hastaFecha { get; set; }
         public bool IsFiltroOk { get; set; }
@@ -29,6 +35,10 @@ namespace ModCajaBanco.Reportes.Movimientos
             lSucursal = new List<OOB.LibCajaBanco.Sucursal.Ficha>();
             bs_Sucursal = new BindingSource();
             bs_Sucursal.DataSource = lSucursal;
+
+            lDeposito= new List<OOB.LibCajaBanco.Deposito.Ficha>();
+            bs_Deposito= new BindingSource();
+            bs_Deposito.DataSource = lDeposito;
         }
 
 
@@ -47,6 +57,7 @@ namespace ModCajaBanco.Reportes.Movimientos
         {
             IsFiltroOk = false;
             autoSucursal = "";
+            autoDeposito = "";
             desdeFecha = DateTime.Now.Date;
             hastaFecha = DateTime.Now.Date;
         }
@@ -64,6 +75,15 @@ namespace ModCajaBanco.Reportes.Movimientos
             lSucursal.Clear();
             lSucursal.AddRange(rt1.Lista);
 
+            var rt2 = Sistema.MyData.Deposito_GetLista ();
+            if (rt2.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt2.Mensaje);
+                return false;
+            }
+            lDeposito.Clear();
+            lDeposito.AddRange(rt2.Lista);
+
             return rt;
         }
 
@@ -75,6 +95,7 @@ namespace ModCajaBanco.Reportes.Movimientos
         public void LimpiarSucursal()
         {
             autoSucursal = "";
+            autoDeposito = "";
         }
 
     }

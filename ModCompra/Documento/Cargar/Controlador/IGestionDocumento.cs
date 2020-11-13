@@ -33,6 +33,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         bool IsAceptarOk { get; }
         bool ProveedorIsOk { get; set; }
         bool LimpiarDatosIsOk { get; set; }
+        string DepositoNombre { get; }
+        string SucursalNombre { get; }
 
 
         bool CargarData();

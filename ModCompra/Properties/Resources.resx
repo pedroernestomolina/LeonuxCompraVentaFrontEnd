@@ -331,4 +331,10 @@
   <data name="plataforma_efosearch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plataforma-efosearch.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_limpiar_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_limpiar_20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bt_editar_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_editar_20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -181,6 +181,7 @@
     <Content Include="Imagenes\bt_costo.png" />
     <Content Include="Imagenes\bt_documento.png" />
     <Content Include="Imagenes\bt_dollar.png" />
+    <Content Include="Imagenes\bt_editar_20.png" />
     <Content Include="Imagenes\bt_editar_32.png" />
     <Content Include="Imagenes\bt_editar_48.png" />
     <Content Include="Imagenes\bt_editar_ficha.png" />
@@ -201,6 +202,8 @@
     <Content Include="Imagenes\bt_imprimir_3.png" />
     <Content Include="Imagenes\bt_limpiar.png" />
     <Content Include="Imagenes\bt_limpiar_2.png" />
+    <Content Include="Imagenes\bt_limpiar_20.png" />
+    <Content Include="Imagenes\bt_limpiar_24.png" />
     <Content Include="Imagenes\bt_limpiar_3.png" />
     <Content Include="Imagenes\bt_lista.png" />
     <Content Include="Imagenes\bt_mobil_notification.png" />
@@ -239,6 +242,8 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\bt_editar_20.png" />
+    <None Include="Resources\bt_limpiar_20.png" />
     <None Include="Resources\plataforma-efosearch.jpg" />
     <None Include="Resources\administracion-compras-logistica.jpg" />
     <None Include="Resources\aydai-logistica.jpg" />

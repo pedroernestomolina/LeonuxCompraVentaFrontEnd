@@ -27,7 +27,7 @@ namespace ModCompra.Documento.Cargar.Formulario
 
         private void InicializarComboBox()
         {
-            CB_SUCURSAL.ValueMember = "codigo";
+            CB_SUCURSAL.ValueMember = "auto";
             CB_SUCURSAL.DisplayMember = "nombre";
 
             CB_DEPOSITO.ValueMember = "auto";

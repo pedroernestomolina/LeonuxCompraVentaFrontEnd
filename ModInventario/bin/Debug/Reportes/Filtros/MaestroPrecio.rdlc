@@ -586,6 +586,7 @@
                               <Value>=Fields!pfull_1.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -618,6 +619,7 @@
                               <Value>=Fields!pfull_2.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -650,6 +652,7 @@
                               <Value>=Fields!pfull_3.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -682,6 +685,7 @@
                               <Value>=Fields!pfull_4.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -714,6 +718,7 @@
                               <Value>=Fields!pfull_5.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>

@@ -37,16 +37,19 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string CadenaBuscar { get { return _gestion.CadenaBuscar; } set { _gestion.CadenaBuscar = value; } }
         public bool ProveedorIsOk { get { return _gestion.ProveedorIsOk; } }
         public bool LimpiarDatosIsOk { get { return _gestion.LimpiarDatosIsOk; } }
+        public string DepositoNombre { get { return _gestion.DepositoNombre; } }
+        public string SucursalNombre { get { return _gestion.SucursalNombre; } }
+
         public string Proveedor 
         {
             get 
             {
                 var rt = "";
-                rt = RifProveedor + Environment.NewLine + RazonSocialProveedor + Environment.NewLine;
+                rt = RifProveedor + Environment.NewLine + RazonSocialProveedor + Environment.NewLine + DireccionProveedor;
                 return rt;
             }
-        }
 
+        }
 
         Formulario.DatosDocumentoFrm frm;
         public void Inicia()

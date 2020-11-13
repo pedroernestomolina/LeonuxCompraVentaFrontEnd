@@ -126,11 +126,11 @@
             this.BT_EDITAR_ITEM = new System.Windows.Forms.Button();
             this.panel49 = new System.Windows.Forms.Panel();
             this.BT_ELIMINAR_ITEM = new System.Windows.Forms.Button();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.BT_ELIMINAR_NO_DISPONIBLE = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
             this.DGV_DETALLE = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.BT_ELIMINAR_NO_DISPONIBLE = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -195,9 +195,9 @@
             this.tableLayoutPanel18.SuspendLayout();
             this.panel48.SuspendLayout();
             this.panel49.SuspendLayout();
+            this.panel29.SuspendLayout();
             this.panel40.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).BeginInit();
-            this.panel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -1459,28 +1459,6 @@
             this.BT_ELIMINAR_ITEM.UseVisualStyleBackColor = true;
             this.BT_ELIMINAR_ITEM.Click += new System.EventHandler(this.BT_ELIMINAR_ITEM_Click);
             // 
-            // panel40
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel40, 2);
-            this.panel40.Controls.Add(this.DGV_DETALLE);
-            this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel40.Location = new System.Drawing.Point(2, 196);
-            this.panel40.Margin = new System.Windows.Forms.Padding(1);
-            this.panel40.Name = "panel40";
-            this.panel40.Padding = new System.Windows.Forms.Padding(2);
-            this.panel40.Size = new System.Drawing.Size(918, 355);
-            this.panel40.TabIndex = 2;
-            // 
-            // DGV_DETALLE
-            // 
-            this.DGV_DETALLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_DETALLE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV_DETALLE.Location = new System.Drawing.Point(2, 2);
-            this.DGV_DETALLE.Name = "DGV_DETALLE";
-            this.DGV_DETALLE.Size = new System.Drawing.Size(914, 351);
-            this.DGV_DETALLE.TabIndex = 0;
-            this.DGV_DETALLE.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DETALLE_CellFormatting);
-            // 
             // panel29
             // 
             this.panel29.Controls.Add(this.BT_ELIMINAR_NO_DISPONIBLE);
@@ -1506,6 +1484,28 @@
             this.toolTip1.SetToolTip(this.BT_ELIMINAR_NO_DISPONIBLE, "Quitar Items Donde No Tenga Disponibilidad");
             this.BT_ELIMINAR_NO_DISPONIBLE.UseVisualStyleBackColor = true;
             this.BT_ELIMINAR_NO_DISPONIBLE.Click += new System.EventHandler(this.BT_ELIMINAR_NO_DISPONIBLE_Click);
+            // 
+            // panel40
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel40, 2);
+            this.panel40.Controls.Add(this.DGV_DETALLE);
+            this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel40.Location = new System.Drawing.Point(2, 196);
+            this.panel40.Margin = new System.Windows.Forms.Padding(1);
+            this.panel40.Name = "panel40";
+            this.panel40.Padding = new System.Windows.Forms.Padding(2);
+            this.panel40.Size = new System.Drawing.Size(918, 355);
+            this.panel40.TabIndex = 2;
+            // 
+            // DGV_DETALLE
+            // 
+            this.DGV_DETALLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_DETALLE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV_DETALLE.Location = new System.Drawing.Point(2, 2);
+            this.DGV_DETALLE.Name = "DGV_DETALLE";
+            this.DGV_DETALLE.Size = new System.Drawing.Size(914, 351);
+            this.DGV_DETALLE.TabIndex = 0;
+            this.DGV_DETALLE.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DETALLE_CellFormatting);
             // 
             // MovimientoFrm
             // 
@@ -1590,9 +1590,9 @@
             this.tableLayoutPanel18.ResumeLayout(false);
             this.panel48.ResumeLayout(false);
             this.panel49.ResumeLayout(false);
+            this.panel29.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).EndInit();
-            this.panel29.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

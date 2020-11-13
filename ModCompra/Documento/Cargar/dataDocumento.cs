@@ -15,6 +15,9 @@ namespace ModCompra.Documento.Cargar
 
 
         public OOB.LibCompra.Proveedor.Data.Ficha proveedor { get; set; }
+        public OOB.LibCompra.Sucursal.Data.Ficha Sucursal { get; set; }
+        public OOB.LibCompra.Deposito.Data.Ficha Deposito { get; set; }
+
         public string documentoNro { get; set; }
         public DateTime fechaEmision { get; set; }
         public int diasCredito { get; set; }
@@ -56,6 +59,28 @@ namespace ModCompra.Documento.Cargar
                     rt = proveedor.identidad.dirFiscal;
                 return rt;
             } 
+        }
+
+        public string DepositoNombre 
+        {
+            get 
+            {
+                var rt = "";
+                if (Deposito != null)
+                    rt = Deposito.nombre;
+                return rt;
+            }
+        }
+
+        public string SucursalNombre 
+        {
+            get 
+            {
+                var rt = "";
+                if (Sucursal != null)
+                    rt = Sucursal.nombre;
+                return rt;
+            }
         }
 
 
@@ -117,6 +142,8 @@ namespace ModCompra.Documento.Cargar
         private void limpiarData()
         {
             proveedor = null;
+            Deposito = null;
+            Sucursal = null;
             documentoNro = "";
             fechaEmision = DateTime.Now.Date;
             diasCredito = 0;

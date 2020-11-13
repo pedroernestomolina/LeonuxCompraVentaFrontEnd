@@ -41,11 +41,29 @@ namespace ModCompra.Documento.Cargar.Factura
         public Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda PreferenciaBusquedaProveedor { get { return preferenciaBusq; } }
         public BindingSource SucursalSource { get { return bsSucursal; } }
         public BindingSource DepositoSource { get { return bsDeposito; } }
-        public string IdSucursal { get { return data.IdSucursal; } set { data.IdSucursal = value; } }
-        public string IdDeposito { get { return data.IdDeposito; } set { data.IdDeposito = value; } }
         public bool IsAceptarOk { get { return _dataIsOk; } }
         public bool ProveedorIsOk { get; set; }
         public bool LimpiarDatosIsOk { get; set; }
+        public string DepositoNombre{get { return data.DepositoNombre; }}
+        public string SucursalNombre{get { return data.SucursalNombre; }}
+        public string IdSucursal 
+        { 
+            get { return data.IdSucursal; } 
+            set
+            {
+                data.IdSucursal = value;
+                data.Sucursal = lsucursal.FirstOrDefault(f => f.auto == value);
+            } 
+        }
+        public string IdDeposito 
+        { 
+            get { return data.IdDeposito; } 
+            set 
+            { 
+                data.IdDeposito = value;
+                data.Deposito = ldeposito.FirstOrDefault(f => f.auto == value);
+            } 
+        }
 
 
         public GestionDocumentoFac()

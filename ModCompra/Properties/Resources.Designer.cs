@@ -193,6 +193,16 @@ namespace ModCompra.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_editar_20 {
+            get {
+                object obj = ResourceManager.GetObject("bt_editar_20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_editar_32 {
             get {
                 object obj = ResourceManager.GetObject("bt_editar_32", resourceCulture);
@@ -386,6 +396,16 @@ namespace ModCompra.Properties {
         internal static System.Drawing.Bitmap bt_limpiar_2 {
             get {
                 object obj = ResourceManager.GetObject("bt_limpiar_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_limpiar_20 {
+            get {
+                object obj = ResourceManager.GetObject("bt_limpiar_20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

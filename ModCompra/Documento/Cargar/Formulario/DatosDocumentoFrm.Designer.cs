@@ -118,6 +118,7 @@
             this.panel44 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
+            this.TB_FACTOR_DIVISA = new LibControles.NumeroDecimal();
             this.panel55 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.panel45 = new System.Windows.Forms.Panel();
@@ -143,7 +144,6 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.panel54 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.TB_FACTOR_DIVISA = new LibControles.NumeroDecimal();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -1351,6 +1351,21 @@
             this.panel42.Size = new System.Drawing.Size(86, 30);
             this.panel42.TabIndex = 2;
             // 
+            // TB_FACTOR_DIVISA
+            // 
+            this.TB_FACTOR_DIVISA.BackColor = System.Drawing.Color.Yellow;
+            this.TB_FACTOR_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_FACTOR_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_FACTOR_DIVISA.Location = new System.Drawing.Point(2, 2);
+            this.TB_FACTOR_DIVISA.MaxLength = 10;
+            this.TB_FACTOR_DIVISA.Name = "TB_FACTOR_DIVISA";
+            this.TB_FACTOR_DIVISA.Size = new System.Drawing.Size(82, 22);
+            this.TB_FACTOR_DIVISA.TabIndex = 0;
+            this.TB_FACTOR_DIVISA.Text = "0";
+            this.TB_FACTOR_DIVISA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_FACTOR_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
+            this.TB_FACTOR_DIVISA.Leave += new System.EventHandler(this.TB_FACTOR_DIVISA_Leave);
+            // 
             // panel55
             // 
             this.panel55.Controls.Add(this.label19);
@@ -1660,21 +1675,6 @@
             this.label28.TabIndex = 1;
             this.label28.Text = "Datos Para Remisión:";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TB_FACTOR_DIVISA
-            // 
-            this.TB_FACTOR_DIVISA.BackColor = System.Drawing.Color.Yellow;
-            this.TB_FACTOR_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_FACTOR_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_FACTOR_DIVISA.Location = new System.Drawing.Point(2, 2);
-            this.TB_FACTOR_DIVISA.MaxLength = 10;
-            this.TB_FACTOR_DIVISA.Name = "TB_FACTOR_DIVISA";
-            this.TB_FACTOR_DIVISA.Size = new System.Drawing.Size(82, 22);
-            this.TB_FACTOR_DIVISA.TabIndex = 0;
-            this.TB_FACTOR_DIVISA.Text = "0";
-            this.TB_FACTOR_DIVISA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_FACTOR_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
-            this.TB_FACTOR_DIVISA.Leave += new System.EventHandler(this.TB_FACTOR_DIVISA_Leave);
             // 
             // DatosDocumentoFrm
             // 

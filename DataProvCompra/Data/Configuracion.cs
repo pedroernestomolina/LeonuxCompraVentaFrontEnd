@@ -48,6 +48,24 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaBusquedaProducto> Configuracion_PreferenciaBusquedaProducto()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaBusquedaProducto>();
+
+            var r01 = MyData.Configuracion_PreferenciaBusquedaProducto();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            rt.Entidad = (OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaBusquedaProducto)s;
+
+            return rt;
+        }
+
     }
 
 }

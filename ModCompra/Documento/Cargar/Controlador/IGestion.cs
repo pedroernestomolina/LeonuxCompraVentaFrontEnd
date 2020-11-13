@@ -13,6 +13,11 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         string TituloDocumento { get; }
         IGestionDocumento GestionDoc { get; }
+        IGestionItem GestionItem { get; }
+        IGestionProductoBuscar GestionProductoBuscar { get; }
+
+
+        bool CargarData();
 
     }
 

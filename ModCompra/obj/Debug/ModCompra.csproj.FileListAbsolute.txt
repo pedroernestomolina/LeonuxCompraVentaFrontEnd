@@ -1,11 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csprojResolveAssemblyReference.cache
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.DatosDocumentoFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.DocumentoFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Form1.resources
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Identificacion.IdentificacionFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Properties.Resources.resources
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Listar.ListaFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ModCompra.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ModCompra.exe
@@ -33,5 +25,14 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DtoLibCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ILibCompras.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ProvLibCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\LibEntityCompra.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csprojResolveAssemblyReference.cache
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.DatosDocumentoFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.DocumentoFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Form1.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Identificacion.IdentificacionFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Listar.ListaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Producto.Listar.ListaFrm.resources

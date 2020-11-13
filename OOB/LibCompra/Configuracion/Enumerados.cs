@@ -12,6 +12,7 @@ namespace OOB.LibCompra.Configuracion
     {
 
         public enum EnumPreferenciaBusquedaProveedor { SinDefinir = -1, PorCodigo = 1, PorNombre, Rif };
+        public enum EnumPreferenciaBusquedaProducto { SinDefinir = -1, PorCodigo = 1, PorNombre, Referencia };
 
     }
 

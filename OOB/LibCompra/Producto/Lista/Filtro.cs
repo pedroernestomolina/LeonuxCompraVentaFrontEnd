@@ -21,6 +21,22 @@ namespace OOB.LibCompra.Producto.Lista
 
         public Filtro()
         {
+            Limpiar();
+        }
+
+
+        public bool IsActivarBusquedaOk() 
+        {
+            var rt = false;
+
+            if (cadena.Trim() != "")
+                return true;
+
+            return rt;
+        }
+
+        public void Limpiar()
+        {
             cadena = "";
             autoDepartamento = "";
             autoGrupo = "";

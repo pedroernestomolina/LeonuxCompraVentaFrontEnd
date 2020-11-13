@@ -66,11 +66,18 @@
   <ItemGroup>
     <Compile Include="Documento\Cargar\Controlador\Gestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionDocumento.cs" />
+    <Compile Include="Documento\Cargar\Controlador\GestionItem.cs" />
+    <Compile Include="Documento\Cargar\Controlador\GestionProductoBuscar.cs" />
     <Compile Include="Documento\Cargar\Controlador\IGestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\IGestionDocumento.cs" />
+    <Compile Include="Documento\Cargar\Controlador\IGestionItem.cs" />
+    <Compile Include="Documento\Cargar\Controlador\IGestionProductoBuscar.cs" />
     <Compile Include="Documento\Cargar\dataDocumento.cs" />
+    <Compile Include="Documento\Cargar\dataItem.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionDocumentoFac.cs" />
+    <Compile Include="Documento\Cargar\Factura\GestionItemFac.cs" />
+    <Compile Include="Documento\Cargar\Factura\GestionProductoBuscarFac.cs" />
     <Compile Include="Documento\Cargar\Formulario\DatosDocumentoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +106,14 @@
     <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Producto\Listar\data.cs" />
+    <Compile Include="Producto\Listar\Gestion.cs" />
+    <Compile Include="Producto\Listar\ListaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Listar\ListaFrm.Designer.cs">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor\Busqueda\Enumerados.cs" />
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Listar\ListaFrm.resx">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -132,7 +132,6 @@ namespace ModCompra.Producto.Listar
             }
         }
 
-
     }
 
 }

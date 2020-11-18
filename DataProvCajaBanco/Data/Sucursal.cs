@@ -71,6 +71,32 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibCajaBanco.Sucursal.Ficha> Sucursal_GetFicha(string auto)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCajaBanco.Sucursal.Ficha>();
+
+            var r01 = MyData.Sucursal_GetFicha(auto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var r = new OOB.LibCajaBanco.Sucursal.Ficha()
+            {
+                auto = s.auto,
+                codigo = s.codigo,
+                nombre = s.nombre,
+                autoGrupoEmpresa = s.autoEmpresaGrupo,
+                nombreGrupoEmpresa = s.nombreEmpresaGrupo,
+            };
+            rt.Entidad = r;
+
+            return rt;
+        }
+
     }
 
 }

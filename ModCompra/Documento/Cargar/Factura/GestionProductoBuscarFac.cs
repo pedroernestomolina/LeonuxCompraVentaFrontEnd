@@ -14,19 +14,33 @@ namespace ModCompra.Documento.Cargar.Factura
         private Controlador.GestionProductoBuscar.metodoBusqueda metodo;
         private OOB.LibCompra.Producto.Lista.Filtro filtros;
         private Producto.Listar.Gestion gestionLista;
+        private bool isProductoSeleccionadoOk;
+        private string autoProductoSeleccionado;
 
 
         public string CadenaPrdBuscar { get; set; }
         public Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return metodo; } }
+        public bool IsProductoSeleccionadoOk { get { return isProductoSeleccionadoOk; } }
+        public string AutoProductoSeleccionado { get { return autoProductoSeleccionado; } }
 
 
         public GestionProductoBuscarFac()
         {
+            isProductoSeleccionadoOk=false;
+            autoProductoSeleccionado = "";
             CadenaPrdBuscar = "";
             filtros=new OOB.LibCompra.Producto.Lista.Filtro();
             gestionLista = new Producto.Listar.Gestion();
+            gestionLista.ItemSeleccionadoOk+=gestionLista_ItemSeleccionadoOk;
         }
 
+
+        private void gestionLista_ItemSeleccionadoOk(object sender, EventArgs e)
+        {
+            autoProductoSeleccionado  = gestionLista.ItemSeleccionado.auto;
+            isProductoSeleccionadoOk=true;
+            gestionLista.CerrarFrm();
+        }
 
         public void setMetodoBusqueda(Controlador.GestionProductoBuscar.metodoBusqueda opc)
         {
@@ -35,6 +49,8 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public void BuscarProducto()
         {
+            isProductoSeleccionadoOk=false;
+            autoProductoSeleccionado = "";
             filtros.cadena = CadenaPrdBuscar;
             switch(metodo)
             {

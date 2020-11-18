@@ -13,6 +13,7 @@ namespace DataProvCajaBanco.Infra
 
         OOB.ResultadoLista<OOB.LibCajaBanco.Deposito.Ficha> Deposito_GetLista();
         OOB.ResultadoEntidad<OOB.LibCajaBanco.Deposito.Ficha> Deposito_GetPrincipal();
+        OOB.ResultadoEntidad<OOB.LibCajaBanco.Deposito.Ficha> Deposito_GetFicha(string auto);
 
     }
 

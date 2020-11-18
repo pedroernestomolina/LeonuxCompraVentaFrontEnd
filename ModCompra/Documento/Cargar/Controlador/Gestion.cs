@@ -15,11 +15,11 @@ namespace ModCompra.Documento.Cargar.Controlador
         private IGestion _gestion;
         private GestionDocumento _gestionDoc;
         private GestionItem _gestionItem;
-        private GestionProductoBuscar _gestionPrdBuscar;
 
 
         //
         public string TituloDocumento { get { return _gestion.TituloDocumento; } }
+        public bool SalidaOk { get { return _gestion.SalidaOk; } }
         //
         public string Proveedor { get { return _gestionDoc.Proveedor; } }
         public DateTime FechaEmision { get { return _gestionDoc.FechaEmision; } }
@@ -37,15 +37,14 @@ namespace ModCompra.Documento.Cargar.Controlador
         public decimal MontoDivisa { get { return _gestionItem.MontoDivisa; } }
         public int Items { get { return _gestionItem.TItems; } }
         //
-        public GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return _gestionPrdBuscar.MetodoBusquedaProducto; } }
-        public string CadenaPrdBuscar { get { return _gestionPrdBuscar.CadenaPrdBuscar; } set { _gestionPrdBuscar.CadenaPrdBuscar = value; } }
+        public GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return _gestion.MetodoBusquedaProducto; } }
+        public string CadenaPrdBuscar { get { return _gestion.CadenaPrdBuscar; } set { _gestion.CadenaPrdBuscar = value; } }
 
 
         public Gestion()
         {
             _gestionDoc = new GestionDocumento();
             _gestionItem = new GestionItem();
-            _gestionPrdBuscar = new GestionProductoBuscar();
         }
 
 
@@ -54,12 +53,12 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion = gestion;
             _gestionDoc.setGestion(_gestion.GestionDoc);
             _gestionItem.setGestion(_gestion.GestionItem);
-            _gestionPrdBuscar.setGestion(_gestion.GestionProductoBuscar);
         }
 
         Formulario.DocumentoFrm frm;
         public void Inicia() 
         {
+            _gestion.Inicializar();
             if (CargarData())
             {
                 frm = new Formulario.DocumentoFrm();
@@ -95,27 +94,37 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         public void BuscarProducto()
         {
-            if (!DatosDocumentoIsOk) 
-            {
-                Helpers.Msg.Alerta("Debe Primero Hacer Click En Nuevo Documento");
-                return;
-            }
-            _gestionPrdBuscar.BuscarProducto();
+            _gestion.BuscarProducto();
         }
 
         public void ActivarBusquedaProductoPorCodigo()
         {
-            _gestionPrdBuscar.setMetodoBusqueda(GestionProductoBuscar.metodoBusqueda.Codigo);
+            _gestion.ActivarBusquedaProductoPorCodigo();
         }
 
         public void ActivarBusquedaProductoPorNombre()
         {
-            _gestionPrdBuscar.setMetodoBusqueda(GestionProductoBuscar.metodoBusqueda.Nombre);
+            _gestion.ActivarBusquedaProductoPorNombre();
         }
 
         public void ActivarBusquedaProductoPorReferencia()
         {
-            _gestionPrdBuscar.setMetodoBusqueda(GestionProductoBuscar.metodoBusqueda.Referencia);
+            _gestion.ActivarBusquedaProductoPorReferencia();
+        }
+
+        public void Salir()
+        {
+            _gestion.Salir();
+        }
+
+        public void ProcesarGurdar()
+        {
+            _gestion.ProcesarGurdar();
+        }
+
+        public void LimpiarDocumento()
+        {
+            _gestion.LimpiarDocumento();
         }
 
     }

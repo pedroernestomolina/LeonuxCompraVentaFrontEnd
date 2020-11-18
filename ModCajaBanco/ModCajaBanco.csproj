@@ -107,6 +107,8 @@
     <Compile Include="Reportes\Movimientos\Gestion.cs" />
     <Compile Include="Reportes\Movimientos\ResumenInventario\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\ResumenVenta\GestionRep.cs" />
+    <Compile Include="Reportes\Movimientos\VentaDetalle\GestionRep.cs" />
+    <Compile Include="Reportes\Movimientos\VentaPorProducto\GestionRep.cs" />
     <Compile Include="Reportes\Reporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +145,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Movimientos\ResumenVenta.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Movimientos\ResumenVentaDetalle.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Movimientos\ResumenVentaPrd.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte.resx">

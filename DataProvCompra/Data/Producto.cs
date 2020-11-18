@@ -40,8 +40,7 @@ namespace DataProvCompra.Data
                 {
                     list = r01.Lista.Select(s =>
                     {
-                        var nr = new OOB.LibCompra.Producto.Data.Ficha();
-                        var id = new OOB.LibCompra.Producto.Data.Identificacion()
+                        var nr = new OOB.LibCompra.Producto.Data.Ficha()
                         {
                             auto = s.autoPrd,
                             codigo = s.codigoPrd,
@@ -60,12 +59,80 @@ namespace DataProvCompra.Data
                             categoria = s.categoriaPrd,
                             AdmPorDivisa = (OOB.LibCompra.Producto.Enumerados.EnumAdministradorPorDivisa) s.admPorDivisa,
                         };
-                        nr.identidad = id;
                         return nr;
                     }).ToList();
                 }
             }
             rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Producto.Data.Ficha> Producto_GetFicha(string autoPrd)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Producto.Data.Ficha>();
+
+            var r01 = MyData.Producto_GetFicha(autoPrd);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            
+            var s = r01.Entidad;
+            var id = new OOB.LibCompra.Producto.Data.Ficha()
+                {
+                    AdmPorDivisa = (OOB.LibCompra.Producto.Enumerados.EnumAdministradorPorDivisa)s.AdmPorDivisa,
+                    auto = s.auto,
+                    autoDepartamento = s.autoDepartamento,
+                    autoGrupo = s.autoGrupo,
+                    autoMarca = s.autoMarca,
+                    categoria = s.categoria,
+                    codigo = s.codigo,
+                    codigoDepartamento = s.codigoDepartamento,
+                    codigoGrupo = s.codigoGrupo,
+                    contenidoCompra = s.contenidoCompra,
+                    decimales = s.decimales,
+                    departamento = s.departamento,
+                    descripcion = s.descripcion,
+                    empaqueCompra = s.empaqueCompra,
+                    estatus = (OOB.LibCompra.Producto.Enumerados.EnumEstatus)s.estatus,
+                    grupo = s.grupo,
+                    marca = s.marca,
+                    modelo = s.modelo,
+                    nombre = s.nombre,
+                    nombreTasaIva = s.nombreTasaIva,
+                    origen = s.origen,
+                    referencia = s.referencia,
+                    tasaIva = s.tasaIva,
+                    autoTasa = s.autoTasa,
+                    costo = s.costo,
+                    costoDivisa = s.costoDivisa,
+                    fechaUltCambio = s.fechaUltCambio,
+                };
+            rt.Entidad = id;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<string> Producto_GetCodigoRefProveedor(OOB.LibCompra.Producto.CodRefProveedor.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoEntidad<string>();
+
+            var filtroDto = new DtoLibCompra.Producto.CodigoRefProveedor.Filtro()
+            {
+                autoPrd = filtro.autoPrd,
+                autoPrv = filtro.autoPrv,
+            };
+            var r01 = MyData.Producto_GetCodigoRefProveedor (filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad;
 
             return rt;
         }

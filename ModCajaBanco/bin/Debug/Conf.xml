@@ -2,6 +2,7 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>pita04</Catalogo>
+    <Catalogo>pita</Catalogo>
+    <ActivarComoSucursal>no</ActivarComoSucursal>
   </Servidor>
 </Configuracion>

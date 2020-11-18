@@ -25,6 +25,8 @@ namespace ModCajaBanco.Reportes.Movimientos
         private void FiltroFrm_Load(object sender, EventArgs e)
         {
             Inicializar();
+            CB_SUCURSAL.Enabled = _controlador.HabilitarSucursal;
+            CB_DEPOSITO.Enabled = _controlador.HabilitarDeposito;
         }
 
         public void setControlador(Gestion ctr)
@@ -35,7 +37,7 @@ namespace ModCajaBanco.Reportes.Movimientos
         private void Inicializar()
         {
             CB_SUCURSAL.DisplayMember = "Nombre";
-            CB_SUCURSAL.ValueMember = "Codigo";
+            CB_SUCURSAL.ValueMember = "auto";
             CB_SUCURSAL.DataSource = _controlador._bsSucursal;
 
             CB_DEPOSITO.DisplayMember = "Nombre";
@@ -45,9 +47,19 @@ namespace ModCajaBanco.Reportes.Movimientos
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _controlador.autoSucursal = "";
             if (CB_SUCURSAL.SelectedIndex != -1)
             {
                 _controlador.autoSucursal = CB_SUCURSAL.SelectedValue.ToString();
+            }
+        }
+
+        private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.autoDeposito = "";
+            if (CB_DEPOSITO.SelectedIndex != -1)
+            {
+                _controlador.autoDeposito = CB_DEPOSITO.SelectedValue.ToString();
             }
         }
 

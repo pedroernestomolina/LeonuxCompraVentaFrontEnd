@@ -21,6 +21,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void LimpiarItems();
         void EliminarItem();
         void EditarItem();
+        void AgregarItem(string autoPrd, string autoPrv, decimal factorDivisa);
 
     }
 

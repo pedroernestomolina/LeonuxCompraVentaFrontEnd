@@ -50,6 +50,10 @@
     <Compile Include="LibCajaBanco\Reporte\Movimiento\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenInventario\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenInventario\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaDetalle\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaDetalle\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorProducto\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorProducto\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVenta\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVenta\Filtro.cs" />
     <Compile Include="LibCajaBanco\Sucursal\Ficha.cs" />
@@ -59,8 +63,8 @@
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
     <Compile Include="LibCompra\Permiso\Enumerados.cs" />
     <Compile Include="LibCompra\Permiso\Ficha.cs" />
+    <Compile Include="LibCompra\Producto\CodRefProveedor\Filtro.cs" />
     <Compile Include="LibCompra\Producto\Data\Ficha.cs" />
-    <Compile Include="LibCompra\Producto\Data\Identificacion.cs" />
     <Compile Include="LibCompra\Producto\Enumerados.cs" />
     <Compile Include="LibCompra\Producto\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Proveedor\Data\Ficha.cs" />

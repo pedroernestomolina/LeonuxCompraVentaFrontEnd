@@ -35,6 +35,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         bool LimpiarDatosIsOk { get; set; }
         string DepositoNombre { get; }
         string SucursalNombre { get; }
+        OOB.LibCompra.Proveedor.Data.Ficha Proveedor { get; }
 
 
         bool CargarData();
@@ -42,6 +43,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void setMetodoBusqueda(Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda metodo);
         void BuscarProveedor();
         void LimpiarDatos();
+        void Limpiar();
 
     }
 

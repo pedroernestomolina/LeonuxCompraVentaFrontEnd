@@ -15,6 +15,7 @@ namespace ModCajaBanco
         static public OOB.LibCajaBanco.Usuario.Ficha UsuarioP;
         static public string _Instancia { get; set; }
         static public string _BaseDatos { get; set; }
+        public static bool _ActivarComoSucursal { get; set; }
 
     }
 

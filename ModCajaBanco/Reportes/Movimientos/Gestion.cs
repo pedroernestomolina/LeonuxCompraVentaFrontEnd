@@ -27,6 +27,8 @@ namespace ModCajaBanco.Reportes.Movimientos
         public DateTime desdeFecha { get; set; }
         public DateTime hastaFecha { get; set; }
         public bool IsFiltroOk { get; set; }
+        public bool HabilitarSucursal { get; set; }
+        public bool HabilitarDeposito { get; set; }
 
 
         public Gestion()
@@ -96,6 +98,17 @@ namespace ModCajaBanco.Reportes.Movimientos
         {
             autoSucursal = "";
             autoDeposito = "";
+        }
+
+
+        public void setHabilitarSucursal(bool p)
+        {
+            HabilitarSucursal = p;
+        }
+
+        public void setHabilitarDeposito(bool p)
+        {
+            HabilitarDeposito = p;
         }
 
     }

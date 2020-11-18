@@ -3,6 +3,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Hablador
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ArqueoVentaPos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenInventario.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVenta.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVentaDetalle.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVentaPrd.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ModCajaBanco.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ModCajaBanco.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ModCajaBanco.pdb

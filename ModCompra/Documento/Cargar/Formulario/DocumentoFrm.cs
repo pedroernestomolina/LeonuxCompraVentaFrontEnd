@@ -28,7 +28,7 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void InicializarGrid()
         {
             var f = new Font("Serif", 8, FontStyle.Bold);
-            var f1 = new Font("Serif", 10, FontStyle.Regular);
+            var f1 = new Font("Serif", 8, FontStyle.Regular);
 
             DGV.AllowUserToAddRows = false;
             DGV.AllowUserToDeleteRows = false;
@@ -67,7 +67,7 @@ namespace ModCompra.Documento.Cargar.Formulario
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             var c4 = new DataGridViewTextBoxColumn();
-            c4.DataPropertyName = "Empaque";
+            c4.DataPropertyName = "EmpaqueCont";
             c4.HeaderText = "Empaque";
             c4.Visible = true;
             c4.HeaderCell.Style.Font = f;
@@ -75,7 +75,7 @@ namespace ModCompra.Documento.Cargar.Formulario
             c4.Width = 100;
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "Costo";
+            c5.DataPropertyName = "CostoCompra";
             c5.HeaderText = "Costo Bs";
             c5.Visible = true;
             c5.Width = 120;
@@ -85,43 +85,84 @@ namespace ModCompra.Documento.Cargar.Formulario
             c5.DefaultCellStyle.Format = "n2";
 
             var c5b = new DataGridViewTextBoxColumn();
-            c5b.DataPropertyName = "Costo";
+            c5b.DataPropertyName = "CostoDivisaCompra";
             c5b.HeaderText = "Costo $";
             c5b.Visible = true;
-            c5b.Width = 120;
+            c5b.Width = 80;
             c5b.HeaderCell.Style.Font = f;
             c5b.DefaultCellStyle.Font = f1;
             c5b.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c5b.DefaultCellStyle.Format = "n2";
 
-            var c6 = new DataGridViewTextBoxColumn();
-            c6.HeaderText = "Dscto";
-            c6.Visible = true;
-            c6.Width = 120;
-            c6.HeaderCell.Style.Font = f;
-            c6.DefaultCellStyle.Font = f1;
-            c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            c6.DefaultCellStyle.Format = "n2";
+            var c6a = new DataGridViewTextBoxColumn();
+            c6a.DataPropertyName = "Dsct_1_p";
+            c6a.HeaderText = "Dsc 1";
+            c6a.Visible = true;
+            c6a.Width = 70;
+            c6a.HeaderCell.Style.Font = f;
+            c6a.DefaultCellStyle.Font = f1;
+            c6a.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c6a.DefaultCellStyle.Format = "n2";
+
+            var c6b = new DataGridViewTextBoxColumn();
+            c6b.DataPropertyName = "Dsct_2_p";
+            c6b.HeaderText = "Dsc 2";
+            c6b.Visible = true;
+            c6b.Width = 70;
+            c6b.HeaderCell.Style.Font = f;
+            c6b.DefaultCellStyle.Font = f1;
+            c6b.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c6b.DefaultCellStyle.Format = "n2";
+
+            var c6c = new DataGridViewTextBoxColumn();
+            c6c.DataPropertyName = "Dsct_3_p";
+            c6c.HeaderText = "Dsc 3";
+            c6c.Visible = true;
+            c6c.Width = 70;
+            c6c.HeaderCell.Style.Font = f;
+            c6c.DefaultCellStyle.Font = f1;
+            c6c.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c6c.DefaultCellStyle.Format = "n2";
 
             var c7 = new DataGridViewTextBoxColumn();
-            c7.DataPropertyName = "Iva";
-            c7.HeaderText = "Iva";
+            c7.DataPropertyName = "Importe";
+            c7.HeaderText = "Neto";
             c7.Visible = true;
-            c7.Width = 60;
+            c7.Width = 120;
             c7.HeaderCell.Style.Font = f;
             c7.DefaultCellStyle.Font = f1;
             c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c7.DefaultCellStyle.Format = "n2";
 
             var c8 = new DataGridViewTextBoxColumn();
-            c8.DataPropertyName = "Importe";
-            c8.HeaderText = "Importe";
+            c8.DataPropertyName = "TasaIvaPrd";
+            c8.HeaderText = "Iva";
             c8.Visible = true;
-            c8.Width = 120;
+            c8.Width = 60;
             c8.HeaderCell.Style.Font = f;
             c8.DefaultCellStyle.Font = f1;
             c8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c8.DefaultCellStyle.Format = "n2";
+
+            var c9 = new DataGridViewTextBoxColumn();
+            c9.DataPropertyName = "Impuesto";
+            c9.HeaderText = "Impuesto";
+            c9.Visible = true;
+            c9.Width = 120;
+            c9.HeaderCell.Style.Font = f;
+            c9.DefaultCellStyle.Font = f1;
+            c9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c9.DefaultCellStyle.Format = "n2";
+
+            var c10 = new DataGridViewTextBoxColumn();
+            c10.DataPropertyName = "Total";
+            c10.HeaderText = "Total";
+            c10.Visible = true;
+            c10.Width = 120;
+            c10.HeaderCell.Style.Font = f;
+            c10.DefaultCellStyle.Font = f1;
+            c10.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c10.DefaultCellStyle.Format = "n2";
 
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
@@ -129,9 +170,13 @@ namespace ModCompra.Documento.Cargar.Formulario
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
             DGV.Columns.Add(c5b);
-            DGV.Columns.Add(c6);
+            DGV.Columns.Add(c6a);
+            DGV.Columns.Add(c6b);
+            DGV.Columns.Add(c6c);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
+            DGV.Columns.Add(c9);
+            DGV.Columns.Add(c10);
         }
 
         private void DocumentoFrm_Load(object sender, EventArgs e)
@@ -211,6 +256,8 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void EditarItem()
         {
             _controlador.EditarItem();
+            ActualizarDatosTotales();
+            IniciarBusqueda();
         }
 
         private void BT_ELIMINAR_ITEM_Click(object sender, EventArgs e)
@@ -221,6 +268,8 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void EliminarItem()
         {
             _controlador.EliminarItem();
+            ActualizarDatosTotales();
+            IniciarBusqueda();
         }
 
         private void BT_LIMPIAR_ITEMS_Click(object sender, EventArgs e)
@@ -231,6 +280,8 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void LimpiarItems()
         {
             _controlador.LimpiarItems();
+            ActualizarDatosTotales();
+            IniciarBusqueda();
         }
 
         private void BT_BUSCAR_PRODUCTO_Click(object sender, EventArgs e)
@@ -241,6 +292,7 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void BuscarProducto()
         {
             _controlador.BuscarProducto();
+            ActualizarDatosTotales();
             IniciarBusqueda();
         }
 
@@ -294,6 +346,51 @@ namespace ModCompra.Documento.Cargar.Formulario
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void BT_SALIR_Click(object sender, EventArgs e)
+        {
+            Salir();
+        }
+
+        private void Salir()
+        {
+            _controlador.Salir();
+        }
+
+        private void DocumentoFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            if (_controlador.SalidaOk)
+            {
+                e.Cancel = false;
+            }
+            else 
+                IniciarBusqueda();
+        }
+
+        private void BT_ACEPTAR_Click(object sender, EventArgs e)
+        {
+            ProcesarGurdar();
+        }
+
+        private void ProcesarGurdar()
+        {
+            _controlador.ProcesarGurdar();
+        }
+
+        private void BT_LIMPIAR_DOCUMENTO_Click(object sender, EventArgs e)
+        {
+            LimpiarDocumento();
+        }
+
+        private void LimpiarDocumento()
+        {
+            _controlador.LimpiarDocumento();
+            ActualizarDatosDocumento();
+            ActualizarDatosTotales();
+            DGV.Refresh();
+            IniciarBusqueda();
         }
 
     }

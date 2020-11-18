@@ -13,6 +13,8 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         string CadenaPrdBuscar { get; set; }
         GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get; }
+        bool IsProductoSeleccionadoOk { get; }
+        string AutoProductoSeleccionado { get; }
 
 
         void setMetodoBusqueda(GestionProductoBuscar.metodoBusqueda metodo);

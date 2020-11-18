@@ -16,7 +16,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         private IGestionItem _gestion;
 
 
-        public BindingSource ItemSource { get; set; }
+        public BindingSource ItemSource { get { return _gestion.ItemSource; } }
         public int TItems { get { return _gestion.TItems; } }
         public decimal TotalMonto { get { return _gestion.TotalMonto; } }
         public decimal MontoIva { get { return _gestion.MontoIva; } }
@@ -41,6 +41,11 @@ namespace ModCompra.Documento.Cargar.Controlador
         public void EditarItem()
         {
             _gestion.EditarItem();
+        }
+
+        public void AgregarItem(string autoPrd, string autoPrv, decimal factorDivisa)
+        {
+            _gestion.AgregarItem(autoPrd, autoPrv, factorDivisa);
         }
 
     }

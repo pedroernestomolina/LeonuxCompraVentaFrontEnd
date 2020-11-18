@@ -12,12 +12,26 @@ namespace ModCompra.Documento.Cargar.Controlador
     {
 
         string TituloDocumento { get; }
+        bool SalidaOk { get; }
+        Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get; }
+
+
+        string CadenaPrdBuscar { get; set; }
+
+
         IGestionDocumento GestionDoc { get; }
         IGestionItem GestionItem { get; }
-        IGestionProductoBuscar GestionProductoBuscar { get; }
+        
 
-
+        void Inicializar();
         bool CargarData();
+        void Salir();
+        void ProcesarGurdar();
+        void LimpiarDocumento();
+        void BuscarProducto();
+        void ActivarBusquedaProductoPorCodigo();
+        void ActivarBusquedaProductoPorNombre();
+        void ActivarBusquedaProductoPorReferencia();
 
     }
 

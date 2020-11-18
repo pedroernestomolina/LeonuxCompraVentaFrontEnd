@@ -232,6 +232,99 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDetalle.Ficha> Reporte_ResumenVentaDetalle(OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDetalle.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDetalle.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.FacturaDetalle.Filtro()
+            {
+                codigoSucursal = filtro.codigoSucursal,
+                desdeFecha = filtro.desdeFecha,
+                hastaFecha = filtro.hastaFecha,
+            };
+            var r01 = MyData.Reporte_VentaDetalle(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDetalle.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDetalle.Ficha()
+                        {
+                            auto = s.auto,
+                            cantidadUnd = s.cantidadUnd,
+                            documento = s.documento,
+                            fecha = s.fecha,
+                            hora= s.hora,
+                            decimales="2",
+                            nombreProducto = s.nombreProducto,
+                            precioUnd = s.precioUnd,
+                            renglones = s.renglones,
+                            total = s.total,
+                            totalRenglon = s.totalRenglon,
+                            usuarioCodigo = s.usuarioCodigo,
+                            usuarioNombre = s.usuarioNombre,
+                            signo=s.signo,
+                            documentoNombre=s.documentoNombre,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaPorProducto.Ficha> Reporte_ResumenVentaPorProducto(OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaPorProducto.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaPorProducto.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.VentasPorProducto.Filtro()
+            {
+                codigoSucursal = filtro.codigoSucursal,
+                desdeFecha = filtro.desdeFecha,
+                hastaFecha = filtro.hastaFecha,
+            };
+            var r01 = MyData.Reporte_VentaPorProducto (filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaPorProducto.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaPorProducto.Ficha()
+                        {
+                            cantidad = s.cantidad,
+                            codigoPrd = s.codigoPrd,
+                            nombreDocumento = s.nombreDocumento,
+                            nombrePrd = s.nombrePrd,
+                            signo = s.signo,
+                            totalMonto = s.totalMonto,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

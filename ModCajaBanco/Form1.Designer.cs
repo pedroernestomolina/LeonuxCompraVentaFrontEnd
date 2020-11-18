@@ -42,7 +42,9 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_INVENTARIO_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_VENTA_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTES_VENTA_DETALLE = new System.Windows.Forms.ToolStripMenuItem();
             this.cobranzaDelDiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_HABLADORES = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -172,7 +175,10 @@
             this.toolStripMenuItem1,
             this.TSM_REPORTES_INVENTARIO_RESUMEN,
             this.TSM_REPORTES_VENTA_RESUMEN,
+            this.TSM_REPORTES_VENTA_DETALLE,
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO,
             this.cobranzaDelDiaToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.TSM_REPORTES_HABLADORES});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
@@ -204,12 +210,24 @@
             this.TSM_REPORTES_VENTA_RESUMEN.Text = "Ventas Resumen";
             this.TSM_REPORTES_VENTA_RESUMEN.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_RESUMEN_Click);
             // 
+            // TSM_REPORTES_VENTA_DETALLE
+            // 
+            this.TSM_REPORTES_VENTA_DETALLE.Name = "TSM_REPORTES_VENTA_DETALLE";
+            this.TSM_REPORTES_VENTA_DETALLE.Size = new System.Drawing.Size(273, 22);
+            this.TSM_REPORTES_VENTA_DETALLE.Text = "Ventas Detalle";
+            this.TSM_REPORTES_VENTA_DETALLE.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_DETALLE_Click);
+            // 
             // cobranzaDelDiaToolStripMenuItem
             // 
             this.cobranzaDelDiaToolStripMenuItem.Name = "cobranzaDelDiaToolStripMenuItem";
             this.cobranzaDelDiaToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
             this.cobranzaDelDiaToolStripMenuItem.Text = "Resumen Relación de Cobranza Diaria";
             this.cobranzaDelDiaToolStripMenuItem.Visible = false;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(270, 6);
             // 
             // TSM_REPORTES_HABLADORES
             // 
@@ -318,6 +336,13 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // TSM_REPORTES_VENTA_POR_PRODUCTO
+            // 
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO.Name = "TSM_REPORTES_VENTA_POR_PRODUCTO";
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO.Size = new System.Drawing.Size(273, 22);
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO.Text = "Ventas Por Producto";
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_POR_PRODUCTO_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +399,9 @@
         private System.Windows.Forms.ToolStripMenuItem cobranzaDelDiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_HABLADORES;
+        private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_VENTA_DETALLE;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_VENTA_POR_PRODUCTO;
 
     }
 

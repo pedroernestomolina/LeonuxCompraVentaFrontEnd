@@ -49,7 +49,7 @@
             this.panel38 = new System.Windows.Forms.Panel();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BT_LIMPIAR_DOCUMENTO = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -314,6 +314,7 @@
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
             // panel3
             // 
@@ -340,6 +341,7 @@
             this.BT_ACEPTAR.Text = "Guardar";
             this.BT_ACEPTAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_ACEPTAR.UseVisualStyleBackColor = true;
+            this.BT_ACEPTAR.Click += new System.EventHandler(this.BT_ACEPTAR_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -500,7 +502,7 @@
             // 
             // panel40
             // 
-            this.panel40.Controls.Add(this.button2);
+            this.panel40.Controls.Add(this.BT_LIMPIAR_DOCUMENTO);
             this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel40.Location = new System.Drawing.Point(988, 1);
             this.panel40.Margin = new System.Windows.Forms.Padding(1);
@@ -509,19 +511,20 @@
             this.panel40.Size = new System.Drawing.Size(141, 36);
             this.panel40.TabIndex = 7;
             // 
-            // button2
+            // BT_LIMPIAR_DOCUMENTO
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::ModCompra.Properties.Resources.bt_limpiar_20;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button2.Location = new System.Drawing.Point(2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(137, 32);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Limpiar Todo";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_DOCUMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LIMPIAR_DOCUMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_LIMPIAR_DOCUMENTO.Image = global::ModCompra.Properties.Resources.bt_limpiar_20;
+            this.BT_LIMPIAR_DOCUMENTO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_LIMPIAR_DOCUMENTO.Location = new System.Drawing.Point(2, 2);
+            this.BT_LIMPIAR_DOCUMENTO.Name = "BT_LIMPIAR_DOCUMENTO";
+            this.BT_LIMPIAR_DOCUMENTO.Size = new System.Drawing.Size(137, 32);
+            this.BT_LIMPIAR_DOCUMENTO.TabIndex = 4;
+            this.BT_LIMPIAR_DOCUMENTO.Text = "Limpiar Todo";
+            this.BT_LIMPIAR_DOCUMENTO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_LIMPIAR_DOCUMENTO.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_DOCUMENTO.Click += new System.EventHandler(this.BT_LIMPIAR_DOCUMENTO_Click);
             // 
             // panel7
             // 
@@ -1810,13 +1813,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIR;
             this.ClientSize = new System.Drawing.Size(1134, 661);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "DocumentoFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DocumentoFrm_FormClosing);
             this.Load += new System.EventHandler(this.DocumentoFrm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -1981,7 +1987,7 @@
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Panel panel39;
         private System.Windows.Forms.Panel panel40;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BT_LIMPIAR_DOCUMENTO;
         private System.Windows.Forms.Panel panel41;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Panel panel43;

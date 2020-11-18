@@ -11,27 +11,86 @@ namespace OOB.LibCompra.Producto.Data
     public class Ficha
     {
 
-        public Identificacion identidad { get; set; }
+        public string auto { get; set; }
+        public string autoDepartamento { get; set; }
+        public string autoMarca { get; set; }
+        public string autoGrupo { get; set; }
+        public string autoTasa { get; set; }
 
+        public string codigo { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public string modelo { get; set; }
+        public string referencia { get; set; }
+        public int contenidoCompra { get; set; }
+        public string empaqueCompra { get; set; }
+        public string decimales { get; set; }
+        public string origen { get; set; }
+        public string categoria { get; set; }
+        public Enumerados.EnumEstatus estatus { get; set; }
+        public Enumerados.EnumAdministradorPorDivisa AdmPorDivisa { get; set; }
+        public string departamento { get; set; }
+        public string codigoDepartamento { get; set; }
+        public string grupo { get; set; }
+        public string codigoGrupo { get; set; }
+        public string marca { get; set; }
+        public decimal tasaIva { get; set; }
+        public string nombreTasaIva { get; set; }
 
-        public string AutoId { get { return identidad.auto; } }
-        public string CodigoPrd { get { return identidad.codigo; } }
-        public string DescripcionPrd { get { return identidad.descripcion; } }
-        public string Departamento { get { return identidad.departamento; } }
-        public string Grupo { get { return identidad.grupo; } }
-        public string Marca { get { return identidad.marca; } }
-        public string Referencia { get { return identidad.referencia; } }
-        //public string Empaque { get { return identidad.Empaque; } }
-        //public string Impuesto { get { return identidad.Impuesto; } }
-        public string Origen { get { return identidad.origen ; } }
-        public string Estatus { get { return identidad.estatus.ToString(); } }
-        public string Divisa { get { return identidad.AdmPorDivisa.ToString(); } }
-        public string Producto { get { return CodigoPrd + Environment.NewLine + DescripcionPrd; } }
+        public decimal costoDivisa { get; set; }
+        public decimal costo { get; set; }
+        public DateTime? fechaUltCambio { get; set; }
+
+        public decimal costoDivisaUnd 
+        {
+            get 
+            {
+                var rt = 0.0m;
+                rt = costoDivisa / contenidoCompra;
+                return rt;
+            }
+        }
+
+        public decimal costoUnd
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = costo / contenidoCompra;
+                return rt;
+            }
+        }
 
 
         public Ficha()
         {
-            identidad = new Identificacion();
+            auto = "";
+            autoDepartamento = "";
+            autoGrupo = "";
+            autoMarca = "";
+            autoTasa = "";
+
+            codigo = "";
+            nombre = "";
+            descripcion = "";
+            modelo = "";
+            referencia = "";
+            contenidoCompra = 1;
+            empaqueCompra = "";
+            decimales = "0";
+            origen = "";
+            categoria = "";
+            estatus = Enumerados.EnumEstatus.SnDefinir;
+            AdmPorDivisa = Enumerados.EnumAdministradorPorDivisa.SnDefinir;
+            departamento = "";
+            codigoDepartamento = "";
+            grupo = "";
+            codigoGrupo = "";
+            marca = "";
+            tasaIva = 0.0m;
+            nombreTasaIva = "";
+            costo = 0.0m;
+            costoDivisa = 0.0m;
         }
 
     }

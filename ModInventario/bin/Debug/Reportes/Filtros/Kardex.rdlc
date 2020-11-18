@@ -6,40 +6,40 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.41766cm</Width>
+              <Width>2.37926cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.52308cm</Width>
+              <Width>1.48468cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.02037cm</Width>
+              <Width>0.98197cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.86704cm</Width>
+              <Width>1.82864cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.89891cm</Width>
+              <Width>2.86051cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.29037cm</Width>
+              <Width>2.25197cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.70829cm</Width>
+              <Width>1.66989cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.13162cm</Width>
+              <Width>2.09322cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.81412cm</Width>
+              <Width>1.77572cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.84058cm</Width>
+              <Width>1.80218cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.7612cm</Width>
+              <Width>1.7228cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.86704cm</Width>
+              <Width>1.82864cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1633,7 +1633,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>3.6662cm</Size>
+                <Size>3.6278cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox25">
                     <CanGrow>true</CanGrow>
@@ -1683,7 +1683,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>3.6662cm</Size>
+                <Size>3.6278cm</Size>
                 <CellContents>
                   <Textbox Name="nombre1">
                     <CanGrow>true</CanGrow>
@@ -1733,7 +1733,7 @@
         <Top>0.10583cm</Top>
         <Left>0.26141cm</Left>
         <Height>2.5202cm</Height>
-        <Width>26.80648cm</Width>
+        <Width>26.30726cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1744,7 +1744,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>10.94831in</Width>
+  <Width>10.5629in</Width>
   <Page>
     <PageHeader>
       <Height>3.25438cm</Height>
@@ -1951,7 +1951,7 @@
           <Top>3.07799cm</Top>
           <Left>0.17254cm</Left>
           <Height>0cm</Height>
-          <Width>26.89535cm</Width>
+          <Width>26.39613cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>

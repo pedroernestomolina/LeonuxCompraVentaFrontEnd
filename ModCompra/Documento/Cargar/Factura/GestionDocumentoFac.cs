@@ -65,6 +65,11 @@ namespace ModCompra.Documento.Cargar.Factura
             } 
         }
 
+        public OOB.LibCompra.Proveedor.Data.Ficha Proveedor
+        {
+            get { return data.proveedor; }
+        }
+
 
         public GestionDocumentoFac()
         {
@@ -173,13 +178,13 @@ namespace ModCompra.Documento.Cargar.Factura
             var metodo = OOB.LibCompra.Proveedor.Enumerados.EnumMetodoBusqueda.SnDefinir;
             switch (preferenciaBusq) 
             {
-                case  Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.CiRif:
+                case  ModCompra.Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.CiRif:
                     metodo = OOB.LibCompra.Proveedor.Enumerados.EnumMetodoBusqueda.CiRif;
                     break;
-                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Codigo:
+                case ModCompra.Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Codigo:
                     metodo = OOB.LibCompra.Proveedor.Enumerados.EnumMetodoBusqueda.Codigo;
                     break;
-                case Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Nombre:
+                case ModCompra.Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda.Nombre:
                     metodo = OOB.LibCompra.Proveedor.Enumerados.EnumMetodoBusqueda.Nombre;
                     break;
             }
@@ -206,11 +211,16 @@ namespace ModCompra.Documento.Cargar.Factura
             var msg = MessageBox.Show("Estas Seguro de Limpiar Datos Cargados ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes) 
             {
-                LimpiarDatosIsOk = true;
-                data.Limpiar();
-                data.setFactorDivisa(_tasaCambio);
-                preferenciaBusq = _preferencia;
+                Limpiar();
             }
+        }
+
+        public void Limpiar()
+        {
+            LimpiarDatosIsOk = true;
+            data.Limpiar();
+            data.setFactorDivisa(_tasaCambio);
+            preferenciaBusq = _preferencia;
         }
 
     }

@@ -17,13 +17,14 @@ namespace ModCompra.Documento.Cargar.Factura
         private List<dataItem> ldata;
         private BindingList<dataItem> bl;
         private BindingSource bs;
+        private GestionAgregarItem gestionAgregarItem;
 
 
         public BindingSource ItemSource { get { return bs; } }
         public int TItems { get { return bs.Count; } }
-        public decimal TotalMonto { get { return 0.0m; } }
-        public decimal MontoIva { get { return 0.0m; } }
-        public decimal MontoDivisa { get { return 0.0m; } }
+        public decimal TotalMonto { get { return bl.Sum(m => m.total); } }
+        public decimal MontoIva { get { return bl.Sum(m => m.impuesto); } }
+        public decimal MontoDivisa { get { return bl.Sum(m => m.totalDivisa); } }
 
 
         public GestionItemFac()
@@ -32,22 +33,63 @@ namespace ModCompra.Documento.Cargar.Factura
             bl = new BindingList<dataItem>(ldata);
             bs = new BindingSource();
             bs.DataSource = bl;
+            gestionAgregarItem = new GestionAgregarItem();
         }
 
 
         public void LimpiarItems()
         {
-            Helpers.Msg.Alerta("PRONTO");
+            if (bl.Count > 0)
+            {
+                var ms = MessageBox.Show("Estas Seguro De Querer Limpiar Los Items Registrados ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (ms == DialogResult.Yes)
+                {
+                    bl.Clear();
+                    bs.CurrencyManager.Refresh();
+                }
+            }
         }
 
         public void EliminarItem()
         {
-            Helpers.Msg.Alerta("PRONTO");
+            if (bs.Current != null) 
+            {
+                var it = (dataItem)bs.Current;
+                var ms = MessageBox.Show("Estas Seguro De Querer Eliminar Este Item ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (ms == DialogResult.Yes)
+                {
+                    bl.Remove(it);
+                    bs.CurrencyManager.Refresh();
+                }
+            }
         }
 
         public void EditarItem()
         {
-            Helpers.Msg.Alerta("PRONTO");
+            if (bs.Current != null)
+            {
+                var it = (dataItem) bs.Current;
+                gestionAgregarItem.Editar(it);
+            }
+        }
+
+        public void AgregarItem(string autoPrd, string autoPrv, decimal factorDivisa)
+        {
+            gestionAgregarItem.NuevoItem();
+            gestionAgregarItem.setAutoProveedor(autoPrv);
+            gestionAgregarItem.setFactorDivisa(factorDivisa);
+            gestionAgregarItem.setAutoPrd(autoPrd);
+            gestionAgregarItem.Inicia();
+            if (gestionAgregarItem.RegistroOk)
+            {
+                InsertarItem(gestionAgregarItem.Item);
+            }
+        }
+
+        private void InsertarItem(dataItem item)
+        {
+            bl.Add(item);
+            bs.CurrencyManager.Refresh();
         }
 
     }

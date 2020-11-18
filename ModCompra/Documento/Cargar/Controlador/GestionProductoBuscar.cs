@@ -18,6 +18,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         public enum metodoBusqueda { SinDefinir=-1, Codigo=1, Nombre, Referencia };
         public string CadenaPrdBuscar { get { return _gestion.CadenaPrdBuscar; } set { _gestion.CadenaPrdBuscar = value; } }
         public metodoBusqueda MetodoBusquedaProducto { get { return _gestion.MetodoBusquedaProducto; } }
+        public bool IsProductoSeleccionadoOk { get { return _gestion.IsProductoSeleccionadoOk; } }
+        public string AutoProductoSeleccionado { get { return _gestion.AutoProductoSeleccionado; } } 
 
 
         public void setGestion(IGestionProductoBuscar gestion)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ModCompra.Documento.Cargar.Factura
@@ -14,11 +15,14 @@ namespace ModCompra.Documento.Cargar.Factura
         private Controlador.IGestionDocumento gestionDoc;
         private Controlador.IGestionItem gestionItem;
         private Controlador.IGestionProductoBuscar gestionPrdBuscar;
+        private GestionAgregarItem gestionAgregarItem;
 
 
+        public Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return gestionPrdBuscar.MetodoBusquedaProducto; } }
         public Controlador.IGestionDocumento GestionDoc { get { return gestionDoc; } }
         public Controlador.IGestionItem GestionItem {get { return gestionItem; }}
-        public Controlador.IGestionProductoBuscar GestionProductoBuscar { get { return gestionPrdBuscar; } }
+        public string CadenaPrdBuscar { get { return gestionPrdBuscar.CadenaPrdBuscar; } set { gestionPrdBuscar.CadenaPrdBuscar = value; } }
+        public bool SalidaOk { get; set; }
 
 
         public string TituloDocumento
@@ -29,11 +33,17 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public GestionFac()
         {
+            SalidaOk = false;
             gestionDoc= new GestionDocumentoFac();
             gestionItem = new GestionItemFac();
+            gestionAgregarItem = new GestionAgregarItem();
             gestionPrdBuscar = new GestionProductoBuscarFac();
         }
 
+        public void Inicializar() 
+        {
+            SalidaOk = false;
+        }
 
         public bool CargarData()
         {
@@ -62,6 +72,85 @@ namespace ModCompra.Documento.Cargar.Factura
             gestionPrdBuscar.setMetodoBusqueda(mt);
 
             return rt;
+        }
+
+        public void Salir()
+        {
+            SalidaOk = false;
+            var ms = MessageBox.Show("Estas Seguro de Abandonar/Perder Datos del Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (ms == DialogResult.Yes)
+            {
+                SalidaOk = true;
+            }
+        }
+
+        public void ProcesarGurdar()
+        {
+            SalidaOk = false;
+
+            if (!gestionDoc.IsAceptarOk) 
+            {
+                Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
+                return;
+            }
+
+            if (gestionItem.TItems == 0)
+            {
+                Helpers.Msg.Error("No Hay Items Que Procesar !!!");
+                return;
+            }
+
+            if (gestionItem.TotalMonto == 0.0m)
+            {
+                Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
+                return;
+            }
+            
+            var ms = MessageBox.Show("Estas Seguro de Procesar/Guardar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (ms == DialogResult.Yes)
+            {
+                SalidaOk = true;
+            }
+        }
+
+        public void LimpiarDocumento()
+        {
+            var ms = MessageBox.Show("Estas Seguro Limpiar/Perder Los Datos ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (ms == DialogResult.Yes)
+            {
+                gestionItem.LimpiarItems();
+                gestionDoc.Limpiar();
+            }
+        }
+
+        public void BuscarProducto()
+        {
+            if (!gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Alerta("Debe Primero Hacer Click En Nuevo Documento");
+                return;
+            }
+            gestionPrdBuscar.BuscarProducto();
+            if (gestionPrdBuscar.IsProductoSeleccionadoOk)
+            {
+                var autoPrd = gestionPrdBuscar.AutoProductoSeleccionado;
+                gestionItem.AgregarItem(autoPrd, gestionDoc.Proveedor.autoId, gestionDoc.FactorDivisa);
+            }
+        }
+
+        public void ActivarBusquedaProductoPorCodigo()
+        {
+            gestionPrdBuscar.setMetodoBusqueda(Controlador.GestionProductoBuscar.metodoBusqueda.Codigo);
+        }
+
+        public void ActivarBusquedaProductoPorNombre()
+        {
+            gestionPrdBuscar.setMetodoBusqueda(Controlador.GestionProductoBuscar.metodoBusqueda.Nombre);
+        }
+
+        public void ActivarBusquedaProductoPorReferencia()
+        {
+            gestionPrdBuscar.setMetodoBusqueda(Controlador.GestionProductoBuscar.metodoBusqueda.Referencia);
         }
 
     }

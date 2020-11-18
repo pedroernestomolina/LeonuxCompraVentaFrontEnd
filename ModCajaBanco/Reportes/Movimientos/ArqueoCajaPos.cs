@@ -14,15 +14,13 @@ namespace ModCajaBanco.Reportes.Movimientos
     {
         
         private List<OOB.LibCajaBanco.Reporte.Movimiento.ArqueoCajaPos.Ficha> _arqueos;
-        private DateTime _desde;
-        private DateTime _hasta;
+        private string _filtros;
 
 
-        public ArqueoCajaPos(List<OOB.LibCajaBanco .Reporte.Movimiento.ArqueoCajaPos.Ficha> list, DateTime desde, DateTime hasta)
+        public ArqueoCajaPos(List<OOB.LibCajaBanco .Reporte.Movimiento.ArqueoCajaPos.Ficha> list, string filtros)
         {
             _arqueos = list;
-            _desde = desde;
-            _hasta = hasta;
+            _filtros = filtros;
         }
         
         public void Generar()
@@ -54,8 +52,7 @@ namespace ModCajaBanco.Reportes.Movimientos
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            pmt.Add(new ReportParameter("Desde", _desde.ToShortDateString()));
-            pmt.Add(new ReportParameter("Hasta", _hasta.ToShortDateString()));
+            pmt.Add(new ReportParameter("Filtros",_filtros));
             Rds.Add(new ReportDataSource("ArqueoVentaPos", ds.Tables["ArqueoVentaPos"]));
 
             var frp = new Reporte();

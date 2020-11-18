@@ -41,6 +41,10 @@ namespace ModCajaBanco.Helpers
                                         {
                                             Sistema._BaseDatos = sv.InnerText.Trim();
                                         }
+                                        if (sv.LocalName.Trim().ToUpper() == "ACTIVARCOMOSUCURSAL")
+                                        {
+                                            Sistema._ActivarComoSucursal= sv.InnerText.Trim().ToUpper()=="SI"?true:false;
+                                        }
                                     }
                                 }
                             }

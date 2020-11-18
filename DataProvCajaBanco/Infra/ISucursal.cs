@@ -13,6 +13,7 @@ namespace DataProvCajaBanco.Infra
 
         OOB.ResultadoLista<OOB.LibCajaBanco.Sucursal.Ficha> Sucursal_GetLista();
         OOB.ResultadoEntidad<OOB.LibCajaBanco.Sucursal.Ficha> Sucursal_GetPrincipal();
+        OOB.ResultadoEntidad<OOB.LibCajaBanco.Sucursal.Ficha> Sucursal_GetFicha(string auto);
 
     }
 

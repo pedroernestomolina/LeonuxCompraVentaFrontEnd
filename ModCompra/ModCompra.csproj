@@ -74,6 +74,7 @@
     <Compile Include="Documento\Cargar\Controlador\IGestionProductoBuscar.cs" />
     <Compile Include="Documento\Cargar\dataDocumento.cs" />
     <Compile Include="Documento\Cargar\dataItem.cs" />
+    <Compile Include="Documento\Cargar\Factura\GestionAgregarItem.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionDocumentoFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionItemFac.cs" />
@@ -89,6 +90,12 @@
     </Compile>
     <Compile Include="Documento\Cargar\Formulario\DocumentoFrm.Designer.cs">
       <DependentUpon>DocumentoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\ItemFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\ItemFrm.Designer.cs">
+      <DependentUpon>ItemFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -131,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\Formulario\DocumentoFrm.resx">
       <DependentUpon>DocumentoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documento\Cargar\Formulario\ItemFrm.resx">
+      <DependentUpon>ItemFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

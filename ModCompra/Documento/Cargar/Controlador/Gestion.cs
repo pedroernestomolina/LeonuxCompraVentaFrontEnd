@@ -39,20 +39,46 @@ namespace ModCompra.Documento.Cargar.Controlador
         //
         public GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return _gestion.MetodoBusquedaProducto; } }
         public string CadenaPrdBuscar { get { return _gestion.CadenaPrdBuscar; } set { _gestion.CadenaPrdBuscar = value; } }
+        //
+        public string Item_Producto { get { return _gestionItem.Item_Producto; } }
+        public decimal Item_Importe { get { return _gestionItem.Item_Importe; } }
+        public decimal Item_Impuesto { get { return _gestionItem.Item_Impuesto; } }
+        public decimal Item_Total { get { return _gestionItem.Item_Total; } }
+        public decimal Item_Cantidad { get { return _gestionItem.Item_Cantidad; } }
+        public decimal Item_CantidadUnd { get { return _gestionItem.Item_CantidadUnd; } }
+        public decimal Item_CostoMoneda { get { return _gestionItem.Item_CostoMoneda; } }
+        public decimal Item_CostoMonedaUnd { get { return _gestionItem.Item_CostoMonedaUnd; } }
+        public decimal Item_CostoDivisa { get { return _gestionItem.Item_CostoDivisa; } }
+        public decimal Item_CostoDivisaUnd { get { return _gestionItem.Item_CostoDivisaUnd; } }
+        public string Item_EmpaqueCont { get { return _gestionItem.Item_EmpaqueCont; } }
+        public string Item_CodRefPrv { get { return _gestionItem.Item_CodRefPrv; } }
+        public decimal Item_Dscto { get { return _gestionItem.Item_Dscto; } }
 
 
         public Gestion()
         {
             _gestionDoc = new GestionDocumento();
             _gestionItem = new GestionItem();
+            _gestionItem.ActualizarItemHnd +=_gestionItem_ActualizarItemHnd;
         }
 
+
+        private void _gestionItem_ActualizarItemHnd(object sender, EventArgs e)
+        {
+            frm.ActualizarDatosItem();
+        }
 
         public void setGestion(IGestion gestion) 
         {
             _gestion = gestion;
+            _gestion.ActualizarItemHnd +=_gestion_ActualizarItemHnd;
             _gestionDoc.setGestion(_gestion.GestionDoc);
             _gestionItem.setGestion(_gestion.GestionItem);
+        }
+
+        private void _gestion_ActualizarItemHnd(object sender, EventArgs e)
+        {
+            frm.ActualizarDatosItem();
         }
 
         Formulario.DocumentoFrm frm;

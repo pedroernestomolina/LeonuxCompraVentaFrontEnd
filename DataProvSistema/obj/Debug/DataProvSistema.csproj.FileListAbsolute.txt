@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\LibEntitySistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\DataProvSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\DataProvSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\DtoLib.dll
@@ -7,7 +8,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\ServiceSistema
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\ILibSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\ProvLibSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\EntityFramework.dll
-D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\LibEntitySistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\DtoLib.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvSistema\bin\Debug\DtoLibSistema.pdb

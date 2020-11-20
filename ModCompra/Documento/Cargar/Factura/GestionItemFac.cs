@@ -13,6 +13,8 @@ namespace ModCompra.Documento.Cargar.Factura
     public class GestionItemFac:Controlador.IGestionItem
     {
 
+        public event EventHandler ActualizarItemHnd;
+
 
         private List<dataItem> ldata;
         private BindingList<dataItem> bl;
@@ -26,16 +28,213 @@ namespace ModCompra.Documento.Cargar.Factura
         public decimal MontoIva { get { return bl.Sum(m => m.impuesto); } }
         public decimal MontoDivisa { get { return bl.Sum(m => m.totalDivisa); } }
 
+        public string Item_Producto 
+        { 
+            get 
+            {
+                var rt = "";
+                if (bs.Current != null) 
+                {
+                    var it = (dataItem)bs.Current;
+                    rt=it.ProductoDetalle; 
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_Importe
+        {
+            get 
+            {
+                var rt = 0.0m;
+                if (bs.Current != null) 
+                {
+                    var it = (dataItem)bs.Current;
+                    rt=it.importe; 
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_Impuesto
+        {
+            get 
+            {
+                var rt = 0.0m;
+                if (bs.Current != null) 
+                {
+                    var it = (dataItem)bs.Current;
+                    rt=it.impuesto; 
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_Total
+        {
+            get 
+            {
+                var rt = 0.0m;
+                if (bs.Current != null) 
+                {
+                    var it = (dataItem)bs.Current;
+                    rt=it.total; 
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_Cantidad
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.cantidad;
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_CantidadUnd
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.CantidadUnd;
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_CostoMoneda
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.costoMoneda;
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_CostoMonedaUnd
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.costoMonedaUnd;
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_CostoDivisa
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.costoDivisa;
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_CostoDivisaUnd
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.costoDivisaUnd;
+                }
+                return rt;
+            }
+        }
+
+        public string Item_EmpaqueCont
+        {
+            get
+            {
+                var rt ="";
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.empaqueCont;
+                }
+                return rt;
+            }
+        }
+
+        public string Item_CodRefPrv
+        {
+            get
+            {
+                var rt ="";
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.CodRefPrv;
+                }
+                return rt;
+            }
+        }
+
+        public decimal Item_Dscto
+        {
+            get
+            {
+                var rt=0.0m;
+                if (bs.Current != null)
+                {
+                    var it = (dataItem)bs.Current;
+                    rt = it.DsctoMonto;
+                }
+                return rt;
+            }
+        }
+
+
 
         public GestionItemFac()
         {
             ldata = new List<dataItem>();
             bl = new BindingList<dataItem>(ldata);
             bs = new BindingSource();
+            bs.CurrentItemChanged +=bs_CurrentItemChanged;
             bs.DataSource = bl;
             gestionAgregarItem = new GestionAgregarItem();
         }
 
+        private void bs_CurrentItemChanged(object sender, EventArgs e)
+        {
+            ActualizarDataItem();
+        }
+
+        private void ActualizarDataItem()
+        {
+            EventHandler hnd = ActualizarItemHnd ;
+            if (hnd != null)
+            {
+                hnd(this, null);
+            }
+        }
 
         public void LimpiarItems()
         {
@@ -44,10 +243,15 @@ namespace ModCompra.Documento.Cargar.Factura
                 var ms = MessageBox.Show("Estas Seguro De Querer Limpiar Los Items Registrados ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (ms == DialogResult.Yes)
                 {
-                    bl.Clear();
-                    bs.CurrencyManager.Refresh();
+                    Limpiar();
                 }
             }
+        }
+
+        public void Limpiar()
+        {
+            bl.Clear();
+            bs.CurrencyManager.Refresh();
         }
 
         public void EliminarItem()
@@ -70,6 +274,12 @@ namespace ModCompra.Documento.Cargar.Factura
             {
                 var it = (dataItem) bs.Current;
                 gestionAgregarItem.Editar(it);
+                if (gestionAgregarItem.RegistroOk)
+                {
+                    bl.Remove(it);
+                    InsertarItem(gestionAgregarItem.Item);
+                    bs.CurrencyManager.Refresh();
+                }
             }
         }
 

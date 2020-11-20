@@ -33,7 +33,7 @@ namespace ModInventario.Reportes.Filtros.Kardex
 
         public bool ActivarProducto
         {
-            get { return false; }
+            get { return true; }
         }
 
         public bool ActivarDesde

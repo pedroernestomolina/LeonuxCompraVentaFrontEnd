@@ -28,6 +28,7 @@ namespace ModCompra.Documento.Cargar
         public string costoCompra { get { return costoMoneda.ToString("n2"); } }
         public string costoDivisaCompra { get { return costoDivisa.ToString("n2"); } }
         public string tasaIvaPrd { get { return producto.tasaIva.ToString("n2").Trim()+"%"; } }
+        public decimal DsctoMonto { get { return _dscto_1_m + _dscto_2_m + _dscto_3_m; } }
 
 
         public string CodRefPrv { get; set; }

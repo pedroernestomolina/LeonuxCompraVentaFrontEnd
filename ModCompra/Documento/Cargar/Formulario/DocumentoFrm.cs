@@ -208,6 +208,24 @@ namespace ModCompra.Documento.Cargar.Formulario
             }
             ActualizarDatosDocumento();
             ActualizarDatosTotales();
+            ActualizarDatosItem();
+        }
+
+        public void ActualizarDatosItem()
+        {
+            L_ITEM_PRODUCTO.Text = _controlador.Item_Producto;
+            L_ITEM_IMPORTE.Text = _controlador.Item_Importe.ToString("n2");
+            L_ITEM_IMPUESTO.Text = _controlador.Item_Impuesto.ToString("n2");
+            L_ITEM_TOTAL.Text = _controlador.Item_Total.ToString("n2");
+            L_ITEM_CANTIDAD.Text = _controlador.Item_Cantidad.ToString("n2");
+            L_ITEM_CANTIDAD_UND.Text = _controlador.Item_CantidadUnd.ToString("n2");
+            L_ITEM_COSTO_MONEDA.Text = _controlador.Item_CostoMoneda.ToString("n2");
+            L_ITEM_COSTO_MONEDA_UND.Text = _controlador.Item_CostoMonedaUnd.ToString("n2");
+            L_ITEM_COSTO_DIVISA.Text = _controlador.Item_CostoDivisa.ToString("n2");
+            L_ITEM_COSTO_DIVISA_UND.Text = _controlador.Item_CostoDivisaUnd.ToString("n2");
+            L_ITEM_EMPQ_PRD.Text = _controlador.Item_EmpaqueCont;
+            L_ITEM_COD_REF_PRV.Text = _controlador.Item_CodRefPrv;
+            L_ITEM_DSCTO.Text = _controlador.Item_Dscto.ToString("n2"); 
         }
 
         private void ActualizarDatosTotales()

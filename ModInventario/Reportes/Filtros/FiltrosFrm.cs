@@ -304,8 +304,20 @@ namespace ModInventario.Reportes.Filtros
 
         private void BuscarProducto()
         {
-            //_controlador.BuscarProveedor();
-            //TB_PROVEEDOR.Text = _controlador.NombreProveedor;
+            _controlador.BuscarProducto();
+            if (_controlador.ProductoIsOk)
+            {
+                TB_PRODUCTO.Text = _controlador.ProductoBuscar;
+            }
+            else
+            {
+                TB_PRODUCTO.Text = "";
+            }
+        }
+
+        private void TB_PRODUCTO_Leave(object sender, EventArgs e)
+        {
+            _controlador.ProductoBuscar = TB_PRODUCTO.Text.Trim().ToUpper();
         }
      
     }

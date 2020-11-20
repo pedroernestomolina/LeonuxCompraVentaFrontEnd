@@ -34,6 +34,7 @@ namespace ModInventario.Reportes.Filtros
         private BindingSource bsGrupo;
         private data dataFiltro;
         private Filtros.IFiltros filtros;
+        private Producto.Lista.Gestion gestionListaPrd;
 
 
         public BindingSource SourceDepart { get { return bsDepart; } }
@@ -50,8 +51,10 @@ namespace ModInventario.Reportes.Filtros
         public data  DataFiltros { get { return dataFiltro; } }
 
 
+        public string ProductoBuscar { get; set; }
         public bool LimpiarFiltros_IsOK { get; set; }
         public bool ActivarFiltros_IsOK { get; set; }
+        public bool ProductoIsOk { get; set; }
 
 
         public string AutoGrupo { get { return dataFiltro.AutoGrupo; } set { dataFiltro.AutoGrupo= value; } } 
@@ -70,6 +73,8 @@ namespace ModInventario.Reportes.Filtros
 
         public Gestion()
         {
+            gestionListaPrd = new Producto.Lista.Gestion();
+            gestionListaPrd.ItemSeleccionadoOk +=gestionListaPrd_ItemSeleccionadoOk;
             dataFiltro = new data();
 
             lDepart = new List<OOB.LibInventario.Departamento.Ficha>();
@@ -113,6 +118,14 @@ namespace ModInventario.Reportes.Filtros
             bsGrupo.DataSource = lGrupo;
         }
 
+        private void gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
+        {
+            ProductoIsOk = true;
+            ProductoBuscar = gestionListaPrd.ItemSeleccionado.Producto;
+            dataFiltro.AutoProducto = gestionListaPrd.ItemSeleccionado.FichaPrd.AutoId;
+            gestionListaPrd.Cerrar();
+        }
+
 
         public void Inicia()
         {
@@ -127,6 +140,8 @@ namespace ModInventario.Reportes.Filtros
 
         private void Limpiar()
         {
+            ProductoBuscar = "";
+            ProductoIsOk = false;
             dataFiltro.Limpiar();
             ActivarFiltros_IsOK = false;
         }
@@ -256,6 +271,26 @@ namespace ModInventario.Reportes.Filtros
             var dp = lDepart.FirstOrDefault(f => f.auto == dataFiltro.AutoDepartamento);
             if (dp != null)
                 dataFiltro.NombreDepartamento = dp.nombre;
+        }
+
+        public void BuscarProducto()
+        {
+            ProductoIsOk = false;
+            if (ProductoBuscar.Trim() != "") 
+            {
+                var filtro= new OOB.LibInventario.Producto.Filtro();
+                filtro.cadena=ProductoBuscar;
+                filtro.MetodoBusqueda= OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
+                var r01 = Sistema.MyData.Producto_GetLista(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                gestionListaPrd.setLista(r01.Lista);
+                gestionListaPrd.Inicia();
+            }
         }
 
     }

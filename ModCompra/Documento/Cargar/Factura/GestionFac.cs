@@ -12,6 +12,9 @@ namespace ModCompra.Documento.Cargar.Factura
     public class GestionFac : Controlador.IGestion
     {
 
+        public event EventHandler ActualizarItemHnd;
+
+
         private Controlador.IGestionDocumento gestionDoc;
         private Controlador.IGestionItem gestionItem;
         private Controlador.IGestionProductoBuscar gestionPrdBuscar;
@@ -38,6 +41,16 @@ namespace ModCompra.Documento.Cargar.Factura
             gestionItem = new GestionItemFac();
             gestionAgregarItem = new GestionAgregarItem();
             gestionPrdBuscar = new GestionProductoBuscarFac();
+            gestionItem.ActualizarItemHnd +=gestionItem_ActualizarItemHnd;
+        }
+
+        private void gestionItem_ActualizarItemHnd(object sender, EventArgs e)
+        {
+            EventHandler hnd = ActualizarItemHnd;
+            if (hnd != null)
+            {
+                hnd(this, e);
+            }
         }
 
         public void Inicializar() 
@@ -118,7 +131,7 @@ namespace ModCompra.Documento.Cargar.Factura
             var ms = MessageBox.Show("Estas Seguro Limpiar/Perder Los Datos ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (ms == DialogResult.Yes)
             {
-                gestionItem.LimpiarItems();
+                gestionItem.Limpiar();
                 gestionDoc.Limpiar();
             }
         }

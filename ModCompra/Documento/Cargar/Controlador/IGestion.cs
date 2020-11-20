@@ -11,6 +11,9 @@ namespace ModCompra.Documento.Cargar.Controlador
     public interface IGestion
     {
 
+        event EventHandler ActualizarItemHnd;
+
+
         string TituloDocumento { get; }
         bool SalidaOk { get; }
         Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get; }

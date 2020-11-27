@@ -11,14 +11,29 @@ namespace ModCompra.Documento.Cargar.Controlador
     public interface IGestionItem
     {
 
-        event EventHandler ActualizarItemHnd; 
+        event EventHandler ActualizarItemHnd;
 
 
+        IEnumerable<object> Lista { get; }
         System.Windows.Forms.BindingSource ItemSource { get; }
         int TItems { get; }
         decimal TotalMonto { get; }
         decimal MontoIva { get; }
         decimal MontoDivisa { get; }
+        decimal TotalMonto_Final { get; }
+        decimal MontoDivisa_Final { get; }
+        decimal MontoCargo_Final { get; }
+        decimal MontoDescuento_Final { get; }
+        decimal MontoBase_Final { get; }
+        decimal MontoBase1_Final { get; }
+        decimal MontoBase2_Final { get; }
+        decimal MontoBase3_Final { get; }
+        decimal MontoExento_Final { get; }
+        decimal MontoImpuesto_Final { get; }
+        decimal MontoImpuesto1_Final { get; }
+        decimal MontoImpuesto2_Final { get; }
+        decimal MontoImpuesto3_Final { get; }
+
 
         string Item_Producto { get; }
         decimal Item_Importe { get; }
@@ -40,6 +55,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         void EditarItem();
         void AgregarItem(string autoPrd, string autoPrv, decimal factorDivisa);
         void Limpiar();
+        void setDescuentoFinal(decimal p);
+        void setCargoFinal(decimal p);
 
     }
 

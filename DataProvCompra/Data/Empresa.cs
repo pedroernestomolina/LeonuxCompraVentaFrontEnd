@@ -37,6 +37,29 @@ namespace DataProvCompra.Data
             return result;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibCompra.Empresa.Fiscal.Ficha> Empresa_GetTasas()
+        {
+            var result = new OOB.ResultadoEntidad<OOB.LibCompra.Empresa.Fiscal.Ficha>();
+
+            var r01 = MyData.Empresa_GetTasas();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var nr = new OOB.LibCompra.Empresa.Fiscal.Ficha()
+            {
+                Tasa1 = r01.Entidad.Tasa1,
+                Tasa2 = r01.Entidad.Tasa2,
+                Tasa3 = r01.Entidad.Tasa3,
+            };
+            result.Entidad = nr;
+
+            return result;
+        }
+
     }
 
 }

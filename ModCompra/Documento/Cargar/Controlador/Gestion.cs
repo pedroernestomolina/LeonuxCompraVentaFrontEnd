@@ -15,6 +15,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         private IGestion _gestion;
         private GestionDocumento _gestionDoc;
         private GestionItem _gestionItem;
+        private GestionTotalizar _gestionTotalizar;
 
 
         //
@@ -60,6 +61,7 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestionDoc = new GestionDocumento();
             _gestionItem = new GestionItem();
             _gestionItem.ActualizarItemHnd +=_gestionItem_ActualizarItemHnd;
+            _gestionTotalizar= new GestionTotalizar();
         }
 
 
@@ -74,6 +76,7 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.ActualizarItemHnd +=_gestion_ActualizarItemHnd;
             _gestionDoc.setGestion(_gestion.GestionDoc);
             _gestionItem.setGestion(_gestion.GestionItem);
+            _gestionTotalizar.setGestion(_gestion.GestionTotalizar);
         }
 
         private void _gestion_ActualizarItemHnd(object sender, EventArgs e)
@@ -143,14 +146,38 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.Salir();
         }
 
-        public void ProcesarGurdar()
-        {
-            _gestion.ProcesarGurdar();
-        }
-
         public void LimpiarDocumento()
         {
             _gestion.LimpiarDocumento();
+        }
+
+        public void Totalizar()
+        {
+            if (!_gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
+                return;
+            }
+
+            if (_gestionItem.TItems == 0)
+            {
+                Helpers.Msg.Error("No Hay Items Que Procesar !!!");
+                return;
+            }
+
+            if (_gestionItem.TotalMonto == 0.0m)
+            {
+                Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
+                return;
+            }
+
+            _gestionTotalizar.Inicia();
+            if (_gestionTotalizar.IsOk)
+            {
+                _gestionItem.setDescuentoFinal(_gestionTotalizar.Dscto);
+                _gestionItem.setCargoFinal(_gestionTotalizar.Cargo);
+                _gestion.Guardar();
+            }
         }
 
     }

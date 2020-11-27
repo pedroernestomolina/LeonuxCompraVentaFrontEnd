@@ -16,6 +16,7 @@ namespace OOB.LibCompra.Producto.Data
         public string autoMarca { get; set; }
         public string autoGrupo { get; set; }
         public string autoTasa { get; set; }
+        public string autoSubGrupo { get; set; }
 
         public string codigo { get; set; }
         public string nombre { get; set; }
@@ -36,7 +37,6 @@ namespace OOB.LibCompra.Producto.Data
         public string marca { get; set; }
         public decimal tasaIva { get; set; }
         public string nombreTasaIva { get; set; }
-
         public decimal costoDivisa { get; set; }
         public decimal costo { get; set; }
         public DateTime? fechaUltCambio { get; set; }
@@ -61,6 +61,32 @@ namespace OOB.LibCompra.Producto.Data
             }
         }
 
+        public bool EsExento 
+        {
+            get 
+            {
+                var rt = false;
+                if (tasaIva == 0)
+                    rt = true;
+                return rt;
+            }
+        }
+
+        public string tasaTipoIva
+        {
+            get
+            {
+                var rt = "";
+                if (autoTasa == "0000000001")
+                    rt = "1";
+                if (autoTasa == "0000000002")
+                    rt = "2";
+                if (autoTasa == "0000000003")
+                    rt = "3";
+                return rt;
+            }
+        }
+
 
         public Ficha()
         {
@@ -69,6 +95,7 @@ namespace OOB.LibCompra.Producto.Data
             autoGrupo = "";
             autoMarca = "";
             autoTasa = "";
+            autoSubGrupo = "";
 
             codigo = "";
             nombre = "";

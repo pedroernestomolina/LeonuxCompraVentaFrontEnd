@@ -35,6 +35,9 @@ namespace ModCompra.Documento.Cargar.Controlador
         bool LimpiarDatosIsOk { get; set; }
         string DepositoNombre { get; }
         string SucursalNombre { get; }
+        string CondicionPago { get; }
+        OOB.LibCompra.Sucursal.Data.Ficha Sucursal { get; }
+        OOB.LibCompra.Deposito.Data.Ficha Deposito { get; }
         OOB.LibCompra.Proveedor.Data.Ficha Proveedor { get; }
 
 

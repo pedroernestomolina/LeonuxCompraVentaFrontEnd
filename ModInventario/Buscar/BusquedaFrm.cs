@@ -82,8 +82,29 @@ namespace ModInventario.Buscar
             c4.Visible = false;
             c4.Width = 0;
 
+            var c5= new DataGridViewTextBoxColumn();
+            c5.DataPropertyName = "ExistenciaTotal";
+            c5.HeaderText = "Existencia";
+            c5.Visible = true;
+            c5.Width = 80;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+            c5.DefaultCellStyle.Format = "n2";
+            c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            var c6 = new DataGridViewTextBoxColumn();
+            c6.DataPropertyName = "CostoDivisa";
+            c6.HeaderText = "Costo";
+            c6.Visible = true;
+            c6.Width = 80;
+            c6.HeaderCell.Style.Font = f;
+            c6.DefaultCellStyle.Font = f1;
+            c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
+            DGV.Columns.Add(c5);
+            DGV.Columns.Add(c6);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
         }

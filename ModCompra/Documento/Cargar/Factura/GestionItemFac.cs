@@ -22,11 +22,27 @@ namespace ModCompra.Documento.Cargar.Factura
         private GestionAgregarItem gestionAgregarItem;
 
 
+        public IEnumerable<object> Lista { get { return bl.ToList(); } }
         public BindingSource ItemSource { get { return bs; } }
         public int TItems { get { return bs.Count; } }
         public decimal TotalMonto { get { return bl.Sum(m => m.total); } }
         public decimal MontoIva { get { return bl.Sum(m => m.impuesto); } }
         public decimal MontoDivisa { get { return bl.Sum(m => m.totalDivisa); } }
+
+        public decimal TotalMonto_Final { get { return bl.Sum(m => m.TotalFinal); } }
+        public decimal MontoDivisa_Final { get { return bl.Sum(m => m.TotalDivisaFinal); } }
+        public decimal MontoCargo_Final { get { return bl.Sum(m => m.MontoCargoFinal); } }
+        public decimal MontoDescuento_Final { get { return bl.Sum(m => m.MontoDsctoFinal); } }
+        public decimal MontoBase_Final { get { return bl.Sum(m => m.MontoBase_Final); } }
+        public decimal MontoBase1_Final { get { return bl.Sum(m => m.MontoBase1_Final); } }
+        public decimal MontoBase2_Final { get { return bl.Sum(m => m.MontoBase2_Final); } }
+        public decimal MontoBase3_Final { get { return bl.Sum(m => m.MontoBase3_Final); } }
+        public decimal MontoExento_Final { get { return bl.Sum(m => m.MontoExento_Final); } }
+        public decimal MontoImpuesto_Final { get { return bl.Sum(m => m.MontoImpuesto_Final); } }
+        public decimal MontoImpuesto1_Final { get { return bl.Sum(m => m.MontoImpuesto1_Final); } }
+        public decimal MontoImpuesto2_Final { get { return bl.Sum(m => m.MontoImpuesto2_Final); } }
+        public decimal MontoImpuesto3_Final { get { return bl.Sum(m => m.MontoImpuesto3_Final); } }
+
 
         public string Item_Producto 
         { 
@@ -301,6 +317,23 @@ namespace ModCompra.Documento.Cargar.Factura
             bl.Add(item);
             bs.CurrencyManager.Refresh();
         }
+
+        public void setDescuentoFinal(decimal p)
+        {
+            foreach (var it in bl)
+            {
+                it.setDescuentoFinal(p);
+            }
+        }
+
+        public void setCargoFinal(decimal p)
+        {
+            foreach (var it in bl)
+            {
+                it.setCargoFinal(p);
+            }
+
+       }
 
     }
 

@@ -24,17 +24,18 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         IGestionDocumento GestionDoc { get; }
         IGestionItem GestionItem { get; }
+        IGestionTotalizar GestionTotalizar { get; }
         
 
         void Inicializar();
         bool CargarData();
         void Salir();
-        void ProcesarGurdar();
         void LimpiarDocumento();
         void BuscarProducto();
         void ActivarBusquedaProductoPorCodigo();
         void ActivarBusquedaProductoPorNombre();
         void ActivarBusquedaProductoPorReferencia();
+        void Guardar();
 
     }
 

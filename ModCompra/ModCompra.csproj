@@ -68,10 +68,12 @@
     <Compile Include="Documento\Cargar\Controlador\GestionDocumento.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionItem.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionProductoBuscar.cs" />
+    <Compile Include="Documento\Cargar\Controlador\GestionTotalizar.cs" />
     <Compile Include="Documento\Cargar\Controlador\IGestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\IGestionDocumento.cs" />
     <Compile Include="Documento\Cargar\Controlador\IGestionItem.cs" />
     <Compile Include="Documento\Cargar\Controlador\IGestionProductoBuscar.cs" />
+    <Compile Include="Documento\Cargar\Controlador\IGestionTotalizar.cs" />
     <Compile Include="Documento\Cargar\dataDocumento.cs" />
     <Compile Include="Documento\Cargar\dataItem.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionAgregarItem.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Documento\Cargar\Factura\GestionDocumentoFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionItemFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionProductoBuscarFac.cs" />
+    <Compile Include="Documento\Cargar\Factura\GestionTotalizarFac.cs" />
     <Compile Include="Documento\Cargar\Formulario\DatosDocumentoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +99,12 @@
     </Compile>
     <Compile Include="Documento\Cargar\Formulario\ItemFrm.Designer.cs">
       <DependentUpon>ItemFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\TotalizarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Cargar\Formulario\TotalizarFrm.Designer.cs">
+      <DependentUpon>TotalizarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -141,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\Formulario\ItemFrm.resx">
       <DependentUpon>ItemFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documento\Cargar\Formulario\TotalizarFrm.resx">
+      <DependentUpon>TotalizarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

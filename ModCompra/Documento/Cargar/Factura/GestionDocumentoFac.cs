@@ -64,7 +64,24 @@ namespace ModCompra.Documento.Cargar.Factura
                 data.Deposito = ldeposito.FirstOrDefault(f => f.auto == value);
             } 
         }
-
+        public string CondicionPago
+        {
+            get 
+            {
+                var rt = "CONTADO";
+                if (DiasCredito > 0)
+                    rt = "CREDITO";
+                return rt;
+            }
+        }
+        public OOB.LibCompra.Sucursal.Data.Ficha Sucursal
+        {
+            get { return data.Sucursal; }
+        }
+        public OOB.LibCompra.Deposito.Data.Ficha Deposito
+        {
+            get { return data.Deposito; }
+        }
         public OOB.LibCompra.Proveedor.Data.Ficha Proveedor
         {
             get { return data.proveedor; }

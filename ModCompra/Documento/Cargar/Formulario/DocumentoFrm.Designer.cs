@@ -35,7 +35,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BT_ACEPTAR = new System.Windows.Forms.Button();
+            this.BT_TOTALIZAR = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -155,6 +155,7 @@
             this.panel61 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.panel63 = new System.Windows.Forms.Panel();
+            this.L_ITEM_PRODUCTO = new System.Windows.Forms.Label();
             this.panel64 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.panel65 = new System.Windows.Forms.Panel();
@@ -164,21 +165,25 @@
             this.panel69 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel70 = new System.Windows.Forms.Panel();
+            this.L_ITEM_COD_REF_PRV = new System.Windows.Forms.Label();
             this.panel71 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel72 = new System.Windows.Forms.Panel();
             this.L_ITEM_CANTIDAD_UND = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.L_ITEM_CANTIDAD = new System.Windows.Forms.Label();
             this.panel73 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel74 = new System.Windows.Forms.Panel();
             this.L_ITEM_COSTO_MONEDA_UND = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.L_ITEM_COSTO_MONEDA = new System.Windows.Forms.Label();
             this.panel75 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.panel76 = new System.Windows.Forms.Panel();
             this.L_ITEM_COSTO_DIVISA_UND = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.L_ITEM_COSTO_DIVISA = new System.Windows.Forms.Label();
             this.panel77 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel78 = new System.Windows.Forms.Panel();
@@ -195,11 +200,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.panel88 = new System.Windows.Forms.Panel();
             this.L_ITEM_TOTAL = new System.Windows.Forms.Label();
-            this.L_ITEM_PRODUCTO = new System.Windows.Forms.Label();
-            this.L_ITEM_CANTIDAD = new System.Windows.Forms.Label();
-            this.L_ITEM_COSTO_MONEDA = new System.Windows.Forms.Label();
-            this.L_ITEM_COSTO_DIVISA = new System.Windows.Forms.Label();
-            this.L_ITEM_COD_REF_PRV = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -388,7 +388,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.BT_ACEPTAR);
+            this.panel3.Controls.Add(this.BT_TOTALIZAR);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(847, 1);
             this.panel3.Margin = new System.Windows.Forms.Padding(1);
@@ -397,21 +397,21 @@
             this.panel3.Size = new System.Drawing.Size(139, 49);
             this.panel3.TabIndex = 1;
             // 
-            // BT_ACEPTAR
+            // BT_TOTALIZAR
             // 
-            this.BT_ACEPTAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_ACEPTAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ACEPTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_ACEPTAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
-            this.BT_ACEPTAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_ACEPTAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_ACEPTAR.Name = "BT_ACEPTAR";
-            this.BT_ACEPTAR.Size = new System.Drawing.Size(135, 45);
-            this.BT_ACEPTAR.TabIndex = 5;
-            this.BT_ACEPTAR.Text = "Guardar";
-            this.BT_ACEPTAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_ACEPTAR.UseVisualStyleBackColor = true;
-            this.BT_ACEPTAR.Click += new System.EventHandler(this.BT_ACEPTAR_Click);
+            this.BT_TOTALIZAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_TOTALIZAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_TOTALIZAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_TOTALIZAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
+            this.BT_TOTALIZAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_TOTALIZAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_TOTALIZAR.Name = "BT_TOTALIZAR";
+            this.BT_TOTALIZAR.Size = new System.Drawing.Size(135, 45);
+            this.BT_TOTALIZAR.TabIndex = 5;
+            this.BT_TOTALIZAR.Text = "Totalizar";
+            this.BT_TOTALIZAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_TOTALIZAR.UseVisualStyleBackColor = true;
+            this.BT_TOTALIZAR.Click += new System.EventHandler(this.BT_TOTALIZAR_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -1915,6 +1915,17 @@
             this.panel63.Size = new System.Drawing.Size(335, 60);
             this.panel63.TabIndex = 0;
             // 
+            // L_ITEM_PRODUCTO
+            // 
+            this.L_ITEM_PRODUCTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ITEM_PRODUCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ITEM_PRODUCTO.Location = new System.Drawing.Point(2, 2);
+            this.L_ITEM_PRODUCTO.Name = "L_ITEM_PRODUCTO";
+            this.L_ITEM_PRODUCTO.Size = new System.Drawing.Size(331, 56);
+            this.L_ITEM_PRODUCTO.TabIndex = 1;
+            this.L_ITEM_PRODUCTO.Text = "34534534534534\r\nPRODUCTO DE PRUEBA # 343434\r\nSDLKF FJSDLFDSFDS";
+            this.L_ITEM_PRODUCTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel64
             // 
             this.panel64.AutoScroll = true;
@@ -2053,6 +2064,17 @@
             this.panel70.Size = new System.Drawing.Size(231, 26);
             this.panel70.TabIndex = 0;
             // 
+            // L_ITEM_COD_REF_PRV
+            // 
+            this.L_ITEM_COD_REF_PRV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ITEM_COD_REF_PRV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ITEM_COD_REF_PRV.Location = new System.Drawing.Point(2, 2);
+            this.L_ITEM_COD_REF_PRV.Name = "L_ITEM_COD_REF_PRV";
+            this.L_ITEM_COD_REF_PRV.Size = new System.Drawing.Size(227, 22);
+            this.L_ITEM_COD_REF_PRV.TabIndex = 2;
+            this.L_ITEM_COD_REF_PRV.Text = "Bulto";
+            this.L_ITEM_COD_REF_PRV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel71
             // 
             this.panel71.Controls.Add(this.label16);
@@ -2109,6 +2131,17 @@
             this.label17.TabIndex = 4;
             this.label17.Text = "x Und:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // L_ITEM_CANTIDAD
+            // 
+            this.L_ITEM_CANTIDAD.Dock = System.Windows.Forms.DockStyle.Left;
+            this.L_ITEM_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ITEM_CANTIDAD.Location = new System.Drawing.Point(2, 2);
+            this.L_ITEM_CANTIDAD.Name = "L_ITEM_CANTIDAD";
+            this.L_ITEM_CANTIDAD.Size = new System.Drawing.Size(114, 22);
+            this.L_ITEM_CANTIDAD.TabIndex = 6;
+            this.L_ITEM_CANTIDAD.Text = "99999999";
+            this.L_ITEM_CANTIDAD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel73
             // 
@@ -2167,6 +2200,17 @@
             this.label20.Text = "x Und:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // L_ITEM_COSTO_MONEDA
+            // 
+            this.L_ITEM_COSTO_MONEDA.Dock = System.Windows.Forms.DockStyle.Left;
+            this.L_ITEM_COSTO_MONEDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ITEM_COSTO_MONEDA.Location = new System.Drawing.Point(2, 2);
+            this.L_ITEM_COSTO_MONEDA.Name = "L_ITEM_COSTO_MONEDA";
+            this.L_ITEM_COSTO_MONEDA.Size = new System.Drawing.Size(114, 22);
+            this.L_ITEM_COSTO_MONEDA.TabIndex = 7;
+            this.L_ITEM_COSTO_MONEDA.Text = "999,999.999.99";
+            this.L_ITEM_COSTO_MONEDA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel75
             // 
             this.panel75.Controls.Add(this.label19);
@@ -2223,6 +2267,17 @@
             this.label24.TabIndex = 5;
             this.label24.Text = "x Und:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // L_ITEM_COSTO_DIVISA
+            // 
+            this.L_ITEM_COSTO_DIVISA.Dock = System.Windows.Forms.DockStyle.Left;
+            this.L_ITEM_COSTO_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ITEM_COSTO_DIVISA.Location = new System.Drawing.Point(2, 2);
+            this.L_ITEM_COSTO_DIVISA.Name = "L_ITEM_COSTO_DIVISA";
+            this.L_ITEM_COSTO_DIVISA.Size = new System.Drawing.Size(114, 22);
+            this.L_ITEM_COSTO_DIVISA.TabIndex = 8;
+            this.L_ITEM_COSTO_DIVISA.Text = "99999999";
+            this.L_ITEM_COSTO_DIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel77
             // 
@@ -2400,61 +2455,6 @@
             this.L_ITEM_TOTAL.Text = "999,999,999,99";
             this.L_ITEM_TOTAL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // L_ITEM_PRODUCTO
-            // 
-            this.L_ITEM_PRODUCTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ITEM_PRODUCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ITEM_PRODUCTO.Location = new System.Drawing.Point(2, 2);
-            this.L_ITEM_PRODUCTO.Name = "L_ITEM_PRODUCTO";
-            this.L_ITEM_PRODUCTO.Size = new System.Drawing.Size(331, 56);
-            this.L_ITEM_PRODUCTO.TabIndex = 1;
-            this.L_ITEM_PRODUCTO.Text = "34534534534534\r\nPRODUCTO DE PRUEBA # 343434\r\nSDLKF FJSDLFDSFDS";
-            this.L_ITEM_PRODUCTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // L_ITEM_CANTIDAD
-            // 
-            this.L_ITEM_CANTIDAD.Dock = System.Windows.Forms.DockStyle.Left;
-            this.L_ITEM_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ITEM_CANTIDAD.Location = new System.Drawing.Point(2, 2);
-            this.L_ITEM_CANTIDAD.Name = "L_ITEM_CANTIDAD";
-            this.L_ITEM_CANTIDAD.Size = new System.Drawing.Size(114, 22);
-            this.L_ITEM_CANTIDAD.TabIndex = 6;
-            this.L_ITEM_CANTIDAD.Text = "99999999";
-            this.L_ITEM_CANTIDAD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // L_ITEM_COSTO_MONEDA
-            // 
-            this.L_ITEM_COSTO_MONEDA.Dock = System.Windows.Forms.DockStyle.Left;
-            this.L_ITEM_COSTO_MONEDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ITEM_COSTO_MONEDA.Location = new System.Drawing.Point(2, 2);
-            this.L_ITEM_COSTO_MONEDA.Name = "L_ITEM_COSTO_MONEDA";
-            this.L_ITEM_COSTO_MONEDA.Size = new System.Drawing.Size(114, 22);
-            this.L_ITEM_COSTO_MONEDA.TabIndex = 7;
-            this.L_ITEM_COSTO_MONEDA.Text = "999,999.999.99";
-            this.L_ITEM_COSTO_MONEDA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // L_ITEM_COSTO_DIVISA
-            // 
-            this.L_ITEM_COSTO_DIVISA.Dock = System.Windows.Forms.DockStyle.Left;
-            this.L_ITEM_COSTO_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ITEM_COSTO_DIVISA.Location = new System.Drawing.Point(2, 2);
-            this.L_ITEM_COSTO_DIVISA.Name = "L_ITEM_COSTO_DIVISA";
-            this.L_ITEM_COSTO_DIVISA.Size = new System.Drawing.Size(114, 22);
-            this.L_ITEM_COSTO_DIVISA.TabIndex = 8;
-            this.L_ITEM_COSTO_DIVISA.Text = "99999999";
-            this.L_ITEM_COSTO_DIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // L_ITEM_COD_REF_PRV
-            // 
-            this.L_ITEM_COD_REF_PRV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ITEM_COD_REF_PRV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ITEM_COD_REF_PRV.Location = new System.Drawing.Point(2, 2);
-            this.L_ITEM_COD_REF_PRV.Name = "L_ITEM_COD_REF_PRV";
-            this.L_ITEM_COD_REF_PRV.Size = new System.Drawing.Size(227, 22);
-            this.L_ITEM_COD_REF_PRV.TabIndex = 2;
-            this.L_ITEM_COD_REF_PRV.Text = "Bulto";
-            this.L_ITEM_COD_REF_PRV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // DocumentoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2588,7 +2588,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button BT_ACEPTAR;
+        private System.Windows.Forms.Button BT_TOTALIZAR;
         private System.Windows.Forms.Label L_TITULO_DOCUMENTO;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel5;

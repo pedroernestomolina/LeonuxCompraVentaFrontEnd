@@ -12,6 +12,7 @@ namespace DataProvCompra.InfraEstructura
     {
 
         OOB.ResultadoEntidad<OOB.LibCompra.Empresa.Data.Ficha> Empresa_Datos();
+        OOB.ResultadoEntidad<OOB.LibCompra.Empresa.Fiscal.Ficha> Empresa_GetTasas();
 
     }
 

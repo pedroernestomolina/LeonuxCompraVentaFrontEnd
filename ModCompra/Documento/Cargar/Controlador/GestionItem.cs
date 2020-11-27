@@ -18,11 +18,27 @@ namespace ModCompra.Documento.Cargar.Controlador
         private IGestionItem _gestion;
 
 
+        public IEnumerable<object> Lista { get { return _gestion.Lista; } }
         public BindingSource ItemSource { get { return _gestion.ItemSource; } }
         public int TItems { get { return _gestion.TItems; } }
         public decimal TotalMonto { get { return _gestion.TotalMonto; } }
         public decimal MontoIva { get { return _gestion.MontoIva; } }
         public decimal MontoDivisa { get { return _gestion.MontoDivisa; } }
+        public decimal TotalMonto_Final { get { return _gestion.TotalMonto_Final; } }
+        public decimal MontoDivisa_Final { get { return _gestion.MontoDivisa_Final; } }
+        public decimal MontoCargo_Final { get { return _gestion.MontoCargo_Final; } }
+        public decimal MontoDescuento_Final { get { return _gestion.MontoDescuento_Final; } }
+        public decimal MontoBase_Final { get { return _gestion.MontoBase_Final; } }
+        public decimal MontoBase1_Final { get { return _gestion.MontoBase1_Final; } }
+        public decimal MontoBase2_Final { get { return _gestion.MontoBase2_Final; } }
+        public decimal MontoBase3_Final { get { return _gestion.MontoBase3_Final; } }
+        public decimal MontoExento_Final { get { return _gestion.MontoExento_Final; } }
+        public decimal MontoImpuesto_Final { get { return _gestion.MontoImpuesto_Final; } }
+        public decimal MontoImpuesto1_Final { get { return _gestion.MontoImpuesto1_Final; } }
+        public decimal MontoImpuesto2_Final { get { return _gestion.MontoImpuesto2_Final; } }
+        public decimal MontoImpuesto3_Final { get { return _gestion.MontoImpuesto3_Final; } }
+
+
         public string Item_Producto { get { return _gestion.Item_Producto; } }
         public decimal Item_Importe { get { return _gestion.Item_Importe; } }
         public decimal Item_Impuesto { get { return _gestion.Item_Impuesto; } }
@@ -66,6 +82,16 @@ namespace ModCompra.Documento.Cargar.Controlador
         public void Limpiar()
         {
             _gestion.Limpiar();
+        }
+
+        public void setDescuentoFinal(decimal p)
+        {
+            _gestion.setDescuentoFinal(p);
+        }
+
+        public void setCargoFinal(decimal p)
+        {
+            _gestion.setCargoFinal(p);
         }
 
     }

@@ -51,7 +51,14 @@ namespace DataProvInventario.Data
                 {
                     list = r01.Lista.Select(s =>
                     {
+                        var ex = 0.0m;
+                        if (s.existencia.HasValue) 
+                            ex=s.existencia.Value;
+
                         var nr = new OOB.LibInventario.Producto.Data.Ficha();
+                        nr.CostoDivisa = s.costoDivisa;
+                        nr.ExistenciaTotal = ex;
+
                         var id = nr.identidad;
                         id.auto = s.auto;
                         id.codigo = s.codigo;

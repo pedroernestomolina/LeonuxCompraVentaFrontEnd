@@ -64,6 +64,16 @@ namespace ModCompra.Documento.Cargar
             } 
         }
 
+        public decimal costoMoneda_2_Und
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = costoMoneda_2 / Producto.contenidoCompra;
+                return rt;
+            }
+        }
+
         public decimal costoDivisaUnd 
         {
             get 
@@ -307,6 +317,204 @@ namespace ModCompra.Documento.Cargar
             ActualizarCosto();
             ActualizarCostoDivisa();
             CalculaDscto();
+        }
+
+
+        /// <summary>
+        ///  TOTALIZAR
+        /// </summary>
+        /// 
+
+
+        private decimal _porct_dscto_final;
+        private decimal _porct_cargo_final;
+        private decimal _dscto_final;
+        private decimal _cargo_final;
+        private decimal _total_final;
+
+
+        public decimal MontoDsctoFinal 
+        {
+            get 
+            {
+                return _dscto_final;
+            }
+        }
+
+        public decimal MontoCargoFinal
+        {
+            get
+            {
+                return _cargo_final;
+            }
+        }
+        
+        public decimal TotalFinal
+        {
+            get
+            {
+                return _total_final;
+            }
+        }
+
+        public decimal TotalDivisaFinal
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = (TotalFinal / factorDivisa);
+                return rt;
+            }
+        }
+
+        public decimal MontoBase_Final 
+        {
+            get 
+            {
+                var rt = 0.0m;
+                if (!producto.EsExento) 
+                {
+                    rt = importe;
+                    rt = rt - (rt * _porct_dscto_final / 100);
+                    rt = rt + (rt * _porct_cargo_final / 100);
+                }
+                return rt;
+            }
+        }
+
+        public decimal MontoBase1_Final
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (!producto.EsExento)
+                {
+                    if (producto.tasaTipoIva == "1") 
+                    {
+                        rt = importe;
+                        rt = rt - (rt * _porct_dscto_final / 100);
+                        rt = rt + (rt * _porct_cargo_final / 100);
+                    }
+                }
+                return rt;
+            }
+        }
+
+        public decimal MontoBase2_Final 
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (!producto.EsExento)
+                {
+                    if (producto.tasaTipoIva == "2")
+                    {
+                        rt = importe;
+                        rt = rt - (rt* _porct_dscto_final / 100);
+                        rt = rt + (rt * _porct_cargo_final / 100);
+                    }
+                }
+                return rt;
+            }
+        }
+
+        public decimal MontoBase3_Final 
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (!producto.EsExento)
+                {
+                    if (producto.tasaTipoIva == "3")
+                    {
+                        rt = importe;
+                        rt = rt - (rt * _porct_dscto_final / 100);
+                        rt = rt + (rt * _porct_cargo_final / 100);
+                    }
+                }
+                return rt;
+            }
+        }
+
+        public decimal MontoExento_Final
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (producto.EsExento)
+                {
+                    rt = subTotal_2;
+                    rt = rt - (rt * _porct_dscto_final / 100);
+                    rt = rt + (rt * _porct_cargo_final / 100);
+                }
+                return rt;
+            }
+        }
+
+        public decimal MontoImpuesto_Final 
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = (MontoImpuesto1_Final + MontoImpuesto2_Final+ MontoImpuesto3_Final) ;
+                return rt;
+            }
+        }
+
+        public decimal MontoImpuesto1_Final
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (producto.tasaTipoIva=="1")
+                    rt = MontoBase1_Final * producto.tasaIva / 100;
+                return rt;
+            }
+        }
+
+        public decimal MontoImpuesto2_Final
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (producto.tasaTipoIva == "2")
+                    rt = MontoBase2_Final * producto.tasaIva / 100;
+                return rt;
+            }
+        }
+
+        public decimal MontoImpuesto3_Final
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (producto.tasaTipoIva == "3")
+                    rt = MontoBase3_Final * producto.tasaIva / 100;
+                return rt;
+            }
+        }
+
+
+        public void setDescuentoFinal(decimal p)
+        {
+            _porct_dscto_final = p;
+            CalculaTotalFinal();
+        }
+
+        public void setCargoFinal(decimal p)
+        {
+            _porct_cargo_final = p;
+            CalculaTotalFinal();
+        }
+
+        public void CalculaTotalFinal()
+        {
+            _dscto_final = 0.0m;
+            _cargo_final = 0.0m;
+            _total_final = 0.0m;
+            _dscto_final = (total * _porct_dscto_final / 100);
+            _cargo_final = (total - _dscto_final) * (_porct_cargo_final / 100);
+            _total_final = (total - _dscto_final + _cargo_final);
         }
 
     }

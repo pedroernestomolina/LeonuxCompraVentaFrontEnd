@@ -18,6 +18,8 @@ namespace OOB.LibInventario.Producto.Data
         public Extra extra { get; set; }
         public Proveedor.Ficha proveedores { get; set; }
 
+        public Decimal CostoDivisa { get; set; }
+        public Decimal ExistenciaTotal { get; set; }
 
         public string AutoId { get { return identidad.auto; } }
         public string CodigoPrd { get { return identidad.codigo; } }

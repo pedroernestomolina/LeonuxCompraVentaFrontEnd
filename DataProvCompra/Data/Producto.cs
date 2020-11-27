@@ -88,6 +88,7 @@ namespace DataProvCompra.Data
                     autoDepartamento = s.autoDepartamento,
                     autoGrupo = s.autoGrupo,
                     autoMarca = s.autoMarca,
+                    autoSubGrupo= s.autoSubGrupo,
                     categoria = s.categoria,
                     codigo = s.codigo,
                     codigoDepartamento = s.codigoDepartamento,

@@ -17,6 +17,7 @@ namespace OOB.LibCompra.Proveedor.Data
         public string ciRif { get { return identidad.ciRif; } }
         public string nombreRazonSocial { get { return identidad.nombreRazonSocial; } }
         public string direccionFiscal { get { return identidad.dirFiscal; } }
+        public string codigo { get { return identidad.codigo; } }
 
 
         public Ficha()

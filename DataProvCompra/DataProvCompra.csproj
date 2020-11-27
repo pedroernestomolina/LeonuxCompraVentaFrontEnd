@@ -51,6 +51,7 @@
     <Compile Include="Data\Configuracion.cs" />
     <Compile Include="Data\DataProv.cs" />
     <Compile Include="Data\Deposito.cs" />
+    <Compile Include="Data\Documento.cs" />
     <Compile Include="Data\Empresa.cs" />
     <Compile Include="Data\Permiso.cs" />
     <Compile Include="Data\Producto.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="InfraEstructura\IConfiguracion.cs" />
     <Compile Include="InfraEstructura\IData.cs" />
     <Compile Include="InfraEstructura\IDeposito.cs" />
+    <Compile Include="InfraEstructura\IDocumento.cs" />
     <Compile Include="InfraEstructura\IEmpresa.cs" />
     <Compile Include="InfraEstructura\IPermiso.cs" />
     <Compile Include="InfraEstructura\IProducto.cs" />

@@ -387,16 +387,6 @@ namespace ModCompra.Documento.Cargar.Formulario
                 IniciarBusqueda();
         }
 
-        private void BT_ACEPTAR_Click(object sender, EventArgs e)
-        {
-            ProcesarGurdar();
-        }
-
-        private void ProcesarGurdar()
-        {
-            _controlador.ProcesarGurdar();
-        }
-
         private void BT_LIMPIAR_DOCUMENTO_Click(object sender, EventArgs e)
         {
             LimpiarDocumento();
@@ -409,6 +399,16 @@ namespace ModCompra.Documento.Cargar.Formulario
             ActualizarDatosTotales();
             DGV.Refresh();
             IniciarBusqueda();
+        }
+
+        private void BT_TOTALIZAR_Click(object sender, EventArgs e)
+        {
+            Totalizar();
+        }
+
+        private void Totalizar()
+        {
+            _controlador.Totalizar();
         }
 
     }

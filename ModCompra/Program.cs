@@ -32,6 +32,7 @@ namespace ModCompra
                 else
                 {
                     Sistema.Negocio = r02.Entidad;
+                    Sistema.EquipoEstacion = Environment.MachineName;
 
                     var _gestionId = new Identificacion.Gestion();
                     _gestionId.Inicia();

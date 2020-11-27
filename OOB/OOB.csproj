@@ -60,7 +60,13 @@
     <Compile Include="LibCajaBanco\Usuario\Ficha.cs" />
     <Compile Include="LibCompra\Configuracion\Enumerados.cs" />
     <Compile Include="LibCompra\Deposito\Data\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\Cargar\Factura\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\Cargar\Factura\FichaCxP.cs" />
+    <Compile Include="LibCompra\Documento\Cargar\Factura\FichaDetalle.cs" />
+    <Compile Include="LibCompra\Documento\Cargar\Factura\FichaDocumento.cs" />
+    <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdDeposito.cs" />
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
+    <Compile Include="LibCompra\Empresa\Fiscal\Ficha.cs" />
     <Compile Include="LibCompra\Permiso\Enumerados.cs" />
     <Compile Include="LibCompra\Permiso\Ficha.cs" />
     <Compile Include="LibCompra\Producto\CodRefProveedor\Filtro.cs" />

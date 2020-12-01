@@ -19,7 +19,7 @@ namespace OOB.LibCompra.Documento.Cargar.Factura
         public List<FichaPrdCostoHistorico> prdCostosHistorico { get; set; }
         public List<FichaPrdProveedor> prdProveedor { get; set; }
         public List<FichaPrdPrecio> prdPrecios { get; set; }
-        //public List<FichaPrdPrecioHistorico> prdPreciosHistorico { get; set; }
+        public List<FichaPrdPrecioHistorico> prdPreciosHistorico { get; set; }
         public FichaCxP cxp { get; set; }
 
     }

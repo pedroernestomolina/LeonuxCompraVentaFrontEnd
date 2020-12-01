@@ -114,6 +114,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Gestion.cs" />
+    <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
     <Compile Include="Identificacion\Gestion.cs" />

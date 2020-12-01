@@ -276,6 +276,18 @@ namespace DataProvCompra.Data
                 };
                 prdPrecio.Add(nr);
             }
+            var prdPrecioHistorico = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico>();
+            foreach (var it in docFac.prdPreciosHistorico)
+            {
+                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                {
+                    autoPrd = it.autoPrd,
+                    nota = it.nota,
+                    precio = it.precio,
+                    precioId = it.precioId,
+                };
+                prdPrecioHistorico.Add(nr);
+            }
 
             fichaDTO.documento = documento;
             fichaDTO.cxp = cxp;
@@ -286,6 +298,7 @@ namespace DataProvCompra.Data
             fichaDTO.prdCostosHistorico = prdCostoHistorico;
             fichaDTO.prdProveedor = prdProveedor;
             fichaDTO.prdPrecios = prdPrecio;
+            fichaDTO.prdPreciosHistorico = prdPrecioHistorico;
 
             var r01 = MyData.Compra_DocumentoAgregarFactura(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

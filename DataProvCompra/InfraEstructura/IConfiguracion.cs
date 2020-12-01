@@ -16,6 +16,7 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<decimal> Configuracion_TasaCambioActual();
         OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumMetodoCalculoUtilidad> Configuracion_MetodoCalculoUtilidad();
         OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta();
+        OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio();
 
     }
 

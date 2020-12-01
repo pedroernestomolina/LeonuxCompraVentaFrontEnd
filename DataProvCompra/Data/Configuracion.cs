@@ -102,6 +102,24 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio>();
+
+            var r01 = MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            rt.Entidad = (OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio)s;
+
+            return rt;
+        }
+
     }
 
 }

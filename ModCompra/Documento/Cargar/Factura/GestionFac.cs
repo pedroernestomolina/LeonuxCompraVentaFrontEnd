@@ -141,8 +141,22 @@ namespace ModCompra.Documento.Cargar.Factura
             if (gestionPrdBuscar.IsProductoSeleccionadoOk)
             {
                 var autoPrd = gestionPrdBuscar.AutoProductoSeleccionado;
-                gestionItem.AgregarItem(autoPrd, gestionDoc.Proveedor.autoId, gestionDoc.FactorDivisa);
+                if (verificarDepositoAsignado(autoPrd))
+                    gestionItem.AgregarItem(autoPrd, gestionDoc.Proveedor.autoId, gestionDoc.FactorDivisa);
             }
+        }
+
+        private bool verificarDepositoAsignado(string prdAuto)
+        {
+            var rt = true;
+            var ficha = new OOB.LibCompra.Producto.VerificarDepositoAsignado.Ficha() { autoPrd = prdAuto, autoDeposito = gestionDoc.IdDeposito };
+            var rt1 = Sistema.MyData.Producto_VerificaDepositoAsignado(ficha);
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return false;
+            }
+            return rt;
         }
 
         public void ActivarBusquedaProductoPorCodigo()
@@ -189,34 +203,129 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             var rt = true;
 
+            var tasaCambioActual = 0.0m;
+            var metodoCalculoUtilidad = OOB.LibCompra.Configuracion.Enumerados.EnumMetodoCalculoUtilidad.SinDefinir;
+            var forzarRedondeo = OOB.LibCompra.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.SinDefinir;
+            var preferenciPrecio = OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.SinDefinir;
+
             var rt1 = Sistema.MyData.Configuracion_TasaCambioActual();
             if (rt1.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(rt1.Mensaje);
                 return false;
             }
+            tasaCambioActual = rt1.Entidad; 
             var rt2 = Sistema.MyData.Configuracion_MetodoCalculoUtilidad ();
             if (rt2.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(rt2.Mensaje);
                 return false;
             }
+            metodoCalculoUtilidad = rt2.Entidad;
             var rt3 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta();
             if (rt3.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(rt3.Mensaje);
                 return false;
             }
-            var lPrdUtilidad = new List<OOB.LibCompra.Producto.Utilidad.Ficha>();
+            forzarRedondeo = rt3.Entidad;
+            var rt4 = Sistema.MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt4.Mensaje);
+                return false;
+            }
+            preferenciPrecio = rt4.Entidad;
+
+            var fichaPrdPrecio = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecio>();
+            var fichaPrdPrecioHistorico = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico>();
             foreach (dataItem it in gestionItem.Lista)
             {
-                var rt4 = Sistema.MyData.Producto_GetUtilidadPrecio(it.Producto.auto);
-                if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+                var rt5 = Sistema.MyData.Producto_GetUtilidadPrecio(it.Producto.auto);
+                if (rt5.Result == OOB.Enumerados.EnumResult.isError)
                 {
-                    Helpers.Msg.Error(rt4.Mensaje);
+                    Helpers.Msg.Error(rt5.Mensaje);
                     return false;
                 }
-                lPrdUtilidad.Add(rt4.Entidad);
+
+                var xprecio = new Precio(rt5.Entidad);
+                xprecio.setCostoDivisaUnd(it.CostoDivisaFinal_Und);
+                xprecio.setRedondeo(forzarRedondeo);
+                xprecio.setCalculoUtilidad(metodoCalculoUtilidad);
+                xprecio.setTasaCambioActual(tasaCambioActual);
+                xprecio.setPreferenciaRegistroPrecio(preferenciPrecio);
+
+                var nr = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecio()
+                {
+                    autoPrd = xprecio.autoPrd,
+                    pDivisaFull_1 = xprecio.pDivisaFull_1,
+                    pDivisaFull_2 = xprecio.pDivisaFull_2,
+                    pDivisaFull_3 = xprecio.pDivisaFull_3,
+                    pDivisaFull_4 = xprecio.pDivisaFull_4,
+                    pDivisaFull_5 = xprecio.pDivisaFull_5,
+                    precioNeto_1= xprecio.PrecioNeto_1,
+                    precioNeto_2 = xprecio.PrecioNeto_2,
+                    precioNeto_3 = xprecio.PrecioNeto_3,
+                    precioNeto_4 = xprecio.PrecioNeto_4,
+                    precioNeto_5 = xprecio.PrecioNeto_5,
+                };
+                fichaPrdPrecio.Add(nr);
+
+                if (nr.precioNeto_1 > 0) 
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_1,
+                        precioId = "1",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
+                if (nr.precioNeto_2 > 0)
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_2,
+                        precioId = "2",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
+                if (nr.precioNeto_3 > 0)
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_3,
+                        precioId = "3",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
+                if (nr.precioNeto_4 > 0)
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_4,
+                        precioId = "4",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
+                if (nr.precioNeto_5 > 0)
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_5,
+                        precioId = "pto",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
             }
 
             var saldoPend = 0.0m;
@@ -337,7 +446,6 @@ namespace ModCompra.Documento.Cargar.Factura
             var fichaPrdCosto= new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCosto>();
             var fichaPrdCostoHistorico = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico>();
             var fichaPrdProveedor  = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdProveedor>();
-            var fichaPrdPrecio = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecio>();
             foreach (dataItem it in gestionItem.Lista)
             {
                 var detalle = new OOB.LibCompra.Documento.Cargar.Factura.FichaDetalle()
@@ -465,6 +573,7 @@ namespace ModCompra.Documento.Cargar.Factura
                 prdCostosHistorico = fichaPrdCostoHistorico,
                 prdProveedor = fichaPrdProveedor,
                 prdPrecios= fichaPrdPrecio,
+                prdPreciosHistorico=fichaPrdPrecioHistorico,
             };
 
             var r01 = Sistema.MyData.Compra_DocumentoAgregarFactura(ficha);

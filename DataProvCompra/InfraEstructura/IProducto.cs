@@ -15,6 +15,7 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibCompra.Producto.Data.Ficha> Producto_GetFicha(string autoPrd);
         OOB.ResultadoEntidad<string> Producto_GetCodigoRefProveedor(OOB.LibCompra.Producto.CodRefProveedor.Filtro filtro);
         OOB.ResultadoEntidad<OOB.LibCompra.Producto.Utilidad.Ficha> Producto_GetUtilidadPrecio(string auto);
+        OOB.Resultado Producto_VerificaDepositoAsignado(OOB.LibCompra.Producto.VerificarDepositoAsignado.Ficha ficha);
 
     }
 

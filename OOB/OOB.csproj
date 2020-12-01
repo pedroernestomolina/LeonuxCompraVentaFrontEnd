@@ -70,6 +70,7 @@
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdKardex.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdDeposito.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecio.cs" />
+    <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecioHistorico.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdProveedor.cs" />
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
     <Compile Include="LibCompra\Empresa\Fiscal\Ficha.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="LibCompra\Producto\Enumerados.cs" />
     <Compile Include="LibCompra\Producto\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Producto\Utilidad\Ficha.cs" />
+    <Compile Include="LibCompra\Producto\VerificarDepositoAsignado\Ficha.cs" />
     <Compile Include="LibCompra\Proveedor\Data\Ficha.cs" />
     <Compile Include="LibCompra\Proveedor\Data\Identificacion.cs" />
     <Compile Include="LibCompra\Proveedor\Enumerados.cs" />

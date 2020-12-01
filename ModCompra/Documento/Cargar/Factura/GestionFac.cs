@@ -21,6 +21,7 @@ namespace ModCompra.Documento.Cargar.Factura
         private Controlador.IGestionTotalizar gestionTotalizar;
         private GestionAgregarItem gestionAgregarItem;
         private OOB.LibCompra.Empresa.Fiscal.Ficha tasasFiscal;
+        private OOB.LibCompra.Concepto.Ficha conceptoCompra;
 
 
         public Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return gestionPrdBuscar.MetodoBusquedaProducto; } }
@@ -82,6 +83,13 @@ namespace ModCompra.Documento.Cargar.Factura
                 return false;
             }
 
+            var r03 = Sistema.MyData.Concepto_PorMovCompra();
+            if (r03.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r03.Mensaje);
+                return false;
+            }
+
             var mt = Controlador.GestionProductoBuscar.metodoBusqueda.SinDefinir;
             switch (r01.Entidad)
             {
@@ -97,6 +105,7 @@ namespace ModCompra.Documento.Cargar.Factura
             }
             gestionPrdBuscar.setMetodoBusqueda(mt);
             tasasFiscal = r02.Entidad;
+            conceptoCompra = r03.Entidad;
 
             return rt;
         }
@@ -180,6 +189,40 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             var rt = true;
 
+            var rt1 = Sistema.MyData.Configuracion_TasaCambioActual();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return false;
+            }
+            var rt2 = Sistema.MyData.Configuracion_MetodoCalculoUtilidad ();
+            if (rt2.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt2.Mensaje);
+                return false;
+            }
+            var rt3 = Sistema.MyData.Configuracion_ForzarRedondeoPrecioVenta();
+            if (rt3.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt3.Mensaje);
+                return false;
+            }
+            var lPrdUtilidad = new List<OOB.LibCompra.Producto.Utilidad.Ficha>();
+            foreach (dataItem it in gestionItem.Lista)
+            {
+                var rt4 = Sistema.MyData.Producto_GetUtilidadPrecio(it.Producto.auto);
+                if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(rt4.Mensaje);
+                    return false;
+                }
+                lPrdUtilidad.Add(rt4.Entidad);
+            }
+
+            var saldoPend = 0.0m;
+            if (gestionDoc.DiasCredito>0)
+                saldoPend=gestionItem.TotalMonto_Final;
+
             var fichaDoc = new OOB.LibCompra.Documento.Cargar.Factura.FichaDocumento()
             {
                 anoRelacion = gestionDoc.AnoRelacion,
@@ -231,7 +274,7 @@ namespace ModCompra.Documento.Cargar.Factura
                 montoNeto = gestionItem.TotalMonto_Final - gestionItem.MontoImpuesto_Final,
                 montoRetencionISLR = 0.0m,
                 montoRetencionIva = 0.0m,
-                montoSaldoPendeiente = gestionItem.TotalMonto_Final,
+                montoSaldoPendeiente = saldoPend,
                 montoTotal = gestionItem.TotalMonto_Final,
                 montoUtilidad = 0.0m,
                 nombreRazonSocialProveedor = gestionDoc.Proveedor.nombreRazonSocial,
@@ -290,7 +333,12 @@ namespace ModCompra.Documento.Cargar.Factura
             };
             var fichaDetalle= new List<OOB.LibCompra.Documento.Cargar.Factura.FichaDetalle>();
             var fichaPrdDeposito = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdDeposito>();
-            foreach ( dataItem it in gestionItem.Lista)
+            var fichaPrdKardex = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdKardex>();
+            var fichaPrdCosto= new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCosto>();
+            var fichaPrdCostoHistorico = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico>();
+            var fichaPrdProveedor  = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdProveedor>();
+            var fichaPrdPrecio = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecio>();
+            foreach (dataItem it in gestionItem.Lista)
             {
                 var detalle = new OOB.LibCompra.Documento.Cargar.Factura.FichaDetalle()
                 {
@@ -310,9 +358,9 @@ namespace ModCompra.Documento.Cargar.Factura
                     codigoProveedor = it.CodRefPrv,
                     contenidoEmpaque = it.Producto.contenidoCompra,
                     costoBruto=it.costoMoneda,
-                    costoCompra=it.costoMoneda_2,
+                    costoCompra=it.CostoFinal,
                     costoPromedioUnd=0.0m,
-                    costoUnd=it.costoMoneda_2_Und,
+                    costoUnd=it.CostoFinal_Und ,
                     decimalesPrd = it.Producto.decimales,
                     depositoCodigo = gestionDoc.Deposito.codigo,
                     depositoNombre = gestionDoc.Deposito.nombre,
@@ -343,6 +391,67 @@ namespace ModCompra.Documento.Cargar.Factura
                     cantidadUnd = it.CantidadUnd,
                 };
                 fichaPrdDeposito.Add(prdDep);
+                var prdKardex = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdKardex()
+                {
+                    autoConcepto=conceptoCompra.auto,
+                    autoDeposito = gestionDoc.Deposito.auto,
+                    autoPrd = it.Producto.auto,
+                    cantidadBonoFac = 0.0m,
+                    cantidadFac = it.cantidad,
+                    cantidadUnd = it.CantidadUnd,
+                    cierreFtp = "",
+                    codigoConcepto=conceptoCompra.codigo,
+                    codigoDeposito = gestionDoc.Deposito.codigo,
+                    codigoMovDoc = "01",
+                    codigoSucursal = gestionDoc.Sucursal.codigo,
+                    costoUnd = it.CostoFinal_Und,
+                    documentoNro = gestionDoc.DocumentoNro,
+                    entidad = gestionDoc.Proveedor.nombreRazonSocial,
+                    esAnulado = "0",
+                    modulo = "Compras",
+                    montoTotal = it.TotalFinal,
+                    nombreConcepto=conceptoCompra.nombre,
+                    nombreDeposito = gestionDoc.Deposito.nombre,
+                    nota = "",
+                    precioUnd = 0.0m,
+                    siglasMovDoc = "FAC",
+                    signoDocumento = 1,
+                };
+                fichaPrdKardex.Add(prdKardex);
+                var prdCosto = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCosto()
+                {
+                    autoPrd = it.Producto.auto,
+                    cntUnd = it.CantidadUnd,
+                    contenido = it.Producto.contenidoCompra,
+                    costo = it.CostoFinal,
+                    costoDivisa = it.CostoDivisaFinal,
+                    costoUnd = it.CostoFinal_Und,
+                };
+                fichaPrdCosto.Add(prdCosto);
+                var prdCostoHistorico = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico()
+                {
+                    autoPrd = it.Producto.auto,
+                    costo = it.CostoFinal,
+                    costoDivisa = it.CostoDivisaFinal,
+                    documento = gestionDoc.DocumentoNro,
+                    nota = "",
+                    serie = "FAC",
+                    tasaDivisa = gestionDoc.FactorDivisa,
+                };
+                fichaPrdCostoHistorico.Add(prdCostoHistorico);
+                if (it.CodRefPrvActual=="")
+                {
+                    if (it.CodRefPrv != "") 
+                    {
+                        var prdProveedor = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdProveedor()
+                        {
+                            autoPrd = it.Producto.auto,
+                            autoProveedor = gestionDoc.Proveedor.autoId,
+                            codigoRefProveedor = it.CodRefPrv,
+                        };
+                        fichaPrdProveedor.Add(prdProveedor);
+                    }
+                }
             }
 
             var ficha = new OOB.LibCompra.Documento.Cargar.Factura.Ficha()
@@ -350,7 +459,12 @@ namespace ModCompra.Documento.Cargar.Factura
                 documento = fichaDoc,
                 cxp = fichaCxP,
                 detalles = fichaDetalle,
-                prdDeposito = fichaPrdDeposito
+                prdDeposito = fichaPrdDeposito,
+                prdKardex = fichaPrdKardex,
+                prdCosto = fichaPrdCosto,
+                prdCostosHistorico = fichaPrdCostoHistorico,
+                prdProveedor = fichaPrdProveedor,
+                prdPrecios= fichaPrdPrecio,
             };
 
             var r01 = Sistema.MyData.Compra_DocumentoAgregarFactura(ficha);

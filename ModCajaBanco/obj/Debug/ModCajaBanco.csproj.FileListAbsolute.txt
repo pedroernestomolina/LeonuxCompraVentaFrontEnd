@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Hablador\Hablador.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ArqueoVentaPos.rdlc
@@ -12,7 +13,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\DataProvCajaBanco
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\MySql.Data.Entity.EF6.dll
-D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ServiceCajaBanco.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\DtoLibCajaBanco.dll

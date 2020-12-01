@@ -138,6 +138,40 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibCompra.Producto.Utilidad.Ficha> Producto_GetUtilidadPrecio(string auto)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Producto.Utilidad.Ficha>();
+
+            var r01 = MyData.Producto_GetUtilidadPrecio(auto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Producto.Utilidad.Ficha()
+            {
+                admDivisa = s.admDivisa,
+                auto = s.auto,
+                contenido_1 = s.contenido_1,
+                contenido_2 = s.contenido_2,
+                contenido_3 = s.contenido_3,
+                contenido_4 = s.contenido_4,
+                contenido_5 = s.contenido_5,
+                tasaIva = s.tasaIva,
+                utilidad_1 = s.utilidad_1,
+                utilidad_2 = s.utilidad_2,
+                utilidad_3 = s.utilidad_3,
+                utilidad_4 = s.utilidad_4,
+                utilidad_5 = s.utilidad_5,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

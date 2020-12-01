@@ -105,7 +105,8 @@ namespace ModCompra.Documento.Cargar.Factura
                 Helpers.Msg.Error(r02.Mensaje);
                 return false;
             }
-            item.CodRefPrv = r02.Entidad; 
+            item.CodRefPrv = r02.Entidad;
+            item.CodRefPrvActual = r02.Entidad;
 
             return rt;
         }

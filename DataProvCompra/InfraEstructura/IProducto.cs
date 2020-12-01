@@ -13,7 +13,8 @@ namespace DataProvCompra.InfraEstructura
 
         OOB.ResultadoLista<OOB.LibCompra.Producto.Data.Ficha> Producto_GetLista(OOB.LibCompra.Producto.Lista.Filtro filtro);
         OOB.ResultadoEntidad<OOB.LibCompra.Producto.Data.Ficha> Producto_GetFicha(string autoPrd);
-        OOB.ResultadoEntidad<string> Producto_GetCodigoRefProveedor(OOB.LibCompra.Producto.CodRefProveedor.Filtro filtro); 
+        OOB.ResultadoEntidad<string> Producto_GetCodigoRefProveedor(OOB.LibCompra.Producto.CodRefProveedor.Filtro filtro);
+        OOB.ResultadoEntidad<OOB.LibCompra.Producto.Utilidad.Ficha> Producto_GetUtilidadPrecio(string auto);
 
     }
 

@@ -48,6 +48,10 @@ namespace ModCompra.Documento.Cargar.Formulario
             L_COSTO_DIVISA_UND.Text = _controlador.CostoDivisaUnd.ToString("n2");
             L_FACTOR_COMPRA_DIVISA.Text = _controlador.FactorCompraDivisa.ToString("n2");
 
+            TB_COD_REF_PRV.Enabled = true;
+            if (_controlador.CodigoRefProveedor.Trim() != "")
+                TB_COD_REF_PRV.Enabled = false;
+
             TB_COD_REF_PRV.Text = _controlador.CodigoRefProveedor;
             TB_CNT.Text = _controlador.Cantidad.ToString();
             TB_COSTO_MONEDA.Text = _controlador.CostoMoneda.ToString();

@@ -19,6 +19,7 @@ namespace OOB.LibInventario.Producto.Data
         public Proveedor.Ficha proveedores { get; set; }
 
         public Decimal CostoDivisa { get; set; }
+        public Decimal CostoDivisaUnd { get { return CostoDivisa / identidad.contenidoCompra; } }
         public Decimal ExistenciaTotal { get; set; }
 
         public string AutoId { get { return identidad.auto; } }

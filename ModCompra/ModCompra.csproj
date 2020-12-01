@@ -82,6 +82,7 @@
     <Compile Include="Documento\Cargar\Factura\GestionItemFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionProductoBuscarFac.cs" />
     <Compile Include="Documento\Cargar\Factura\GestionTotalizarFac.cs" />
+    <Compile Include="Documento\Cargar\Factura\Precio.cs" />
     <Compile Include="Documento\Cargar\Formulario\DatosDocumentoFrm.cs">
       <SubType>Form</SubType>
     </Compile>

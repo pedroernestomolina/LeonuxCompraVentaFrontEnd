@@ -186,10 +186,106 @@ namespace DataProvCompra.Data
                 };
                 prdDeposito.Add(nr);
             }
+            var prdKardex = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdKardex>();
+            foreach (var it in docFac.prdKardex)
+            {
+                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdKardex()
+                {
+                    autoConcepto = it.autoConcepto,
+                    autoDeposito = it.autoDeposito,
+                    autoPrd = it.autoPrd,
+                    cantidadBonoFac = it.cantidadBonoFac,
+                    cantidadFac = it.cantidadFac,
+                    cantidadUnd = it.cantidadUnd,
+                    cierreFtp = it.cierreFtp,
+                    codigoConcepto = it.codigoConcepto,
+                    codigoDeposito = it.codigoDeposito,
+                    codigoMovDoc = it.codigoMovDoc,
+                    codigoSucursal = it.codigoSucursal,
+                    costoUnd = it.costoUnd,
+                    documentoNro = it.documentoNro,
+                    entidad = it.entidad,
+                    esAnulado = it.esAnulado,
+                    modulo = it.modulo,
+                    montoTotal = it.montoTotal,
+                    nombreConcepto = it.nombreConcepto,
+                    nombreDeposito = it.nombreDeposito,
+                    nota = it.nota,
+                    precioUnd = it.precioUnd,
+                    siglasMovDoc = it.siglasMovDoc,
+                    signoDocumento = it.signoDocumento,
+                };
+                prdKardex.Add(nr);
+            }
+            var prdCosto = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdCosto>();
+            foreach (var it in docFac.prdCosto) 
+            {
+                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdCosto()
+                {
+                    autoPrd = it.autoPrd,
+                    cntUnd = it.cntUnd,
+                    contenido = it.contenido,
+                    costo = it.costo,
+                    costoDivisa = it.costoDivisa,
+                    costoUnd = it.costoUnd,
+                };
+                prdCosto.Add(nr);
+            }
+            var prdCostoHistorico = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico>();
+            foreach (var it in docFac.prdCostosHistorico)
+            {
+                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico()
+                {
+                    autoPrd = it.autoPrd,
+                    costo = it.costo,
+                    costoDivisa = it.costoDivisa,
+                    documento = xdoc.documentoNro,
+                    nota = "",
+                    serie = "FAC",
+                    tasaDivisa = xdoc.factorCambio,
+                };
+                prdCostoHistorico.Add(nr);
+            }
+            var prdProveedor = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdProveedor>();
+            foreach (var it in docFac.prdProveedor)
+            {
+                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdProveedor()
+                {
+                    autoPrd = it.autoPrd,
+                    autoProveedor = it.autoProveedor,
+                    codigoRefProveedor = it.codigoRefProveedor,
+                };
+                prdProveedor.Add(nr);
+            }
+            var prdPrecio = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecio>();
+            foreach (var it in docFac.prdPrecios)
+            {
+                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecio()
+                {
+                    autoPrd = it.autoPrd,
+                    pDivisaFull_1 = it.pDivisaFull_1,
+                    pDivisaFull_2 = it.pDivisaFull_2,
+                    pDivisaFull_3 = it.pDivisaFull_3,
+                    pDivisaFull_4 = it.pDivisaFull_4,
+                    pDivisaFull_5 = it.pDivisaFull_5,
+                    precioNeto_1 = it.precioNeto_1,
+                    precioNeto_2 = it.precioNeto_2,
+                    precioNeto_3 = it.precioNeto_3,
+                    precioNeto_4 = it.precioNeto_4,
+                    precioNeto_5 = it.precioNeto_5,
+                };
+                prdPrecio.Add(nr);
+            }
+
             fichaDTO.documento = documento;
             fichaDTO.cxp = cxp;
             fichaDTO.detalles=detalles;
             fichaDTO.prdDeposito=prdDeposito;
+            fichaDTO.prdKardex = prdKardex;
+            fichaDTO.prdCosto = prdCosto;
+            fichaDTO.prdCostosHistorico = prdCostoHistorico;
+            fichaDTO.prdProveedor = prdProveedor;
+            fichaDTO.prdPrecios = prdPrecio;
 
             var r01 = MyData.Compra_DocumentoAgregarFactura(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

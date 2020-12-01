@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Concepto.cs" />
     <Compile Include="Data\Configuracion.cs" />
     <Compile Include="Data\DataProv.cs" />
     <Compile Include="Data\Deposito.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Data\Proveedor.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\Usuario.cs" />
+    <Compile Include="InfraEstructura\IConcepto.cs" />
     <Compile Include="InfraEstructura\IConfiguracion.cs" />
     <Compile Include="InfraEstructura\IData.cs" />
     <Compile Include="InfraEstructura\IDeposito.cs" />

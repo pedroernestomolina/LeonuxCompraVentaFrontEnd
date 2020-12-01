@@ -31,6 +31,7 @@ namespace ModCompra.Documento.Cargar
         public decimal DsctoMonto { get { return _dscto_1_m + _dscto_2_m + _dscto_3_m; } }
 
 
+        public string CodRefPrvActual { get; set; }
         public string CodRefPrv { get; set; }
         public decimal cantidad { get; set; }
         public decimal costoMoneda { get; set; }
@@ -490,6 +491,48 @@ namespace ModCompra.Documento.Cargar
                 var rt = 0.0m;
                 if (producto.tasaTipoIva == "3")
                     rt = MontoBase3_Final * producto.tasaIva / 100;
+                return rt;
+            }
+        }
+
+        public decimal CostoFinal
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = costoMoneda_2;
+                rt = rt - (rt * _porct_dscto_final / 100);
+                rt = rt + (rt * _porct_cargo_final / 100);
+                return rt;
+            }
+        }
+
+        public decimal CostoFinal_Und
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = CostoFinal / Producto.contenidoCompra; 
+                return rt;
+            }
+        }
+
+        public decimal CostoDivisaFinal
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = CostoFinal / factorDivisa;
+                return rt;
+            }
+        }
+
+        public decimal CostoDivisaFinal_Und
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = CostoDivisaFinal / Producto.contenidoCompra;
                 return rt;
             }
         }

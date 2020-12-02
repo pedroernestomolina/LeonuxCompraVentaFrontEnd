@@ -47,6 +47,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void BuscarProveedor();
         void LimpiarDatos();
         void Limpiar();
+        void setNotas(string p);
 
     }
 

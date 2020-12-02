@@ -15,10 +15,23 @@ namespace ModCompra.Documento.Cargar.Factura
         public bool IsOk { get; set; }
         public decimal Dscto { get { return dscto; } }
         public decimal Cargo { get { return cargo; } }
-
+        public decimal Monto { get { return _monto; } }
+        public string Notas { get { return _notas; } }
+        public decimal Total 
+        { 
+            get 
+            { 
+                if (_total==0.0m)
+                    CalculaTotal();
+                return _total;
+            }
+        }
 
         private decimal dscto;
         private decimal cargo;
+        private string _notas;
+        private decimal _monto;
+        private decimal _total;
 
 
         public GestionTotalizarFac()
@@ -40,9 +53,36 @@ namespace ModCompra.Documento.Cargar.Factura
             if (ms == DialogResult.Yes)
             {
                 IsOk = true;
-                dscto = 0;
-                cargo = 0;
             }
+        }
+
+        public void SetMonto(decimal p)
+        {
+            _monto = p;
+        }
+
+        public void SetNotas(string p)
+        {
+            _notas = p;
+        }
+
+        public void setDscto(decimal p)
+        {
+            dscto = p;
+            CalculaTotal();
+        }
+
+        public void setCargo(decimal p)
+        {
+            cargo = p;
+            CalculaTotal();
+        }
+
+        private void CalculaTotal()
+        {
+            var _dsctoM = (_monto * dscto / 100);
+            var _cargoM = (_monto - _dsctoM) * (cargo / 100);
+            _total = (_monto - _dsctoM + _cargoM);
         }
 
     }

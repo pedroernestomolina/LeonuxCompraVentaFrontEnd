@@ -34,6 +34,40 @@ namespace ModCompra.Documento.Cargar.Formulario
             _controlador = ctr;
         }
 
+        private void TotalizarFrm_Load(object sender, EventArgs e)
+        {
+            L_MONTO.Text = _controlador.Monto.ToString("n2");
+            TB_NOTAS.Text = _controlador.Notas;
+            TB_DSCTO_1.Text = "0";
+            TB_CARGO_1.Text = "0";
+            L_TOTAL.Text = _controlador.Total.ToString("n2");
+        }
+
+        private void TB_DSCTO_1_Leave(object sender, EventArgs e)
+        {
+            _controlador.setDscto(decimal.Parse(TB_DSCTO_1.Text));
+            L_TOTAL.Text = _controlador.Total.ToString("n2");
+        }
+
+        private void TB_CARGO_1_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCargo(decimal.Parse(TB_CARGO_1.Text));
+            L_TOTAL.Text = _controlador.Total.ToString("n2");
+        }
+
+        private void Ctrl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void TB_NOTAS_Leave(object sender, EventArgs e)
+        {
+            _controlador.SetNotas(TB_NOTAS.Text.Trim().ToUpper());
+        }
+     
     }
 
 }

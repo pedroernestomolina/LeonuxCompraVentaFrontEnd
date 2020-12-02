@@ -62,6 +62,11 @@ namespace ModCompra
             frm.setVisibilidadOn();
         }
 
+        public void AdministradorDoc()
+        {
+            Helpers.VisualizarDocumento.Visualizar("0000000036");
+        }
+
     }
 
 }

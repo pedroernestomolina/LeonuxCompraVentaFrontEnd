@@ -72,6 +72,8 @@
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecio.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecioHistorico.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdProveedor.cs" />
+    <Compile Include="LibCompra\Documento\Visualizar\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\Visualizar\FichaDetalle.cs" />
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
     <Compile Include="LibCompra\Empresa\Fiscal\Ficha.cs" />
     <Compile Include="LibCompra\Permiso\Enumerados.cs" />

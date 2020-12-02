@@ -86,3 +86,16 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ServiceInventario.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DtoLib.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DtoLibInventario.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ILibInventario.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ProvLibInventario.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\LibEntityInventario.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DataProvInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ServiceInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DtoLib.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DtoLibInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ILibInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ProvLibInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\LibEntityInventario.pdb

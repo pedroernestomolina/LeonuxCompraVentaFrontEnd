@@ -90,6 +90,11 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.LimpiarDatos();
         }
 
+        public void setNotas(string p)
+        {
+            _gestion.setNotas(p);
+        }
+
     }
 
 }

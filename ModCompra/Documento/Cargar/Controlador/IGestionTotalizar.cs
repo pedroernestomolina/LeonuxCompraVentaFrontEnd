@@ -14,11 +14,17 @@ namespace ModCompra.Documento.Cargar.Controlador
         bool IsOk { get; set; }
         decimal Dscto { get; }
         decimal Cargo { get; }
+        decimal Monto { get; }
+        string Notas { get; }
+        decimal Total { get; }
 
 
         void Inicializar();
         void Guardar();
-
+        void SetMonto(decimal p);
+        void SetNotas(string p);
+        void setDscto(decimal p);
+        void setCargo(decimal p);
 
     }
 

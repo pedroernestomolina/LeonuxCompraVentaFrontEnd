@@ -43,6 +43,8 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -54,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -117,6 +120,7 @@
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="Helpers\VisualizarDocumento.cs" />
     <Compile Include="Identificacion\Gestion.cs" />
     <Compile Include="Identificacion\IdentificacionFrm.cs">
       <SubType>Form</SubType>
@@ -142,6 +146,22 @@
     </Compile>
     <Compile Include="Proveedor\Listar\ListaFrm.Designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Documento\Gestion.cs" />
+    <Compile Include="Reportes\DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteFrm.Designer.cs">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema.cs" />
     <EmbeddedResource Include="Documento\Cargar\Formulario\DatosDocumentoFrm.resx">
@@ -177,6 +197,12 @@
     </Compile>
     <EmbeddedResource Include="Proveedor\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Documento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteFrm.resx">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -284,6 +310,17 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Reportes\DS.xsc">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS.xss">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
     <None Include="Resources\bt_editar_20.png" />
     <None Include="Resources\bt_limpiar_20.png" />
     <None Include="Resources\plataforma-efosearch.jpg" />

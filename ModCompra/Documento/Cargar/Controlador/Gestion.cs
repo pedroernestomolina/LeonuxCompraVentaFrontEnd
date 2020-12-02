@@ -171,11 +171,14 @@ namespace ModCompra.Documento.Cargar.Controlador
                 return;
             }
 
+            _gestionTotalizar.SetMonto(_gestionItem.TotalMonto);
+            _gestionTotalizar.SetNotas(_gestionDoc.Notas);
             _gestionTotalizar.Inicia();
             if (_gestionTotalizar.IsOk)
             {
                 _gestionItem.setDescuentoFinal(_gestionTotalizar.Dscto);
                 _gestionItem.setCargoFinal(_gestionTotalizar.Cargo);
+                _gestionDoc.setNotas(_gestionTotalizar.Notas);
                 _gestion.Guardar();
             }
         }

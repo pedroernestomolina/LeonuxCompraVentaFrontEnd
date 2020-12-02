@@ -240,6 +240,11 @@ namespace ModCompra.Documento.Cargar.Factura
             preferenciaBusq = _preferencia;
         }
 
+        public void setNotas(string p)
+        {
+            Notas = p;
+        }
+
     }
 
 }

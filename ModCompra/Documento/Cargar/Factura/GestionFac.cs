@@ -582,6 +582,8 @@ namespace ModCompra.Documento.Cargar.Factura
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            Helpers.Msg.AgregarOk();
+            Helpers.VisualizarDocumento.Visualizar(r01.Auto);
 
             return rt;
         }

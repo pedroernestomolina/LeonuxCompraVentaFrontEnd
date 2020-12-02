@@ -12,6 +12,7 @@ namespace DataProvCompra.InfraEstructura
     {
 
         OOB.ResultadoAuto Compra_DocumentoAgregarFactura(OOB.LibCompra.Documento.Cargar.Factura.Ficha docFac);
+        OOB.ResultadoEntidad<OOB.LibCompra.Documento.Visualizar.Ficha> Compra_DocumentoVisualizar(string auto);
 
     }
 

@@ -93,6 +93,32 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="RelCompraVentaAlmDet" msprop:Generator_TableClassName="RelCompraVentaAlmDetDataTable" msprop:Generator_TableVarName="tableRelCompraVentaAlmDet" msprop:Generator_RowChangedName="RelCompraVentaAlmDetRowChanged" msprop:Generator_TablePropName="RelCompraVentaAlmDet" msprop:Generator_RowDeletingName="RelCompraVentaAlmDetRowDeleting" msprop:Generator_RowChangingName="RelCompraVentaAlmDetRowChanging" msprop:Generator_RowEvHandlerName="RelCompraVentaAlmDetRowChangeEventHandler" msprop:Generator_RowDeletedName="RelCompraVentaAlmDetRowDeleted" msprop:Generator_RowClassName="RelCompraVentaAlmDetRow" msprop:Generator_UserTableName="RelCompraVentaAlmDet" msprop:Generator_RowEvArgName="RelCompraVentaAlmDetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="documento" msprop:Generator_ColumnVarNameInTable="columndocumento" msprop:Generator_ColumnPropNameInRow="documento" msprop:Generator_ColumnPropNameInTable="documentoColumn" msprop:Generator_UserColumnName="documento" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="cnt" msprop:Generator_ColumnVarNameInTable="columncnt" msprop:Generator_ColumnPropNameInRow="cnt" msprop:Generator_ColumnPropNameInTable="cntColumn" msprop:Generator_UserColumnName="cnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="empaque" msprop:Generator_ColumnVarNameInTable="columnempaque" msprop:Generator_ColumnPropNameInRow="empaque" msprop:Generator_ColumnPropNameInTable="empaqueColumn" msprop:Generator_UserColumnName="empaque" type="xs:string" minOccurs="0" />
+              <xs:element name="contenido" msprop:Generator_ColumnVarNameInTable="columncontenido" msprop:Generator_ColumnPropNameInRow="contenido" msprop:Generator_ColumnPropNameInTable="contenidoColumn" msprop:Generator_UserColumnName="contenido" type="xs:int" minOccurs="0" />
+              <xs:element name="cntUnd" msprop:Generator_ColumnVarNameInTable="columncntUnd" msprop:Generator_ColumnPropNameInRow="cntUnd" msprop:Generator_ColumnPropNameInTable="cntUndColumn" msprop:Generator_UserColumnName="cntUnd" type="xs:decimal" minOccurs="0" />
+              <xs:element name="montoDivisa" msprop:Generator_ColumnVarNameInTable="columnmontoDivisa" msprop:Generator_ColumnPropNameInRow="montoDivisa" msprop:Generator_ColumnPropNameInTable="montoDivisaColumn" msprop:Generator_UserColumnName="montoDivisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="costoPrecioDivisa" msprop:Generator_ColumnVarNameInTable="columncostoPrecioDivisa" msprop:Generator_ColumnPropNameInRow="costoPrecioDivisa" msprop:Generator_ColumnPropNameInTable="costoPrecioDivisaColumn" msprop:Generator_UserColumnName="costoPrecioDivisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="factor" msprop:Generator_ColumnVarNameInTable="columnfactor" msprop:Generator_ColumnPropNameInRow="factor" msprop:Generator_ColumnPropNameInTable="factorColumn" msprop:Generator_UserColumnName="factor" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RelCompraVentaAlm" msprop:Generator_TableClassName="RelCompraVentaAlmDataTable" msprop:Generator_TableVarName="tableRelCompraVentaAlm" msprop:Generator_RowChangedName="RelCompraVentaAlmRowChanged" msprop:Generator_TablePropName="RelCompraVentaAlm" msprop:Generator_RowDeletingName="RelCompraVentaAlmRowDeleting" msprop:Generator_RowChangingName="RelCompraVentaAlmRowChanging" msprop:Generator_RowEvHandlerName="RelCompraVentaAlmRowChangeEventHandler" msprop:Generator_RowDeletedName="RelCompraVentaAlmRowDeleted" msprop:Generator_RowClassName="RelCompraVentaAlmRow" msprop:Generator_UserTableName="RelCompraVentaAlm" msprop:Generator_RowEvArgName="RelCompraVentaAlmRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="producto" msprop:Generator_ColumnVarNameInTable="columnproducto" msprop:Generator_ColumnPropNameInRow="producto" msprop:Generator_ColumnPropNameInTable="productoColumn" msprop:Generator_UserColumnName="producto" type="xs:string" minOccurs="0" />
+              <xs:element name="empaque" msprop:Generator_ColumnVarNameInTable="columnempaque" msprop:Generator_ColumnPropNameInRow="empaque" msprop:Generator_ColumnPropNameInTable="empaqueColumn" msprop:Generator_UserColumnName="empaque" type="xs:string" minOccurs="0" />
+              <xs:element name="exActual" msprop:Generator_ColumnVarNameInTable="columnexActual" msprop:Generator_ColumnPropNameInRow="exActual" msprop:Generator_ColumnPropNameInTable="exActualColumn" msprop:Generator_UserColumnName="exActual" type="xs:decimal" minOccurs="0" />
+              <xs:element name="costoDivisaUnd" msprop:Generator_ColumnVarNameInTable="columncostoDivisaUnd" msprop:Generator_ColumnPropNameInRow="costoDivisaUnd" msprop:Generator_ColumnPropNameInTable="costoDivisaUndColumn" msprop:Generator_UserColumnName="costoDivisaUnd" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

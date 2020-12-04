@@ -339,6 +339,23 @@ namespace ModInventario
             }
         }
 
+        public void ReporteRelacionCompraVenta()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.RelacionCompraVenta.Filtros());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                if (_gestionReporteFiltros.ProductoIsOk)
+                {
+                    var rp = new Reportes.Filtros.RelacionCompraVenta.GestionRep();
+                    rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                    rp.Generar();
+                }
+                else
+                    Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+            }
+        }
+
     }
 
 }

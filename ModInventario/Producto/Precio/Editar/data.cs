@@ -312,14 +312,18 @@ namespace ModInventario.Producto.Precio.Editar
             if (modoDivisa)
             {
                 _full = precio;
-                CalculaNeto();
+                if (Costo==0.0m)
+                    _neto= _full/ ((tasaIva /100)+1);
+                else
+                    CalculaNeto();
                 CalculaFull();
             }
             else
             {
                 _neto = precio;
                 CalculaFull();
-                CalculaNeto();
+                if (Costo!=0.0m)
+                    CalculaNeto();
             }
         }
 

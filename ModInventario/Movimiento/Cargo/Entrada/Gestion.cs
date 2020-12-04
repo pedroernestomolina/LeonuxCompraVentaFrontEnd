@@ -109,11 +109,11 @@ namespace ModInventario.Movimiento.Cargo.Entrada
 
         public void Procesar()
         {
-            if (importe == 0.0m) 
-            {
-                Helpers.Msg.Error("Monto Importe Movimiento Incorrecto, Verifique Por Favor");
-                return;
-            }
+            //if (importe == 0.0m) 
+            //{
+            //    Helpers.Msg.Error("Monto Importe Movimiento Incorrecto, Verifique Por Favor");
+            //    return;
+            //}
             var msg = MessageBox.Show("Guardar Cambios ?","*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2 );
             if (msg == DialogResult.Yes) 
             {

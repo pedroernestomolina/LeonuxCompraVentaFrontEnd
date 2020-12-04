@@ -312,6 +312,82 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha> Reportes_CompraVentaAlmacen(OOB.LibInventario.Reportes.CompraVentaAlmacen.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.CompraVentaAlmacen.Filtro()
+            {
+                autoProducto = filtro.autoProducto,
+            };
+            var r01 = MyData.Reportes_CompraVentaAlmacen (filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var f = new OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha()
+            {
+                contenido = r01.Entidad.contenido,
+                empaque = r01.Entidad.empaque,
+                exUnd = r01.Entidad.exUnd.HasValue ? r01.Entidad.exUnd.Value : 0.0m,
+                prdCodigo = r01.Entidad.prdCodigo,
+                prdNombre = r01.Entidad.prdNombre,
+                costoDivisaUnd = r01.Entidad.costoDivisaUnd,
+            };
+            var fCompra = new List<OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaCompra>();
+            var fVenta = new List<OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaVenta>();
+            if (r01.Entidad != null)
+            {
+                var lcompra = r01.Entidad.compras;
+                if (lcompra.Count > 0)
+                {
+                    fCompra = lcompra.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaCompra()
+                        {
+                            cnt = s.cnt,
+                            cntUnd = s.cntUnd,
+                            contenido = s.contenido,
+                            costoDivisaUnd = s.costoDivisaUnd,
+                            costoUnd = s.costoUnd,
+                            documento = s.documento,
+                            empaque = s.empaque,
+                            factor = s.factor,
+                            fecha = s.fecha,
+                            signoDoc = s.signoDoc,
+                            tipoDoc = s.tipoDoc,
+                        };
+                    }).ToList();
+                }
+
+                var lventa = r01.Entidad.ventas;
+                if (lventa.Count > 0)
+                {
+                    fVenta= lventa.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaVenta()
+                        {
+                            cnt = s.cnt,
+                            factor = s.factor,
+                            montoCosto = s.montoCosto,
+                            montoCostoDivisa = s.montoCostoDivisa,
+                            montoVenta = s.montoVenta,
+                            montoVentaDivisa = s.montoVentaDivisa,
+                            tipoDoc = s.tipoDoc,
+                        };
+                    }).ToList();
+                }
+            }
+            f.compras = fCompra;
+            f.ventas = fVenta;
+            rt.Entidad = f;
+
+            return rt;
+        }
+
     }
 
 }

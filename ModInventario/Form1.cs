@@ -322,6 +322,16 @@ namespace ModInventario
             _controlador.Kardex();
         }
 
+        private void TSM_REPORTE_RELACION_COMPRAVENTA_Click(object sender, EventArgs e)
+        {
+            ReporteRelacionCompraVenta();
+        }
+
+        private void ReporteRelacionCompraVenta()
+        {
+            _controlador.ReporteRelacionCompraVenta(); 
+        }
+
     }
 
 }

@@ -205,6 +205,10 @@
     <Compile Include="LibInventario\Proveedor\Enumerados.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Ficha.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaCompra.cs" />
+    <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaVenta.cs" />
+    <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\enumerados.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Filtro.cs" />

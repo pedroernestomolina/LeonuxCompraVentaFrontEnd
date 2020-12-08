@@ -13,6 +13,9 @@ namespace ModCompra
     {
 
 
+        private Administrador.Gestion _gestionAdmDoc ;
+
+
         public string Version
         {
             get
@@ -40,6 +43,12 @@ namespace ModCompra
         }
 
 
+        public Gestion()
+        {
+            _gestionAdmDoc = new Administrador.Gestion();
+        }
+
+
         Form1 frm = null;
         public void Inicia()
         {
@@ -64,7 +73,19 @@ namespace ModCompra
 
         public void AdministradorDoc()
         {
-            Helpers.VisualizarDocumento.Visualizar("0000000036");
+            var r00 = Sistema.MyData.Permiso_AdmDoc(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionAdmDoc.setGestion(new Administrador.Documentos.Gestion());
+                _gestionAdmDoc.Inicia();
+            }
+            //Helpers.VisualizarDocumento.Visualizar("0000000036");
         }
 
     }

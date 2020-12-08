@@ -64,16 +64,25 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
                 DataRow xrt = ds.Tables["RelCompraVentaAlmDet"].NewRow();
                 xrt["tipo"] = "COMPRA";
                 xrt["documento"] = it.documento ;
+                xrt["estatus"] = it.esAnulado?"ANULADO":"";
                 xrt["fecha"] = it.fecha;
                 xrt["cnt"] = it.cnt;
                 xrt["empaque"] = it.empaque;
                 xrt["contenido"] = it.contenido;
-                xrt["cntUnd"] = it.cntUnd;
                 xrt["costoPrecioDivisa"] = it.costoDivisaUnd;
-                xrt["montoDivisa"] = it.costoDivisaUnd*it.cntUnd*it.signoDoc;
                 xrt["factor"] = it.factor;
+                if (!it.esAnulado)
+                {
+                    cUnd += it.cntUnd;
+                    xrt["cntUnd"] = it.cntUnd;
+                    xrt["montoDivisa"] = it.costoDivisaUnd * it.cntUnd * it.signoDoc;
+                }
+                else
+                {
+                    xrt["cntUnd"] = 0;
+                    xrt["montoDivisa"] = 0;
+                }
                 ds.Tables["RelCompraVentaAlmDet"].Rows.Add(xrt);
-                cUnd += it.cntUnd;
             }
 
             var mp = 0.0m;

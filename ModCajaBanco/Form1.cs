@@ -105,6 +105,26 @@ namespace ModCajaBanco
             _controlador.ReporteResumenVentaporProducto();
         }
 
+        private void TSM_REPORTES_RESUMEN_VENTA_SUCURSAL_Click(object sender, EventArgs e)
+        {
+            ReporteResumenVentaSucursal();
+        }
+
+        private void ReporteResumenVentaSucursal()
+        {
+            _controlador.ReporteResumenVentaSucursal();
+        }
+
+        private void TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL_Click(object sender, EventArgs e)
+        {
+            ReporteResumenVentaProductoSucursal();
+        }
+
+        private void ReporteResumenVentaProductoSucursal()
+        {
+            _controlador.ReporteResumenVentaProductoSucursal();
+        }
+
     }
 
 }

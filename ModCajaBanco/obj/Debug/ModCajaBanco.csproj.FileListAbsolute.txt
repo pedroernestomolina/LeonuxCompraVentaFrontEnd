@@ -5,6 +5,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimien
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVenta.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVentaDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVentaPrd.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVentaSuc.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ResumenVentaPrdSuc.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ModCajaBanco.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ModCajaBanco.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\ModCajaBanco.pdb

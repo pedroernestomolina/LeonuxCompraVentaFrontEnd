@@ -58,6 +58,11 @@ namespace DataProvInventario.Data
                         var nr = new OOB.LibInventario.Producto.Data.Ficha();
                         nr.CostoDivisa = s.costoDivisa;
                         nr.ExistenciaTotal = ex;
+                        nr.PDivisaFull_1 = s.pDivisaFull_1;
+                        nr.PDivisaFull_2 = s.pDivisaFull_2;
+                        nr.PDivisaFull_3 = s.pDivisaFull_3;
+                        nr.PDivisaFull_4 = s.pDivisaFull_4;
+                        nr.PDivisaFull_5 = s.pDivisaFull_5;
 
                         var id = nr.identidad;
                         id.auto = s.auto;

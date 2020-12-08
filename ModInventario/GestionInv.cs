@@ -356,6 +356,12 @@ namespace ModInventario
             }
         }
 
+        public void ReporteMaestroDepositoResumen()
+        {
+            var rp = new Reportes.Filtros.DepositoResumen.GestionRep();
+            rp.Generar();
+        }
+
     }
 
 }

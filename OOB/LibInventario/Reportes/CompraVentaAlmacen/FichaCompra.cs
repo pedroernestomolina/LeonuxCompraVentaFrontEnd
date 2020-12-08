@@ -22,6 +22,7 @@ namespace OOB.LibInventario.Reportes.CompraVentaAlmacen
         public int signoDoc { get; set; }
         public string tipoDoc { get; set; }
         public decimal costoDivisaUnd { get; set; }
+        public bool esAnulado { get; set; }
 
     }
 

@@ -84,7 +84,7 @@ namespace ModCompra
             this.Visible = true;
         }
 
-        private void administradorDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MENU_DOCUMENTOS_ADMINISTRADOR_Click(object sender, EventArgs e)
         {
             AdministradorDoc();
         }

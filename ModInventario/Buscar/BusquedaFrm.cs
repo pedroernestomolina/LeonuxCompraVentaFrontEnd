@@ -234,6 +234,13 @@ namespace ModInventario.Buscar
             L_PESADO.Text = _controlador.Item.Pesado;
             L_FECHA_ALTA.Text = _controlador.Item.FechaAlta.ToShortDateString();
             L_FECHA_ACT.Text= _controlador.Item.FechaUltimaActualizacion;
+
+            L_CostoUnd.Text = _controlador.Item.CostoDivisaUnd.ToString("n2");
+            PN_1.Text = _controlador.Item.PDivisaNeto_1.ToString("n2");
+            PN_2.Text = _controlador.Item.PDivisaNeto_2.ToString("n2");
+            PN_3.Text = _controlador.Item.PDivisaNeto_3.ToString("n2");
+            PN_4.Text = _controlador.Item.PDivisaNeto_4.ToString("n2");
+            PN_5.Text = _controlador.Item.PDivisaNeto_5.ToString("n2");
         }
 
         private void LimpiarEtiquetas()
@@ -254,6 +261,12 @@ namespace ModInventario.Buscar
             L_OFERTA.Text = "";
             L_FECHA_ALTA.Text="";
             L_FECHA_ACT.Text = "";
+            L_CostoUnd.Text = "0";
+            PN_1.Text = "0";
+            PN_2.Text = "0";
+            PN_3.Text = "0";
+            PN_4.Text = "0";
+            PN_5.Text = "0";
         }
 
         private void BT_FILTRAR_Click(object sender, EventArgs e)

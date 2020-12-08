@@ -34,6 +34,7 @@ namespace ModCajaBanco.Reportes.Movimientos.VentaPorProducto
                 r["nombrePrd"] = it.nombrePrd;
                 r["cantidad"] = it.cantidad;
                 r["totalMonto"] = it.totalMonto*it.signo;
+                r["totalMontoDivisa"] = it.totalMontoDivisa * it.signo;
                 r["tipoDocumento"] = it.nombreDocumento;
                 ds.Tables["ResumenVentPrd"].Rows.Add(r);
             }

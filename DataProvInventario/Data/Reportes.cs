@@ -69,10 +69,8 @@ namespace DataProvInventario.Data
 
             var filtroDto = new DtoLibInventario.Reportes.MaestroInventario.Filtro()
             {
-                admDivisa = (DtoLibInventario.Reportes.enumerados.EnumAdministradorPorDivisa)filtro.admDivisa,
                 autoDepartamento = filtro.autoDepartamento,
                 autoDeposito=filtro.autoDeposito,
-                estatus = (DtoLibInventario.Reportes.enumerados.EnumEstatus)filtro.estatus,
             };
             var r01 = MyData.Reportes_MaestroInventario(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -101,7 +99,15 @@ namespace DataProvInventario.Data
                             costoDivisaUnd = s.costoDivisaUnd,
                             costoUnd = s.costoUnd,
                             decimales = s.decimales,
-                            existencia = s.existencia,
+                            existencia = s.existencia.HasValue ? s.existencia.Value : 0.0m,
+                            pn1 = s.pn1.HasValue ? s.pn1.Value : 0.0m,
+                            pn2 = s.pn2.HasValue ? s.pn2.Value : 0.0m,
+                            pn3 = s.pn3.HasValue ? s.pn3.Value : 0.0m,
+                            pn4 = s.pn4.HasValue ? s.pn4.Value : 0.0m,
+                            pn5 = s.pn5.HasValue ? s.pn5.Value : 0.0m,
+                            codigoSuc = s.codigoSuc,
+                            nombreGrupo = s.nombreGrupo,
+                            precioId = s.precioId,
                         };
                     }).ToList();
                 }
@@ -191,6 +197,14 @@ namespace DataProvInventario.Data
                             exFisica = exFisica,
                             nombreDep = s.nombreDep,
                             nombrePrd = s.nombrePrd,
+                            codigoSuc = s.codigoSuc,
+                            costoUndDivisa = s.costoUndDivisa,
+                            pDivisaNeto_1 = s.pDivisaNeto_1,
+                            pDivisaNeto_2 = s.pDivisaNeto_2,
+                            pDivisaNeto_3 = s.pDivisaNeto_3,
+                            pDivisaNeto_4 = s.pDivisaNeto_4,
+                            pDivisaNeto_5 = s.pDivisaNeto_5,
+                            precioId = s.precioId,
                         };
                     }).ToList();
                 }
@@ -359,6 +373,7 @@ namespace DataProvInventario.Data
                             fecha = s.fecha,
                             signoDoc = s.signoDoc,
                             tipoDoc = s.tipoDoc,
+                            esAnulado=s.isAnulado,
                         };
                     }).ToList();
                 }
@@ -384,6 +399,49 @@ namespace DataProvInventario.Data
             f.compras = fCompra;
             f.ventas = fVenta;
             rt.Entidad = f;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.DepositoResumen.Ficha> Reportes_DepositoResumen()
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.DepositoResumen.Ficha>();
+
+            var r01 = MyData.Reportes_DepositoResumen();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.DepositoResumen.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.DepositoResumen.Ficha()
+                        {
+                            cntStock=s.cntStock,
+                            autoDeposito=s.autoDeposito,
+                            cItem = s.cItem,
+                            codigoSuc = s.codigoSuc,
+                            costo = s.costo,
+                            nombreDeposito = s.nombreDeposito,
+                            nombreGrupo = s.nombreGrupo,
+                            pn1 = s.pn1,
+                            pn2 = s.pn2,
+                            pn3 = s.pn3,
+                            pn4 = s.pn4,
+                            pn5 = s.pn5,
+                            precioId = s.precioId,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
 
             return rt;
         }

@@ -6,16 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.55603cm</Width>
+              <Width>2.52691cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>8.50916cm</Width>
+              <Width>7.9562cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.23853cm</Width>
+              <Width>1.94749cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.58791cm</Width>
+              <Width>3.29687cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.20896cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -140,6 +143,39 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Monto Divisa</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -279,6 +315,36 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -360,6 +426,7 @@
                               <Value>=Fields!cantidad.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
+                                <Format>n1</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -402,6 +469,39 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>totalMonto</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="totalMontoDivisa">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!totalMontoDivisa.Value</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <Format>n2</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>totalMontoDivisa</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -531,6 +631,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox8">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!totalMontoDivisa.Value)</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>n2</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -677,6 +812,41 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!totalMontoDivisa.Value)</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>n2</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -687,13 +857,14 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.55603cm</Size>
+                <Size>2.26499cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox11">
                     <CanGrow>true</CanGrow>
@@ -743,7 +914,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.55603cm</Size>
+                <Size>2.26499cm</Size>
                 <CellContents>
                   <Textbox Name="tipoDocumento1">
                     <CanGrow>true</CanGrow>
@@ -789,7 +960,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>2.55603cm</Size>
+                <Size>2.26499cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox31">
                     <CanGrow>true</CanGrow>
@@ -798,7 +969,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value />
+                            <Value>Total</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -827,7 +998,7 @@
         <Top>0.32632cm</Top>
         <Left>0.3175cm</Left>
         <Height>3cm</Height>
-        <Width>19.44766cm</Width>
+        <Width>20.20141cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -838,7 +1009,7 @@
     <Height>2.05903in</Height>
     <Style />
   </Body>
-  <Width>7.93143in</Width>
+  <Width>8.18143in</Width>
   <Page>
     <PageHeader>
       <Height>2.91924cm</Height>
@@ -861,7 +1032,7 @@
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>0.77638cm</Top>
-          <Left>18.641cm</Left>
+          <Left>19.39474cm</Left>
           <Height>0.6cm</Height>
           <Width>1.12417cm</Width>
           <Style>
@@ -890,7 +1061,7 @@
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
           <Top>0.77638cm</Top>
-          <Left>15.70294cm</Left>
+          <Left>16.45668cm</Left>
           <Height>0.6cm</Height>
           <Width>1.33702cm</Width>
           <ZIndex>1</ZIndex>
@@ -920,7 +1091,7 @@
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
           <Top>0.10583cm</Top>
-          <Left>13.66155cm</Left>
+          <Left>14.41529cm</Left>
           <Height>0.6cm</Height>
           <Width>6.10361cm</Width>
           <ZIndex>2</ZIndex>
@@ -950,7 +1121,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox66</rd:DefaultName>
           <Top>0.77638cm</Top>
-          <Left>17.33162cm</Left>
+          <Left>18.08536cm</Left>
           <Height>0.6cm</Height>
           <Width>1.01833cm</Width>
           <ZIndex>3</ZIndex>
@@ -980,7 +1151,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox66</rd:DefaultName>
           <Top>0.77638cm</Top>
-          <Left>13.66155cm</Left>
+          <Left>14.41529cm</Left>
           <Height>0.6cm</Height>
           <Width>1.865cm</Width>
           <ZIndex>4</ZIndex>
@@ -1014,7 +1185,7 @@
           <Top>1.55277cm</Top>
           <Left>10.84741cm</Left>
           <Height>1.02251cm</Height>
-          <Width>8.91776cm</Width>
+          <Width>9.67149cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -1064,7 +1235,7 @@
           <Top>2.75167cm</Top>
           <Left>0.3175cm</Left>
           <Height>0cm</Height>
-          <Width>19.44767cm</Width>
+          <Width>20.20141cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -1135,6 +1306,10 @@
         <Field Name="tipoDocumento">
           <DataField>tipoDocumento</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="totalMontoDivisa">
+          <DataField>totalMontoDivisa</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

@@ -27,6 +27,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ILibCompras.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ProvLibCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\LibEntityCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csprojResolveAssemblyReference.cache
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Administrador.AdministradorFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Anular.AnularFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.DatosDocumentoFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.DocumentoFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.ItemFrm.resources
@@ -37,6 +39,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Producto.L
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Listar.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Reportes.ReporteFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Seguridad.SeguridadFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\RdlCompile.compiled

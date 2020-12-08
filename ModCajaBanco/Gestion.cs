@@ -314,14 +314,18 @@ namespace ModCajaBanco
                 }
                 else
                 {
-                    var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
-                    if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                    sucursalNombre = "GENERAL";
+                    if (_filtroGestion.autoSucursal != "") 
                     {
-                        Helpers.Msg.Error(r00.Mensaje);
-                        return;
+                        var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                            return;
+                        }
+                        filtro.codigoSucursal = r00.Entidad.codigo;
+                        sucursalNombre = r00.Entidad.nombre;
                     }
-                    filtro.codigoSucursal = r00.Entidad.codigo;
-                    sucursalNombre = r00.Entidad.nombre;
                 }
 
                 var r01 = Sistema.MyData.Reporte_ResumenVentaPorProducto(filtro);
@@ -334,6 +338,116 @@ namespace ModCajaBanco
                 var filtros = "Desde: " + _filtroGestion.desdeFecha.ToShortDateString() + ", Hasta: " + _filtroGestion.hastaFecha.ToShortDateString() +
                     Environment.NewLine + "Sucursal: " + sucursalNombre;
                 var rp1 = new Reportes.Movimientos.VentaPorProducto.GestionRep(r01.Lista, filtros);
+                rp1.Generar();
+            }
+        }
+
+        public void ReporteResumenVentaSucursal()
+        {
+            if (Sistema._ActivarComoSucursal)
+            {
+                return;
+            }
+            else
+            {
+                _filtroGestion.setHabilitarSucursal(true);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+
+            _filtroGestion.Inicia();
+            if (_filtroGestion.IsFiltroOk)
+            {
+                var filtro = new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Filtro()
+                {
+                    desdeFecha = _filtroGestion.desdeFecha,
+                    hastaFecha = _filtroGestion.hastaFecha,
+                };
+
+                var sucursalNombre = "";
+                if (Sistema._ActivarComoSucursal)
+                {
+                }
+                else
+                {
+                    sucursalNombre = "GENERAL";
+                    if (_filtroGestion.autoSucursal != "")
+                    {
+                        var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                            return;
+                        }
+                        filtro.codigoSucursal = r00.Entidad.codigo;
+                        sucursalNombre = r00.Entidad.nombre;
+                    }
+                }
+
+                var r01 = Sistema.MyData.Reporte_ResumenVentaSucursal(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                var filtros = "Desde: " + _filtroGestion.desdeFecha.ToShortDateString() + ", Hasta: " + _filtroGestion.hastaFecha.ToShortDateString() +
+                    Environment.NewLine + "Sucursal: " + sucursalNombre;
+                var rp1 = new Reportes.Movimientos.ResumenVentaSucursal.GestionRep(r01.Lista, filtros);
+                rp1.Generar();
+            }
+        }
+
+        public void ReporteResumenVentaProductoSucursal()
+        {
+            if (Sistema._ActivarComoSucursal)
+            {
+                return;
+            }
+            else
+            {
+                _filtroGestion.setHabilitarSucursal(true);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+
+            _filtroGestion.Inicia();
+            if (_filtroGestion.IsFiltroOk)
+            {
+                var filtro = new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaProductoSucursal.Filtro()
+                {
+                    desdeFecha = _filtroGestion.desdeFecha,
+                    hastaFecha = _filtroGestion.hastaFecha,
+                };
+
+                var sucursalNombre = "";
+                if (Sistema._ActivarComoSucursal)
+                {
+                }
+                else
+                {
+                    sucursalNombre = "GENERAL";
+                    if (_filtroGestion.autoSucursal != "")
+                    {
+                        var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                            return;
+                        }
+                        filtro.codigoSucursal = r00.Entidad.codigo;
+                        sucursalNombre = r00.Entidad.nombre;
+                    }
+                }
+
+                var r01 = Sistema.MyData.Reporte_ResumenVentaProductoSucursal(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                var filtros = "Desde: " + _filtroGestion.desdeFecha.ToShortDateString() + ", Hasta: " + _filtroGestion.hastaFecha.ToShortDateString() +
+                    Environment.NewLine + "Sucursal: " + sucursalNombre;
+                var rp1 = new Reportes.Movimientos.VentaProductoSucursal.GestionRep(r01.Lista, filtros);
                 rp1.Generar();
             }
         }

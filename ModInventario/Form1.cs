@@ -332,6 +332,16 @@ namespace ModInventario
             _controlador.ReporteRelacionCompraVenta(); 
         }
 
+        private void TSM_REPORTE_MAESTRO_DEPOSITO_RESUMEN_Click(object sender, EventArgs e)
+        {
+            ReporteMaestroDepositoResumen();
+        }
+
+        private void ReporteMaestroDepositoResumen()
+        {
+            _controlador.ReporteMaestroDepositoResumen();
+        }
+
     }
 
 }

@@ -469,6 +469,7 @@
     </Compile>
     <Compile Include="Reportes\Documentos\Movimiento.cs" />
     <Compile Include="Reportes\Filtros\data.cs" />
+    <Compile Include="Reportes\Filtros\DepositoResumen\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\DS.cs">
       <DependentUpon>DS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -733,6 +734,9 @@
     <EmbeddedResource Include="Reportes\Documentos\MovTraslado.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\DepositoResumen.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">
       <DependentUpon>FiltrosFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -829,6 +833,7 @@
   <ItemGroup>
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Imagenes\administrador.png" />
     <Content Include="Imagenes\automatizacion.jpg" />

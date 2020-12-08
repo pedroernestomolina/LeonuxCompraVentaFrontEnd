@@ -51,10 +51,34 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
 
             foreach (var it in lista.ToList().OrderBy(o => o.nombrePrd).ToList())
             {
+                var precio = 0.0m;
+                switch (it.precioId) 
+                {
+                    case "1":
+                        precio = it.pDivisaNeto_1;
+                        break;
+                    case "2":
+                        precio = it.pDivisaNeto_2;
+                        break;
+                    case "3":
+                        precio = it.pDivisaNeto_3;
+                        break;
+                    case "4":
+                        precio = it.pDivisaNeto_4;
+                        break;
+                    case "5":
+                        precio = it.pDivisaNeto_5;
+                        break;
+                }
+
                 DataRow rt = ds.Tables["MaestroExistencia"].NewRow();
                 rt["nombrePrd"] = it.nombrePrd + Environment.NewLine + it.codigoPrd; 
                 rt["nombreDep"] = it.codigoDep+", "+it.nombreDep;
                 rt["existencia"] = it.exFisica;
+                rt["costoUnd"] = it.costoUndDivisa;
+                rt["costoMonto"] = it.costoUndDivisa*it.exFisica;
+                rt["precioUnd"] = precio;
+                rt["ventaMonto"] = precio*it.exFisica;
 
                 if (it.exFisica != 0.0m)
                     ds.Tables["MaestroExistencia"].Rows.Add(rt);

@@ -28,7 +28,7 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
 
         public bool ActivarAdmDivisa
         {
-            get { return true ; }
+            get { return false ; }
         }
 
         public bool ActivarProducto
@@ -53,7 +53,7 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
 
         public bool ActivarEstatus
         {
-            get { return true ; }
+            get { return false ; }
         }
 
         public bool ActivarOrigen

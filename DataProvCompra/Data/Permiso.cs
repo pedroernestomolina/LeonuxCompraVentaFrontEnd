@@ -60,11 +60,129 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+
         public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_ToolCompra(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
 
             var r01 = MyData.Permiso_ToolCompra(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Registrar_Factura(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_Registrar_Factura(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_AdmDoc(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc_Anular(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_AdmDoc_Anular(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc_Visualizar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_AdmDoc_Visualizar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc_Reporte(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_AdmDoc_Reporte(autoGrupoUsuario);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

@@ -54,6 +54,10 @@
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaDetalle\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorProducto\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorProducto\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaProductoSucursal\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaProductoSucursal\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaSucursal\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaSucursal\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVenta\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVenta\Filtro.cs" />
     <Compile Include="LibCajaBanco\Sucursal\Ficha.cs" />
@@ -209,6 +213,7 @@
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaCompra.cs" />
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaVenta.cs" />
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\DepositoResumen\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\enumerados.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Filtro.cs" />

@@ -32,24 +32,6 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
             var filtro = new OOB.LibInventario.Reportes.MaestroInventario.Filtro();
             if (dataFiltros != null)
             {
-                if (dataFiltros.IdAdmDivisa != "")
-                {
-                    sFiltro += "Por Divisa=";
-                    var rt = OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.Si;
-                    if (dataFiltros.IdAdmDivisa == "No")
-                    {
-                        rt = OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.No;
-                        sFiltro += "NO, ";
-                    }
-                    else 
-                        sFiltro += "SI, ";
-                    filtro.admDivisa = rt;
-                }
-                if (dataFiltros.IdEstatus != "")
-                {
-                    filtro.estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus)int.Parse(dataFiltros.IdEstatus);
-                    sFiltro += "Por Estatus= "+filtro.estatus.ToString()+", ";
-                }
                 filtro.autoDepartamento = dataFiltros.AutoDepartamento;
                 filtro.autoDeposito= dataFiltros.AutoDeposito;
 
@@ -105,6 +87,28 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
                 rt["importe"] = importe;
                 rt["importeDivisa"] = importeDivisa;
                 rt["admDivisa"] = admDivisa;
+
+                var precio = 0.0m;
+                switch (it.precioId) 
+                {
+                    case "1":
+                        precio = it.pn1;
+                        break;
+                    case "2":
+                        precio = it.pn2;
+                        break;
+                    case "3":
+                        precio = it.pn3;
+                        break;
+                    case "4":
+                        precio = it.pn4;
+                        break;
+                    case "5":
+                        precio = it.pn5;
+                        break;
+                }
+                rt["precio"] = precio;
+                rt["venta"] = precio * existencia;
 
                 if (existencia!=0.0m)
                     ds.Tables["MaestroInventario"].Rows.Add(rt);

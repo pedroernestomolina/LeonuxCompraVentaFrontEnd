@@ -1,5 +1,6 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Documentos\MovTraslado.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\DepositoResumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\Kardex.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroExistencia.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroInventario.rdlc

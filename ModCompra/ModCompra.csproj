@@ -67,6 +67,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\AdministradorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador\AdministradorFrm.Designer.cs">
+      <DependentUpon>AdministradorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Documentos\data.cs" />
+    <Compile Include="Administrador\Documentos\Gestion.cs" />
+    <Compile Include="Administrador\Documentos\GestionListaDetalle.cs" />
+    <Compile Include="Administrador\enumerados.cs" />
+    <Compile Include="Administrador\Gestion.cs" />
+    <Compile Include="Administrador\IGestion.cs" />
+    <Compile Include="Administrador\IGestionListaDetalle.cs" />
+    <Compile Include="Anular\AnularFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anular\AnularFrm.Designer.cs">
+      <DependentUpon>AnularFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Anular\Gestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\Gestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionDocumento.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionItem.cs" />
@@ -163,7 +183,21 @@
     <Compile Include="Reportes\ReporteFrm.Designer.cs">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad\Enumerados.cs" />
+    <Compile Include="Seguridad\Gestion.cs" />
+    <Compile Include="Seguridad\SeguridadFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\SeguridadFrm.Designer.cs">
+      <DependentUpon>SeguridadFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema.cs" />
+    <EmbeddedResource Include="Administrador\AdministradorFrm.resx">
+      <DependentUpon>AdministradorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Anular\AnularFrm.resx">
+      <DependentUpon>AnularFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\Formulario\DatosDocumentoFrm.resx">
       <DependentUpon>DatosDocumentoFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +238,9 @@
     <EmbeddedResource Include="Reportes\ReporteFrm.resx">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\SeguridadFrm.resx">
+      <DependentUpon>SeguridadFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -235,6 +272,7 @@
   <ItemGroup>
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Imagenes\administracion-compras-logistica.jpg" />
     <Content Include="Imagenes\administrador.png" />

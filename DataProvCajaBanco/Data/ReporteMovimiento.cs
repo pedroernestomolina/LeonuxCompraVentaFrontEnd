@@ -316,6 +316,95 @@ namespace DataProvCajaBanco.Data
                             nombrePrd = s.nombrePrd,
                             signo = s.signo,
                             totalMonto = s.totalMonto,
+                            totalMontoDivisa = s.totalMontoDivisa,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Ficha> Reporte_ResumenVentaSucursal(OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Filtro()
+            {
+                codigoSucursal = filtro.codigoSucursal,
+                desdeFecha = filtro.desdeFecha,
+                hastaFecha = filtro.hastaFecha,
+            };
+            var r01 = MyData.Reporte_ResumenVentaSucursal(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaSucursal.Ficha()
+                        {
+                            cntMov = s.cntMov,
+                            codigoSuc = s.codigoSuc,
+                            montoDivisa = s.montoDivisa,
+                            montoTotal = s.montoTotal,
+                            nombreSuc = s.nombreSuc,
+                            signo = s.signo,
+                            tipoDoc = s.tipoDoc,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaProductoSucursal.Ficha> Reporte_ResumenVentaProductoSucursal(OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaProductoSucursal.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaProductoSucursal.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.VentasPorProductoSucursal.Filtro()
+            {
+                codigoSucursal = filtro.codigoSucursal,
+                desdeFecha = filtro.desdeFecha,
+                hastaFecha = filtro.hastaFecha,
+            };
+            var r01 = MyData.Reporte_VentaPorProductoSucursal(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaProductoSucursal.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaProductoSucursal.Ficha()
+                        {
+                            codigoSuc = s.codigoSuc,
+                            nombreSuc = s.nombreSuc,
+                            cantidad = s.cantidad,
+                            codigoPrd = s.codigoPrd,
+                            nombreDocumento = s.nombreDocumento,
+                            nombrePrd = s.nombrePrd,
+                            signo = s.signo,
+                            totalMonto = s.totalMonto,
+                            totalMontoDivisa = s.totalMontoDivisa,
                         };
                     }).ToList();
                 }

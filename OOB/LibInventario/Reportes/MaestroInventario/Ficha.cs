@@ -20,6 +20,14 @@ namespace OOB.LibInventario.Reportes.MaestroInventario
         public decimal costoUnd { get; set; }
         public decimal costoDivisaUnd { get; set; }
         public string decimales { get; set; }
+        public decimal pn1 { get; set; }
+        public decimal pn2 { get; set; }
+        public decimal pn3 { get; set; }
+        public decimal pn4 { get; set; }
+        public decimal pn5 { get; set; }
+        public string codigoSuc { get; set; }
+        public string nombreGrupo { get; set; }
+        public string precioId { get; set; }
         public enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
         public enumerados.EnumEstatus estatus {get;set;}
 

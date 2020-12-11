@@ -15,7 +15,7 @@ namespace ModCompra.Administrador
     public partial class AdministradorFrm : Form
     {
 
-        private Documentos.Gestion _controlador;
+        private Gestion _controlador;
 
 
         public AdministradorFrm()
@@ -39,15 +39,15 @@ namespace ModCompra.Administrador
             DGV.ReadOnly = true;
 
             var c1 = new DataGridViewTextBoxColumn();
-            c1.DataPropertyName = "FechaHora";
-            c1.HeaderText = "Fecha/Hora";
+            c1.DataPropertyName = "Fecha";
+            c1.HeaderText = "Fecha";
             c1.Visible = true;
-            c1.Width = 110;
+            c1.Width = 80;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
 
             var c2 = new DataGridViewTextBoxColumn();
-            c2.DataPropertyName = "STipoDoc";
+            c2.DataPropertyName = "NombreDoc";
             c2.HeaderText = "Tipo";
             c2.Visible = true;
             c2.Width = 80;
@@ -55,12 +55,20 @@ namespace ModCompra.Administrador
             c2.DefaultCellStyle.Font = f1;
 
             var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "DocumentoNro";
+            c3.DataPropertyName = "Documento";
             c3.HeaderText = "Documento";
             c3.Visible = true;
-            c3.Width = 80;
+            c3.Width = 100;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
+
+            var c3A = new DataGridViewTextBoxColumn();
+            c3A.DataPropertyName = "FechaReg";
+            c3A.HeaderText = "Fecha/Reg";
+            c3A.Visible = true;
+            c3A.Width = 80;
+            c3A.HeaderCell.Style.Font = f;
+            c3A.DefaultCellStyle.Font = f1;
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "Sucursal";
@@ -68,43 +76,45 @@ namespace ModCompra.Administrador
             c4.Visible = true;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
-            c4.Width = 80;
+            c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            c4.Width = 60;
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "SRenglones";
-            c5.HeaderText = "Reng";
+            c5.DataPropertyName = "ProvNombre";
+            c5.HeaderText = "Proveedor";
             c5.Visible = true;
-            c5.Width = 40;
+            c5.MinimumWidth = 220;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
-            c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c5A = new DataGridViewTextBoxColumn();
-            c5A.DataPropertyName = "Concepto";
-            c5A.HeaderText = "Cocnepto";
+            c5A.DataPropertyName = "ProvCiRif";
+            c5A.HeaderText = "Ci/Rif";
             c5A.Visible = true;
-            c5A.MinimumWidth = 120;
+            c5A.Width = 90;
             c5A.HeaderCell.Style.Font = f;
             c5A.DefaultCellStyle.Font = f1;
-            c5A.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c5B = new DataGridViewTextBoxColumn();
-            c5B.DataPropertyName = "UsuarioEstacion";
-            c5B.HeaderText = "Usuario";
+            c5B.DataPropertyName = "Importe";
+            c5B.HeaderText = "Importe";
             c5B.Visible = true;
-            c5B.MinimumWidth = 120;
+            c5B.Width = 120;
             c5B.HeaderCell.Style.Font = f;
             c5B.DefaultCellStyle.Font = f1;
-            c5B.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c5B.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c5B.DefaultCellStyle.Format = "n2";
 
             var c6 = new DataGridViewTextBoxColumn();
-            c6.DataPropertyName = "SMonto";
-            c6.HeaderText = "Importe";
+            c6.DataPropertyName = "ImporteDivisa";
+            c6.HeaderText = "Importe $";
             c6.Visible = true;
-            c6.Width = 100;
+            c6.Width = 90;
             c6.HeaderCell.Style.Font = f;
             c6.DefaultCellStyle.Font = f1;
             c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c6.DefaultCellStyle.Format = "n2";
 
             var c7 = new DataGridViewTextBoxColumn();
             c7.DataPropertyName = "Situacion";
@@ -124,16 +134,19 @@ namespace ModCompra.Administrador
             c8.HeaderCell.Style.Font = f;
             c8.DefaultCellStyle.Font = f1;
 
-            var c8A = new DataGridViewImageColumn();
+            var c8A = new DataGridViewTextBoxColumn();
+            c8A.DataPropertyName = "Estatus";
+            c8A.HeaderText= "Estatus";
             c8A.Name = "Anulado";
             c8A.Visible = true;
-            c8A.Width = 40;
+            c8A.Width = 80;
             c8A.HeaderCell.Style.Font = f;
             c8A.DefaultCellStyle.Font = f1;
 
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
+            DGV.Columns.Add(c3A);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
             DGV.Columns.Add(c5A);
@@ -141,27 +154,16 @@ namespace ModCompra.Administrador
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
-            //DGV.Columns.Add(c8A);
+            DGV.Columns.Add(c8A);
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in DGV.Rows)
             {
-                if ((string)row.Cells["Situacion"].Value == "Pendiente")
-                {
-                    row.Cells["Situacion"].Style.BackColor = Color.Orange;
-                    row.Cells["Situacion"].Style.ForeColor = Color.White;
-                }
-
                 if ((bool)row.Cells["IsAnulado"].Value == true)
                 {
                     row.DefaultCellStyle.ForeColor = Color.Red;
-                    //row.Cells["Anulado"].Value = Properties.Resources.bt_eliminar;
-                }
-                else
-                {
-                    //row.Cells["Anulado"].Value = Properties.Resources.bt_ok_3;
                 }
             }
         }
@@ -181,18 +183,17 @@ namespace ModCompra.Administrador
                     break;
             }
             Actualizar();
-            DGV.DataSource = _controlador.Source;
+            DGV.DataSource = _controlador.ItemsSource;
             DGV.Refresh();
+
+            DGV.Columns[0].Frozen = true;
+            DGV.Columns[1].Frozen = true;
+            DGV.Columns[2].Frozen = true;
         }
 
         private void Actualizar()
         {
-            L_ITEMS.Text = _controlador.Items;
-        }
-
-        public void setControlador(Documentos.Gestion ctr)
-        {
-            _controlador = ctr;
+            L_ITEMS.Text = _controlador.ItemsEncontrados;
         }
 
         private void BT_BUSCAR_Click(object sender, EventArgs e)
@@ -223,49 +224,49 @@ namespace ModCompra.Administrador
 
         private void AnularItem()
         {
-            _controlador.AnularItem();
+            //_controlador.AnularItem();
         }
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_Desde = DTP_DESDE.Value;
+            _controlador.setFechaDesde(DTP_DESDE.Value);
         }
 
         private void DTP_HASTA_ValueChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_Hasta = DTP_HASTA.Value;
+            _controlador.setFechaHasta(DTP_HASTA.Value);
         }
 
         private void CB_TIPO_DOC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_TipoDoc = "";
-            if (CB_TIPO_DOC.SelectedIndex != -1)
-            {
-                switch (CB_TIPO_DOC.SelectedIndex)
-                {
-                    case 0:
-                        _controlador.Filtro_TipoDoc = "01";
-                        break;
-                    case 1:
-                        _controlador.Filtro_TipoDoc = "02";
-                        break;
-                    case 2:
-                        _controlador.Filtro_TipoDoc = "03";
-                        break;
-                    case 3:
-                        _controlador.Filtro_TipoDoc = "04";
-                        break;
-                }
-            }
+            //_controlador.Filtro_TipoDoc = "";
+            //if (CB_TIPO_DOC.SelectedIndex != -1)
+            //{
+            //    switch (CB_TIPO_DOC.SelectedIndex)
+            //    {
+            //        case 0:
+            //            _controlador.Filtro_TipoDoc = "01";
+            //            break;
+            //        case 1:
+            //            _controlador.Filtro_TipoDoc = "02";
+            //            break;
+            //        case 2:
+            //            _controlador.Filtro_TipoDoc = "03";
+            //            break;
+            //        case 3:
+            //            _controlador.Filtro_TipoDoc = "04";
+            //            break;
+            //    }
+            //}
         }
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_Sucursal = "";
-            if (CB_SUCURSAL.SelectedIndex != -1)
-            {
-                _controlador.Filtro_Sucursal = CB_SUCURSAL.SelectedValue.ToString();
-            }
+            //_controlador.Filtro_Sucursal = "";
+            //if (CB_SUCURSAL.SelectedIndex != -1)
+            //{
+            //    _controlador.Filtro_Sucursal = CB_SUCURSAL.SelectedValue.ToString();
+            //}
         }
 
         private void L_TIPO_DOC_Click(object sender, EventArgs e)
@@ -321,7 +322,12 @@ namespace ModCompra.Administrador
 
         private void Imprimir()
         {
-            _controlador.Imprimir();
+           // _controlador.Imprimir();
+        }
+
+        public void setControlador(Gestion ctr)
+        {
+            _controlador = ctr;
         }
 
     }

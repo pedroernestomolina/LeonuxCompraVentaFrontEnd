@@ -400,6 +400,55 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibCompra.Documento.Lista.Ficha> Compra_DocumentoGetLista(OOB.LibCompra.Documento.Lista.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCompra.Documento.Lista.Ficha>();
+
+            var filtroDto = new DtoLibCompra.Documento.Lista.Filtro()
+            {
+                segun_FechaEmisionDesde = filtro.Desde,
+                segun_FechaEmisionHasta = filtro.Hasta,
+            };
+            var r01 = MyData.Compra_DocumentoGetLista(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCompra.Documento.Lista.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.LibCompra.Documento.Lista.Ficha()
+                        {
+                            auto = s.auto,
+                            codigoSuc = s.codigoSuc,
+                            esAnulado = s.esAnulado,
+                            fechaEmision = s.fechaEmision,
+                            fechaRegistro = s.fechaRegistro,
+                            monto = s.monto,
+                            montoDivisa = s.montoDivisa,
+                            provCiRif = s.provCiRif,
+                            provNombre = s.provNombre,
+                            situacion = s.situacion,
+                            tipoDoc = (OOB.LibCompra.Documento.Enumerados.enumTipoDocumento) s.tipoDoc,
+                            tipoDocNombre = s.tipoDocNombre,
+                            documentoNro=s.documento,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

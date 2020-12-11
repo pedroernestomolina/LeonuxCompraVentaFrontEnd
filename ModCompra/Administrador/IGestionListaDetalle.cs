@@ -12,16 +12,16 @@ namespace ModCompra.Administrador
     public interface IGestionListaDetalle
     {
 
-        BindingSource Source { get; }
-        string Items { get; }
+        BindingSource ItemsSource { get; }
+        string ItemsEncontrados { get; }
 
 
-        void setLista(List<OOB.LibInventario.Movimiento.Lista.Ficha> list);
         void AnularItem();
         void LimpiarData();
         void setGestionAnular(Anular.Gestion _gestionAnular);
         void VisualizarDocumento();
         void Imprimir();
+        void setLista(List<OOB.LibCompra.Documento.Lista.Ficha> list);
 
     }
 

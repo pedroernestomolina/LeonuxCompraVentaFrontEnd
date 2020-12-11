@@ -62,13 +62,23 @@ namespace ModCompra
 
         public void RegistrarFacturaCompra()
         {
-            frm.setVisibilidadOff();
+            var r00 = Sistema.MyData.Permiso_Registrar_Factura (Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
 
-            var gestionEntrada = new Documento.Cargar.Controlador.Gestion();
-            gestionEntrada.setGestion(new Documento.Cargar.Factura.GestionFac());
-            gestionEntrada.Inicia();
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                frm.setVisibilidadOff();
 
-            frm.setVisibilidadOn();
+                var gestionEntrada = new Documento.Cargar.Controlador.Gestion();
+                gestionEntrada.setGestion(new Documento.Cargar.Factura.GestionFac());
+                gestionEntrada.Inicia();
+
+                frm.setVisibilidadOn();
+            }
         }
 
         public void AdministradorDoc()

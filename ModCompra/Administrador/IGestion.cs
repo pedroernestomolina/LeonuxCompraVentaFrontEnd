@@ -14,12 +14,8 @@ namespace ModCompra.Administrador
 
         enumerados.EnumTipoAdministrador TipoAdministrador { get; }
         string Titulo { get; }
-        BindingSource Source { get; }
-        string Items { get; }
-        DateTime? Filtro_Desde { get; set; }
-        DateTime? Filtro_Hasta { get; set; }
-        string Filtro_TipoDoc { get; set; }
-        string Filtro_Sucursal { get; set; }
+        BindingSource ItemsSource { get; }
+        string ItemsEncontrados { get; }
         BindingSource SucursalSource { get; }
 
 
@@ -30,6 +26,10 @@ namespace ModCompra.Administrador
         void LimpiarData();
         void VisualizarDocumento();
         void Imprimir();
+        void Limpiar();
+        bool CargarData();
+        void setFechaDesde(DateTime fecha);
+        void setFechaHasta(DateTime fecha);
 
     }
 

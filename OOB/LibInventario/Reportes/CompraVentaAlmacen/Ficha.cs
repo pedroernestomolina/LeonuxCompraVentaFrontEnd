@@ -19,6 +19,7 @@ namespace OOB.LibInventario.Reportes.CompraVentaAlmacen
         public decimal costoDivisaUnd { get; set; }
         public List<FichaCompra> compras { get; set; }
         public List<FichaVenta> ventas { get; set; }
+        public List<FichaAlmacen> almacen { get; set; }
 
     }
 

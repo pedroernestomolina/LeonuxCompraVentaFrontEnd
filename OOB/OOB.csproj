@@ -76,6 +76,9 @@
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecio.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecioHistorico.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdProveedor.cs" />
+    <Compile Include="LibCompra\Documento\Enumerados.cs" />
+    <Compile Include="LibCompra\Documento\Lista\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Documento\Visualizar\Ficha.cs" />
     <Compile Include="LibCompra\Documento\Visualizar\FichaDetalle.cs" />
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
@@ -210,6 +213,7 @@
     <Compile Include="LibInventario\Proveedor\Lista\Ficha.cs" />
     <Compile Include="LibInventario\Proveedor\Lista\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaAlmacen.cs" />
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaCompra.cs" />
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\FichaVenta.cs" />
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\Filtro.cs" />

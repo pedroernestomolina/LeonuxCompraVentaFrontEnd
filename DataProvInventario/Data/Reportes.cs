@@ -353,6 +353,7 @@ namespace DataProvInventario.Data
             };
             var fCompra = new List<OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaCompra>();
             var fVenta = new List<OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaVenta>();
+            var fAlmacen= new List<OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaAlmacen>();
             if (r01.Entidad != null)
             {
                 var lcompra = r01.Entidad.compras;
@@ -395,9 +396,30 @@ namespace DataProvInventario.Data
                         };
                     }).ToList();
                 }
+
+                var lalmacen= r01.Entidad.almacen;
+                if (lalmacen.Count > 0)
+                {
+                    fAlmacen = lalmacen.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.CompraVentaAlmacen.FichaAlmacen()
+                        {
+                            cantUnd = s.cantUnd,
+                            costoUnd = s.costoUnd,
+                            documento = s.documento,
+                            fecha = s.fecha,
+                            isAnulado = s.isAnulado,
+                            nombreDoc = s.nombreDoc,
+                            nota = s.nota,
+                            signo = s.signo,
+                        };
+                    }).ToList();
+                }
+
             }
             f.compras = fCompra;
             f.ventas = fVenta;
+            f.almacen = fAlmacen;
             rt.Entidad = f;
 
             return rt;

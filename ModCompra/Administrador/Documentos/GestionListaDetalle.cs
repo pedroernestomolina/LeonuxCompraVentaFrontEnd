@@ -19,8 +19,8 @@ namespace ModCompra.Administrador.Documentos
         private Anular.Gestion _anular;
 
 
-        public BindingSource Source { get { return bs; } }
-        public string Items { get { return string.Format("Items Encontrados: {0}", bs.Count); } }
+        public BindingSource ItemsSource { get { return bs; } }
+        public string ItemsEncontrados { get { return string.Format("Items Encontrados: {0}", bs.Count); } }
         public data Item { get; set; }
 
 
@@ -39,21 +39,16 @@ namespace ModCompra.Administrador.Documentos
                 Item = (data)bs.Current;
         }
 
-        public void setLista(List<OOB.LibInventario.Movimiento.Lista.Ficha> list)
-        {
-            //bl.Clear();
-            //foreach (var rg in list.OrderByDescending(o => o.fecha).ThenByDescending(o => o.docNro).ToList())
-            //{
-            //    bl.Add(new data(rg));
-            //}
-        }
-
         public void LimpiarData()
         {
-            var msg = MessageBox.Show("Desechar Vista Actual ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == DialogResult.Yes)
+            if (bl.Count > 0) 
             {
-                bl.Clear();
+                var msg = MessageBox.Show("Desechar Vista Actual ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (msg == DialogResult.Yes)
+                {
+                    bl.Clear();
+                    bs.CurrencyManager.Refresh();
+                }
             }
         }
 
@@ -206,16 +201,16 @@ namespace ModCompra.Administrador.Documentos
         {
             if (Item != null)
             {
-                //var r00 = Sistema.MyData.Permiso_AdmVisualizarMovimientoInventario(Sistema.UsuarioP.autoGru);
-                //if (r00.Result == OOB.Enumerados.EnumResult.isError)
-                //{
-                //    Helpers.Msg.Error(r00.Mensaje);
-                //    return;
-                //}
-                //if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-                //{
-                //    CargarVisualizarDocumento(Item.Ficha.autoId);
-                //}
+                var r00 = Sistema.MyData.Permiso_AdmDoc_Visualizar (Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    Helpers.VisualizarDocumento.Visualizar(Item.AutoDoc);
+                }
             }
         }
 
@@ -362,6 +357,16 @@ namespace ModCompra.Administrador.Documentos
             //        rp.Generar();
             //    }
             //}
+        }
+
+        public void setLista(List<OOB.LibCompra.Documento.Lista.Ficha> list)
+        {
+            bl.Clear();
+            foreach (var rg in list.OrderByDescending(o => o.fechaEmision).ToList())
+            {
+                bl.Add(new data(rg));
+            }
+            bs.CurrencyManager.Refresh();
         }
 
     }

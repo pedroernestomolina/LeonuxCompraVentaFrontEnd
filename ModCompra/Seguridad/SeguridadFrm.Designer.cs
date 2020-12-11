@@ -261,6 +261,7 @@
             this.TB_CLAVE.PasswordChar = '*';
             this.TB_CLAVE.Size = new System.Drawing.Size(406, 62);
             this.TB_CLAVE.TabIndex = 0;
+            this.TB_CLAVE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_CLAVE_KeyDown);
             // 
             // panel8
             // 
@@ -286,6 +287,7 @@
             this.BT_ACEPTAR.Text = "Procesar";
             this.BT_ACEPTAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_ACEPTAR.UseVisualStyleBackColor = true;
+            this.BT_ACEPTAR.Click += new System.EventHandler(this.BT_ACEPTAR_Click);
             // 
             // SeguridadFrm
             // 

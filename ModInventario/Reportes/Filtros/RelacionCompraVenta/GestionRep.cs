@@ -58,8 +58,10 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
             rt["costoDivisaUnd"] = ficha.costoDivisaUnd;
             ds.Tables["RelCompraVentaAlm"].Rows.Add(rt);
 
+
+            //COMPRAS
             var cUnd = 0.0m;
-            foreach (var it in ficha.compras.ToList())
+            foreach (var it in ficha.compras.ToList().OrderByDescending(o=>o.fecha).ToList())
             {
                 DataRow xrt = ds.Tables["RelCompraVentaAlmDet"].NewRow();
                 xrt["tipo"] = "COMPRA";
@@ -85,6 +87,8 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
                 ds.Tables["RelCompraVentaAlmDet"].Rows.Add(xrt);
             }
 
+
+            //VENTAS
             var mp = 0.0m;
             var vcnt = ficha.ventas.Sum(s => s.cnt);
             if (vcnt>0)
@@ -97,7 +101,29 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
             xrt2["costoPrecioDivisa"] = mp;
             xrt2["montoDivisa"] = ficha.ventas.Sum(s=>s.montoVentaDivisa);
             ds.Tables["RelCompraVentaAlmDet"].Rows.Add(xrt2);
-            diferencia = ficha.exUnd - (cUnd - vcnt);
+
+
+            var aUnd = 0.0m;
+            //ALMACEN
+            foreach (var it in ficha.almacen.ToList().OrderByDescending(o => o.fecha).ToList())
+            {
+                DataRow xrt = ds.Tables["RelCompraVentaAlmDet"].NewRow();
+                xrt["tipo"] = "ALMACEN";
+                xrt["documento"] = it.documento+Environment.NewLine+it.nombreDoc;
+                xrt["estatus"] = it.isAnulado ? "ANULADO" : "";
+                xrt["fecha"] = it.fecha;
+                xrt["cnt"] = it.cantUnd;
+                xrt["empaque"] = "UNIDAD";
+                xrt["contenido"] = 1;
+                if (!it.isAnulado) 
+                {
+                    xrt["cntUnd"] = it.cantUnd * it.signo;
+                    aUnd += (it.cantUnd * it.signo);
+                }
+                ds.Tables["RelCompraVentaAlmDet"].Rows.Add(xrt);
+            }
+            diferencia = ficha.exUnd - (cUnd + aUnd - vcnt);
+
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();

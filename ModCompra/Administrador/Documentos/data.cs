@@ -10,6 +10,39 @@ namespace ModCompra.Administrador.Documentos
     
     public class data
     {
+        
+        private OOB.LibCompra.Documento.Lista.Ficha rg;
+
+
+        public string AutoDoc { get { return rg.auto; } }
+        public DateTime Fecha { get { return rg.fechaEmision; } }
+        public string NombreDoc { get { return rg.tipoDocNombre; } }
+        public string Documento { get { return rg.documentoNro; } }
+        public DateTime FechaReg { get { return rg.fechaRegistro; } }
+        public string Sucursal { get { return rg.codigoSuc; } }
+        public string ProvNombre { get { return rg.provNombre; } }
+        public string ProvCiRif { get { return rg.provCiRif; } }
+        public decimal Importe { get { return rg.monto; } }
+        public decimal ImporteDivisa { get { return rg.montoDivisa; } }
+        public string Situacion { get { return rg.situacion; } }
+        public bool IsAnulado { get { return rg.esAnulado; } }
+        public string Estatus 
+        { 
+            get 
+            {
+                var rt = "";
+                rt = IsAnulado ? "ANULADO" : "";
+                return rt;
+            }
+        }
+
+
+
+        public data(OOB.LibCompra.Documento.Lista.Ficha rg)
+        {
+            this.rg = rg;
+        }
+
     }
 
 }

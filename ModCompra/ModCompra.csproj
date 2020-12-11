@@ -130,6 +130,8 @@
     <Compile Include="Documento\Cargar\Formulario\TotalizarFrm.Designer.cs">
       <DependentUpon>TotalizarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\data.cs" />
+    <Compile Include="Filtros\Gestion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -284,6 +284,7 @@
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModCompra.Properties.Resources.bt_salida_2;
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
@@ -292,6 +293,7 @@
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
             // panel3
             // 
@@ -432,6 +434,7 @@
             this.BT_LIMPIAR_FILTROS.TabIndex = 1;
             this.toolTip1.SetToolTip(this.BT_LIMPIAR_FILTROS, "Limpiar Filtros Busqueda");
             this.BT_LIMPIAR_FILTROS.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_FILTROS.Click += new System.EventHandler(this.BT_LIMPIAR_FILTROS_Click);
             // 
             // panel19
             // 
@@ -482,6 +485,7 @@
             this.BT_BUSCAR.TabIndex = 0;
             this.toolTip1.SetToolTip(this.BT_BUSCAR, "Buscar Movimientos");
             this.BT_BUSCAR.UseVisualStyleBackColor = true;
+            this.BT_BUSCAR.Click += new System.EventHandler(this.BT_BUSCAR_Click);
             // 
             // tableLayoutPanel8
             // 
@@ -552,6 +556,7 @@
             this.DTP_HASTA.Name = "DTP_HASTA";
             this.DTP_HASTA.Size = new System.Drawing.Size(111, 22);
             this.DTP_HASTA.TabIndex = 2;
+            this.DTP_HASTA.ValueChanged += new System.EventHandler(this.DTP_HASTA_ValueChanged);
             // 
             // panel24
             // 
@@ -595,6 +600,7 @@
             this.DTP_DESDE.Name = "DTP_DESDE";
             this.DTP_DESDE.Size = new System.Drawing.Size(111, 22);
             this.DTP_DESDE.TabIndex = 1;
+            this.DTP_DESDE.ValueChanged += new System.EventHandler(this.DTP_DESDE_ValueChanged);
             // 
             // panel22
             // 
@@ -733,11 +739,6 @@
             this.CB_TIPO_DOC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_TIPO_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_TIPO_DOC.FormattingEnabled = true;
-            this.CB_TIPO_DOC.Items.AddRange(new object[] {
-            "Cargo",
-            "DesCargo",
-            "Traslado",
-            "Ajuste"});
             this.CB_TIPO_DOC.Location = new System.Drawing.Point(2, 2);
             this.CB_TIPO_DOC.Name = "CB_TIPO_DOC";
             this.CB_TIPO_DOC.Size = new System.Drawing.Size(172, 24);
@@ -859,6 +860,7 @@
             this.BT_VISUALIZAR.TabIndex = 1;
             this.toolTip1.SetToolTip(this.BT_VISUALIZAR, "Visualizar Documento");
             this.BT_VISUALIZAR.UseVisualStyleBackColor = true;
+            this.BT_VISUALIZAR.Click += new System.EventHandler(this.BT_VISUALIZAR_Click);
             // 
             // panel10
             // 
@@ -933,6 +935,7 @@
             this.BT_LIMPIAR_DATA.TabIndex = 0;
             this.toolTip1.SetToolTip(this.BT_LIMPIAR_DATA, "Limpiar Vista Actual");
             this.BT_LIMPIAR_DATA.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_DATA.Click += new System.EventHandler(this.BT_LIMPIAR_DATA_Click);
             // 
             // panel14
             // 
@@ -1004,6 +1007,7 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(961, 372);
             this.DGV.TabIndex = 0;
+            this.DGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DataBindingComplete);
             // 
             // AdministradorFrm
             // 

@@ -18,11 +18,25 @@ namespace ModCompra.Seguridad
             {
                 if (ficha.NivelSeguridad != OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad.Niguna)
                 {
-                    var nivel = Seguridad.Enumerados.Nivel.Maximo;
-                    if (ficha.NivelSeguridad == OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad.Media)
-                        nivel = Seguridad.Enumerados.Nivel.Medio;
-                    else
-                        nivel = Seguridad.Enumerados.Nivel.Minimo;
+                    var nivel = Seguridad.Enumerados.Nivel.SinDefinir;
+                    switch (ficha.NivelSeguridad)
+                    {
+                        case OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad.Maxima:
+                            nivel = Seguridad.Enumerados.Nivel.Maximo;
+                            break;
+                        case OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad.Media:
+                            nivel = Seguridad.Enumerados.Nivel.Medio;
+                            break;
+                        case OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad.Minima:
+                            nivel = Seguridad.Enumerados.Nivel.Minimo;
+                            break;
+                    }
+                    //var nivel = Seguridad.Enumerados.Nivel.Maximo;
+                    //if (ficha.NivelSeguridad == OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad.Media)
+                    //    nivel = Seguridad.Enumerados.Nivel.Medio;
+                    //else
+                    //    nivel = Seguridad.Enumerados.Nivel.Minimo;
+
                     rt = PedirClave(nivel);
                 }
             }

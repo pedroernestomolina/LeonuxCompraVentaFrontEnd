@@ -122,8 +122,32 @@ namespace ModCajaBanco.Habladores
         {
             if (bl.Count > 0) 
             {
-                var rp = new Reportes.Hablador.GestionRep(lista);
+                var rp = new Reportes.Hablador.GestionRep(lista.Where(w=>w.imprimir).ToList());
                 rp.Generar();
+            }
+        }
+
+        public void MarcarTodos()
+        {
+            if (bl.Count > 0)
+            {
+                foreach (var it in bl)
+                {
+                    it.Marcar(true);
+                }
+                bs.CurrencyManager.Refresh();
+            }
+        }
+
+        public void DesMarcarTodos()
+        {
+            if (bl.Count > 0)
+            {
+                foreach (var it in bl)
+                {
+                    it.Marcar(false);
+                }
+                bs.CurrencyManager.Refresh();
             }
         }
 

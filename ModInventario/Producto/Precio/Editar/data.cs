@@ -120,7 +120,8 @@ namespace ModInventario.Producto.Precio.Editar
                         _neto = value;
                 }
                 CalculaFull();
-                CalculaUtilidad();
+                //CalculaUtilidad();
+                CalculaUtilidad2();
             }
         }
 
@@ -141,6 +142,31 @@ namespace ModInventario.Producto.Precio.Editar
                 {
                     _utilidad = ((1 - (Costo / _neto)) * 100);
                 }
+            }
+        }
+
+        private void CalculaUtilidad2()
+        {
+            if (modoCalculoUtilidad == enumModo.Lineal)
+            {
+                _utilidad = 0.0m;
+                //if (_neto > Costo)
+                //{
+                //    _utilidad = (((_neto / Costo) - 1) * 100);
+                //}
+                if (Costo > 0)
+                    if (_neto>0)
+                        _utilidad = (((_neto / Costo) - 1) * 100);
+            }
+            if (modoCalculoUtilidad == enumModo.Financiero)
+            {
+                _utilidad = 0.0m;
+                //if (_neto > Costo)
+                //{
+                //    _utilidad = ((1 - (Costo / _neto)) * 100);
+                //}
+                if (_neto > 0)
+                    _utilidad = ((1 - (Costo / _neto)) * 100);
             }
         }
 
@@ -183,7 +209,8 @@ namespace ModInventario.Producto.Precio.Editar
                         _full= value;
                 }
                 _neto = (_full / ((tasaIva / 100) + 1));
-                CalculaUtilidad();
+                //CalculaUtilidad();
+                CalculaUtilidad2();
             }
         }
 
@@ -306,32 +333,47 @@ namespace ModInventario.Producto.Precio.Editar
             preferenciaPrecio = prefPrec;
 
             _utilidad = ut;
-            if (ut == 0.0m)
-                return;
+            //if (ut == 0.0m)
+            //    return;
 
             if (modoDivisa)
             {
                 _full = precio;
-                if (Costo==0.0m)
-                    _neto= _full/ ((tasaIva /100)+1);
+                if (Costo == 0.0m)
+                    _neto = _full / ((tasaIva / 100) + 1);
                 else
-                    CalculaNeto();
+                {
+                    //CalculaNeto();
+                    CalculaNeto2();
+                }
                 CalculaFull();
             }
             else
             {
                 _neto = precio;
                 CalculaFull();
-                if (Costo!=0.0m)
-                    CalculaNeto();
+                if (Costo != 0.0m)
+                {
+                    //CalculaNeto();
+                    CalculaNeto2();
+                }
             }
+
+            //CalculaUtilidad();
+            CalculaUtilidad2();
+        }
+
+        private void CalculaNeto2()
+        {
+            _neto = _full / ((tasaIva / 100) + 1);
         }
 
         public void sw()
         {
             costoUnd = costo2;
             neto = neto2;
-            CalculaUtilidad();
+            //CalculaUtilidad();
+            CalculaUtilidad2();
             CalculaFull();
             isDivisa = !isDivisa;
         }
@@ -352,6 +394,16 @@ namespace ModInventario.Producto.Precio.Editar
             utilidadVigente = 0.0m;
             modoRedondeo = enumModoRedondeo.SinRedondeo;
             preferenciaPrecio = enumPreferenciaPrecio.Neto;
+        }
+
+        public bool IsOk() 
+        {
+            var rt = true;
+
+            if (utilidad < 0)
+                return false;
+
+            return rt;
         }
 
     }

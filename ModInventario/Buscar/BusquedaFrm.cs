@@ -235,12 +235,24 @@ namespace ModInventario.Buscar
             L_FECHA_ALTA.Text = _controlador.Item.FechaAlta.ToShortDateString();
             L_FECHA_ACT.Text= _controlador.Item.FechaUltimaActualizacion;
 
-            L_CostoUnd.Text = _controlador.Item.CostoDivisaUnd.ToString("n2");
-            PN_1.Text = _controlador.Item.PDivisaNeto_1.ToString("n2");
-            PN_2.Text = _controlador.Item.PDivisaNeto_2.ToString("n2");
-            PN_3.Text = _controlador.Item.PDivisaNeto_3.ToString("n2");
-            PN_4.Text = _controlador.Item.PDivisaNeto_4.ToString("n2");
-            PN_5.Text = _controlador.Item.PDivisaNeto_5.ToString("n2");
+            if (_controlador.Item.identidad.AdmPorDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si)
+            {
+                L_CostoUnd.Text = _controlador.Item.CostoDivisaUnd.ToString("n2");
+                PN_1.Text = _controlador.Item.PDivisaNeto_1.ToString("n2");
+                PN_2.Text = _controlador.Item.PDivisaNeto_2.ToString("n2");
+                PN_3.Text = _controlador.Item.PDivisaNeto_3.ToString("n2");
+                PN_4.Text = _controlador.Item.PDivisaNeto_4.ToString("n2");
+                PN_5.Text = _controlador.Item.PDivisaNeto_5.ToString("n2");
+            }
+            else
+            {
+                L_CostoUnd.Text = _controlador.Item.CostoUnidad.ToString("n2");
+                PN_1.Text = _controlador.Item.PNeto_1.ToString("n2");
+                PN_2.Text = _controlador.Item.PNeto_2.ToString("n2");
+                PN_3.Text = _controlador.Item.PNeto_3.ToString("n2");
+                PN_4.Text = _controlador.Item.PNeto_4.ToString("n2");
+                PN_5.Text = _controlador.Item.PNeto_5.ToString("n2");
+            }
         }
 
         private void LimpiarEtiquetas()

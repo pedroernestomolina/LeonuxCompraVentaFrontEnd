@@ -64,6 +64,13 @@ namespace DataProvInventario.Data
                         nr.PDivisaFull_4 = s.pDivisaFull_4;
                         nr.PDivisaFull_5 = s.pDivisaFull_5;
 
+                        nr.Costo = s.costo;
+                        nr.PNeto_1 = s.pNeto1;
+                        nr.PNeto_2 = s.pNeto2;
+                        nr.PNeto_3 = s.pNeto3;
+                        nr.PNeto_4 = s.pNeto4;
+                        nr.PNeto_5 = s.pNeto5;
+
                         var id = nr.identidad;
                         id.auto = s.auto;
                         id.codigo = s.codigo;
@@ -655,6 +662,47 @@ namespace DataProvInventario.Data
                 estatusCatalogo=ficha.estatusCatalogo,
                 tasaImpuesto=ficha.tasaImpuesto,
             };
+            if (ficha.precio_1 != null) 
+            {
+                fichaDTO.precio_1 = new DtoLibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                {
+                    divisaFull = ficha.precio_1.divisaFull,
+                    neto = ficha.precio_1.neto,
+                };
+            }
+            if (ficha.precio_2 != null)
+            {
+                fichaDTO.precio_2 = new DtoLibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                {
+                    divisaFull = ficha.precio_2.divisaFull,
+                    neto = ficha.precio_2.neto,
+                };
+            }
+            if (ficha.precio_3 != null)
+            {
+                fichaDTO.precio_3 = new DtoLibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                {
+                    divisaFull = ficha.precio_3.divisaFull,
+                    neto = ficha.precio_3.neto,
+                };
+            }
+            if (ficha.precio_4 != null)
+            {
+                fichaDTO.precio_4 = new DtoLibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                {
+                    divisaFull = ficha.precio_4.divisaFull,
+                    neto = ficha.precio_4.neto,
+                };
+            }
+            if (ficha.precio_5 != null)
+            {
+                fichaDTO.precio_5 = new DtoLibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                {
+                    divisaFull = ficha.precio_5.divisaFull,
+                    neto = ficha.precio_5.neto,
+                };
+            }
+
             var codAlterno = new List<DtoLibInventario.Producto.Editar.Actualizar.FichaCodAlterno>();
             foreach (var rg in ficha.codigosAlterno) 
             {

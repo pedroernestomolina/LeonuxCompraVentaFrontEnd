@@ -38,7 +38,7 @@ namespace ModCajaBanco.Habladores
             DGV.AllowUserToOrderColumns = false;
             DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGV.MultiSelect = false;
-            DGV.ReadOnly = true;
+            DGV.ReadOnly = false;
 
             var c1 = new DataGridViewTextBoxColumn();
             c1.DataPropertyName = "CodigoPrd";
@@ -47,6 +47,7 @@ namespace ModCajaBanco.Habladores
             c1.Width = 110;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
+            c1.ReadOnly = true;
 
             var c2 = new DataGridViewTextBoxColumn();
             c2.DataPropertyName = "NombrePrd";
@@ -56,6 +57,7 @@ namespace ModCajaBanco.Habladores
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c2.ReadOnly = true;
 
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "PrecioFull";
@@ -66,6 +68,7 @@ namespace ModCajaBanco.Habladores
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c3.DefaultCellStyle.Format = "n2";
+            c3.ReadOnly = true;
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "DivisaFull";
@@ -76,12 +79,23 @@ namespace ModCajaBanco.Habladores
             c4.Width = 90;
             c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c4.DefaultCellStyle.Format="n2" ;
+            c4.ReadOnly = true;
 
+            var c5 = new DataGridViewCheckBoxColumn();
+            c5.DataPropertyName = "Imprimir";
+            c5.HeaderText = "Imprime";
+            c5.Visible = true;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+            c5.Width = 60;
+            c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c5.ReadOnly=false;
 
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
+            DGV.Columns.Add(c5);
         }
 
 
@@ -142,6 +156,26 @@ namespace ModCajaBanco.Habladores
         private void ImprimirHablador()
         {
             _controlador.ImprimirHablador();
+        }
+
+        private void BT_MARCAR_TODOS_Click(object sender, EventArgs e)
+        {
+            MarcarTodos();
+        }
+
+        private void MarcarTodos()
+        {
+            _controlador.MarcarTodos();
+        }
+
+        private void BT_DESMARCAR_TODOS_Click(object sender, EventArgs e)
+        {
+            DesMarcarTodos();
+        }
+
+        private void DesMarcarTodos()
+        {
+            _controlador.DesMarcarTodos();
         }
 
     }

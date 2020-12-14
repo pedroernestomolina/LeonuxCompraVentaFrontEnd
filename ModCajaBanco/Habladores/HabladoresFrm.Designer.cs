@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -54,11 +55,15 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.BT_IMPRIMIR = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.BT_DESMARCAR_TODOS = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.BT_MARCAR_TODOS = new System.Windows.Forms.Button();
             this.BT_VISUALIZAR = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.BT_ANULAR = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.BT_LIMPIAR_DATA = new System.Windows.Forms.Button();
@@ -68,8 +73,7 @@
             this.L_ITEMS = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.BT_ANULAR = new System.Windows.Forms.Button();
-            this.BT_IMPRIMIR = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -91,6 +95,7 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -387,6 +392,7 @@
             this.BT_BUSCAR.Name = "BT_BUSCAR";
             this.BT_BUSCAR.Size = new System.Drawing.Size(60, 34);
             this.BT_BUSCAR.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.BT_BUSCAR, "Iniciar Busqueda");
             this.BT_BUSCAR.UseVisualStyleBackColor = true;
             this.BT_BUSCAR.Click += new System.EventHandler(this.BT_BUSCAR_Click);
             // 
@@ -456,8 +462,24 @@
             this.panel13.Size = new System.Drawing.Size(34, 26);
             this.panel13.TabIndex = 5;
             // 
+            // BT_IMPRIMIR
+            // 
+            this.BT_IMPRIMIR.BackgroundImage = global::ModCajaBanco.Properties.Resources.bt_imprimir_3;
+            this.BT_IMPRIMIR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_IMPRIMIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_IMPRIMIR.FlatAppearance.BorderSize = 0;
+            this.BT_IMPRIMIR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_IMPRIMIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_IMPRIMIR.Name = "BT_IMPRIMIR";
+            this.BT_IMPRIMIR.Size = new System.Drawing.Size(30, 22);
+            this.BT_IMPRIMIR.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_IMPRIMIR, "Imprimir ");
+            this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
+            // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.BT_DESMARCAR_TODOS);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(35, 29);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
@@ -466,8 +488,24 @@
             this.panel12.Size = new System.Drawing.Size(32, 26);
             this.panel12.TabIndex = 4;
             // 
+            // BT_DESMARCAR_TODOS
+            // 
+            this.BT_DESMARCAR_TODOS.BackgroundImage = global::ModCajaBanco.Properties.Resources.desMarcarTodos;
+            this.BT_DESMARCAR_TODOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_DESMARCAR_TODOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_DESMARCAR_TODOS.FlatAppearance.BorderSize = 0;
+            this.BT_DESMARCAR_TODOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_DESMARCAR_TODOS.Location = new System.Drawing.Point(2, 2);
+            this.BT_DESMARCAR_TODOS.Name = "BT_DESMARCAR_TODOS";
+            this.BT_DESMARCAR_TODOS.Size = new System.Drawing.Size(28, 22);
+            this.BT_DESMARCAR_TODOS.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.BT_DESMARCAR_TODOS, "DesMarcar Todos");
+            this.BT_DESMARCAR_TODOS.UseVisualStyleBackColor = true;
+            this.BT_DESMARCAR_TODOS.Click += new System.EventHandler(this.BT_DESMARCAR_TODOS_Click);
+            // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.BT_MARCAR_TODOS);
             this.panel11.Controls.Add(this.BT_VISUALIZAR);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(1, 29);
@@ -476,6 +514,21 @@
             this.panel11.Padding = new System.Windows.Forms.Padding(2);
             this.panel11.Size = new System.Drawing.Size(32, 26);
             this.panel11.TabIndex = 3;
+            // 
+            // BT_MARCAR_TODOS
+            // 
+            this.BT_MARCAR_TODOS.BackgroundImage = global::ModCajaBanco.Properties.Resources.seleccionTodos;
+            this.BT_MARCAR_TODOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_MARCAR_TODOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_MARCAR_TODOS.FlatAppearance.BorderSize = 0;
+            this.BT_MARCAR_TODOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_MARCAR_TODOS.Location = new System.Drawing.Point(2, 2);
+            this.BT_MARCAR_TODOS.Name = "BT_MARCAR_TODOS";
+            this.BT_MARCAR_TODOS.Size = new System.Drawing.Size(28, 22);
+            this.BT_MARCAR_TODOS.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_MARCAR_TODOS, "Marcar Todos");
+            this.BT_MARCAR_TODOS.UseVisualStyleBackColor = true;
+            this.BT_MARCAR_TODOS.Click += new System.EventHandler(this.BT_MARCAR_TODOS_Click);
             // 
             // BT_VISUALIZAR
             // 
@@ -511,6 +564,21 @@
             this.panel8.Size = new System.Drawing.Size(32, 26);
             this.panel8.TabIndex = 1;
             // 
+            // BT_ANULAR
+            // 
+            this.BT_ANULAR.BackgroundImage = global::ModCajaBanco.Properties.Resources.bt_eliminar;
+            this.BT_ANULAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ANULAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ANULAR.FlatAppearance.BorderSize = 0;
+            this.BT_ANULAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ANULAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_ANULAR.Name = "BT_ANULAR";
+            this.BT_ANULAR.Size = new System.Drawing.Size(28, 22);
+            this.BT_ANULAR.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_ANULAR, "Eliminar Item");
+            this.BT_ANULAR.UseVisualStyleBackColor = true;
+            this.BT_ANULAR.Click += new System.EventHandler(this.BT_ANULAR_Click);
+            // 
             // button2
             // 
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -545,6 +613,7 @@
             this.BT_LIMPIAR_DATA.Name = "BT_LIMPIAR_DATA";
             this.BT_LIMPIAR_DATA.Size = new System.Drawing.Size(28, 22);
             this.BT_LIMPIAR_DATA.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.BT_LIMPIAR_DATA, "Limpiar Items");
             this.BT_LIMPIAR_DATA.UseVisualStyleBackColor = true;
             this.BT_LIMPIAR_DATA.Click += new System.EventHandler(this.BT_LIMPIAR_DATA_Click);
             // 
@@ -619,34 +688,6 @@
             this.DGV.Size = new System.Drawing.Size(646, 311);
             this.DGV.TabIndex = 0;
             // 
-            // BT_ANULAR
-            // 
-            this.BT_ANULAR.BackgroundImage = global::ModCajaBanco.Properties.Resources.bt_eliminar;
-            this.BT_ANULAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_ANULAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ANULAR.FlatAppearance.BorderSize = 0;
-            this.BT_ANULAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_ANULAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_ANULAR.Name = "BT_ANULAR";
-            this.BT_ANULAR.Size = new System.Drawing.Size(28, 22);
-            this.BT_ANULAR.TabIndex = 2;
-            this.BT_ANULAR.UseVisualStyleBackColor = true;
-            this.BT_ANULAR.Click += new System.EventHandler(this.BT_ANULAR_Click);
-            // 
-            // BT_IMPRIMIR
-            // 
-            this.BT_IMPRIMIR.BackgroundImage = global::ModCajaBanco.Properties.Resources.bt_imprimir_3;
-            this.BT_IMPRIMIR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_IMPRIMIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_IMPRIMIR.FlatAppearance.BorderSize = 0;
-            this.BT_IMPRIMIR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_IMPRIMIR.Location = new System.Drawing.Point(2, 2);
-            this.BT_IMPRIMIR.Name = "BT_IMPRIMIR";
-            this.BT_IMPRIMIR.Size = new System.Drawing.Size(30, 22);
-            this.BT_IMPRIMIR.TabIndex = 2;
-            this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
-            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
-            // 
             // HabladoresFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,6 +721,7 @@
             this.panel6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -736,5 +778,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BT_IMPRIMIR;
         private System.Windows.Forms.Button BT_ANULAR;
+        private System.Windows.Forms.Button BT_MARCAR_TODOS;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button BT_DESMARCAR_TODOS;
     }
 }

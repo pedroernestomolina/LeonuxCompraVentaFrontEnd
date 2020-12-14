@@ -271,6 +271,7 @@
     <Content Include="Imagenes\bt_visor.png" />
     <Content Include="Imagenes\bt_warehouse.png" />
     <Content Include="Imagenes\carpeta.png" />
+    <Content Include="Imagenes\desMarcarTodos.png" />
     <Content Include="Imagenes\dollar.png" />
     <Content Include="Imagenes\fecha_derecha.png" />
     <Content Include="Imagenes\flecha_izquierda.png" />
@@ -280,10 +281,13 @@
     <Content Include="Imagenes\libro.png" />
     <Content Include="Imagenes\Machine-learning-1024x682.jpg" />
     <Content Include="Imagenes\mobile.ico" />
+    <Content Include="Imagenes\seleccionTodos.png" />
     <Content Include="Imagenes\sinImagen.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\desMarcarTodos.png" />
+    <None Include="Resources\seleccionTodos.png" />
     <None Include="Resources\TOOLS.ico" />
     <None Include="Resources\sinImagen.png" />
     <None Include="Resources\mobile.ico" />

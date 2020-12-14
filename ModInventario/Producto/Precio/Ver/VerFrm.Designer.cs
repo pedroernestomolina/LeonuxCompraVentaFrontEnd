@@ -93,11 +93,11 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.L_EMP_1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.L_PREF_FULL = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.L_ETQ_1 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.L_PREF_NETO = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -984,7 +984,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.label7);
+            this.panel10.Controls.Add(this.L_PREF_FULL);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(522, 2);
             this.panel10.Margin = new System.Windows.Forms.Padding(1);
@@ -993,17 +993,17 @@
             this.panel10.Size = new System.Drawing.Size(104, 27);
             this.panel10.TabIndex = 5;
             // 
-            // label7
+            // L_PREF_FULL
             // 
-            this.label7.BackColor = System.Drawing.Color.SteelBlue;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(2, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "P/Full";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.L_PREF_FULL.BackColor = System.Drawing.Color.SteelBlue;
+            this.L_PREF_FULL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PREF_FULL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PREF_FULL.Location = new System.Drawing.Point(2, 2);
+            this.L_PREF_FULL.Name = "L_PREF_FULL";
+            this.L_PREF_FULL.Size = new System.Drawing.Size(100, 23);
+            this.L_PREF_FULL.TabIndex = 4;
+            this.L_PREF_FULL.Text = "P/Full";
+            this.L_PREF_FULL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel11
             // 
@@ -1029,7 +1029,7 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.label6);
+            this.panel9.Controls.Add(this.L_PREF_NETO);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(418, 2);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
@@ -1038,17 +1038,17 @@
             this.panel9.Size = new System.Drawing.Size(102, 27);
             this.panel9.TabIndex = 4;
             // 
-            // label6
+            // L_PREF_NETO
             // 
-            this.label6.BackColor = System.Drawing.Color.SteelBlue;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 23);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "P/Neto";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.L_PREF_NETO.BackColor = System.Drawing.Color.SteelBlue;
+            this.L_PREF_NETO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PREF_NETO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PREF_NETO.Location = new System.Drawing.Point(2, 2);
+            this.L_PREF_NETO.Name = "L_PREF_NETO";
+            this.L_PREF_NETO.Size = new System.Drawing.Size(98, 23);
+            this.L_PREF_NETO.TabIndex = 3;
+            this.L_PREF_NETO.Text = "P/Neto";
+            this.L_PREF_NETO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel8
             // 
@@ -1618,8 +1618,8 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label L_PREF_FULL;
+        private System.Windows.Forms.Label L_PREF_NETO;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

@@ -24,10 +24,15 @@ namespace OOB.LibInventario.Precio.PrecioCosto
         public string etiqueta5 { get; set; }
 
         public decimal precioNeto1 { get; set; }
+        public decimal precioFull1 { get { return precioNeto1 * ((tasaIva / 100) + 1); } }
         public decimal precioNeto2 { get; set; }
+        public decimal precioFull2 { get { return precioNeto2 * ((tasaIva / 100) + 1); } }
         public decimal precioNeto3 { get; set; }
+        public decimal precioFull3 { get { return precioNeto3 * ((tasaIva / 100) + 1); } }
         public decimal precioNeto4 { get; set; }
+        public decimal precioFull4 { get { return precioNeto4 * ((tasaIva / 100) + 1); } }
         public decimal precioNeto5 { get; set; }
+        public decimal precioFull5 { get { return precioNeto5 * ((tasaIva / 100) + 1); } }
 
         public string autoEmp1 { get; set; }
         public string autoEmp2 { get; set; }
@@ -50,10 +55,15 @@ namespace OOB.LibInventario.Precio.PrecioCosto
         public OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
 
         public decimal precioFullDivisa1 { get; set; }
+        public decimal precioNetoDivisa1 { get { return precioFullDivisa1 / ((tasaIva / 100)+1); } }
         public decimal precioFullDivisa2 { get; set; }
+        public decimal precioNetoDivisa2 { get { return precioFullDivisa2 / ((tasaIva / 100) + 1); } }
         public decimal precioFullDivisa3 { get; set; }
+        public decimal precioNetoDivisa3 { get { return precioFullDivisa3 / ((tasaIva / 100) + 1); } }
         public decimal precioFullDivisa4 { get; set; }
+        public decimal precioNetoDivisa4 { get { return precioFullDivisa4 / ((tasaIva / 100) + 1); } }
         public decimal precioFullDivisa5 { get; set; }
+        public decimal precioNetoDivisa5 { get { return precioFullDivisa5 / ((tasaIva / 100) + 1); } }
 
         public string fechaUltimaActCosto { get; set; }
         public string empCompra { get; set; }

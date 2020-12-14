@@ -14,11 +14,14 @@ namespace ModPos.Facturacion
 
         private CtrlBuscar _ctrBuscar;
         private string _tarifaPrecio;
-        private bool _etiquetarPrecioPorTipoNegocio; 
+        private bool _etiquetarPrecioPorTipoNegocio;
+        private decimal _factorCambio;
         public Consultor.Consulta Ficha { get; set; }
 
         public string TarifaPrecio { get { return _tarifaPrecio; } }
         public bool EtiquetarPrecioPorTipoNegocio { get { return _etiquetarPrecioPorTipoNegocio; } }
+
+        public decimal FactorCambio { get { return _factorCambio; } }
 
 
         public CtrConsulta(CtrlBuscar buscar)
@@ -51,6 +54,11 @@ namespace ModPos.Facturacion
         public void setEtiquetarPrecioPorTipoNegocio(bool etiquetarPrecio) 
         {
             _etiquetarPrecioPorTipoNegocio = etiquetarPrecio;
+        }
+
+        public void setFactorCambio(decimal factor)
+        {
+            _factorCambio = factor;
         }
 
     }

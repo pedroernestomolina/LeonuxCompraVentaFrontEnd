@@ -114,6 +114,44 @@ namespace ModInventario.Producto.Precio.Editar
             TB_CONT_4.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
             TB_CONT_5.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
 
+            TB_NETO_1.Enabled = true;
+            TB_NETO_2.Enabled = true;
+            TB_NETO_3.Enabled = true;
+            TB_NETO_4.Enabled = true;
+            TB_NETO_5.Enabled = true;
+            TB_FULL_1.Enabled = true;
+            TB_FULL_2.Enabled = true;
+            TB_FULL_3.Enabled = true;
+            TB_FULL_4.Enabled = true;
+            TB_FULL_5.Enabled = true;
+
+            if (_controlador.PrefRegistroPrecioIsNeto)
+            {
+                TB_NETO_1.Enabled = true;
+                TB_NETO_2.Enabled = true;
+                TB_NETO_3.Enabled = true;
+                TB_NETO_4.Enabled = true;
+                TB_NETO_5.Enabled = true;
+                TB_FULL_1.Enabled = false;
+                TB_FULL_2.Enabled = false;
+                TB_FULL_3.Enabled = false;
+                TB_FULL_4.Enabled = false;
+                TB_FULL_5.Enabled = false;
+            }
+            else 
+            {
+                TB_NETO_1.Enabled = false;
+                TB_NETO_2.Enabled = false;
+                TB_NETO_3.Enabled = false;
+                TB_NETO_4.Enabled = false;
+                TB_NETO_5.Enabled = false;
+                TB_FULL_1.Enabled = true;
+                TB_FULL_2.Enabled = true;
+                TB_FULL_3.Enabled = true;
+                TB_FULL_4.Enabled = true;
+                TB_FULL_5.Enabled = true;
+            }
+
             L_MODO_DIVISA.Visible = _controlador.IsModoDivisa;
             modoInicializar = false;
         }

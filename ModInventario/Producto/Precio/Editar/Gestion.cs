@@ -33,6 +33,8 @@ namespace ModInventario.Producto.Precio.Editar
         public string MetodoCalculoUtilidad { get { return miGestion.MetodoCalculoUtilidad; } }
         public string TasaCambioActual { get { return miGestion.TasaCambioActual; } }
         public string FechaUltActCosto { get { return miGestion.FechaUltActCosto; } }
+        public bool PrefRegistroPrecioIsNeto { get { return miGestion.PrefRegistroPrecioIsNeto; } }
+
 
         public data Precio_1 { get { return miGestion.Precio_1; } }
         public data Precio_2 { get { return miGestion.Precio_2; } }
@@ -43,6 +45,7 @@ namespace ModInventario.Producto.Precio.Editar
         public bool Habilitar_Empaque { get { return miGestion.Habilitar_Empaque; } }
         public bool IsCerrarHabilitado { get { return miGestion.IsCerrarHabilitado; } }
         public bool IsModoDivisa { get { return miGestion.IsModoDivisa; } }
+        public bool IsEditarPrecioOk { get { return miGestion.IsEditarPrecioOk; } }
 
 
         public Gestion(IGestion gestion)

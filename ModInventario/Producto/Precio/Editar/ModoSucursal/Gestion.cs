@@ -24,7 +24,9 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         private decimal costoUnd;
         private decimal costoUndDivisa;
         private bool _isCerrarHabilitado;
-        private OOB.LibInventario.Precio.PrecioCosto.Ficha fichaPrecioCosto; 
+        private OOB.LibInventario.Precio.PrecioCosto.Ficha fichaPrecioCosto;
+        private bool prefRegistroPrecioIsNeto;
+        private bool editarPrecioIsOk;
 
         private List<OOB.LibInventario.EmpaqueMedida.Ficha> empaque1;
         private List<OOB.LibInventario.EmpaqueMedida.Ficha> empaque2;
@@ -108,6 +110,16 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
             get { return false; }
         }
 
+        public bool PrefRegistroPrecioIsNeto
+        {
+            get { return prefRegistroPrecioIsNeto; }
+        }
+
+        public bool IsEditarPrecioOk
+        {
+            get { return editarPrecioIsOk; }
+        }
+
 
         public Gestion()
         {
@@ -182,6 +194,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 Helpers.Msg.Error(r06.Mensaje);
                 return false;
             }
+            prefRegistroPrecioIsNeto = (r06.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Neto);
 
             //PREFERENCIA PRECIO
             var preferenciaPrecio = data.enumPreferenciaPrecio.Neto;
@@ -307,6 +320,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
 
         public void Procesar()
         {
+            editarPrecioIsOk = false;
             var msg = "Procesar Cambios ?";
             var rt = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (rt == DialogResult.Yes)
@@ -322,6 +336,33 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         private bool Guardar()
         {
             var rt = true;
+
+            if (!precio_1.IsOk())
+            {
+                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 1 ) INCORRECTO");
+                return false;
+            }
+            if (!precio_2.IsOk())
+            {
+                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 2 ) INCORRECTO");
+                return false;
+            }
+            if (!precio_3.IsOk())
+            {
+                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 3 ) INCORRECTO");
+                return false;
+            }
+            if (!precio_4.IsOk())
+            {
+                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 4 ) INCORRECTO");
+                return false;
+            }
+            if (!precio_5.IsOk())
+            {
+                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 5 ) INCORRECTO");
+                return false;
+            }
+
             var ficha = new OOB.LibInventario.Precio.Editar.Ficha()
             {
                 autoProducto = autoPrd,
@@ -425,6 +466,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            editarPrecioIsOk = true;
 
             return rt;
         }
@@ -479,6 +521,8 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
 
         public void Limpiar()
         {
+            editarPrecioIsOk = false;
+
             precio_1.Limpiar();
             precio_2.Limpiar();
             precio_3.Limpiar();

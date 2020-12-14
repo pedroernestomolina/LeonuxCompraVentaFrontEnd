@@ -65,16 +65,16 @@ namespace ModPos.Facturacion
                 {
                     razonsocial_1 = n.Substring(0,40);
                     razonsocial_2 = n.Substring(40,40);
-                    razonsocial_3 = n.Substring(80, l);
+                    razonsocial_3 = n.Substring(80);
                 }
                 if (n.Length>40 && n.Length<=80) 
                 {
                     razonsocial_1 = n.Substring(0, 40);
-                    razonsocial_2 = n.Substring(40, l);
+                    razonsocial_2 = n.Substring(40);
                 }
                 if (n.Length > 0 && n.Length <=40)
                 {
-                    razonsocial_1 = n.Substring(0, l);
+                    razonsocial_1 = n.Substring(0);
                 }
 
                 var nd = ficha.DireccionFiscal.Trim();
@@ -102,11 +102,11 @@ namespace ModPos.Facturacion
                 if (nd.Length > 40 && nd.Length <=80)
                 {
                     direcionFiscal_1 = nd.Substring(0, 40);
-                    direcionFiscal_2 = nd.Substring(40, ld);
+                    direcionFiscal_2 = nd.Substring(40);
                 }
                 if (nd.Length > 0 && nd.Length <= 40)
                 {
-                    direcionFiscal_1 = nd.Substring(0, ld);
+                    direcionFiscal_1 = nd.Substring(0);
                 }
 
                 var tlf = ficha.Telefono.Trim();
@@ -119,11 +119,11 @@ namespace ModPos.Facturacion
                 if (ltlf> 40 && ltlf<=80)
                 {
                     telefono_1 = tlf.Substring(0, 40);
-                    telefono_2 = tlf.Substring(40, ltlf);
+                    telefono_2 = tlf.Substring(40);
                 }
                 if (ltlf > 0 && ltlf <= 40)
                 {
-                    telefono_1 = tlf.Substring(0, ltlf);
+                    telefono_1 = tlf.Substring(0);
                 }
             }
         }

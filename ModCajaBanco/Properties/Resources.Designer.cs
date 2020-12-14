@@ -603,6 +603,16 @@ namespace ModCajaBanco.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap desMarcarTodos {
+            get {
+                object obj = ResourceManager.GetObject("desMarcarTodos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dollar {
             get {
                 object obj = ResourceManager.GetObject("dollar", resourceCulture);
@@ -687,6 +697,16 @@ namespace ModCajaBanco.Properties {
             get {
                 object obj = ResourceManager.GetObject("mobile", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seleccionTodos {
+            get {
+                object obj = ResourceManager.GetObject("seleccionTodos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

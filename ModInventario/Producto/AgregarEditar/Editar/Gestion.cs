@@ -17,6 +17,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         private bool _isCerrarHabilitado;
         private string _autoProductoAgregado;
         private bool _isAgregarEditarOk;
+        private string autoTasaActualPrd; 
 
         private List<OOB.LibInventario.Departamento.Ficha> depart;
         private BindingList<OOB.LibInventario.Departamento.Ficha> blDepart;
@@ -508,6 +509,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 Helpers.Msg.Error(r0A.Mensaje);
                 return false;
             }
+            autoTasaActualPrd = r0A.Entidad.autoTasaImpuesto;
             miData.setFicha(r0A.Entidad);
 
             _gestionCodAlterno.CargarData(r0A.Entidad.CodigosAlterno);
@@ -578,6 +580,119 @@ namespace ModInventario.Producto.AgregarEditar.Editar
                 estatusCatalogo=_catalogo,
                 tasaImpuesto= entImpuesto.tasa,
             };
+
+            if (autoTasaActualPrd != miData.AutoImpuesto) 
+            {
+                var xr1 = Sistema.MyData.PrecioCosto_GetFicha(autoPrd);
+                if (xr1.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(xr1.Mensaje);
+                    return false;
+                }
+                var xr2 = Sistema.MyData.Configuracion_TasaCambioActual();
+                if (xr2.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(xr2.Mensaje);
+                    return false;
+                }
+                var xr3 = Sistema.MyData.TasaImpuesto_GetLista();
+                if (xr3.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(xr3.Mensaje);
+                    return false;
+                }
+                var xr4 = Sistema.MyData.Configuracion_PreferenciaRegistroPrecio();
+                if (xr4.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(xr4.Mensaje);
+                    return false;
+                }
+
+                var xtasa = 0.0m;
+                var tasa = xr3.Lista.FirstOrDefault(f => f.auto == miData.AutoImpuesto);
+                if (tasa != null)
+                    xtasa = tasa.tasa;
+                var factor = xr2.Entidad;
+
+                var p = new precio();
+                if (miData.EsAdmDivisa)
+                {
+                    p.Calculo_AdmDivisa(factor, xtasa, xr1.Entidad.precioFullDivisa1, xr1.Entidad.precioNetoDivisa1, xr4.Entidad);
+                    var precio1 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull =   p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_AdmDivisa(factor, xtasa, xr1.Entidad.precioFullDivisa2, xr1.Entidad.precioNetoDivisa2, xr4.Entidad);
+                    var precio2 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_AdmDivisa(factor, xtasa, xr1.Entidad.precioFullDivisa3, xr1.Entidad.precioNetoDivisa3, xr4.Entidad);
+                    var precio3 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_AdmDivisa(factor, xtasa, xr1.Entidad.precioFullDivisa4, xr1.Entidad.precioNetoDivisa4, xr4.Entidad);
+                    var precio4 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_AdmDivisa(factor, xtasa, xr1.Entidad.precioFullDivisa5, xr1.Entidad.precioNetoDivisa5, xr4.Entidad);
+                    var precio5 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    ficha.precio_1 = precio1;
+                    ficha.precio_2 = precio2;
+                    ficha.precio_3 = precio3;
+                    ficha.precio_4 = precio4;
+                    ficha.precio_5 = precio5;
+                }
+                else 
+                {
+                    p.Calculo_NoAdmDivisa(factor, xtasa, xr1.Entidad.precioFull1, xr1.Entidad.precioNeto1, xr4.Entidad);
+                    var precio1 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_NoAdmDivisa(factor, xtasa, xr1.Entidad.precioFull2, xr1.Entidad.precioNeto2, xr4.Entidad);
+                    var precio2 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_NoAdmDivisa(factor, xtasa, xr1.Entidad.precioFull3, xr1.Entidad.precioNeto3, xr4.Entidad);
+                    var precio3 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_NoAdmDivisa(factor, xtasa, xr1.Entidad.precioFull4, xr1.Entidad.precioNeto4, xr4.Entidad);
+                    var precio4 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    p.Calculo_NoAdmDivisa(factor, xtasa, xr1.Entidad.precioFull5, xr1.Entidad.precioNeto5, xr4.Entidad);
+                    var precio5 = new OOB.LibInventario.Producto.Editar.Actualizar.FichaPrecio()
+                    {
+                        divisaFull = p.divisaFull,
+                        neto = p.neto,
+                    };
+                    ficha.precio_1 = precio1;
+                    ficha.precio_2 = precio2;
+                    ficha.precio_3 = precio3;
+                    ficha.precio_4 = precio4;
+                    ficha.precio_5 = precio5;
+                }
+            }
+
             var codAlterno = new List<OOB.LibInventario.Producto.Editar.Actualizar.FichaCodigoAlterno>();
             foreach (var rg in _gestionCodAlterno.ListaCodigos)
             {
@@ -596,6 +711,7 @@ namespace ModInventario.Producto.AgregarEditar.Editar
             Helpers.Msg.EditarOk();
             return rt;
         }
+
 
         public void InicializarIsCerrarHabilitado()
         {

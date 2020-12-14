@@ -21,6 +21,7 @@ namespace ModInventario.Producto.Costo.Editar
         private costo _costoFinal;
         private bool _isAdmDivisa;
         private bool _isCerrarHabilitado;
+        private bool _editarCostoIsOk;
 
         private string producto;
         private string costoUnit;
@@ -51,6 +52,7 @@ namespace ModInventario.Producto.Costo.Editar
         public string TasaCambioActual { get { return tasaCambioActual.ToString("n2"); } }
         public string FechaUltActCosto { get { return fechaUltActCosto; } }
         public bool IsCerrarHabilitado { get { return _isCerrarHabilitado; } }
+        public bool EditarCostoIsOk { get { return _editarCostoIsOk; } }
 
 
         public Gestion()
@@ -94,6 +96,8 @@ namespace ModInventario.Producto.Costo.Editar
             precio_3.Limpiar();
             precio_4.Limpiar();
             precio_5.Limpiar();
+
+            _editarCostoIsOk = false;
         }
 
 
@@ -233,6 +237,7 @@ namespace ModInventario.Producto.Costo.Editar
 
         public void Procesar()
         {
+            _editarCostoIsOk = false;
             var rt = MessageBox.Show("Guardar Cambios ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (rt == DialogResult.Yes)
             {
@@ -304,20 +309,20 @@ namespace ModInventario.Producto.Costo.Editar
             };
             ficha.historia = historia;
 
-            var precio = new OOB.LibInventario.Costo.Editar.FichaPrecio()
-            {
-                pn1 = precio_1.Neto,
-                pn2 = precio_2.Neto,
-                pn3 = precio_3.Neto,
-                pn4 = precio_4.Neto,
-                pn5 = precio_5.Neto,
-                ut1 = precio_1.Utilidad,
-                ut2 = precio_2.Utilidad,
-                ut3 = precio_3.Utilidad,
-                ut4 = precio_4.Utilidad,
-                ut5 = precio_5.Utilidad,
-            };
-            ficha.precio=precio;
+            //var precio = new OOB.LibInventario.Costo.Editar.FichaPrecio()
+            //{
+            //    pn1 = precio_1.Neto,
+            //    pn2 = precio_2.Neto,
+            //    pn3 = precio_3.Neto,
+            //    pn4 = precio_4.Neto,
+            //    pn5 = precio_5.Neto,
+            //    ut1 = precio_1.Utilidad,
+            //    ut2 = precio_2.Utilidad,
+            //    ut3 = precio_3.Utilidad,
+            //    ut4 = precio_4.Utilidad,
+            //    ut5 = precio_5.Utilidad,
+            //};
+           // ficha.precio=precio;
 
             var r01= Sistema.MyData.CostoProducto_Actualizar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
@@ -325,6 +330,7 @@ namespace ModInventario.Producto.Costo.Editar
                 Helpers.Msg.Error(r01.Mensaje);
                 return false; ;
             }
+            _editarCostoIsOk = true;
 
             return rt;
         }

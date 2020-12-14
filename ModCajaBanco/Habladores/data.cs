@@ -17,6 +17,7 @@ namespace ModCajaBanco.Habladores
 
         public string codigoPrd { get { return ficha.codigoPrd; } }
         public string nombrePrd { get { return ficha.nombrePrd; } }
+        public bool imprimir { get; set; }
 
         public decimal precioFull 
         {
@@ -86,6 +87,11 @@ namespace ModCajaBanco.Habladores
             var rt = 0.0m;
             rt = p + (p * ficha.tasaIva / 100);
             return rt;
+        }
+
+        public void Marcar(bool p)
+        {
+            imprimir = p;
         }
 
     }

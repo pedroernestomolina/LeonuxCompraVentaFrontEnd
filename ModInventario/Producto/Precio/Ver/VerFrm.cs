@@ -87,6 +87,22 @@ namespace ModInventario.Producto.Precio.Ver
             L_PN_5.Text = _controlador.Precio5.PN.ToString("n2");
             L_PF_5.Text = _controlador.Precio5.PF.ToString("n2");
 
+            L_PREF_NETO.ForeColor = Color.Black;
+            L_PREF_FULL.ForeColor = Color.Black;
+            L_PREF_NETO.Font = new Font(L_PREF_NETO.Font.FontFamily, 10, FontStyle.Regular);
+            L_PREF_FULL.Font = new Font(L_PREF_FULL.Font.FontFamily, 10, FontStyle.Regular);
+
+            if (_controlador.PreferenciaBusquedaEsNeto)
+            {
+                L_PREF_NETO.ForeColor = Color.Yellow;
+                L_PREF_NETO.Font = new Font(L_PREF_NETO.Font.FontFamily, 12, FontStyle.Bold);
+            }
+            else
+            {
+                L_PREF_FULL.ForeColor = Color.Yellow;
+                L_PREF_FULL.Font = new Font( L_PREF_FULL.Font.FontFamily , 12, FontStyle.Bold);
+            }
+
             L_PN_1.BackColor = Color.AliceBlue;
             L_PN_2.BackColor = Color.AliceBlue;
             L_PN_3.BackColor = Color.AliceBlue;

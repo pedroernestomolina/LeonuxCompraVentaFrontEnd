@@ -59,6 +59,7 @@ namespace ModPos.Facturacion.Consultor
             L_FULL_5.Text = "0.00";
             L_TASA.Text = "";
             L_IVA_1.Text = "0.00";
+            L_DIVISA.Text = "0.00";
             L_CONT_2.Text = "";
             L_CONT_3.Text = "";
             L_CONT_4.Text = "";
@@ -138,11 +139,16 @@ namespace ModPos.Facturacion.Consultor
                     emp = _consulta.Precio_5.EmpaqueContenidoDescripcion;
                 }
 
+                var mdivisa = 0.0m;
+                if (_controlador.FactorCambio>0)
+                    mdivisa=(pf / _controlador.FactorCambio);
+                mdivisa=Math.Round(mdivisa,2, MidpointRounding.AwayFromZero);
                 L_NETO_1.Text = pn.ToString("n2");
                 L_FULL_1.Text = pf.ToString("n2");
                 L_IVA_1.Text = iva.ToString("n2");
                 L_EMPAQUE_VENTA.Text = emp;
                 L_TASA.Text = _consulta.TasaDescripcion;
+                L_DIVISA.Text = mdivisa.ToString("n2")+"$";
 
                 if (!_controlador.EtiquetarPrecioPorTipoNegocio)
                 {

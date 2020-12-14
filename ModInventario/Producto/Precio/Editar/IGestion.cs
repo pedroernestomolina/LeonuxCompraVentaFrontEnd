@@ -22,6 +22,7 @@ namespace ModInventario.Producto.Precio.Editar
         System.Windows.Forms.BindingSource SourceEmpaque4 { get; }
         System.Windows.Forms.BindingSource SourceEmpaque5 { get; }
 
+
         string Producto { get; }
         string CostoUnitario { get; }
         string AdmDivisa { get; }
@@ -30,6 +31,8 @@ namespace ModInventario.Producto.Precio.Editar
         string MetodoCalculoUtilidad { get; }
         string FechaUltActCosto { get; }
         bool IsModoDivisa { get;  }
+        bool PrefRegistroPrecioIsNeto { get; }
+        bool IsEditarPrecioOk { get; }
 
 
         data Precio_1 { get; }

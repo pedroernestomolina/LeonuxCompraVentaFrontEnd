@@ -23,6 +23,7 @@ namespace ModInventario.Producto.Precio.Ver
         private data _precio4;
         private data _precio5;
         private data.enumModoPrecio _modoActual;
+        private bool _isPreferenciaBusquedaNeto;
 
 
         public string Producto { get { return _prd; } }
@@ -38,6 +39,8 @@ namespace ModInventario.Producto.Precio.Ver
         public data Precio3 { get { return _precio3; } }
         public data Precio4 { get { return _precio4; } }
         public data Precio5 { get { return _precio5; } }
+
+        public bool PreferenciaBusquedaEsNeto { get { return _isPreferenciaBusquedaNeto; } }
 
 
         public Gestion()
@@ -95,6 +98,21 @@ namespace ModInventario.Producto.Precio.Ver
                 return false;
             }
 
+            var r04 = Sistema.MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (r04.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r04.Mensaje);
+                return false;
+            }
+            _isPreferenciaBusquedaNeto = (r04.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Neto);
+
+            var r05 = Sistema.MyData.Producto_GetCosto(_autoPrd);
+            if (r05.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r05.Mensaje);
+                return false;
+            }
+
             var s=r01.Entidad;
             _prd = s.codigo + Environment.NewLine + s.descripcion;
 
@@ -113,17 +131,42 @@ namespace ModInventario.Producto.Precio.Ver
             _tasaCambioActual = r02.Entidad.ToString("n2");
             _metodoCalculoUtilidad = r03.Entidad.ToString();
 
-            _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, s.utilidad1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
-            _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, s.utilidad2, s.precioFullDivisa2, s.tasaIva, s.etiqueta2);
-            _precio3.setData(s.contenido3, s.empaque3, s.precioNeto3, s.utilidad3, s.precioFullDivisa3, s.tasaIva, s.etiqueta3);
-            _precio4.setData(s.contenido4, s.empaque4, s.precioNeto4, s.utilidad4, s.precioFullDivisa4, s.tasaIva, s.etiqueta4);
-            _precio5.setData(s.contenido5, s.empaque5, s.precioNeto5, s.utilidad5, s.precioFullDivisa5, s.tasaIva, s.etiqueta5);
+            var ut1 =CalculaUtilidad(s.precioNeto1, r05.Entidad.costoUnd, r03.Entidad);
+            var ut2 = CalculaUtilidad(s.precioNeto2, r05.Entidad.costoUnd, r03.Entidad);
+            var ut3 = CalculaUtilidad(s.precioNeto3, r05.Entidad.costoUnd, r03.Entidad);
+            var ut4 = CalculaUtilidad(s.precioNeto4, r05.Entidad.costoUnd, r03.Entidad);
+            var ut5 = CalculaUtilidad(s.precioNeto5, r05.Entidad.costoUnd, r03.Entidad);
+
+            _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, ut1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
+            _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, ut2 , s.precioFullDivisa2, s.tasaIva, s.etiqueta2);
+            _precio3.setData(s.contenido3, s.empaque3, s.precioNeto3, ut3 , s.precioFullDivisa3, s.tasaIva, s.etiqueta3);
+            _precio4.setData(s.contenido4, s.empaque4, s.precioNeto4, ut4 , s.precioFullDivisa4, s.tasaIva, s.etiqueta4);
+            _precio5.setData(s.contenido5, s.empaque5, s.precioNeto5, ut5 , s.precioFullDivisa5, s.tasaIva, s.etiqueta5);
             _modoActual = data.enumModoPrecio.Bolivar;
             if (_admDivisa) 
             {
                 _modoActual = data.enumModoPrecio.Divisa;
             }
             CambiarModo();
+
+            return rt;
+        }
+
+        private decimal CalculaUtilidad(decimal precio, decimal costo , OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad metodoCalculoUtilidad)
+        {
+            var rt = 0.0m;
+
+            if (metodoCalculoUtilidad == OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad.Financiero)
+            {
+                if (precio>0)
+                    rt = (1 - (costo / precio)) * 100;
+                rt = Math.Round(rt,2, MidpointRounding.AwayFromZero);
+            }
+            else 
+            {
+                var x =  ((precio /costo)-1)* 100;
+                rt = Math.Round(x, 2, MidpointRounding.AwayFromZero);
+            }
 
             return rt;
         }

@@ -31,6 +31,13 @@ namespace ModInventario.Producto.AgregarEditar.Editar
         public int DiasEmpaque { get; set; }
         public bool EsPesado { get; set; }
         public bool ActivarCatalogo { get; set; }
+        public bool EsAdmDivisa 
+        {
+            get 
+            {
+                return (Divisa=="1");
+            }
+        }
 
 
         public data()

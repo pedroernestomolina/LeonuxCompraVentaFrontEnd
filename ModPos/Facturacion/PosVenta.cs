@@ -103,7 +103,7 @@ namespace ModPos.Facturacion
             c3.DataPropertyName = "Importe";
             c3.HeaderText = "Importe";
             c3.Visible = true;
-            c3.Width = 100;
+            c3.Width = 120;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

@@ -240,6 +240,13 @@ namespace ModInventario.Buscar
                     {
                         _gestionEditarPrecio.setFicha(Item.identidad.auto);
                         _gestionEditarPrecio.Inicia();
+                        if (_gestionEditarPrecio.IsEditarPrecioOk)
+                        {
+                            var filtros = new OOB.LibInventario.Producto.Filtro();
+                            filtros.autoProducto = Item.identidad.auto;
+                            ActualizarItemLista(filtros);
+                        }
+
                     }
                 }
                 else
@@ -290,10 +297,33 @@ namespace ModInventario.Buscar
                     {
                         _gestionEditarCosto.setFicha(Item.identidad.auto);
                         _gestionEditarCosto.Inicia();
+                        if (_gestionEditarCosto.EditarCostoIsOk) 
+                        {
+                            var filtros = new OOB.LibInventario.Producto.Filtro();
+                            filtros.autoProducto = Item.identidad.auto;
+                            ActualizarItemLista(filtros);
+                        }
                     }
                 }
                 else
                     Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
+            }
+        }
+
+        private void ActualizarItemLista(OOB.LibInventario.Producto.Filtro filtros)
+        {
+            var r01 = Sistema.MyData.Producto_GetLista(filtros);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    _gestionLista.Reemplazar(r01.Lista);
+                }
             }
         }
 
@@ -357,19 +387,7 @@ namespace ModInventario.Buscar
                     {
                         var filtros = new OOB.LibInventario.Producto.Filtro();
                         filtros.autoProducto = Item.identidad.auto;
-                        var r01 = Sistema.MyData.Producto_GetLista(filtros);
-                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                        {
-                            Helpers.Msg.Error(r01.Mensaje);
-                            return;
-                        }
-                        if (r01.Lista != null)
-                        {
-                            if (r01.Lista.Count > 0)
-                            {
-                                _gestionLista.Reemplazar(r01.Lista);
-                            }
-                        }
+                        ActualizarItemLista(filtros);
                     }
                 }
             }

@@ -318,6 +318,7 @@
     <Compile Include="Producto\AgregarEditar\CodAlterno\GestionLista.cs" />
     <Compile Include="Producto\AgregarEditar\Editar\data.cs" />
     <Compile Include="Producto\AgregarEditar\Editar\Gestion.cs" />
+    <Compile Include="Producto\AgregarEditar\Editar\precio.cs" />
     <Compile Include="Producto\AgregarEditar\Gestion.cs" />
     <Compile Include="Producto\AgregarEditar\IGestion.cs" />
     <Compile Include="Producto\Busqueda\Gestion.cs" />

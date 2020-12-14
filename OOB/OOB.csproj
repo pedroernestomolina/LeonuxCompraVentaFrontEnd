@@ -199,6 +199,7 @@
     <Compile Include="LibInventario\Producto\Depositos\Ver\Filtro.cs" />
     <Compile Include="LibInventario\Producto\Editar\Actualizar\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Editar\Actualizar\FichaCodigoAlterno.cs" />
+    <Compile Include="LibInventario\Producto\Editar\Actualizar\FichaPrecio.cs" />
     <Compile Include="LibInventario\Producto\Editar\Obtener\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Editar\Obtener\FichaAlterno.cs" />
     <Compile Include="LibInventario\Producto\Enumerados.cs" />

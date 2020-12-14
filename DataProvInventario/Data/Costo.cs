@@ -97,20 +97,20 @@ namespace DataProvInventario.Data
             };
             fichaDTO.historia = historia;
 
-            var precio = new DtoLibInventario.Costo.Editar.FichaPrecio()
-            {
-                pn1 = ficha.precio.pn1,
-                pn2 = ficha.precio.pn2,
-                pn3 = ficha.precio.pn3,
-                pn4 = ficha.precio.pn4,
-                pn5 = ficha.precio.pn5,
-                ut1 = ficha.precio.ut1,
-                ut2 = ficha.precio.ut2,
-                ut3 = ficha.precio.ut3,
-                ut4 = ficha.precio.ut4,
-                ut5 = ficha.precio.ut5,
-            };
-            fichaDTO.precio = precio;
+            //var precio = new DtoLibInventario.Costo.Editar.FichaPrecio()
+            //{
+            //    pn1 = ficha.precio.pn1,
+            //    pn2 = ficha.precio.pn2,
+            //    pn3 = ficha.precio.pn3,
+            //    pn4 = ficha.precio.pn4,
+            //    pn5 = ficha.precio.pn5,
+            //    ut1 = ficha.precio.ut1,
+            //    ut2 = ficha.precio.ut2,
+            //    ut3 = ficha.precio.ut3,
+            //    ut4 = ficha.precio.ut4,
+            //    ut5 = ficha.precio.ut5,
+            //};
+            //fichaDTO.precio = precio;
 
             var r01 = MyData.CostoProducto_Actualizar (fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

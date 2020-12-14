@@ -39,7 +39,11 @@ namespace OOB.LibInventario.Producto.Editar.Actualizar
         public string estatusCatalogo { get; set; }
 
         public List<FichaCodigoAlterno> codigosAlterno { get; set; }
-
+        public FichaPrecio precio_1 { get; set; }
+        public FichaPrecio precio_2 { get; set; }
+        public FichaPrecio precio_3 { get; set; }
+        public FichaPrecio precio_4 { get; set; }
+        public FichaPrecio precio_5 { get; set; }
     }
 
 }

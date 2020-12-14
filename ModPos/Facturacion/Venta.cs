@@ -1001,6 +1001,7 @@ namespace ModPos.Facturacion
 
         public void Consultor() 
         {
+            _ctrConsultar.setFactorCambio(TasaCambio);
             _ctrConsultar.Consultor();
         }
 

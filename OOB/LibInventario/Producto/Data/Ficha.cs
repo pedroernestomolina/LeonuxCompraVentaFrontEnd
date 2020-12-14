@@ -26,6 +26,14 @@ namespace OOB.LibInventario.Producto.Data
         public Decimal PDivisaFull_3 { get; set; }
         public Decimal PDivisaFull_4 { get; set; }
         public Decimal PDivisaFull_5 { get; set; }
+
+        public Decimal Costo { get; set; }
+        public Decimal CostoUnidad  { get { return Costo / identidad.contenidoCompra; } }
+        public Decimal PNeto_1 { get; set; }
+        public Decimal PNeto_2 { get; set; }
+        public Decimal PNeto_3 { get; set; }
+        public Decimal PNeto_4 { get; set; }
+        public Decimal PNeto_5 { get; set; }
         public Decimal PDivisaNeto_1 { get { return PDivisaFull_1 / ((identidad.tasaIva / 100) + 1); } }
         public Decimal PDivisaNeto_2 { get { return PDivisaFull_2 / ((identidad.tasaIva / 100) + 1); } }
         public Decimal PDivisaNeto_3 { get { return PDivisaFull_3 / ((identidad.tasaIva / 100) + 1); } }

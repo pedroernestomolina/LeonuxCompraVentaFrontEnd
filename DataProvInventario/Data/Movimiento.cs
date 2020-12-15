@@ -703,8 +703,11 @@ namespace DataProvInventario.Data
             {
                 Desde = filtro.Desde,
                 Hasta = filtro.Hasta,
-                TipoDocumento =  (DtoLibInventario.Movimiento.enumerados.EnumTipoDocumento) filtro.TipoDocumento,
-                IdSucursal= filtro.idSucursal,
+                TipoDocumento = (DtoLibInventario.Movimiento.enumerados.EnumTipoDocumento)filtro.TipoDocumento,
+                IdSucursal = filtro.IdSucursal,
+                IdDepDestino = filtro.IdDepDestino,
+                IdDepOrigen = filtro.IdDepOrigen,
+                Estatus = (DtoLibInventario.Movimiento.enumerados.EnumEstatus)filtro.Estatus,
             };
             var r01 = MyData.Producto_Movimiento_GetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

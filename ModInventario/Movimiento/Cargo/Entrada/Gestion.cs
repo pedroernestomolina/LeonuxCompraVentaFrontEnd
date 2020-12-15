@@ -140,6 +140,7 @@ namespace ModInventario.Movimiento.Cargo.Entrada
                 {
                     Costo = (Prd.costo.costoDivisaUnd);
                 }
+                Costo = Math.Round(Costo, 2, MidpointRounding.AwayFromZero);
             }
             else 
             {
@@ -148,6 +149,7 @@ namespace ModInventario.Movimiento.Cargo.Entrada
                 {
                     Costo = (Prd.costo.costoDivisaUnd*contenido);
                 }
+                Costo = Math.Round(Costo, 2, MidpointRounding.AwayFromZero);
             }
         }
 

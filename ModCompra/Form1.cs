@@ -94,6 +94,26 @@ namespace ModCompra
             _controlador.AdministradorDoc();
         }
 
+        private void MENU_REPORTES_GENERAL_DOCUMENTOS_Click(object sender, EventArgs e)
+        {
+            ReporteGeneralDocumentos();
+        }
+
+        private void ReporteGeneralDocumentos()
+        {
+            _controlador.ReporteGeneralDocumentos();
+        }
+
+        private void MENU_REPORTES_COMPRAS_DEPARTAMENTOS_Click(object sender, EventArgs e)
+        {
+            ReporteComprasDepartamentos();
+        }
+
+        private void ReporteComprasDepartamentos()
+        {
+            _controlador.ReporteComprasDepartamentos();
+        }
+
     }
 
 }

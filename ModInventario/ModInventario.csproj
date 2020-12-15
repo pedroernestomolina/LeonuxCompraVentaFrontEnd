@@ -115,6 +115,17 @@
     <Compile Include="Buscar\Filtrar\Gestion.cs" />
     <Compile Include="Buscar\Gestion.cs" />
     <Compile Include="Buscar\GestionLista.cs" />
+    <Compile Include="Filtros\Administrador\Filtros.cs" />
+    <Compile Include="Filtros\data.cs" />
+    <Compile Include="Filtros\Estatus.cs" />
+    <Compile Include="Filtros\FiltroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Filtros\FiltroFrm.Designer.cs">
+      <DependentUpon>FiltroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtros\Gestion.cs" />
+    <Compile Include="Filtros\IFiltros.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -598,6 +609,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\Filtrar\FiltrosFrm.resx">
       <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtros\FiltroFrm.resx">
+      <DependentUpon>FiltroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

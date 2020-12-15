@@ -57,6 +57,7 @@
     <Compile Include="Data\Permiso.cs" />
     <Compile Include="Data\Producto.cs" />
     <Compile Include="Data\Proveedor.cs" />
+    <Compile Include="Data\Reportes.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\Usuario.cs" />
     <Compile Include="InfraEstructura\IConcepto.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="InfraEstructura\IPermiso.cs" />
     <Compile Include="InfraEstructura\IProducto.cs" />
     <Compile Include="InfraEstructura\IProveedor.cs" />
+    <Compile Include="InfraEstructura\IReportes.cs" />
     <Compile Include="InfraEstructura\ISucursal.cs" />
     <Compile Include="InfraEstructura\IUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

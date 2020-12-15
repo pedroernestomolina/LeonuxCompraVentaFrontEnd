@@ -40,6 +40,19 @@ namespace OOB.LibInventario.Producto.Data
         public Decimal PDivisaNeto_4 { get { return PDivisaFull_4 / ((identidad.tasaIva / 100) + 1); } }
         public Decimal PDivisaNeto_5 { get { return PDivisaFull_5 / ((identidad.tasaIva / 100) + 1); } }
 
+        public Decimal CostoUndActual 
+        { 
+            get 
+            {
+                var rt = 0.0m;
+                rt = CostoUnidad;
+                if (identidad.AdmPorDivisa == Enumerados.EnumAdministradorPorDivisa.Si)
+                    rt = CostoDivisaUnd;
+                return rt;
+            } 
+        }
+
+
         public string AutoId { get { return identidad.auto; } }
         public string CodigoPrd { get { return identidad.codigo; } }
         public string DescripcionPrd { get { return identidad.descripcion; } }

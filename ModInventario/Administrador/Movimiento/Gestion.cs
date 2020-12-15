@@ -14,6 +14,7 @@ namespace ModInventario.Administrador.Movimiento
 
         private IGestionListaDetalle _gestionListaDetalle;
         private Anular.Gestion _gestionAnular;
+        private Filtros.Gestion _gestionFiltros;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
         private BindingSource bsSucursal;
 
@@ -40,6 +41,8 @@ namespace ModInventario.Administrador.Movimiento
             _gestionAnular = new Anular.Gestion();
             _gestionListaDetalle = new GestionListaDetalle();
             _gestionListaDetalle.setGestionAnular(_gestionAnular);
+            _gestionFiltros = new Filtros.Gestion();
+            _gestionFiltros.setGestion(new Filtros.Administrador.Filtros());
         }
 
 
@@ -115,8 +118,20 @@ namespace ModInventario.Administrador.Movimiento
                         break;
                 }
             }
-            filtro.idSucursal = Filtro_Sucursal;
-
+            filtro.IdSucursal = Filtro_Sucursal;
+            if (_gestionFiltros.FiltrosIsOk)
+            {
+                if (_gestionFiltros.DataFiltrar.depDestino != null)
+                    filtro.IdDepDestino = _gestionFiltros.DataFiltrar.depDestino.auto ;
+                if (_gestionFiltros.DataFiltrar.depOrigen != null)
+                    filtro.IdDepOrigen = _gestionFiltros.DataFiltrar.depOrigen.auto;
+                if (_gestionFiltros.DataFiltrar.estatus != null)
+                {
+                    filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo;
+                    if (_gestionFiltros.DataFiltrar.estatus.Id != "01")
+                        filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Anulado;
+                }
+            }
             var rt1 = Sistema.MyData.Producto_Movimiento_GetLista(filtro);
             if (rt1.Result == OOB.Enumerados.EnumResult.isError) 
             {
@@ -124,6 +139,7 @@ namespace ModInventario.Administrador.Movimiento
                 return;
             }
 
+            _gestionFiltros.LimpiarFiltros();
             _gestionListaDetalle.setLista(rt1.Lista);
         }
 
@@ -153,6 +169,11 @@ namespace ModInventario.Administrador.Movimiento
         public void Imprimir()
         {
             _gestionListaDetalle.Imprimir();
+        }
+
+        public void Filtros()
+        {
+            _gestionFiltros.Inicia();
         }
 
     }

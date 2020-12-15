@@ -125,10 +125,11 @@ namespace ModInventario.Administrador
             c8.HeaderCell.Style.Font = f;
             c8.DefaultCellStyle.Font = f1;
 
-            var c8A = new DataGridViewImageColumn();
+            var c8A = new DataGridViewTextBoxColumn();
+            c8A.HeaderText = "Estatus";
             c8A.Name = "Anulado";
             c8A.Visible = true;
-            c8A.Width = 40;
+            c8A.Width = 60;
             c8A.HeaderCell.Style.Font = f;
             c8A.DefaultCellStyle.Font = f1;
 
@@ -142,7 +143,7 @@ namespace ModInventario.Administrador
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
-            //DGV.Columns.Add(c8A);
+            DGV.Columns.Add(c8A);
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -158,7 +159,9 @@ namespace ModInventario.Administrador
                 if ((bool)row.Cells["IsAnulado"].Value == true)
                 {
                     row.DefaultCellStyle.ForeColor = Color.Red;
-                    //row.Cells["Anulado"].Value = Properties.Resources.bt_eliminar;
+                    row.Cells["Anulado"].Value = "ANULADO";
+                    row.Cells["Anulado"].Style.BackColor = Color.Red;
+                    row.Cells["Anulado"].Style.ForeColor = Color.White;
                 }
                 else
                 {
@@ -323,6 +326,16 @@ namespace ModInventario.Administrador
         private void Imprimir()
         {
             _controlador.Imprimir();
+        }
+
+        private void BT_FILTROS_Click(object sender, EventArgs e)
+        {
+            Filtros();
+        }
+
+        private void Filtros()
+        {
+            _controlador.Filtros();
         }
 
     }

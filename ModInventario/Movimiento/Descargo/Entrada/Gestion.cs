@@ -156,6 +156,8 @@ namespace ModInventario.Movimiento.Descargo.Entrada
                     Costo = (Prd.costo.costoDivisaUnd );
                 }
             }
+
+            Costo = Math.Round(Costo, 2, MidpointRounding.AwayFromZero);
         }
 
         public void Editar(item it, string idDeposito)

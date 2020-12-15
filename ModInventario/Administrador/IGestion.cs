@@ -30,6 +30,7 @@ namespace ModInventario.Administrador
         void LimpiarData();
         void VisualizarDocumento();
         void Imprimir();
+        void Filtros();
 
     }
 

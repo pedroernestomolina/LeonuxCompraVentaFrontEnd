@@ -65,6 +65,20 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="GeneralDoc" msprop:Generator_TableClassName="GeneralDocDataTable" msprop:Generator_TableVarName="tableGeneralDoc" msprop:Generator_RowChangedName="GeneralDocRowChanged" msprop:Generator_TablePropName="GeneralDoc" msprop:Generator_RowDeletingName="GeneralDocRowDeleting" msprop:Generator_RowChangingName="GeneralDocRowChanging" msprop:Generator_RowEvHandlerName="GeneralDocRowChangeEventHandler" msprop:Generator_RowDeletedName="GeneralDocRowDeleted" msprop:Generator_RowClassName="GeneralDocRow" msprop:Generator_UserTableName="GeneralDoc" msprop:Generator_RowEvArgName="GeneralDocRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="documentoNro" msprop:Generator_ColumnVarNameInTable="columndocumentoNro" msprop:Generator_ColumnPropNameInRow="documentoNro" msprop:Generator_ColumnPropNameInTable="documentoNroColumn" msprop:Generator_UserColumnName="documentoNro" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CompraDepart" msprop:Generator_TableClassName="CompraDepartDataTable" msprop:Generator_TableVarName="tableCompraDepart" msprop:Generator_TablePropName="CompraDepart" msprop:Generator_RowDeletingName="CompraDepartRowDeleting" msprop:Generator_RowChangingName="CompraDepartRowChanging" msprop:Generator_RowEvHandlerName="CompraDepartRowChangeEventHandler" msprop:Generator_RowDeletedName="CompraDepartRowDeleted" msprop:Generator_UserTableName="CompraDepart" msprop:Generator_RowChangedName="CompraDepartRowChanged" msprop:Generator_RowEvArgName="CompraDepartRowChangeEvent" msprop:Generator_RowClassName="CompraDepartRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

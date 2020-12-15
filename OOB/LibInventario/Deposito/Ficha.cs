@@ -10,6 +10,8 @@ namespace OOB.LibInventario.Deposito
     
     public class Ficha
     {
+        private Ficha it;
+
 
         public string auto { get; set; }
         public string codigo { get; set; }
@@ -22,6 +24,17 @@ namespace OOB.LibInventario.Deposito
         public Ficha()
         {
             Limpiar();
+        }
+
+        public Ficha(Ficha it)
+            : this()
+        {
+            auto = it.auto;
+            autoSucursal = it.autoSucursal;
+            codigo = it.codigo;
+            codigoSucursal = it.codigoSucursal;
+            nombre = it.nombre;
+            nombreSucursal = it.nombreSucursal;
         }
 
         public void Limpiar() 

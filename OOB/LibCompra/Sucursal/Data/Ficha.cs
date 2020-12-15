@@ -10,6 +10,8 @@ namespace OOB.LibCompra.Sucursal.Data
     
     public class Ficha
     {
+        private Ficha it;
+
 
         public string auto { get; set; }
         public string autoDepositoPrincipal { get; set; }
@@ -23,6 +25,23 @@ namespace OOB.LibCompra.Sucursal.Data
 
         public Ficha()
         {
+            Limpiar();
+        }
+
+        public Ficha(Ficha it): this()
+        {
+            auto = it.auto;
+            autoDepositoPrincipal = it.autoDepositoPrincipal;
+            autoEmpresaGrupo = it.autoEmpresaGrupo;
+            codigo = it.codigo;
+            nombre = it.nombre;
+            codigoDepositoPrincipal = it.codigoDepositoPrincipal;
+            nombreDepositoPrincipal = it.nombreDepositoPrincipal;
+            nombreEmpresaGrupo = it.nombreEmpresaGrupo;
+        }
+
+        private void Limpiar()
+        {
             auto = "";
             autoDepositoPrincipal = "";
             autoEmpresaGrupo = "";
@@ -32,7 +51,6 @@ namespace OOB.LibCompra.Sucursal.Data
             nombreDepositoPrincipal = "";
             nombreEmpresaGrupo = "";
         }
-
 
     }
 

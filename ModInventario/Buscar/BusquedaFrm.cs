@@ -93,7 +93,7 @@ namespace ModInventario.Buscar
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             var c6 = new DataGridViewTextBoxColumn();
-            c6.DataPropertyName = "CostoDivisaUnd";
+            c6.DataPropertyName = "CostoUndActual";
             c6.HeaderText = "Costo/Und";
             c6.Visible = true;
             c6.Width = 80;

@@ -14,6 +14,7 @@ namespace ModCompra
 
 
         private Administrador.Gestion _gestionAdmDoc ;
+        private Reportes.Filtros.Gestion _gestionRep;
 
 
         public string Version
@@ -46,6 +47,7 @@ namespace ModCompra
         public Gestion()
         {
             _gestionAdmDoc = new Administrador.Gestion();
+            _gestionRep = new Reportes.Filtros.Gestion();
         }
 
 
@@ -96,6 +98,18 @@ namespace ModCompra
                 _gestionAdmDoc.Inicia();
             }
             //Helpers.VisualizarDocumento.Visualizar("0000000036");
+        }
+
+        public void ReporteGeneralDocumentos()
+        {
+            _gestionRep.setGestion(new  Reportes.Filtros.GeneralDocumentos.Gestion());
+            _gestionRep.Inicia();
+        }
+
+        public void ReporteComprasDepartamentos()
+        {
+            _gestionRep.setGestion(new Reportes.Filtros.CompraDepartamentos.Gestion());
+            _gestionRep.Inicia();
         }
 
     }

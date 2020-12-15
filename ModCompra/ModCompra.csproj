@@ -179,6 +179,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Filtros\CompraDepartamentos\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\CompraDepartamentos\Gestion.cs" />
+    <Compile Include="Reportes\Filtros\data.cs" />
+    <Compile Include="Reportes\Filtros\Estatus.cs" />
+    <Compile Include="Reportes\Filtros\FiltrosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Filtros\FiltrosFrm.Designer.cs">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Filtros\GeneralDocumentos\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\GeneralDocumentos\Gestion.cs" />
+    <Compile Include="Reportes\Filtros\Gestion.cs" />
+    <Compile Include="Reportes\Filtros\IFiltros.cs" />
+    <Compile Include="Reportes\Filtros\IReporte.cs" />
     <Compile Include="Reportes\ReporteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +250,15 @@
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Documento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\CompraDepartamento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\GeneralDocumentos.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteFrm.resx">

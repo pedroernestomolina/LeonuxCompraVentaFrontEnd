@@ -15,6 +15,8 @@ namespace ModCompra.Reportes.Filtros
         public Estatus estatus { get; set; }
         public DateTime desde { get; set; }
         public DateTime hasta { get; set; }
+        public string mesRelacion { get; set; }
+        public string anoRelacion { get; set; }
 
 
         public data()
@@ -29,6 +31,13 @@ namespace ModCompra.Reportes.Filtros
             estatus = null;
             desde = DateTime.Now.Date;
             hasta = DateTime.Now.Date;
+            LimpiarMesAnoRelacion();
+        }
+
+        public void LimpiarMesAnoRelacion()
+        {
+            mesRelacion = "";
+            anoRelacion = "";
         }
 
     }

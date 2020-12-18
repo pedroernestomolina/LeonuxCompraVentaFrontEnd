@@ -16,6 +16,7 @@ namespace ModCompra.Reportes.Filtros
         bool ActivarDesde { get; }
         bool ActivarHasta { get; }
         bool ActivarEstatus { get; }
+        bool ActivarMesAnoRelacion { get; }
 
     }
 

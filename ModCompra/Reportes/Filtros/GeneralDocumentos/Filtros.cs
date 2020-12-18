@@ -36,6 +36,11 @@ namespace ModCompra.Reportes.Filtros.GeneralDocumentos
             get { return true; }
         }
 
+        public bool ActivarMesAnoRelacion
+        {
+            get { return false; }
+        }
+
     }
 
 }

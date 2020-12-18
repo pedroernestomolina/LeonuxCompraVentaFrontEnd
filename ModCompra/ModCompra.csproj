@@ -181,6 +181,10 @@
     </Compile>
     <Compile Include="Reportes\Filtros\CompraDepartamentos\Filtros.cs" />
     <Compile Include="Reportes\Filtros\CompraDepartamentos\Gestion.cs" />
+    <Compile Include="Reportes\Filtros\CompraDetalleProducto\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\CompraDetalleProducto\Gestion.cs" />
+    <Compile Include="Reportes\Filtros\CompraPorProductos\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\CompraPorProductos\Gestion.cs" />
     <Compile Include="Reportes\Filtros\data.cs" />
     <Compile Include="Reportes\Filtros\Estatus.cs" />
     <Compile Include="Reportes\Filtros\FiltrosFrm.cs">
@@ -253,6 +257,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\CompraDepartamento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\CompraDetallePrd.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\CompraPorProductos.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">

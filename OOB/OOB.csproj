@@ -97,6 +97,10 @@
     <Compile Include="LibCompra\Proveedor\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Reportes\CompraporDepartamento\Ficha.cs" />
     <Compile Include="LibCompra\Reportes\CompraporDepartamento\Filtro.cs" />
+    <Compile Include="LibCompra\Reportes\CompraPorProductoDetalle\Ficha.cs" />
+    <Compile Include="LibCompra\Reportes\CompraPorProductoDetalle\Filtro.cs" />
+    <Compile Include="LibCompra\Reportes\CompraporProducto\Ficha.cs" />
+    <Compile Include="LibCompra\Reportes\CompraporProducto\Filtro.cs" />
     <Compile Include="LibCompra\Reportes\GeneralDocumentos\Ficha.cs" />
     <Compile Include="LibCompra\Reportes\GeneralDocumentos\Filtro.cs" />
     <Compile Include="LibCompra\Sucursal\Data\Ficha.cs" />

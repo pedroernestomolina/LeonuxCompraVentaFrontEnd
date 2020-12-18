@@ -40,10 +40,13 @@ namespace ModCompra.Reportes.Filtros
 
             CB_ESTATUS.Enabled = _controlador.ActivarEstatus;
             CB_SUCURSAL.Enabled = _controlador.ActivarSucursal;
+            TB_MES_RELACION.Enabled = _controlador.ActivarMesAnoRElacion;
+            TB_ANO_RELACION.Enabled = _controlador.ActivarMesAnoRElacion;
             DTP_DESDE.Enabled= _controlador.ActivarDesde;
             DTP_HASTA.Enabled = _controlador.ActivarHasta;
             TB_PROVEEDOR.Enabled = _controlador.ActivarProveedor;
             BT_PROVEEDOR_BUSCAR.Enabled = _controlador.ActivarProveedor;
+            LimpiarMesAnoRelacion();
         }
 
         public void setControlador(Gestion ctr)
@@ -62,6 +65,7 @@ namespace ModCompra.Reportes.Filtros
             LimpiarFechaDesde();
             LimpiarFechaHasta();
             LimpiarSucursal();
+            LimpiarMesAnoRelacion();
         }
 
         private void L_SUCURSAL_Click(object sender, EventArgs e)
@@ -102,6 +106,18 @@ namespace ModCompra.Reportes.Filtros
         private void LimpiarFechaHasta()
         {
             DTP_HASTA.Value = DateTime.Now.Date;
+        }
+
+        private void L_MES_ANO_RELACION_Click(object sender, EventArgs e)
+        {
+            LimpiarMesAnoRelacion();
+        }
+
+        private void LimpiarMesAnoRelacion()
+        {
+            TB_MES_RELACION.Value = DateTime.Now.Month;
+            TB_ANO_RELACION.Value = DateTime.Now.Year;
+            _controlador.LimpiarMesAnoRelacion();
         }
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,6 +162,16 @@ namespace ModCompra.Reportes.Filtros
         {
             _controlador.Filtrar();
             Salir();
+        }
+
+        private void TB_MES_RELACION_ValueChanged(object sender, EventArgs e)
+        {
+            _controlador.setMesAnoRelacion(TB_MES_RELACION.Value, TB_ANO_RELACION.Value);
+        }
+
+        private void TB_ANO_RELACION_ValueChanged(object sender, EventArgs e)
+        {
+            _controlador.setMesAnoRelacion(TB_MES_RELACION.Value, TB_ANO_RELACION.Value);
         }
         
     }

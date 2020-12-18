@@ -64,6 +64,10 @@ namespace ModCompra.Reportes.Filtros.CompraDepartamentos
             {
                 DataRow rt = ds.Tables["CompraDepart"].NewRow();
                 rt["departamento"] = it.nombreDepartamento;
+                rt["serieDoc"] = it.serieDoc;
+                rt["nombreDoc"] = it.nombreDoc;
+                rt["total"] = it.total * it.signoDoc;
+                rt["totalDivisa"] = it.totalDivisa *it.signoDoc;
                 ds.Tables["CompraDepart"].Rows.Add(rt);
             }
 

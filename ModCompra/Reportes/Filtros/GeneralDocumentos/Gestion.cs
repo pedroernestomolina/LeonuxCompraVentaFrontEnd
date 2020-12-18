@@ -60,10 +60,29 @@ namespace ModCompra.Reportes.Filtros.GeneralDocumentos
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\GeneralDocumentos.rdlc";
             var ds = new DS();
-            foreach (var it in list.ToList().OrderBy(o => o.fecha).ToList())
+            foreach (var it in list.ToList().OrderBy(o => o.fecha).ThenBy(o=>o.documento).ToList())
             {
                 DataRow rt = ds.Tables["GeneralDoc"].NewRow();
+                rt["fecha"] = it.fecha;
+                rt["serie"] = it.serieDoc;
                 rt["documentoNro"] = it.documento;
+                rt["proveedor"] = it.provCiRif+Environment.NewLine+it.provNombre;
+                rt["renglones"] = it.renglones;
+                rt["montoDscto"] = it.montoDscto;
+                rt["montoCargo"] = it.montoCargo;
+                rt["total"] = it.total;
+                rt["totalDivisa"] = it.totalDivisa;
+                rt["factor"] = it.factorDoc;
+                rt["estatus"] = it.EsAnulado?"ANULADO":"";
+
+                if (it.EsAnulado) 
+                {
+                    rt["montoDscto"] = 0.0m;
+                    rt["montoCargo"] = 0.0m;
+                    rt["total"] = 0.0m ;
+                    rt["totalDivisa"] = 0.0m;
+                }
+
                 ds.Tables["GeneralDoc"].Rows.Add(rt);
             }
 

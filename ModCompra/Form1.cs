@@ -114,6 +114,26 @@ namespace ModCompra
             _controlador.ReporteComprasDepartamentos();
         }
 
+        private void MENU_REPORTES_COMPRAS_POR_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            ReporteComprasPorProducto();
+        }
+
+        private void ReporteComprasPorProducto()
+        {
+            _controlador.ReporteComprasPorProducto();
+        }
+
+        private void MENU_REPORTES_COMPRAS_POR_PRODUCTO_DETALLE_Click(object sender, EventArgs e)
+        {
+            ReporteComprasDetalleProducto();
+        }
+
+        private void ReporteComprasDetalleProducto()
+        {
+            _controlador.ReporteComprasDetalleProducto();
+        }
+
     }
 
 }

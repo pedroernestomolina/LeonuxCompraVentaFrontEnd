@@ -1,6 +1,8 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Documento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Filtros\CompraDepartamento.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Filtros\CompraDetallePrd.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Filtros\CompraPorProductos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Filtros\GeneralDocumentos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ModCompra.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ModCompra.exe

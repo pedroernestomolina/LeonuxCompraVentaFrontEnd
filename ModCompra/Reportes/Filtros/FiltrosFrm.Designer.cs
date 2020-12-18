@@ -67,14 +67,14 @@
             this.L_ESTATUS = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.CB_ESTATUS = new System.Windows.Forms.ComboBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.L_MES_ANO_RELACION = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.TB_ANO_RELACION = new System.Windows.Forms.NumericUpDown();
+            this.TB_MES_RELACION = new System.Windows.Forms.NumericUpDown();
             this.panel13 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -97,13 +97,13 @@
             this.panel12.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TB_ANO_RELACION)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TB_MES_RELACION)).BeginInit();
             this.panel13.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -273,7 +273,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.44186F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.55814F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel3.Controls.Add(this.panel28, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.panel29, 1, 7);
             this.tableLayoutPanel3.Controls.Add(this.panel7, 1, 1);
@@ -342,7 +342,7 @@
             this.panel29.Margin = new System.Windows.Forms.Padding(1);
             this.panel29.Name = "panel29";
             this.panel29.Padding = new System.Windows.Forms.Padding(2);
-            this.panel29.Size = new System.Drawing.Size(207, 28);
+            this.panel29.Size = new System.Drawing.Size(206, 28);
             this.panel29.TabIndex = 6;
             // 
             // CB_SUCURSAL
@@ -353,7 +353,7 @@
             this.CB_SUCURSAL.FormattingEnabled = true;
             this.CB_SUCURSAL.Location = new System.Drawing.Point(2, 2);
             this.CB_SUCURSAL.Name = "CB_SUCURSAL";
-            this.CB_SUCURSAL.Size = new System.Drawing.Size(203, 24);
+            this.CB_SUCURSAL.Size = new System.Drawing.Size(202, 24);
             this.CB_SUCURSAL.TabIndex = 8;
             this.CB_SUCURSAL.SelectedIndexChanged += new System.EventHandler(this.CB_SUCURSAL_SelectedIndexChanged);
             // 
@@ -365,7 +365,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(207, 28);
+            this.panel7.Size = new System.Drawing.Size(206, 28);
             this.panel7.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -381,14 +381,14 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(205, 26);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(204, 26);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // panel32
             // 
             this.panel32.Controls.Add(this.BT_PROVEEDOR_BUSCAR);
             this.panel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel32.Location = new System.Drawing.Point(177, 1);
+            this.panel32.Location = new System.Drawing.Point(176, 1);
             this.panel32.Margin = new System.Windows.Forms.Padding(1);
             this.panel32.Name = "panel32";
             this.panel32.Padding = new System.Windows.Forms.Padding(1);
@@ -416,7 +416,7 @@
             this.panel31.Margin = new System.Windows.Forms.Padding(1);
             this.panel31.Name = "panel31";
             this.panel31.Padding = new System.Windows.Forms.Padding(1);
-            this.panel31.Size = new System.Drawing.Size(174, 24);
+            this.panel31.Size = new System.Drawing.Size(173, 24);
             this.panel31.TabIndex = 0;
             // 
             // TB_PROVEEDOR
@@ -427,7 +427,7 @@
             this.TB_PROVEEDOR.Location = new System.Drawing.Point(1, 1);
             this.TB_PROVEEDOR.MaxLength = 30;
             this.TB_PROVEEDOR.Name = "TB_PROVEEDOR";
-            this.TB_PROVEEDOR.Size = new System.Drawing.Size(172, 22);
+            this.TB_PROVEEDOR.Size = new System.Drawing.Size(171, 22);
             this.TB_PROVEEDOR.TabIndex = 0;
             // 
             // panel30
@@ -487,7 +487,7 @@
             this.panel10.Margin = new System.Windows.Forms.Padding(1);
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(2);
-            this.panel10.Size = new System.Drawing.Size(207, 28);
+            this.panel10.Size = new System.Drawing.Size(206, 28);
             this.panel10.TabIndex = 11;
             // 
             // DTP_DESDE
@@ -499,7 +499,7 @@
             this.DTP_DESDE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_DESDE.Location = new System.Drawing.Point(2, 2);
             this.DTP_DESDE.Name = "DTP_DESDE";
-            this.DTP_DESDE.Size = new System.Drawing.Size(203, 22);
+            this.DTP_DESDE.Size = new System.Drawing.Size(202, 22);
             this.DTP_DESDE.TabIndex = 0;
             this.DTP_DESDE.ValueChanged += new System.EventHandler(this.DTP_DESDE_ValueChanged);
             // 
@@ -536,7 +536,7 @@
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
-            this.panel12.Size = new System.Drawing.Size(207, 28);
+            this.panel12.Size = new System.Drawing.Size(206, 28);
             this.panel12.TabIndex = 12;
             // 
             // DTP_HASTA
@@ -548,7 +548,7 @@
             this.DTP_HASTA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_HASTA.Location = new System.Drawing.Point(2, 2);
             this.DTP_HASTA.Name = "DTP_HASTA";
-            this.DTP_HASTA.Size = new System.Drawing.Size(203, 22);
+            this.DTP_HASTA.Size = new System.Drawing.Size(202, 22);
             this.DTP_HASTA.TabIndex = 1;
             this.DTP_HASTA.ValueChanged += new System.EventHandler(this.DTP_HASTA_ValueChanged);
             // 
@@ -585,7 +585,7 @@
             this.panel19.Margin = new System.Windows.Forms.Padding(1);
             this.panel19.Name = "panel19";
             this.panel19.Padding = new System.Windows.Forms.Padding(2);
-            this.panel19.Size = new System.Drawing.Size(207, 28);
+            this.panel19.Size = new System.Drawing.Size(206, 28);
             this.panel19.TabIndex = 8;
             // 
             // CB_ESTATUS
@@ -596,9 +596,96 @@
             this.CB_ESTATUS.FormattingEnabled = true;
             this.CB_ESTATUS.Location = new System.Drawing.Point(2, 2);
             this.CB_ESTATUS.Name = "CB_ESTATUS";
-            this.CB_ESTATUS.Size = new System.Drawing.Size(203, 24);
+            this.CB_ESTATUS.Size = new System.Drawing.Size(202, 24);
             this.CB_ESTATUS.TabIndex = 9;
             this.CB_ESTATUS.SelectedIndexChanged += new System.EventHandler(this.CB_ESTATUS_SelectedIndexChanged);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.L_MES_ANO_RELACION);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(1, 101);
+            this.panel5.Margin = new System.Windows.Forms.Padding(1);
+            this.panel5.Name = "panel5";
+            this.panel5.Padding = new System.Windows.Forms.Padding(2);
+            this.panel5.Size = new System.Drawing.Size(152, 28);
+            this.panel5.TabIndex = 25;
+            // 
+            // L_MES_ANO_RELACION
+            // 
+            this.L_MES_ANO_RELACION.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_MES_ANO_RELACION.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_MES_ANO_RELACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_MES_ANO_RELACION.ForeColor = System.Drawing.Color.Blue;
+            this.L_MES_ANO_RELACION.Location = new System.Drawing.Point(2, 2);
+            this.L_MES_ANO_RELACION.Name = "L_MES_ANO_RELACION";
+            this.L_MES_ANO_RELACION.Size = new System.Drawing.Size(148, 24);
+            this.L_MES_ANO_RELACION.TabIndex = 10;
+            this.L_MES_ANO_RELACION.Text = "Mes/Año Relación:";
+            this.L_MES_ANO_RELACION.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_MES_ANO_RELACION.Click += new System.EventHandler(this.L_MES_ANO_RELACION_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.TB_ANO_RELACION);
+            this.panel6.Controls.Add(this.TB_MES_RELACION);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(155, 101);
+            this.panel6.Margin = new System.Windows.Forms.Padding(1);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(2);
+            this.panel6.Size = new System.Drawing.Size(206, 28);
+            this.panel6.TabIndex = 26;
+            // 
+            // TB_ANO_RELACION
+            // 
+            this.TB_ANO_RELACION.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_ANO_RELACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ANO_RELACION.Location = new System.Drawing.Point(66, 2);
+            this.TB_ANO_RELACION.Maximum = new decimal(new int[] {
+            2035,
+            0,
+            0,
+            0});
+            this.TB_ANO_RELACION.Minimum = new decimal(new int[] {
+            2005,
+            0,
+            0,
+            0});
+            this.TB_ANO_RELACION.Name = "TB_ANO_RELACION";
+            this.TB_ANO_RELACION.Size = new System.Drawing.Size(108, 22);
+            this.TB_ANO_RELACION.TabIndex = 1;
+            this.TB_ANO_RELACION.Value = new decimal(new int[] {
+            2010,
+            0,
+            0,
+            0});
+            this.TB_ANO_RELACION.ValueChanged += new System.EventHandler(this.TB_ANO_RELACION_ValueChanged);
+            // 
+            // TB_MES_RELACION
+            // 
+            this.TB_MES_RELACION.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_MES_RELACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_MES_RELACION.Location = new System.Drawing.Point(2, 2);
+            this.TB_MES_RELACION.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.TB_MES_RELACION.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.TB_MES_RELACION.Name = "TB_MES_RELACION";
+            this.TB_MES_RELACION.Size = new System.Drawing.Size(64, 22);
+            this.TB_MES_RELACION.TabIndex = 0;
+            this.TB_MES_RELACION.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.TB_MES_RELACION.ValueChanged += new System.EventHandler(this.TB_MES_RELACION_ValueChanged);
             // 
             // panel13
             // 
@@ -638,90 +725,6 @@
             this.panel14.Size = new System.Drawing.Size(46, 50);
             this.panel14.TabIndex = 0;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(1, 101);
-            this.panel5.Margin = new System.Windows.Forms.Padding(1);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(2);
-            this.panel5.Size = new System.Drawing.Size(152, 28);
-            this.panel5.TabIndex = 25;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.numericUpDown2);
-            this.panel6.Controls.Add(this.numericUpDown1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(155, 101);
-            this.panel6.Margin = new System.Windows.Forms.Padding(1);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(207, 28);
-            this.panel6.TabIndex = 26;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(2, 2);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(64, 22);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(66, 2);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            2035,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            2005,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(108, 22);
-            this.numericUpDown2.TabIndex = 1;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            2010,
-            0,
-            0,
-            0});
-            // 
-            // label2
-            // 
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(2, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 24);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Mes/Año Relación:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // FiltrosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -759,13 +762,13 @@
             this.panel12.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.TB_ANO_RELACION)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TB_MES_RELACION)).EndInit();
             this.panel13.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,8 +818,8 @@
         private System.Windows.Forms.ComboBox CB_ESTATUS;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown TB_ANO_RELACION;
+        private System.Windows.Forms.NumericUpDown TB_MES_RELACION;
+        private System.Windows.Forms.Label L_MES_ANO_RELACION;
     }
 }

@@ -26,6 +26,7 @@ namespace ModCompra.Reportes.Filtros
         public bool ActivarHasta { get { return filtros.ActivarHasta; } }
         public bool ActivarProveedor { get { return filtros.ActivarProveedor; } }
         public bool ActivarEstatus { get { return filtros.ActivarEstatus; } }
+        public bool ActivarMesAnoRElacion { get { return filtros.ActivarMesAnoRelacion; } }
         public BindingSource SourceSucursal{ get { return bsSucursal; } }
         public BindingSource SourceEstatus { get { return bsEstatus; } }
         public data DataFiltrar { get { return dataFiltro; } }
@@ -122,6 +123,17 @@ namespace ModCompra.Reportes.Filtros
         public void LimpiarFiltros()
         {
             Limpiar();
+        }
+
+        public void LimpiarMesAnoRelacion()
+        {
+            dataFiltro.LimpiarMesAnoRelacion();
+        }
+
+        public void setMesAnoRelacion(decimal mes, decimal ano)
+        {
+            dataFiltro.mesRelacion = ((int)mes).ToString().Trim().PadLeft(2, '0');
+            dataFiltro.anoRelacion = ((int)ano).ToString().Trim().PadLeft(4, '0');
         }
 
     }

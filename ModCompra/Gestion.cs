@@ -112,6 +112,18 @@ namespace ModCompra
             _gestionRep.Inicia();
         }
 
+        public void ReporteComprasPorProducto()
+        {
+            _gestionRep.setGestion(new Reportes.Filtros.CompraPorProductos.Gestion());
+            _gestionRep.Inicia();
+        }
+
+        public void ReporteComprasDetalleProducto()
+        {
+            _gestionRep.setGestion(new Reportes.Filtros.CompraDetalleProducto.Gestion());
+            _gestionRep.Inicia();
+        }
+
     }
 
 }

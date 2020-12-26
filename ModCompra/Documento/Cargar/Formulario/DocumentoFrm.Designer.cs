@@ -723,7 +723,7 @@
             // L_PROVEEDOR
             // 
             this.L_PROVEEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_PROVEEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PROVEEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_PROVEEDOR.Location = new System.Drawing.Point(2, 2);
             this.L_PROVEEDOR.Name = "L_PROVEEDOR";
             this.L_PROVEEDOR.Size = new System.Drawing.Size(267, 56);

@@ -103,7 +103,10 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         public void NuevoDocumento()
         {
-            _gestionDoc.Inicia();
+            if (_gestion.GestionItem.Lista.Count() == 0) 
+            {
+                _gestionDoc.Inicia();
+            }
         }
 
         public void LimpiarItems()

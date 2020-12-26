@@ -14,11 +14,13 @@ namespace ModInventario.Reportes.Movimientos
     {
         
         private List<data> _list;
-    
+        private string _filtros;
 
-        public gestionRep (List<data> list)
+
+        public gestionRep(List<data> list, string xfiltros)
         {
             _list = list;
+            _filtros = xfiltros;
         }
 
 
@@ -53,6 +55,7 @@ namespace ModInventario.Reportes.Movimientos
             var pmt = new List<ReportParameter>();
             pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
             pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("Filtros", _filtros));
             Rds.Add(new ReportDataSource("Documento", ds.Tables["Documento"]));
 
             var frp = new ReporteFrm();

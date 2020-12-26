@@ -14,6 +14,7 @@ namespace ModCompra.Administrador.Documentos
         private OOB.LibCompra.Documento.Lista.Ficha rg;
 
 
+        public OOB.LibCompra.Documento.Lista.Ficha Ficha { get { return rg; } }
         public string AutoDoc { get { return rg.auto; } }
         public DateTime Fecha { get { return rg.fechaEmision; } }
         public string NombreDoc { get { return rg.tipoDocNombre; } }

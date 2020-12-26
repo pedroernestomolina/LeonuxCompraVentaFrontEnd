@@ -11,14 +11,17 @@ namespace OOB.LibCompra.Documento.Lista
     public class Filtro
     {
 
-        public DateTime? Desde { get; set; }
-        public DateTime? Hasta { get; set; }
-
+        public DateTime Desde { get; set; }
+        public DateTime Hasta { get; set; }
+        public string CodigoSuc { get; set; }
+        public Enumerados.enumTipoDocumento TipoDocumento { get; set; }
 
         public Filtro()
         {
-            Desde = null;
-            Hasta = null;
+            Desde = DateTime.Now.Date;
+            Hasta = DateTime.Now.Date;
+            CodigoSuc = "";
+            TipoDocumento = Enumerados.enumTipoDocumento.SinDefinir;
         }
 
     }

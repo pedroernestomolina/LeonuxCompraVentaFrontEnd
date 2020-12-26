@@ -85,7 +85,7 @@ namespace ModSistema.Sucursal
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-            Codigo = r02.Entidad.ToString().Trim().PadLeft(2, '0');
+            Codigo = r02.Entidad.ToString("X").Trim().PadLeft(2, '0');
 
             return rt;
         }

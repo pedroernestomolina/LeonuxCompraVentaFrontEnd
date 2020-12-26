@@ -20,6 +20,8 @@ namespace DataProvCompra.Data
             {
                 desde = filtro.desde,
                 hasta = filtro.hasta,
+                codSucursal = filtro.codSucursal,
+                estatus = (DtoLibCompra.Reportes.Enumerados.EnumEstatus)filtro.estatus,
             };
             var r01 = MyData.Reportes_ComprasDocumento (filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

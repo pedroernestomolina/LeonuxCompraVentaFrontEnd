@@ -86,11 +86,13 @@ namespace ModInventario.Administrador.Movimiento
             GenerarBusqueda();
         }
 
+        private string xfiltros;
         private void GenerarBusqueda()
         {
+            xfiltros = "";
             var filtro = new OOB.LibInventario.Movimiento.Lista.Filtro();
-            if (Filtro_Desde.HasValue) { filtro.Desde = Filtro_Desde.Value.Date; }
-            if (Filtro_Hasta.HasValue) { filtro.Hasta = Filtro_Hasta.Value.Date; }
+            if (Filtro_Desde.HasValue) { filtro.Desde = Filtro_Desde.Value.Date; xfiltros += "Desde: " + Filtro_Desde.Value.ToShortDateString(); }
+            if (Filtro_Hasta.HasValue) { filtro.Hasta = Filtro_Hasta.Value.Date; xfiltros += ", Hasta: " + Filtro_Hasta.Value.ToShortDateString(); }
 
             if (Filtro_Hasta.HasValue) 
                 if (Filtro_Desde.HasValue)
@@ -106,30 +108,48 @@ namespace ModInventario.Administrador.Movimiento
                 {
                     case "01":
                         filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Cargo;
+                        xfiltros += ", Doc/Tipo: CARGO"; 
                         break;
                     case "02":
                         filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Descargo;
+                        xfiltros += ", Doc/Tipo: DESCARGO"; 
                         break;
                     case "03":
                         filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Traslado;
+                        xfiltros += ", Doc/Tipo: TRASLADO"; 
                         break;
                     case "04":
                         filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Ajuste;
+                        xfiltros += ", Doc/Tipo: AJUSTE"; 
                         break;
                 }
             }
             filtro.IdSucursal = Filtro_Sucursal;
+            if (Filtro_Sucursal!="")
+                xfiltros += ", Cod/Suc: "+Filtro_Sucursal; 
+
             if (_gestionFiltros.FiltrosIsOk)
             {
                 if (_gestionFiltros.DataFiltrar.depDestino != null)
-                    filtro.IdDepDestino = _gestionFiltros.DataFiltrar.depDestino.auto ;
-                if (_gestionFiltros.DataFiltrar.depOrigen != null)
+                {
+                    filtro.IdDepDestino = _gestionFiltros.DataFiltrar.depDestino.auto;
+                    xfiltros += ", Dep/Destino: " + _gestionFiltros.DataFiltrar.depDestino.nombre;
+                }
+                if (_gestionFiltros.DataFiltrar.depOrigen != null) 
+                {
                     filtro.IdDepOrigen = _gestionFiltros.DataFiltrar.depOrigen.auto;
+                    xfiltros += ", Dep/Origen: " + _gestionFiltros.DataFiltrar.depOrigen.nombre;
+                }
                 if (_gestionFiltros.DataFiltrar.estatus != null)
                 {
                     filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo;
                     if (_gestionFiltros.DataFiltrar.estatus.Id != "01")
                         filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Anulado;
+
+                    if (filtro.Estatus==OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo)
+                        xfiltros += ", Estatus: ACTIVO" ;
+                    else
+                        xfiltros += ", Estatus: ANULADO";
                 }
             }
             var rt1 = Sistema.MyData.Producto_Movimiento_GetLista(filtro);
@@ -168,7 +188,7 @@ namespace ModInventario.Administrador.Movimiento
 
         public void Imprimir()
         {
-            _gestionListaDetalle.Imprimir();
+            _gestionListaDetalle.Imprimir(xfiltros);
         }
 
         public void Filtros()

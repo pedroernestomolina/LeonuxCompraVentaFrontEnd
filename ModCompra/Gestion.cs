@@ -97,31 +97,70 @@ namespace ModCompra
                 _gestionAdmDoc.setGestion(new Administrador.Documentos.Gestion());
                 _gestionAdmDoc.Inicia();
             }
-            //Helpers.VisualizarDocumento.Visualizar("0000000036");
         }
 
         public void ReporteGeneralDocumentos()
         {
-            _gestionRep.setGestion(new  Reportes.Filtros.GeneralDocumentos.Gestion());
-            _gestionRep.Inicia();
+            var r00 = Sistema.MyData.Permiso_Reportes(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRep.setGestion(new Reportes.Filtros.GeneralDocumentos.Gestion());
+                _gestionRep.Inicia();
+            }
         }
 
         public void ReporteComprasDepartamentos()
         {
-            _gestionRep.setGestion(new Reportes.Filtros.CompraDepartamentos.Gestion());
-            _gestionRep.Inicia();
+            var r00 = Sistema.MyData.Permiso_Reportes(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRep.setGestion(new Reportes.Filtros.CompraDepartamentos.Gestion());
+                _gestionRep.Inicia();
+            }
         }
 
         public void ReporteComprasPorProducto()
         {
-            _gestionRep.setGestion(new Reportes.Filtros.CompraPorProductos.Gestion());
-            _gestionRep.Inicia();
+            var r00 = Sistema.MyData.Permiso_Reportes(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRep.setGestion(new Reportes.Filtros.CompraPorProductos.Gestion());
+                _gestionRep.Inicia();
+            }
         }
 
         public void ReporteComprasDetalleProducto()
         {
-            _gestionRep.setGestion(new Reportes.Filtros.CompraDetalleProducto.Gestion());
-            _gestionRep.Inicia();
+            var r00 = Sistema.MyData.Permiso_Reportes(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRep.setGestion(new Reportes.Filtros.CompraDetalleProducto.Gestion());
+                _gestionRep.Inicia();
+            }
         }
 
     }

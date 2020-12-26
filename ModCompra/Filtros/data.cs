@@ -11,12 +11,16 @@ namespace ModCompra.Filtros
     public class data
     {
         
-        private DateTime? _fechaDesde;
-        private DateTime? _fechaHasta;
+        private DateTime _fechaDesde;
+        private DateTime _fechaHasta;
+        private OOB.LibCompra.Sucursal.Data.Ficha _sucursal;
+        private tipoDoc _tipoDoc;
 
 
-        public DateTime? FechaDesde { get { return _fechaDesde; } }
-        public DateTime? FechaHasta { get { return _fechaHasta; } }
+        public DateTime FechaDesde { get { return _fechaDesde; } }
+        public DateTime FechaHasta { get { return _fechaHasta; } }
+        public OOB.LibCompra.Sucursal.Data.Ficha Sucursal { get { return _sucursal; } }
+        public tipoDoc TipoDoc { get { return _tipoDoc; } }
 
 
         public data()
@@ -29,6 +33,8 @@ namespace ModCompra.Filtros
         {
             _fechaDesde = DateTime.Now.Date;
             _fechaHasta = DateTime.Now.Date;
+            _sucursal = null;
+            _tipoDoc = null;
         }
 
         public void setFechaDesde(DateTime fecha)
@@ -43,19 +49,23 @@ namespace ModCompra.Filtros
 
         public bool FechaIsOk()
         {
-            var r = false;
+            if (_fechaDesde.Date > _fechaHasta.Date)
+            {
+                Helpers.Msg.Error("Fechas Incorrectas, Verifique Por Favor");
+                return false;
+            }
+            else
+                return true;
+        }
 
-            if (_fechaHasta.HasValue)
-                if (_fechaDesde.HasValue)
-                    if (_fechaDesde.Value.Date > _fechaHasta.Value.Date)
-                    {
-                        Helpers.Msg.Error("Fechas Incorrectas, Verifique Por Favor");
-                        return false;
-                    }
-                    else
-                        return true;
+        public void setSucursal(OOB.LibCompra.Sucursal.Data.Ficha ficha)
+        {
+            _sucursal = ficha;
+        }
 
-            return r;
+        public void setTipoDoc(tipoDoc tipoDoc)
+        {
+            _tipoDoc = tipoDoc;
         }
 
     }

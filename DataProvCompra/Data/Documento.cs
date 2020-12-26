@@ -406,8 +406,10 @@ namespace DataProvCompra.Data
 
             var filtroDto = new DtoLibCompra.Documento.Lista.Filtro()
             {
-                segun_FechaEmisionDesde = filtro.Desde,
-                segun_FechaEmisionHasta = filtro.Hasta,
+                Desde = filtro.Desde,
+                Hasta = filtro.Hasta,
+                CodigoSuc = filtro.CodigoSuc,
+                TipoDocumento = (DtoLibCompra.Enumerados.enumTipoDocumento)filtro.TipoDocumento,
             };
             var r01 = MyData.Compra_DocumentoGetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -436,15 +438,45 @@ namespace DataProvCompra.Data
                             provCiRif = s.provCiRif,
                             provNombre = s.provNombre,
                             situacion = s.situacion,
-                            tipoDoc = (OOB.LibCompra.Documento.Enumerados.enumTipoDocumento) s.tipoDoc,
+                            tipoDoc = (OOB.LibCompra.Documento.Enumerados.enumTipoDocumento)s.tipoDoc,
                             tipoDocNombre = s.tipoDocNombre,
-                            documentoNro=s.documento,
+                            documentoNro = s.documento,
+                            codigoTipo = s.tipo,
                         };
                         return nr;
                     }).ToList();
                 }
             }
             rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.Resultado Compra_DocumentoAnularFactura(OOB.LibCompra.Documento.Anular.Factura.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibCompra.Documento.Anular.Factura.Ficha()
+            {
+                autoDocumento = ficha.autoDocumento,
+                codigoDocumento = ficha.codigoDocumento,
+                auditoria = new DtoLibCompra.Documento.Anular.Factura.FichaAuditoria()
+                {
+                    autoSistemaDocumento = ficha.autoSistemaDocumento,
+                    autoUsuario = ficha.autoUsuario,
+                    codigo = ficha.codigoUsuario,
+                    estacion = ficha.estacion,
+                    motivo = ficha.motivo,
+                    usuario = ficha.nombreUsuario,
+                }
+            };
+            var r01 = MyData.Compra_DocumentoAnularFactura(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
 
             return rt;
         }

@@ -69,7 +69,7 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.CB_CONCEPTO = new System.Windows.Forms.ComboBox();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.L_CONCEPTO = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -725,7 +725,7 @@
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.label3);
+            this.panel15.Controls.Add(this.L_CONCEPTO);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.Location = new System.Drawing.Point(1, 1);
             this.panel15.Margin = new System.Windows.Forms.Padding(0);
@@ -734,17 +734,20 @@
             this.panel15.Size = new System.Drawing.Size(116, 26);
             this.panel15.TabIndex = 0;
             // 
-            // label3
+            // L_CONCEPTO
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1, 1);
-            this.label3.Margin = new System.Windows.Forms.Padding(1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 24);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Concepto:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_CONCEPTO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_CONCEPTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CONCEPTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CONCEPTO.ForeColor = System.Drawing.Color.Blue;
+            this.L_CONCEPTO.Location = new System.Drawing.Point(1, 1);
+            this.L_CONCEPTO.Margin = new System.Windows.Forms.Padding(1);
+            this.L_CONCEPTO.Name = "L_CONCEPTO";
+            this.L_CONCEPTO.Size = new System.Drawing.Size(114, 24);
+            this.L_CONCEPTO.TabIndex = 0;
+            this.L_CONCEPTO.Text = "Concepto:";
+            this.L_CONCEPTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_CONCEPTO.Click += new System.EventHandler(this.L_CONCEPTO_Click);
             // 
             // panel8
             // 
@@ -1613,7 +1616,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.ComboBox CB_CONCEPTO;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label L_CONCEPTO;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.ComboBox CB_DEP_DESTINO;

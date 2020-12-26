@@ -121,6 +121,7 @@
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
             // panel1
             // 
@@ -147,6 +148,7 @@
             this.BT_PROCESAR.Text = "Procesar";
             this.BT_PROCESAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_PROCESAR.UseVisualStyleBackColor = true;
+            this.BT_PROCESAR.Click += new System.EventHandler(this.BT_PROCESAR_Click);
             // 
             // panel3
             // 
@@ -343,6 +345,8 @@
             this.TB_MOTIVO.Name = "TB_MOTIVO";
             this.TB_MOTIVO.Size = new System.Drawing.Size(370, 89);
             this.TB_MOTIVO.TabIndex = 0;
+            this.TB_MOTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
+            this.TB_MOTIVO.Leave += new System.EventHandler(this.TB_MOTIVO_Leave);
             // 
             // AnularFrm
             // 
@@ -356,6 +360,7 @@
             this.KeyPreview = true;
             this.Name = "AnularFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.AnularFrm_Load);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel9.ResumeLayout(false);

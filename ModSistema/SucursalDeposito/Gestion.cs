@@ -54,12 +54,32 @@ namespace ModSistema.SucursalDeposito
 
         public void EditarItem()
         {
-            _gestionLista.EditarItem();
+            var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal_EditarAsignacion(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionLista.EditarItem();
+            }
         }
 
         public void EliminarAsignacion()
         {
-            _gestionLista.EliminarAsignacion();
+            var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal_EliminarAsignacion(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionLista.EliminarAsignacion();
+            }
         }
 
     }

@@ -12,12 +12,7 @@ namespace ModInventario
     public class GestionInv
     {
 
-
-        private Maestros.Departamentos.Gestion _gestionDepart;
-        private Maestros.Grupos.Gestion _gestionGrupo;
-        private Maestros.EmpaqueMedidas.Gestion _gestionEmpaqueMedida;
-        private Maestros.Marcas.Gestion _gestionMarca;
-        private Maestros.Conceptos.Gestion _gestionConcepto;
+        private Maestros.Gestion _gestionMaestro;
         private Buscar.Gestion _gestionBusqueda;
         private Movimiento.Gestion _gestionMov;
         private Visor.Existencia.Gestion _gestionVisorExistencia;
@@ -59,11 +54,7 @@ namespace ModInventario
 
         public GestionInv()
         {
-            _gestionDepart = new Maestros.Departamentos.Gestion();
-            _gestionGrupo = new Maestros.Grupos.Gestion();
-            _gestionMarca = new Maestros.Marcas.Gestion();
-            _gestionEmpaqueMedida = new Maestros.EmpaqueMedidas.Gestion();
-            _gestionConcepto = new Maestros.Conceptos.Gestion();
+            _gestionMaestro = new Maestros.Gestion();
             _gestionBusqueda = new Buscar.Gestion();
             _gestionMov = new Movimiento.Gestion();
             _gestionVisorExistencia = new Visor.Existencia.Gestion();
@@ -105,22 +96,26 @@ namespace ModInventario
 
         public void MaestroDepartamentos()
         {
-            _gestionDepart.Inicia();
+            _gestionMaestro.setGestion(new Maestros.Departamento.Gestion());
+            _gestionMaestro.Inicia();
         }
 
         public void MaestroGrupo()
         {
-            _gestionGrupo.Inicia();
+            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
+            _gestionMaestro.Inicia();
         }
 
         public void MaestroMarca()
         {
-            _gestionMarca.Inicia();
+            _gestionMaestro.setGestion(new Maestros.Marca.Gestion());
+            _gestionMaestro.Inicia();
         }
 
         public void MaestroEmpaquesMedida()
         {
-            _gestionEmpaqueMedida.Inicia();
+            _gestionMaestro.setGestion(new Maestros.EmpaqueMedida.Gestion());
+            _gestionMaestro.Inicia();
         }
 
         public void BuscarProducto()
@@ -134,7 +129,8 @@ namespace ModInventario
 
         public void MaestroConcepto()
         {
-            _gestionConcepto.Inicia();
+            _gestionMaestro.setGestion(new Maestros.Concepto.Gestion());
+            _gestionMaestro.Inicia();
         }
 
         public void MovimientoCargo()

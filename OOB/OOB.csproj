@@ -65,6 +65,8 @@
     <Compile Include="LibCompra\Concepto\Ficha.cs" />
     <Compile Include="LibCompra\Configuracion\Enumerados.cs" />
     <Compile Include="LibCompra\Deposito\Data\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\Anular\Factura\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\Anular\FichaBase.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\Ficha.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaCxP.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaDetalle.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="LibCompra\Reportes\CompraPorProductoDetalle\Filtro.cs" />
     <Compile Include="LibCompra\Reportes\CompraporProducto\Ficha.cs" />
     <Compile Include="LibCompra\Reportes\CompraporProducto\Filtro.cs" />
+    <Compile Include="LibCompra\Reportes\Enumerados.cs" />
     <Compile Include="LibCompra\Reportes\GeneralDocumentos\Ficha.cs" />
     <Compile Include="LibCompra\Reportes\GeneralDocumentos\Filtro.cs" />
     <Compile Include="LibCompra\Sucursal\Data\Ficha.cs" />

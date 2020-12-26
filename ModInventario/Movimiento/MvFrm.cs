@@ -435,6 +435,16 @@ namespace ModInventario.Movimiento
             _controlador.Filtrar();
         }
 
+        private void L_CONCEPTO_Click(object sender, EventArgs e)
+        {
+            MaestroConcepto();
+        }
+
+        private void MaestroConcepto()
+        {
+            _controlador.MaestroConcepto();
+        }
+
     }
 
 }

@@ -556,6 +556,19 @@ namespace ModInventario.Movimiento.Cargo
             _gestionBusquedaPrd.setFiltros(data);
         }
 
+        public void ActualizarConceptos()
+        {
+            var rt1 = Sistema.MyData.Concepto_GetLista();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return ;
+            }
+            lConcepto.Clear();
+            lConcepto.AddRange(rt1.Lista);
+            bsConcepto.CurrencyManager.Refresh();
+        }
+
     }
 
 }

@@ -19,6 +19,8 @@ namespace ModCompra.Administrador
         public string Titulo { get { return _miGestion.Titulo; } }
         public string ItemsEncontrados { get { return _miGestion.ItemsEncontrados; } }
         public BindingSource ItemsSource { get { return _miGestion.ItemsSource; } }
+        public BindingSource SucursalSource { get { return _miGestion.SucursalSource; } }
+        public BindingSource TipoDocSource { get { return _miGestion.TipoDocSource; } }
 
         
         AdministradorFrm frm;
@@ -54,8 +56,6 @@ namespace ModCompra.Administrador
             _miGestion.Buscar();
         }
 
-        public object SucursalSource { get; set; }
-
         public void LimpiarFiltros()
         {
             _miGestion.LimpiarFiltros();
@@ -69,6 +69,21 @@ namespace ModCompra.Administrador
         public void VisualizarDocumento()
         {
             _miGestion.VisualizarDocumento();
+        }
+
+        public void setSucursal(string autoId)
+        {
+            _miGestion.setSucursal(autoId);
+        }
+
+        public void setTipoDoc(string id)
+        {
+            _miGestion.setTipoDoc(id);
+        }
+
+        public void AnularItem()
+        {
+            _miGestion.AnularItem();
         }
 
     }

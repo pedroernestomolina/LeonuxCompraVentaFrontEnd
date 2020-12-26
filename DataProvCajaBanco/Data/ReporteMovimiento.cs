@@ -98,7 +98,6 @@ namespace DataProvCajaBanco.Data
                     {
                         var entrada = 0.0m;
                         var salida = 0.0m;
-                        var exFisica = 0.0m;
                         var entradaOt = 0.0m;
                         var tEntrada = 0.0m;
                         var tSalida= 0.0m;

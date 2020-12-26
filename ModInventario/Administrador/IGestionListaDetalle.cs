@@ -21,7 +21,7 @@ namespace ModInventario.Administrador
         void LimpiarData();
         void setGestionAnular(Anular.Gestion _gestionAnular);
         void VisualizarDocumento();
-        void Imprimir();
+        void Imprimir(string xfiltros);
 
     }
 

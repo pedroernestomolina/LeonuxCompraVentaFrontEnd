@@ -17,6 +17,7 @@ namespace ModCompra.Administrador
         BindingSource ItemsSource { get; }
         string ItemsEncontrados { get; }
         BindingSource SucursalSource { get; }
+        BindingSource TipoDocSource { get; }
 
 
         void Inicia();
@@ -30,6 +31,8 @@ namespace ModCompra.Administrador
         bool CargarData();
         void setFechaDesde(DateTime fecha);
         void setFechaHasta(DateTime fecha);
+        void setSucursal(string autoId);
+        void setTipoDoc(string id);
 
     }
 

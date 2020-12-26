@@ -12,8 +12,7 @@ namespace ModCompra.Administrador.Documentos
     public class Gestion : IGestion
     {
 
-        private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
-        private BindingSource bsSucursal;
+
         private IGestionListaDetalle _gestionListaDetalle;
         private Anular.Gestion _gestionAnular;
         private Filtros.Gestion _gestionFiltros;
@@ -22,16 +21,13 @@ namespace ModCompra.Administrador.Documentos
         public enumerados.EnumTipoAdministrador TipoAdministrador { get { return enumerados.EnumTipoAdministrador.AdmDocumentos; } }
         public string Titulo { get { return "Administrador De Documentos"; } }
         public BindingSource ItemsSource { get { return _gestionListaDetalle.ItemsSource; } }
-        public BindingSource SucursalSource { get { return bsSucursal; } }
+        public BindingSource SucursalSource { get { return _gestionFiltros.SucursalSource; } }
+        public BindingSource TipoDocSource { get { return _gestionFiltros.TipoDocSource; } }
         public string ItemsEncontrados { get { return _gestionListaDetalle.ItemsEncontrados; } }
 
 
         public Gestion()
         {
-            lSucursal = new List<OOB.LibInventario.Sucursal.Ficha>();
-            bsSucursal = new BindingSource();
-            bsSucursal.DataSource = lSucursal;
-
             _gestionFiltros = new Filtros.Gestion();
             _gestionAnular = new Anular.Gestion();
             _gestionListaDetalle = new GestionListaDetalle();
@@ -47,15 +43,42 @@ namespace ModCompra.Administrador.Documentos
         {
             var filtro = new OOB.LibCompra.Documento.Lista.Filtro();
 
-            if (_gestionFiltros.FechaIsOk)
+            if (_gestionFiltros.DataFiltrar.FechaIsOk())
             {
-                filtro.Desde = _gestionFiltros.FechaDesde.Value.Date;
-                filtro.Hasta = _gestionFiltros.FechaHasta.Value.Date;
+                filtro.Desde = _gestionFiltros.DataFiltrar.FechaDesde.Date;
+                filtro.Hasta = _gestionFiltros.DataFiltrar.FechaHasta.Date;
             }
             else
             {
                 Helpers.Msg.Error("Fechas Incorrectas, Verifique Por Favor");
                 return;
+            }
+
+            if (_gestionFiltros.DataFiltrar.Sucursal != null) 
+            {
+                filtro.CodigoSuc = _gestionFiltros.DataFiltrar.Sucursal.codigo;
+            }
+
+            if (_gestionFiltros.DataFiltrar.TipoDoc != null)
+            {
+                switch (_gestionFiltros.DataFiltrar.TipoDoc.id) 
+                {
+                    case "01":
+                        filtro.TipoDocumento = OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.Factura;
+                        break;
+                    case "02":
+                        filtro.TipoDocumento = OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.NotaDebito;
+                        break;
+                    case "03":
+                        filtro.TipoDocumento = OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.NotaCredito;
+                        break;
+                    case "04":
+                        filtro.TipoDocumento = OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.OrdenCompra;
+                        break;
+                    case "05":
+                        filtro.TipoDocumento = OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.Recepcion;
+                        break;
+                }
             }
 
             var rt1 = Sistema.MyData.Compra_DocumentoGetLista(filtro);
@@ -110,15 +133,8 @@ namespace ModCompra.Administrador.Documentos
         {
             var rt = true;
 
-            //var rt1 = Sistema.MyData.Sucursal_GetLista();
-            //if (rt1.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(rt1.Mensaje);
-            //    return false;
-            //}
-            //lSucursal.Clear();
-            //lSucursal.AddRange(rt1.Lista);
-            //bsSucursal.CurrencyManager.Refresh();
+            if (!_gestionFiltros.CargarData())
+                return false;
 
             return rt;
         }
@@ -126,6 +142,16 @@ namespace ModCompra.Administrador.Documentos
         public void LimpiarFiltros()
         {
             _gestionFiltros.InicializarFiltros();
+        }
+
+        public void setSucursal(string autoId)
+        {
+            _gestionFiltros.setSucursal(autoId);
+        }
+
+        public void setTipoDoc(string id)
+        {
+            _gestionFiltros.setTipoDoc(id);
         }
 
     }

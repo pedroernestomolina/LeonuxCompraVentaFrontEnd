@@ -10,7 +10,6 @@ namespace OOB.LibInventario.Deposito
     
     public class Ficha
     {
-        private Ficha it;
 
 
         public string auto { get; set; }

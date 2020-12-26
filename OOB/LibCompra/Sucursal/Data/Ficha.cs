@@ -10,7 +10,6 @@ namespace OOB.LibCompra.Sucursal.Data
     
     public class Ficha
     {
-        private Ficha it;
 
 
         public string auto { get; set; }

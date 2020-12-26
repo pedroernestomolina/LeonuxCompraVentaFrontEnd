@@ -24,6 +24,8 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc_Visualizar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc_Reporte(string autoGrupoUsuario);
 
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Reportes(string autoGrupoUsuario);
+
     }
 
 }

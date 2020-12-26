@@ -21,6 +21,15 @@ namespace ModCompra.Administrador
         public AdministradorFrm()
         {
             InitializeComponent();
+            InicializarCombos();
+        }
+
+        private void InicializarCombos()
+        {
+            CB_SUCURSAL.DisplayMember = "Nombre";
+            CB_SUCURSAL.ValueMember = "Auto";
+            CB_TIPO_DOC.DisplayMember = "Descripcion";
+            CB_TIPO_DOC.ValueMember = "Id";
         }
 
         private void InicializarGrid_1()
@@ -170,10 +179,10 @@ namespace ModCompra.Administrador
 
         private void AdministradorFrm_Load(object sender, EventArgs e)
         {
-            CB_SUCURSAL.DisplayMember = "Nombre";
-            CB_SUCURSAL.ValueMember = "Codigo";
             CB_SUCURSAL.DataSource = _controlador.SucursalSource;
             CB_SUCURSAL.SelectedIndex = -1;
+            CB_TIPO_DOC.DataSource = _controlador.TipoDocSource;
+            CB_TIPO_DOC.SelectedIndex = -1;
 
             L_TITULO.Text = _controlador.Titulo;
             switch (_controlador.TipoAdministrador)
@@ -224,7 +233,7 @@ namespace ModCompra.Administrador
 
         private void AnularItem()
         {
-            //_controlador.AnularItem();
+            _controlador.AnularItem();
         }
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
@@ -239,34 +248,20 @@ namespace ModCompra.Administrador
 
         private void CB_TIPO_DOC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //_controlador.Filtro_TipoDoc = "";
-            //if (CB_TIPO_DOC.SelectedIndex != -1)
-            //{
-            //    switch (CB_TIPO_DOC.SelectedIndex)
-            //    {
-            //        case 0:
-            //            _controlador.Filtro_TipoDoc = "01";
-            //            break;
-            //        case 1:
-            //            _controlador.Filtro_TipoDoc = "02";
-            //            break;
-            //        case 2:
-            //            _controlador.Filtro_TipoDoc = "03";
-            //            break;
-            //        case 3:
-            //            _controlador.Filtro_TipoDoc = "04";
-            //            break;
-            //    }
-            //}
+            _controlador.setTipoDoc("");
+            if (CB_TIPO_DOC.SelectedIndex!=-1)
+            {
+                _controlador.setTipoDoc(CB_TIPO_DOC.SelectedValue.ToString());
+            }
         }
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //_controlador.Filtro_Sucursal = "";
-            //if (CB_SUCURSAL.SelectedIndex != -1)
-            //{
-            //    _controlador.Filtro_Sucursal = CB_SUCURSAL.SelectedValue.ToString();
-            //}
+            _controlador.setSucursal("");
+            if (CB_SUCURSAL.SelectedIndex != -1)
+            {
+                _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
+            }
         }
 
         private void L_TIPO_DOC_Click(object sender, EventArgs e)

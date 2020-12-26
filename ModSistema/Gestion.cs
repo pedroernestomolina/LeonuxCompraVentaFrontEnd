@@ -76,28 +76,78 @@ namespace ModSistema
 
         public void MaestroSucursalGrupo()
         {
-            _gestionSucGrupo.Inicia();
+            var r00 = Sistema.MyData.Permiso_ControlSucursalGrupo(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionSucGrupo.Inicia();
+            }
         }
 
         public void MaestroSucursales()
         {
-            _gestionSuc.Inicia();
+            var r00 = Sistema.MyData.Permiso_ControlSucursal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionSuc.Inicia();
+            }
         }
 
 
         public  void MaestroDepositos()
         {
-            _gestionDep.Inicia();
+            var r00 = Sistema.MyData.Permiso_ControlDeposito(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionDep.Inicia();
+            }
         }
 
         public void EtiquetarPrecios()
         {
-            _gestionPrecio.Inicia();
+            var r00 = Sistema.MyData.Permiso_EtiquetaParaPrecios(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionPrecio.Inicia();
+            }
         }
 
         public void AsignarDepositoPrincipalASucursal()
         {
-            _gestionSucDep.Inicia();
+            var r00 = Sistema.MyData.Permiso_AsignarDepositoSucursal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionSucDep.Inicia();
+            }
         }
 
         public void MaestroUsuariosGrupo()
@@ -112,26 +162,66 @@ namespace ModSistema
 
         public void InicializarBD()
         {
-            _gestionServicio.IniciaBD();
+            var r00 = Sistema.MyData.Permiso_InicializarBD(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionServicio.IniciaBD();
+            }
         }
 
         public void InicializarBD_Sucursal()
         {
-            _gestionServicio.IniciaBD_Sucursal();
+            var r00 = Sistema.MyData.Permiso_InicializarBD_Sucursal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionServicio.IniciaBD_Sucursal();
+            }
         }
 
         public void TasaRecepcionDivisaPos()
         {
-            var gestion= new TasaDivisa.Pos.Gestion();
-            _gestionTasaDivisa.setGestion(gestion);
-            _gestionTasaDivisa.Inicia();
+            var r00 = Sistema.MyData.Permiso_AjustarTasaDivisaRecepcionPos(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var gestion = new TasaDivisa.Pos.Gestion();
+                _gestionTasaDivisa.setGestion(gestion);
+                _gestionTasaDivisa.Inicia();
+            }
         }
 
         public void TasaDivisa()
         {
-            var gestion = new TasaDivisa.Sist.Gestion();
-            _gestionTasaDivisa.setGestion(gestion);
-            _gestionTasaDivisa.Inicia();
+            var r00 = Sistema.MyData.Permiso_AjustarTasaDivisa(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var gestion = new TasaDivisa.Sist.Gestion();
+                _gestionTasaDivisa.setGestion(gestion);
+                _gestionTasaDivisa.Inicia();
+            }
         }
 
     }

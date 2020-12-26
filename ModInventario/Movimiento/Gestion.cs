@@ -15,6 +15,7 @@ namespace ModInventario.Movimiento
 
         private IGestion miGestion;
         private Buscar.Filtrar.Gestion _gestionFiltroBusqueda;
+        private Maestros.Gestion _gestionMaestro;
 
 
         public enumerados.enumTipoMovimiento EnumTipoMovimiento { get { return miGestion.EnumTipoMovimiento; } }
@@ -43,6 +44,7 @@ namespace ModInventario.Movimiento
         public Gestion()
         {
             _gestionFiltroBusqueda = new Buscar.Filtrar.Gestion();
+            _gestionMaestro = new Maestros.Gestion();
         }
 
 
@@ -119,6 +121,13 @@ namespace ModInventario.Movimiento
             {
                 miGestion.setFiltros(_gestionFiltroBusqueda.FiltrosSeleccionados);
             }
+        }
+
+        public void MaestroConcepto()
+        {
+            _gestionMaestro.setGestion(new Maestros.Concepto.Gestion());
+            _gestionMaestro.Inicia();
+            miGestion.ActualizarConceptos();
         }
 
     }

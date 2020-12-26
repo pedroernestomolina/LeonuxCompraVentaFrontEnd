@@ -328,7 +328,7 @@ namespace ModInventario.Administrador.Movimiento
             rp1.Generar();
         }
 
-        public void Imprimir()
+        public void Imprimir(string xfiltros)
         {
             var r00 = Sistema.MyData.Permiso_AdmReporteMovimientoInventario(Sistema.UsuarioP.autoGru);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
@@ -358,7 +358,7 @@ namespace ModInventario.Administrador.Movimiento
                         };
                         data.Add(nr);
                     }
-                    var rp = new Reportes.Movimientos.gestionRep(data);
+                    var rp = new Reportes.Movimientos.gestionRep(data, xfiltros);
                     rp.Generar();
                 }
             }

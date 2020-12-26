@@ -36,6 +36,7 @@ namespace ModCompra.Reportes.Filtros.CompraPorProductos
 
         public void Generar()
         {
+            var xfiltro = "";
             if (filtrarPor.hasta < filtrarPor.desde)
             {
                 Helpers.Msg.Error("Fechas Incorrectas, Verifique Por Favor");
@@ -47,16 +48,18 @@ namespace ModCompra.Reportes.Filtros.CompraPorProductos
                 desde = filtrarPor.desde,
                 hasta = filtrarPor.hasta,
             };
+            xfiltro += "Desde: " + filtrarPor.desde.ToShortDateString() + ", Hasta: " + filtrarPor.hasta.ToShortDateString();
+
             var xr1 = Sistema.MyData.Reportes_CompraPorProducto (filtro);
             if (xr1.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(xr1.Mensaje);
                 return;
             }
-            Reporte(xr1.Lista);
+            Reporte(xr1.Lista,xfiltro);
         }
 
-        private void Reporte(List<OOB.LibCompra.Reportes.CompraporProducto.Ficha> list)
+        private void Reporte(List<OOB.LibCompra.Reportes.CompraporProducto.Ficha> list, string xfiltro)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\CompraPorProductos.rdlc";
             var ds = new DS();
@@ -74,8 +77,9 @@ namespace ModCompra.Reportes.Filtros.CompraPorProductos
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
-            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("Filtros", xfiltro));
             Rds.Add(new ReportDataSource("CompraPrd", ds.Tables["CompraPrd"]));
 
             var frp = new ReporteFrm();

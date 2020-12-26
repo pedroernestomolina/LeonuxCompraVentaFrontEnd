@@ -13,6 +13,7 @@ namespace OOB.LibCompra.Documento.Lista
 
         public string auto { get; set; }
         public DateTime fechaEmision { get; set; }
+        public string codigoTipo { get; set; }
         public string tipoDocNombre { get; set; }
         public string documentoNro { get; set; }
         public DateTime fechaRegistro { get; set; }

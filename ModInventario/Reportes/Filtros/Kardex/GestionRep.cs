@@ -60,8 +60,6 @@ namespace ModInventario.Reportes.Filtros.Kardex
             foreach (var g in grupos)
             {
                 var saldo = 0.0m;
-                var ent = 0.0m;
-                var sal = 0.0m;
                 saldo = lista.FirstOrDefault(f => f.nombrePrd == g.Key).existenciaInicial;
                 foreach (var it in lista.Where(w => w.nombrePrd == g.Key).OrderBy(o=>o.moduloMov).ThenBy(o=>o.fechaMov).ToList())
                 {

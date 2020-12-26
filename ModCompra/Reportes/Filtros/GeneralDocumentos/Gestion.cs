@@ -36,27 +36,41 @@ namespace ModCompra.Reportes.Filtros.GeneralDocumentos
 
         public void Generar()
         {
+            var xfiltro = "";
             if (filtrarPor.hasta < filtrarPor.desde) 
             {
                 Helpers.Msg.Error("Fechas Incorrectas, Verifique Por Favor");
                 return;
             }
-
             var filtro = new OOB.LibCompra.Reportes.GeneralDocumentos.Filtro()
             {
                 desde = filtrarPor.desde,
                 hasta = filtrarPor.hasta,
             };
+            xfiltro += "Desde: " + filtrarPor.desde.ToShortDateString() + ", Hasta: " + filtrarPor.hasta.ToShortDateString();
+            if (filtrarPor.sucursal != null)
+            {
+                filtro.codSucursal = filtrarPor.sucursal.codigo;
+                xfiltro += ", Cod/Suc: " + filtrarPor.sucursal.codigo;
+            }
+            if (filtrarPor.estatus != null)
+            {
+                filtro.estatus = OOB.LibCompra.Reportes.Enumerados.EnumEstatus.Activo; 
+                if (filtrarPor.estatus.Id=="02")
+                    filtro.estatus = OOB.LibCompra.Reportes.Enumerados.EnumEstatus.Anulado;
+                xfiltro += ", Estatus: " + filtro.estatus.ToString();
+            }
+
             var xr1 = Sistema.MyData.Reportes_ComprasDocumento(filtro);
             if (xr1.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(xr1.Mensaje);
                 return;
             }
-            Reporte(xr1.Lista);
+            Reporte(xr1.Lista, xfiltro);
         }
 
-        private void Reporte(List<OOB.LibCompra.Reportes.GeneralDocumentos.Ficha> list)
+        private void Reporte(List<OOB.LibCompra.Reportes.GeneralDocumentos.Ficha> list, string xfiltro)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\GeneralDocumentos.rdlc";
             var ds = new DS();
@@ -88,8 +102,9 @@ namespace ModCompra.Reportes.Filtros.GeneralDocumentos
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
-            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("Filtros", xfiltro));
             Rds.Add(new ReportDataSource("GeneralDoc", ds.Tables["GeneralDoc"]));
 
             var frp = new ReporteFrm();

@@ -596,11 +596,9 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label4;
-        private LibControles.NumeroDecimal TB_DSCTO;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label5;
-        private LibControles.NumeroDecimal TB_CARGO;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label L_TOTAL;

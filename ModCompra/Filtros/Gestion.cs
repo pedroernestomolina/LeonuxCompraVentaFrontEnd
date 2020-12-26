@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ModCompra.Filtros
@@ -12,16 +13,28 @@ namespace ModCompra.Filtros
     {
 
         private data aFiltrar;
+        private List<OOB.LibCompra.Sucursal.Data.Ficha> lSucursal;
+        private BindingSource bsSucursal;
+        private List<tipoDoc> lTipoDoc;
+        private BindingSource bsTipoDoc;
 
 
-        public DateTime? FechaDesde { get { return aFiltrar.FechaDesde ; } }
-        public DateTime? FechaHasta { get { return aFiltrar.FechaHasta; } }
-        public bool FechaIsOk { get { return aFiltrar.FechaIsOk(); } }
+        public data DataFiltrar { get { return aFiltrar; } }
+        public BindingSource SucursalSource { get { return bsSucursal; } }
+        public BindingSource TipoDocSource { get { return bsTipoDoc; } }
 
 
         public Gestion()
         {
             aFiltrar = new data();
+
+            lSucursal = new List<OOB.LibCompra.Sucursal.Data.Ficha>();
+            bsSucursal = new BindingSource();
+            bsSucursal.DataSource = lSucursal;
+
+            lTipoDoc = new List<tipoDoc>();
+            bsTipoDoc = new BindingSource();
+            bsTipoDoc.DataSource = lTipoDoc;
         }
 
 
@@ -43,6 +56,40 @@ namespace ModCompra.Filtros
         public void setFechaHasta(DateTime fecha)
         {
             aFiltrar.setFechaHasta(fecha);
+        }
+
+        public bool CargarData()
+        {
+            var rt = true;
+
+            var rt1 = Sistema.MyData.Sucursal_GetLista();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return false;
+            }
+            lSucursal.Clear();
+            lSucursal.AddRange(rt1.Lista);
+            bsSucursal.CurrencyManager.Refresh();
+
+            lTipoDoc.Clear();
+            lTipoDoc.Add(new tipoDoc("01", "Factura"));
+            lTipoDoc.Add(new tipoDoc("02", "Nota Debito"));
+            lTipoDoc.Add(new tipoDoc("03", "Nota Credito"));
+            lTipoDoc.Add(new tipoDoc("04", "Orden Compra"));
+            bsTipoDoc.CurrencyManager.Refresh();
+
+            return rt;
+        }
+
+        public void setSucursal(string autoId)
+        {
+            aFiltrar.setSucursal(lSucursal.FirstOrDefault(f => f.auto == autoId));
+        }
+
+        public void setTipoDoc(string id)
+        {
+            aFiltrar.setTipoDoc(lTipoDoc.FirstOrDefault(f => f.id == id));
         }
 
     }

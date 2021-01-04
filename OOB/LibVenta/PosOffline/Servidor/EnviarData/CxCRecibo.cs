@@ -34,6 +34,8 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
         public decimal Descuentos { get; set; }
         public string Hora { get; set; }
         public string Cierre { get; set; }
+        public decimal ImporteDivisa { get; set; }
+        public decimal FactorCambio { get; set; }
 
     }
 

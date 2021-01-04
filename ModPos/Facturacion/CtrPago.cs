@@ -20,6 +20,14 @@ namespace ModPos.Facturacion
 
         public bool PagoIsOk { get; set; }
         public Pago.Pago Pago { get; set; }
+        public string PagoElectronico_LOTE_1 { get { return Pago.PagoElectronico_LOTE(1); } }
+        public string PagoElectronico_REF_1 { get { return Pago.PagoElectronico_REF(1); } }
+        public string PagoElectronico_LOTE_2 { get { return Pago.PagoElectronico_LOTE(2); } }
+        public string PagoElectronico_REF_2 { get { return Pago.PagoElectronico_REF(2); } }
+        public string PagoElectronico_LOTE_3 { get { return Pago.PagoElectronico_LOTE(3); } }
+        public string PagoElectronico_REF_3 { get { return Pago.PagoElectronico_REF(3); } }
+        public string PagoElectronico_LOTE_4 { get { return Pago.PagoElectronico_LOTE(4); } }
+        public string PagoElectronico_REF_4 { get { return Pago.PagoElectronico_REF(4); } }
 
 
         public string FichaCliente 

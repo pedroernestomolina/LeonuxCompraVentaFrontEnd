@@ -28,7 +28,7 @@ namespace ModSistema
         {
             get 
             {
-                return "Base Dato: "+Sistema.Host; 
+                return Sistema.Host; 
             }
         }
 
@@ -152,7 +152,17 @@ namespace ModSistema
 
         public void MaestroUsuariosGrupo()
         {
-            _gestionUsuarioGrupo.Inicia();
+            var r00 = Sistema.MyData.Permiso_ControlUsuarioGrupo(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionUsuarioGrupo.Inicia();
+            }
         }
 
         public void MaestroUsuarios()

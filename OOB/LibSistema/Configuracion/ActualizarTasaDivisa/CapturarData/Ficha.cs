@@ -22,6 +22,11 @@ namespace OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData
         public decimal precioFullDivisa_4 { get; set; }
         public decimal precioFullDivisa_5 { get; set; }
         public decimal tasaIva { get; set; }
+        public decimal precioNetoMoneda_1 { get; set; }
+        public decimal precioNetoMoneda_2 { get; set; }
+        public decimal precioNetoMoneda_3 { get; set; }
+        public decimal precioNetoMoneda_4 { get; set; }
+        public decimal precioNetoMoneda_5 { get; set; }
 
     }
 

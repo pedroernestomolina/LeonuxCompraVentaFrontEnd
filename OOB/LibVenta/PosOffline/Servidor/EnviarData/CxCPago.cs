@@ -32,27 +32,29 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                     FechaVencimiento = d.Fecha,
                     Nota = "",
                     Importe = d.MontoRecibido,
-                    Acumulado = 0 ,
+                    Acumulado = 0,
                     AutoCliente = "0000000001",
                     Cliente = d.ClienteNombre,
                     CiRif = d.CiRif,
                     CodigoCliente = "01",
                     EstatusCancelado = "0",
-                    Resta = 0.0m ,
+                    Resta = 0.0m,
                     EstatusAnulado = d.EstatusAnulado,
                     AutoDocumento = "",
                     Numero = "",
                     AutoAgencia = "0000000001",
                     Agencia = "",
-                    Signo = -1 ,
+                    Signo = -1,
                     AutoVendedor = d.VendedorAuto,
                     CDepartamento = 0.0m,
                     CVentas = 0.0m,
                     CVentasp = 0.0m,
                     Serie = "",
-                    ImporteNeto = 0.0M ,
+                    ImporteNeto = 0.0M,
                     Dias = 0,
                     Castigop = 0.0m,
+                    FactorCambio = d.FactorCambio,
+                    ImporteDivisa = Math.Round((d.MontoRecibido / d.FactorCambio), 2, MidpointRounding.AwayFromZero),
                 };
 
                 Recibo = new CxCRecibo()
@@ -80,6 +82,8 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                     Descuentos=0.0m,
                     Hora=d.Hora,
                     Cierre="",
+                    FactorCambio = d.FactorCambio,
+                    ImporteDivisa =Math.Round((d.MontoRecibido / d.FactorCambio),2, MidpointRounding.AwayFromZero),
                 };
 
                 Documento = new CxCDocumento()

@@ -160,6 +160,27 @@ namespace ModPos.Facturacion.Pago
             }
         }
 
+        public string PagoElectronico_LOTE(int id)
+        {
+            var rt = "";
+            var det = _detalle.FirstOrDefault(f => f.Modo == Enumerados.ModoPago.Electronico && f.Id == id);
+            if (det != null) 
+            {
+                rt = det.Lote;
+            }
+            return rt;
+        }
+        public string PagoElectronico_REF(int id)
+        {
+            var rt = "";
+            var det = _detalle.FirstOrDefault(f => f.Modo == Enumerados.ModoPago.Electronico && f.Id == id);
+            if (det != null)
+            {
+                rt = det.Referencia;
+            }
+            return rt;
+        }
+
 
         public Pago()
         {

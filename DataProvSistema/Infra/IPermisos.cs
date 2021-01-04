@@ -33,7 +33,9 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlDeposito(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlDeposito_Agregar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlDeposito_Editar(string autoGrupoUsuario);
-
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuarioGrupo(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuarioGrupo_Agregar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuarioGrupo_Editar(string autoGrupoUsuario);
 
     }
 

@@ -121,6 +121,11 @@ namespace ModSistema.TasaDivisa.Sist
                 {
                     autoPrd = rg.AutoPrd,
                     costoDivisa = rg.CostoDivisa,
+                    precioMonedaEnDivisaFull_1 = rg.precioFullMoneda_EnDivisa(1),
+                    precioMonedaEnDivisaFull_2 = rg.precioFullMoneda_EnDivisa(2),
+                    precioMonedaEnDivisaFull_3 = rg.precioFullMoneda_EnDivisa(3),
+                    precioMonedaEnDivisaFull_4 = rg.precioFullMoneda_EnDivisa(4),
+                    precioMonedaEnDivisaFull_5 = rg.precioFullMoneda_EnDivisa(5),
                 };
                 lst3.Add(nr);
             }

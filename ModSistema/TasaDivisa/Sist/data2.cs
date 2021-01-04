@@ -26,6 +26,36 @@ namespace ModSistema.TasaDivisa.Sist
             } 
         }
 
+        private decimal CalculaFull(decimal monto)
+        {
+            var rt =0.0m;
+            rt = monto / ((it.tasaIva / 100) + 1);
+            rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+            return rt;
+        }
+
+        public decimal precioFullMoneda_EnDivisa(int id)
+        {
+            var rt = 0.0m;
+            var pn = 0.0m;
+            switch (id) 
+            {
+                case 1:
+                    pn = it.precioNetoMoneda_1; break;
+                case 2:
+                    pn = it.precioNetoMoneda_2; break;
+                case 3:
+                    pn = it.precioNetoMoneda_3; break;
+                case 4:
+                    pn = it.precioNetoMoneda_4; break;
+                case 5:
+                    pn = it.precioNetoMoneda_5; break;
+            }
+            rt = CalculaFull(pn) / valorDivisa;
+            rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+            return rt;
+        }
+
 
         public data2(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha it, decimal montoDivisa)
         {

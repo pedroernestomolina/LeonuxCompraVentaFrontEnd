@@ -3,6 +3,6 @@
   <Servidor>
     <Instancia>localhost</Instancia>
     <Catalogo>pita</Catalogo>
-    <ActivarComoSucursal>no</ActivarComoSucursal>
+    <ActivarComoSucursal>si</ActivarComoSucursal>
   </Servidor>
 </Configuracion>

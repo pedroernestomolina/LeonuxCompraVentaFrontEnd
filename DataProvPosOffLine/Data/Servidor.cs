@@ -393,6 +393,8 @@ namespace DataProvPosOffLine.Data
                             Serie = p.Serie,
                             Signo = p.Signo,
                             TipoDocumento = p.TipoDocumento,
+                            FactorCambio = p.FactorCambio,
+                            ImporteDivisa = p.ImporteDivisa,
                         };
 
                         var r = d.DocPago.Recibo;
@@ -421,6 +423,8 @@ namespace DataProvPosOffLine.Data
                             Descuentos = r.Descuentos,
                             Hora = r.Hora,
                             Cierre = r.Cierre,
+                            FactorCambio = r.FactorCambio,
+                            ImporteDivisa = r.ImporteDivisa,
                         };
 
                         var dd = d.DocPago.Documento;
@@ -603,6 +607,8 @@ namespace DataProvPosOffLine.Data
                             Serie = d.DocCxC.Serie,
                             Signo = d.DocCxC.Signo,
                             TipoDocumento = d.DocCxC.TipoDocumento,
+                            FactorCambio=d.DocCxC.FactorCambio,
+                            ImporteDivisa=d.DocCxC.ImporteDivisa,
                         },
 
 

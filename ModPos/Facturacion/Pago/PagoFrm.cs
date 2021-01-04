@@ -158,6 +158,8 @@ namespace ModPos.Facturacion.Pago
                         {
                             _controlador.Pago.AddElectronico(monto, 1);
                         }
+                        L_LOTE_1.Text = _controlador.PagoElectronico_LOTE_1;
+                        L_REF_1.Text = _controlador.PagoElectronico_REF_1;
                         _elect_1_Changed = false;
                     }
                     break;
@@ -169,6 +171,8 @@ namespace ModPos.Facturacion.Pago
                         {
                             _controlador.Pago.AddElectronico(monto, 2);
                         }
+                        L_LOTE_2.Text = _controlador.PagoElectronico_LOTE_2;
+                        L_REF_2.Text = _controlador.PagoElectronico_REF_2;
                         _elect_2_Changed = false;
                     }
                     break;
@@ -180,6 +184,8 @@ namespace ModPos.Facturacion.Pago
                         {
                             _controlador.Pago.AddElectronico(monto, 3);
                         }
+                        L_LOTE_3.Text = _controlador.PagoElectronico_LOTE_3;
+                        L_REF_3.Text = _controlador.PagoElectronico_REF_3;
                         _elect_3_Changed = false;
                     }
                     break;
@@ -191,6 +197,8 @@ namespace ModPos.Facturacion.Pago
                         {
                             _controlador.Pago.AddElectronico(monto, 4);
                         }
+                        L_LOTE_4.Text = _controlador.PagoElectronico_LOTE_4;
+                        L_REF_4.Text = _controlador.PagoElectronico_REF_4;
                         _otro_Changed = false;
                     }
                     break;

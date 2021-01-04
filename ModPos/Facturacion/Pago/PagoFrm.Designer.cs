@@ -77,12 +77,6 @@
             this.panel27 = new System.Windows.Forms.Panel();
             this.L_TIT_TASA_CAMBIO = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.TB_DIVISA_CNT = new ModPos.Lib.Controles.Numero.NumeroEntero();
-            this.TB_OTRO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_ELECT_3 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_ELECT_2 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_ELECT_1 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_EFECTIVO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.BT_CALCULADORA = new System.Windows.Forms.Button();
             this.BT_LIMPIAR = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
@@ -115,6 +109,12 @@
             this.panel30 = new System.Windows.Forms.Panel();
             this.BT_CREDITO = new System.Windows.Forms.Button();
             this.panel31 = new System.Windows.Forms.Panel();
+            this.TB_DIVISA_CNT = new ModPos.Lib.Controles.Numero.NumeroEntero();
+            this.TB_OTRO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_ELECT_3 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_ELECT_2 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_ELECT_1 = new ModPos.Lib.Controles.Numero.NumeroDecimal();
+            this.TB_EFECTIVO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -723,7 +723,7 @@
             this.L_TASA_CAMBIO.Name = "L_TASA_CAMBIO";
             this.L_TASA_CAMBIO.Size = new System.Drawing.Size(159, 24);
             this.L_TASA_CAMBIO.TabIndex = 3;
-            this.L_TASA_CAMBIO.Text = "49,000.00";
+            this.L_TASA_CAMBIO.Text = "9,999,000.00";
             this.L_TASA_CAMBIO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel27
@@ -786,96 +786,6 @@
             this.panel20.Size = new System.Drawing.Size(656, 290);
             this.panel20.TabIndex = 0;
             // 
-            // TB_DIVISA_CNT
-            // 
-            this.TB_DIVISA_CNT.BackColor = System.Drawing.Color.Yellow;
-            this.TB_DIVISA_CNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_DIVISA_CNT.Location = new System.Drawing.Point(192, 76);
-            this.TB_DIVISA_CNT.MaxLength = 4;
-            this.TB_DIVISA_CNT.Name = "TB_DIVISA_CNT";
-            this.TB_DIVISA_CNT.Size = new System.Drawing.Size(56, 26);
-            this.TB_DIVISA_CNT.TabIndex = 3;
-            this.TB_DIVISA_CNT.Text = "0";
-            this.TB_DIVISA_CNT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_DIVISA_CNT.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_DIVISA_CNT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_DIVISA_CNT.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_OTRO
-            // 
-            this.TB_OTRO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_OTRO.Location = new System.Drawing.Point(192, 211);
-            this.TB_OTRO.MaxLength = 14;
-            this.TB_OTRO.Name = "TB_OTRO";
-            this.TB_OTRO.Size = new System.Drawing.Size(181, 29);
-            this.TB_OTRO.TabIndex = 8;
-            this.TB_OTRO.Text = "0";
-            this.TB_OTRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_OTRO.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_OTRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_OTRO.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_ELECT_3
-            // 
-            this.TB_ELECT_3.BackColor = System.Drawing.Color.Yellow;
-            this.TB_ELECT_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_ELECT_3.Location = new System.Drawing.Point(192, 176);
-            this.TB_ELECT_3.MaxLength = 14;
-            this.TB_ELECT_3.Name = "TB_ELECT_3";
-            this.TB_ELECT_3.Size = new System.Drawing.Size(181, 29);
-            this.TB_ELECT_3.TabIndex = 7;
-            this.TB_ELECT_3.Text = "0";
-            this.TB_ELECT_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_ELECT_3.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_ELECT_3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_ELECT_3.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_ELECT_2
-            // 
-            this.TB_ELECT_2.BackColor = System.Drawing.Color.Yellow;
-            this.TB_ELECT_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_ELECT_2.Location = new System.Drawing.Point(192, 142);
-            this.TB_ELECT_2.MaxLength = 14;
-            this.TB_ELECT_2.Name = "TB_ELECT_2";
-            this.TB_ELECT_2.Size = new System.Drawing.Size(181, 29);
-            this.TB_ELECT_2.TabIndex = 6;
-            this.TB_ELECT_2.Text = "0";
-            this.TB_ELECT_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_ELECT_2.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_ELECT_2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_ELECT_2.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_ELECT_1
-            // 
-            this.TB_ELECT_1.BackColor = System.Drawing.Color.Yellow;
-            this.TB_ELECT_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_ELECT_1.Location = new System.Drawing.Point(192, 107);
-            this.TB_ELECT_1.MaxLength = 14;
-            this.TB_ELECT_1.Name = "TB_ELECT_1";
-            this.TB_ELECT_1.Size = new System.Drawing.Size(181, 29);
-            this.TB_ELECT_1.TabIndex = 5;
-            this.TB_ELECT_1.Text = "0";
-            this.TB_ELECT_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_ELECT_1.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_ELECT_1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_ELECT_1.Leave += new System.EventHandler(this.TB_Leave);
-            // 
-            // TB_EFECTIVO
-            // 
-            this.TB_EFECTIVO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_EFECTIVO.Location = new System.Drawing.Point(192, 41);
-            this.TB_EFECTIVO.MaxLength = 14;
-            this.TB_EFECTIVO.Name = "TB_EFECTIVO";
-            this.TB_EFECTIVO.Size = new System.Drawing.Size(181, 29);
-            this.TB_EFECTIVO.TabIndex = 2;
-            this.TB_EFECTIVO.Text = "0";
-            this.TB_EFECTIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_EFECTIVO.TextChanged += new System.EventHandler(this.TB_TextChanged);
-            this.TB_EFECTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_EFECTIVO.Leave += new System.EventHandler(this.TB_Leave);
-            // 
             // BT_CALCULADORA
             // 
             this.BT_CALCULADORA.BackgroundImage = global::ModPos.Properties.Resources.calc;
@@ -906,20 +816,20 @@
             // 
             // label25
             // 
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(476, 7);
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(508, 7);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(148, 24);
+            this.label25.Size = new System.Drawing.Size(139, 24);
             this.label25.TabIndex = 25;
             this.label25.Text = "REFERENCIA";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
             // 
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(394, 7);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(73, 20);
+            this.label24.Size = new System.Drawing.Size(104, 20);
             this.label24.TabIndex = 24;
             this.label24.Text = "LOTE";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -927,80 +837,80 @@
             // L_REF_4
             // 
             this.L_REF_4.BackColor = System.Drawing.Color.White;
-            this.L_REF_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_REF_4.Location = new System.Drawing.Point(482, 213);
+            this.L_REF_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_REF_4.Location = new System.Drawing.Point(504, 213);
             this.L_REF_4.Name = "L_REF_4";
-            this.L_REF_4.Size = new System.Drawing.Size(142, 24);
+            this.L_REF_4.Size = new System.Drawing.Size(143, 24);
             this.L_REF_4.TabIndex = 23;
             this.L_REF_4.Text = "100200300400";
             // 
             // L_LOTE_4
             // 
             this.L_LOTE_4.BackColor = System.Drawing.Color.White;
-            this.L_LOTE_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_LOTE_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_LOTE_4.Location = new System.Drawing.Point(390, 214);
             this.L_LOTE_4.Name = "L_LOTE_4";
-            this.L_LOTE_4.Size = new System.Drawing.Size(76, 24);
+            this.L_LOTE_4.Size = new System.Drawing.Size(108, 24);
             this.L_LOTE_4.TabIndex = 22;
-            this.L_LOTE_4.Text = "100200";
+            this.L_LOTE_4.Text = "PAG MOV";
             // 
             // L_REF_3
             // 
             this.L_REF_3.BackColor = System.Drawing.Color.White;
-            this.L_REF_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_REF_3.Location = new System.Drawing.Point(482, 179);
+            this.L_REF_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_REF_3.Location = new System.Drawing.Point(504, 179);
             this.L_REF_3.Name = "L_REF_3";
-            this.L_REF_3.Size = new System.Drawing.Size(142, 24);
+            this.L_REF_3.Size = new System.Drawing.Size(143, 24);
             this.L_REF_3.TabIndex = 21;
             this.L_REF_3.Text = "100200300400";
             // 
             // L_LOTE_3
             // 
             this.L_LOTE_3.BackColor = System.Drawing.Color.White;
-            this.L_LOTE_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_LOTE_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_LOTE_3.Location = new System.Drawing.Point(390, 179);
             this.L_LOTE_3.Name = "L_LOTE_3";
-            this.L_LOTE_3.Size = new System.Drawing.Size(76, 24);
+            this.L_LOTE_3.Size = new System.Drawing.Size(108, 24);
             this.L_LOTE_3.TabIndex = 20;
             this.L_LOTE_3.Text = "100200";
             // 
             // L_REF_2
             // 
             this.L_REF_2.BackColor = System.Drawing.Color.White;
-            this.L_REF_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_REF_2.Location = new System.Drawing.Point(482, 145);
+            this.L_REF_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_REF_2.Location = new System.Drawing.Point(504, 145);
             this.L_REF_2.Name = "L_REF_2";
-            this.L_REF_2.Size = new System.Drawing.Size(142, 24);
+            this.L_REF_2.Size = new System.Drawing.Size(143, 24);
             this.L_REF_2.TabIndex = 19;
             this.L_REF_2.Text = "100200300400";
             // 
             // L_LOTE_2
             // 
             this.L_LOTE_2.BackColor = System.Drawing.Color.White;
-            this.L_LOTE_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_LOTE_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_LOTE_2.Location = new System.Drawing.Point(390, 145);
             this.L_LOTE_2.Name = "L_LOTE_2";
-            this.L_LOTE_2.Size = new System.Drawing.Size(76, 24);
+            this.L_LOTE_2.Size = new System.Drawing.Size(108, 24);
             this.L_LOTE_2.TabIndex = 18;
             this.L_LOTE_2.Text = "100200";
             // 
             // L_REF_1
             // 
             this.L_REF_1.BackColor = System.Drawing.Color.White;
-            this.L_REF_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_REF_1.Location = new System.Drawing.Point(482, 110);
+            this.L_REF_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_REF_1.Location = new System.Drawing.Point(504, 110);
             this.L_REF_1.Name = "L_REF_1";
-            this.L_REF_1.Size = new System.Drawing.Size(142, 24);
+            this.L_REF_1.Size = new System.Drawing.Size(143, 24);
             this.L_REF_1.TabIndex = 17;
             this.L_REF_1.Text = "100200300400";
             // 
             // L_LOTE_1
             // 
             this.L_LOTE_1.BackColor = System.Drawing.Color.White;
-            this.L_LOTE_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_LOTE_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_LOTE_1.Location = new System.Drawing.Point(390, 110);
             this.L_LOTE_1.Name = "L_LOTE_1";
-            this.L_LOTE_1.Size = new System.Drawing.Size(76, 24);
+            this.L_LOTE_1.Size = new System.Drawing.Size(108, 24);
             this.L_LOTE_1.TabIndex = 16;
             this.L_LOTE_1.Text = "100200";
             // 
@@ -1240,6 +1150,96 @@
             this.panel31.Padding = new System.Windows.Forms.Padding(4);
             this.panel31.Size = new System.Drawing.Size(153, 68);
             this.panel31.TabIndex = 4;
+            // 
+            // TB_DIVISA_CNT
+            // 
+            this.TB_DIVISA_CNT.BackColor = System.Drawing.Color.Yellow;
+            this.TB_DIVISA_CNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_DIVISA_CNT.Location = new System.Drawing.Point(192, 76);
+            this.TB_DIVISA_CNT.MaxLength = 4;
+            this.TB_DIVISA_CNT.Name = "TB_DIVISA_CNT";
+            this.TB_DIVISA_CNT.Size = new System.Drawing.Size(56, 26);
+            this.TB_DIVISA_CNT.TabIndex = 3;
+            this.TB_DIVISA_CNT.Text = "0";
+            this.TB_DIVISA_CNT.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_DIVISA_CNT.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_DIVISA_CNT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_DIVISA_CNT.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_OTRO
+            // 
+            this.TB_OTRO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_OTRO.Location = new System.Drawing.Point(192, 211);
+            this.TB_OTRO.MaxLength = 14;
+            this.TB_OTRO.Name = "TB_OTRO";
+            this.TB_OTRO.Size = new System.Drawing.Size(181, 29);
+            this.TB_OTRO.TabIndex = 8;
+            this.TB_OTRO.Text = "0";
+            this.TB_OTRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_OTRO.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_OTRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_OTRO.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_ELECT_3
+            // 
+            this.TB_ELECT_3.BackColor = System.Drawing.Color.Yellow;
+            this.TB_ELECT_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ELECT_3.Location = new System.Drawing.Point(192, 176);
+            this.TB_ELECT_3.MaxLength = 14;
+            this.TB_ELECT_3.Name = "TB_ELECT_3";
+            this.TB_ELECT_3.Size = new System.Drawing.Size(181, 29);
+            this.TB_ELECT_3.TabIndex = 7;
+            this.TB_ELECT_3.Text = "0";
+            this.TB_ELECT_3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_ELECT_3.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_ELECT_3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_ELECT_3.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_ELECT_2
+            // 
+            this.TB_ELECT_2.BackColor = System.Drawing.Color.Yellow;
+            this.TB_ELECT_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ELECT_2.Location = new System.Drawing.Point(192, 142);
+            this.TB_ELECT_2.MaxLength = 14;
+            this.TB_ELECT_2.Name = "TB_ELECT_2";
+            this.TB_ELECT_2.Size = new System.Drawing.Size(181, 29);
+            this.TB_ELECT_2.TabIndex = 6;
+            this.TB_ELECT_2.Text = "0";
+            this.TB_ELECT_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_ELECT_2.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_ELECT_2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_ELECT_2.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_ELECT_1
+            // 
+            this.TB_ELECT_1.BackColor = System.Drawing.Color.Yellow;
+            this.TB_ELECT_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_ELECT_1.Location = new System.Drawing.Point(192, 107);
+            this.TB_ELECT_1.MaxLength = 14;
+            this.TB_ELECT_1.Name = "TB_ELECT_1";
+            this.TB_ELECT_1.Size = new System.Drawing.Size(181, 29);
+            this.TB_ELECT_1.TabIndex = 5;
+            this.TB_ELECT_1.Text = "0";
+            this.TB_ELECT_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_ELECT_1.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_ELECT_1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_ELECT_1.Leave += new System.EventHandler(this.TB_Leave);
+            // 
+            // TB_EFECTIVO
+            // 
+            this.TB_EFECTIVO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_EFECTIVO.Location = new System.Drawing.Point(192, 41);
+            this.TB_EFECTIVO.MaxLength = 14;
+            this.TB_EFECTIVO.Name = "TB_EFECTIVO";
+            this.TB_EFECTIVO.Size = new System.Drawing.Size(181, 29);
+            this.TB_EFECTIVO.TabIndex = 2;
+            this.TB_EFECTIVO.Text = "0";
+            this.TB_EFECTIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_EFECTIVO.TextChanged += new System.EventHandler(this.TB_TextChanged);
+            this.TB_EFECTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_EFECTIVO.Leave += new System.EventHandler(this.TB_Leave);
             // 
             // PagoFrm
             // 

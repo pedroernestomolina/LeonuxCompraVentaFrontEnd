@@ -98,6 +98,11 @@ namespace DataProvSistema.Data
                             precioFullDivisa_3 = s.precioFullDivisa_3,
                             precioFullDivisa_4 = s.precioFullDivisa_4,
                             precioFullDivisa_5 = s.precioFullDivisa_5,
+                            precioNetoMoneda_1 = s.precioNetoMoneda_1,
+                            precioNetoMoneda_2 = s.precioNetoMoneda_2,
+                            precioNetoMoneda_3 = s.precioNetoMoneda_3,
+                            precioNetoMoneda_4 = s.precioNetoMoneda_4,
+                            precioNetoMoneda_5 = s.precioNetoMoneda_5,
                             tasaIva = s.tasaIva,
                         };
                         return nr;
@@ -165,6 +170,11 @@ namespace DataProvSistema.Data
                 {
                     autoPrd = rg.autoPrd,
                     costoDivisa = rg.costoDivisa,
+                    precioMonedaEnDivisaFull_1 = rg.precioMonedaEnDivisaFull_1,
+                    precioMonedaEnDivisaFull_2 = rg.precioMonedaEnDivisaFull_2,
+                    precioMonedaEnDivisaFull_3 = rg.precioMonedaEnDivisaFull_3,
+                    precioMonedaEnDivisaFull_4 = rg.precioMonedaEnDivisaFull_4,
+                    precioMonedaEnDivisaFull_5 = rg.precioMonedaEnDivisaFull_5,
                 };
                 lstProdCostoSinDivisa.Add(nr);
             }

@@ -226,6 +226,8 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                             ImporteNeto = d.MontoVentaNeta,
                             Dias = 0,
                             Castigop = 0.0m,
+                            FactorCambio=d.FactorCambio,
+                            ImporteDivisa=d.MontoDivisa,
                         },
 
                         //DocPago = ((d.TipoDocumento != PrepararData.Enumerados.EnumTipoDocumento.NotaCredito) || (!d.IsCredito)) ? new CxCPago(d) : null,

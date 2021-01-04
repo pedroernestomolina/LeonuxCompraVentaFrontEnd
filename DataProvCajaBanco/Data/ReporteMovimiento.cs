@@ -413,6 +413,60 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha> Reporte_CobranzaDiaria(OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro()
+            {
+                codSucursal= filtro.codSucursal,
+                desdeFecha = filtro.desdeFecha,
+                hastaFecha = filtro.hastaFecha,
+            };
+            var r01 = MyData.Reporte_CobranzaDiara(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha()
+                        {
+                            auto = s.auto,
+                            cambio = s.cambio,
+                            ciRif = s.ciRif,
+                            cliente = s.cliente,
+                            codEstacion = s.codEstacion,
+                            codSuc = s.codSuc,
+                            documentoNro = s.documentoNro,
+                            fecha = s.fecha,
+                            hora = s.hora,
+                            importe = s.importe,
+                            loteNro = s.loteNro,
+                            medioPagoCod = s.medioPagoCod,
+                            medioPagoDesc = s.medioPagoDesc,
+                            montoRecibido = s.montoRecibido,
+                            operacion = s.operacion,
+                            reciboNro = s.reciboNro,
+                            refNro = s.refNro,
+                            tipoDocumento = s.tipoDocumento,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

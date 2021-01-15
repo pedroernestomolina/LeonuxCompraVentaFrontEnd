@@ -16,9 +16,9 @@ namespace DataProvCompra.Data
         {
             var result = new OOB.ResultadoAuto();
 
-            var fichaDTO = new DtoLibCompra.Documento.Cargar.Factura.Ficha();
+            var fichaDTO = new DtoLibCompra.Documento.Agregar.Factura.Ficha();
             var xdoc = docFac.documento;
-            var documento = new DtoLibCompra.Documento.Cargar.Factura.FichaDocumento()
+            var documento = new DtoLibCompra.Documento.Agregar.Factura.FichaDocumento()
             {
                 anoRelacion = xdoc.anoRelacion,
                 anticipoIva = xdoc.anticipoIva,
@@ -103,7 +103,7 @@ namespace DataProvCompra.Data
                 valorTasaRetencionIva = xdoc.valorTasaRetencionIva,
             };
             var xcxp= docFac.cxp;
-            var cxp = new DtoLibCompra.Documento.Cargar.Factura.FichaCxP()
+            var cxp = new DtoLibCompra.Documento.Agregar.Factura.FichaCxP()
             {
                 acumulado = xcxp.acumulado,
                 Anexo = xcxp.Anexo,
@@ -127,10 +127,10 @@ namespace DataProvCompra.Data
                 signoDocumento = xcxp.signoDocumento,
                 tipoDocumento = xcxp.tipoDocumento,
             };
-            var detalles = new List<DtoLibCompra.Documento.Cargar.Factura.FichaDetalle>();
+            var detalles = new List<DtoLibCompra.Documento.Agregar.Factura.FichaDetalle>();
             foreach (var it in docFac.detalles) 
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaDetalle()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaDetalle()
                 {
                     autoDepartamento = it.autoDepartamento,
                     autoDeposito = it.autoDeposito,
@@ -175,10 +175,10 @@ namespace DataProvCompra.Data
                 };
                 detalles.Add(nr);
             }
-            var prdDeposito = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdDeposito>();
+            var prdDeposito = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdDeposito>();
             foreach (var it in docFac.prdDeposito)
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdDeposito()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdDeposito()
                 {
                     autoDep = it.autoDep,
                     autoPrd = it.autoPrd,
@@ -186,10 +186,10 @@ namespace DataProvCompra.Data
                 };
                 prdDeposito.Add(nr);
             }
-            var prdKardex = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdKardex>();
+            var prdKardex = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdKardex>();
             foreach (var it in docFac.prdKardex)
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdKardex()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdKardex()
                 {
                     autoConcepto = it.autoConcepto,
                     autoDeposito = it.autoDeposito,
@@ -217,10 +217,10 @@ namespace DataProvCompra.Data
                 };
                 prdKardex.Add(nr);
             }
-            var prdCosto = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdCosto>();
+            var prdCosto = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdCosto>();
             foreach (var it in docFac.prdCosto) 
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdCosto()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdCosto()
                 {
                     autoPrd = it.autoPrd,
                     cntUnd = it.cntUnd,
@@ -231,10 +231,10 @@ namespace DataProvCompra.Data
                 };
                 prdCosto.Add(nr);
             }
-            var prdCostoHistorico = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico>();
+            var prdCostoHistorico = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdCostoHistorico>();
             foreach (var it in docFac.prdCostosHistorico)
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdCostoHistorico()
                 {
                     autoPrd = it.autoPrd,
                     costo = it.costo,
@@ -246,10 +246,10 @@ namespace DataProvCompra.Data
                 };
                 prdCostoHistorico.Add(nr);
             }
-            var prdProveedor = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdProveedor>();
+            var prdProveedor = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdProveedor>();
             foreach (var it in docFac.prdProveedor)
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdProveedor()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdProveedor()
                 {
                     autoPrd = it.autoPrd,
                     autoProveedor = it.autoProveedor,
@@ -257,10 +257,10 @@ namespace DataProvCompra.Data
                 };
                 prdProveedor.Add(nr);
             }
-            var prdPrecio = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecio>();
+            var prdPrecio = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdPrecio>();
             foreach (var it in docFac.prdPrecios)
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecio()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdPrecio()
                 {
                     autoPrd = it.autoPrd,
                     pDivisaFull_1 = it.pDivisaFull_1,
@@ -276,10 +276,10 @@ namespace DataProvCompra.Data
                 };
                 prdPrecio.Add(nr);
             }
-            var prdPrecioHistorico = new List<DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico>();
+            var prdPrecioHistorico = new List<DtoLibCompra.Documento.Agregar.Factura.FichaPrdPrecioHistorico>();
             foreach (var it in docFac.prdPreciosHistorico)
             {
-                var nr = new DtoLibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                var nr = new DtoLibCompra.Documento.Agregar.Factura.FichaPrdPrecioHistorico()
                 {
                     autoPrd = it.autoPrd,
                     nota = it.nota,
@@ -477,6 +477,49 @@ namespace DataProvCompra.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCompra.Documento.ListaRemision.Ficha> Compra_DocumentoGetListaRemision(OOB.LibCompra.Documento.ListaRemision.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCompra.Documento.ListaRemision.Ficha>();
+
+            var filtroDto = new DtoLibCompra.Documento.ListaRemision.Filtro()
+            {
+                autoProveedor = filtro.autoProveedor,
+            };
+            var r01 = MyData.Compra_DocumentoGetListaRemision(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCompra.Documento.ListaRemision.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.LibCompra.Documento.ListaRemision.Ficha()
+                        {
+                            auto = s.auto,
+                            control = s.control,
+                            docNombre = s.docNombre,
+                            docNro = s.docNro,
+                            docTipo = s.docTipo,
+                            fechaEmision = s.fechaEmision,
+                            montoDivisa = s.montoDivisa,
+                            total = s.total,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
 
             return rt;
         }

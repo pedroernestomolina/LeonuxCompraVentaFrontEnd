@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OOB.LibInventario.Producto.Depositos.Asignar
 {
     
-    public class Deposito
+    public class DepAsignar
     {
 
         public string autoDeposito { get; set; }

@@ -19,6 +19,7 @@ namespace ModInventario.Producto.Deposito.Asignar
         private BindingSource bs;
         private bool _isCerrarHabilitado;
         private string producto;
+        private OOB.LibInventario.Producto.Depositos.Lista.Ficha prdDep;
 
 
         public bool IsCerrarHabilitado { get { return _isCerrarHabilitado; } }
@@ -84,6 +85,7 @@ namespace ModInventario.Producto.Deposito.Asignar
                 Helpers.Msg.Error(r02.Mensaje);
                 return false;
             }
+            prdDep = r02.Entidad;
             producto = r02.Entidad.codigoPrd + Environment.NewLine + r02.Entidad.descripcionPrd;
             foreach (var it in r02.Entidad.depositos)
             {
@@ -117,7 +119,7 @@ namespace ModInventario.Producto.Deposito.Asignar
 
             var list = depositos.Where(w => w.asignar && w.asignado == false).Select(s =>
             {
-                var nr = new OOB.LibInventario.Producto.Depositos.Asignar.Deposito()
+                var nr = new OOB.LibInventario.Producto.Depositos.Asignar.DepAsignar()
                 {
                     autoDeposito = s.auto,
                     averia = 0.0m,
@@ -137,23 +139,31 @@ namespace ModInventario.Producto.Deposito.Asignar
                 return nr;
             }).ToList();
 
-            if (list.Count > 0)
+            var listR = depositos.Where(w => w.remover && w.asignado).Select(s =>
             {
-                var ficha = new OOB.LibInventario.Producto.Depositos.Asignar.Ficha()
+                var nr = new OOB.LibInventario.Producto.Depositos.Asignar.DepRemover()
                 {
-                    autoProducto = autoPrd,
-                    depositos = list,
+                    autoDeposito = s.auto,
                 };
-                var r01 = Sistema.MyData.Producto_AsignarDepositos(ficha);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return false;
-                }
-            }
-            else 
+                return nr;
+            }).ToList();
+
+            if (list.Count == 0 && listR.Count == 0)
             {
-                Helpers.Msg.Error("NO SE HAN ASIGNADOS DEPOSITOS NUEVOS A ESTE PRODUCTO");
+                Helpers.Msg.Error("NO SE HAN ASIGNADOS / REMOVIDOS DEPOSITOS A ESTE PRODUCTO");
+                return false;
+            }
+
+            var ficha = new OOB.LibInventario.Producto.Depositos.Asignar.Ficha()
+            {
+                autoProducto = autoPrd,
+                depAsignar = list,
+                depRemover=listR
+            };
+            var r01 = Sistema.MyData.Producto_AsignarRemoverDepositos(ficha);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
             
@@ -173,11 +183,13 @@ namespace ModInventario.Producto.Deposito.Asignar
                 if (it.asignado) 
                 {
                     it.asignar = true;
+                    it.remover = false;
                 }
+                it.remover = false;
             }
         }
 
-        public void DesMarcar()
+        public void DesMarcarV()
         {
             var it = (data)bs.Current;
             if (it != null)
@@ -189,6 +201,19 @@ namespace ModInventario.Producto.Deposito.Asignar
                 }
             }
         }
+
+        public void DesMarcar()
+        {
+            var it = (data)bs.Current;
+            if (it != null)
+            {
+                if (it.asignado)
+                {
+                    it.remover = !it.remover;
+                }
+            }
+        }
+
 
     }
 

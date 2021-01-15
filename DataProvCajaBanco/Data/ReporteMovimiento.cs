@@ -413,9 +413,9 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
-        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha> Reporte_CobranzaDiaria(OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro filtro)
+        public OOB.ResultadoEntidad<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha> Reporte_CobranzaDiaria(OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro filtro)
         {
-            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha>();
+            var rt = new OOB.ResultadoEntidad<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha>();
 
             var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro()
             {
@@ -431,38 +431,67 @@ namespace DataProvCajaBanco.Data
                 return rt;
             }
 
-            var list = new List<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha>();
-            if (r01.Lista != null)
+            var xficha = new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha();
+            var xdata = new List<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Data>();
+            var xmov = new List<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Movimiento>();
+
+            if (r01.Entidad != null)
             {
-                if (r01.Lista.Count > 0)
+                var ldata = r01.Entidad.data;
+                if (ldata != null)
                 {
-                    list = r01.Lista.Select(s =>
+                    if (ldata.Count > 0)
                     {
-                        return new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha()
+                        xdata = ldata.Select(s =>
                         {
-                            auto = s.auto,
-                            cambio = s.cambio,
-                            ciRif = s.ciRif,
-                            cliente = s.cliente,
-                            codEstacion = s.codEstacion,
-                            codSuc = s.codSuc,
-                            documentoNro = s.documentoNro,
-                            fecha = s.fecha,
-                            hora = s.hora,
-                            importe = s.importe,
-                            loteNro = s.loteNro,
-                            medioPagoCod = s.medioPagoCod,
-                            medioPagoDesc = s.medioPagoDesc,
-                            montoRecibido = s.montoRecibido,
-                            operacion = s.operacion,
-                            reciboNro = s.reciboNro,
-                            refNro = s.refNro,
-                            tipoDocumento = s.tipoDocumento,
-                        };
-                    }).ToList();
+                            return new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Data()
+                            {
+                                auto = s.auto,
+                                cambio = s.cambio,
+                                ciRif = s.ciRif,
+                                cliente = s.cliente,
+                                codEstacion = s.codEstacion,
+                                codSuc = s.codSuc,
+                                documentoNro = s.documentoNro,
+                                fecha = s.fecha,
+                                hora = s.hora,
+                                importe = s.importe,
+                                loteNro = s.loteNro,
+                                medioPagoCod = s.medioPagoCod,
+                                medioPagoDesc = s.medioPagoDesc,
+                                montoRecibido = s.montoRecibido,
+                                operacion = s.operacion,
+                                reciboNro = s.reciboNro,
+                                refNro = s.refNro,
+                                tipoDocumento = s.tipoDocumento,
+                            };
+                        }).ToList();
+                    }
+                }
+
+                var lmov = r01.Entidad.movimiento;
+                if (lmov != null)
+                {
+                    if (lmov.Count > 0)
+                    {
+                        xmov = lmov.Select(s =>
+                        {
+                            return new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Movimiento()
+                            {
+                                monto = s.monto,
+                                nombreDoc = s.nombreDoc,
+                                tipoDoc = s.tipoDoc,
+                            };
+                        }).ToList();
+                    }
                 }
             }
-            rt.Lista = list;
+            else
+                xficha.montoCredito = r01.Entidad.montoCredito;
+
+            xficha.data = xdata;
+            xficha.movimiento = xmov;
+            rt.Entidad = xficha;
 
             return rt;
         }

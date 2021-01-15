@@ -167,7 +167,17 @@ namespace ModSistema
 
         public void MaestroUsuarios()
         {
-            _gestionUsuario.Inicia();
+            var r00 = Sistema.MyData.Permiso_ControlUsuario(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionUsuario.Inicia();
+            }
         }
 
         public void InicializarBD()

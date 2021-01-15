@@ -504,14 +504,14 @@ namespace DataProvInventario.Data
             return rt;
         }
 
-        public OOB.Resultado Producto_AsignarDepositos(OOB.LibInventario.Producto.Depositos.Asignar.Ficha ficha)
+        public OOB.Resultado Producto_AsignarRemoverDepositos(OOB.LibInventario.Producto.Depositos.Asignar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
 
-            var listDTO = new List<DtoLibInventario.Producto.Depositos.Asignar.Deposito>();
-            foreach (var it in ficha.depositos) 
+            var listDTO = new List<DtoLibInventario.Producto.Depositos.Asignar.DepAsignar>();
+            foreach (var it in ficha.depAsignar) 
             {
-                var nr = new DtoLibInventario.Producto.Depositos.Asignar.Deposito()
+                var nr = new DtoLibInventario.Producto.Depositos.Asignar.DepAsignar()
                 {
                     autoDeposito = it.autoDeposito,
                     averia = it.averia,
@@ -530,13 +530,23 @@ namespace DataProvInventario.Data
                 };
                 listDTO.Add(nr);
             }
+            var listRemoverDTO = new List<DtoLibInventario.Producto.Depositos.Asignar.DepRemover>();
+            foreach (var it in ficha.depRemover)
+            {
+                var nr = new DtoLibInventario.Producto.Depositos.Asignar.DepRemover()
+                {
+                    autoDeposito = it.autoDeposito,
+                };
+                listRemoverDTO.Add(nr);
+            }
 
             var fichaDTO = new DtoLibInventario.Producto.Depositos.Asignar.Ficha() 
             {
                  autoProducto= ficha.autoProducto,
-                 depositos=listDTO,
+                 depAsignar=listDTO,
+                 depRemover=listRemoverDTO,
             };
-            var r01 = MyData.Producto_AsignarDepositos(fichaDTO);
+            var r01 = MyData.Producto_AsignarRemoverDepositos(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

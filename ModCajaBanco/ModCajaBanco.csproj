@@ -94,6 +94,10 @@
     <Compile Include="Reportes\Hablador\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\ArqueoCajaPos.cs" />
     <Compile Include="Reportes\Movimientos\CobranzaDiaria\GestionRep.cs" />
+    <Compile Include="Reportes\Movimientos\dsMovimiento.cs">
+      <DependentUpon>dsMovimiento.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\Movimientos\dsMovimiento.Designer.cs">
       <DependentUpon>dsMovimiento.xsd</DependentUpon>
       <AutoGen>True</AutoGen>

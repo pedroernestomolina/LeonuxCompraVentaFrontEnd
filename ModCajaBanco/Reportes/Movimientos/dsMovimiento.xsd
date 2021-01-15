@@ -131,6 +131,37 @@
               <xs:element name="tipoOperacion" msprop:Generator_ColumnVarNameInTable="columntipoOperacion" msprop:Generator_ColumnPropNameInRow="tipoOperacion" msprop:Generator_ColumnPropNameInTable="tipoOperacionColumn" msprop:Generator_UserColumnName="tipoOperacion" type="xs:string" minOccurs="0" />
               <xs:element name="lote" msprop:Generator_ColumnVarNameInTable="columnlote" msprop:Generator_ColumnPropNameInRow="lote" msprop:Generator_ColumnPropNameInTable="loteColumn" msprop:Generator_UserColumnName="lote" type="xs:string" minOccurs="0" />
               <xs:element name="ref" msprop:Generator_ColumnVarNameInTable="columnref" msprop:Generator_ColumnPropNameInRow="_ref" msprop:Generator_ColumnPropNameInTable="refColumn" msprop:Generator_UserColumnName="ref" type="xs:string" minOccurs="0" />
+              <xs:element name="cambio" msprop:Generator_ColumnVarNameInTable="columncambio" msprop:Generator_ColumnPropNameInRow="cambio" msprop:Generator_ColumnPropNameInTable="cambioColumn" msprop:Generator_UserColumnName="cambio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cnt" msprop:Generator_ColumnVarNameInTable="columncnt" msprop:Generator_ColumnPropNameInRow="cnt" msprop:Generator_ColumnPropNameInTable="cntColumn" msprop:Generator_UserColumnName="cnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tasa" msprop:Generator_ColumnVarNameInTable="columntasa" msprop:Generator_ColumnPropNameInRow="tasa" msprop:Generator_ColumnPropNameInTable="tasaColumn" msprop:Generator_UserColumnName="tasa" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CobranzaDiariaPagoDet" msprop:Generator_TableClassName="CobranzaDiariaPagoDetDataTable" msprop:Generator_TableVarName="tableCobranzaDiariaPagoDet" msprop:Generator_RowChangedName="CobranzaDiariaPagoDetRowChanged" msprop:Generator_TablePropName="CobranzaDiariaPagoDet" msprop:Generator_RowDeletingName="CobranzaDiariaPagoDetRowDeleting" msprop:Generator_RowChangingName="CobranzaDiariaPagoDetRowChanging" msprop:Generator_RowEvHandlerName="CobranzaDiariaPagoDetRowChangeEventHandler" msprop:Generator_RowDeletedName="CobranzaDiariaPagoDetRowDeleted" msprop:Generator_RowClassName="CobranzaDiariaPagoDetRow" msprop:Generator_UserTableName="CobranzaDiariaPagoDet" msprop:Generator_RowEvArgName="CobranzaDiariaPagoDetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="medioPago" msprop:Generator_ColumnVarNameInTable="columnmedioPago" msprop:Generator_ColumnPropNameInRow="medioPago" msprop:Generator_ColumnPropNameInTable="medioPagoColumn" msprop:Generator_UserColumnName="medioPago" type="xs:string" minOccurs="0" />
+              <xs:element name="cnt" msprop:Generator_ColumnVarNameInTable="columncnt" msprop:Generator_ColumnPropNameInRow="cnt" msprop:Generator_ColumnPropNameInTable="cntColumn" msprop:Generator_UserColumnName="cnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tasa" msprop:Generator_ColumnVarNameInTable="columntasa" msprop:Generator_ColumnPropNameInRow="tasa" msprop:Generator_ColumnPropNameInTable="tasaColumn" msprop:Generator_UserColumnName="tasa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lote" msprop:Generator_ColumnVarNameInTable="columnlote" msprop:Generator_ColumnPropNameInRow="lote" msprop:Generator_ColumnPropNameInTable="loteColumn" msprop:Generator_UserColumnName="lote" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CobranzaDiariaPagoRes" msprop:Generator_TableClassName="CobranzaDiariaPagoResDataTable" msprop:Generator_TableVarName="tableCobranzaDiariaPagoRes" msprop:Generator_RowChangedName="CobranzaDiariaPagoResRowChanged" msprop:Generator_TablePropName="CobranzaDiariaPagoRes" msprop:Generator_RowDeletingName="CobranzaDiariaPagoResRowDeleting" msprop:Generator_RowChangingName="CobranzaDiariaPagoResRowChanging" msprop:Generator_RowEvHandlerName="CobranzaDiariaPagoResRowChangeEventHandler" msprop:Generator_RowDeletedName="CobranzaDiariaPagoResRowDeleted" msprop:Generator_RowClassName="CobranzaDiariaPagoResRow" msprop:Generator_UserTableName="CobranzaDiariaPagoRes" msprop:Generator_RowEvArgName="CobranzaDiariaPagoResRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="medioPago" msprop:Generator_ColumnVarNameInTable="columnmedioPago" msprop:Generator_ColumnPropNameInRow="medioPago" msprop:Generator_ColumnPropNameInTable="medioPagoColumn" msprop:Generator_UserColumnName="medioPago" type="xs:string" minOccurs="0" />
+              <xs:element name="cnt" msprop:Generator_ColumnVarNameInTable="columncnt" msprop:Generator_ColumnPropNameInRow="cnt" msprop:Generator_ColumnPropNameInTable="cntColumn" msprop:Generator_UserColumnName="cnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CobranzaDiariaMov" msprop:Generator_TableClassName="CobranzaDiariaMovDataTable" msprop:Generator_TableVarName="tableCobranzaDiariaMov" msprop:Generator_TablePropName="CobranzaDiariaMov" msprop:Generator_RowDeletingName="CobranzaDiariaMovRowDeleting" msprop:Generator_RowChangingName="CobranzaDiariaMovRowChanging" msprop:Generator_RowEvHandlerName="CobranzaDiariaMovRowChangeEventHandler" msprop:Generator_RowDeletedName="CobranzaDiariaMovRowDeleted" msprop:Generator_UserTableName="CobranzaDiariaMov" msprop:Generator_RowChangedName="CobranzaDiariaMovRowChanged" msprop:Generator_RowEvArgName="CobranzaDiariaMovRowChangeEvent" msprop:Generator_RowClassName="CobranzaDiariaMovRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="movimiento" msprop:Generator_ColumnVarNameInTable="columnmovimiento" msprop:Generator_ColumnPropNameInRow="movimiento" msprop:Generator_ColumnPropNameInTable="movimientoColumn" msprop:Generator_UserColumnName="movimiento" type="xs:string" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

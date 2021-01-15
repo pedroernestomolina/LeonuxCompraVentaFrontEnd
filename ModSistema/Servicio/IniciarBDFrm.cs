@@ -65,7 +65,8 @@ namespace ModSistema.Servicio
 
         private void ND_SUCURSAL_ValueChanged(object sender, EventArgs e)
         {
-            _controlador.Sucursal =  ND_SUCURSAL.Value.ToString().Trim().PadLeft(2,'0');
+            //_controlador.Sucursal =  ND_SUCURSAL.Value.ToString().Trim().PadLeft(2,'0');
+            _controlador.setSucursal(ND_SUCURSAL.Value);
         }
 
         private void ND_EQUIPO_ValueChanged(object sender, EventArgs e)

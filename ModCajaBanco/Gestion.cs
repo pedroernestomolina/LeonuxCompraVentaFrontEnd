@@ -511,7 +511,7 @@ namespace ModCajaBanco
 
                 var filtros = "Desde: " + _filtroGestion.desdeFecha.ToShortDateString() + ", Hasta: " + _filtroGestion.hastaFecha.ToShortDateString() +
                     Environment.NewLine + "Sucursal: " + sucursalNombre;
-                var rp1 = new Reportes.Movimientos.CobranzaDiaria.GestionRep(r01.Lista, filtros);
+                var rp1 = new Reportes.Movimientos.CobranzaDiaria.GestionRep(r01.Entidad, filtros);
                 rp1.Generar();
             }
         }

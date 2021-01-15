@@ -21,7 +21,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Data.Proveedor.Ficha> Producto_GetProveedores(string autoPrd);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Lista.Ficha> Producto_GetDepositos(string autoPrd);
-        OOB.Resultado Producto_AsignarDepositos(OOB.LibInventario.Producto.Depositos.Asignar.Ficha ficha);
+        OOB.Resultado Producto_AsignarRemoverDepositos(OOB.LibInventario.Producto.Depositos.Asignar.Ficha ficha);
         OOB.ResultadoEntidad<OOB.LibInventario.Producto.Depositos.Ver.Ficha> Producto_GetDeposito(OOB.LibInventario.Producto.Depositos.Ver.Filtro filtro);
         OOB.Resultado Producto_EditarDeposito(OOB.LibInventario.Producto.Depositos.Editar.Ficha ficha);
 

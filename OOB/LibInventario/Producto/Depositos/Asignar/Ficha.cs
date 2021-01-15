@@ -12,7 +12,16 @@ namespace OOB.LibInventario.Producto.Depositos.Asignar
     {
 
         public string autoProducto { get; set; }
-        public List<Deposito> depositos { get; set; }
+        public List<DepAsignar> depAsignar { get; set; }
+        public List<DepRemover> depRemover { get; set; }
+
+
+        public Ficha()
+        {
+            autoProducto = "";
+            depAsignar = new List<DepAsignar>();
+            depRemover = new List<DepRemover>();
+        }
 
     }
 

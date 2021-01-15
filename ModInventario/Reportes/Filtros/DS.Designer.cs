@@ -2509,6 +2509,8 @@ namespace ModInventario.Reportes.Filtros {
             
             private global::System.Data.DataColumn columnestatus;
             
+            private global::System.Data.DataColumn columntipoDoc;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RelCompraVentaAlmDetDataTable() {
@@ -2632,6 +2634,14 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tipoDocColumn {
+                get {
+                    return this.columntipoDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2667,7 +2677,7 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RelCompraVentaAlmDetRow AddRelCompraVentaAlmDetRow(string documento, System.DateTime fecha, string tipo, decimal cnt, string empaque, int contenido, decimal cntUnd, decimal montoDivisa, decimal costoPrecioDivisa, decimal factor, string estatus) {
+            public RelCompraVentaAlmDetRow AddRelCompraVentaAlmDetRow(string documento, System.DateTime fecha, string tipo, decimal cnt, string empaque, int contenido, decimal cntUnd, decimal montoDivisa, decimal costoPrecioDivisa, decimal factor, string estatus, string tipoDoc) {
                 RelCompraVentaAlmDetRow rowRelCompraVentaAlmDetRow = ((RelCompraVentaAlmDetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         documento,
@@ -2680,7 +2690,8 @@ namespace ModInventario.Reportes.Filtros {
                         montoDivisa,
                         costoPrecioDivisa,
                         factor,
-                        estatus};
+                        estatus,
+                        tipoDoc};
                 rowRelCompraVentaAlmDetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRelCompraVentaAlmDetRow);
                 return rowRelCompraVentaAlmDetRow;
@@ -2714,6 +2725,7 @@ namespace ModInventario.Reportes.Filtros {
                 this.columncostoPrecioDivisa = base.Columns["costoPrecioDivisa"];
                 this.columnfactor = base.Columns["factor"];
                 this.columnestatus = base.Columns["estatus"];
+                this.columntipoDoc = base.Columns["tipoDoc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2741,6 +2753,8 @@ namespace ModInventario.Reportes.Filtros {
                 base.Columns.Add(this.columnfactor);
                 this.columnestatus = new global::System.Data.DataColumn("estatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestatus);
+                this.columntipoDoc = new global::System.Data.DataColumn("tipoDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipoDoc);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5365,6 +5379,22 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tipoDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableRelCompraVentaAlmDet.tipoDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tipoDoc\' in table \'RelCompraVentaAlmDet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRelCompraVentaAlmDet.tipoDocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdocumentoNull() {
                 return this.IsNull(this.tableRelCompraVentaAlmDet.documentoColumn);
             }
@@ -5493,6 +5523,18 @@ namespace ModInventario.Reportes.Filtros {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestatusNull() {
                 this[this.tableRelCompraVentaAlmDet.estatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstipoDocNull() {
+                return this.IsNull(this.tableRelCompraVentaAlmDet.tipoDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettipoDocNull() {
+                this[this.tableRelCompraVentaAlmDet.tipoDocColumn] = global::System.Convert.DBNull;
             }
         }
         

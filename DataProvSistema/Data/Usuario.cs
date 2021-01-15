@@ -227,6 +227,25 @@ namespace DataProvSistema.Data
             return rt;
         }
 
+        public OOB.Resultado Usuario_ActualizarSesion(OOB.LibSistema.Usuario.ActualizarSesion.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibSistema.Usuario.ActualizarSesion.Ficha()
+            {
+                autoUsu = ficha.autoUsu
+            };
+            var r01 = MyData.Usuario_ActualizarSesion(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

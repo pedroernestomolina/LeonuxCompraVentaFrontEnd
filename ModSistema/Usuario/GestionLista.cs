@@ -86,6 +86,11 @@ namespace ModSistema.Usuario
             var it = (OOB.LibSistema.Usuario.Ficha)bsLista.Current;
             if (it != null)
             {
+                if (it.estatus == OOB.LibSistema.Usuario.Enumerados.EnumModo.Inactivo) 
+                {
+                    Helpers.Msg.Alerta("USUARIO EN ESTATUS INACTIVO, VERIFIQUE POR FAVOR");
+                    return;
+                }
                 _gestionAgregarEditar.Editar(it);
                 if (_gestionAgregarEditar.IsAgregarEditarOk)
                 {

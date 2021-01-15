@@ -53,6 +53,17 @@ namespace ModInventario.Identificacion
 
             if (r02.Entidad.IsHabilitado)
             {
+                var fichaSesion = new OOB.LibInventario.Usuario.ActualizarSesion.Ficha()
+                {
+                    autoUsu = r01.Entidad.autoUsu,
+                };
+                var r03 = Sistema.MyData.Usuario_ActualizarSesion(fichaSesion);
+                if (r03.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r03.Mensaje);
+                    return false;
+                }
+
                 rt = true;
                 Sistema.UsuarioP = r01.Entidad;
                 IsUsuarioOk = true;

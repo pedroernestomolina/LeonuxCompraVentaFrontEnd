@@ -18,6 +18,7 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_ToolCompra(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Registrar_Factura(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Registrar_Nc(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_AdmDoc_Anular(string autoGrupoUsuario);

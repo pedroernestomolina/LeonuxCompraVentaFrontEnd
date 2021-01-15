@@ -78,6 +78,11 @@ namespace ModSistema.Servicio
             }
         }
 
+        public void setSucursal(decimal suc)
+        {
+            Sucursal = ((int)suc).ToString("X").Trim().PadLeft(2, '0');
+        }
+
     }
 
 }

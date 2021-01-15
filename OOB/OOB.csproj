@@ -47,8 +47,10 @@
     <Compile Include="LibCajaBanco\Reporte\Habladores\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Habladores\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ArqueoCajaPos\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\CobranzaDiaria\Data.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\CobranzaDiaria\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\CobranzaDiaria\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\CobranzaDiaria\Movimiento.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenInventario\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenInventario\Filtro.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdPrecioHistorico.cs" />
     <Compile Include="LibCompra\Documento\Cargar\Factura\FichaPrdProveedor.cs" />
     <Compile Include="LibCompra\Documento\Enumerados.cs" />
+    <Compile Include="LibCompra\Documento\ListaRemision\Ficha.cs" />
+    <Compile Include="LibCompra\Documento\ListaRemision\Filtro.cs" />
     <Compile Include="LibCompra\Documento\Lista\Ficha.cs" />
     <Compile Include="LibCompra\Documento\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Documento\Visualizar\Ficha.cs" />
@@ -109,6 +113,7 @@
     <Compile Include="LibCompra\Reportes\GeneralDocumentos\Ficha.cs" />
     <Compile Include="LibCompra\Reportes\GeneralDocumentos\Filtro.cs" />
     <Compile Include="LibCompra\Sucursal\Data\Ficha.cs" />
+    <Compile Include="LibCompra\Usuario\ActualizarSesion\Ficha.cs" />
     <Compile Include="LibCompra\Usuario\Buscar\Ficha.cs" />
     <Compile Include="LibCompra\Usuario\Data\Ficha.cs" />
     <Compile Include="LibInventario\Concepto\Agregar.cs" />
@@ -203,7 +208,8 @@
     <Compile Include="LibInventario\Producto\Data\Precio.cs" />
     <Compile Include="LibInventario\Producto\Data\Proveedor\Detalle.cs" />
     <Compile Include="LibInventario\Producto\Data\Proveedor\Ficha.cs" />
-    <Compile Include="LibInventario\Producto\Depositos\Asignar\Deposito.cs" />
+    <Compile Include="LibInventario\Producto\Depositos\Asignar\DepAsignar.cs" />
+    <Compile Include="LibInventario\Producto\Depositos\Asignar\DepRemover.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Asignar\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Producto\Depositos\Lista\Deposito.cs" />
@@ -250,6 +256,7 @@
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Ajustar\Ficha.cs" />
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Capturar\Ficha.cs" />
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Capturar\Filtro.cs" />
+    <Compile Include="LibInventario\Usuario\ActualizarSesion\Ficha.cs" />
     <Compile Include="LibInventario\Usuario\Buscar\Ficha.cs" />
     <Compile Include="LibInventario\Usuario\Ficha.cs" />
     <Compile Include="LibInventario\Visor\Ajuste\Ficha.cs" />
@@ -295,6 +302,7 @@
     <Compile Include="LibSistema\UsuarioGrupo\Ficha.cs" />
     <Compile Include="LibSistema\UsuarioGrupo\PermisoAgregar.cs" />
     <Compile Include="LibSistema\Usuario\Activar.cs" />
+    <Compile Include="LibSistema\Usuario\ActualizarSesion\Ficha.cs" />
     <Compile Include="LibSistema\Usuario\Agregar.cs" />
     <Compile Include="LibSistema\Usuario\Buscar\Ficha.cs" />
     <Compile Include="LibSistema\Usuario\Editar.cs" />

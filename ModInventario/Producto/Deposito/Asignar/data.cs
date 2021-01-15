@@ -16,6 +16,7 @@ namespace ModInventario.Producto.Deposito.Asignar
         public string nombre { get; set; }
         public bool asignado { get; set; }
         public bool asignar { get; set; }
+        public bool remover { get; set; }
 
 
         public data(OOB.LibInventario.Deposito.Ficha it)
@@ -25,6 +26,7 @@ namespace ModInventario.Producto.Deposito.Asignar
             nombre = it.nombre;
             asignado = false;
             asignar = false;
+            remover = false;
         }
 
         public void setAsignado()

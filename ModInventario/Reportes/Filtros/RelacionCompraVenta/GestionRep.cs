@@ -73,10 +73,11 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
                 xrt["contenido"] = it.contenido;
                 xrt["costoPrecioDivisa"] = it.costoDivisaUnd;
                 xrt["factor"] = it.factor;
+                xrt["tipoDoc"] = it.tipoDoc;
                 if (!it.esAnulado)
                 {
-                    cUnd += it.cntUnd;
-                    xrt["cntUnd"] = it.cntUnd;
+                    cUnd += (it.cntUnd*it.signoDoc);
+                    xrt["cntUnd"] = it.cntUnd*it.signoDoc;
                     xrt["montoDivisa"] = it.costoDivisaUnd * it.cntUnd * it.signoDoc;
                 }
                 else

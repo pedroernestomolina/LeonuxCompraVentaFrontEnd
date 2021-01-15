@@ -19,6 +19,7 @@ namespace DataProvSistema.Infra
         OOB.Resultado Usuario_Inactivar(OOB.LibSistema.Usuario.Inactivar ficha);
         OOB.Resultado Usuario_Activar(OOB.LibSistema.Usuario.Activar ficha);
         OOB.ResultadoEntidad<OOB.LibSistema.Usuario.Ficha> Usuario_Cargar(OOB.LibSistema.Usuario.Buscar.Ficha ficha);
+        OOB.Resultado Usuario_ActualizarSesion(OOB.LibSistema.Usuario.ActualizarSesion.Ficha ficha);
 
     }
 

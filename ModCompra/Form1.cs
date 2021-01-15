@@ -134,6 +134,16 @@ namespace ModCompra
             _controlador.ReporteComprasDetalleProducto();
         }
 
+        private void MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA_Click(object sender, EventArgs e)
+        {
+            RegistrarNcCompra();
+        }
+
+        private void RegistrarNcCompra()
+        {
+            _controlador.RegistrarNcCompra();
+        }
+
     }
 
 }

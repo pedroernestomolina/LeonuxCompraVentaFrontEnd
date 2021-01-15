@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:MaestroExistencia" ZOrder="6" X="858" Y="169" Height="241" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:MaestroPrecio" ZOrder="5" X="992" Y="445" Height="262" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="258" />
     <Shape ID="DesignTable:Kardex" ZOrder="4" X="813" Y="441" Height="283" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="279" />
-    <Shape ID="DesignTable:RelCompraVentaAlmDet" ZOrder="3" X="47" Y="448" Height="262" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="258" />
+    <Shape ID="DesignTable:RelCompraVentaAlmDet" ZOrder="3" X="47" Y="448" Height="283" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="279" />
     <Shape ID="DesignTable:RelCompraVentaAlm" ZOrder="2" X="27" Y="296" Height="115" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="111" />
     <Shape ID="DesignTable:DepositoResumen" ZOrder="1" X="420" Y="451" Height="199" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="195" />
   </Shapes>

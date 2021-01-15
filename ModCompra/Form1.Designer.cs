@@ -81,6 +81,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -145,11 +146,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(708, 1);
+            this.panel2.Location = new System.Drawing.Point(707, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(175, 52);
+            this.panel2.Size = new System.Drawing.Size(176, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -160,7 +161,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(171, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(172, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -175,7 +176,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(376, 52);
+            this.panel7.Size = new System.Drawing.Size(375, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -194,7 +195,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(372, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(371, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -228,7 +229,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(282, 22);
+            this.panel14.Size = new System.Drawing.Size(281, 22);
             this.panel14.TabIndex = 3;
             // 
             // L_FECHA
@@ -238,7 +239,7 @@
             this.L_FECHA.ForeColor = System.Drawing.Color.Yellow;
             this.L_FECHA.Location = new System.Drawing.Point(2, 2);
             this.L_FECHA.Name = "L_FECHA";
-            this.L_FECHA.Size = new System.Drawing.Size(278, 18);
+            this.L_FECHA.Size = new System.Drawing.Size(277, 18);
             this.L_FECHA.TabIndex = 5;
             this.L_FECHA.Text = "Hoy";
             this.L_FECHA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,7 +275,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(282, 22);
+            this.panel16.Size = new System.Drawing.Size(281, 22);
             this.panel16.TabIndex = 4;
             // 
             // L_HOST
@@ -284,7 +285,7 @@
             this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
             this.L_HOST.Location = new System.Drawing.Point(2, 2);
             this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(278, 18);
+            this.L_HOST.Size = new System.Drawing.Size(277, 18);
             this.L_HOST.TabIndex = 4;
             this.L_HOST.Text = "label2";
             this.L_HOST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,7 +294,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(379, 1);
+            this.panel17.Location = new System.Drawing.Point(378, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -365,7 +366,7 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(581, 1);
+            this.panel20.Location = new System.Drawing.Point(580, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -452,6 +453,7 @@
             // 
             this.documentosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MENU_DOCUMENTOS_REGISTRAR_FACTURA_COMPRA,
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA,
             this.toolStripMenuItem1,
             this.MENU_DOCUMENTOS_ADMINISTRADOR,
             this.toolStripMenuItem2});
@@ -722,6 +724,14 @@
             this.panel10.Size = new System.Drawing.Size(111, 350);
             this.panel10.TabIndex = 0;
             // 
+            // MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA
+            // 
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA.Image = global::ModCompra.Properties.Resources.bt_documento;
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA.Name = "MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA";
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA.Size = new System.Drawing.Size(237, 22);
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA.Text = "Registrar Nota de Crédito";
+            this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA.Click += new System.EventHandler(this.MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -823,5 +833,6 @@
         private System.Windows.Forms.ToolStripMenuItem MENU_REPORTES_COMPRAS_POR_PRODUCTO;
         private System.Windows.Forms.ToolStripMenuItem MENU_REPORTES_COMPRAS_POR_PRODUCTO_DETALLE;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem MENU_DOCUMENTOS_REGISTRAR_NC_COMPRA;
     }
 }

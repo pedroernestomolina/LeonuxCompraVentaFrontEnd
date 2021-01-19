@@ -41,6 +41,7 @@ namespace OOB.LibCompra.Producto.Data
         public decimal costo { get; set; }
         public DateTime? fechaUltCambio { get; set; }
 
+
         public decimal costoDivisaUnd 
         {
             get 
@@ -118,6 +119,22 @@ namespace OOB.LibCompra.Producto.Data
             nombreTasaIva = "";
             costo = 0.0m;
             costoDivisa = 0.0m;
+        }
+
+        public Ficha(Documento.GetData.FichaDetalle it): this()
+        {
+            auto = it.prdAuto;
+            autoDepartamento = it.prdAutoDepartamento;
+            autoGrupo = it.prdAutoGrupo;
+            autoTasa = it.prdAutoTasaIva;
+            codigo = it.prdCodigo;
+            nombre = it.prdNombre;
+            descripcion = it.prdNombre;
+            contenidoCompra = it.contenido ;
+            tasaIva = it.tasaIva;
+            empaqueCompra = it.empaqueCompra;
+            decimales = it.decimales;
+            categoria = it.categoria;
         }
 
     }

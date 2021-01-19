@@ -174,13 +174,13 @@ namespace ModCompra
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                //frm.setVisibilidadOff();
+                frm.setVisibilidadOff();
 
-                //var gestionEntrada = new Documento.Cargar.Controlador.Gestion();
-                //gestionEntrada.setGestion(new Documento.Cargar.Factura.GestionFac());
-                //gestionEntrada.Inicia();
+                var gestionEntrada = new Documento.Cargar.Controlador.Gestion();
+                gestionEntrada.setGestion(new Documento.Cargar.NotaCredito.GestionNc());
+                gestionEntrada.Inicia();
 
-                //frm.setVisibilidadOn();
+                frm.setVisibilidadOn();
             }
         }
 

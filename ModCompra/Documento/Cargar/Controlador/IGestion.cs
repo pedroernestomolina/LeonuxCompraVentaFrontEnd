@@ -15,8 +15,10 @@ namespace ModCompra.Documento.Cargar.Controlador
 
 
         string TituloDocumento { get; }
+        System.Drawing.Color ColorFondoDocumento { get; }
         bool SalidaOk { get; }
         Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get; }
+        bool VisualizarColDevolucion { get; }
 
 
         string CadenaPrdBuscar { get; set; }
@@ -36,6 +38,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void ActivarBusquedaProductoPorNombre();
         void ActivarBusquedaProductoPorReferencia();
         void Guardar();
+        void CargarItems();
 
     }
 

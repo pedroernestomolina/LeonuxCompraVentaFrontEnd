@@ -19,6 +19,7 @@ namespace ModCompra.Documento.Cargar.Controlador
 
 
         //
+        public System.Drawing.Color ColorFondoDocumento { get { return _gestion.ColorFondoDocumento; } }
         public string TituloDocumento { get { return _gestion.TituloDocumento; } }
         public bool SalidaOk { get { return _gestion.SalidaOk; } }
         //
@@ -37,6 +38,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         public decimal MontoIva { get { return _gestionItem.MontoIva; } }
         public decimal MontoDivisa { get { return _gestionItem.MontoDivisa; } }
         public int Items { get { return _gestionItem.TItems; } }
+        public bool VisualizarColDevolucion { get { return _gestion.VisualizarColDevolucion; } }
         //
         public GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return _gestion.MetodoBusquedaProducto; } }
         public string CadenaPrdBuscar { get { return _gestion.CadenaPrdBuscar; } set { _gestion.CadenaPrdBuscar = value; } }
@@ -103,9 +105,10 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         public void NuevoDocumento()
         {
-            if (_gestion.GestionItem.Lista.Count() == 0) 
+            if (_gestion.GestionItem.Lista.Count() == 0)
             {
                 _gestionDoc.Inicia();
+                _gestion.CargarItems();
             }
         }
 

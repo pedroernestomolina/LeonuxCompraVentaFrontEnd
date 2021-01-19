@@ -227,6 +227,12 @@ namespace ModCompra.Documento.Cargar.Formulario
             L_RAZON_SOCIAL.Text = _controlador.RazonSocialProveedor;
             L_DIRECCION_FISCAL.Text = _controlador.DireccionProveedor;
 
+            L_REMISION.Text = "";
+            L_REMISION_TIPO_DOCUMENTO.Text = "";
+            L_REMISION_DOCUMENTO.Text = "";
+            L_REMISION_FECHA.Text = "";
+            L_REMISION_CONTROL.Text = ""; 
+
             DTP_FECHA_EIMSION.Value = _controlador.FechaEmision;
             TB_DOCUMENTO_NRO.Text = _controlador.DocumentoNro;
             TB_CONTROL_NRO.Text = _controlador.ControlNro;
@@ -250,6 +256,39 @@ namespace ModCompra.Documento.Cargar.Formulario
                     RB_BUSCAR_POR_NOMBRE.Checked = true;
                     break;
             }
+
+            TB_DIAS_CREDITO.Enabled = true;
+            TB_ORDEN_COMPRA.Enabled = true;
+            TB_FACTOR_DIVISA.Enabled = true;
+            CB_DEPOSITO.Enabled = true;
+            CB_SUCURSAL.Enabled = true;
+        }
+
+        public void setActualizarDataRemision()
+        {
+            L_REMISION.Text = _controlador.Remision;
+            L_REMISION_TIPO_DOCUMENTO.Text = _controlador.Remision_TipoDocumento;
+            L_REMISION_DOCUMENTO.Text = _controlador.Remision_Documento;
+            L_REMISION_FECHA.Text = _controlador.Remision_Fecha;
+            L_REMISION_CONTROL.Text = _controlador.Remision_Control;
+            TB_DIAS_CREDITO.Value = _controlador.DiasCredito;
+            TB_FACTOR_DIVISA.Text = _controlador.FactorDivisa.ToString("n2").Replace(".", "");
+            TB_ORDEN_COMPRA.Text = _controlador.OrdenCompraNro;
+            TB_DIAS_CREDITO.Enabled = false;
+            TB_ORDEN_COMPRA.Enabled = false;
+            TB_FACTOR_DIVISA.Enabled = false;
+            CB_DEPOSITO.Enabled = false;
+            CB_SUCURSAL.Enabled = false;
+        }
+
+        public void setSucursal(string p)
+        {
+            CB_SUCURSAL.SelectedValue = p;
+        }
+
+        public void setDeposito(string p)
+        {
+            CB_DEPOSITO.SelectedValue = p;
         }
 
     }

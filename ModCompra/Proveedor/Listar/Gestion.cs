@@ -93,6 +93,11 @@ namespace ModCompra.Proveedor.Listar
             frm.Close();
         }
 
+        public void EsconderVentana()
+        {
+            frm.Hide();
+        }
+
     }
 
 }

@@ -77,6 +77,9 @@ namespace ModCompra.Administrador.Documentos
                                     case OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.Factura:
                                         AnularFactura();
                                         break;
+                                    case OOB.LibCompra.Documento.Enumerados.enumTipoDocumento.NotaCredito:
+                                        AnularNotaCredito();
+                                        break;
                                 }
                             }
                         }
@@ -85,6 +88,30 @@ namespace ModCompra.Administrador.Documentos
                 else
                     Helpers.Msg.Error("Documento Ya Está Anulado, Verifique Por Favor");
             }
+        }
+
+        private void AnularNotaCredito()
+        {
+            var ficha = new OOB.LibCompra.Documento.Anular.NotaCredito.Ficha()
+            {
+                autoDocumento = Item.AutoDoc,
+                codigoDocumento = Item.Ficha.codigoTipo,
+                autoSistemaDocumento = "0000000019",
+                autoUsuario = Sistema.UsuarioP.autoUsu,
+                codigoUsuario = Sistema.UsuarioP.codigoUsu,
+                estacion = Environment.MachineName,
+                motivo = _anular.Motivo,
+                nombreUsuario = Sistema.UsuarioP.nombreUsu,
+            };
+            var r01 = Sistema.MyData.Compra_DocumentoAnularNotaCredito(ficha);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            Item.Ficha.esAnulado = true;
+            bs.CurrencyManager.Refresh();
+            Helpers.Msg.EliminarOk();
         }
 
         private void AnularFactura()

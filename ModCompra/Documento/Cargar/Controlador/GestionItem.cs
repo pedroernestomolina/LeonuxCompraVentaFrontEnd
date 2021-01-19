@@ -94,6 +94,11 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.setCargoFinal(p);
         }
 
+        public void CargarItems(List<OOB.LibCompra.Documento.GetData.FichaDetalle> list, decimal factorCambio)
+        {
+            _gestion.CargarItems(list, factorCambio);
+        }
+
     }
 
 }

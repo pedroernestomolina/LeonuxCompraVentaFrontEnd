@@ -19,7 +19,6 @@ namespace ModCompra.Documento.Cargar.Factura
         private Controlador.IGestionItem gestionItem;
         private Controlador.IGestionProductoBuscar gestionPrdBuscar;
         private Controlador.IGestionTotalizar gestionTotalizar;
-        private GestionAgregarItem gestionAgregarItem;
         private OOB.LibCompra.Empresa.Fiscal.Ficha tasasFiscal;
         private OOB.LibCompra.Concepto.Ficha conceptoCompra;
 
@@ -28,16 +27,15 @@ namespace ModCompra.Documento.Cargar.Factura
         public Controlador.IGestionDocumento GestionDoc { get { return gestionDoc; } }
         public Controlador.IGestionItem GestionItem {get { return gestionItem; }}
         public Controlador.IGestionTotalizar GestionTotalizar {get { return gestionTotalizar; }}
+        public bool VisualizarColDevolucion { get { return false; } }
 
 
         public string CadenaPrdBuscar { get { return gestionPrdBuscar.CadenaPrdBuscar; } set { gestionPrdBuscar.CadenaPrdBuscar = value; } }
         public bool SalidaOk { get; set; }
 
 
-        public string TituloDocumento
-        {
-            get { return "Entrada Documento: ( FACTURA )"; }
-        }
+        public string TituloDocumento { get { return "Entrada Documento: ( FACTURA )"; } }
+        public System.Drawing.Color ColorFondoDocumento { get { return System.Drawing.Color.Green; } }
 
 
         public GestionFac()
@@ -45,7 +43,6 @@ namespace ModCompra.Documento.Cargar.Factura
             SalidaOk = false;
             gestionDoc= new GestionDocumentoFac();
             gestionItem = new GestionItemFac();
-            gestionAgregarItem = new GestionAgregarItem();
             gestionPrdBuscar = new GestionProductoBuscarFac();
             gestionTotalizar = new GestionTotalizarFac();
             gestionItem.ActualizarItemHnd +=gestionItem_ActualizarItemHnd;
@@ -586,6 +583,10 @@ namespace ModCompra.Documento.Cargar.Factura
             Helpers.VisualizarDocumento.Visualizar(r01.Auto);
 
             return rt;
+        }
+
+        public void CargarItems()
+        {
         }
 
     }

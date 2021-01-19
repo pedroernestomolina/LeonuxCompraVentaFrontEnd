@@ -39,7 +39,14 @@ namespace ModCompra.Documento.Cargar.Controlador
         OOB.LibCompra.Sucursal.Data.Ficha Sucursal { get; }
         OOB.LibCompra.Deposito.Data.Ficha Deposito { get; }
         OOB.LibCompra.Proveedor.Data.Ficha Proveedor { get; }
-
+        //
+        string RemisionEstatus { get; }
+        string Remision_TipoDocumento { get; }
+        string Remision_Fecha { get; }
+        string Remision_Control { get; }
+        string Remision_Documento { get; }
+        OOB.LibCompra.Documento.GetData.Ficha RemisionFicha { get; }
+        //
 
         bool CargarData();
         void Aceptar();
@@ -48,6 +55,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void LimpiarDatos();
         void Limpiar();
         void setNotas(string p);
+        void setFormulario(Formulario.DatosDocumentoFrm frm);
 
     }
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PANEL_DOCUMENTO = new System.Windows.Forms.Panel();
             this.L_TITULO_DOCUMENTO = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -200,7 +200,7 @@
             this.label34 = new System.Windows.Forms.Label();
             this.panel88 = new System.Windows.Forms.Panel();
             this.L_ITEM_TOTAL = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.PANEL_DOCUMENTO.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -301,17 +301,17 @@
             this.panel88.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PANEL_DOCUMENTO
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
-            this.panel1.Controls.Add(this.L_TITULO_DOCUMENTO);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(1);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(2);
-            this.panel1.Size = new System.Drawing.Size(1134, 34);
-            this.panel1.TabIndex = 2;
+            this.PANEL_DOCUMENTO.BackColor = System.Drawing.Color.DarkGreen;
+            this.PANEL_DOCUMENTO.Controls.Add(this.L_TITULO_DOCUMENTO);
+            this.PANEL_DOCUMENTO.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PANEL_DOCUMENTO.Location = new System.Drawing.Point(0, 0);
+            this.PANEL_DOCUMENTO.Margin = new System.Windows.Forms.Padding(1);
+            this.PANEL_DOCUMENTO.Name = "PANEL_DOCUMENTO";
+            this.PANEL_DOCUMENTO.Padding = new System.Windows.Forms.Padding(2);
+            this.PANEL_DOCUMENTO.Size = new System.Drawing.Size(1134, 34);
+            this.PANEL_DOCUMENTO.TabIndex = 2;
             // 
             // L_TITULO_DOCUMENTO
             // 
@@ -2463,14 +2463,14 @@
             this.ClientSize = new System.Drawing.Size(1134, 661);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PANEL_DOCUMENTO);
             this.KeyPreview = true;
             this.Name = "DocumentoFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DocumentoFrm_FormClosing);
             this.Load += new System.EventHandler(this.DocumentoFrm_Load);
-            this.panel1.ResumeLayout(false);
+            this.PANEL_DOCUMENTO.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -2582,7 +2582,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PANEL_DOCUMENTO;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel4;

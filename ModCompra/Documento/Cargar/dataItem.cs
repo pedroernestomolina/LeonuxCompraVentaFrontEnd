@@ -17,6 +17,7 @@ namespace ModCompra.Documento.Cargar
         private decimal _dscto_2_m;
         private decimal _dscto_3_m;
         private OOB.LibCompra.Producto.Data.Ficha producto;
+        private bool _modoNCActivo;
 
 
         public OOB.LibCompra.Producto.Data.Ficha Producto { get { return producto; } }
@@ -24,12 +25,12 @@ namespace ModCompra.Documento.Cargar
         public string codigoPrd { get { return producto.codigo; } }
         public string descripcionPrd { get { return producto.descripcion; } }
         public string cnt { get { return cantidad.ToString("n"+producto.decimales); } }
+        public string cntDev { get { return cantDev.ToString("n" + producto.decimales); } }
         public string empaqueCont { get { return producto.empaqueCompra.Trim() + "/ " + producto.contenidoCompra.ToString("n0").Trim(); } }
         public string costoCompra { get { return costoMoneda.ToString("n2"); } }
         public string costoDivisaCompra { get { return costoDivisa.ToString("n2"); } }
         public string tasaIvaPrd { get { return producto.tasaIva.ToString("n2").Trim()+"%"; } }
         public decimal DsctoMonto { get { return _dscto_1_m + _dscto_2_m + _dscto_3_m; } }
-
 
         public string CodRefPrvActual { get; set; }
         public string CodRefPrv { get; set; }
@@ -50,7 +51,10 @@ namespace ModCompra.Documento.Cargar
             get
             {
                 var rt = 0;
-                rt = (int) cantidad* Producto.contenidoCompra;
+                if (_modoNCActivo)
+                    rt = (int)cantDev * Producto.contenidoCompra;
+                else
+                    rt = (int) cantidad* Producto.contenidoCompra;
                 return rt;
             }
         }
@@ -90,7 +94,10 @@ namespace ModCompra.Documento.Cargar
             get 
             {
                 var rt = 0.0m;
-                rt = cantidad * costoMoneda;
+                if (_modoNCActivo)
+                    rt = cantDev * costoMoneda;
+                else
+                    rt = cantidad * costoMoneda;
                 return rt;
             }
         }
@@ -100,7 +107,10 @@ namespace ModCompra.Documento.Cargar
             get
             {
                 var rt = 0.0m;
-                rt = (cantidad * costoMoneda_2);
+                if (_modoNCActivo)
+                    rt = cantDev * costoMoneda_2;
+                else
+                    rt = (cantidad * costoMoneda_2);
                 return rt;
             }
         }
@@ -240,6 +250,11 @@ namespace ModCompra.Documento.Cargar
         }
 
 
+        // NOTA DE CREDITO 
+        private OOB.LibCompra.Documento.GetData.FichaDetalle itemDocumento;
+        public decimal cantDev { get; set; }
+
+
         public dataItem()
         {
             factorDivisa = 0.0m;
@@ -248,6 +263,7 @@ namespace ModCompra.Documento.Cargar
 
         public dataItem(dataItem it)
         {
+            this._modoNCActivo = false;
             this.factorDivisa = it.factorDivisa;
             this.producto = it.producto;
             this.CodRefPrv = it.CodRefPrv;
@@ -257,6 +273,26 @@ namespace ModCompra.Documento.Cargar
             this.dsct_1_p = it.dsct_1_p;
             this.dsct_2_p = it.dsct_2_p;
             this.dsct_3_p = it.dsct_3_p;
+            ActualizarCosto();
+            ActualizarCostoDivisa();
+            CalculaDscto();
+        }
+
+        public dataItem(OOB.LibCompra.Documento.GetData.FichaDetalle it, decimal factorCambio)
+        {
+            this._modoNCActivo = true;
+            this.itemDocumento = it;
+            this.factorDivisa = factorCambio;
+            this.producto = new OOB.LibCompra.Producto.Data.Ficha(it);
+            this.CodRefPrv = it.CodRefPrv;
+            this.cantidad = it.cntFactura;
+            this.costoMoneda = it.precioFactura;
+            this.costoDivisa = it.precioFactura/factorCambio;
+            this.dsct_1_p = it.dscto1p ;
+            this.dsct_2_p = it.dscto2p;
+            this.dsct_3_p = it.dscto3p;
+            this.cantDev = 1;
+
             ActualizarCosto();
             ActualizarCostoDivisa();
             CalculaDscto();
@@ -309,6 +345,8 @@ namespace ModCompra.Documento.Cargar
 
         public void Limpiar()
         {
+            itemDocumento = null;
+            cantDev = 0.0m;
             cantidad = 0.0m;
             costoMoneda = 0.0m;
             costoDivisa = 0.0m;

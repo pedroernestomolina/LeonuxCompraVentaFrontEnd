@@ -57,6 +57,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void Limpiar();
         void setDescuentoFinal(decimal p);
         void setCargoFinal(decimal p);
+        void CargarItems(List<OOB.LibCompra.Documento.GetData.FichaDetalle> list, decimal factorCambio);
 
     }
 

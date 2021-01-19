@@ -40,6 +40,13 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string DepositoNombre { get { return _gestion.DepositoNombre; } }
         public string SucursalNombre { get { return _gestion.SucursalNombre; } }
 
+        public string Remision { get { return _gestion.RemisionEstatus; } }
+        public string Remision_TipoDocumento { get { return _gestion.Remision_TipoDocumento; } }
+        public string Remision_Fecha { get { return _gestion.Remision_Fecha; } }
+        public string Remision_Control { get { return _gestion.Remision_Control; } }
+        public string Remision_Documento { get { return _gestion.Remision_Documento; } }
+
+
         public string Proveedor 
         {
             get 
@@ -61,6 +68,7 @@ namespace ModCompra.Documento.Cargar.Controlador
                     frm = new Formulario.DatosDocumentoFrm();
                     frm.setControlador(this);
                 }
+                _gestion.setFormulario(frm);
                 frm.ShowDialog();
             }
         }

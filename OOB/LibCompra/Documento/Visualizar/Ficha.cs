@@ -28,6 +28,7 @@ namespace OOB.LibCompra.Documento.Visualizar
         public string anoRelacion { get; set; }
         public string documentoSerie { get; set; }
         public string documentoNombre { get; set; }
+        public string documentoTipo { get; set; }
         public decimal montoTotal { get; set; }
         public decimal montoExento { get; set; }
         public decimal montoBase { get; set; }
@@ -55,7 +56,23 @@ namespace OOB.LibCompra.Documento.Visualizar
         public int renglones { get; set; }
         public int signo { get; set; }
         public List<FichaDetalle> detalles { get; set; }
-
+        public string documentoModo
+        {
+            get 
+            {
+                var rt = "";
+                switch (documentoTipo) 
+                {
+                    case "01":
+                        rt = "FACTURA";
+                        break;
+                    case "03":
+                        rt = "NOTA CREDITO";
+                        break;
+                }
+                return rt;
+            } 
+        }
     }
 
 }

@@ -11,6 +11,7 @@ namespace OOB.LibInventario.Reportes.MaestroProducto
     public class Filtro
     {
 
+        public string autoDeposito { get; set; }
         public string autoDepartamento { get; set; }
         public string autoTasa { get; set; }
         public enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
@@ -26,6 +27,7 @@ namespace OOB.LibInventario.Reportes.MaestroProducto
             categoria = enumerados.EnumCategoria.SnDefinir;
             estatus = enumerados.EnumEstatus.SnDefinir;
             autoDepartamento = "";
+            autoDeposito = "";
             autoTasa = "";
         }
 

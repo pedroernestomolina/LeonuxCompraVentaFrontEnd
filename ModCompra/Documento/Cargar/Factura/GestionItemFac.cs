@@ -335,6 +335,10 @@ namespace ModCompra.Documento.Cargar.Factura
 
        }
 
+        public void CargarItems(List<OOB.LibCompra.Documento.GetData.FichaDetalle> list, decimal factorCambio)
+        {
+        }
+
     }
 
 }

@@ -18,7 +18,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
 
         public bool ActivarDeposito
         {
-            get { return false ; }
+            get { return true ; }
         }
 
         public bool ActivarSucursal

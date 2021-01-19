@@ -28,6 +28,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
 
         public void Generar()
         {
+            var filt = "";
             var filtro = new OOB.LibInventario.Reportes.MaestroProducto.Filtro();
             if (dataFiltros!=null)
             {
@@ -50,7 +51,16 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
                 {
                     filtro.estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus)int.Parse(dataFiltros.IdEstatus);
                 }
-                filtro.autoDepartamento = dataFiltros.AutoDepartamento;
+                if (dataFiltros.AutoDepartamento != "") 
+                {
+                    filt += "DEPARTAMENTO: " + dataFiltros.NombreDepartamento;
+                    filtro.autoDepartamento = dataFiltros.AutoDepartamento;
+                }
+                if (dataFiltros.AutoDeposito != "")
+                {
+                    filt += "DEPOSITO: " + dataFiltros.NombreDeposito;
+                    filtro.autoDeposito = dataFiltros.AutoDeposito;
+                }
                 filtro.autoTasa = dataFiltros.AutoTasa;
             }
             var r01 = Sistema.MyData.Reportes_MaestroProducto(filtro);
@@ -60,11 +70,11 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
                 return;
             }
 
-            Imprimir(r01.Lista);
+            Imprimir(r01.Lista, filt);
         }
 
 
-        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroProducto.Ficha> lista)
+        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroProducto.Ficha> lista, string filtros)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\MaestroProductos.rdlc";
             var ds = new DS();
@@ -88,6 +98,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
             var pmt = new List<ReportParameter>();
             pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
             pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("FILTROS", filtros));
             Rds.Add(new ReportDataSource("MaestroProducto", ds.Tables["MaestroProducto"]));
 
             var frp = new ReporteFrm();

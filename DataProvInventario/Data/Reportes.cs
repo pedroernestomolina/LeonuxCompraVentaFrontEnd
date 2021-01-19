@@ -19,6 +19,7 @@ namespace DataProvInventario.Data
             var filtroDto = new DtoLibInventario.Reportes.MaestroProducto.Filtro()
             {
                 autoDepartamento = filtro.autoDepartamento,
+                autoDeposito=filtro.autoDeposito,
                 autoTasa = filtro.autoTasa,
                 admDivisa = (DtoLibInventario.Reportes.enumerados.EnumAdministradorPorDivisa)filtro.admDivisa,
                 categoria = (DtoLibInventario.Reportes.enumerados.EnumCategoria)filtro.categoria,

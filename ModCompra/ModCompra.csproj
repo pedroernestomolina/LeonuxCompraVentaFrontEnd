@@ -130,6 +130,19 @@
     <Compile Include="Documento\Cargar\Formulario\TotalizarFrm.Designer.cs">
       <DependentUpon>TotalizarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Documento\Cargar\NotaCredito\GestionAgregarItem.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\GestionDocumentoNc.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\GestionItemNc.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\GestionNc.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\GestionProductoBuscarNc.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\GestionTotalizarNc.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\Remision\Gestion.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.Designer.cs">
+      <DependentUpon>RemisionFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Filtros\data.cs" />
     <Compile Include="Filtros\Gestion.cs" />
     <Compile Include="Filtros\tipoDoc.cs" />
@@ -231,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\Formulario\TotalizarFrm.resx">
       <DependentUpon>TotalizarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.resx">
+      <DependentUpon>RemisionFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

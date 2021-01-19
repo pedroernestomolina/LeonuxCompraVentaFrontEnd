@@ -59,12 +59,21 @@ namespace ModCompra.Documento.Cargar.Formulario
 
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Cnt";
-            c3.HeaderText = "Cant";
+            c3.HeaderText = "Cant/Fact";
             c3.Visible = true;
             c3.Width = 80;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            var c3B = new DataGridViewTextBoxColumn();
+            c3B.DataPropertyName = "CntDev";
+            c3B.HeaderText = "Cant/Dev";
+            c3B.Visible = true;
+            c3B.Width = 80;
+            c3B.HeaderCell.Style.Font = f;
+            c3B.DefaultCellStyle.Font = f1;
+            c3B.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "EmpaqueCont";
@@ -167,6 +176,7 @@ namespace ModCompra.Documento.Cargar.Formulario
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
+            DGV.Columns.Add(c3B);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
             DGV.Columns.Add(c5b);
@@ -185,11 +195,13 @@ namespace ModCompra.Documento.Cargar.Formulario
             DGV.Columns[0].Frozen = true;
             DGV.Columns[1].Frozen = true;
             DGV.Columns[2].Frozen = true;
+            DGV.Columns[3].Visible = _controlador.VisualizarColDevolucion;
             DGV.DataSource = _controlador.ItemSource;
         }
 
         private void Inicializar_1()
         {
+            PANEL_DOCUMENTO.BackColor = _controlador.ColorFondoDocumento;
             L_TITULO_DOCUMENTO.Text = _controlador.TituloDocumento;
             switch (_controlador.MetodoBusquedaProducto) 
             {
@@ -251,7 +263,11 @@ namespace ModCompra.Documento.Cargar.Formulario
             _controlador.NuevoDocumento();
             ActualizarDatosDocumento();
             if (_controlador.DatosDocumentoIsOk)
+            {
+                ActualizarDatosItem();
+                ActualizarDatosTotales();
                 IniciarBusqueda();
+            }
         }
 
         private void ActualizarDatosDocumento()

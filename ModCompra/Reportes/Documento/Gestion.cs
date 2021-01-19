@@ -32,7 +32,7 @@ namespace ModCompra.Reportes.Documento
             rt["provCodigo"] = ficha.provCodigo;
             rt["provTelefono"] = ficha.provTelefono;
             rt["provDireccion"] = ficha.provDirFiscal;
-            rt["documento"] = ficha.documentoSerie +" "+ ficha.documentoNro;
+            rt["documento"] = ficha.documentoNro;
             rt["control"] = ficha.controlNro;
             rt["fechaEmision"] = ficha.fechaEmision;
             rt["mesAnoRelacion"] = ficha.mesRelacion+"/"+ficha.anoRelacion;
@@ -81,6 +81,7 @@ namespace ModCompra.Reportes.Documento
             //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
             //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
             //pmt.Add(new ReportParameter("EMPRESA_DIRECCION", Sistema.Negocio.DireccionFiscal));
+            pmt.Add(new ReportParameter("DOCUMENTO", ficha.documentoModo));
             Rds.Add(new ReportDataSource("DocEncabezado", ds.Tables["DocEncabezado"]));
             Rds.Add(new ReportDataSource("DocDetalle", ds.Tables["DocDetalle"]));
 

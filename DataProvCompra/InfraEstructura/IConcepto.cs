@@ -12,6 +12,7 @@ namespace DataProvCompra.InfraEstructura
     {
 
         OOB.ResultadoEntidad<OOB.LibCompra.Concepto.Ficha> Concepto_PorMovCompra();
+        OOB.ResultadoEntidad<OOB.LibCompra.Concepto.Ficha> Concepto_PorMovDevCompra();
 
     }
 

@@ -22,6 +22,7 @@ namespace ModCompra.Documento.Cargar.Factura
         private Proveedor.Listar.Gestion _gestionListaPrv;
         private decimal _tasaCambio;
         private Proveedor.Busqueda.Enumerados.EnumMetodoBusqueda _preferencia;
+        private Formulario.DatosDocumentoFrm _frm;
 
 
         public string CadenaBuscar{get; set;}
@@ -46,6 +47,16 @@ namespace ModCompra.Documento.Cargar.Factura
         public bool LimpiarDatosIsOk { get; set; }
         public string DepositoNombre{get { return data.DepositoNombre; }}
         public string SucursalNombre{get { return data.SucursalNombre; }}
+        //
+        public string Remision { get { return ""; } }
+        public string Remision_TipoDocumento { get { return ""; } }
+        public string Remision_Fecha { get { return ""; } }
+        public string Remision_Control { get { return ""; } }
+        public string Remision_Documento { get { return ""; } }
+        public string RemisionEstatus { get { return ""; } }
+        public OOB.LibCompra.Documento.GetData.Ficha RemisionFicha { get { return null; } }
+        //
+
         public string IdSucursal 
         { 
             get { return data.IdSucursal; } 
@@ -234,6 +245,7 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public void Limpiar()
         {
+            _dataIsOk = false;
             LimpiarDatosIsOk = true;
             data.Limpiar();
             data.setFactorDivisa(_tasaCambio);
@@ -243,6 +255,11 @@ namespace ModCompra.Documento.Cargar.Factura
         public void setNotas(string p)
         {
             Notas = p;
+        }
+
+        public void setFormulario(Formulario.DatosDocumentoFrm frm)
+        {
+            _frm = frm;
         }
 
     }

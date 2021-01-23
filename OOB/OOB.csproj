@@ -100,6 +100,9 @@
     <Compile Include="LibCompra\Documento\Visualizar\FichaDetalle.cs" />
     <Compile Include="LibCompra\Empresa\Data\Ficha.cs" />
     <Compile Include="LibCompra\Empresa\Fiscal\Ficha.cs" />
+    <Compile Include="LibCompra\Maestros\Grupo\Agregar.cs" />
+    <Compile Include="LibCompra\Maestros\Grupo\Editar.cs" />
+    <Compile Include="LibCompra\Maestros\Grupo\Ficha.cs" />
     <Compile Include="LibCompra\Permiso\Enumerados.cs" />
     <Compile Include="LibCompra\Permiso\Ficha.cs" />
     <Compile Include="LibCompra\Producto\CodRefProveedor\Filtro.cs" />

@@ -1619,7 +1619,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Parameters!FILTROS.Value</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>

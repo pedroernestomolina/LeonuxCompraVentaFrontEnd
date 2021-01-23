@@ -17,6 +17,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         decimal Monto { get; }
         string Notas { get; }
         decimal Total { get; }
+        bool HabilitarDscto { get; }
+        bool HabilitarCargo { get; }
 
 
         void Inicializar();
@@ -25,6 +27,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         void SetNotas(string p);
         void setDscto(decimal p);
         void setCargo(decimal p);
+        void Inicia();
+        void Limpiar();
 
     }
 

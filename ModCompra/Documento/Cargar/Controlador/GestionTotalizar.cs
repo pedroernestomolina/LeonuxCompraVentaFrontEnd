@@ -27,14 +27,14 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion = gestion;
         }
 
-        Formulario.TotalizarFrm totalizarFrm;
-        public void Inicia()
-        {
-            _gestion.Inicializar();
-            totalizarFrm = new Formulario.TotalizarFrm();
-            totalizarFrm.setControlador(this);
-            totalizarFrm.ShowDialog();
-        }
+        //Formulario.TotalizarFrm totalizarFrm;
+        //public void Inicia()
+        //{
+        //    _gestion.Inicializar();
+        //    totalizarFrm = new Formulario.TotalizarFrm();
+        //    totalizarFrm.setControlador(this);
+        //    totalizarFrm.ShowDialog();
+        //}
 
 
         public void Guardar()

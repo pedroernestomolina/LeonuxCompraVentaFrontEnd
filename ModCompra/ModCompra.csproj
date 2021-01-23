@@ -136,6 +136,12 @@
     <Compile Include="Documento\Cargar\NotaCredito\GestionNc.cs" />
     <Compile Include="Documento\Cargar\NotaCredito\GestionProductoBuscarNc.cs" />
     <Compile Include="Documento\Cargar\NotaCredito\GestionTotalizarNc.cs" />
+    <Compile Include="Documento\Cargar\NotaCredito\ItemFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Cargar\NotaCredito\ItemFrm.Designer.cs">
+      <DependentUpon>ItemFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Documento\Cargar\NotaCredito\Remision\Gestion.cs" />
     <Compile Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.cs">
       <SubType>Form</SubType>
@@ -163,6 +169,25 @@
     </Compile>
     <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\data.cs" />
+    <Compile Include="Maestros\Gestion.cs" />
+    <Compile Include="Maestros\GestionLista.cs" />
+    <Compile Include="Maestros\Grupo\AgregarEditar.cs" />
+    <Compile Include="Maestros\Grupo\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Grupo\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Grupo\Gestion.cs" />
+    <Compile Include="Maestros\IGestion.cs" />
+    <Compile Include="Maestros\IGestionLista.cs" />
+    <Compile Include="Maestros\MaestroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\MaestroFrm.Designer.cs">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Producto\Listar\data.cs" />
     <Compile Include="Producto\Listar\Gestion.cs" />
@@ -245,6 +270,9 @@
     <EmbeddedResource Include="Documento\Cargar\Formulario\TotalizarFrm.resx">
       <DependentUpon>TotalizarFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Documento\Cargar\NotaCredito\ItemFrm.resx">
+      <DependentUpon>ItemFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.resx">
       <DependentUpon>RemisionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +281,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Grupo\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\MaestroFrm.resx">
+      <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>

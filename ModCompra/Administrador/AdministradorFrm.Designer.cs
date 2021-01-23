@@ -837,6 +837,7 @@
             this.BT_IMPRIMIR.TabIndex = 1;
             this.toolTip1.SetToolTip(this.BT_IMPRIMIR, "Generar Reporte Vista Actual");
             this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
             // 
             // panel11
             // 

@@ -443,6 +443,7 @@ namespace DataProvCompra.Data
                             tipoDocNombre = s.tipoDocNombre,
                             documentoNro = s.documento,
                             codigoTipo = s.tipo,
+                            Signo = s.signo,
                         };
                         return nr;
                     }).ToList();

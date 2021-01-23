@@ -457,7 +457,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
                     autoTasaIva = it.Producto.autoTasa,
                     cantidadBonoFac = 0.0m,
                     cantidadFac = it.cantDev,
-                    cantidadUnd = it.CantidadUnd,
+                    cantidadUnd = it.CantidadDevUnd,
                     categoriaPrd = it.Producto.categoria,
                     cierreFtp = "",
                     codigoProducto = it.Producto.codigo,
@@ -494,7 +494,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
                 {
                     autoDep = gestionDoc.IdDeposito,
                     autoPrd = it.Producto.auto,
-                    cantidadUnd = it.CantidadUnd*signoDoc,
+                    cantidadUnd = it.CantidadDevUnd*signoDoc,
                 };
                 fichaPrdDeposito.Add(prdDep);
                 var prdKardex = new OOB.LibCompra.Documento.Agregar.NotaCredito.FichaPrdKardex()
@@ -504,7 +504,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
                     autoPrd = it.Producto.auto,
                     cantidadBonoFac = 0.0m,
                     cantidadFac = it.cantDev,
-                    cantidadUnd = it.CantidadUnd,
+                    cantidadUnd = it.CantidadDevUnd,
                     cierreFtp = "",
                     codigoConcepto = conceptoCompra.codigo,
                     codigoDeposito = gestionDoc.Deposito.codigo,
@@ -555,6 +555,41 @@ namespace ModCompra.Documento.Cargar.NotaCredito
                 {
                     gestionItem.CargarItems(gestionDoc.RemisionFicha.detalles, gestionDoc.RemisionFicha.factorCambio);
                 }
+            }
+        }
+
+        public void Totalizar()
+        {
+            if (!gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
+                return;
+            }
+
+            if (gestionItem.TItems == 0)
+            {
+                Helpers.Msg.Error("No Hay Items Que Procesar !!!");
+                return;
+            }
+
+            if (gestionItem.TotalMonto == 0.0m)
+            {
+                Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
+                return;
+            }
+
+            gestionTotalizar.Limpiar();
+            gestionTotalizar.SetMonto(gestionItem.TotalMonto);
+            gestionTotalizar.SetNotas(gestionDoc.Notas);
+            gestionTotalizar.setDscto(gestionDoc.RemisionFicha.descuentoPorct);
+            gestionTotalizar.setCargo(gestionDoc.RemisionFicha.cargoPorct);
+            gestionTotalizar.Inicia();
+            if (gestionTotalizar.IsOk)
+            {
+                gestionItem.setDescuentoFinal(gestionTotalizar.Dscto);
+                gestionItem.setCargoFinal(gestionTotalizar.Cargo);
+                gestionDoc.setNotas(gestionTotalizar.Notas);
+                Guardar();
             }
         }
 

@@ -27,6 +27,7 @@ namespace ModCompra.Administrador.Documentos
         public decimal ImporteDivisa { get { return rg.montoDivisa; } }
         public string Situacion { get { return rg.situacion; } }
         public bool IsAnulado { get { return rg.esAnulado; } }
+        public string Signo { get { return rg.Signo == 1 ? "+" : "-"; } }
         public string Estatus 
         { 
             get 

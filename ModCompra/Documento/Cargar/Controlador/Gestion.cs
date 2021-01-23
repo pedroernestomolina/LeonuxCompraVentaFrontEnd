@@ -159,34 +159,37 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         public void Totalizar()
         {
-            if (!_gestionDoc.IsAceptarOk)
-            {
-                Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
-                return;
-            }
+            _gestion.Totalizar();
 
-            if (_gestionItem.TItems == 0)
-            {
-                Helpers.Msg.Error("No Hay Items Que Procesar !!!");
-                return;
-            }
+            //if (!_gestionDoc.IsAceptarOk)
+            //{
+            //    Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
+            //    return;
+            //}
 
-            if (_gestionItem.TotalMonto == 0.0m)
-            {
-                Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
-                return;
-            }
+            //if (_gestionItem.TItems == 0)
+            //{
+            //    Helpers.Msg.Error("No Hay Items Que Procesar !!!");
+            //    return;
+            //}
 
-            _gestionTotalizar.SetMonto(_gestionItem.TotalMonto);
-            _gestionTotalizar.SetNotas(_gestionDoc.Notas);
-            _gestionTotalizar.Inicia();
-            if (_gestionTotalizar.IsOk)
-            {
-                _gestionItem.setDescuentoFinal(_gestionTotalizar.Dscto);
-                _gestionItem.setCargoFinal(_gestionTotalizar.Cargo);
-                _gestionDoc.setNotas(_gestionTotalizar.Notas);
-                _gestion.Guardar();
-            }
+            //if (_gestionItem.TotalMonto == 0.0m)
+            //{
+            //    Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
+            //    return;
+            //}
+
+            //_gestionTotalizar.SetMonto(_gestionItem.TotalMonto);
+            //_gestionTotalizar.SetNotas(_gestionDoc.Notas);
+            //_gestionTotalizar.DsctoCargo();
+            //_gestionTotalizar.Inicia();
+            //if (_gestionTotalizar.IsOk)
+            //{
+            //    _gestionItem.setDescuentoFinal(_gestionTotalizar.Dscto);
+            //    _gestionItem.setCargoFinal(_gestionTotalizar.Cargo);
+            //    _gestionDoc.setNotas(_gestionTotalizar.Notas);
+            //    _gestion.Guardar();
+            //}
         }
 
     }

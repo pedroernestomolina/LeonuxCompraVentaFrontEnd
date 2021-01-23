@@ -17,6 +17,8 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         public decimal Cargo { get { return cargo; } }
         public decimal Monto { get { return _monto; } }
         public string Notas { get { return _notas; } }
+        public bool HabilitarDscto { get { return false; } }
+        public bool HabilitarCargo { get { return false; } }
         public decimal Total
         {
             get
@@ -43,8 +45,6 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         public void Inicializar()
         {
             IsOk = false;
-            dscto = 0.0m;
-            cargo = 0.0m;
         }
 
         public void Guardar()
@@ -83,6 +83,23 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             var _dsctoM = (_monto * dscto / 100);
             var _cargoM = (_monto - _dsctoM) * (cargo / 100);
             _total = (_monto - _dsctoM + _cargoM);
+        }
+
+        Formulario.TotalizarFrm totalizarFrm;
+        public void Inicia()
+        {
+            Inicializar();
+            totalizarFrm = new Formulario.TotalizarFrm();
+            totalizarFrm.setControlador(this);
+            totalizarFrm.ShowDialog();
+        }
+
+        public void Limpiar()
+        {
+            _monto = 0.0m;
+            _notas = "";
+            dscto = 0.0m;
+            cargo = 0.0m;
         }
 
     }

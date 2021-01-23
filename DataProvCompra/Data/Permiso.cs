@@ -247,6 +247,53 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_CrearGrupo(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_CrearGrupo(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_ModificarGrupo(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ModificarGrupo(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibCompra.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibCompra.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
     }
 
 }

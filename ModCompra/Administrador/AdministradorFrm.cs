@@ -36,6 +36,7 @@ namespace ModCompra.Administrador
         {
             var f = new Font("Serif", 8, FontStyle.Bold);
             var f1 = new Font("Serif", 8, FontStyle.Regular);
+            var f2 = new Font("Serif", 10, FontStyle.Bold);
 
             DGV.AllowUserToAddRows = false;
             DGV.AllowUserToDeleteRows = false;
@@ -59,7 +60,7 @@ namespace ModCompra.Administrador
             c2.DataPropertyName = "NombreDoc";
             c2.HeaderText = "Tipo";
             c2.Visible = true;
-            c2.Width = 80;
+            c2.Width = 100;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 
@@ -104,6 +105,15 @@ namespace ModCompra.Administrador
             c5A.Width = 90;
             c5A.HeaderCell.Style.Font = f;
             c5A.DefaultCellStyle.Font = f1;
+            
+            var c9 = new DataGridViewTextBoxColumn();
+            c9.DataPropertyName = "Signo";
+            c9.HeaderText = "+/-";
+            c9.Visible = true;
+            c9.Width = 40;
+            c9.HeaderCell.Style.Font = f;
+            c9.DefaultCellStyle.Font = f2;
+            c9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var c5B = new DataGridViewTextBoxColumn();
             c5B.DataPropertyName = "Importe";
@@ -159,6 +169,7 @@ namespace ModCompra.Administrador
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
             DGV.Columns.Add(c5A);
+            DGV.Columns.Add(c9);
             DGV.Columns.Add(c5B);
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
@@ -317,7 +328,7 @@ namespace ModCompra.Administrador
 
         private void Imprimir()
         {
-           // _controlador.Imprimir();
+            _controlador.Imprimir();
         }
 
         public void setControlador(Gestion ctr)

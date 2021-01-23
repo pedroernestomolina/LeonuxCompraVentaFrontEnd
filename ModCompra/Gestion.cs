@@ -15,6 +15,7 @@ namespace ModCompra
 
         private Administrador.Gestion _gestionAdmDoc ;
         private Reportes.Filtros.Gestion _gestionRep;
+        private Maestros.Gestion _gestionMaestro;
 
 
         public string Version
@@ -48,6 +49,7 @@ namespace ModCompra
         {
             _gestionAdmDoc = new Administrador.Gestion();
             _gestionRep = new Reportes.Filtros.Gestion();
+            _gestionMaestro = new Maestros.Gestion();
         }
 
 
@@ -182,6 +184,12 @@ namespace ModCompra
 
                 frm.setVisibilidadOn();
             }
+        }
+
+        public void MaestrosGrupos()
+        {
+            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
+            _gestionMaestro.Inicia();
         }
 
     }

@@ -169,13 +169,17 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                     importeMonedaLocal = importe * tasaCambio;
                 }
 
-                var exFisica = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == idDepositoOrigen).exFisica;
-                var disponible = (exFisica >= reg.cntUndReponer);
+                var xrt = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == idDepositoOrigen);
+                if (xrt != null)
+                {
+                    var exFisica = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == idDepositoOrigen).exFisica;
+                    var disponible = (exFisica >= reg.cntUndReponer);
 
-                detalle.Agregar(ficha, reg.cntUndReponer, costo,
-                         enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
-                         importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada,disponible);
-                bs.CurrencyManager.Refresh();
+                    detalle.Agregar(ficha, reg.cntUndReponer, costo,
+                             enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
+                             importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible);
+                    bs.CurrencyManager.Refresh();
+                }
             }
         }
 

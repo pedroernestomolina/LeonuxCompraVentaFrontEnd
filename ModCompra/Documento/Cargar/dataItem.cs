@@ -51,10 +51,22 @@ namespace ModCompra.Documento.Cargar
             get
             {
                 var rt = 0;
-                if (_modoNCActivo)
-                    rt = (int)cantDev * Producto.contenidoCompra;
-                else
-                    rt = (int) cantidad* Producto.contenidoCompra;
+                //if (_modoNCActivo)
+                //    rt = (int)cantDev * Producto.contenidoCompra;
+                //else
+                //    rt = (int) cantidad* Producto.contenidoCompra;
+
+                rt = (int)cantidad * Producto.contenidoCompra;
+                return rt;
+            }
+        }
+
+        public int CantidadDevUnd
+        {
+            get
+            {
+                var rt = 0;
+                rt = (int)cantDev * Producto.contenidoCompra;
                 return rt;
             }
         }
@@ -263,7 +275,7 @@ namespace ModCompra.Documento.Cargar
 
         public dataItem(dataItem it)
         {
-            this._modoNCActivo = false;
+            this._modoNCActivo = it._modoNCActivo;
             this.factorDivisa = it.factorDivisa;
             this.producto = it.producto;
             this.CodRefPrv = it.CodRefPrv;
@@ -291,7 +303,7 @@ namespace ModCompra.Documento.Cargar
             this.dsct_1_p = it.dscto1p ;
             this.dsct_2_p = it.dscto2p;
             this.dsct_3_p = it.dscto3p;
-            this.cantDev = 1;
+            this.cantDev = 0;
 
             ActualizarCosto();
             ActualizarCostoDivisa();

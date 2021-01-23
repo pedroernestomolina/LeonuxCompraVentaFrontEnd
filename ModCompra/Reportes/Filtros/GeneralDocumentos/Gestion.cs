@@ -82,12 +82,13 @@ namespace ModCompra.Reportes.Filtros.GeneralDocumentos
                 rt["documentoNro"] = it.documento;
                 rt["proveedor"] = it.provCiRif+Environment.NewLine+it.provNombre;
                 rt["renglones"] = it.renglones;
-                rt["montoDscto"] = it.montoDscto;
-                rt["montoCargo"] = it.montoCargo;
-                rt["total"] = it.total;
-                rt["totalDivisa"] = it.totalDivisa;
+                rt["montoDscto"] = it.montoDscto*it.signoDoc;
+                rt["montoCargo"] = it.montoCargo*it.signoDoc;
+                rt["total"] = it.total*it.signoDoc;
+                rt["totalDivisa"] = it.totalDivisa*it.signoDoc;
                 rt["factor"] = it.factorDoc;
                 rt["estatus"] = it.EsAnulado?"ANULADO":"";
+                rt["signo"] = it.signoDoc==1 ? "+": "-";
 
                 if (it.EsAnulado) 
                 {

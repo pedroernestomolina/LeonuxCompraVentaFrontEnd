@@ -29,6 +29,11 @@ namespace ModCompra.Documento.Cargar.Formulario
             _controlador = ctr;
         }
 
+        public void setControlador(NotaCredito.GestionAgregarItem gestionAgregarItem)
+        {
+        }
+
+
         private void ItemFrm_Load(object sender, EventArgs e)
         {
             L_PRODUCTO.Text = _controlador.Producto;

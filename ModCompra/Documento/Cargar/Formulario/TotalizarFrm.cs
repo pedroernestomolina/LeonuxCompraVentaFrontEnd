@@ -16,7 +16,7 @@ namespace ModCompra.Documento.Cargar.Formulario
     {
 
 
-        Controlador.GestionTotalizar _controlador; 
+        Controlador.IGestionTotalizar  _controlador; 
 
 
         public TotalizarFrm()
@@ -29,7 +29,7 @@ namespace ModCompra.Documento.Cargar.Formulario
             _controlador.Guardar();
         }
 
-        public void setControlador(Controlador.GestionTotalizar ctr)
+        public void setControlador(Controlador.IGestionTotalizar ctr)
         {
             _controlador = ctr;
         }
@@ -38,9 +38,11 @@ namespace ModCompra.Documento.Cargar.Formulario
         {
             L_MONTO.Text = _controlador.Monto.ToString("n2");
             TB_NOTAS.Text = _controlador.Notas;
-            TB_DSCTO_1.Text = "0";
-            TB_CARGO_1.Text = "0";
+            TB_DSCTO_1.Text = _controlador.Dscto.ToString();
+            TB_CARGO_1.Text = _controlador.Cargo.ToString();
             L_TOTAL.Text = _controlador.Total.ToString("n2");
+            TB_DSCTO_1.Enabled = _controlador.HabilitarDscto;
+            TB_CARGO_1.Enabled = _controlador.HabilitarCargo;
         }
 
         private void TB_DSCTO_1_Leave(object sender, EventArgs e)
@@ -67,7 +69,7 @@ namespace ModCompra.Documento.Cargar.Formulario
         {
             _controlador.SetNotas(TB_NOTAS.Text.Trim().ToUpper());
         }
-     
+
     }
 
 }

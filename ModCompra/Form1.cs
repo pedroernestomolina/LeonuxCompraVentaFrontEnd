@@ -144,6 +144,16 @@ namespace ModCompra
             _controlador.RegistrarNcCompra();
         }
 
+        private void MENU_MAESTROS_GRUPOS_Click(object sender, EventArgs e)
+        {
+            MaestrosGrupos();
+        }
+
+        private void MaestrosGrupos()
+        {
+            _controlador.MaestrosGrupos();
+        }
+
     }
 
 }

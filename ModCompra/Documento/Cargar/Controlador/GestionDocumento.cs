@@ -45,6 +45,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string Remision_Fecha { get { return _gestion.Remision_Fecha; } }
         public string Remision_Control { get { return _gestion.Remision_Control; } }
         public string Remision_Documento { get { return _gestion.Remision_Documento; } }
+        public OOB.LibCompra.Documento.GetData.Ficha RemisionFicha { get { return _gestion.RemisionFicha ; } }
 
 
         public string Proveedor 

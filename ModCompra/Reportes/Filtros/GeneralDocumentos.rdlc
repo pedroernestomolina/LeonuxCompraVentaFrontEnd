@@ -6,37 +6,40 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.80968cm</Width>
+              <Width>1.75569cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.4128cm</Width>
+              <Width>1.35881cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.33884cm</Width>
+              <Width>2.28485cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.2228cm</Width>
+              <Width>5.16881cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.12176cm</Width>
+              <Width>0.96193cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47114cm</Width>
+              <Width>0.69976cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47114cm</Width>
+              <Width>2.41715cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47114cm</Width>
+              <Width>2.41715cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47114cm</Width>
+              <Width>2.41715cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47114cm</Width>
+              <Width>2.41715cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.47114cm</Width>
+              <Width>2.41715cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.41715cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -213,6 +216,43 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>+/-</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -603,10 +643,47 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>renglones</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="signo">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!signo.Value</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>signo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -633,6 +710,7 @@
                               <Value>=Fields!montoDscto.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -666,6 +744,7 @@
                               <Value>=Fields!montoCargo.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -906,14 +985,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=CountRows().ToString()</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox24</rd:DefaultName>
@@ -1004,6 +1085,41 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox27">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1015,6 +1131,7 @@
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1050,6 +1167,7 @@
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>n2</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1231,6 +1349,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1257,71 +1376,11 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox4">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Cantidad Doc:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.04694cm</Top>
-        <Left>17.1392cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.47114cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox6">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Doc/Anulados:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>2.75278cm</Top>
-        <Left>17.1392cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.47114cm</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>10.70177in</Width>
+  <Width>10.75894in</Width>
   <Page>
     <PageHeader>
       <Height>3.09562cm</Height>
@@ -1721,6 +1780,10 @@
         </Field>
         <Field Name="estatus">
           <DataField>estatus</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="signo">
+          <DataField>signo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

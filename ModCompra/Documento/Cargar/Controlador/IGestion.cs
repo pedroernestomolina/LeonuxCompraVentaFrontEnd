@@ -39,6 +39,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void ActivarBusquedaProductoPorReferencia();
         void Guardar();
         void CargarItems();
+        void Totalizar();
 
     }
 

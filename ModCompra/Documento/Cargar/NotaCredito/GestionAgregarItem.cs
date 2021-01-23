@@ -33,6 +33,8 @@ namespace ModCompra.Documento.Cargar.NotaCredito
 
         public string CodigoRefProveedor { get { return item.CodRefPrv; } set { item.CodRefPrv = value; } }
         public decimal Cantidad { get { return item.cantidad; } set { item.cantidad = value; item.CalculaDscto(); } }
+        public decimal CantidadDev { get { return item.cantDev; } set { item.cantDev = value; item.CalculaDscto(); } }
+
         public decimal CostoMoneda { get { return item.costoMoneda; } set { item.costoMoneda = value; ActualizarCostoDivisa(); } }
         public decimal CostoDivisa { get { return item.costoDivisa; } set { item.costoDivisa = value; ActualizarCosto(); } }
         public decimal Dscto_1 { get { return item.dsct_1_p; } set { item.dsct_1_p = value; item.CalculaDscto(); } }
@@ -46,10 +48,14 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         public decimal CostoMonedaUnd { get { return item.costoMonedaUnd; } }
         public decimal CostoDivisaUnd { get { return item.costoDivisaUnd; } }
         public int CantidadUnd { get { return item.CantidadUnd; } }
+        public int CantidadDevUnd { get { return item.CantidadDevUnd; } }
+
 
         public bool SalidaOk { get; set; }
         public bool RegistroOk { get; set; }
         public dataItem Item { get { return item; } }
+
+        public bool IsCantDevolverValido { get { return (CantidadDev > Cantidad); } }
 
 
         public GestionAgregarItem()
@@ -127,7 +133,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             SalidaOk = false;
             if (MontoImporte > 0)
             {
-                var ms = MessageBox.Show("Insertar Registro ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                var ms = MessageBox.Show("Actualizar Data Del Registro ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (ms == DialogResult.Yes)
                 {
                     RegistroOk = true;
@@ -156,13 +162,13 @@ namespace ModCompra.Documento.Cargar.NotaCredito
 
         public void Editar(dataItem it)
         {
-            //SalidaOk = false;
-            //RegistroOk = false;
+            SalidaOk = false;
+            RegistroOk = false;
 
-            //item = new dataItem(it);
-            //var frm = new Formulario.ItemFrm();
-            //frm.setControlador(this);
-            //frm.ShowDialog();
+            item = new dataItem(it);
+            var frm = new ItemFrm();
+            frm.setControlador(this);
+            frm.ShowDialog();
         }
 
     }

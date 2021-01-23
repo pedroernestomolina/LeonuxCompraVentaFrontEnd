@@ -14,6 +14,9 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMaximo();
         OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMedio();
         OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo();
+
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_CrearGrupo(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_ModificarGrupo(string autoGrupoUsuario);
          
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_ToolCompra(string autoGrupoUsuario);
 

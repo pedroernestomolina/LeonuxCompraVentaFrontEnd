@@ -86,6 +86,11 @@ namespace ModCompra.Administrador
             _miGestion.AnularItem();
         }
 
+        public void Imprimir()
+        {
+            Helpers.Msg.Alerta("IR A REPORTES");
+        }
+
     }
 
 }

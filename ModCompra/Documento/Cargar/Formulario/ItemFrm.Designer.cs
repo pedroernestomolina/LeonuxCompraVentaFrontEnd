@@ -571,7 +571,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(182, 22);
             this.label7.TabIndex = 3;
-            this.label7.Text = "Cantidad:";
+            this.label7.Text = "Cantidad/Fact:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel15
@@ -784,7 +784,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(182, 22);
             this.label10.TabIndex = 5;
-            this.label10.Text = "Dscto (%): ";
+            this.label10.Text = "Dscto 1 (%): ";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel21
@@ -855,7 +855,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(182, 22);
             this.label11.TabIndex = 6;
-            this.label11.Text = "Dscto (%): ";
+            this.label11.Text = "Dscto 2 (%): ";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel23
@@ -926,7 +926,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(182, 22);
             this.label12.TabIndex = 7;
-            this.label12.Text = "Dscto (%): ";
+            this.label12.Text = "Dscto 3 (%): ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel25

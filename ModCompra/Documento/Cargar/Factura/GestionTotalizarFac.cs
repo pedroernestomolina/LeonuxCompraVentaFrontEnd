@@ -17,6 +17,8 @@ namespace ModCompra.Documento.Cargar.Factura
         public decimal Cargo { get { return cargo; } }
         public decimal Monto { get { return _monto; } }
         public string Notas { get { return _notas; } }
+        public bool HabilitarDscto { get { return true; } }
+        public bool HabilitarCargo { get { return true; } }
         public decimal Total 
         { 
             get 
@@ -83,6 +85,19 @@ namespace ModCompra.Documento.Cargar.Factura
             var _dsctoM = (_monto * dscto / 100);
             var _cargoM = (_monto - _dsctoM) * (cargo / 100);
             _total = (_monto - _dsctoM + _cargoM);
+        }
+       
+        Formulario.TotalizarFrm totalizarFrm;
+        public void Inicia()
+        {
+            Inicializar();
+            totalizarFrm = new Formulario.TotalizarFrm();
+            totalizarFrm.setControlador(this);
+            totalizarFrm.ShowDialog();
+        }
+
+        public void Limpiar()
+        {
         }
 
     }

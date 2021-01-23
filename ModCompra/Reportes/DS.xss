@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:DocEncabezado" ZOrder="6" X="127" Y="48" Height="282" Width="186" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="278" />
     <Shape ID="DesignTable:DocDetalle" ZOrder="5" X="339" Y="48" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
-    <Shape ID="DesignTable:GeneralDoc" ZOrder="2" X="596" Y="54" Height="262" Width="153" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="258" />
+    <Shape ID="DesignTable:GeneralDoc" ZOrder="2" X="596" Y="54" Height="283" Width="153" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="279" />
     <Shape ID="DesignTable:CompraDepart" ZOrder="4" X="836" Y="55" Height="136" Width="174" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="132" />
     <Shape ID="DesignTable:CompraPrd" ZOrder="3" X="1050" Y="75" Height="179" Width="151" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="175" />
     <Shape ID="DesignTable:CompraDetPrd" ZOrder="1" X="824" Y="240" Height="241" Width="176" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />

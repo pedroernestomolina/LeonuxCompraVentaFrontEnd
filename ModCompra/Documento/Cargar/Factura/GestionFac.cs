@@ -589,6 +589,38 @@ namespace ModCompra.Documento.Cargar.Factura
         {
         }
 
+        public void Totalizar()
+        {
+            if (!gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
+                return;
+            }
+
+            if (gestionItem.TItems == 0)
+            {
+                Helpers.Msg.Error("No Hay Items Que Procesar !!!");
+                return;
+            }
+
+            if (gestionItem.TotalMonto == 0.0m)
+            {
+                Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
+                return;
+            }
+
+            gestionTotalizar.SetMonto(gestionItem.TotalMonto);
+            gestionTotalizar.SetNotas(gestionDoc.Notas);
+            gestionTotalizar.Inicia();
+            if (gestionTotalizar.IsOk)
+            {
+                gestionItem.setDescuentoFinal(gestionTotalizar.Dscto);
+                gestionItem.setCargoFinal(gestionTotalizar.Cargo);
+                gestionDoc.setNotas(gestionTotalizar.Notas);
+                Guardar();
+            }
+        }
+
     }
 
 }

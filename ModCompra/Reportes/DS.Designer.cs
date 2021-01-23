@@ -1549,6 +1549,8 @@ namespace ModCompra.Reportes {
             
             private global::System.Data.DataColumn columnestatus;
             
+            private global::System.Data.DataColumn columnsigno;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GeneralDocDataTable() {
@@ -1672,6 +1674,14 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn signoColumn {
+                get {
+                    return this.columnsigno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1707,7 +1717,7 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GeneralDocRow AddGeneralDocRow(string documentoNro, System.DateTime fecha, string serie, string proveedor, int renglones, decimal montoDscto, decimal montoCargo, decimal total, decimal totalDivisa, decimal factor, string estatus) {
+            public GeneralDocRow AddGeneralDocRow(string documentoNro, System.DateTime fecha, string serie, string proveedor, int renglones, decimal montoDscto, decimal montoCargo, decimal total, decimal totalDivisa, decimal factor, string estatus, string signo) {
                 GeneralDocRow rowGeneralDocRow = ((GeneralDocRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         documentoNro,
@@ -1720,7 +1730,8 @@ namespace ModCompra.Reportes {
                         total,
                         totalDivisa,
                         factor,
-                        estatus};
+                        estatus,
+                        signo};
                 rowGeneralDocRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGeneralDocRow);
                 return rowGeneralDocRow;
@@ -1754,6 +1765,7 @@ namespace ModCompra.Reportes {
                 this.columntotalDivisa = base.Columns["totalDivisa"];
                 this.columnfactor = base.Columns["factor"];
                 this.columnestatus = base.Columns["estatus"];
+                this.columnsigno = base.Columns["signo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1781,6 +1793,8 @@ namespace ModCompra.Reportes {
                 base.Columns.Add(this.columnfactor);
                 this.columnestatus = new global::System.Data.DataColumn("estatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestatus);
+                this.columnsigno = new global::System.Data.DataColumn("signo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsigno);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4284,6 +4298,22 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string signo {
+                get {
+                    try {
+                        return ((string)(this[this.tableGeneralDoc.signoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'signo\' in table \'GeneralDoc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGeneralDoc.signoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdocumentoNroNull() {
                 return this.IsNull(this.tableGeneralDoc.documentoNroColumn);
             }
@@ -4412,6 +4442,18 @@ namespace ModCompra.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestatusNull() {
                 this[this.tableGeneralDoc.estatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssignoNull() {
+                return this.IsNull(this.tableGeneralDoc.signoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsignoNull() {
+                this[this.tableGeneralDoc.signoColumn] = global::System.Convert.DBNull;
             }
         }
         

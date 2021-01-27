@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\NcDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoDetalle.rdlc
@@ -8,6 +7,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\DataProvPosOffLine.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.Data.SQLite.dll

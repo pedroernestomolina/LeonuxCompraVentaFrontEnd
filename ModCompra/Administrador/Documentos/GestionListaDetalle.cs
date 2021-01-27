@@ -17,6 +17,7 @@ namespace ModCompra.Administrador.Documentos
         private BindingSource bs;
         private BindingList<data> bl;
         private Anular.Gestion _anular;
+        private Corrector.Documento.Gestion _corrector;
 
 
         public BindingSource ItemsSource { get { return bs; } }
@@ -31,6 +32,7 @@ namespace ModCompra.Administrador.Documentos
             bs = new BindingSource();
             bs.CurrentChanged += bs_CurrentChanged;
             bs.DataSource = bl;
+            _corrector = new Corrector.Documento.Gestion();
         }
 
         private void bs_CurrentChanged(object sender, EventArgs e)
@@ -58,7 +60,7 @@ namespace ModCompra.Administrador.Documentos
             {
                 if (!Item.IsAnulado)
                 {
-                    var r00 = Sistema.MyData.Permiso_AdmDoc_Anular (Sistema.UsuarioP.autoGru);
+                    var r00 = Sistema.MyData.Permiso_AdmDoc_Anular(Sistema.UsuarioP.autoGru);
                     if (r00.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r00.Mensaje);
@@ -161,41 +163,8 @@ namespace ModCompra.Administrador.Documentos
             }
         }
 
-
         public void Imprimir()
         {
-            //var r00 = Sistema.MyData.Permiso_AdmReporteMovimientoInventario(Sistema.UsuarioP.autoGru);
-            //if (r00.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(r00.Mensaje);
-            //    return;
-            //}
-            //if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            //{
-            //    if (bl.Count > 0)
-            //    {
-            //        var data = new List<Reportes.Movimientos.data>();
-            //        foreach (var rg in bl)
-            //        {
-            //            var nr = new Reportes.Movimientos.data()
-            //            {
-            //                documentoNro = rg.DocumentoNro,
-            //                concepto = rg.Concepto,
-            //                fechaHora = rg.FechaHora,
-            //                importe = rg.Ficha.docMonto,
-            //                isAnulado = rg.IsAnulado,
-            //                nombreDocumento = rg.STipoDoc,
-            //                renglones = rg.SRenglones,
-            //                situacion = rg.Situacion,
-            //                sucursal = rg.Sucursal,
-            //                usuarioEstacion = rg.UsuarioEstacion,
-            //            };
-            //            data.Add(nr);
-            //        }
-            //        var rp = new Reportes.Movimientos.gestionRep(data);
-            //        rp.Generar();
-            //    }
-            //}
         }
 
         public void setLista(List<OOB.LibCompra.Documento.Lista.Ficha> list)
@@ -206,6 +175,27 @@ namespace ModCompra.Administrador.Documentos
                 bl.Add(new data(rg));
             }
             bs.CurrencyManager.Refresh();
+        }
+
+        public void CorrectorDocumento()
+        {
+            if (Item != null)
+            {
+                if (Item.IsAnulado)
+                    return;
+
+                var r00 = Sistema.MyData.Permiso_AdmDoc_Corrector(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _corrector.setFicha(Item);
+                    _corrector.Inicia();
+                }
+            }
         }
 
     }

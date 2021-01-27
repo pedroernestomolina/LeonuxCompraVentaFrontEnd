@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Reportes\Movimientos\Gestion.cs" />
     <Compile Include="Reportes\Movimientos\ResumenInventario\GestionRep.cs" />
+    <Compile Include="Reportes\Movimientos\ResumenVentaDiarioSucursal\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\ResumenVentaSucursal\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\ResumenVenta\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\VentaDetalle\GestionRep.cs" />
@@ -158,6 +159,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Movimientos\ResumenVentaDetalle.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Movimientos\ResumenVentaDiarioSuc.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Movimientos\ResumenVentaPrd.rdlc">

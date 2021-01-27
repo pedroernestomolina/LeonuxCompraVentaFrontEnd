@@ -27,6 +27,26 @@ namespace OOB.LibInventario.Reportes.Kardex
         public int signoMov { get; set; } 
         public string entidadMov { get; set; } 
         public decimal existenciaInicial { get; set; }
+        public int ordenPrioridad 
+        {
+            get 
+            {
+                var xr=0;
+                switch (moduloMov.Trim().ToUpper())
+                {
+                    case "COMPRAS":
+                        xr=1;
+                        break;
+                    case "INVENTARIO":
+                        xr=2;
+                        break;
+                    case "VENTAS":
+                        xr=3;
+                        break;
+                }
+                return xr;
+            }
+        }
 
     }
 

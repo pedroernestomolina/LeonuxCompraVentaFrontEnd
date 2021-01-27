@@ -87,6 +87,14 @@
       <DependentUpon>AnularFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Anular\Gestion.cs" />
+    <Compile Include="Corrector\Documento\CorrectorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Corrector\Documento\CorrectorFrm.Designer.cs">
+      <DependentUpon>CorrectorFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Corrector\Documento\data.cs" />
+    <Compile Include="Corrector\Documento\Gestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\Gestion.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionDocumento.cs" />
     <Compile Include="Documento\Cargar\Controlador\GestionItem.cs" />
@@ -257,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Anular\AnularFrm.resx">
       <DependentUpon>AnularFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Corrector\Documento\CorrectorFrm.resx">
+      <DependentUpon>CorrectorFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\Formulario\DatosDocumentoFrm.resx">
       <DependentUpon>DatosDocumentoFrm.cs</DependentUpon>

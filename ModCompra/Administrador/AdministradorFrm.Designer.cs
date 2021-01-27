@@ -87,7 +87,7 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.BT_ANULAR = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BT_CORRECTOR = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.BT_LIMPIAR_DATA = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -893,7 +893,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.button2);
+            this.panel8.Controls.Add(this.BT_CORRECTOR);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(52, 1);
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
@@ -902,18 +902,20 @@
             this.panel8.Size = new System.Drawing.Size(49, 31);
             this.panel8.TabIndex = 1;
             // 
-            // button2
+            // BT_CORRECTOR
             // 
-            this.button2.BackgroundImage = global::ModCompra.Properties.Resources.bt_lista;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 27);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.BT_CORRECTOR.BackgroundImage = global::ModCompra.Properties.Resources.bt_lista;
+            this.BT_CORRECTOR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_CORRECTOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_CORRECTOR.FlatAppearance.BorderSize = 0;
+            this.BT_CORRECTOR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_CORRECTOR.Location = new System.Drawing.Point(2, 2);
+            this.BT_CORRECTOR.Name = "BT_CORRECTOR";
+            this.BT_CORRECTOR.Size = new System.Drawing.Size(45, 27);
+            this.BT_CORRECTOR.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_CORRECTOR, "Corrector De Documentos");
+            this.BT_CORRECTOR.UseVisualStyleBackColor = true;
+            this.BT_CORRECTOR.Click += new System.EventHandler(this.BT_CORRECTOR_Click);
             // 
             // panel7
             // 
@@ -1112,7 +1114,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.DataGridView DGV;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BT_CORRECTOR;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;

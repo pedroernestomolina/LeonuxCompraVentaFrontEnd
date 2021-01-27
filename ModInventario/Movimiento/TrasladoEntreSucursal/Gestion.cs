@@ -42,42 +42,19 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         public string IdDepOrigen
         { 
             get { return miData.IdDepOrigen; } 
-            set 
-            {
-                if (_gestionDetalle.TotalItems == 0) 
-                {
-                    if (miData.IdDepDestino != "")
-                    {
-                        if (miData.IdDepDestino != value)
-                            miData.IdDepOrigen = value; 
-                    }
-                    else
-                        miData.IdDepOrigen = value; 
-                }
-            }
+            set { miData.IdDepOrigen = value;  }
         } 
         public string IdDepDestino 
         { 
-            get { return miData.IdDepDestino; } 
-            set 
-            {
-                if (_gestionDetalle.TotalItems == 0) 
-                {
-                    if (miData.IdDepOrigen != "")
-                    {
-                        if (miData.IdDepOrigen != value)
-                            miData.IdDepDestino = value;
-                    }
-                    else
-                        miData.IdDepDestino = value;
-                }
-            }
+            get { return miData.IdDepDestino; }
+            set { miData.IdDepDestino = value; }
         }
         public string AutorizadoPor { get { return miData.AutorizadoPor; } set { miData.AutorizadoPor = value; } }
         public string Motivo { get { return miData.Motivo; } set { miData.Motivo = value; } }
         public DateTime FechaMov { get { return miData.Fecha; } set { miData.Fecha = value; } }
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return _gestionBusquedaPrd.Metodo; } set { _gestionBusquedaPrd.Metodo = value; } }
         public string CadenaBusqueda { get { return _gestionBusquedaPrd.CadenaBusqueda; } set { _gestionBusquedaPrd.CadenaBusqueda = value; } }
+        public bool CargarDetallesIsOk { get; set; }
         
 
         public Gestion()
@@ -169,6 +146,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         public void Limpiar()
         {
+            CargarDetallesIsOk = false;
             isCerrarOk = false;
             miData.Limpiar();
             _gestionDetalle.Limpiar();
@@ -234,21 +212,6 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         private bool RegistrarDocumento()
         {
             var concepto = lConcepto.FirstOrDefault(m => m.auto == miData.IdConcepto);
-            //var rt1 = Sistema.MyData.Deposito_GetFicha(sucOrigen.autoDepositoPrincipal);
-            //if (rt1.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(rt1.Mensaje);
-            //    return false;
-            //}
-            //var depOrigen = rt1.Entidad;
-            //var rt2 = Sistema.MyData.Deposito_GetFicha(sucDestino.autoDepositoPrincipal);
-            //if (rt2.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(rt2.Mensaje);
-            //    return false;
-            //}
-            //var depDestino= rt1.Entidad;
-
             var ficha = new OOB.LibInventario.Movimiento.Traslado.Insertar.Ficha()
             {
                 autoConcepto = miData.IdConcepto,
@@ -403,9 +366,17 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         public void BuscarData()
         {
+            CargarDetallesIsOk = false;
             if (_gestionDetalle.TotalItems > 0)
                 return;
-
+            if (sucOrigen == null)
+            {
+                return;
+            }
+            if (sucDestino== null)
+            {
+                return;
+            }
             if (IdDepOrigen=="")
             {
                 return;
@@ -414,22 +385,6 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             {
                 return;
             }
-
-            var rt1 = Sistema.MyData.Sucursal_GetFicha(IdDepOrigen );
-            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(rt1.Mensaje);
-                return;
-            }
-            sucOrigen = rt1.Entidad;
-            var rt2 = Sistema.MyData.Sucursal_GetFicha(IdDepDestino);
-            if (rt2.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(rt2.Mensaje);
-                return;
-            }
-            sucDestino = rt2.Entidad;
-
             if (sucOrigen.autoDepositoPrincipal == "")
             {
                 Helpers.Msg.Error("SUCURSAL ORIGEN NO POSEE DEPOSITO PRINCIPAL ASIGNADO");
@@ -438,6 +393,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             if (sucDestino.autoDepositoPrincipal == "")
             {
                 Helpers.Msg.Error("SUCURSAL DESTINO NO POSEE DEPOSITO PRINCIPAL ASIGNADO");
+                return;
+            }
+            if (sucDestino.auto == sucOrigen.auto)
+            {
+                Helpers.Msg.Error("SUCURSAL DESTINO NO PUEDE SER IGUAL A LA SUCURSAL ORIGEN");
                 return;
             }
 
@@ -450,6 +410,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 return;
             }
             _gestionDetalle.AgregarItem(rt3.Lista, sucOrigen.autoDepositoPrincipal);
+            CargarDetallesIsOk = true;
         }
 
 
@@ -478,6 +439,40 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             lConcepto.Clear();
             lConcepto.AddRange(rt1.Lista);
             bsConcepto.CurrencyManager.Refresh();
+        }
+
+        public void setSucursalOrigen(string idSuc)
+        {
+            sucOrigen = null;
+            IdDepOrigen = "";
+            if (idSuc != "")
+            {
+                var r01 = Sistema.MyData.Sucursal_GetFicha(idSuc);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                sucOrigen = r01.Entidad;
+                IdDepOrigen = sucOrigen.autoDepositoPrincipal;
+            }
+        }
+
+        public void setSucursalDestino(string idSuc)
+        {
+            sucDestino= null;
+            IdDepDestino= "";
+            if (idSuc != "")
+            {
+                var r01 = Sistema.MyData.Sucursal_GetFicha(idSuc);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                sucDestino= r01.Entidad;
+                IdDepDestino= sucDestino.autoDepositoPrincipal;
+            }
         }
 
     }

@@ -1198,6 +1198,12 @@ namespace ModCompra.Reportes {
             
             private global::System.Data.DataColumn columnimporte;
             
+            private global::System.Data.DataColumn columnimporteDivisa;
+            
+            private global::System.Data.DataColumn columnprecioDivisa;
+            
+            private global::System.Data.DataColumn columncntUnd;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DocDetalleDataTable() {
@@ -1297,6 +1303,30 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn importeDivisaColumn {
+                get {
+                    return this.columnimporteDivisa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn precioDivisaColumn {
+                get {
+                    return this.columnprecioDivisa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cntUndColumn {
+                get {
+                    return this.columncntUnd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1332,7 +1362,7 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DocDetalleRow AddDocDetalleRow(string prdCodigo, string prdNombre, decimal cnt, decimal precio, string deposito, string empaque, decimal alicuota, decimal importe) {
+            public DocDetalleRow AddDocDetalleRow(string prdCodigo, string prdNombre, decimal cnt, decimal precio, string deposito, string empaque, decimal alicuota, decimal importe, decimal importeDivisa, decimal precioDivisa, decimal cntUnd) {
                 DocDetalleRow rowDocDetalleRow = ((DocDetalleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         prdCodigo,
@@ -1342,7 +1372,10 @@ namespace ModCompra.Reportes {
                         deposito,
                         empaque,
                         alicuota,
-                        importe};
+                        importe,
+                        importeDivisa,
+                        precioDivisa,
+                        cntUnd};
                 rowDocDetalleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDocDetalleRow);
                 return rowDocDetalleRow;
@@ -1373,6 +1406,9 @@ namespace ModCompra.Reportes {
                 this.columnempaque = base.Columns["empaque"];
                 this.columnalicuota = base.Columns["alicuota"];
                 this.columnimporte = base.Columns["importe"];
+                this.columnimporteDivisa = base.Columns["importeDivisa"];
+                this.columnprecioDivisa = base.Columns["precioDivisa"];
+                this.columncntUnd = base.Columns["cntUnd"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1394,6 +1430,12 @@ namespace ModCompra.Reportes {
                 base.Columns.Add(this.columnalicuota);
                 this.columnimporte = new global::System.Data.DataColumn("importe", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimporte);
+                this.columnimporteDivisa = new global::System.Data.DataColumn("importeDivisa", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimporteDivisa);
+                this.columnprecioDivisa = new global::System.Data.DataColumn("precioDivisa", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecioDivisa);
+                this.columncntUnd = new global::System.Data.DataColumn("cntUnd", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncntUnd);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1551,6 +1593,8 @@ namespace ModCompra.Reportes {
             
             private global::System.Data.DataColumn columnsigno;
             
+            private global::System.Data.DataColumn columncontrolNro;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GeneralDocDataTable() {
@@ -1682,6 +1726,14 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn controlNroColumn {
+                get {
+                    return this.columncontrolNro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1717,7 +1769,7 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GeneralDocRow AddGeneralDocRow(string documentoNro, System.DateTime fecha, string serie, string proveedor, int renglones, decimal montoDscto, decimal montoCargo, decimal total, decimal totalDivisa, decimal factor, string estatus, string signo) {
+            public GeneralDocRow AddGeneralDocRow(string documentoNro, System.DateTime fecha, string serie, string proveedor, int renglones, decimal montoDscto, decimal montoCargo, decimal total, decimal totalDivisa, decimal factor, string estatus, string signo, string controlNro) {
                 GeneralDocRow rowGeneralDocRow = ((GeneralDocRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         documentoNro,
@@ -1731,7 +1783,8 @@ namespace ModCompra.Reportes {
                         totalDivisa,
                         factor,
                         estatus,
-                        signo};
+                        signo,
+                        controlNro};
                 rowGeneralDocRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGeneralDocRow);
                 return rowGeneralDocRow;
@@ -1766,6 +1819,7 @@ namespace ModCompra.Reportes {
                 this.columnfactor = base.Columns["factor"];
                 this.columnestatus = base.Columns["estatus"];
                 this.columnsigno = base.Columns["signo"];
+                this.columncontrolNro = base.Columns["controlNro"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1795,6 +1849,8 @@ namespace ModCompra.Reportes {
                 base.Columns.Add(this.columnestatus);
                 this.columnsigno = new global::System.Data.DataColumn("signo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsigno);
+                this.columncontrolNro = new global::System.Data.DataColumn("controlNro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontrolNro);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4011,6 +4067,54 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal importeDivisa {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDocDetalle.importeDivisaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'importeDivisa\' in table \'DocDetalle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocDetalle.importeDivisaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal precioDivisa {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDocDetalle.precioDivisaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'precioDivisa\' in table \'DocDetalle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocDetalle.precioDivisaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal cntUnd {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDocDetalle.cntUndColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cntUnd\' in table \'DocDetalle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocDetalle.cntUndColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsprdCodigoNull() {
                 return this.IsNull(this.tableDocDetalle.prdCodigoColumn);
             }
@@ -4103,6 +4207,42 @@ namespace ModCompra.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetimporteNull() {
                 this[this.tableDocDetalle.importeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsimporteDivisaNull() {
+                return this.IsNull(this.tableDocDetalle.importeDivisaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetimporteDivisaNull() {
+                this[this.tableDocDetalle.importeDivisaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprecioDivisaNull() {
+                return this.IsNull(this.tableDocDetalle.precioDivisaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprecioDivisaNull() {
+                this[this.tableDocDetalle.precioDivisaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscntUndNull() {
+                return this.IsNull(this.tableDocDetalle.cntUndColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcntUndNull() {
+                this[this.tableDocDetalle.cntUndColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4314,6 +4454,22 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string controlNro {
+                get {
+                    try {
+                        return ((string)(this[this.tableGeneralDoc.controlNroColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'controlNro\' in table \'GeneralDoc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGeneralDoc.controlNroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdocumentoNroNull() {
                 return this.IsNull(this.tableGeneralDoc.documentoNroColumn);
             }
@@ -4454,6 +4610,18 @@ namespace ModCompra.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetsignoNull() {
                 this[this.tableGeneralDoc.signoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscontrolNroNull() {
+                return this.IsNull(this.tableGeneralDoc.controlNroColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcontrolNroNull() {
+                this[this.tableGeneralDoc.controlNroColumn] = global::System.Convert.DBNull;
             }
         }
         

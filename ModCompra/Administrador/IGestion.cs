@@ -33,6 +33,7 @@ namespace ModCompra.Administrador
         void setFechaHasta(DateTime fecha);
         void setSucursal(string autoId);
         void setTipoDoc(string id);
+        void CorrectorDocumento();
 
     }
 

@@ -2522,6 +2522,8 @@ namespace ModCajaBanco.Reportes.Movimientos {
             
             private global::System.Data.DataColumn columnmontoDivisa;
             
+            private global::System.Data.DataColumn columnfecha;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ResumenVentaSucDataTable() {
@@ -2597,6 +2599,14 @@ namespace ModCajaBanco.Reportes.Movimientos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2632,14 +2642,15 @@ namespace ModCajaBanco.Reportes.Movimientos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ResumenVentaSucRow AddResumenVentaSucRow(string sucursal, int cntMov, string tipoDocumento, decimal monto, decimal montoDivisa) {
+            public ResumenVentaSucRow AddResumenVentaSucRow(string sucursal, int cntMov, string tipoDocumento, decimal monto, decimal montoDivisa, System.DateTime fecha) {
                 ResumenVentaSucRow rowResumenVentaSucRow = ((ResumenVentaSucRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         sucursal,
                         cntMov,
                         tipoDocumento,
                         monto,
-                        montoDivisa};
+                        montoDivisa,
+                        fecha};
                 rowResumenVentaSucRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowResumenVentaSucRow);
                 return rowResumenVentaSucRow;
@@ -2667,6 +2678,7 @@ namespace ModCajaBanco.Reportes.Movimientos {
                 this.columntipoDocumento = base.Columns["tipoDocumento"];
                 this.columnmonto = base.Columns["monto"];
                 this.columnmontoDivisa = base.Columns["montoDivisa"];
+                this.columnfecha = base.Columns["fecha"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2682,6 +2694,8 @@ namespace ModCajaBanco.Reportes.Movimientos {
                 base.Columns.Add(this.columnmonto);
                 this.columnmontoDivisa = new global::System.Data.DataColumn("montoDivisa", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmontoDivisa);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6011,6 +6025,22 @@ namespace ModCajaBanco.Reportes.Movimientos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime fecha {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableResumenVentaSuc.fechaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fecha\' in table \'ResumenVentaSuc\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableResumenVentaSuc.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IssucursalNull() {
                 return this.IsNull(this.tableResumenVentaSuc.sucursalColumn);
             }
@@ -6067,6 +6097,18 @@ namespace ModCajaBanco.Reportes.Movimientos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetmontoDivisaNull() {
                 this[this.tableResumenVentaSuc.montoDivisaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaNull() {
+                return this.IsNull(this.tableResumenVentaSuc.fechaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaNull() {
+                this[this.tableResumenVentaSuc.fechaColumn] = global::System.Convert.DBNull;
             }
         }
         

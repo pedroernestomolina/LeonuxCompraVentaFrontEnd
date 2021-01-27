@@ -19,6 +19,7 @@ namespace ModCompra.Administrador.Documentos
         public DateTime Fecha { get { return rg.fechaEmision; } }
         public string NombreDoc { get { return rg.tipoDocNombre; } }
         public string Documento { get { return rg.documentoNro; } }
+        public string Control { get { return rg.ControlNro; } }
         public DateTime FechaReg { get { return rg.fechaRegistro; } }
         public string Sucursal { get { return rg.codigoSuc; } }
         public string ProvNombre { get { return rg.provNombre; } }
@@ -37,7 +38,6 @@ namespace ModCompra.Administrador.Documentos
                 return rt;
             }
         }
-
 
 
         public data(OOB.LibCompra.Documento.Lista.Ficha rg)

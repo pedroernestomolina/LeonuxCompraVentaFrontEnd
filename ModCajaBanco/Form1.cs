@@ -134,6 +134,16 @@ namespace ModCajaBanco
         {
             _controlador.CobranzaDiaria();
         }
+
+        private void TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL_Click(object sender, EventArgs e)
+        {
+            ReporteResumenVentaDiarioSucursal();
+        }
+
+        private void ReporteResumenVentaDiarioSucursal()
+        {
+            _controlador.ReporteResumenVentaDiarioSucursal();
+        }
     
     }
 

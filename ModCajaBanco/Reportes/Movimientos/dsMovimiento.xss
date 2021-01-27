@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:ResumenVent" ZOrder="10" X="823" Y="136" Height="220" Width="171" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
     <Shape ID="DesignTable:ResumenVentDet" ZOrder="9" X="617" Y="392" Height="241" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="237" />
     <Shape ID="DesignTable:ResumenVentPrd" ZOrder="8" X="865" Y="407" Height="157" Width="195" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="153" />
-    <Shape ID="DesignTable:ResumenVentaSuc" ZOrder="7" X="362" Y="410" Height="136" Width="206" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="132" />
+    <Shape ID="DesignTable:ResumenVentaSuc" ZOrder="7" X="362" Y="410" Height="157" Width="206" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="153" />
     <Shape ID="DesignTable:ResumenVentPrdSuc" ZOrder="6" X="1051" Y="209" Height="157" Width="224" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="153" />
     <Shape ID="DesignTable:CobranzaDiaria" ZOrder="5" X="30" Y="366" Height="283" Width="180" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="279" />
     <Shape ID="DesignTable:CobranzaDiariaPagoDet" ZOrder="4" X="27" Y="172" Height="158" Width="236" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="154" />

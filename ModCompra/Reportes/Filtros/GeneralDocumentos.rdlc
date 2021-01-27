@@ -6,40 +6,43 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.75569cm</Width>
+              <Width>1.56338cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.35881cm</Width>
+              <Width>1.1665cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.28485cm</Width>
+              <Width>2.09254cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.16881cm</Width>
+              <Width>2.30769cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.96193cm</Width>
+              <Width>5.24284cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.69976cm</Width>
+              <Width>0.76962cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41715cm</Width>
+              <Width>0.50745cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41715cm</Width>
+              <Width>1.96026cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41715cm</Width>
+              <Width>1.90558cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41715cm</Width>
+              <Width>2.54234cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41715cm</Width>
+              <Width>2.22484cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.41715cm</Width>
+              <Width>2.22484cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.22484cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -142,6 +145,43 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Control Nro</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -597,6 +637,39 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="controlNro">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!controlNro.Value</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>controlNro</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="proveedor">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1015,6 +1088,43 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox25">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1350,6 +1460,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1380,7 +1491,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>10.75894in</Width>
+  <Width>10.74854in</Width>
   <Page>
     <PageHeader>
       <Height>3.09562cm</Height>
@@ -1784,6 +1895,10 @@
         </Field>
         <Field Name="signo">
           <DataField>signo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="controlNro">
+          <DataField>controlNro</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

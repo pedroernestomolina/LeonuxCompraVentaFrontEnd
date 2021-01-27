@@ -80,7 +80,8 @@ namespace ModCompra.Reportes.Filtros.GeneralDocumentos
                 rt["fecha"] = it.fecha;
                 rt["serie"] = it.serieDoc;
                 rt["documentoNro"] = it.documento;
-                rt["proveedor"] = it.provCiRif+Environment.NewLine+it.provNombre;
+                rt["controlNro"] = it.control;
+                rt["proveedor"] = it.provCiRif + Environment.NewLine + it.provNombre;
                 rt["renglones"] = it.renglones;
                 rt["montoDscto"] = it.montoDscto*it.signoDoc;
                 rt["montoCargo"] = it.montoCargo*it.signoDoc;

@@ -26,6 +26,7 @@ namespace OOB.LibCompra.Documento.Lista
         public bool esAnulado {get;set;}
         public Enumerados.enumTipoDocumento tipoDoc {get;set;}
         public int Signo { get; set; }
+        public string ControlNro { get; set; }
 
     }
 

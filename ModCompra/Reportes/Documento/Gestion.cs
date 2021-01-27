@@ -64,6 +64,10 @@ namespace ModCompra.Reportes.Documento
 
             foreach (var it in ficha.detalles.ToList())
             {
+                var importeDivisa = it.importe / ficha.factorCambio;
+                var precioFacturaDivisa = it.precioFactura / ficha.factorCambio;
+                var cntUnd = it.cntFactura * it.contenido;
+
                 DataRow r = ds.Tables["DocDetalle"].NewRow();
                 r["prdCodigo"] = "";
                 r["prdNombre"] = it.prdCodigo+Environment.NewLine+it.prdNombre;
@@ -73,6 +77,9 @@ namespace ModCompra.Reportes.Documento
                 r["empaque"] = it.empaqueCompra.Trim()+Environment.NewLine+it.contenido.ToString().Trim();
                 r["alicuota"] = it.tasaIva;
                 r["importe"] = it.importe;
+                r["importeDivisa"] = importeDivisa;
+                r["precioDivisa"] = precioFacturaDivisa;
+                r["cntUnd"] = cntUnd;
                 ds.Tables["DocDetalle"].Rows.Add(r);
             }
 

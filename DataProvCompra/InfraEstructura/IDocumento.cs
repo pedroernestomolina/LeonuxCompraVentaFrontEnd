@@ -19,6 +19,8 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoLista<OOB.LibCompra.Documento.ListaRemision.Ficha> Compra_DocumentoGetListaRemision(OOB.LibCompra.Documento.ListaRemision.Filtro filtro);
         OOB.Resultado Compra_DocumentoAnularFactura(OOB.LibCompra.Documento.Anular.Factura.Ficha ficha);
         OOB.Resultado Compra_DocumentoAnularNotaCredito(OOB.LibCompra.Documento.Anular.NotaCredito.Ficha ficha);
+        OOB.Resultado Compra_DocumentoCorrector(OOB.LibCompra.Documento.Corrector.Ficha ficha);
+
 
     }
 

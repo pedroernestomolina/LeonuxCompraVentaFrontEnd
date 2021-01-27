@@ -93,7 +93,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
                 return false;
             }
 
-            var r02 = Sistema.MyData.Departamento_GetLista ();
+            var r02 = Sistema.MyData.Departamento_GetLista();
             if (r02.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r02.Mensaje);
@@ -104,7 +104,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             lDeposito.AddRange(r01.Lista);
 
             lDepartamento.Clear();
-            lDepartamento.AddRange(r02.Lista);
+            lDepartamento.AddRange(r02.Lista.OrderBy(o=>o.nombre).ToList());
 
             return rt;
         }

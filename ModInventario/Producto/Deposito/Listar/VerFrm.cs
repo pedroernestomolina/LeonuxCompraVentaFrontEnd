@@ -46,7 +46,8 @@ namespace ModInventario.Producto.Deposito.Listar
             c1.Visible = true;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
-            c1.MinimumWidth = 80;
+            c1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            c1.Width = 80;
 
             var c2 = new DataGridViewTextBoxColumn();
             c2.DataPropertyName = "NombreDep";

@@ -88,7 +88,12 @@ namespace ModCompra.Administrador
 
         public void Imprimir()
         {
-            Helpers.Msg.Alerta("IR A REPORTES");
+            Helpers.Msg.Alerta("IR AL MODULO DE REPORTES");
+        }
+
+        public void CorrectorDocumentos()
+        {
+            _miGestion.CorrectorDocumento();
         }
 
     }

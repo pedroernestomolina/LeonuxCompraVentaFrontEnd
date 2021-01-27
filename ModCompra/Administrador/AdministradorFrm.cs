@@ -72,6 +72,14 @@ namespace ModCompra.Administrador
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
 
+            var c3B = new DataGridViewTextBoxColumn();
+            c3B.DataPropertyName = "Control";
+            c3B.HeaderText = "Control";
+            c3B.Visible = true;
+            c3B.Width = 100;
+            c3B.HeaderCell.Style.Font = f;
+            c3B.DefaultCellStyle.Font = f1;
+
             var c3A = new DataGridViewTextBoxColumn();
             c3A.DataPropertyName = "FechaReg";
             c3A.HeaderText = "Fecha/Reg";
@@ -165,6 +173,7 @@ namespace ModCompra.Administrador
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
+            DGV.Columns.Add(c3B);
             DGV.Columns.Add(c3A);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
@@ -209,6 +218,7 @@ namespace ModCompra.Administrador
             DGV.Columns[0].Frozen = true;
             DGV.Columns[1].Frozen = true;
             DGV.Columns[2].Frozen = true;
+            DGV.Columns[3].Frozen = true;
         }
 
         private void Actualizar()
@@ -334,6 +344,16 @@ namespace ModCompra.Administrador
         public void setControlador(Gestion ctr)
         {
             _controlador = ctr;
+        }
+
+        private void BT_CORRECTOR_Click(object sender, EventArgs e)
+        {
+            CorrectorDocumentos();
+        }
+
+        private void CorrectorDocumentos()
+        {
+            _controlador.CorrectorDocumentos();
         }
 
     }

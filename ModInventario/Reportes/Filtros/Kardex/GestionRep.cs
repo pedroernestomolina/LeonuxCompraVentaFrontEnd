@@ -61,7 +61,8 @@ namespace ModInventario.Reportes.Filtros.Kardex
             {
                 var saldo = 0.0m;
                 saldo = lista.FirstOrDefault(f => f.nombrePrd == g.Key).existenciaInicial;
-                foreach (var it in lista.Where(w => w.nombrePrd == g.Key).OrderBy(o=>o.moduloMov).ThenBy(o=>o.fechaMov).ToList())
+                //foreach (var it in lista.Where(w => w.nombrePrd == g.Key).OrderBy(o=>o.moduloMov).ThenBy(o=>o.fechaMov).ToList())
+                foreach (var it in lista.Where(w => w.nombrePrd == g.Key).OrderBy(o => o.fechaMov).ThenBy(o=>o.ordenPrioridad).ToList())
                 {
                     DataRow rt = ds.Tables["Kardex"].NewRow();
                     rt["nombre"] = it.nombrePrd.Trim()+Environment.NewLine+it.codigoPrd;

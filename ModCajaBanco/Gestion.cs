@@ -516,6 +516,61 @@ namespace ModCajaBanco
             }
         }
 
+        public void ReporteResumenVentaDiarioSucursal()
+        {
+            if (Sistema._ActivarComoSucursal)
+            {
+                return;
+            }
+            else
+            {
+                _filtroGestion.setHabilitarSucursal(true);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+
+            _filtroGestion.Inicia();
+            if (_filtroGestion.IsFiltroOk)
+            {
+                var filtro = new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDiarioSucursal.Filtro()
+                {
+                    desdeFecha = _filtroGestion.desdeFecha,
+                    hastaFecha = _filtroGestion.hastaFecha,
+                };
+
+                var sucursalNombre = "";
+                if (Sistema._ActivarComoSucursal)
+                {
+                }
+                else
+                {
+                    sucursalNombre = "GENERAL";
+                    if (_filtroGestion.autoSucursal != "")
+                    {
+                        var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                            return;
+                        }
+                        filtro.codigoSucursal = r00.Entidad.codigo;
+                        sucursalNombre = r00.Entidad.nombre;
+                    }
+                }
+
+                var r01 = Sistema.MyData.Reporte_ResumenVentaDiarioSucursal(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                var filtros = "Desde: " + _filtroGestion.desdeFecha.ToShortDateString() + ", Hasta: " + _filtroGestion.hastaFecha.ToShortDateString() +
+                    Environment.NewLine + "Sucursal: " + sucursalNombre;
+                var rp1 = new Reportes.Movimientos.ResumenVentaDiarioSucursal.GestionRep(r01.Lista, filtros);
+                rp1.Generar();
+            }
+        }
+
     }
 
 }

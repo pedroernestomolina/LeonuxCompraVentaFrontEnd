@@ -153,7 +153,6 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 {
                     e.CellStyle.BackColor = Color.Red;
                     e.CellStyle.ForeColor = Color.White;
-                    //DGV_DETALLE.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
                 }
                 else 
                 {
@@ -267,6 +266,9 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 Limpiar();
                 DGV_DETALLE.DataSource = _controlador.DetalleSouce;
                 TB_AUTORIZADO_POR.Focus();
+                CB_DEP_ORIGEN.Enabled = true;
+                CB_DEP_DESTINO.Enabled = true;
+                BT_CARGAR_DATA.Enabled = true;
             }
             else 
                 TB_CADENA_BUSQ.Focus();
@@ -283,21 +285,19 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         private void CB_DEP_ORIGEN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdDepOrigen= "";
+            _controlador.setSucursalOrigen("");
             if (CB_DEP_ORIGEN.SelectedIndex != -1)
             {
-                _controlador.IdDepOrigen = CB_DEP_ORIGEN.SelectedValue.ToString();
-                CB_DEP_ORIGEN.SelectedValue = _controlador.IdDepOrigen;
+                _controlador.setSucursalOrigen(CB_DEP_ORIGEN.SelectedValue.ToString());
             }
         }
 
         private void CB_DEP_DESTINO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdDepDestino= "";
+            _controlador.setSucursalDestino("");
             if (CB_DEP_DESTINO.SelectedIndex != -1)
             {
-                _controlador.IdDepDestino = CB_DEP_DESTINO.SelectedValue.ToString();
-                CB_DEP_DESTINO.SelectedValue = _controlador.IdDepDestino;
+                _controlador.setSucursalDestino(CB_DEP_DESTINO.SelectedValue.ToString());
             }
         }
 
@@ -335,6 +335,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         {
             L_MONTO.Text = _controlador.MontoMovimiento.ToString("n2");
             L_ITEMS.Text = _controlador.ItemsMovimiento;
+            if (_controlador.CargarDetallesIsOk) 
+            {
+                CB_DEP_ORIGEN.Enabled = false;
+                CB_DEP_DESTINO.Enabled = false;
+                BT_CARGAR_DATA.Enabled = false;
+            }
         }
 
         private void BuscarProducto()

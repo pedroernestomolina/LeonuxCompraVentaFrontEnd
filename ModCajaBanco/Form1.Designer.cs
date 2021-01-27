@@ -58,6 +58,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -183,6 +184,7 @@
             this.TSM_REPORTES_VENTA_POR_PRODUCTO,
             this.toolStripMenuItem3,
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL,
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL,
             this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL,
             this.toolStripMenuItem2,
             this.TSM_REPORTES_HABLADORES});
@@ -193,78 +195,78 @@
             // TSM_REPORTES_ArqueoCajaPos
             // 
             this.TSM_REPORTES_ArqueoCajaPos.Name = "TSM_REPORTES_ArqueoCajaPos";
-            this.TSM_REPORTES_ArqueoCajaPos.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_ArqueoCajaPos.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_ArqueoCajaPos.Text = "Arqueo Caja Pos";
             this.TSM_REPORTES_ArqueoCajaPos.Click += new System.EventHandler(this.TSM_REPORTES_ArqueoCajaPos_Click);
             // 
             // TSM_REPORTES_CobranzaDiaria
             // 
             this.TSM_REPORTES_CobranzaDiaria.Name = "TSM_REPORTES_CobranzaDiaria";
-            this.TSM_REPORTES_CobranzaDiaria.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_CobranzaDiaria.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_CobranzaDiaria.Text = "Cobranza Diaria";
             this.TSM_REPORTES_CobranzaDiaria.Click += new System.EventHandler(this.TSM_REPORTES_CobranzaDiaria_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(260, 6);
             // 
             // TSM_REPORTES_INVENTARIO_RESUMEN
             // 
             this.TSM_REPORTES_INVENTARIO_RESUMEN.Name = "TSM_REPORTES_INVENTARIO_RESUMEN";
-            this.TSM_REPORTES_INVENTARIO_RESUMEN.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_INVENTARIO_RESUMEN.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_INVENTARIO_RESUMEN.Text = "Inventario Resumen";
             this.TSM_REPORTES_INVENTARIO_RESUMEN.Click += new System.EventHandler(this.TSM_REPORTES_INVENTARIO_RESUMEN_Click);
             // 
             // TSM_REPORTES_VENTA_RESUMEN
             // 
             this.TSM_REPORTES_VENTA_RESUMEN.Name = "TSM_REPORTES_VENTA_RESUMEN";
-            this.TSM_REPORTES_VENTA_RESUMEN.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_VENTA_RESUMEN.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_VENTA_RESUMEN.Text = "Ventas Resumen";
             this.TSM_REPORTES_VENTA_RESUMEN.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_RESUMEN_Click);
             // 
             // TSM_REPORTES_VENTA_DETALLE
             // 
             this.TSM_REPORTES_VENTA_DETALLE.Name = "TSM_REPORTES_VENTA_DETALLE";
-            this.TSM_REPORTES_VENTA_DETALLE.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_VENTA_DETALLE.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_VENTA_DETALLE.Text = "Ventas Detalle";
             this.TSM_REPORTES_VENTA_DETALLE.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_DETALLE_Click);
             // 
             // TSM_REPORTES_VENTA_POR_PRODUCTO
             // 
             this.TSM_REPORTES_VENTA_POR_PRODUCTO.Name = "TSM_REPORTES_VENTA_POR_PRODUCTO";
-            this.TSM_REPORTES_VENTA_POR_PRODUCTO.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_VENTA_POR_PRODUCTO.Text = "Ventas Por Producto";
             this.TSM_REPORTES_VENTA_POR_PRODUCTO.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_POR_PRODUCTO_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(260, 6);
             // 
             // TSM_REPORTES_RESUMEN_VENTA_SUCURSAL
             // 
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Name = "TSM_REPORTES_RESUMEN_VENTA_SUCURSAL";
-            this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Text = "Ventas Resumen Sucursal";
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Click += new System.EventHandler(this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL_Click);
             // 
             // TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL
             // 
             this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL.Name = "TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL";
-            this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL.Text = "Ventas Por Producto Sucursal";
             this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(226, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(260, 6);
             // 
             // TSM_REPORTES_HABLADORES
             // 
             this.TSM_REPORTES_HABLADORES.Name = "TSM_REPORTES_HABLADORES";
-            this.TSM_REPORTES_HABLADORES.Size = new System.Drawing.Size(229, 22);
+            this.TSM_REPORTES_HABLADORES.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_HABLADORES.Text = "Habladores";
             this.TSM_REPORTES_HABLADORES.Click += new System.EventHandler(this.TSM_REPORTES_HABLADORES_Click);
             // 
@@ -368,6 +370,13 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL
+            // 
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Name = "TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL";
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Size = new System.Drawing.Size(263, 22);
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Text = "Ventas Resumen Diario Por Sucursal";
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Click += new System.EventHandler(this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +439,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_CobranzaDiaria;
+        private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL;
 
     }
 

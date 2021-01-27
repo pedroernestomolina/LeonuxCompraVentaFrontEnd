@@ -22,6 +22,7 @@ namespace ModCompra.Administrador
         void VisualizarDocumento();
         void Imprimir();
         void setLista(List<OOB.LibCompra.Documento.Lista.Ficha> list);
+        void CorrectorDocumento();
 
     }
 

@@ -41,6 +41,7 @@ namespace DataProvCompra.Data
                         return new OOB.LibCompra.Reportes.GeneralDocumentos.Ficha()
                         {
                             documento = s.documento,
+                            control= s.control,
                             EsAnulado = s.EsAnulado,
                             factorDoc = s.factorDoc,
                             fecha = s.fecha,

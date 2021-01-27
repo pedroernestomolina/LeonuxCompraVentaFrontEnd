@@ -154,6 +154,11 @@ namespace ModCompra.Administrador.Documentos
             _gestionFiltros.setTipoDoc(id);
         }
 
+        public void CorrectorDocumento()
+        {
+            _gestionListaDetalle.CorrectorDocumento();
+        }
+
     }
 
 }

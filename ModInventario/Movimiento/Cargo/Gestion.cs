@@ -145,19 +145,19 @@ namespace ModInventario.Movimiento.Cargo
             _gestionDetalle.setTasaCambio(tasaCambio);
 
             lConcepto.Clear();
-            lConcepto.AddRange(rt2.Lista);
+            lConcepto.AddRange(rt2.Lista.OrderBy(o=>o.nombre).ToList());
             bsConcepto.CurrencyManager.Refresh();
 
             lSucursal.Clear();
-            lSucursal.AddRange(rt1.Lista);
+            lSucursal.AddRange(rt1.Lista.OrderBy(o => o.nombre).ToList());
             bsSucursal.CurrencyManager.Refresh();
 
             lDepOrigen.Clear();
-            lDepOrigen.AddRange(rt3.Lista);
+            lDepOrigen.AddRange(rt3.Lista.OrderBy(o => o.nombre).ToList());
             bsDepOrigen.CurrencyManager.Refresh();
 
             lDepDestino.Clear();
-            lDepDestino.AddRange(rt3.Lista);
+            lDepDestino.AddRange(rt3.Lista.OrderBy(o => o.nombre).ToList());
             bsDepDestino.CurrencyManager.Refresh();
 
             return rt;

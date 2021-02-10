@@ -38,7 +38,7 @@ namespace ModPos
 
             if (Sistema.MyJornada != null)
             {
-                L_JORNADA_ACTIVA.Text = "ACTIVA";
+                L_JORNADA_ACTIVA.Text = "ACTIVA #: "+_controlador.JornadaNro;
                 L_JORNADA_FECHA.Text = Sistema.MyJornada.FechaApertura.ToShortDateString();
             }
 

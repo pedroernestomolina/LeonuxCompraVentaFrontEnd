@@ -31,18 +31,25 @@ namespace ModCajaBanco.Reportes.Movimientos.ResumenInventario
             {
                 var saldoI=0.0m;
                 var saldoF = 0.0m;
+                var exito = true;
                 saldoF = it.tEntradas - it.tSalidas;
                 saldoI = saldoF + it.salidas - it.entradas - it.entradasOt;
 
-                DataRow r = ds.Tables["ResumenInv"].NewRow();
-                r["codigoPrd"] = it.codigoPrd;
-                r["nombrePrd"] = it.nombrePrd;
-                r["saldoI"] = saldoI.ToString("n" + it.decimales);
-                r["entrada"] = it.entradas.ToString("n" + it.decimales);
-                r["entradaOt"] = it.entradasOt.ToString("n" + it.decimales);
-                r["salida"] = it.salidas.ToString("n" + it.decimales);
-                r["saldoF"] = saldoF.ToString("n" + it.decimales);
-                ds.Tables["ResumenInv"].Rows.Add(r);
+                if (saldoI == 0.0m && it.entradas == 0.0m && it.entradasOt == 0.0m && it.salidas == 0.0m && saldoF == 0.0m)
+                    exito = false;
+
+                if (exito)
+                {
+                    DataRow r = ds.Tables["ResumenInv"].NewRow();
+                    r["codigoPrd"] = it.codigoPrd;
+                    r["nombrePrd"] = it.nombrePrd;
+                    r["saldoI"] = saldoI.ToString("n" + it.decimales);
+                    r["entrada"] = it.entradas.ToString("n" + it.decimales);
+                    r["entradaOt"] = it.entradasOt.ToString("n" + it.decimales);
+                    r["salida"] = it.salidas.ToString("n" + it.decimales);
+                    r["saldoF"] = saldoF.ToString("n" + it.decimales);
+                    ds.Tables["ResumenInv"].Rows.Add(r);
+                }
             }
 
             var Rds = new List<ReportDataSource>();

@@ -33,6 +33,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ProvSqLitePosOffLine.pd
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\LibEntitySqLitePosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.AdministradorDoc.Listar.ListartFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.AdministradorDoc.Ver.VerFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.ClaveSeguridad.SeguridadFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Configuracion.ConfigurarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.AbrirPendiente.AbrirPendienteFrm.resources

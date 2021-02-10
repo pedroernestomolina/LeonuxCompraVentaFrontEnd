@@ -32,7 +32,7 @@ namespace ModCajaBanco.Reportes.Movimientos.ResumenVentaSucursal
                 DataRow r = ds.Tables["ResumenVentaSuc"].NewRow();
                 r["sucursal"] = it.codigoSuc+Environment.NewLine+it.nombreSuc;
                 r["cntMov"] = it.cntMov;
-                r["tipoDocumento"] = it.tipoDoc;
+                r["tipoDoc"] = it.tipoDoc;
                 r["monto"] = it.montoTotal * it.signo;
                 r["montoDivisa"] = it.montoDivisa * it.signo;
                 ds.Tables["ResumenVentaSuc"].Rows.Add(r);

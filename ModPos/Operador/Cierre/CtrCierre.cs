@@ -79,7 +79,15 @@ namespace ModPos.Operador.Cierre
                 return;
             }
 
-            _cierre.setMovimientos(r01.Entidad);
+            var r02 = Sistema.MyData2.Configuracion_FactorCambio();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return;
+            }
+
+            _cierre.Inicializa();
+            _cierre.setMovimientos(r01.Entidad, r02.Entidad);
             var frm = new CierreFrm();
             frm.setControlador(this);
             frm.ShowDialog();
@@ -210,14 +218,15 @@ namespace ModPos.Operador.Cierre
             _cierre.EntradaPorEfectivo=monto;
         }
 
-        public void setEntradaPorDivisa(decimal monto)
-        {
-            _cierre.EntradaPorDivisa= monto;
-        }
+        //public void setEntradaPorDivisa(decimal monto)
+        //{
+        //    //_cierre.EntradaPorDivisa= monto;
+        //}
 
         public void setEntradaPorCntDivisa(int cntDivisa)
         {
             _cierre.EntradaPorCntDivisa = cntDivisa;
+            //
         }
 
         public void setEntradaPorTarjeta(decimal monto)

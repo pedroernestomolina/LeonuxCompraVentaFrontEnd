@@ -18,6 +18,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         private List<OOB.LibInventario.Deposito.Ficha> lDeposito;
         private List<OOB.LibInventario.Departamento.Ficha> lDepartamento;
         private OOB.LibInventario.Deposito.Ficha _deposito;
+        private string _cadenaBusqueda;
 
 
         public bool IsLimpiarOk { get; set; }
@@ -73,6 +74,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             SalirIsOk = false;
             AutoDeposito = "";
             AutoDepartamento = "";
+            _cadenaBusqueda = "";
 
             if (CargarData()) 
             {
@@ -101,7 +103,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             }
 
             lDeposito.Clear();
-            lDeposito.AddRange(r01.Lista);
+            lDeposito.AddRange(r01.Lista.OrderBy(o=>o.nombre).ToList());
 
             lDepartamento.Clear();
             lDepartamento.AddRange(r02.Lista.OrderBy(o=>o.nombre).ToList());
@@ -120,6 +122,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             var filtro= new OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar.Filtro();
             filtro.autoDeposito=AutoDeposito;
             filtro.autoDepartamento = AutoDepartamento;
+            filtro.cadena = _cadenaBusqueda;
             var r01 = Sistema.MyData.Tools_AjusteNivelMinimoMaximo_GetLista(filtro);
             if (r01.Result== OOB.Enumerados.EnumResult.isError)
             {
@@ -144,6 +147,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             var msg = MessageBox.Show("Limpiar Busqueda Actual ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes) 
             {
+                _cadenaBusqueda = "";
                 IsLimpiarOk = true;
                 IsBuscarHabilitado = true;
                 ProcesoIsOk = false;
@@ -214,6 +218,11 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
                     SalirIsOk = true;
                 }
             }
+        }
+
+        public void setCadenaBuscar(string p)
+        {
+            _cadenaBusqueda = p;
         }
 
     }

@@ -25,6 +25,17 @@ namespace ModPos
 
 
         public string InformacionBD { get { return "Ruta Remota: "+_bdRemota + Environment.NewLine + "Ruta Local: "+_bdLocal; } }
+        public string JornadaNro 
+        { 
+            get 
+            {
+                var xr = "";
+                if (Sistema.MyJornada !=null)
+                    xr=Sistema.MyJornada.Id.ToString().PadLeft(6,'0');
+                return xr;
+            } 
+        }
+
 
         public bool IsBdActualizada 
         { 

@@ -27,6 +27,12 @@ namespace ModCajaBanco.Reportes.Movimientos
             Inicializar();
             CB_SUCURSAL.Enabled = _controlador.HabilitarSucursal;
             CB_DEPOSITO.Enabled = _controlador.HabilitarDeposito;
+
+            desdeNumero.Enabled = _controlador.HabilitarDesdeNumero;
+            hastaNumero.Enabled = _controlador.HabilitarHastaNumero;
+
+            DTP_DESDE.Enabled = _controlador.HabilitarDesdeFecha;
+            DTP_HASTA.Enabled = _controlador.HabilitarHastaFecha;
         }
 
         public void setControlador(Gestion ctr)
@@ -81,7 +87,8 @@ namespace ModCajaBanco.Reportes.Movimientos
         private void ProcesarReporte()
         {
             _controlador.Procesar();
-            Salir();
+            if (_controlador.IsFiltroOk)
+                Salir();
         }
 
         private void L_SUCURSAL_Click(object sender, EventArgs e)
@@ -103,6 +110,16 @@ namespace ModCajaBanco.Reportes.Movimientos
         private void Salir()
         {
             this.Close();
+        }
+
+        private void desdeNumero_Leave(object sender, EventArgs e)
+        {
+            _controlador.setDesdeNumero(desdeNumero.Value);
+        }
+
+        private void hastaNumero_Leave(object sender, EventArgs e)
+        {
+            _controlador.setHastaNumero(hastaNumero.Value);
         }
 
     }

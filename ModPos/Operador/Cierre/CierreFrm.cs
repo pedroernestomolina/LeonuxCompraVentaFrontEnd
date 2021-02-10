@@ -66,20 +66,27 @@ namespace ModPos.Operador.Cierre
             L_MONTO_DESGLOZE.Text = _controlador.MiCierre.MontoDesgloze.ToString("n2");
             L_TOTAL_ENTRADA.Text = "0.00";
 
+            L_MONTO_POR_DIVISA.Text = _controlador.MiCierre.EntradaPorDivisa.ToString("n2");
             TB_CREDITO.Text = _controlador.MiCierre.Movimientos.montoDocCredito.ToString("n2");
             ActualizaDiferencia();
         }
 
         private void ActualizaDiferencia()
         {
-            L_DIFERENCIA.ForeColor = Color.Green;
+            L_DIFERENCIA.ForeColor = Color.Yellow;
             if (_controlador.MiCierre.Diferencia > 0)
             {
+                L_DIFERENCIA_TEXTO.Text = "Diferencia (SOBRANTE)";
                 L_DIFERENCIA.ForeColor = Color.Blue;
             }
             else if (_controlador.MiCierre.Diferencia < 0)
             {
+                L_DIFERENCIA_TEXTO.Text = "Diferencia (FALTANTE)";
                 L_DIFERENCIA.ForeColor = Color.Red;
+            }
+            else 
+            {
+                L_DIFERENCIA_TEXTO.Text = "";
             }
             L_DIFERENCIA.Text = _controlador.MiCierre.Diferencia.ToString("n2");
         }
@@ -127,23 +134,23 @@ namespace ModPos.Operador.Cierre
             }
         }
 
-        private void TB_TextChanged(object sender, EventArgs e)
-        {
-            var mEfectivo = decimal.Parse(TB_EFECTIVO.Text);
-            var cntDivisa = int.Parse(TB_CNT_DIVISA.Text);
-            var mDivisa = decimal.Parse(TB_DIVISA.Text);
-            var mTarjeta = decimal.Parse(TB_TARJETA.Text);
-            var mOtro = decimal.Parse(TB_OTRO.Text);
-            _controlador.setEntradaPorEfectivo(mEfectivo);
-            _controlador.setEntradaPorDivisa(mDivisa);
-            _controlador.setEntradaPorTarjeta(mTarjeta);
-            _controlador.setEntradaPorOtro(mOtro);
-            _controlador.setEntradaPorCntDivisa(cntDivisa);
-            TB_DIVISA.Text = _controlador.MiCierre.EntradaPorDivisa.ToString("n2").Replace(".", "");
-            //L_TOTAL_ENTRADA.Text = (mEfectivo + mDivisa + mTarjeta + mOtro).ToString("n2");
-            L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
-            ActualizaDiferencia();
-        }
+        //private void TB_TextChanged(object sender, EventArgs e)
+        //{
+        //    var mEfectivo = decimal.Parse(TB_EFECTIVO.Text);
+        //    var cntDivisa = int.Parse(TB_CNT_DIVISA.Text);
+        //    var mDivisa = decimal.Parse(TB_DIVISA.Text);
+        //    var mTarjeta = decimal.Parse(TB_TARJETA.Text);
+        //    var mOtro = decimal.Parse(TB_OTRO.Text);
+        //    _controlador.setEntradaPorEfectivo(mEfectivo);
+        //    _controlador.setEntradaPorDivisa(mDivisa);
+        //    _controlador.setEntradaPorTarjeta(mTarjeta);
+        //    _controlador.setEntradaPorOtro(mOtro);
+        //    _controlador.setEntradaPorCntDivisa(cntDivisa);
+        //    TB_DIVISA.Text = _controlador.MiCierre.EntradaPorDivisa.ToString("n2").Replace(".", "");
+        //    //L_TOTAL_ENTRADA.Text = (mEfectivo + mDivisa + mTarjeta + mOtro).ToString("n2");
+        //    L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
+        //    ActualizaDiferencia();
+        //}
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -179,7 +186,40 @@ namespace ModPos.Operador.Cierre
         {
             _controlador.PagoResumen();
         }
-    
+
+        private void TB_CNT_DIVISA_Leave(object sender, EventArgs e)
+        {
+            var cntDivisa = int.Parse(TB_CNT_DIVISA.Text);
+            _controlador.setEntradaPorCntDivisa(cntDivisa);
+            L_MONTO_POR_DIVISA.Text = _controlador.MiCierre.EntradaPorDivisa.ToString("n2");
+            L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
+            ActualizaDiferencia();
+        }
+
+        private void TB_EFECTIVO_Leave(object sender, EventArgs e)
+        {
+            var mEfectivo = decimal.Parse(TB_EFECTIVO.Text);
+            _controlador.setEntradaPorEfectivo(mEfectivo);
+            L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
+            ActualizaDiferencia();
+        }
+
+        private void TB_TARJETA_Leave(object sender, EventArgs e)
+        {
+            var mTarjeta = decimal.Parse(TB_TARJETA.Text);
+            _controlador.setEntradaPorTarjeta(mTarjeta);
+            L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
+            ActualizaDiferencia();
+        }
+
+        private void TB_OTRO_Leave(object sender, EventArgs e)
+        {
+            var mOtro = decimal.Parse(TB_OTRO.Text);
+            _controlador.setEntradaPorOtro(mOtro);
+            L_TOTAL_ENTRADA.Text = _controlador.MiCierre.TotalEntrada.ToString("n2");
+            ActualizaDiferencia();
+        }
+
     }
 
 }

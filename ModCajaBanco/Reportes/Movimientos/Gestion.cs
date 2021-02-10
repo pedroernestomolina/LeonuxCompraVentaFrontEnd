@@ -26,9 +26,15 @@ namespace ModCajaBanco.Reportes.Movimientos
         public string autoDeposito { get; set; }
         public DateTime desdeFecha { get; set; }
         public DateTime hastaFecha { get; set; }
+        public int desdeNumero { get; set; }
+        public int hastaNumero { get; set; }
         public bool IsFiltroOk { get; set; }
         public bool HabilitarSucursal { get; set; }
         public bool HabilitarDeposito { get; set; }
+        public bool HabilitarDesdeNumero { get; set; }
+        public bool HabilitarHastaNumero { get; set; }
+        public bool HabilitarDesdeFecha { get; set; }
+        public bool HabilitarHastaFecha { get; set; }
 
 
         public Gestion()
@@ -62,6 +68,8 @@ namespace ModCajaBanco.Reportes.Movimientos
             autoDeposito = "";
             desdeFecha = DateTime.Now.Date;
             hastaFecha = DateTime.Now.Date;
+            desdeNumero = 1;
+            hastaNumero = 1;
         }
 
         private bool CargarData()
@@ -75,7 +83,7 @@ namespace ModCajaBanco.Reportes.Movimientos
                 return false;
             }
             lSucursal.Clear();
-            lSucursal.AddRange(rt1.Lista);
+            lSucursal.AddRange(rt1.Lista.OrderBy(o=>o.nombre).ToList());
 
             var rt2 = Sistema.MyData.Deposito_GetLista ();
             if (rt2.Result == OOB.Enumerados.EnumResult.isError)
@@ -84,13 +92,27 @@ namespace ModCajaBanco.Reportes.Movimientos
                 return false;
             }
             lDeposito.Clear();
-            lDeposito.AddRange(rt2.Lista);
+            lDeposito.AddRange(rt2.Lista.OrderBy(o=>o.nombre).ToList());
 
             return rt;
         }
 
         public void Procesar()
         {
+            if (hastaNumero < desdeNumero) 
+            {
+                Helpers.Msg.Error("Desde - Hasta , Incorrecto");
+                IsFiltroOk = false;
+                return;
+            }
+
+            if (hastaFecha < desdeFecha)
+            {
+                Helpers.Msg.Error("Desde - Hasta , Incorrecto");
+                IsFiltroOk = false;
+                return;
+            }
+
             IsFiltroOk = true;
         }
 
@@ -109,6 +131,28 @@ namespace ModCajaBanco.Reportes.Movimientos
         public void setHabilitarDeposito(bool p)
         {
             HabilitarDeposito = p;
+        }
+
+        public void setHabilitarPorNumeroCierre (bool p)
+        {
+            HabilitarDesdeNumero = p;
+            HabilitarHastaNumero = p;
+        }
+
+        public void setHabilitarPorFecha(bool p)
+        {
+            HabilitarDesdeFecha= p;
+            HabilitarHastaFecha = p;
+        }
+
+        public void setDesdeNumero(decimal p)
+        {
+            desdeNumero = (int)p;
+        }
+
+        public void setHastaNumero(decimal p)
+        {
+            hastaNumero = (int)p;
         }
 
     }

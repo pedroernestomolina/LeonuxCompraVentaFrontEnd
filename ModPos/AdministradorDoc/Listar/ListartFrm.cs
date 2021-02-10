@@ -222,6 +222,16 @@ namespace ModPos.AdministradorDoc.Listar
             _controlador.Imprimir(e);
         }
 
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            VerDocumento();
+        }
+
+        private void VerDocumento()
+        {
+            _controlador.VerDocumento();
+        }
+
     }
 
 }

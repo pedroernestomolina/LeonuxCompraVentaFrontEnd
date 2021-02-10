@@ -72,7 +72,7 @@ namespace ModCompra.Reportes.Filtros
 
             lSucursal.Clear();
             lEstatus.Clear();
-            foreach (var it in xr1.Lista.OrderBy(o => o.codigo).ToList())
+            foreach (var it in xr1.Lista.OrderBy(o => o.nombre).ToList())
             {
                 lSucursal.Add(new OOB.LibCompra.Sucursal.Data.Ficha(it));
             }

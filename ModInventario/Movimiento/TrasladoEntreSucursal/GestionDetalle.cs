@@ -132,7 +132,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         public void AgregarItem(List<OOB.LibInventario.Movimiento.Traslado.Consultar.ProductoPorDebajoNivelMinimo> list, string idDepositoOrigen)
         {
-            foreach (var reg in list)
+            foreach (var reg in list.OrderBy(o=>o.nombreProducto).ToList())
             {
                 var ficha = new OOB.LibInventario.Producto.Data.Ficha();
                 var rt5 = Sistema.MyData.Producto_GetIdentificacion(reg.autoProducto);

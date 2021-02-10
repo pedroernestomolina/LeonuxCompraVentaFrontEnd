@@ -130,15 +130,15 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             _gestionDetalle.setTasaCambio(tasaCambio);
 
             lConcepto.Clear();
-            lConcepto.AddRange(rt2.Lista);
+            lConcepto.AddRange(rt2.Lista.OrderBy(o=>o.nombre).ToList());
             bsConcepto.CurrencyManager.Refresh();
 
             lSucOrigen.Clear();
-            lSucOrigen.AddRange(rt1.Lista);
+            lSucOrigen.AddRange(rt1.Lista.OrderBy(o=>o.nombre).ToList());
             bsSucOrigen.CurrencyManager.Refresh();
 
             lSucDestino.Clear();
-            lSucDestino.AddRange(rt1.Lista);
+            lSucDestino.AddRange(rt1.Lista.OrderBy(o=>o.nombre).ToList());
             bsSucDestino.CurrencyManager.Refresh();
 
             return rt;

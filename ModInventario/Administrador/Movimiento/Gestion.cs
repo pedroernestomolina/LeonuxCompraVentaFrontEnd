@@ -69,7 +69,7 @@ namespace ModInventario.Administrador.Movimiento
                 return false;
             }
             lSucursal.Clear();
-            lSucursal.AddRange(rt1.Lista);
+            lSucursal.AddRange(rt1.Lista.OrderBy(o=>o.nombre).ToList());
             bsSucursal.CurrencyManager.Refresh();
 
             return rt;

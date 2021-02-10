@@ -56,22 +56,22 @@
               <Width>1.42138cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.03534cm</Width>
+              <Width>2.82367cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.72325cm</Width>
+              <Width>3.06179cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.34743cm</Width>
+              <Width>2.00347cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.13575cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.10047cm</Width>
+              <Width>2.0211cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>8.08888cm</Width>
+              <Width>8.33943cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -189,7 +189,7 @@
                             <TextRun>
                               <Value>=Fields!nombreRazonSocial.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -222,7 +222,7 @@
                             <TextRun>
                               <Value>=Fields!dirFiscal.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -255,7 +255,7 @@
                             <TextRun>
                               <Value>=Fields!telefono.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -351,16 +351,16 @@
                       <TablixBody>
                         <TablixColumns>
                           <TablixColumn>
-                            <Width>2.02222cm</Width>
+                            <Width>2.08486cm</Width>
                           </TablixColumn>
                           <TablixColumn>
-                            <Width>2.47201cm</Width>
+                            <Width>2.11132cm</Width>
                           </TablixColumn>
                           <TablixColumn>
-                            <Width>1.3343cm</Width>
+                            <Width>1.82027cm</Width>
                           </TablixColumn>
                           <TablixColumn>
-                            <Width>2.26034cm</Width>
+                            <Width>2.32298cm</Width>
                           </TablixColumn>
                         </TablixColumns>
                         <TablixRows>
@@ -597,7 +597,9 @@
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style />
+                                        <Style>
+                                          <TextAlign>Right</TextAlign>
+                                        </Style>
                                       </Paragraph>
                                     </Paragraphs>
                                     <rd:DefaultName>tasa</rd:DefaultName>
@@ -1932,7 +1934,7 @@
         <Top>0.03529cm</Top>
         <Left>0.00001cm</Left>
         <Height>3.9525cm</Height>
-        <Width>27.22047cm</Width>
+        <Width>26.17453cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1943,7 +1945,7 @@
     <Height>2.13671in</Height>
     <Style />
   </Body>
-  <Width>10.79452in</Width>
+  <Width>10.62785in</Width>
   <Page>
     <PageHeader>
       <Height>2.5812cm</Height>

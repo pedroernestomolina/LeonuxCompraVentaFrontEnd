@@ -77,6 +77,14 @@
     <Compile Include="AdministradorDoc\Listar\ListartFrm.Designer.cs">
       <DependentUpon>ListartFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministradorDoc\Ver\detalle.cs" />
+    <Compile Include="AdministradorDoc\Ver\Gestion.cs" />
+    <Compile Include="AdministradorDoc\Ver\VerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministradorDoc\Ver\VerFrm.Designer.cs">
+      <DependentUpon>VerFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClaveSeguridad\Seguridad.cs" />
     <Compile Include="ClaveSeguridad\SeguridadFrm.cs">
       <SubType>Form</SubType>
@@ -274,6 +282,9 @@
     <Compile Include="Sistema_.cs" />
     <EmbeddedResource Include="AdministradorDoc\Listar\ListartFrm.resx">
       <DependentUpon>ListartFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministradorDoc\Ver\VerFrm.resx">
+      <DependentUpon>VerFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClaveSeguridad\SeguridadFrm.resx">
       <DependentUpon>SeguridadFrm.cs</DependentUpon>

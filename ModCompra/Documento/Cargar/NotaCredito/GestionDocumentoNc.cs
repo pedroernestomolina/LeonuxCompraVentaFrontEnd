@@ -182,7 +182,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
                 return false;
             }
             ldeposito.Clear();
-            ldeposito.AddRange(r02.Lista);
+            ldeposito.AddRange(r02.Lista.OrderBy(o => o.nombre).ToList());
             bsDeposito.CurrencyManager.Refresh();
 
             var r03 = Sistema.MyData.Sucursal_GetLista();
@@ -192,7 +192,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
                 return false;
             }
             lsucursal.Clear();
-            lsucursal.AddRange(r03.Lista);
+            lsucursal.AddRange(r03.Lista.OrderBy(o => o.nombre).ToList());
             bsSucursal.CurrencyManager.Refresh();
 
             var r04 = Sistema.MyData.Configuracion_PreferenciaBusquedaProveedor();

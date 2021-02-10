@@ -13,12 +13,14 @@ namespace OOB.LibInventario.Tool.AjusteNivelMinimoMaximoProducto.Capturar
 
         public string autoDeposito { get; set; }
         public string autoDepartamento { get; set; }
+        public string cadena { get; set; }
 
 
         public Filtro()
         {
             autoDeposito = "";
             autoDepartamento = "";
+            cadena = "";
         }
 
     }

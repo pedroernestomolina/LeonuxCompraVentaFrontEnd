@@ -19,6 +19,8 @@ namespace DataProvInventario.Data
             var filtroDTO = new DtoLibInventario.Tool.AjusteNivelMinimoMaximo.Capturar.Filtro();
             filtroDTO.autoDeposito = filtro.autoDeposito;
             filtroDTO.autoDepartamento = filtro.autoDepartamento;
+            filtroDTO.cadena = filtro.cadena;
+
             var r01 = MyData.Tools_AjusteNivelMinimoMaximo_GetLista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {

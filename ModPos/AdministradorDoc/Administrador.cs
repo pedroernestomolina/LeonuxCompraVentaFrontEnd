@@ -19,6 +19,7 @@ namespace ModPos.AdministradorDoc
         private OOB.LibVenta.PosOffline.Permiso.AdmDocumento.Ficha _permisos;
         private ClaveSeguridad.Seguridad _seguridad;
         private Facturacion.Ticket _ticket;
+        private Ver.Gestion _gestionVer;
 
 
         public BindingSource Source { get { return _bs; } }
@@ -35,11 +36,11 @@ namespace ModPos.AdministradorDoc
             _seguridad = seguridad;
             _ticket = new Facturacion.Ticket();
             _ticket.setModo(Facturacion.Ticket.EnumModoTicket.Modo80mm);
+            _gestionVer = new Ver.Gestion();
             if (Sistema.ImpresoraTicket == Sistema.EnumModoRolloTicket.Pequeno)
             {
                 _ticket.setModo(Facturacion.Ticket.EnumModoTicket.Modo58mm);
             }
-
         }
 
 
@@ -322,7 +323,21 @@ namespace ModPos.AdministradorDoc
         {
             _bs.Position += 1;
         }
-      
+
+        public void VerDocumento()
+        {
+            if (_bs != null)
+            {
+                if (_bs.Current != null)
+                {
+                    var item = (documento)_bs.Current;
+                    _gestionVer.Inicializa();
+                    _gestionVer.setDocumento(item);
+                    _gestionVer.Inicia();
+                }
+            }
+        }
+
     }
 
 }

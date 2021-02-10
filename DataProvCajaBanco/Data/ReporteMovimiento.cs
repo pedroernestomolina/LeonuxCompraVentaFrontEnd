@@ -420,8 +420,12 @@ namespace DataProvCajaBanco.Data
             var filtroDTO = new DtoLibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro()
             {
                 codSucursal= filtro.codSucursal,
+                porFecha=filtro.esPorFecha,
                 desdeFecha = filtro.desdeFecha,
                 hastaFecha = filtro.hastaFecha,
+                desdeCierre=filtro.desdeCierre,
+                hastaCierre=filtro.hastaCierre,
+                porCierre=filtro.esPorCierre,
             };
             var r01 = MyData.Reporte_CobranzaDiara(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -528,9 +532,15 @@ namespace DataProvCajaBanco.Data
                             montoDivisa = s.montoDivisa,
                             montoTotal = s.montoTotal,
                             nombreSuc = s.nombreSuc,
-                            signo = s.signo,
-                            tipoDoc = s.tipoDoc,
-                            fecha=s.fecha,
+                            fecha = s.fecha,
+                            caja = s.caja,
+                            cierre = s.cierre,
+                            docF = s.docF,
+                            docI = s.docI,
+                            horaF = s.horaF,
+                            horaI = s.horaI,
+                            signo=s.signo,
+                            tipoDoc=s.tipoDoc,
                         };
                     }).ToList();
                 }

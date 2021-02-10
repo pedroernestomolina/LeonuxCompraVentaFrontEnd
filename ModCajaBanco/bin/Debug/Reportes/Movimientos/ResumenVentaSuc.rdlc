@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.21941cm</Width>
+              <Width>3.36329cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.21941cm</Width>
+              <Width>2.64388cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.9867cm</Width>
+              <Width>4.13058cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.21941cm</Width>
+              <Width>3.36329cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -60,7 +60,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -79,7 +79,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -205,7 +205,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox22">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -221,7 +221,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox22</rd:DefaultName>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -338,14 +338,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="tipoDocumento">
+                    <Textbox Name="tipodoc">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!tipoDocumento.Value</Value>
+                              <Value>=Fields!tipodoc.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -354,7 +354,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>tipoDocumento</rd:DefaultName>
+                      <rd:DefaultName>tipodoc</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -473,7 +473,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox16">
+                    <Textbox Name="Textbox6">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -489,7 +489,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -610,7 +610,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox28">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -626,7 +626,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -726,7 +726,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>5.23025cm</Size>
+                <Size>5.37413cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox11">
                     <CanGrow>true</CanGrow>
@@ -779,7 +779,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>5.23025cm</Size>
+                <Size>5.37413cm</Size>
                 <CellContents>
                   <Textbox Name="sucursal1">
                     <CanGrow>true</CanGrow>
@@ -825,7 +825,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>5.23025cm</Size>
+                <Size>5.37413cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox26">
                     <CanGrow>true</CanGrow>
@@ -878,7 +878,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>7.5982in</Width>
+  <Width>8.4874in</Width>
   <Page>
     <PageHeader>
       <Height>3.28083cm</Height>
@@ -1161,10 +1161,6 @@
           <DataField>cntMov</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="tipoDocumento">
-          <DataField>tipoDocumento</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="monto">
           <DataField>monto</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -1172,6 +1168,42 @@
         <Field Name="montoDivisa">
           <DataField>montoDivisa</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="fecha">
+          <DataField>fecha</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="cierre">
+          <DataField>cierre</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="caja">
+          <DataField>caja</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="horaI">
+          <DataField>horaI</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="horaF">
+          <DataField>horaF</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="docI">
+          <DataField>docI</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="docF">
+          <DataField>docF</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="signo">
+          <DataField>signo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipodoc">
+          <DataField>tipodoc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

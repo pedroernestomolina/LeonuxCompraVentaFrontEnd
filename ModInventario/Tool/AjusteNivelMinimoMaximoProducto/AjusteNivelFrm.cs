@@ -152,6 +152,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
             CB_DEPARTAMENTO.Enabled = _controlador.IsBuscarHabilitado;
             L_ITEMS.Text = _controlador.Items;
+            TB_CADENA.Enabled = _controlador.IsBuscarHabilitado;
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,6 +196,8 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
             CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
             CB_DEPARTAMENTO.Enabled = _controlador.IsBuscarHabilitado;
+            TB_CADENA.Enabled = _controlador.IsBuscarHabilitado;
+            TB_CADENA.Text = "";
             DGV.Refresh();
         }
 
@@ -306,6 +309,11 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void TB_CADENA_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCadenaBuscar(TB_CADENA.Text);
         }
 
     }

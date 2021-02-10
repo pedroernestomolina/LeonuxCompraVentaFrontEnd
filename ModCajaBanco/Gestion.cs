@@ -45,6 +45,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
             }
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
 
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk) 
@@ -106,6 +108,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(true);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -166,6 +170,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(false);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -231,6 +237,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(false);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -291,6 +299,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(false);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -354,6 +364,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(false);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -409,6 +421,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(false);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -464,12 +478,15 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
             }
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
+            _filtroGestion.setHabilitarPorFecha(true);
 
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
                 var filtro = new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro()
                 {
+                    esPorFecha=true,
                     desdeFecha = _filtroGestion.desdeFecha,
                     hastaFecha = _filtroGestion.hastaFecha,
                 };
@@ -528,6 +545,8 @@ namespace ModCajaBanco
                 _filtroGestion.setHabilitarDeposito(false);
             }
 
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.Inicia();
             if (_filtroGestion.IsFiltroOk)
             {
@@ -567,6 +586,79 @@ namespace ModCajaBanco
                 var filtros = "Desde: " + _filtroGestion.desdeFecha.ToShortDateString() + ", Hasta: " + _filtroGestion.hastaFecha.ToShortDateString() +
                     Environment.NewLine + "Sucursal: " + sucursalNombre;
                 var rp1 = new Reportes.Movimientos.ResumenVentaDiarioSucursal.GestionRep(r01.Lista, filtros);
+                rp1.Generar();
+            }
+        }
+
+        public void CobranzaDiariaPorCierre()
+        {
+            if (Sistema._ActivarComoSucursal)
+            {
+                _filtroGestion.setHabilitarSucursal(false);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+            else
+            {
+                _filtroGestion.setHabilitarSucursal(true);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+            _filtroGestion.setHabilitarPorFecha(false);
+            _filtroGestion.setHabilitarPorNumeroCierre(true);
+
+            _filtroGestion.Inicia();
+            if (_filtroGestion.IsFiltroOk)
+            {
+                if (_filtroGestion.autoSucursal == "") 
+                {
+                    Helpers.Msg.Error("Debes Indicar Una Sucursal");
+                    return;
+                }
+
+                var filtro = new OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro()
+                {
+                    esPorCierre  = true,
+                    desdeCierre= _filtroGestion.desdeNumero,
+                    hastaCierre=_filtroGestion.hastaNumero,
+                };
+
+                var sucursalNombre = "";
+                if (Sistema._ActivarComoSucursal)
+                {
+                    var r00 = Sistema.MyData.Sucursal_GetPrincipal();
+                    if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                        return;
+                    }
+                    sucursalNombre = r00.Entidad.nombre;
+                    filtro.codSucursal = r00.Entidad.codigo;
+                }
+                else
+                {
+                    sucursalNombre = "GENERAL";
+                    if (_filtroGestion.autoSucursal != "")
+                    {
+                        var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                            return;
+                        }
+                        filtro.codSucursal = r00.Entidad.codigo;
+                        sucursalNombre = r00.Entidad.nombre;
+                    }
+                }
+
+                var r01 = Sistema.MyData.Reporte_CobranzaDiaria(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                var filtros = "Desde Cierre: " + _filtroGestion.desdeNumero.ToString().PadLeft(6,'0') + ", Hasta Cierre: " + _filtroGestion.hastaNumero.ToString().PadLeft(6,'0') +
+                    Environment.NewLine + "Sucursal: " + sucursalNombre;
+                var rp1 = new Reportes.Movimientos.CobranzaDiaria.GestionRep(r01.Entidad, filtros);
                 rp1.Generar();
             }
         }

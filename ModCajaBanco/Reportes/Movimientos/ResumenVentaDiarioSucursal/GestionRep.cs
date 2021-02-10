@@ -27,15 +27,21 @@ namespace ModCajaBanco.Reportes.Movimientos.ResumenVentaDiarioSucursal
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Movimientos\ResumenVentaDiarioSuc.rdlc";
             var ds = new dsMovimiento();
-            foreach (var it in data.OrderBy(o => o.codigoSuc).ToList())
+            foreach (var it in data.OrderBy(o => o.codigoSuc).ThenBy(o=>o.cierreNro).ToList())
             {
                 DataRow r = ds.Tables["ResumenVentaSuc"].NewRow();
                 r["sucursal"] = it.codigoSuc + Environment.NewLine + it.nombreSuc;
                 r["cntMov"] = it.cntMov;
-                r["tipoDocumento"] = it.tipoDoc;
-                r["monto"] = it.montoTotal * it.signo;
-                r["montoDivisa"] = it.montoDivisa * it.signo;
+                r["monto"] = it.montoTotal ;
+                r["montoDivisa"] = it.montoDivisa ;
                 r["fecha"] = it.fecha;
+                r["cierre"] = it.cierreNro;
+                r["horaI"] = it.horaI;
+                r["horaF"] = it.horaF;
+                r["docI"] = it.docI;
+                r["docF"] = it.docF;
+                r["caja"] = it.caja;
+                r["tipoDoc"] = it.tipoDocumento;
                 ds.Tables["ResumenVentaSuc"].Rows.Add(r);
             }
 

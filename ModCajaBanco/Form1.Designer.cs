@@ -47,6 +47,7 @@
             this.TSM_REPORTES_VENTA_POR_PRODUCTO = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_HABLADORES = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
-            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -177,6 +178,7 @@
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_REPORTES_ArqueoCajaPos,
             this.TSM_REPORTES_CobranzaDiaria,
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE,
             this.toolStripMenuItem1,
             this.TSM_REPORTES_INVENTARIO_RESUMEN,
             this.TSM_REPORTES_VENTA_RESUMEN,
@@ -203,7 +205,7 @@
             // 
             this.TSM_REPORTES_CobranzaDiaria.Name = "TSM_REPORTES_CobranzaDiaria";
             this.TSM_REPORTES_CobranzaDiaria.Size = new System.Drawing.Size(263, 22);
-            this.TSM_REPORTES_CobranzaDiaria.Text = "Cobranza Diaria";
+            this.TSM_REPORTES_CobranzaDiaria.Text = "Cobranza Diaria Por Fecha";
             this.TSM_REPORTES_CobranzaDiaria.Click += new System.EventHandler(this.TSM_REPORTES_CobranzaDiaria_Click);
             // 
             // toolStripMenuItem1
@@ -250,6 +252,13 @@
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Text = "Ventas Resumen Sucursal";
             this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL.Click += new System.EventHandler(this.TSM_REPORTES_RESUMEN_VENTA_SUCURSAL_Click);
+            // 
+            // TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL
+            // 
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Name = "TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL";
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Size = new System.Drawing.Size(263, 22);
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Text = "Ventas Resumen Diario Por Sucursal";
+            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Click += new System.EventHandler(this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL_Click);
             // 
             // TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL
             // 
@@ -370,12 +379,12 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL
+            // TSM_REPORTES_CobranzaDiaria_CIERRE
             // 
-            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Name = "TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL";
-            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Size = new System.Drawing.Size(263, 22);
-            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Text = "Ventas Resumen Diario Por Sucursal";
-            this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL.Click += new System.EventHandler(this.TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL_Click);
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Name = "TSM_REPORTES_CobranzaDiaria_CIERRE";
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Size = new System.Drawing.Size(263, 22);
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Text = "Cobranza Diaria Por Cierre";
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Click += new System.EventHandler(this.TSM_REPORTES_CobranzaDiaria_CIERRE_Click);
             // 
             // Form1
             // 
@@ -440,6 +449,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_CobranzaDiaria;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL;
+        private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_CobranzaDiaria_CIERRE;
 
     }
 

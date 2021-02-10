@@ -76,7 +76,7 @@ namespace ModInventario.Visor.Existencia
             }
 
             lDeposito.Clear();
-            lDeposito.AddRange(r01.Lista);
+            lDeposito.AddRange(r01.Lista.OrderBy(o=>o.nombre).ToList());
             bsDeposito.CurrencyManager.Refresh();
 
             lDepart.Clear();

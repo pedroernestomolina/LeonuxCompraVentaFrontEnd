@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Analisis.cs" />
     <Compile Include="Data\Concepto.cs" />
     <Compile Include="Data\Configuracion.cs" />
     <Compile Include="Data\Costo.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Data\Tool.cs" />
     <Compile Include="Data\Usuario.cs" />
     <Compile Include="Data\Visor.cs" />
+    <Compile Include="InfraEstructura\IAnalisis.cs" />
     <Compile Include="InfraEstructura\IConcepto.cs" />
     <Compile Include="InfraEstructura\IConfiguracion.cs" />
     <Compile Include="InfraEstructura\ICosto.cs" />

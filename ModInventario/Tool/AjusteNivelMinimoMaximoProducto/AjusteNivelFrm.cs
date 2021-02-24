@@ -225,7 +225,10 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             _controlador.Procesar();
             if (_controlador.ProcesoIsOk)
             {
-                Salir();
+                //Salir();
+                _controlador.Inicializar();
+                L_ITEMS.Text = _controlador.Items;
+                Limpiar2();
             }
         }
 
@@ -314,6 +317,16 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         private void TB_CADENA_Leave(object sender, EventArgs e)
         {
             _controlador.setCadenaBuscar(TB_CADENA.Text);
+        }
+
+        private void L_DEPARTAMENTO_Click(object sender, EventArgs e)
+        {
+            LimpiarDepartamento();
+        }
+
+        private void LimpiarDepartamento()
+        {
+            CB_DEPARTAMENTO.SelectedIndex = -1;
         }
 
     }

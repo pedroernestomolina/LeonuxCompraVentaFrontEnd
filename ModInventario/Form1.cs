@@ -342,6 +342,16 @@ namespace ModInventario
             _controlador.ReporteMaestroDepositoResumen();
         }
 
+        private void TSM_REPORTE_MAESTRO_NIVEL_MINIMO_Click(object sender, EventArgs e)
+        {
+            MaestroNivelMinimo();
+        }
+
+        private void MaestroNivelMinimo()
+        {
+            _controlador.MaestroNivelMinimo();
+        }
+
     }
 
 }

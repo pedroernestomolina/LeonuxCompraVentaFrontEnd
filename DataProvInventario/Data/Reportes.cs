@@ -469,6 +469,48 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.NivelMinimo.Ficha> Reportes_NivelMinimo(OOB.LibInventario.Reportes.NivelMinimo.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.NivelMinimo.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.MaestroNivelMinimo.Filtro()
+            {
+                autoDeposito = filtro.autoDeposito,
+                autoDepartamento= filtro.autoDepartamento,
+            };
+            var r01 = MyData.Reportes_NivelMinimo(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.NivelMinimo.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.NivelMinimo.Ficha()
+                        {
+                            codigoDep = s.codigoDep,
+                            codigoPrd = s.codigoPrd,
+                            existencia = s.existencia,
+                            nivelMax = s.nivelMax,
+                            nivelMin = s.nivelMin,
+                            nombreDep = s.nombreDep,
+                            nombrePrd = s.nombrePrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

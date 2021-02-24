@@ -45,7 +45,7 @@ namespace ModInventario.Reportes.Filtros.DepositoResumen
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\DepositoResumen.rdlc";
             var ds = new DS();
 
-            foreach (var it in lst.ToList())
+            foreach (var it in lst.OrderBy(o=>o.nombreDeposito).ToList())
             {
                 var venta = 0.0m;
                 switch (it.precioId)

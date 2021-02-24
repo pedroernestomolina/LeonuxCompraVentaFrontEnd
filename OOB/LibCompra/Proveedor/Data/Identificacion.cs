@@ -24,6 +24,24 @@ namespace OOB.LibCompra.Proveedor.Data
         public string nombreEstado { get; set; }
         public string nombreContacto { get; set; }
         public Enumerados.EnumEstatus estatus { get; set; }
+        public string email { get; set; }
+        public string website { get; set; }
+        public string pais { get; set; }
+        public string codigoPostal { get; set; }
+        public decimal retIva { get; set; }
+        public string denominacionFiscal { get; set; }
+        public Enumerados.EnumDenominacionFiscal modoDenominacionFiscal 
+        {
+            get 
+            {
+                var modo = Enumerados.EnumDenominacionFiscal.SnDefinir;
+                if (denominacionFiscal.Trim().ToUpper() == "CONTRIBUYENTE")
+                    modo = Enumerados.EnumDenominacionFiscal.Contribuyente;
+                else
+                    modo = Enumerados.EnumDenominacionFiscal.NoContribuyente;
+                return modo;
+            }
+        }
 
 
         public Identificacion()
@@ -41,6 +59,12 @@ namespace OOB.LibCompra.Proveedor.Data
             nombreEstado = "";
             nombreContacto = "";
             estatus = Enumerados.EnumEstatus.SnDefinir;
+            email = "";
+            website = "";
+            pais = "";
+            codigoPostal = "";
+            retIva = 0.0m;
+            denominacionFiscal = "";
         }
 
     }

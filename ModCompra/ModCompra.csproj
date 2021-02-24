@@ -207,6 +207,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor\Administrador\AdmFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Administrador\AdmFrm.Designer.cs">
+      <DependentUpon>AdmFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Administrador\dataFiltro.cs" />
+    <Compile Include="Proveedor\Administrador\Enumerados.cs" />
+    <Compile Include="Proveedor\Administrador\Gestion.cs" />
+    <Compile Include="Proveedor\Administrador\GestionLista.cs" />
+    <Compile Include="Proveedor\AgregarEditar\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\AgregarEditar\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\AgregarEditar\Agregar\Gestion.cs" />
+    <Compile Include="Proveedor\AgregarEditar\data.cs" />
+    <Compile Include="Proveedor\AgregarEditar\Editar\Gestion.cs" />
+    <Compile Include="Proveedor\AgregarEditar\Gestion.cs" />
+    <Compile Include="Proveedor\AgregarEditar\IGestion.cs" />
     <Compile Include="Proveedor\Busqueda\Enumerados.cs" />
     <Compile Include="Proveedor\Listar\data.cs" />
     <Compile Include="Proveedor\Listar\Gestion.cs" />
@@ -312,6 +333,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Proveedor\Administrador\AdmFrm.resx">
+      <DependentUpon>AdmFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\AgregarEditar\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>

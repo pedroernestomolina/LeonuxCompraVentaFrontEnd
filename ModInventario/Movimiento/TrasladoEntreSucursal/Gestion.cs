@@ -13,7 +13,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
     {
 
         private Producto.Busqueda.Gestion _gestionBusquedaPrd;
-        private Producto.Lista.Gestion _gestionListaPrd; 
+        private Producto.Lista.Gestion _gestionListaPrd;
+        private Producto.Deposito.Listar.Gestion _gestionExistencia;
+        private Analisis.General.Gestion _gestionAnalisisGeneral;
+        private Analisis.Detallado.Gestion _gestionAnalisisDetallado;
+        private Analisis.Existencia.Gestion _gestionAnalisisExistencia;
+
         private List<OOB.LibInventario.Concepto.Ficha> lConcepto;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucOrigen;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucDestino;
@@ -63,6 +68,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             _gestionBusquedaPrd = new Producto.Busqueda.Gestion();
             _gestionListaPrd = new Producto.Lista.Gestion();
             _gestionListaPrd.ItemSeleccionadoOk+=_gestionListaPrd_ItemSeleccionadoOk;
+            _gestionExistencia = new Producto.Deposito.Listar.Gestion();
+            _gestionAnalisisGeneral = new Analisis.General.Gestion();
+            _gestionAnalisisGeneral.ItemSeleccionado+=_gestionAnalisisGeneral_ItemSeleccionado;
+            _gestionAnalisisDetallado = new Analisis.Detallado.Gestion();
+            _gestionAnalisisExistencia = new Analisis.Existencia.Gestion();
             miData = new Movimiento.data();
 
             lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
@@ -76,6 +86,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             bsSucDestino.DataSource = lSucDestino;
         }
 
+        private void _gestionAnalisisGeneral_ItemSeleccionado(object sender, EventArgs e)
+        {
+            var item = _gestionAnalisisGeneral.Item;
+            _gestionDetalle.AgregarItem(item, sucOrigen.autoDepositoPrincipal);
+        }
 
         private void _gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
         {
@@ -84,12 +99,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 Helpers.Msg.Error("PRODUCTO EN ESTADO INACTIVO");
                 return;
             }
-            else 
+            else
             {
-                _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, miData.IdDepOrigen, miData.IdDepDestino);
+                _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, sucOrigen.autoDepositoPrincipal);
             }
-
         }
+
 
         MovimientoFrm frm;
         public void Inicia()
@@ -166,7 +181,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         public void BuscarProducto()
         {
-            return;
+            _gestionBusquedaPrd.Buscar();
+            if (_gestionBusquedaPrd.IsOk)
+            {
+                _gestionListaPrd.setLista(_gestionBusquedaPrd.Resultado);
+                _gestionListaPrd.Inicia();
+            }
         }
 
         public void EliminarItem()
@@ -472,6 +492,55 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 }
                 sucDestino= r01.Entidad;
                 IdDepDestino= sucDestino.autoDepositoPrincipal;
+            }
+        }
+
+        public void VerExistencia()
+        {
+            if (_gestionDetalle.ItemActual != null)
+            {
+                _gestionExistencia.setFicha(_gestionDetalle.ItemActual.FichaPrd.AutoId);
+                _gestionExistencia.Inicia();
+            }
+        }
+
+        public void EliminarItemsExistenciaDepositoCero()
+        {
+            _gestionDetalle.EliminarItemsExistenciaDepositoCero(); 
+        }
+
+        public void AnalisisProductos()
+        {
+            if (sucDestino == null)
+                return;
+
+            _gestionAnalisisGeneral.Inicializar();
+            _gestionAnalisisGeneral.setDeposito(sucDestino.autoDepositoPrincipal);
+            _gestionAnalisisGeneral.setUltimosXDias(15);
+            _gestionAnalisisGeneral.setModulo(Analisis.General.EnumModulo.Ventas);
+            _gestionAnalisisGeneral.Inicia();
+        }
+
+        public void AnalisisDetallado()
+        {
+            if (_gestionDetalle.ItemActual == null)
+                return;
+
+            _gestionAnalisisDetallado.Inicializar();
+            _gestionAnalisisDetallado.setDeposito(sucDestino.autoDepositoPrincipal);
+            _gestionAnalisisDetallado.setProducto(_gestionDetalle.ItemActual.FichaPrd.AutoId);
+            _gestionAnalisisDetallado.setUltimosXDias(15);
+            _gestionAnalisisDetallado.setModulo(Analisis.Detallado.EnumModulo.Ventas);
+            _gestionAnalisisDetallado.Inicia();
+        }
+
+        public void VerExistenciaDeposito()
+        {
+            if (sucDestino != null)
+            {
+                _gestionAnalisisExistencia.Inicializa();
+                _gestionAnalisisExistencia.setDeposito(sucDestino.autoDepositoPrincipal);
+                _gestionAnalisisExistencia.Inicia();
             }
         }
 

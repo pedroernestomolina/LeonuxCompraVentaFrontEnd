@@ -87,6 +87,11 @@ namespace ModSistema.TasaDivisa.Sist
                         break;
                 }
 
+                if (prefPrecio == OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Full) 
+                {
+                    pr = pr / ((it.tasaIva / 100) + 1);
+                }
+
             }
 
             return pr;

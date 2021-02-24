@@ -19,6 +19,7 @@ namespace DataProvPosOffLine.InfraEstructura
         OOB.Resultado Inicializar_BdLocal();
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Empresa.Ficha> Empresa_Datos();
         OOB.ResultadoEntidad<DateTime?> FechaUltimaActualizacionBDServidor();
+        OOB.ResultadoEntidad<string> CodigoSucursal();
 
     }
 

@@ -114,6 +114,7 @@ namespace ModInventario.Producto.Deposito.Listar
         private void Actualizar()
         {
             var nr = _controlador.Formato;
+            L_PRODUCTO.Text = _controlador.Producto;
             L_EMPAQUE.Text = _controlador.EmpaqueDes;
             L_FISICA.Text = _controlador.ExFisica.ToString(nr);
             L_RESERVA.Text = _controlador.ExReserva.ToString(nr);

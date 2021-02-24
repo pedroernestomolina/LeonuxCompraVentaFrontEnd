@@ -40,6 +40,7 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_ArqueoCajaPos = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_CobranzaDiaria = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_INVENTARIO_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_VENTA_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +52,10 @@
             this.TSM_REPORTES_VENTA_POR_PRODUCTO_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_HABLADORES = new System.Windows.Forms.ToolStripMenuItem();
+            this.analisisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_ANALISIS_Ventas = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_ANALISIS_Ventas_PROMEDIO = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_ANALISIS_Ventas_PRODUCTO = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -59,7 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
-            this.TSM_REPORTES_CobranzaDiaria_CIERRE = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -152,7 +156,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.analisisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(684, 24);
@@ -207,6 +212,13 @@
             this.TSM_REPORTES_CobranzaDiaria.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_CobranzaDiaria.Text = "Cobranza Diaria Por Fecha";
             this.TSM_REPORTES_CobranzaDiaria.Click += new System.EventHandler(this.TSM_REPORTES_CobranzaDiaria_Click);
+            // 
+            // TSM_REPORTES_CobranzaDiaria_CIERRE
+            // 
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Name = "TSM_REPORTES_CobranzaDiaria_CIERRE";
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Size = new System.Drawing.Size(263, 22);
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Text = "Cobranza Diaria Por Cierre";
+            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Click += new System.EventHandler(this.TSM_REPORTES_CobranzaDiaria_CIERRE_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -278,6 +290,37 @@
             this.TSM_REPORTES_HABLADORES.Size = new System.Drawing.Size(263, 22);
             this.TSM_REPORTES_HABLADORES.Text = "Habladores";
             this.TSM_REPORTES_HABLADORES.Click += new System.EventHandler(this.TSM_REPORTES_HABLADORES_Click);
+            // 
+            // analisisToolStripMenuItem
+            // 
+            this.analisisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_ANALISIS_Ventas});
+            this.analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
+            this.analisisToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.analisisToolStripMenuItem.Text = "Análisis";
+            // 
+            // TSM_ANALISIS_Ventas
+            // 
+            this.TSM_ANALISIS_Ventas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_ANALISIS_Ventas_PROMEDIO,
+            this.TSM_ANALISIS_Ventas_PRODUCTO});
+            this.TSM_ANALISIS_Ventas.Name = "TSM_ANALISIS_Ventas";
+            this.TSM_ANALISIS_Ventas.Size = new System.Drawing.Size(152, 22);
+            this.TSM_ANALISIS_Ventas.Text = "Ventas";
+            // 
+            // TSM_ANALISIS_Ventas_PROMEDIO
+            // 
+            this.TSM_ANALISIS_Ventas_PROMEDIO.Name = "TSM_ANALISIS_Ventas_PROMEDIO";
+            this.TSM_ANALISIS_Ventas_PROMEDIO.Size = new System.Drawing.Size(152, 22);
+            this.TSM_ANALISIS_Ventas_PROMEDIO.Text = "Promedio";
+            this.TSM_ANALISIS_Ventas_PROMEDIO.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_PROMEDIO_Click);
+            // 
+            // TSM_ANALISIS_Ventas_PRODUCTO
+            // 
+            this.TSM_ANALISIS_Ventas_PRODUCTO.Name = "TSM_ANALISIS_Ventas_PRODUCTO";
+            this.TSM_ANALISIS_Ventas_PRODUCTO.Size = new System.Drawing.Size(152, 22);
+            this.TSM_ANALISIS_Ventas_PRODUCTO.Text = "Producto";
+            this.TSM_ANALISIS_Ventas_PRODUCTO.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_PRODUCTO_Click);
             // 
             // panel3
             // 
@@ -379,13 +422,6 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // TSM_REPORTES_CobranzaDiaria_CIERRE
-            // 
-            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Name = "TSM_REPORTES_CobranzaDiaria_CIERRE";
-            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Size = new System.Drawing.Size(263, 22);
-            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Text = "Cobranza Diaria Por Cierre";
-            this.TSM_REPORTES_CobranzaDiaria_CIERRE.Click += new System.EventHandler(this.TSM_REPORTES_CobranzaDiaria_CIERRE_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +486,10 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_CobranzaDiaria;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_RESUMEN_VENTA_DIARIO_SUCURSAL;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_CobranzaDiaria_CIERRE;
+        private System.Windows.Forms.ToolStripMenuItem analisisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas;
+        private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_PROMEDIO;
+        private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_PRODUCTO;
 
     }
 

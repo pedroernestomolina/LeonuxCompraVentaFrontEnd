@@ -92,6 +92,30 @@
     <Compile Include="Administrador\Tomas\TomasFrm.Designer.cs">
       <DependentUpon>TomasFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Analisis\Detallado\AnalisisFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analisis\Detallado\AnalisisFrm.Designer.cs">
+      <DependentUpon>AnalisisFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analisis\Detallado\data.cs" />
+    <Compile Include="Analisis\Detallado\Gestion.cs" />
+    <Compile Include="Analisis\Existencia\data.cs" />
+    <Compile Include="Analisis\Existencia\ExistenciaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analisis\Existencia\ExistenciaFrm.Designer.cs">
+      <DependentUpon>ExistenciaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analisis\Existencia\Gestion.cs" />
+    <Compile Include="Analisis\General\AnalisisFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analisis\General\AnalisisFrm.Designer.cs">
+      <DependentUpon>AnalisisFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analisis\General\data.cs" />
+    <Compile Include="Analisis\General\Gestion.cs" />
     <Compile Include="Anular\AnularFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +500,8 @@
     <Compile Include="Reportes\Filtros\MaestroPrecio\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\Filtros.cs" />
     <Compile Include="Reportes\Filtros\MaestroProducto\GestionRep.cs" />
+    <Compile Include="Reportes\Filtros\NivelMInimo\Filtro.cs" />
+    <Compile Include="Reportes\Filtros\NivelMInimo\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\Filtros.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\GestionRep.cs" />
     <Compile Include="Reportes\Graficas\DS.Designer.cs">
@@ -567,6 +593,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Tomas\TomasFrm.resx">
       <DependentUpon>TomasFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analisis\Detallado\AnalisisFrm.resx">
+      <DependentUpon>AnalisisFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analisis\Existencia\ExistenciaFrm.resx">
+      <DependentUpon>ExistenciaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analisis\General\AnalisisFrm.resx">
+      <DependentUpon>AnalisisFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Anular\AnularFrm.resx">
       <DependentUpon>AnularFrm.cs</DependentUpon>
@@ -714,6 +749,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\MaestroProductos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\NivelMinimo.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\RelacionCompraVenta.rdlc">

@@ -23,6 +23,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         public string ItemsMovimiento { get { return string.Format("Total Items \n {0}", bs.Count); } }
         public int TotalItems { get { return bs.Count; } }
         public Movimiento.dataDetalle Detalle { get { return detalle; } }
+        public item ItemActual { get { return (item)bs.Current; } }
 
 
         public GestionDetalle()
@@ -174,10 +175,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 {
                     var exFisica = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == idDepositoOrigen).exFisica;
                     var disponible = (exFisica >= reg.cntUndReponer);
+                    var exDepCero = (exFisica <=0);
 
                     detalle.Agregar(ficha, reg.cntUndReponer, costo,
                              enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
-                             importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible);
+                             importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible, exDepCero);
                     bs.CurrencyManager.Refresh();
                 }
             }
@@ -187,6 +189,136 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         {
             detalle.EliminarItemsNoDisponible();
             bs.CurrencyManager.Refresh();
+        }
+
+        public void EliminarItemsExistenciaDepositoCero()
+        {
+            detalle.EliminarItemsExistenciaDepositoCero();
+            bs.CurrencyManager.Refresh();
+        }
+
+        public void AgregarItem(OOB.LibInventario.Producto.Data.Ficha reg, string idDepositoOrigen)
+        {
+            Agregar(reg.AutoId, idDepositoOrigen);
+            //if (detalle.VerificaItemRegistrado(reg.AutoId)) 
+            //{
+            //    Helpers.Msg.Alerta("PRODUCTO YA APARECE EN LA LISTA");
+            //    return;
+            //}
+
+            //var ficha = new OOB.LibInventario.Producto.Data.Ficha();
+            //var rt5 = Sistema.MyData.Producto_GetIdentificacion(reg.AutoId);
+            //if (rt5.Result == OOB.Enumerados.EnumResult.isError)
+            //{
+            //    Helpers.Msg.Error(rt5.Mensaje);
+            //    return;
+            //}
+            //ficha.identidad = rt5.Entidad;
+            //var rt3 = Sistema.MyData.Producto_GetCosto(reg.AutoId);
+            //if (rt3.Result == OOB.Enumerados.EnumResult.isError)
+            //{
+            //    Helpers.Msg.Error(rt3.Mensaje);
+            //    return;
+            //}
+            //ficha.costo = rt3.Entidad;
+            //var rt4 = Sistema.MyData.Producto_GetExistencia(reg.AutoId);
+            //if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+            //{
+            //    Helpers.Msg.Error(rt4.Mensaje);
+            //    return;
+            //}
+            //ficha.existencia = rt4.Entidad;
+
+            //var importe = 0.0m;
+            //var importeMonedaLocal = 0.0m;
+            //var costo = rt3.Entidad.costoUnd;
+            //var cntUndReponer = 0.0m;
+
+            //importe = costo * cntUndReponer ;
+            //importeMonedaLocal = importe;
+            //if (rt3.Entidad.admDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si)
+            //{
+            //    costo = rt3.Entidad.costoDivisaUnd;
+            //    importe = costo * cntUndReponer;
+            //    importeMonedaLocal = importe * tasaCambio;
+            //}
+
+            //var xrt = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == idDepositoOrigen);
+            //if (xrt != null)
+            //{
+            //    var exFisica = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == idDepositoOrigen).exFisica;
+            //    var disponible = (exFisica >= cntUndReponer);
+            //    var exDepCero = (exFisica <= 0);
+
+            //    detalle.Agregar(ficha, cntUndReponer, costo,
+            //             enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
+            //             importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible, exDepCero);
+            //    bs.CurrencyManager.Refresh();
+            //}
+        }
+
+        public void AgregarItem(Analisis.General.data item, string autoDep)
+        {
+            Agregar(item.autoId, autoDep);
+        }
+
+        private void Agregar(string autoPrd, string autoDep) 
+        {
+            if (detalle.VerificaItemRegistrado(autoPrd))
+            {
+                Helpers.Msg.Alerta("PRODUCTO YA APARECE EN LA LISTA");
+                return;
+            }
+
+            var ficha = new OOB.LibInventario.Producto.Data.Ficha();
+            var rt5 = Sistema.MyData.Producto_GetIdentificacion(autoPrd);
+            if (rt5.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt5.Mensaje);
+                return;
+            }
+            ficha.identidad = rt5.Entidad;
+            var rt3 = Sistema.MyData.Producto_GetCosto(autoPrd);
+            if (rt3.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt3.Mensaje);
+                return;
+            }
+            ficha.costo = rt3.Entidad;
+            var rt4 = Sistema.MyData.Producto_GetExistencia(autoPrd);
+            if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt4.Mensaje);
+                return;
+            }
+            ficha.existencia = rt4.Entidad;
+
+            var importe = 0.0m;
+            var importeMonedaLocal = 0.0m;
+            var costo = rt3.Entidad.costoUnd;
+            var cntUndReponer = 0.0m;
+
+            importe = costo * cntUndReponer;
+            importeMonedaLocal = importe;
+            if (rt3.Entidad.admDivisa == OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si)
+            {
+                costo = rt3.Entidad.costoDivisaUnd;
+                importe = costo * cntUndReponer;
+                importeMonedaLocal = importe * tasaCambio;
+            }
+
+            var xrt = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == autoDep);
+            if (xrt != null)
+            {
+                var exFisica = rt4.Entidad.depositos.FirstOrDefault(w => w.autoId == autoDep).exFisica;
+                var disponible = (exFisica >= cntUndReponer);
+                var exDepCero = (exFisica <= 0);
+
+                detalle.Agregar(ficha, cntUndReponer, costo,
+                         enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
+                         importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible, exDepCero);
+                bs.CurrencyManager.Refresh();
+            }
         }
 
     }

@@ -20,11 +20,13 @@ namespace ModInventario.Producto.Deposito.Listar
         private string _empaque;
         private int _empaqueContenido;
         private string _empaqueDes;
+        private string _producto;
         private Ver.Gestion _gestionVer ;
         private Editar.Gestion _gestionEditar;
 
 
         public BindingSource Source { get { return _bs; } }
+        public string Producto { get { return _producto; } }
         public decimal ExFisica { get { return _data.Sum(s => s.ExFisica); } }
         public decimal ExReserva { get { return _data.Sum(s => s.ExReserva); } }
         public decimal ExDisponible { get { return _data.Sum(s => s.ExDisponible); } }
@@ -87,11 +89,12 @@ namespace ModInventario.Producto.Deposito.Listar
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            _producto = r01.Entidad.codigoPrd + Environment.NewLine + r01.Entidad.nombrePrd;
             _decimales = r01.Entidad.decimales;
             _empaque = r01.Entidad.empaque;
             _empaqueContenido = r01.Entidad.empaqueContenido;
 
-            foreach (var it in r01.Entidad.depositos.OrderBy(o=>o.codigo).ToList()) 
+            foreach (var it in r01.Entidad.depositos.OrderBy(o=>o.nombre).ToList()) 
             {
                 var nr = new data(it,_decimales);
                 _data.Add(nr);

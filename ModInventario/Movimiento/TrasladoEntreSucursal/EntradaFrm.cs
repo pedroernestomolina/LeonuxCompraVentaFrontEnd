@@ -62,7 +62,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             L_FECHA_ACT.Text = _controlador.ProductoFechaUltAct;
             L_EXISTENCIA.Text = _controlador.ExistenciaDeposito;
             TB_CNT.Text = _controlador.Cantidad.ToString();
-            TB_COSTO.Text = _controlador.Costo.ToString();
+            TB_COSTO.Text = _controlador.Costo.ToString("n2").Replace(".",",");
             BT_CAMBIO_DIVISA.Visible = _controlador.ProductoEsDivisa;
             CB_EMPAQUE.SelectedIndex = -1;
             if (_controlador.TipoEmpaqueSeleccionado == enumerados.enumTipoEmpaque.PorUnidad)
@@ -75,7 +75,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         private void ActualizarData()
         {
-            TB_COSTO.Text = _controlador.Costo.ToString();
+            TB_COSTO.Text = _controlador.Costo.ToString("n2").Replace(".",",");
             L_CNT_UND.Text = _controlador.CntUnd;
             L_COSTO_UND.Text = _controlador.CostoUnd;
             L_IMPORTE.Text = _controlador.Importe.ToString("n2");

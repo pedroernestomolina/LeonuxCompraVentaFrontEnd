@@ -13,6 +13,7 @@ namespace ModCajaBanco
     {
 
         private Reportes.Movimientos.Gestion _filtroGestion;
+        private Reportes.Analisis.Gestion _analisisGestion;
         private Habladores.Gestion _gestionHab;
 
 
@@ -23,6 +24,7 @@ namespace ModCajaBanco
         public Gestion()
         {
             _filtroGestion = new Reportes.Movimientos.Gestion();
+            _analisisGestion = new Reportes.Analisis.Gestion();
             _gestionHab = new Habladores.Gestion();
         }
 
@@ -660,6 +662,26 @@ namespace ModCajaBanco
                     Environment.NewLine + "Sucursal: " + sucursalNombre;
                 var rp1 = new Reportes.Movimientos.CobranzaDiaria.GestionRep(r01.Entidad, filtros);
                 rp1.Generar();
+            }
+        }
+
+        public void AnalisisVentasPromedio()
+        {
+            if (!Sistema._ActivarComoSucursal) 
+            {
+                _analisisGestion.setGestion(new Reportes.Analisis.VentaPromedio.Gestion());
+                _analisisGestion.Inicializar();
+                _analisisGestion.Inicia();
+            }
+        }
+
+        public void AnalisisVentasProducto()
+        {
+            if (!Sistema._ActivarComoSucursal)
+            {
+                _analisisGestion.setGestion(new Reportes.Analisis.VentaProducto.Gestion());
+                _analisisGestion.Inicializar();
+                _analisisGestion.Inicia();
             }
         }
 

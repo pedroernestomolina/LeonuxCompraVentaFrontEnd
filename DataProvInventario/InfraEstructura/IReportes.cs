@@ -22,6 +22,8 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha> Reportes_CompraVentaAlmacen(OOB.LibInventario.Reportes.CompraVentaAlmacen.Filtro filtro);
         OOB.ResultadoLista<OOB.LibInventario.Reportes.DepositoResumen.Ficha> Reportes_DepositoResumen();
 
+        OOB.ResultadoLista<OOB.LibInventario.Reportes.NivelMinimo.Ficha> Reportes_NivelMinimo(OOB.LibInventario.Reportes.NivelMinimo.Filtro filtro);
+
     }
 
 }

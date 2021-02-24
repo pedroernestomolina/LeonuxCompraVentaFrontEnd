@@ -66,6 +66,12 @@ namespace ModInventario.Movimiento
                 return false;
             }
 
+            if (detalle.ListaItems.Count(c=>c.Importe==0.0m)>0)
+            {
+                Helpers.Msg.Error("Hay Items En El Documento Con Importe En Cero (0)");
+                return false;
+            }
+
             return rt;
         }
 

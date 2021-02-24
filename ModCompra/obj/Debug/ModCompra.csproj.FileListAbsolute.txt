@@ -1,3 +1,5 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.SqlServer.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Documento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\Reportes\Filtros\CompraDepartamento.rdlc
@@ -9,7 +11,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ModCompra.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ModCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DataProvCompra.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.dll
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\OOB.dll
@@ -23,7 +24,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DataProvCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.xml
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.SqlServer.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ServiceCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DtoLib.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DtoLibCompra.pdb
@@ -46,6 +46,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Maestros.G
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Maestros.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Producto.Listar.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Administrador.AdmFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.AgregarEditar.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Listar.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Reportes.Filtros.FiltrosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Reportes.ReporteFrm.resources

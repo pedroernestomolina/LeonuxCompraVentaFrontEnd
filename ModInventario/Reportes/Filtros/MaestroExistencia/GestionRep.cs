@@ -73,7 +73,8 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
 
                 DataRow rt = ds.Tables["MaestroExistencia"].NewRow();
                 rt["nombrePrd"] = it.nombrePrd + Environment.NewLine + it.codigoPrd; 
-                rt["nombreDep"] = it.codigoDep+", "+it.nombreDep;
+                //rt["nombreDep"] = it.codigoDep+", "+it.nombreDep;
+                rt["nombreDep"] = it.nombreDep;
                 rt["existencia"] = it.exFisica;
                 rt["costoUnd"] = it.costoUndDivisa;
                 rt["costoMonto"] = it.costoUndDivisa*it.exFisica;

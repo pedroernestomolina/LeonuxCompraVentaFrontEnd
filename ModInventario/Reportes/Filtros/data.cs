@@ -11,6 +11,12 @@ namespace ModInventario.Reportes.Filtros
     public class data
     {
 
+
+        private bool _porFecha;
+        private DateTime _desde;
+        private DateTime _hasta;
+
+
         public string AutoProducto { get; set; }
         public string AutoGrupo { get; set; }
         public string AutoMarca { get; set; }
@@ -24,9 +30,18 @@ namespace ModInventario.Reportes.Filtros
         public string CodigoSucursal { get; set; }
         public string NombreDepartamento { get; set; }
         public string NombreDeposito { get; set; }
-        public DateTime Desde { get; set; }
-        public DateTime Hasta { get; set; }
 
+        public DateTime Desde 
+        {
+            get { return _desde; }
+            set { _desde = value; _porFecha = true; } 
+        }
+
+        public DateTime Hasta 
+        {
+            get { return _hasta; }
+            set { _hasta = value; _porFecha = true; } 
+        }
 
         public data()
         {
@@ -48,8 +63,23 @@ namespace ModInventario.Reportes.Filtros
             NombreDepartamento = "";
             NombreDeposito = "";
             AutoProducto = "";
-            Desde = DateTime.Now.Date;
-            Hasta = DateTime.Now.Date;
+            _desde= DateTime.Now.Date;
+            _hasta = DateTime.Now.Date;
+            _porFecha = false;
+        }
+
+        public string TextoFiltro()
+        {
+            var filt = "";
+
+            if (_porFecha)
+                filt+="DESDE: " + Desde.ToShortDateString() + ", HASTA: " + Hasta.ToShortDateString();
+            if (AutoDeposito != "")
+                filt += ", DEPOSITO: " + NombreDeposito;
+            if (AutoDepartamento  != "")
+                filt += ", DEPARTAMENTO: " + NombreDepartamento;
+
+            return filt;
         }
 
     }

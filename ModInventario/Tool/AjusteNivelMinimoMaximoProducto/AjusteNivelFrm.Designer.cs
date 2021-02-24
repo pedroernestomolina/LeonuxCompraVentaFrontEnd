@@ -54,9 +54,13 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.L_DEPARTAMENTO = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.CB_DEPARTAMENTO = new System.Windows.Forms.ComboBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.TB_CADENA = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.L_DEPOSITO = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,10 +75,6 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.L_ITEMS = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TB_CADENA = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -94,6 +94,8 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -103,8 +105,6 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -257,7 +257,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 292F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel3.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel8, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel10, 3, 0);
@@ -426,7 +426,7 @@
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.label5);
+            this.panel17.Controls.Add(this.L_DEPARTAMENTO);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(1, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
@@ -435,16 +435,18 @@
             this.panel17.Size = new System.Drawing.Size(150, 21);
             this.panel17.TabIndex = 0;
             // 
-            // label5
+            // L_DEPARTAMENTO
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(2, 2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Departamento A Filtrar:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.L_DEPARTAMENTO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_DEPARTAMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DEPARTAMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DEPARTAMENTO.Location = new System.Drawing.Point(2, 2);
+            this.L_DEPARTAMENTO.Name = "L_DEPARTAMENTO";
+            this.L_DEPARTAMENTO.Size = new System.Drawing.Size(146, 17);
+            this.L_DEPARTAMENTO.TabIndex = 2;
+            this.L_DEPARTAMENTO.Text = "Departamento A Filtrar:";
+            this.L_DEPARTAMENTO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.L_DEPARTAMENTO.Click += new System.EventHandler(this.L_DEPARTAMENTO_Click);
             // 
             // panel18
             // 
@@ -470,6 +472,51 @@
             this.CB_DEPARTAMENTO.TabIndex = 2;
             this.CB_DEPARTAMENTO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPARTAMENTO_SelectedIndexChanged);
             this.CB_DEPARTAMENTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.label6);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(153, 1);
+            this.panel21.Margin = new System.Windows.Forms.Padding(1);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(2);
+            this.panel21.Size = new System.Drawing.Size(134, 21);
+            this.panel21.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(2, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 17);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Producto A Filtrar:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.TB_CADENA);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel22.Location = new System.Drawing.Point(153, 24);
+            this.panel22.Margin = new System.Windows.Forms.Padding(1);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(2);
+            this.panel22.Size = new System.Drawing.Size(134, 28);
+            this.panel22.TabIndex = 3;
+            // 
+            // TB_CADENA
+            // 
+            this.TB_CADENA.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CADENA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_CADENA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CADENA.Location = new System.Drawing.Point(2, 2);
+            this.TB_CADENA.MaxLength = 30;
+            this.TB_CADENA.Name = "TB_CADENA";
+            this.TB_CADENA.Size = new System.Drawing.Size(130, 22);
+            this.TB_CADENA.TabIndex = 0;
+            this.TB_CADENA.Leave += new System.EventHandler(this.TB_CADENA_Leave);
             // 
             // panel11
             // 
@@ -631,51 +678,6 @@
             this.L_ITEMS.Text = "99999999";
             this.L_ITEMS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.label6);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(153, 1);
-            this.panel21.Margin = new System.Windows.Forms.Padding(1);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(2);
-            this.panel21.Size = new System.Drawing.Size(134, 21);
-            this.panel21.TabIndex = 2;
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.TB_CADENA);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(153, 24);
-            this.panel22.Margin = new System.Windows.Forms.Padding(1);
-            this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(2);
-            this.panel22.Size = new System.Drawing.Size(134, 28);
-            this.panel22.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 17);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Producto A Filtrar:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TB_CADENA
-            // 
-            this.TB_CADENA.BackColor = System.Drawing.Color.Yellow;
-            this.TB_CADENA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_CADENA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CADENA.Location = new System.Drawing.Point(2, 2);
-            this.TB_CADENA.MaxLength = 30;
-            this.TB_CADENA.Name = "TB_CADENA";
-            this.TB_CADENA.Size = new System.Drawing.Size(130, 22);
-            this.TB_CADENA.TabIndex = 0;
-            this.TB_CADENA.Leave += new System.EventHandler(this.TB_CADENA_Leave);
-            // 
             // AjusteNivelFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -710,6 +712,9 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -720,9 +725,6 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -763,7 +765,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label L_DEPARTAMENTO;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.ComboBox CB_DEPARTAMENTO;
         private System.Windows.Forms.Label label2;

@@ -11,6 +11,8 @@ namespace OOB.LibInventario.Producto.Data
     {
 
 
+        public string codigoPrd { get; set; }
+        public string nombrePrd { get; set; }
         public List<Deposito> depositos { get; set; }
         public string decimales { get; set; }
         public string empaque { get; set; }
@@ -23,6 +25,8 @@ namespace OOB.LibInventario.Producto.Data
             decimales = "0";
             empaque = "";
             empaqueContenido = 1;
+            codigoPrd = "";
+            nombrePrd = "";
         }
 
     }

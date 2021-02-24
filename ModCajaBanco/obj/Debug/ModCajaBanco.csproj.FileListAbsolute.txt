@@ -1,4 +1,6 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Conf.xml
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Analisis\VentaProducto.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Analisis\VentaPromedio.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Hablador\Hablador.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\ArqueoVentaPos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Movimientos\CobranzaDiaria.rdlc
@@ -37,6 +39,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.cspr
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.Form1.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.Habladores.HabladoresFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.Reportes.Analisis.FiltrarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.Reportes.Movimientos.FiltroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.Reportes.Reporte.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\obj\Debug\ModCajaBanco.csproj.GenerateResource.Cache

@@ -154,6 +154,26 @@ namespace ModCajaBanco
         {
             _controlador.CobranzaDiariaPorCierre();
         }
+
+        private void TSM_ANALISIS_Ventas_PROMEDIO_Click(object sender, EventArgs e)
+        {
+            AnalisisVentasPromedio();
+        }
+
+        private void AnalisisVentasPromedio()
+        {
+            _controlador.AnalisisVentasPromedio();
+        }
+
+        private void TSM_ANALISIS_Ventas_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            AnalisisVentasProducto();
+        }
+
+        private void AnalisisVentasProducto()
+        {
+            _controlador.AnalisisVentasProducto();
+        }
     
     }
 

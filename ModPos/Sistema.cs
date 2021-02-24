@@ -22,6 +22,7 @@ namespace ModPos
         static public OOB.LibVenta.PosOffline.Empresa.Ficha Empresa;
         static public EnumModoRolloTicket ImpresoraTicket;
         static public DateTime? FechaUltimaActualizacion;
+        public static string CodigoSucursal;
 
     }
 

@@ -9,7 +9,7 @@ namespace DataProvCompra.InfraEstructura
 {
     
     public interface IData: ISucursal, IDeposito, IUsuario, IProveedor, IProducto, IEmpresa, 
-        IPermiso, IConfiguracion, IDocumento, IConcepto, IReportes, IGrupo
+        IPermiso, IConfiguracion, IDocumento, IConcepto, IReportes, IGrupo, IEstado
     {
 
         OOB.ResultadoEntidad<DateTime> FechaServidor();

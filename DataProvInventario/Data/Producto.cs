@@ -192,6 +192,8 @@ namespace DataProvInventario.Data
             var e = r01.Entidad;
             if (e != null)
             {
+                nr.codigoPrd= e.codigoPrd;
+                nr.nombrePrd = e.nombrePrd;
                 nr.decimales = e.decimales;
                 nr.empaque = e.empaqueCompra;
                 nr.empaqueContenido = e.empaqueCompraCont;

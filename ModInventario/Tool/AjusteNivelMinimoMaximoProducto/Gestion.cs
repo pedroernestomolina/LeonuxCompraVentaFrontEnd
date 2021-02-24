@@ -147,15 +147,16 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             var msg = MessageBox.Show("Limpiar Busqueda Actual ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes) 
             {
-                _cadenaBusqueda = "";
-                IsLimpiarOk = true;
-                IsBuscarHabilitado = true;
-                ProcesoIsOk = false;
-                SalirIsOk = false;
-                AutoDeposito = "";
-                AutoDepartamento = "";
-                _deposito.Limpiar();
-                _gestionLista.Limpiar();
+                Inicializar();
+                //_cadenaBusqueda = "";
+                //IsLimpiarOk = true;
+                //IsBuscarHabilitado = true;
+                //ProcesoIsOk = false;
+                //SalirIsOk = false;
+                //AutoDeposito = "";
+                //AutoDepartamento = "";
+                //_deposito.Limpiar();
+                //_gestionLista.Limpiar();
             }
         }
 
@@ -223,6 +224,19 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         public void setCadenaBuscar(string p)
         {
             _cadenaBusqueda = p;
+        }
+
+        public void Inicializar()
+        {
+            _cadenaBusqueda = "";
+            IsLimpiarOk = true;
+            IsBuscarHabilitado = true;
+            ProcesoIsOk = false;
+            SalirIsOk = false;
+            AutoDeposito = "";
+            AutoDepartamento = "";
+            _deposito.Limpiar();
+            _gestionLista.Limpiar();
         }
 
     }

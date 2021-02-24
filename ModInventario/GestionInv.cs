@@ -358,6 +358,18 @@ namespace ModInventario
             rp.Generar();
         }
 
+        public void MaestroNivelMinimo()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.NivelMInimo.Filtro());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                var rp = new Reportes.Filtros.NivelMInimo.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.Generar();
+            }
+        }
+
     }
 
 }

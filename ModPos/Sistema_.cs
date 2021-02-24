@@ -24,6 +24,7 @@ namespace ModPos
         private string _bdLocal;
 
 
+        public string IdSucursal { get { return Sistema.CodigoSucursal; } }
         public string InformacionBD { get { return "Ruta Remota: "+_bdRemota + Environment.NewLine + "Ruta Local: "+_bdLocal; } }
         public string JornadaNro 
         { 
@@ -128,7 +129,7 @@ namespace ModPos
             }
             _litsActualPermisos = r05.Entidad.Permisos;
 
-            var r06 = Sistema.MyData2.Empresa_Datos ();
+            var r06 = Sistema.MyData2.Empresa_Datos();
             if (r06.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r06.Mensaje);
@@ -143,6 +144,14 @@ namespace ModPos
                 return false;
             }
             Sistema.FechaUltimaActualizacion = r07.Entidad;
+
+            var r08 = Sistema.MyData2.CodigoSucursal();
+            if (r08.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r08.Mensaje);
+                return false;
+            }
+            Sistema.CodigoSucursal = r08.Entidad;
 
             return rt;
         }

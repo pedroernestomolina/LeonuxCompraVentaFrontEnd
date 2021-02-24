@@ -550,6 +550,96 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
+
+        // ANALISIS
+
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Ficha> Reporte_Analisis_VentaPromedio(OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Analisis.VentaPromedio.Filtro()
+            {
+                codSucursal = filtro.codSucursal,
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reporte_Analisis_VentaPromedio(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Ficha()
+                        {
+                            dias = s.dias,
+                            cntMov = s.cntMov,
+                            ano = s.ano,
+                            codSucursal = s.codSucursal,
+                            mes = s.mes,
+                            sucursal = s.sucursal,
+                            venta = s.venta,
+                            ventaDivisa = s.ventaDivisa,
+                            cntItemStock = s.cntItemStock,
+                            costoStock = s.costoStock,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Ficha> Reporte_Analisis_VentaProducto(OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Analisis.VentaProducto.Filtro()
+            {
+                codSucursal = filtro.codSucursal,
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reporte_Analisis_VentaProducto(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Ficha()
+                        {
+                            ano = s.ano,
+                            autoPrd = s.autoPrd,
+                            cnt = s.cnt,
+                            mes = s.mes,
+                            nombrePrd = s.nombrePrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

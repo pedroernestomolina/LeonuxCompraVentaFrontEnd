@@ -120,6 +120,22 @@ namespace DataProvPosOffLine.Data
             return result;
         }
 
+        public OOB.ResultadoEntidad<string> CodigoSucursal()
+        {
+            var result = new OOB.ResultadoEntidad<string>();
+
+            var r01 = MyData.CodigoSucursal();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            result.Entidad = r01.Entidad;
+            return result;
+        }
+
     }
 
 }

@@ -449,6 +449,59 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             ActivarFocoBusqueda();
             DGV_DETALLE.Refresh();
         }
+
+        private void DGV_DETALLE_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            VerExistencia();
+        }
+
+        private void VerExistencia()
+        {
+            _controlador.VerExistencia();
+        }
+
+        private void BT_ELIMINAR_EXISTENCIA_CERO_Click(object sender, EventArgs e)
+        {
+            EliminarItemsExistenciaDepositoCero();
+        }
+
+        private void EliminarItemsExistenciaDepositoCero()
+        {
+            _controlador.EliminarItemsExistenciaDepositoCero();
+            ActualizarData();
+            ActivarFocoBusqueda();
+            DGV_DETALLE.Refresh();
+        }
+
+        private void BT_GRAFICA_Click(object sender, EventArgs e)
+        {
+            AnalisisProductos();
+        }
+
+        private void AnalisisProductos()
+        {
+            _controlador.AnalisisProductos();
+        }
+
+        private void BT_ANALSIS_DETALLADO_Click(object sender, EventArgs e)
+        {
+            AanalisisDetallado();
+        }
+
+        private void AanalisisDetallado()
+        {
+            _controlador.AnalisisDetallado();
+        }
+
+        private void BT_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            VerExistenciaDeposito();
+        }
+
+        private void VerExistenciaDeposito()
+        {
+            _controlador.VerExistenciaDeposito();
+        }
     
     }
 

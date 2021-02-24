@@ -22,6 +22,11 @@ namespace DataProvCajaBanco.Infra
         OOB.ResultadoEntidad<OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Ficha> Reporte_CobranzaDiaria(OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria.Filtro filtro);
         OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDiarioSucursal.Ficha> Reporte_ResumenVentaDiarioSucursal(OOB.LibCajaBanco.Reporte.Movimiento.ResumenVentaDiarioSucursal.Filtro filtro);
 
+        //ANALISIS
+
+        OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Ficha> Reporte_Analisis_VentaPromedio(OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Filtro filtro);
+        OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Ficha> Reporte_Analisis_VentaProducto(OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Filtro filtro);
+
     }
 
 }

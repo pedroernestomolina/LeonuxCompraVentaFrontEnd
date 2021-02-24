@@ -74,7 +74,7 @@ namespace ModInventario.Producto.Deposito.Asignar
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-            foreach (var it in r01.Lista.OrderBy(o=>o.codigo).ToList()) 
+            foreach (var it in r01.Lista.OrderBy(o=>o.nombre).ToList()) 
             {
                 bldepositos.Add(new data(it));
             }

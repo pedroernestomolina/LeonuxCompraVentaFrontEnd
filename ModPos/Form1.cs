@@ -78,6 +78,7 @@ namespace ModPos
         {
             L_BD_INF.Text = _controlador.InformacionBD;
             L_VERSION.Text = "Ver. " + Application.ProductVersion;
+            L_ID_SUCURSAL.Text = _controlador.IdSucursal;
             ActualizarInformacionBdServidor();
             ActualizarJornadaOperadorUsuario();
         }

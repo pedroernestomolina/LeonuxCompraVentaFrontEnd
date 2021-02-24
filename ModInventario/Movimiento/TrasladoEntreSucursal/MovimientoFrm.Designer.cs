@@ -126,8 +126,12 @@
             this.BT_EDITAR_ITEM = new System.Windows.Forms.Button();
             this.panel49 = new System.Windows.Forms.Panel();
             this.BT_ELIMINAR_ITEM = new System.Windows.Forms.Button();
+            this.panel50 = new System.Windows.Forms.Panel();
+            this.BT_GRAFICA = new System.Windows.Forms.Button();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.BT_ELIMINAR_NO_DISPONIBLE = new System.Windows.Forms.Button();
+            this.BT_ELIMINAR_EXISTENCIA_CERO = new System.Windows.Forms.Button();
+            this.panel51 = new System.Windows.Forms.Panel();
+            this.panel52 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
             this.DGV_DETALLE = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -195,6 +199,7 @@
             this.tableLayoutPanel18.SuspendLayout();
             this.panel48.SuspendLayout();
             this.panel49.SuspendLayout();
+            this.panel50.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel40.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).BeginInit();
@@ -1396,7 +1401,10 @@
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel18.Controls.Add(this.panel48, 5, 1);
             this.tableLayoutPanel18.Controls.Add(this.panel49, 6, 1);
+            this.tableLayoutPanel18.Controls.Add(this.panel50, 1, 0);
             this.tableLayoutPanel18.Controls.Add(this.panel29, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.panel51, 2, 0);
+            this.tableLayoutPanel18.Controls.Add(this.panel52, 3, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
@@ -1459,31 +1467,77 @@
             this.BT_ELIMINAR_ITEM.UseVisualStyleBackColor = true;
             this.BT_ELIMINAR_ITEM.Click += new System.EventHandler(this.BT_ELIMINAR_ITEM_Click);
             // 
+            // panel50
+            // 
+            this.panel50.Controls.Add(this.BT_GRAFICA);
+            this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel50.Location = new System.Drawing.Point(38, 1);
+            this.panel50.Margin = new System.Windows.Forms.Padding(1);
+            this.panel50.Name = "panel50";
+            this.panel50.Padding = new System.Windows.Forms.Padding(2);
+            this.panel50.Size = new System.Drawing.Size(35, 28);
+            this.panel50.TabIndex = 3;
+            // 
+            // BT_GRAFICA
+            // 
+            this.BT_GRAFICA.BackgroundImage = global::ModInventario.Properties.Resources.bt_grafico;
+            this.BT_GRAFICA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_GRAFICA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_GRAFICA.FlatAppearance.BorderSize = 0;
+            this.BT_GRAFICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_GRAFICA.Location = new System.Drawing.Point(2, 2);
+            this.BT_GRAFICA.Name = "BT_GRAFICA";
+            this.BT_GRAFICA.Size = new System.Drawing.Size(31, 24);
+            this.BT_GRAFICA.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.BT_GRAFICA, "Análisis Ventas ");
+            this.BT_GRAFICA.UseVisualStyleBackColor = true;
+            this.BT_GRAFICA.Click += new System.EventHandler(this.BT_GRAFICA_Click);
+            // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.BT_ELIMINAR_NO_DISPONIBLE);
+            this.panel29.Controls.Add(this.BT_ELIMINAR_EXISTENCIA_CERO);
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel29.Location = new System.Drawing.Point(1, 1);
             this.panel29.Margin = new System.Windows.Forms.Padding(1);
             this.panel29.Name = "panel29";
             this.panel29.Padding = new System.Windows.Forms.Padding(2);
             this.panel29.Size = new System.Drawing.Size(35, 28);
-            this.panel29.TabIndex = 2;
+            this.panel29.TabIndex = 4;
             // 
-            // BT_ELIMINAR_NO_DISPONIBLE
+            // BT_ELIMINAR_EXISTENCIA_CERO
             // 
-            this.BT_ELIMINAR_NO_DISPONIBLE.BackgroundImage = global::ModInventario.Properties.Resources.bt_limpiar_3;
-            this.BT_ELIMINAR_NO_DISPONIBLE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_ELIMINAR_NO_DISPONIBLE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ELIMINAR_NO_DISPONIBLE.FlatAppearance.BorderSize = 0;
-            this.BT_ELIMINAR_NO_DISPONIBLE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_ELIMINAR_NO_DISPONIBLE.Location = new System.Drawing.Point(2, 2);
-            this.BT_ELIMINAR_NO_DISPONIBLE.Name = "BT_ELIMINAR_NO_DISPONIBLE";
-            this.BT_ELIMINAR_NO_DISPONIBLE.Size = new System.Drawing.Size(31, 24);
-            this.BT_ELIMINAR_NO_DISPONIBLE.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.BT_ELIMINAR_NO_DISPONIBLE, "Quitar Items Donde No Tenga Disponibilidad");
-            this.BT_ELIMINAR_NO_DISPONIBLE.UseVisualStyleBackColor = true;
-            this.BT_ELIMINAR_NO_DISPONIBLE.Click += new System.EventHandler(this.BT_ELIMINAR_NO_DISPONIBLE_Click);
+            this.BT_ELIMINAR_EXISTENCIA_CERO.BackgroundImage = global::ModInventario.Properties.Resources.bt_limpiar_3;
+            this.BT_ELIMINAR_EXISTENCIA_CERO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ELIMINAR_EXISTENCIA_CERO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ELIMINAR_EXISTENCIA_CERO.FlatAppearance.BorderSize = 0;
+            this.BT_ELIMINAR_EXISTENCIA_CERO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ELIMINAR_EXISTENCIA_CERO.Location = new System.Drawing.Point(2, 2);
+            this.BT_ELIMINAR_EXISTENCIA_CERO.Name = "BT_ELIMINAR_EXISTENCIA_CERO";
+            this.BT_ELIMINAR_EXISTENCIA_CERO.Size = new System.Drawing.Size(31, 24);
+            this.BT_ELIMINAR_EXISTENCIA_CERO.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.BT_ELIMINAR_EXISTENCIA_CERO, "Quitar Items Donde Existencia Depósito Principal Esté En Cero (0)");
+            this.BT_ELIMINAR_EXISTENCIA_CERO.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR_EXISTENCIA_CERO.Click += new System.EventHandler(this.BT_ELIMINAR_EXISTENCIA_CERO_Click);
+            // 
+            // panel51
+            // 
+            this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel51.Location = new System.Drawing.Point(75, 1);
+            this.panel51.Margin = new System.Windows.Forms.Padding(1);
+            this.panel51.Name = "panel51";
+            this.panel51.Padding = new System.Windows.Forms.Padding(2);
+            this.panel51.Size = new System.Drawing.Size(35, 28);
+            this.panel51.TabIndex = 5;
+            // 
+            // panel52
+            // 
+            this.panel52.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel52.Location = new System.Drawing.Point(112, 1);
+            this.panel52.Margin = new System.Windows.Forms.Padding(1);
+            this.panel52.Name = "panel52";
+            this.panel52.Padding = new System.Windows.Forms.Padding(2);
+            this.panel52.Size = new System.Drawing.Size(35, 28);
+            this.panel52.TabIndex = 6;
             // 
             // panel40
             // 
@@ -1505,6 +1559,7 @@
             this.DGV_DETALLE.Name = "DGV_DETALLE";
             this.DGV_DETALLE.Size = new System.Drawing.Size(914, 351);
             this.DGV_DETALLE.TabIndex = 0;
+            this.DGV_DETALLE.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DETALLE_CellDoubleClick);
             this.DGV_DETALLE.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DETALLE_CellFormatting);
             // 
             // MovimientoFrm
@@ -1590,6 +1645,7 @@
             this.tableLayoutPanel18.ResumeLayout(false);
             this.panel48.ResumeLayout(false);
             this.panel49.ResumeLayout(false);
+            this.panel50.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DETALLE)).EndInit();
@@ -1699,7 +1755,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button BT_CARGAR_DATA;
+        private System.Windows.Forms.Panel panel50;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Button BT_ELIMINAR_NO_DISPONIBLE;
+        private System.Windows.Forms.Button BT_ELIMINAR_EXISTENCIA_CERO;
+        private System.Windows.Forms.Button BT_GRAFICA;
+        private System.Windows.Forms.Panel panel51;
+        private System.Windows.Forms.Panel panel52;
     }
 }

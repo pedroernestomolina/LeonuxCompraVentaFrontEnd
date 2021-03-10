@@ -196,6 +196,26 @@ namespace ModCompra.Proveedor.Administrador
             _controlador.EditarFicha();
         }
 
+        private void BT_ARTICULOS_COMPRA_Click(object sender, EventArgs e)
+        {
+            CompraArticulos();
+        }
+
+        private void CompraArticulos()
+        {
+            _controlador.CompraArticulos();
+        }
+
+        private void BT_DOCUMENTOS_Click(object sender, EventArgs e)
+        {
+            Documentos();
+        }
+
+        private void Documentos()
+        {
+            _controlador.Documentos();
+        }
+      
     }
 
 }

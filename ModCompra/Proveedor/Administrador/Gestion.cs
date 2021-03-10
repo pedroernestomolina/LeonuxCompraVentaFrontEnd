@@ -17,6 +17,8 @@ namespace ModCompra.Proveedor.Administrador
         private OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaBusquedaProveedor _configuracionMetodoBusqueda;
         private GestionLista _gestionLista;
         private AgregarEditar.Gestion _gestionAgregarEditar;
+        private ArticulosCompra.Gestion _gestionCompraArticulos;
+        private Documentos.Gestion _gestionDocumentos;
 
 
         public int cntItem { get { return _gestionLista.Items; } }
@@ -33,6 +35,8 @@ namespace ModCompra.Proveedor.Administrador
             _gestionLista = new GestionLista();
             _gestionLista.ItemChanged +=_gestionLista_ItemChanged;
             _gestionAgregarEditar= new AgregarEditar.Gestion();
+            _gestionCompraArticulos = new ArticulosCompra.Gestion();
+            _gestionDocumentos = new Documentos.Gestion();
         }
 
 
@@ -194,6 +198,26 @@ namespace ModCompra.Proveedor.Administrador
         {
             _gestionLista.EliminarItem(autoId);
             InsertarFichaLista(autoId);
+        }
+
+        public void CompraArticulos()
+        {
+            if (Item != null) 
+            {
+                _gestionCompraArticulos.Inicializa();
+                _gestionCompraArticulos.setProveedor(Item);
+                _gestionCompraArticulos.Inicia();
+            }
+        }
+
+        public void Documentos()
+        {
+            if (Item != null)
+            {
+                _gestionDocumentos.Inicializa();
+                _gestionDocumentos.setProveedor(Item);
+                _gestionDocumentos.Inicia();
+            }
         }
 
     }

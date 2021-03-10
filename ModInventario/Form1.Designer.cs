@@ -89,12 +89,19 @@
             this.TSM_REPORTE_MAESTRO_EXISTENCIA = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_MAESTRO_DEPOSITO_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_MAESTRO_PRECIO = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_KARDEX = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTE_RELACION_COMPRAVENTA = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_GRAFICA_TOP_30 = new System.Windows.Forms.ToolStripMenuItem();
             this.graficaDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONFIGURACION_COSTO_EDAD = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -110,7 +117,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -175,11 +181,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(721, 1);
+            this.panel2.Location = new System.Drawing.Point(715, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(162, 52);
+            this.panel2.Size = new System.Drawing.Size(168, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -190,7 +196,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(158, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(164, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -205,7 +211,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(386, 52);
+            this.panel7.Size = new System.Drawing.Size(381, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -224,7 +230,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(382, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(377, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -235,7 +241,7 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(2);
-            this.panel13.Size = new System.Drawing.Size(89, 22);
+            this.panel13.Size = new System.Drawing.Size(88, 22);
             this.panel13.TabIndex = 2;
             // 
             // label5
@@ -245,7 +251,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(2, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 18);
+            this.label5.Size = new System.Drawing.Size(84, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fecha:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -254,11 +260,11 @@
             // 
             this.panel14.Controls.Add(this.L_FECHA);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(92, 1);
+            this.panel14.Location = new System.Drawing.Point(91, 1);
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(289, 22);
+            this.panel14.Size = new System.Drawing.Size(285, 22);
             this.panel14.TabIndex = 3;
             // 
             // L_FECHA
@@ -268,7 +274,7 @@
             this.L_FECHA.ForeColor = System.Drawing.Color.Yellow;
             this.L_FECHA.Location = new System.Drawing.Point(2, 2);
             this.L_FECHA.Name = "L_FECHA";
-            this.L_FECHA.Size = new System.Drawing.Size(285, 18);
+            this.L_FECHA.Size = new System.Drawing.Size(281, 18);
             this.L_FECHA.TabIndex = 5;
             this.L_FECHA.Text = "Hoy";
             this.L_FECHA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -281,7 +287,7 @@
             this.panel15.Margin = new System.Windows.Forms.Padding(1);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(2);
-            this.panel15.Size = new System.Drawing.Size(89, 22);
+            this.panel15.Size = new System.Drawing.Size(88, 22);
             this.panel15.TabIndex = 2;
             // 
             // label3
@@ -291,7 +297,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(2, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 18);
+            this.label3.Size = new System.Drawing.Size(84, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ruta BD:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -300,11 +306,11 @@
             // 
             this.panel16.Controls.Add(this.L_HOST);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(92, 25);
+            this.panel16.Location = new System.Drawing.Point(91, 25);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(289, 22);
+            this.panel16.Size = new System.Drawing.Size(285, 22);
             this.panel16.TabIndex = 4;
             // 
             // L_HOST
@@ -314,7 +320,7 @@
             this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
             this.L_HOST.Location = new System.Drawing.Point(2, 2);
             this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(285, 18);
+            this.L_HOST.Size = new System.Drawing.Size(281, 18);
             this.L_HOST.TabIndex = 4;
             this.L_HOST.Text = "label2";
             this.L_HOST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -323,7 +329,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(389, 1);
+            this.panel17.Location = new System.Drawing.Point(384, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -395,11 +401,11 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(591, 1);
+            this.panel20.Location = new System.Drawing.Point(586, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(128, 52);
+            this.panel20.Size = new System.Drawing.Size(127, 52);
             this.panel20.TabIndex = 3;
             // 
             // tableLayoutPanel8
@@ -415,7 +421,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(124, 48);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(123, 48);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel21
@@ -451,7 +457,8 @@
             this.movimientosToolStripMenuItem,
             this.visorToolStripMenuItem,
             this.reportesToolStripMenuItem,
-            this.estadisticasToolStripMenuItem});
+            this.estadisticasToolStripMenuItem,
+            this.configuraciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(884, 24);
@@ -756,6 +763,14 @@
             this.TSM_REPORTE_MAESTRO_PRECIO.Text = "Maestro Precios/Lista";
             this.TSM_REPORTE_MAESTRO_PRECIO.Click += new System.EventHandler(this.TSM_REPORTE_MAESTRO_PRECIO_Click);
             // 
+            // TSM_REPORTE_MAESTRO_NIVEL_MINIMO
+            // 
+            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Image = global::ModInventario.Properties.Resources.bt_imprimir_3;
+            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Name = "TSM_REPORTE_MAESTRO_NIVEL_MINIMO";
+            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Size = new System.Drawing.Size(280, 22);
+            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Text = "Maestro Nivel Mínimo";
+            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Click += new System.EventHandler(this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO_Click);
+            // 
             // TSM_REPORTE_KARDEX
             // 
             this.TSM_REPORTE_KARDEX.Image = global::ModInventario.Properties.Resources.bt_imprimir_3;
@@ -800,6 +815,58 @@
             this.graficaDepartamentoToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.graficaDepartamentoToolStripMenuItem.Text = "Grafica Departamento";
             this.graficaDepartamentoToolStripMenuItem.Visible = false;
+            // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA,
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD,
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS,
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS,
+            this.TSM_CONFIGURACION_COSTO_EDAD});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA
+            // 
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA.Image = global::ModInventario.Properties.Resources.bt_configuracion;
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA.Name = "TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA";
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA.Size = new System.Drawing.Size(323, 22);
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA.Text = "Indicar Busqueda Predeterminada del Producto";
+            this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA.Click += new System.EventHandler(this.TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA_Click);
+            // 
+            // TSM_CONFIGURACION_METODO_CALC_UTILIDAD
+            // 
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD.Image = ((System.Drawing.Image)(resources.GetObject("TSM_CONFIGURACION_METODO_CALC_UTILIDAD.Image")));
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD.Name = "TSM_CONFIGURACION_METODO_CALC_UTILIDAD";
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD.Size = new System.Drawing.Size(323, 22);
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD.Text = "Indicar Método Cálculo Utilidad";
+            this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD.Click += new System.EventHandler(this.TSM_CONFIGURACION_METODO_CALC_UTILIDAD_Click);
+            // 
+            // TSM_CONFIGURACION_REGISTRO_PRECIOS
+            // 
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS.Image = ((System.Drawing.Image)(resources.GetObject("TSM_CONFIGURACION_REGISTRO_PRECIOS.Image")));
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS.Name = "TSM_CONFIGURACION_REGISTRO_PRECIOS";
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS.Size = new System.Drawing.Size(323, 22);
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS.Text = "Indicar Preferencia Registro Precio ";
+            this.TSM_CONFIGURACION_REGISTRO_PRECIOS.Click += new System.EventHandler(this.TSM_CONFIGURACION_REGISTRO_PRECIOS_Click);
+            // 
+            // TSM_CONFIGURACION_REDONDEO_PRECIOS
+            // 
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS.Image = ((System.Drawing.Image)(resources.GetObject("TSM_CONFIGURACION_REDONDEO_PRECIOS.Image")));
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS.Name = "TSM_CONFIGURACION_REDONDEO_PRECIOS";
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS.Size = new System.Drawing.Size(323, 22);
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS.Text = "Indicar Redondeo Precios";
+            this.TSM_CONFIGURACION_REDONDEO_PRECIOS.Click += new System.EventHandler(this.TSM_CONFIGURACION_REDONDEO_PRECIOS_Click);
+            // 
+            // TSM_CONFIGURACION_COSTO_EDAD
+            // 
+            this.TSM_CONFIGURACION_COSTO_EDAD.Image = ((System.Drawing.Image)(resources.GetObject("TSM_CONFIGURACION_COSTO_EDAD.Image")));
+            this.TSM_CONFIGURACION_COSTO_EDAD.Name = "TSM_CONFIGURACION_COSTO_EDAD";
+            this.TSM_CONFIGURACION_COSTO_EDAD.Size = new System.Drawing.Size(323, 22);
+            this.TSM_CONFIGURACION_COSTO_EDAD.Text = "Indicar Costo Edad Del Producto";
+            this.TSM_CONFIGURACION_COSTO_EDAD.Click += new System.EventHandler(this.TSM_CONFIGURACION_COSTO_EDAD_Click);
             // 
             // panel3
             // 
@@ -995,14 +1062,6 @@
             this.panel10.Size = new System.Drawing.Size(246, 350);
             this.panel10.TabIndex = 0;
             // 
-            // TSM_REPORTE_MAESTRO_NIVEL_MINIMO
-            // 
-            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Image = global::ModInventario.Properties.Resources.bt_imprimir_3;
-            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Name = "TSM_REPORTE_MAESTRO_NIVEL_MINIMO";
-            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Size = new System.Drawing.Size(280, 22);
-            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Text = "Maestro Nivel Mínimo";
-            this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO.Click += new System.EventHandler(this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1133,6 +1192,12 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_RELACION_COMPRAVENTA;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_MAESTRO_DEPOSITO_RESUMEN;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_MAESTRO_NIVEL_MINIMO;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA;
+        private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_METODO_CALC_UTILIDAD;
+        private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_REGISTRO_PRECIOS;
+        private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_REDONDEO_PRECIOS;
+        private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_COSTO_EDAD;
     }
 }
 

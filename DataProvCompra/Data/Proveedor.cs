@@ -225,6 +225,7 @@ namespace DataProvCompra.Data
                             montoDivisa = s.montoDivisa,
                             serie = s.serie,
                             tasaDivisa = s.tasaDivisa,
+                            nombreTipoDoc=s.nombreTipoDoc,
                         };
                         return rg;
                     }).ToList();
@@ -262,6 +263,22 @@ namespace DataProvCompra.Data
                     {
                         var rg = new OOB.LibCompra.Proveedor.Articulos.Ficha()
                         {
+                            cantidad = s.cantidad,
+                            cantUnd = s.cantUnd,
+                            codigoPrd = s.codigoPrd,
+                            codTipoDoc = s.codTipoDoc,
+                            nombreTipoDoc=s.nombreTipoDoc,
+                            contenidoEmp = s.contenidoEmp,
+                            costo= s.costo,
+                            costoUnd = s.costoUnd,
+                            documento = s.documento,
+                            empaque = s.empaque,
+                            estatus = s.estatus,
+                            fecha = s.fecha,
+                            nombrePrd = s.nombrePrd,
+                            serie = s.serie,
+                            signo = s.signo,
+                            tasaCambio = s.tasaCambio,
                         };
                         return rg;
                     }).ToList();

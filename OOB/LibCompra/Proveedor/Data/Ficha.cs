@@ -18,12 +18,14 @@ namespace OOB.LibCompra.Proveedor.Data
         public string nombreRazonSocial { get { return identidad.nombreRazonSocial; } }
         public string direccionFiscal { get { return identidad.dirFiscal; } }
         public string codigo { get { return identidad.codigo; } }
+        public string RifNombrePrv { get { return ciRif + Environment.NewLine + nombreRazonSocial; } }
 
 
         public Ficha()
         {
             identidad = new Identificacion();
         }
+
 
     }
 

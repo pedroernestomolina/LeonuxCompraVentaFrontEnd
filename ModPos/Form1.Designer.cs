@@ -97,14 +97,16 @@
             this.BT_ACTUALIZAR_DATA = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel26 = new System.Windows.Forms.Panel();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.panel29 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
             this.L_ID_SUCURSAL = new System.Windows.Forms.Label();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -139,8 +141,8 @@
             this.panel6.SuspendLayout();
             this.panel25.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.panel26.SuspendLayout();
             this.panel27.SuspendLayout();
+            this.panel26.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
@@ -276,7 +278,9 @@
             this.MenuItem_Herramientas_TestBD,
             this.testFiscalToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.MenuItem_Herramientas_Limpiar_BD_Local});
+            this.MenuItem_Herramientas_Limpiar_BD_Local,
+            this.toolStripMenuItem3,
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
@@ -284,25 +288,25 @@
             // MenuItem_Herramientas_TestBD
             // 
             this.MenuItem_Herramientas_TestBD.Name = "MenuItem_Herramientas_TestBD";
-            this.MenuItem_Herramientas_TestBD.Size = new System.Drawing.Size(167, 22);
+            this.MenuItem_Herramientas_TestBD.Size = new System.Drawing.Size(202, 22);
             this.MenuItem_Herramientas_TestBD.Text = "Test Conexión BD";
             this.MenuItem_Herramientas_TestBD.Click += new System.EventHandler(this.MenuItem_Herramientas_TestBD_Click);
             // 
             // testFiscalToolStripMenuItem
             // 
             this.testFiscalToolStripMenuItem.Name = "testFiscalToolStripMenuItem";
-            this.testFiscalToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.testFiscalToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.testFiscalToolStripMenuItem.Text = "Test Fiscal";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(164, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(199, 6);
             // 
             // MenuItem_Herramientas_Limpiar_BD_Local
             // 
             this.MenuItem_Herramientas_Limpiar_BD_Local.Name = "MenuItem_Herramientas_Limpiar_BD_Local";
-            this.MenuItem_Herramientas_Limpiar_BD_Local.Size = new System.Drawing.Size(167, 22);
+            this.MenuItem_Herramientas_Limpiar_BD_Local.Size = new System.Drawing.Size(202, 22);
             this.MenuItem_Herramientas_Limpiar_BD_Local.Text = "Limpiar BD Local";
             this.MenuItem_Herramientas_Limpiar_BD_Local.Click += new System.EventHandler(this.MenuItem_Herramientas_Limpiar_BD_Local_Click);
             // 
@@ -914,6 +918,7 @@
             this.BT_ACTUALIZAR_DATA.TabIndex = 0;
             this.BT_ACTUALIZAR_DATA.Text = "ACTUALIZAR DATA DEL SERVIDOR";
             this.BT_ACTUALIZAR_DATA.UseVisualStyleBackColor = true;
+            this.BT_ACTUALIZAR_DATA.Visible = false;
             this.BT_ACTUALIZAR_DATA.Click += new System.EventHandler(this.BT_ACTUALIZAR_DATA_Click);
             // 
             // panel25
@@ -943,16 +948,6 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(225, 52);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.tableLayoutPanel8);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel26.Location = new System.Drawing.Point(1, 1);
-            this.panel26.Margin = new System.Windows.Forms.Padding(1);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(110, 50);
-            this.panel26.TabIndex = 0;
-            // 
             // panel27
             // 
             this.panel27.Controls.Add(this.tableLayoutPanel9);
@@ -962,6 +957,31 @@
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(111, 50);
             this.panel27.TabIndex = 1;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(111, 50);
+            this.tableLayoutPanel9.TabIndex = 1;
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.tableLayoutPanel8);
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.Location = new System.Drawing.Point(1, 1);
+            this.panel26.Margin = new System.Windows.Forms.Padding(1);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(110, 50);
+            this.panel26.TabIndex = 0;
             // 
             // tableLayoutPanel8
             // 
@@ -980,21 +1000,6 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(110, 50);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(111, 50);
-            this.tableLayoutPanel9.TabIndex = 1;
-            // 
             // panel28
             // 
             this.panel28.Controls.Add(this.label4);
@@ -1005,17 +1010,6 @@
             this.panel28.Padding = new System.Windows.Forms.Padding(2);
             this.panel28.Size = new System.Drawing.Size(108, 23);
             this.panel28.TabIndex = 0;
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.L_ID_SUCURSAL);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(1, 26);
-            this.panel29.Margin = new System.Windows.Forms.Padding(1);
-            this.panel29.Name = "panel29";
-            this.panel29.Padding = new System.Windows.Forms.Padding(2);
-            this.panel29.Size = new System.Drawing.Size(108, 23);
-            this.panel29.TabIndex = 1;
             // 
             // label4
             // 
@@ -1028,6 +1022,17 @@
             this.label4.Text = "ID Sucursal";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.L_ID_SUCURSAL);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(1, 26);
+            this.panel29.Margin = new System.Windows.Forms.Padding(1);
+            this.panel29.Name = "panel29";
+            this.panel29.Padding = new System.Windows.Forms.Padding(2);
+            this.panel29.Size = new System.Drawing.Size(108, 23);
+            this.panel29.TabIndex = 1;
+            // 
             // L_ID_SUCURSAL
             // 
             this.L_ID_SUCURSAL.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1038,6 +1043,18 @@
             this.L_ID_SUCURSAL.TabIndex = 1;
             this.L_ID_SUCURSAL.Text = "label5";
             this.L_ID_SUCURSAL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(199, 6);
+            // 
+            // TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL
+            // 
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Name = "TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL";
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Size = new System.Drawing.Size(202, 22);
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Text = "Actualizar Data Servidor ";
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Click += new System.EventHandler(this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL_Click);
             // 
             // Form1
             // 
@@ -1089,8 +1106,8 @@
             this.panel6.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel29.ResumeLayout(false);
@@ -1178,6 +1195,8 @@
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label L_ID_SUCURSAL;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL;
     }
 }
 

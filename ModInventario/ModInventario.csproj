@@ -139,6 +139,45 @@
     <Compile Include="Buscar\Filtrar\Gestion.cs" />
     <Compile Include="Buscar\Gestion.cs" />
     <Compile Include="Buscar\GestionLista.cs" />
+    <Compile Include="Configuracion\BusquedaPredeterminada\ConfigurarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\BusquedaPredeterminada\ConfigurarFrm.Designer.cs">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\BusquedaPredeterminada\data.cs" />
+    <Compile Include="Configuracion\BusquedaPredeterminada\Gestion.cs" />
+    <Compile Include="Configuracion\CostoEdad\ConfigurarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\CostoEdad\ConfigurarFrm.Designer.cs">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\CostoEdad\Gestion.cs" />
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\ConfigurarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\ConfigurarFrm.Designer.cs">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\data.cs" />
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\Gestion.cs" />
+    <Compile Include="Configuracion\RedondeoPrecio\ConfigurarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\RedondeoPrecio\ConfigurarFrm.Designer.cs">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\RedondeoPrecio\data.cs" />
+    <Compile Include="Configuracion\RedondeoPrecio\Gestion.cs" />
+    <Compile Include="Configuracion\RegistroPrecio\ConfigurarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\RegistroPrecio\ConfigurarFrm.Designer.cs">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\RegistroPrecio\data.cs" />
+    <Compile Include="Configuracion\RegistroPrecio\Gestion.cs" />
     <Compile Include="Filtros\Administrador\Filtros.cs" />
     <Compile Include="Filtros\data.cs" />
     <Compile Include="Filtros\Estatus.cs" />
@@ -523,6 +562,12 @@
     <Compile Include="Reportes\ReporteFrm.Designer.cs">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Visor\DSVisor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVisor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Visor\Existencia\GestionRep.cs" />
     <Compile Include="Seguridad\Enumerados.cs" />
     <Compile Include="Seguridad\Gestion.cs" />
     <Compile Include="Seguridad\SeguridadFrm.cs">
@@ -611,6 +656,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar\Filtrar\FiltrosFrm.resx">
       <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\BusquedaPredeterminada\ConfigurarFrm.resx">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\CostoEdad\ConfigurarFrm.resx">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\RedondeoPrecio\ConfigurarFrm.resx">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\RegistroPrecio\ConfigurarFrm.resx">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Filtros\FiltroFrm.resx">
       <DependentUpon>FiltroFrm.cs</DependentUpon>
@@ -766,6 +823,9 @@
     <EmbeddedResource Include="Reportes\ReporteFrm.resx">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Visor\Existencia.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\SeguridadFrm.resx">
       <DependentUpon>SeguridadFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -841,6 +901,7 @@
     <Content Include="Imagenes\bt_borrar.png" />
     <Content Include="Imagenes\bt_buscar.png" />
     <Content Include="Imagenes\bt_campana.png" />
+    <Content Include="Imagenes\bt_configuracion.png" />
     <Content Include="Imagenes\bt_consulta.png" />
     <Content Include="Imagenes\bt_costo.png" />
     <Content Include="Imagenes\bt_documento.png" />
@@ -934,6 +995,17 @@
     <None Include="Reportes\Movimientos\DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
+    <None Include="Reportes\Visor\DSVisor.xsc">
+      <DependentUpon>DSVisor.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Visor\DSVisor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVisor.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Visor\DSVisor.xss">
+      <DependentUpon>DSVisor.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Machine-learning-1024x682.jpg" />
     <None Include="Resources\transferencia.png" />
     <None Include="Resources\administrador.png" />
@@ -954,6 +1026,7 @@
     <None Include="Resources\bt_grafico.png" />
     <None Include="Resources\bt_imprimir_3.png" />
     <None Include="Resources\bt_enEspera.png" />
+    <None Include="Resources\bt_configuracion.png" />
     <Content Include="Resources\bt_setup.png" />
     <None Include="Resources\libro.png" />
     <None Include="Resources\carpeta.png" />

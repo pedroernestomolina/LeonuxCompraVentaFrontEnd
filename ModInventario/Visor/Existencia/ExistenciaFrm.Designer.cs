@@ -78,6 +78,8 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.BT_IMPRIMIR = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -111,6 +113,7 @@
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
+            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -134,6 +137,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel2.Controls.Add(this.panel9, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel25, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1);
@@ -727,6 +731,33 @@
             this.DGV.TabIndex = 0;
             this.DGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DataBindingComplete);
             // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.BT_IMPRIMIR);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(653, 1);
+            this.panel25.Margin = new System.Windows.Forms.Padding(1);
+            this.panel25.Name = "panel25";
+            this.panel25.Padding = new System.Windows.Forms.Padding(2);
+            this.panel25.Size = new System.Drawing.Size(161, 46);
+            this.panel25.TabIndex = 2;
+            // 
+            // BT_IMPRIMIR
+            // 
+            this.BT_IMPRIMIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_IMPRIMIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_IMPRIMIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_IMPRIMIR.Image = global::ModInventario.Properties.Resources.bt_imprimir_2;
+            this.BT_IMPRIMIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_IMPRIMIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_IMPRIMIR.Name = "BT_IMPRIMIR";
+            this.BT_IMPRIMIR.Size = new System.Drawing.Size(157, 42);
+            this.BT_IMPRIMIR.TabIndex = 2;
+            this.BT_IMPRIMIR.Text = "Imprimir";
+            this.BT_IMPRIMIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
+            // 
             // ExistenciaFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -773,6 +804,7 @@
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
+            this.panel25.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -828,5 +860,7 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Button BT_IMPRIMIR;
     }
 }

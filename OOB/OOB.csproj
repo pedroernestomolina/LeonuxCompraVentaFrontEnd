@@ -154,7 +154,12 @@
     <Compile Include="LibInventario\Concepto\Agregar.cs" />
     <Compile Include="LibInventario\Concepto\Editar.cs" />
     <Compile Include="LibInventario\Concepto\Ficha.cs" />
+    <Compile Include="LibInventario\Configuracion\BusquedaPredeterminada\Editar\Ficha.cs" />
+    <Compile Include="LibInventario\Configuracion\CostoEdad\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Configuracion\Enumerados.cs" />
+    <Compile Include="LibInventario\Configuracion\MetodoCalculoUtilidad\Editar\Ficha.cs" />
+    <Compile Include="LibInventario\Configuracion\PreferenciaPrecio\Editar\Ficha.cs" />
+    <Compile Include="LibInventario\Configuracion\RedondeoPrecio\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Costo\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Costo\Editar\FichaHistorica.cs" />
     <Compile Include="LibInventario\Costo\Editar\FichaPrecio.cs" />

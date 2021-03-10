@@ -425,7 +425,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_NETO_1.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_1.Costo)
+                if (valor < _controlador.Precio_1.Costo)
                 {
                     errorProvider1.SetError(TB_NETO_1, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -447,7 +447,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_FULL_1.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_1.CostoFull)
+                if (valor < _controlador.Precio_1.CostoFull)
                 {
                     errorProvider1.SetError(TB_FULL_1, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -469,7 +469,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_NETO_2.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_2.Costo)
+                if (valor < _controlador.Precio_2.Costo)
                 {
                     errorProvider1.SetError(TB_NETO_2, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -491,7 +491,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_FULL_2.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_2.CostoFull)
+                if (valor < _controlador.Precio_2.CostoFull)
                 {
                     errorProvider1.SetError(TB_FULL_2, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -519,7 +519,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_NETO_3.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_3.Costo)
+                if (valor < _controlador.Precio_3.Costo)
                 {
                     errorProvider1.SetError(TB_NETO_3, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -541,7 +541,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_FULL_3.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_3.CostoFull)
+                if (valor < _controlador.Precio_3.CostoFull)
                 {
                     errorProvider1.SetError(TB_FULL_3, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -563,7 +563,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_NETO_4.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_4.Costo)
+                if (valor < _controlador.Precio_4.Costo)
                 {
                     errorProvider1.SetError(TB_NETO_4, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -585,7 +585,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_FULL_4.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_4.CostoFull)
+                if (valor < _controlador.Precio_4.CostoFull)
                 {
                     errorProvider1.SetError(TB_FULL_4, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -607,7 +607,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_NETO_5.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_5.Costo)
+                if (valor < _controlador.Precio_5.Costo)
                 {
                     errorProvider1.SetError(TB_NETO_5, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;
@@ -629,7 +629,7 @@ namespace ModInventario.Producto.Precio.Editar
             var valor = decimal.Parse(TB_FULL_5.Text);
             if (valor != 0.0m)
             {
-                if (valor <= _controlador.Precio_5.CostoFull)
+                if (valor < _controlador.Precio_5.CostoFull)
                 {
                     errorProvider1.SetError(TB_FULL_5, "Precio Por Debajo Del Costo, Verifique !!");
                     bStatus = false;

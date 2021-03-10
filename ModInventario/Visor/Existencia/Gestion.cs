@@ -18,6 +18,8 @@ namespace ModInventario.Visor.Existencia
         private BindingSource bs;
         private BindingSource bsDepart;
         private BindingSource bsDeposito;
+        private Reportes.Visor.Existencia.GestionRep _gestionRep;
+        private string _filtros;
 
 
         public string Items { get { return bs.Count.ToString("n0"); } }
@@ -31,6 +33,7 @@ namespace ModInventario.Visor.Existencia
 
         public Gestion()
         {
+            _filtros = "";
             Deposito = "";
             Departamento = "";
             Filtrar = OOB.LibInventario.Visor.Existencia.Enumerados.enumFiltrarPor.SinDefinir;
@@ -43,6 +46,7 @@ namespace ModInventario.Visor.Existencia
             bsDeposito.DataSource = lDeposito;
             bsDepart = new BindingSource();
             bsDepart.DataSource = lDepart;
+            _gestionRep = new Reportes.Visor.Existencia.GestionRep();
         }
 
 
@@ -104,6 +108,26 @@ namespace ModInventario.Visor.Existencia
             filtro.autoDepartamento = Departamento;
             filtro.autoDeposito = Deposito;
             filtro.filtrarPor = Filtrar ;
+
+            _filtros = "";
+            _filtros += Filtrar.ToString();
+            if (Departamento.Trim()!="")
+            {
+                var ent = lDepart.FirstOrDefault(f=>f.auto==Departamento);
+                if (ent !=null)
+                {
+                    _filtros += ", Departamento: " + ent.nombre;
+                }
+            }
+            if (Deposito.Trim() != "")
+            {
+                var ent = lDeposito.FirstOrDefault(f => f.auto == Deposito);
+                if (ent != null)
+                {
+                    _filtros += ", Deposito: " + ent.nombre;
+                }
+            }
+
             var r01 = Sistema.MyData.Visor_Existencia(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {
@@ -117,6 +141,12 @@ namespace ModInventario.Visor.Existencia
                 lista.Add(new data(rg,Filtrar));
             }
             bs.CurrencyManager.Refresh();
+        }
+
+        public void Imprimir()
+        {
+            Buscar();
+            _gestionRep.Imprimir(lista, _filtros);
         }
 
     }

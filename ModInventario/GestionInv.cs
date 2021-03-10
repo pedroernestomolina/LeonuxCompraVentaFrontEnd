@@ -22,6 +22,11 @@ namespace ModInventario
         private Visor.CostoExistencia.Gestion _gestionVisorCostoExistencia;
         private Administrador.Gestion _gestionAdmMov;
         private Reportes.Filtros.Gestion _gestionReporteFiltros;
+        private Configuracion.CostoEdad.Gestion _gestionConfCostoEdad;
+        private Configuracion.RedondeoPrecio.Gestion _gestionConfRedondeoPrecio;
+        private Configuracion.RegistroPrecio.Gestion _gestionConfRegistroPrecio;
+        private Configuracion.BusquedaPredeterminada.Gestion _gestionConfBusquedaPred;
+        private Configuracion.MetodoCalculoUtilidad.Gestion _gestionConfMetodoCalUtilidad;
 
 
         public string Version 
@@ -51,7 +56,6 @@ namespace ModInventario
         }
 
 
-
         public GestionInv()
         {
             _gestionMaestro = new Maestros.Gestion();
@@ -64,6 +68,11 @@ namespace ModInventario
             _gestionVisorCostoExistencia = new Visor.CostoExistencia.Gestion();
             _gestionAdmMov = new Administrador.Gestion();
             _gestionReporteFiltros = new Reportes.Filtros.Gestion();
+            _gestionConfCostoEdad = new Configuracion.CostoEdad.Gestion();
+            _gestionConfRedondeoPrecio = new Configuracion.RedondeoPrecio.Gestion();
+            _gestionConfRegistroPrecio = new Configuracion.RegistroPrecio.Gestion();
+            _gestionConfBusquedaPred = new Configuracion.BusquedaPredeterminada.Gestion();
+            _gestionConfMetodoCalUtilidad = new Configuracion.MetodoCalculoUtilidad.Gestion();
         }
 
 
@@ -368,6 +377,36 @@ namespace ModInventario
                 rp.setFiltros(_gestionReporteFiltros.DataFiltros);
                 rp.Generar();
             }
+        }
+
+        public void Conf_CostoEdadProducto()
+        {
+            _gestionConfCostoEdad.Inicializa();
+            _gestionConfCostoEdad.Inicia();
+        }
+
+        public void Conf_RedondeoPreciosVenta()
+        {
+            _gestionConfRedondeoPrecio.Inicializa();
+            _gestionConfRedondeoPrecio.Inicia();
+        }
+
+        public void Conf_RegistroPrecio()
+        {
+            _gestionConfRegistroPrecio.Inicializa();
+            _gestionConfRegistroPrecio.Inicia();
+        }
+
+        public void Conf_BusquedaPredeterminada()
+        {
+            _gestionConfBusquedaPred.Inicializa();
+            _gestionConfBusquedaPred.Inicia();
+        }
+
+        public void Conf_MetodoCalcUtilidad()
+        {
+            _gestionConfMetodoCalUtilidad.Inicializa();
+            _gestionConfMetodoCalUtilidad.Inicia();
         }
 
     }

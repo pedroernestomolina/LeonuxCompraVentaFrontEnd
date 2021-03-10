@@ -70,6 +70,7 @@ namespace ModInventario.Visor.Existencia
             }
         }
 
+        public bool IsActivo { get { return (Estatus != 3); } }
 
         public data(OOB.LibInventario.Visor.Existencia.Ficha rg, OOB.LibInventario.Visor.Existencia.Enumerados.enumFiltrarPor filtro) 
         {

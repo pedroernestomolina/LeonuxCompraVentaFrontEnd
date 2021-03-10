@@ -72,10 +72,13 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.panel40 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.BT_ARTICULOS_COMPRA = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BT_DOCUMENTOS = new System.Windows.Forms.Button();
             this.panel49 = new System.Windows.Forms.Panel();
             this.panel57 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -93,9 +96,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -125,6 +125,7 @@
             this.panel22.SuspendLayout();
             this.panel40.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
@@ -136,7 +137,6 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -706,6 +706,20 @@
             this.panel22.Size = new System.Drawing.Size(95, 74);
             this.panel22.TabIndex = 0;
             // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(95, 74);
+            this.tableLayoutPanel12.TabIndex = 1;
+            // 
             // panel40
             // 
             this.panel40.Controls.Add(this.tableLayoutPanel11);
@@ -732,9 +746,36 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(95, 74);
             this.tableLayoutPanel11.TabIndex = 0;
             // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.BT_ARTICULOS_COMPRA);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(48, 1);
+            this.panel21.Margin = new System.Windows.Forms.Padding(1);
+            this.panel21.Name = "panel21";
+            this.panel21.Padding = new System.Windows.Forms.Padding(2);
+            this.panel21.Size = new System.Drawing.Size(46, 72);
+            this.panel21.TabIndex = 1;
+            // 
+            // BT_ARTICULOS_COMPRA
+            // 
+            this.BT_ARTICULOS_COMPRA.BackgroundImage = global::ModCompra.Properties.Resources.bt_historico_32;
+            this.BT_ARTICULOS_COMPRA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_ARTICULOS_COMPRA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ARTICULOS_COMPRA.FlatAppearance.BorderSize = 0;
+            this.BT_ARTICULOS_COMPRA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ARTICULOS_COMPRA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ARTICULOS_COMPRA.Location = new System.Drawing.Point(2, 2);
+            this.BT_ARTICULOS_COMPRA.Name = "BT_ARTICULOS_COMPRA";
+            this.BT_ARTICULOS_COMPRA.Size = new System.Drawing.Size(42, 68);
+            this.BT_ARTICULOS_COMPRA.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.BT_ARTICULOS_COMPRA, "Visualizar Productos ");
+            this.BT_ARTICULOS_COMPRA.UseVisualStyleBackColor = true;
+            this.BT_ARTICULOS_COMPRA.Click += new System.EventHandler(this.BT_ARTICULOS_COMPRA_Click);
+            // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.button1);
+            this.panel19.Controls.Add(this.BT_DOCUMENTOS);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(1, 1);
             this.panel19.Margin = new System.Windows.Forms.Padding(1);
@@ -743,20 +784,21 @@
             this.panel19.Size = new System.Drawing.Size(45, 72);
             this.panel19.TabIndex = 0;
             // 
-            // button1
+            // BT_DOCUMENTOS
             // 
-            this.button1.BackgroundImage = global::ModCompra.Properties.Resources.bt_documento;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 68);
-            this.button1.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.button1, "Visualizar Documentos");
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_DOCUMENTOS.BackgroundImage = global::ModCompra.Properties.Resources.bt_documento;
+            this.BT_DOCUMENTOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_DOCUMENTOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_DOCUMENTOS.FlatAppearance.BorderSize = 0;
+            this.BT_DOCUMENTOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_DOCUMENTOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_DOCUMENTOS.Location = new System.Drawing.Point(2, 2);
+            this.BT_DOCUMENTOS.Name = "BT_DOCUMENTOS";
+            this.BT_DOCUMENTOS.Size = new System.Drawing.Size(41, 68);
+            this.BT_DOCUMENTOS.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.BT_DOCUMENTOS, "Visualizar Documentos");
+            this.BT_DOCUMENTOS.UseVisualStyleBackColor = true;
+            this.BT_DOCUMENTOS.Click += new System.EventHandler(this.BT_DOCUMENTOS_Click);
             // 
             // panel49
             // 
@@ -970,46 +1012,6 @@
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel12
-            // 
-            this.tableLayoutPanel12.ColumnCount = 2;
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-            this.tableLayoutPanel12.RowCount = 1;
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(95, 74);
-            this.tableLayoutPanel12.TabIndex = 1;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.button2);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(48, 1);
-            this.panel21.Margin = new System.Windows.Forms.Padding(1);
-            this.panel21.Name = "panel21";
-            this.panel21.Padding = new System.Windows.Forms.Padding(2);
-            this.panel21.Size = new System.Drawing.Size(46, 72);
-            this.panel21.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::ModCompra.Properties.Resources.bt_historico_32;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(42, 68);
-            this.button2.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.button2, "Visualizar Productos ");
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // AdmFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1053,6 +1055,7 @@
             this.panel22.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
@@ -1064,7 +1067,6 @@
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1133,10 +1135,10 @@
         private System.Windows.Forms.Panel panel57;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_DOCUMENTOS;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BT_ARTICULOS_COMPRA;
     }
 }

@@ -352,6 +352,56 @@ namespace ModInventario
             _controlador.MaestroNivelMinimo();
         }
 
+        private void TSM_CONFIGURACION_COSTO_EDAD_Click(object sender, EventArgs e)
+        {
+            Conf_CostoEdadProducto();
+        }
+
+        private void Conf_CostoEdadProducto()
+        {
+            _controlador.Conf_CostoEdadProducto();
+        }
+
+        private void TSM_CONFIGURACION_REDONDEO_PRECIOS_Click(object sender, EventArgs e)
+        {
+            Conf_RedondeoPreciosVenta();
+        }
+
+        private void Conf_RedondeoPreciosVenta()
+        {
+            _controlador.Conf_RedondeoPreciosVenta();
+        }
+
+        private void TSM_CONFIGURACION_REGISTRO_PRECIOS_Click(object sender, EventArgs e)
+        {
+            Conf_RegistroPrecio();
+        }
+
+        private void Conf_RegistroPrecio()
+        {
+            _controlador.Conf_RegistroPrecio();
+        }
+
+        private void TSM_CONFIGURACION_BUSQUEDA_PREDETERMINADA_Click(object sender, EventArgs e)
+        {
+            Conf_BusquedaPredeterminada();
+        }
+
+        private void Conf_BusquedaPredeterminada()
+        {
+            _controlador.Conf_BusquedaPredeterminada();
+        }
+
+        private void TSM_CONFIGURACION_METODO_CALC_UTILIDAD_Click(object sender, EventArgs e)
+        {
+            Conf_MetodoCalcUtilidad();
+        }
+
+        private void Conf_MetodoCalcUtilidad()
+        {
+            _controlador.Conf_MetodoCalcUtilidad();
+        }
+
     }
 
 }

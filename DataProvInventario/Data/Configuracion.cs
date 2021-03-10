@@ -118,6 +118,102 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+
+        public OOB.Resultado Configuracion_SetCostoEdadProducto(OOB.LibInventario.Configuracion.CostoEdad.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Configuracion.CostoEdad.Editar.Ficha()
+            {
+                Edad = ficha.Edad,
+            };
+            var r01 = MyData.Configuracion_SetCostoEdadProducto(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Configuracion_SetRedondeoPrecioVenta(OOB.LibInventario.Configuracion.RedondeoPrecio.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Configuracion.RedondeoPrecio.Editar.Ficha()
+            {
+                Redondeo = ficha.Redondeo,
+            };
+            var r01 = MyData.Configuracion_SetRedondeoPrecioVenta(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Configuracion_SetPreferenciaRegistroPrecio(OOB.LibInventario.Configuracion.PreferenciaPrecio.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Configuracion.PreferenciaPrecio.Editar.Ficha()
+            {
+                Preferencia = ficha.Preferencia,
+            };
+            var r01 = MyData.Configuracion_SetPreferenciaRegistroPrecio(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Configuracion_SetMetodoCalculoUtilidad(OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Ficha()
+            {
+                Metodo = ficha.Metodo,
+            };
+            var r01 = MyData.Configuracion_SetMetodoCalculoUtilidad(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.Resultado Configuracion_SetBusquedaPredeterminada(OOB.LibInventario.Configuracion.BusquedaPredeterminada.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibInventario.Configuracion.BusquedaPredeterminada.Editar.Ficha()
+            {
+                Busqueda = ficha.Busqueda,
+            };
+            var r01 = MyData.Configuracion_SetBusquedaPredeterminada(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

@@ -81,6 +81,7 @@ namespace ModPos
             L_ID_SUCURSAL.Text = _controlador.IdSucursal;
             ActualizarInformacionBdServidor();
             ActualizarJornadaOperadorUsuario();
+            BT_ACTUALIZAR_DATA.Enabled = _controlador.HabilitarBotonActualizarDataServidor;
         }
 
         private void BT_ACTUALIZAR_DATA_Click(object sender, EventArgs e)
@@ -172,7 +173,11 @@ namespace ModPos
 
         private void BT_OPERADOR_ABRIR_Click(object sender, EventArgs e)
         {
-            AbrirOperador();
+            if (_controlador.ImportarData())
+            {
+                ActualizarInformacionBdServidor();
+                AbrirOperador();
+            }
         }
 
         private void AbrirOperador()
@@ -236,6 +241,16 @@ namespace ModPos
         private void LimpiarBD_Local()
         {
             _controlador.InicializarBDLocal();
+        }
+
+        private void TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL_Click(object sender, EventArgs e)
+        {
+            ActualizarDataServidorManual();
+        }
+
+        private void ActualizarDataServidorManual()
+        {
+            ActualizaDataDelServidor();
         }
 
     }

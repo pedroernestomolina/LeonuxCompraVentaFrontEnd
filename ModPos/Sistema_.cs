@@ -57,6 +57,19 @@ namespace ModPos
             } 
         }
 
+        public bool HabilitarBotonActualizarDataServidor 
+        {
+            get 
+            {
+                var rt=false;
+
+                if (Sistema.Usuario.IsInvitado)
+                    rt = true;
+
+                return rt;
+            } 
+        }
+
 
         public Sistema_()
         {
@@ -294,30 +307,59 @@ namespace ModPos
             var msg = MessageBox.Show("Importar Data Del Servidor ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == System.Windows.Forms.DialogResult.Yes)
             {
-                var r01 = Sistema.MyData2.Servidor_Test();
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
+                ImportarData();
 
-                var r02 = Sistema.MyData2.Servidor_ActualizarData();
-                if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r02.Mensaje);
-                    return;
-                }
+                //var r01 = Sistema.MyData2.Servidor_Test();
+                //if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                //{
+                //    Helpers.Msg.Error(r01.Mensaje);
+                //    return;
+                //}
 
-                var r03 = Sistema.MyData2.FechaUltimaActualizacionBDServidor();
-                if (r03.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r03.Mensaje);
-                    return;
-                }
-                Sistema.FechaUltimaActualizacion = r03.Entidad;
+                //var r02 = Sistema.MyData2.Servidor_ActualizarData();
+                //if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                //{
+                //    Helpers.Msg.Error(r02.Mensaje);
+                //    return;
+                //}
+
+                //var r03 = Sistema.MyData2.FechaUltimaActualizacionBDServidor();
+                //if (r03.Result == OOB.Enumerados.EnumResult.isError)
+                //{
+                //    Helpers.Msg.Error(r03.Mensaje);
+                //    return;
+                //}
+                //Sistema.FechaUltimaActualizacion = r03.Entidad;
 
                 Helpers.Msg.EditarOk();
             }
+        }
+
+        public bool ImportarData() 
+        {
+            var r01 = Sistema.MyData2.Servidor_Test();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            var r02 = Sistema.MyData2.Servidor_ActualizarData();
+            if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+
+            var r03 = Sistema.MyData2.FechaUltimaActualizacionBDServidor();
+            if (r03.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r03.Mensaje);
+                return false;
+            }
+            Sistema.FechaUltimaActualizacion = r03.Entidad;
+
+            return true;
         }
 
         public void ConfiguracionActivar() 
@@ -600,7 +642,7 @@ namespace ModPos
                 }
             }
         }
-
+      
     }
 
 }

@@ -228,7 +228,25 @@
     <Compile Include="Proveedor\AgregarEditar\Editar\Gestion.cs" />
     <Compile Include="Proveedor\AgregarEditar\Gestion.cs" />
     <Compile Include="Proveedor\AgregarEditar\IGestion.cs" />
+    <Compile Include="Proveedor\ArticulosCompra\CompraArticulosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\ArticulosCompra\CompraArticulosFrm.Designer.cs">
+      <DependentUpon>CompraArticulosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\ArticulosCompra\data.cs" />
+    <Compile Include="Proveedor\ArticulosCompra\Filtro.cs" />
+    <Compile Include="Proveedor\ArticulosCompra\Gestion.cs" />
     <Compile Include="Proveedor\Busqueda\Enumerados.cs" />
+    <Compile Include="Proveedor\Documentos\data.cs" />
+    <Compile Include="Proveedor\Documentos\DocumentosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Documentos\DocumentosFrm.Designer.cs">
+      <DependentUpon>DocumentosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Documentos\Filtro.cs" />
+    <Compile Include="Proveedor\Documentos\Gestion.cs" />
     <Compile Include="Proveedor\Listar\data.cs" />
     <Compile Include="Proveedor\Listar\Gestion.cs" />
     <Compile Include="Proveedor\Listar\ListaFrm.cs">
@@ -338,6 +356,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\AgregarEditar\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\ArticulosCompra\CompraArticulosFrm.resx">
+      <DependentUpon>CompraArticulosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Documentos\DocumentosFrm.resx">
+      <DependentUpon>DocumentosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>

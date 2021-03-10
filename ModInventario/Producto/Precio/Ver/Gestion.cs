@@ -131,12 +131,17 @@ namespace ModInventario.Producto.Precio.Ver
             _tasaCambioActual = r02.Entidad.ToString("n2");
             _metodoCalculoUtilidad = r03.Entidad.ToString();
 
-            var ut1 =CalculaUtilidad(s.precioNeto1, r05.Entidad.costoUnd, r03.Entidad);
-            var ut2 = CalculaUtilidad(s.precioNeto2, r05.Entidad.costoUnd, r03.Entidad);
-            var ut3 = CalculaUtilidad(s.precioNeto3, r05.Entidad.costoUnd, r03.Entidad);
-            var ut4 = CalculaUtilidad(s.precioNeto4, r05.Entidad.costoUnd, r03.Entidad);
-            var ut5 = CalculaUtilidad(s.precioNeto5, r05.Entidad.costoUnd, r03.Entidad);
+            //var ut1 =CalculaUtilidad(s.precioNeto1, r05.Entidad.costoUnd, r03.Entidad);
+            //var ut2 = CalculaUtilidad(s.precioNeto2, r05.Entidad.costoUnd, r03.Entidad);
+            //var ut3 = CalculaUtilidad(s.precioNeto3, r05.Entidad.costoUnd, r03.Entidad);
+            //var ut4 = CalculaUtilidad(s.precioNeto4, r05.Entidad.costoUnd, r03.Entidad);
+            //var ut5 = CalculaUtilidad(s.precioNeto5, r05.Entidad.costoUnd, r03.Entidad);
 
+            var ut1 = s.utilidad1;
+            var ut2 = s.utilidad2;
+            var ut3 = s.utilidad3;
+            var ut4 = s.utilidad4;
+            var ut5 = s.utilidad5;
             _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, ut1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
             _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, ut2 , s.precioFullDivisa2, s.tasaIva, s.etiqueta2);
             _precio3.setData(s.contenido3, s.empaque3, s.precioNeto3, ut3 , s.precioFullDivisa3, s.tasaIva, s.etiqueta3);

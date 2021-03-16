@@ -71,10 +71,11 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
             {
                 DataRow rt = ds.Tables["MaestroPrecio"].NewRow();
                 rt["codigo"] = it.codigoPrd;
-                rt["nombre"] = it.nombrePrd;
+                rt["nombre"] = it.nombrePrd + Environment.NewLine + it.codigoPrd;
                 rt["modelo"] = it.modeloPrd;
                 rt["referencia"] = it.referenciaPrd;
                 rt["departamento"] = it.departamento;
+                rt["grupo"] = it.grupo;
                 rt["pfull_1"] = it.precioFull_1;
                 rt["pfull_2"] = it.precioFull_2;
                 rt["pfull_3"] = it.precioFull_3;

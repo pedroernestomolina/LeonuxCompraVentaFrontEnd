@@ -34,6 +34,7 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
             {
                 filtro.autoDepartamento = dataFiltros.AutoDepartamento;
                 filtro.autoDeposito= dataFiltros.AutoDeposito;
+                filtro.autoGrupo = dataFiltros.AutoGrupo;
 
                 if (filtro.autoDeposito != "")
                     sFiltro += "Por Deposito= "+dataFiltros.NombreDeposito+", ";
@@ -77,11 +78,12 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
 
                 DataRow rt = ds.Tables["MaestroInventario"].NewRow();
                 rt["codigo"] = it.codigoPrd;
-                rt["nombre"] = it.nombrePrd;
+                rt["nombre"] = it.nombrePrd +Environment.NewLine + it.codigoPrd;
                 rt["modelo"] = it.modeloPrd;
                 rt["referencia"] = it.referenciaPrd;
                 rt["departamento"] = it.departamento;
-                rt["existencia"] = existencia.ToString("n"+it.decimales);
+                rt["grupo"] = it.grupo;
+                rt["existencia"] = existencia.ToString("n" + it.decimales);
                 rt["costoUnd"] = costoUnd.ToString("n2");
                 rt["costoDivisaUnd"] = costoDivisaUnd.ToString("n2");
                 rt["importe"] = importe;

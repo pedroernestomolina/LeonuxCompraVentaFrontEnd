@@ -33,6 +33,7 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
             {
                 filtro.autoDepartamento = dataFiltros.AutoDepartamento;
                 filtro.autoDeposito = dataFiltros.AutoDeposito;
+                filtro.autoGrupo = dataFiltros.AutoGrupo;
             }
             var r01 = Sistema.MyData.Reportes_MaestroExistencia(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -80,7 +81,8 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
                 rt["costoMonto"] = it.costoUndDivisa*it.exFisica;
                 rt["precioUnd"] = precio;
                 rt["ventaMonto"] = precio*it.exFisica;
-
+                rt["departamento"] = it.departamento;
+                rt["grupo"] = it.grupo;
                 if (it.exFisica != 0.0m)
                     ds.Tables["MaestroExistencia"].Rows.Add(rt);
             }

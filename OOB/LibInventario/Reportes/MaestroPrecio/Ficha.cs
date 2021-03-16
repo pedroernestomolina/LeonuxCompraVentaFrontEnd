@@ -15,7 +15,8 @@ namespace OOB.LibInventario.Reportes.MaestroPrecio
         public string nombrePrd { get; set; }  
         public string referenciaPrd { get; set; }  
         public string modeloPrd { get; set; }
-        public string departamento { get; set; }  
+        public string departamento { get; set; }
+        public string grupo { get; set; }
         public decimal tasaIvaPrd { get; set; }  
         public decimal precioNeto_1 { get; set; }  
         public decimal precioNeto_2 { get; set; }  

@@ -68,6 +68,9 @@ namespace ModInventario.Buscar.Filtrar
             CB_EXISTENCIA.SelectedIndex = -1;
             CB_CATALOGO.SelectedIndex = -1;
             TB_PROVEEDOR.Focus();
+
+            CB_GRUPO.SelectedIndex=-1;
+            CB_GRUPO.Enabled = false;
         }
 
         public void setControlador(Gestion ctr)
@@ -78,18 +81,26 @@ namespace ModInventario.Buscar.Filtrar
         private void CB_DEPARTAMENTO_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controlador.AutoDepartamento = "";
+            _controlador.setDepartamento("");
+            _controlador.setGrupo("");
+            CB_GRUPO.Enabled = false;
             if (CB_DEPARTAMENTO.SelectedIndex != -1)
             {
                 _controlador.AutoDepartamento = CB_DEPARTAMENTO.SelectedValue.ToString();
+                _controlador.setDepartamento(CB_DEPARTAMENTO.SelectedValue.ToString());
+                CB_GRUPO.SelectedIndex = -1;
+                CB_GRUPO.Enabled = true;
             }
         }
 
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controlador.AutoGrupo = "";
+            _controlador.setGrupo("");
             if (CB_GRUPO.SelectedIndex != -1) 
             {
                 _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
+                _controlador.setGrupo(CB_GRUPO.SelectedValue.ToString());
             }
         }
 

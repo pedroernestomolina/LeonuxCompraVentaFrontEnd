@@ -17,6 +17,7 @@ namespace OOB.LibInventario.Reportes.MaestroProducto
         public string modeloPrd { get; set; }
         public int contenidoPrd { get; set; }
         public string departamento { get; set; }
+        public string grupo { get; set; }
         public string empaque { get; set; }
         public decimal tasaIva { get; set; }
         public enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }

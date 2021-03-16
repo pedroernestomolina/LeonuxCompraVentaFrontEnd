@@ -293,6 +293,34 @@ namespace ModInventario.Reportes.Filtros
             }
         }
 
+        private OOB.LibInventario.Grupo.Ficha _grupo;
+        public void setGrupo(string id)
+        {
+            AutoGrupo = "";
+            _grupo = lGrupo.FirstOrDefault(f => f.auto == id);
+            if (_grupo != null) 
+            {
+                AutoGrupo = _grupo.auto;
+            }
+        }
+
+        private OOB.LibInventario.Departamento.Ficha _departamento;
+        public void setDepartamento(string id)
+        {
+            _departamento = lDepart.FirstOrDefault(f => f.auto == id);
+
+            var r01 = Sistema.MyData.Grupo_GetListaByIdDepartamento(id);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            lGrupo.Clear();
+            lGrupo.AddRange(r01.Lista.OrderBy(o => o.nombre));
+            bsGrupo.CurrencyManager.Refresh();
+        }
+
     }
 
 }

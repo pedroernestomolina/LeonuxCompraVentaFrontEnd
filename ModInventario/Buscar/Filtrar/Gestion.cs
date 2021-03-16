@@ -393,6 +393,30 @@ namespace ModInventario.Buscar.Filtrar
             } 
         }
 
+        private OOB.LibInventario.Grupo.Ficha _grupo;
+        public void setGrupo(string id)
+        {
+            _grupo = lGrupo.FirstOrDefault(f => f.auto == id);
+        }
+
+        private OOB.LibInventario.Departamento.Ficha _departamento;
+        public void setDepartamento(string id)
+        {
+            lGrupo.Clear();
+            _departamento = lDepart.FirstOrDefault(f => f.auto == id);
+            if (_departamento != null)
+            {
+                var r01 = Sistema.MyData.Grupo_GetListaByIdDepartamento(_departamento.auto);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return ;
+                }
+                lGrupo.AddRange(r01.Lista.OrderBy(o => o.nombre));
+            }
+            bsGrupo.CurrencyManager.Refresh();
+        }
+
     }
 
 }

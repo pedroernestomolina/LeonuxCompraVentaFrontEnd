@@ -32,6 +32,7 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
             if (dataFiltros != null)
             {
                 filtro.autoDepartamento = dataFiltros.AutoDepartamento;
+                filtro.autoGrupo = dataFiltros.AutoGrupo;
                 filtro.autoDeposito = dataFiltros.AutoDeposito;
             }
             var r01 = Sistema.MyData.Reportes_NivelMinimo(filtro);
@@ -54,6 +55,8 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
                 DataRow rt = ds.Tables["NivelMinimo"].NewRow();
                 rt["producto"] = it.nombrePrd + Environment.NewLine + it.codigoPrd;
                 rt["deposito"] = it.nombreDep;
+                rt["departamento"] = it.departamento;
+                rt["grupo"] = it.grupo;
                 rt["existencia"] = it.existencia;
                 rt["nivelMinimo"] = it.nivelMin;
                 rt["nivelMaximo"] = it.nivelMax ;

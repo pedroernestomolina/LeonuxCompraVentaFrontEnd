@@ -73,7 +73,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
 
         public bool ActivarGrupo
         {
-            get { return false; }
+            get { return ActivarDepartamento; }
         }
 
         public bool ActivarPrecio

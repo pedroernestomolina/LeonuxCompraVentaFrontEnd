@@ -12,12 +12,14 @@ namespace OOB.LibInventario.Reportes.MaestroExistencia
     {
 
         public string autoDepartamento { get; set; }
+        public string autoGrupo { get; set; }
         public string autoDeposito { get; set; }
 
 
         public Filtro()
         {
             autoDepartamento = "";
+            autoGrupo = "";
             autoDeposito = "";
         }
 

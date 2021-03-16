@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\NcDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoDetalle.rdlc
@@ -61,4 +60,5 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Reportes.Reporte
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.compiled
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.pdb

@@ -73,7 +73,7 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
 
         public bool ActivarGrupo
         {
-            get { return false; }
+            get { return ActivarDepartamento; }
         }
 
         public bool ActivarPrecio

@@ -15,6 +15,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Grupo.Ficha> Grupo_GetFicha(string auto);
         OOB.ResultadoAuto Grupo_Agregar(OOB.LibInventario.Grupo.Agregar ficha);
         OOB.Resultado Grupo_Editar(OOB.LibInventario.Grupo.Editar ficha);
+        OOB.ResultadoLista<OOB.LibInventario.Grupo.Ficha> Grupo_GetListaByIdDepartamento(string idDepart);
 
     }
 

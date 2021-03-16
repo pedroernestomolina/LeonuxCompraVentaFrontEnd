@@ -16,6 +16,7 @@ namespace OOB.LibInventario.Reportes.MaestroInventario
         public string referenciaPrd { get; set; }
         public string modeloPrd { get; set; }
         public string departamento { get; set; }
+        public string grupo { get; set; }
         public decimal? existencia { get; set; }
         public decimal costoUnd { get; set; }
         public decimal costoDivisaUnd { get; set; }

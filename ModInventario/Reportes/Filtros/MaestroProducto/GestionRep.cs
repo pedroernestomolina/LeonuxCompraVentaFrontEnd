@@ -56,6 +56,11 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
                     filt += "DEPARTAMENTO: " + dataFiltros.NombreDepartamento;
                     filtro.autoDepartamento = dataFiltros.AutoDepartamento;
                 }
+                if (dataFiltros.AutoGrupo != "")
+                {
+                    filt += "GRUPO: " + dataFiltros.NombreDepartamento;
+                    filtro.autoGrupo = dataFiltros.AutoGrupo;
+                }
                 if (dataFiltros.AutoDeposito != "")
                 {
                     filt += "DEPOSITO: " + dataFiltros.NombreDeposito;
@@ -91,6 +96,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
                 rt["admDivisa"] = it.admDivisa.ToString();
                 rt["origen"] = it.origen.ToString();
                 rt["categoria"] = it.categoria.ToString();
+                rt["grupo"] = it.grupo;
                 ds.Tables["MaestroProducto"].Rows.Add(rt);
             }
 

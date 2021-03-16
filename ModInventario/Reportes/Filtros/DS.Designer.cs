@@ -579,6 +579,8 @@ namespace ModInventario.Reportes.Filtros {
             
             private global::System.Data.DataColumn columntasa;
             
+            private global::System.Data.DataColumn columngrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MaestroProductoDataTable() {
@@ -694,6 +696,14 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn grupoColumn {
+                get {
+                    return this.columngrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -729,7 +739,7 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestroProductoRow AddMaestroProductoRow(string codigo, string nombre, string referencia, string modelo, string departamento, string empaque, string origen, string categoria, string admDivisa, string tasa) {
+            public MaestroProductoRow AddMaestroProductoRow(string codigo, string nombre, string referencia, string modelo, string departamento, string empaque, string origen, string categoria, string admDivisa, string tasa, string grupo) {
                 MaestroProductoRow rowMaestroProductoRow = ((MaestroProductoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codigo,
@@ -741,7 +751,8 @@ namespace ModInventario.Reportes.Filtros {
                         origen,
                         categoria,
                         admDivisa,
-                        tasa};
+                        tasa,
+                        grupo};
                 rowMaestroProductoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMaestroProductoRow);
                 return rowMaestroProductoRow;
@@ -774,6 +785,7 @@ namespace ModInventario.Reportes.Filtros {
                 this.columncategoria = base.Columns["categoria"];
                 this.columnadmDivisa = base.Columns["admDivisa"];
                 this.columntasa = base.Columns["tasa"];
+                this.columngrupo = base.Columns["grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -799,6 +811,8 @@ namespace ModInventario.Reportes.Filtros {
                 base.Columns.Add(this.columnadmDivisa);
                 this.columntasa = new global::System.Data.DataColumn("tasa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntasa);
+                this.columngrupo = new global::System.Data.DataColumn("grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -958,6 +972,8 @@ namespace ModInventario.Reportes.Filtros {
             
             private global::System.Data.DataColumn columnventa;
             
+            private global::System.Data.DataColumn columngrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MaestroInventarioDataTable() {
@@ -1097,6 +1113,14 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn grupoColumn {
+                get {
+                    return this.columngrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1132,7 +1156,7 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestroInventarioRow AddMaestroInventarioRow(string codigo, string nombre, string referencia, string modelo, string departamento, string existencia, string costoUnd, string costoDivisaUnd, decimal importe, decimal importeDivisa, string admDivisa, decimal precio, decimal venta) {
+            public MaestroInventarioRow AddMaestroInventarioRow(string codigo, string nombre, string referencia, string modelo, string departamento, string existencia, string costoUnd, string costoDivisaUnd, decimal importe, decimal importeDivisa, string admDivisa, decimal precio, decimal venta, string grupo) {
                 MaestroInventarioRow rowMaestroInventarioRow = ((MaestroInventarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codigo,
@@ -1147,7 +1171,8 @@ namespace ModInventario.Reportes.Filtros {
                         importeDivisa,
                         admDivisa,
                         precio,
-                        venta};
+                        venta,
+                        grupo};
                 rowMaestroInventarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMaestroInventarioRow);
                 return rowMaestroInventarioRow;
@@ -1183,6 +1208,7 @@ namespace ModInventario.Reportes.Filtros {
                 this.columnadmDivisa = base.Columns["admDivisa"];
                 this.columnprecio = base.Columns["precio"];
                 this.columnventa = base.Columns["venta"];
+                this.columngrupo = base.Columns["grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1214,6 +1240,8 @@ namespace ModInventario.Reportes.Filtros {
                 base.Columns.Add(this.columnprecio);
                 this.columnventa = new global::System.Data.DataColumn("venta", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnventa);
+                this.columngrupo = new global::System.Data.DataColumn("grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1367,6 +1395,10 @@ namespace ModInventario.Reportes.Filtros {
             
             private global::System.Data.DataColumn columnventaMonto;
             
+            private global::System.Data.DataColumn columndepartamento;
+            
+            private global::System.Data.DataColumn columngrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MaestroExistenciaDataTable() {
@@ -1482,6 +1514,22 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn departamentoColumn {
+                get {
+                    return this.columndepartamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn grupoColumn {
+                get {
+                    return this.columngrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1517,7 +1565,7 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestroExistenciaRow AddMaestroExistenciaRow(string autoPrd, string codigoPrd, string nombrePrd, string codigoDep, string nombreDep, decimal Existencia, decimal costoUnd, decimal precioUnd, decimal costoMonto, decimal ventaMonto) {
+            public MaestroExistenciaRow AddMaestroExistenciaRow(string autoPrd, string codigoPrd, string nombrePrd, string codigoDep, string nombreDep, decimal Existencia, decimal costoUnd, decimal precioUnd, decimal costoMonto, decimal ventaMonto, string departamento, string grupo) {
                 MaestroExistenciaRow rowMaestroExistenciaRow = ((MaestroExistenciaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         autoPrd,
@@ -1529,7 +1577,9 @@ namespace ModInventario.Reportes.Filtros {
                         costoUnd,
                         precioUnd,
                         costoMonto,
-                        ventaMonto};
+                        ventaMonto,
+                        departamento,
+                        grupo};
                 rowMaestroExistenciaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMaestroExistenciaRow);
                 return rowMaestroExistenciaRow;
@@ -1562,6 +1612,8 @@ namespace ModInventario.Reportes.Filtros {
                 this.columnprecioUnd = base.Columns["precioUnd"];
                 this.columncostoMonto = base.Columns["costoMonto"];
                 this.columnventaMonto = base.Columns["ventaMonto"];
+                this.columndepartamento = base.Columns["departamento"];
+                this.columngrupo = base.Columns["grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1587,6 +1639,10 @@ namespace ModInventario.Reportes.Filtros {
                 base.Columns.Add(this.columncostoMonto);
                 this.columnventaMonto = new global::System.Data.DataColumn("ventaMonto", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnventaMonto);
+                this.columndepartamento = new global::System.Data.DataColumn("departamento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndepartamento);
+                this.columngrupo = new global::System.Data.DataColumn("grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1742,6 +1798,8 @@ namespace ModInventario.Reportes.Filtros {
             
             private global::System.Data.DataColumn columnfechaUltCambio;
             
+            private global::System.Data.DataColumn columngrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MaestroPrecioDataTable() {
@@ -1865,6 +1923,14 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn grupoColumn {
+                get {
+                    return this.columngrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1900,7 +1966,7 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MaestroPrecioRow AddMaestroPrecioRow(string codigo, string nombre, string referencia, string modelo, string departamento, decimal pfull_1, decimal pfull_2, decimal pfull_3, decimal pfull_4, decimal pfull_5, string fechaUltCambio) {
+            public MaestroPrecioRow AddMaestroPrecioRow(string codigo, string nombre, string referencia, string modelo, string departamento, decimal pfull_1, decimal pfull_2, decimal pfull_3, decimal pfull_4, decimal pfull_5, string fechaUltCambio, string grupo) {
                 MaestroPrecioRow rowMaestroPrecioRow = ((MaestroPrecioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         codigo,
@@ -1913,7 +1979,8 @@ namespace ModInventario.Reportes.Filtros {
                         pfull_3,
                         pfull_4,
                         pfull_5,
-                        fechaUltCambio};
+                        fechaUltCambio,
+                        grupo};
                 rowMaestroPrecioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMaestroPrecioRow);
                 return rowMaestroPrecioRow;
@@ -1947,6 +2014,7 @@ namespace ModInventario.Reportes.Filtros {
                 this.columnpfull_4 = base.Columns["pfull_4"];
                 this.columnpfull_5 = base.Columns["pfull_5"];
                 this.columnfechaUltCambio = base.Columns["fechaUltCambio"];
+                this.columngrupo = base.Columns["grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1974,6 +2042,8 @@ namespace ModInventario.Reportes.Filtros {
                 base.Columns.Add(this.columnpfull_5);
                 this.columnfechaUltCambio = new global::System.Data.DataColumn("fechaUltCambio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaUltCambio);
+                this.columngrupo = new global::System.Data.DataColumn("grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3569,6 +3639,10 @@ namespace ModInventario.Reportes.Filtros {
             
             private global::System.Data.DataColumn columnreposicion;
             
+            private global::System.Data.DataColumn columndepartamento;
+            
+            private global::System.Data.DataColumn columngrupo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public NivelMinimoDataTable() {
@@ -3652,6 +3726,22 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn departamentoColumn {
+                get {
+                    return this.columndepartamento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn grupoColumn {
+                get {
+                    return this.columngrupo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3687,7 +3777,7 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public NivelMinimoRow AddNivelMinimoRow(string producto, string deposito, decimal existencia, decimal nivelMinimo, decimal nivelMaximo, decimal reposicion) {
+            public NivelMinimoRow AddNivelMinimoRow(string producto, string deposito, decimal existencia, decimal nivelMinimo, decimal nivelMaximo, decimal reposicion, string departamento, string grupo) {
                 NivelMinimoRow rowNivelMinimoRow = ((NivelMinimoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         producto,
@@ -3695,7 +3785,9 @@ namespace ModInventario.Reportes.Filtros {
                         existencia,
                         nivelMinimo,
                         nivelMaximo,
-                        reposicion};
+                        reposicion,
+                        departamento,
+                        grupo};
                 rowNivelMinimoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNivelMinimoRow);
                 return rowNivelMinimoRow;
@@ -3724,6 +3816,8 @@ namespace ModInventario.Reportes.Filtros {
                 this.columnnivelMinimo = base.Columns["nivelMinimo"];
                 this.columnnivelMaximo = base.Columns["nivelMaximo"];
                 this.columnreposicion = base.Columns["reposicion"];
+                this.columndepartamento = base.Columns["departamento"];
+                this.columngrupo = base.Columns["grupo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3741,6 +3835,10 @@ namespace ModInventario.Reportes.Filtros {
                 base.Columns.Add(this.columnnivelMaximo);
                 this.columnreposicion = new global::System.Data.DataColumn("reposicion", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnreposicion);
+                this.columndepartamento = new global::System.Data.DataColumn("departamento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndepartamento);
+                this.columngrupo = new global::System.Data.DataColumn("grupo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrupo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4043,6 +4141,22 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaestroProducto.grupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grupo\' in table \'MaestroProducto\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaestroProducto.grupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscodigoNull() {
                 return this.IsNull(this.tableMaestroProducto.codigoColumn);
             }
@@ -4159,6 +4273,18 @@ namespace ModInventario.Reportes.Filtros {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettasaNull() {
                 this[this.tableMaestroProducto.tasaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsgrupoNull() {
+                return this.IsNull(this.tableMaestroProducto.grupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetgrupoNull() {
+                this[this.tableMaestroProducto.grupoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4386,6 +4512,22 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaestroInventario.grupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grupo\' in table \'MaestroInventario\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaestroInventario.grupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscodigoNull() {
                 return this.IsNull(this.tableMaestroInventario.codigoColumn);
             }
@@ -4538,6 +4680,18 @@ namespace ModInventario.Reportes.Filtros {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetventaNull() {
                 this[this.tableMaestroInventario.ventaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsgrupoNull() {
+                return this.IsNull(this.tableMaestroInventario.grupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetgrupoNull() {
+                this[this.tableMaestroInventario.grupoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4717,6 +4871,38 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string departamento {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaestroExistencia.departamentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'departamento\' in table \'MaestroExistencia\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaestroExistencia.departamentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaestroExistencia.grupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grupo\' in table \'MaestroExistencia\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaestroExistencia.grupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsautoPrdNull() {
                 return this.IsNull(this.tableMaestroExistencia.autoPrdColumn);
             }
@@ -4833,6 +5019,30 @@ namespace ModInventario.Reportes.Filtros {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetventaMontoNull() {
                 this[this.tableMaestroExistencia.ventaMontoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdepartamentoNull() {
+                return this.IsNull(this.tableMaestroExistencia.departamentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdepartamentoNull() {
+                this[this.tableMaestroExistencia.departamentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsgrupoNull() {
+                return this.IsNull(this.tableMaestroExistencia.grupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetgrupoNull() {
+                this[this.tableMaestroExistencia.grupoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5028,6 +5238,22 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tableMaestroPrecio.grupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grupo\' in table \'MaestroPrecio\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMaestroPrecio.grupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscodigoNull() {
                 return this.IsNull(this.tableMaestroPrecio.codigoColumn);
             }
@@ -5156,6 +5382,18 @@ namespace ModInventario.Reportes.Filtros {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetfechaUltCambioNull() {
                 this[this.tableMaestroPrecio.fechaUltCambioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsgrupoNull() {
+                return this.IsNull(this.tableMaestroPrecio.grupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetgrupoNull() {
+                this[this.tableMaestroPrecio.grupoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6368,6 +6606,38 @@ namespace ModInventario.Reportes.Filtros {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string departamento {
+                get {
+                    try {
+                        return ((string)(this[this.tableNivelMinimo.departamentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'departamento\' in table \'NivelMinimo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNivelMinimo.departamentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string grupo {
+                get {
+                    try {
+                        return ((string)(this[this.tableNivelMinimo.grupoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grupo\' in table \'NivelMinimo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNivelMinimo.grupoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsproductoNull() {
                 return this.IsNull(this.tableNivelMinimo.productoColumn);
             }
@@ -6436,6 +6706,30 @@ namespace ModInventario.Reportes.Filtros {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetreposicionNull() {
                 this[this.tableNivelMinimo.reposicionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdepartamentoNull() {
+                return this.IsNull(this.tableNivelMinimo.departamentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdepartamentoNull() {
+                this[this.tableNivelMinimo.departamentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsgrupoNull() {
+                return this.IsNull(this.tableNivelMinimo.grupoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetgrupoNull() {
+                this[this.tableNivelMinimo.grupoColumn] = global::System.Convert.DBNull;
             }
         }
         

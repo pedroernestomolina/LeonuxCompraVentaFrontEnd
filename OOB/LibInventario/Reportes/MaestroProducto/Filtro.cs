@@ -13,6 +13,7 @@ namespace OOB.LibInventario.Reportes.MaestroProducto
 
         public string autoDeposito { get; set; }
         public string autoDepartamento { get; set; }
+        public string autoGrupo { get; set; }
         public string autoTasa { get; set; }
         public enumerados.EnumAdministradorPorDivisa admDivisa { get; set; }
         public enumerados.EnumOrigen origen { get; set; }
@@ -29,6 +30,7 @@ namespace OOB.LibInventario.Reportes.MaestroProducto
             autoDepartamento = "";
             autoDeposito = "";
             autoTasa = "";
+            autoGrupo = "";
         }
 
     }

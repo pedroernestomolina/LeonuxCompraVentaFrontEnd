@@ -19,6 +19,8 @@ namespace OOB.LibInventario.Reportes.NivelMinimo
         public decimal nivelMin { get; set; }
         public decimal nivelMax { get; set; }
         public decimal reposicion { get { return nivelMax - existencia; } }
+        public string departamento { get; set; }
+        public string grupo { get; set; }
 
     }
 

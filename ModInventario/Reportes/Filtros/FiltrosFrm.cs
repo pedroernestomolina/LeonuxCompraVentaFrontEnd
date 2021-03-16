@@ -74,7 +74,9 @@ namespace ModInventario.Reportes.Filtros
             CB_ORIGEN.Enabled = _controlador.Filtros.ActivarOrigen;
             CB_CATEGORIA.Enabled = _controlador.Filtros.ActivarCategoria;
             CB_MARCA.Enabled = _controlador.Filtros.ActivarMarca;
-            CB_GRUPO.Enabled = _controlador.Filtros.ActivarGrupo;
+            //CB_GRUPO.Enabled = _controlador.Filtros.ActivarGrupo;
+            CB_GRUPO.SelectedIndex = -1;
+            CB_GRUPO.Enabled = false;
             DTP_DESDE.Enabled = _controlador.Filtros.ActivarDesde;
             DTP_HASTA.Enabled = _controlador.Filtros.ActivarHasta;
         }
@@ -87,10 +89,15 @@ namespace ModInventario.Reportes.Filtros
         private void CB_DEPARTAMENTO_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controlador.AutoDepartamento = "";
+            _controlador.setDepartamento("");
+            CB_GRUPO.Enabled = false;
             if (CB_DEPARTAMENTO.SelectedIndex != -1)
             {
+                _controlador.setDepartamento(CB_DEPARTAMENTO.SelectedValue.ToString());
                 _controlador.AutoDepartamento = CB_DEPARTAMENTO.SelectedValue.ToString();
+                CB_GRUPO.Enabled = true;
             }
+            CB_GRUPO.SelectedIndex = -1;
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
@@ -159,9 +166,11 @@ namespace ModInventario.Reportes.Filtros
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controlador.AutoGrupo = "";
+            _controlador.setGrupo("");
             if (CB_GRUPO.SelectedIndex != -1)
             {
                 _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
+                _controlador.setGrupo(CB_GRUPO.SelectedValue.ToString());
             }
         }
 
@@ -319,7 +328,7 @@ namespace ModInventario.Reportes.Filtros
         {
             _controlador.ProductoBuscar = TB_PRODUCTO.Text.Trim().ToUpper();
         }
-     
+    
     }
 
 }

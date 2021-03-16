@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61DA849D-DEBB-4512-A36E-1FEE2FF5C3FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PosOnLine</RootNamespace>
+    <AssemblyName>PosOnLine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DtoLib">
+      <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\DtoLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DtoLibPos">
+      <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\DtoLibPos.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="ServicePos">
+      <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\ServicePos.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Infra\IData.cs" />
+    <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Prov\DataPrv.cs" />
+    <Compile Include="Data\Prov\Usuario.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion.cs" />
+    <Compile Include="OOB\Resultado\Enumerados.cs" />
+    <Compile Include="OOB\Resultado\Ficha.cs" />
+    <Compile Include="OOB\Resultado\FichaAuto.cs" />
+    <Compile Include="OOB\Resultado\FichaEntidad.cs" />
+    <Compile Include="OOB\Resultado\FichaId.cs" />
+    <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sistema.cs" />
+    <Compile Include="Src\Helpers\Msg.cs" />
+    <Compile Include="Src\Helpers\Sonido.cs" />
+    <Compile Include="Src\Helpers\Utilitis.cs" />
+    <Compile Include="Src\Identificacion\Gestion.cs" />
+    <Compile Include="Src\Identificacion\IdentificacionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Identificacion\IdentificacionFrm.Designer.cs">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Pos\PosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Pos\PosFrm.Designer.cs">
+      <DependentUpon>PosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Principal\Gestion.cs" />
+    <Compile Include="Src\Principal\PrincipalFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Principal\PrincipalFrm.Designer.cs">
+      <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
+      <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alerta.wav" />
+    <None Include="Resources\paso.wav" />
+    <None Include="Resources\error.wav" />
+    <Content Include="Src\Sonidos\alerta.wav" />
+    <Content Include="Src\Sonidos\error.wav" />
+    <Content Include="Src\Sonidos\paso.wav" />
+    <None Include="Resources\CarritoCompra.png" />
+    <None Include="Resources\carrito_compra.png" />
+    <None Include="Resources\bt_vegetales.png" />
+    <None Include="Resources\bt_usuario.png" />
+    <None Include="Resources\bt_undo.png" />
+    <None Include="Resources\bt_sumar.png" />
+    <None Include="Resources\bt_subir.png" />
+    <None Include="Resources\bt_retornar.png" />
+    <None Include="Resources\bt_restar.png" />
+    <None Include="Resources\bt_print_document.png" />
+    <None Include="Resources\bt_pagar.png" />
+    <None Include="Resources\bt_ok.png" />
+    <None Include="Resources\bt_ofertas.png" />
+    <None Include="Resources\bt_notaPendiente.png" />
+    <None Include="Resources\bt_mult.png" />
+    <None Include="Resources\bt_gaveta.png" />
+    <None Include="Resources\bt_enEspera.png" />
+    <None Include="Resources\bt_eliminar_uno.png" />
+    <None Include="Resources\bt_eliminar.png" />
+    <None Include="Resources\bt_documentos.png" />
+    <None Include="Resources\bt_directorio.png" />
+    <None Include="Resources\bt_descuento.png" />
+    <None Include="Resources\bt_consulta.png" />
+    <None Include="Resources\bt_cliente.png" />
+    <None Include="Resources\bt_click.png" />
+    <None Include="Resources\bt_cesta.png" />
+    <None Include="Resources\bt_calculadora.png" />
+    <None Include="Resources\bt_cajero.png" />
+    <None Include="Resources\bt_borrar_todo.png" />
+    <None Include="Resources\bt_bajar.png" />
+    <None Include="Resources\bt_anular.png" />
+    <None Include="Resources\Balanza.jpg" />
+    <None Include="Resources\acceso.png" />
+    <None Include="Resources\configuracion.png" />
+    <Content Include="Src\Imagenes\acceso.png" />
+    <Content Include="Src\Imagenes\Balanza.jpg" />
+    <Content Include="Src\Imagenes\bt_anular.png" />
+    <Content Include="Src\Imagenes\bt_bajar.png" />
+    <Content Include="Src\Imagenes\bt_borrar_todo.png" />
+    <Content Include="Src\Imagenes\bt_cajero.png" />
+    <Content Include="Src\Imagenes\bt_calculadora.png" />
+    <Content Include="Src\Imagenes\bt_cesta.png" />
+    <Content Include="Src\Imagenes\bt_click.png" />
+    <Content Include="Src\Imagenes\bt_cliente.png" />
+    <Content Include="Src\Imagenes\bt_consulta.png" />
+    <Content Include="Src\Imagenes\bt_descuento.png" />
+    <Content Include="Src\Imagenes\bt_directorio.png" />
+    <Content Include="Src\Imagenes\bt_documentos.png" />
+    <Content Include="Src\Imagenes\bt_eliminar.png" />
+    <Content Include="Src\Imagenes\bt_eliminar_uno.png" />
+    <Content Include="Src\Imagenes\bt_enEspera.png" />
+    <Content Include="Src\Imagenes\bt_gaveta.png" />
+    <Content Include="Src\Imagenes\bt_mult.png" />
+    <Content Include="Src\Imagenes\bt_notaPendiente.png" />
+    <Content Include="Src\Imagenes\bt_ofertas.png" />
+    <Content Include="Src\Imagenes\bt_ok.png" />
+    <Content Include="Src\Imagenes\bt_pagar.png" />
+    <Content Include="Src\Imagenes\bt_print_document.png" />
+    <Content Include="Src\Imagenes\bt_restar.png" />
+    <Content Include="Src\Imagenes\bt_retornar.png" />
+    <Content Include="Src\Imagenes\bt_subir.png" />
+    <Content Include="Src\Imagenes\bt_sumar.png" />
+    <Content Include="Src\Imagenes\bt_undo.png" />
+    <Content Include="Src\Imagenes\bt_usuario.png" />
+    <Content Include="Src\Imagenes\bt_vegetales.png" />
+    <Content Include="Src\Imagenes\CarritoCompra.png" />
+    <Content Include="Src\Imagenes\carrito_compra.png" />
+    <Content Include="Src\Imagenes\configuracion.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -21,6 +21,7 @@ namespace DataProvInventario.Data
                 autoDepartamento = filtro.autoDepartamento,
                 autoDeposito=filtro.autoDeposito,
                 autoTasa = filtro.autoTasa,
+                autoGrupo=filtro.autoGrupo,
                 admDivisa = (DtoLibInventario.Reportes.enumerados.EnumAdministradorPorDivisa)filtro.admDivisa,
                 categoria = (DtoLibInventario.Reportes.enumerados.EnumCategoria)filtro.categoria,
                 estatus = (DtoLibInventario.Reportes.enumerados.EnumEstatus)filtro.estatus,
@@ -48,6 +49,7 @@ namespace DataProvInventario.Data
                             codigoPrd = s.codigoPrd,
                             contenidoPrd = s.contenidoPrd,
                             departamento = s.departamento,
+                            grupo= s.grupo,
                             empaque = s.empaque,
                             estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus) s.estatus,
                             modeloPrd = s.modeloPrd,
@@ -71,7 +73,8 @@ namespace DataProvInventario.Data
             var filtroDto = new DtoLibInventario.Reportes.MaestroInventario.Filtro()
             {
                 autoDepartamento = filtro.autoDepartamento,
-                autoDeposito=filtro.autoDeposito,
+                autoDeposito = filtro.autoDeposito,
+                autoGrupo = filtro.autoGrupo,
             };
             var r01 = MyData.Reportes_MaestroInventario(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -93,6 +96,7 @@ namespace DataProvInventario.Data
                             admDivisa = (OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa)s.admDivisa,
                             codigoPrd = s.codigoPrd,
                             departamento = s.departamento,
+                            grupo = s.grupo,
                             estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus)s.estatus,
                             modeloPrd = s.modeloPrd,
                             nombrePrd = s.nombrePrd,
@@ -169,6 +173,7 @@ namespace DataProvInventario.Data
             {
                 autoDepartamento = filtro.autoDepartamento,
                 autoDeposito = filtro.autoDeposito,
+                autoGrupo= filtro.autoGrupo,
             };
             var r01 = MyData.Reportes_MaestroExistencia(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -206,6 +211,8 @@ namespace DataProvInventario.Data
                             pDivisaNeto_4 = s.pDivisaNeto_4,
                             pDivisaNeto_5 = s.pDivisaNeto_5,
                             precioId = s.precioId,
+                            departamento=s.departamento,
+                            grupo=s.grupo,
                         };
                     }).ToList();
                 }
@@ -265,6 +272,7 @@ namespace DataProvInventario.Data
                             precioNeto_5 = s.precioNeto_5,
                             referenciaPrd = s.referenciaPrd,
                             tasaIvaPrd = s.tasaIvaPrd,
+                            grupo=s.grupo,
                         };
                     }).ToList();
                 }
@@ -477,6 +485,7 @@ namespace DataProvInventario.Data
             {
                 autoDeposito = filtro.autoDeposito,
                 autoDepartamento= filtro.autoDepartamento,
+                autoGrupo=filtro.autoGrupo,
             };
             var r01 = MyData.Reportes_NivelMinimo(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -502,6 +511,8 @@ namespace DataProvInventario.Data
                             nivelMin = s.nivelMin,
                             nombreDep = s.nombreDep,
                             nombrePrd = s.nombrePrd,
+                            departamento=s.departamento,
+                            grupo=s.grupo,
                         };
                     }).ToList();
                 }

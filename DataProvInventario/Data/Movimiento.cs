@@ -87,6 +87,8 @@ namespace DataProvInventario.Data
                 tipo = ficha.tipo,
                 total = ficha.total,
                 usuario = ficha.usuario,
+                factorCambio = ficha.factorCambio,
+                montoDivisa = ficha.montoDivisa,
             };
             var listDet = ficha.detalles.Select(s =>
             {
@@ -151,8 +153,9 @@ namespace DataProvInventario.Data
                 var dt = new DtoLibInventario.Movimiento.Traslado.Insertar.FichaPrdDeposito()
                 {
                     autoProducto = s.autoProducto,
+                    nombreProducto = s.nombreProducto,
                     autoDepositoOrigen = s.autoDepositoOrigen,
-                    autoDepositoDestino=s.autoDepositoDestino,
+                    autoDepositoDestino = s.autoDepositoDestino,
                     cantidadUnd = s.cantidadUnd,
                 };
                 return dt;
@@ -260,6 +263,8 @@ namespace DataProvInventario.Data
                 tipo = ficha.tipo,
                 total = ficha.total,
                 usuario = ficha.usuario,
+                factorCambio = ficha.factorCambio,
+                montoDivisa = ficha.montoDivisa,
             };
             var listDet = ficha.detalles.Select(s =>
             {
@@ -324,6 +329,7 @@ namespace DataProvInventario.Data
                 var dt = new DtoLibInventario.Movimiento.Cargo.Insertar.FichaPrdDeposito()
                 {
                     autoProducto = s.autoProducto,
+                    nombreProducto = s.nombreProducto,
                     autoDeposito = s.autoDeposito,
                     cantidadUnd = s.cantidadUnd,
                 };
@@ -498,6 +504,8 @@ namespace DataProvInventario.Data
                 tipo = ficha.tipo,
                 total = ficha.total,
                 usuario = ficha.usuario,
+                factorCambio = ficha.factorCambio,
+                montoDivisa = ficha.montoDivisa,
             };
             var listDet = ficha.detalles.Select(s =>
             {
@@ -562,6 +570,7 @@ namespace DataProvInventario.Data
                 var dt = new DtoLibInventario.Movimiento.DesCargo.Insertar.FichaPrdDeposito()
                 {
                     autoProducto = s.autoProducto,
+                    nombreProducto = s.nombreProducto,
                     autoDeposito = s.autoDeposito,
                     cantidadUnd = s.cantidadUnd,
                 };
@@ -612,6 +621,8 @@ namespace DataProvInventario.Data
                 tipo = ficha.tipo,
                 total = ficha.total,
                 usuario = ficha.usuario,
+                factorCambio = ficha.factorCambio,
+                montoDivisa = ficha.montoDivisa,
             };
             var listDet = ficha.detalles.Select(s =>
             {
@@ -676,6 +687,7 @@ namespace DataProvInventario.Data
                 var dt = new DtoLibInventario.Movimiento.Ajuste.Insertar.FichaPrdDeposito()
                 {
                     autoProducto = s.autoProducto,
+                    nombreProducto = s.nombreProducto,
                     autoDeposito = s.autoDeposito,
                     cantidadUnd = s.cantidadUnd,
                 };

@@ -183,6 +183,39 @@ namespace DataProvInventario.Data
             var fichaDTO = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Ficha()
             {
                 Metodo = ficha.Metodo,
+                Precio = ficha.Precio.Select(s => 
+                {
+                    var nr = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.FichaPrecio()
+                    {
+                        idProducto = s.idProducto,
+                        Precio_1 = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Precio()
+                        {
+                            pdf = s.Precio_1.pdf,
+                            pneto = s.Precio_1.pneto,
+                        },
+                        Precio_2 = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Precio()
+                        {
+                            pdf = s.Precio_2.pdf,
+                            pneto = s.Precio_2.pneto,
+                        },
+                        Precio_3 = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Precio()
+                        {
+                            pdf = s.Precio_3.pdf,
+                            pneto = s.Precio_3.pneto,
+                        },
+                        Precio_4 = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Precio()
+                        {
+                            pdf = s.Precio_4.pdf,
+                            pneto = s.Precio_4.pneto,
+                        },
+                        Precio_5 = new DtoLibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Precio()
+                        {
+                            pdf = s.Precio_5.pdf,
+                            pneto = s.Precio_5.pneto,
+                        },
+                    };
+                    return nr;
+                }).ToList(),
             };
             var r01 = MyData.Configuracion_SetMetodoCalculoUtilidad(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -211,6 +244,59 @@ namespace DataProvInventario.Data
                 return rt;
             }
 
+            return rt;
+        }
+
+
+        public OOB.ResultadoLista<OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha> Configuracion_MetodoCalculoUtilidad_CapturarData()
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha>();
+
+            var r01 = MyData.Configuracion_MetodoCalculoUtilidad_CapturarData();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var lst = new List<OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha>();
+            if (r01.Lista != null) 
+            {
+                if (r01.Lista.Count > 0) 
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha()
+                        {
+                            contenido_1 = s.contenido_1,
+                            contenido_2 = s.contenido_2,
+                            contenido_3 = s.contenido_3,
+                            contenido_4 = s.contenido_4,
+                            contenido_5 = s.contenido_5,
+                            contenidoEmpCompra = s.contenidoEmpCompra,
+                            costoDivisa = s.costoDivisa,
+                            costoUnd = s.costoUnd,
+                            estatusDivisa = s.estatusDivisa,
+                            idProducto = s.idProducto,
+                            tasaIva = s.tasaIva,
+                            utilidad_1 = s.utilidad_1,
+                            utilidad_2 = s.utilidad_2,
+                            utilidad_3 = s.utilidad_3,
+                            utilidad_4 = s.utilidad_4,
+                            utilidad_5 = s.utilidad_5,
+                            precio_1 = s.precio_1,
+                            precio_2 = s.precio_2,
+                            precio_3 = s.precio_3,
+                            precio_4 = s.precio_4,
+                            precio_5 = s.precio_5,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.Lista = lst;
+           
             return rt;
         }
 

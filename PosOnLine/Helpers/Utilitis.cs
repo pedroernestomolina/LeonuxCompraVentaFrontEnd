@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 using System.Xml;
 
 
-namespace PosOnLine.Src.Helpers
+namespace PosOnLine.Helpers
 {
     
     public class Utilitis
     {
-
-        static public string _Instancia { get; set; }
-        static public string _BaseDatos { get; set; }
         static public string _DataLocal { get; set; }
 
 
@@ -48,14 +45,19 @@ namespace PosOnLine.Src.Helpers
                                     {
                                         if (sv.LocalName.Trim().ToUpper() == "INSTANCIA")
                                         {
-                                            _Instancia = sv.InnerText.Trim();
+                                            Sistema.Instancia = sv.InnerText.Trim();
                                         }
                                         if (sv.LocalName.Trim().ToUpper() == "CATALOGO")
                                         {
-                                            _BaseDatos = sv.InnerText.Trim();
+                                            Sistema.BaseDatos = sv.InnerText.Trim();
                                         }
                                     }
                                 }
+                                if (nv.LocalName.ToUpper().Trim() == "IDEQUIPO")
+                                {
+                                    Sistema.IdEquipo= nv.InnerText.Trim();
+                                }
+
                                 if (nv.LocalName.ToUpper().Trim() == "DATALOCAL") 
                                 {
                                     _DataLocal = nv.InnerText.Trim();

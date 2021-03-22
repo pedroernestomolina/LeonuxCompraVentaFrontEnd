@@ -55,7 +55,7 @@ namespace ModInventario.Configuracion.MetodoCalculoUtilidad
 
         private void Procesar()
         {
-            _controlador.Proesar();
+            _controlador.Procesar();
             if (_controlador.IsOk)
             {
                 Salir();

@@ -24,6 +24,8 @@ namespace DataProvInventario.InfraEstructura
 
         OOB.ResultadoLista<OOB.LibInventario.Reportes.NivelMinimo.Ficha> Reportes_NivelMinimo(OOB.LibInventario.Reportes.NivelMinimo.Filtro filtro);
 
+        OOB.ResultadoLista<OOB.LibInventario.Reportes.Valorizacion.Ficha> Reportes_Valorizacion(OOB.LibInventario.Reportes.Valorizacion.Filtro filtro);
+
     }
 
 }

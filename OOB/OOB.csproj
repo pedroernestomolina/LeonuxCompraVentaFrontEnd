@@ -157,7 +157,10 @@
     <Compile Include="LibInventario\Configuracion\BusquedaPredeterminada\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Configuracion\CostoEdad\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Configuracion\Enumerados.cs" />
+    <Compile Include="LibInventario\Configuracion\MetodoCalculoUtilidad\CapturarData\Ficha.cs" />
     <Compile Include="LibInventario\Configuracion\MetodoCalculoUtilidad\Editar\Ficha.cs" />
+    <Compile Include="LibInventario\Configuracion\MetodoCalculoUtilidad\Editar\FichaPrecio.cs" />
+    <Compile Include="LibInventario\Configuracion\MetodoCalculoUtilidad\Editar\Precio.cs" />
     <Compile Include="LibInventario\Configuracion\PreferenciaPrecio\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Configuracion\RedondeoPrecio\Editar\Ficha.cs" />
     <Compile Include="LibInventario\Costo\Editar\Ficha.cs" />
@@ -293,6 +296,8 @@
     <Compile Include="LibInventario\Reportes\NivelMinimo\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\Top20\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Top20\Filtro.cs" />
+    <Compile Include="LibInventario\Reportes\Valorizacion\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\Valorizacion\Filtro.cs" />
     <Compile Include="LibInventario\Sucursal\Ficha.cs" />
     <Compile Include="LibInventario\TasaImpuesto\Ficha.cs" />
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Ajustar\Ficha.cs" />

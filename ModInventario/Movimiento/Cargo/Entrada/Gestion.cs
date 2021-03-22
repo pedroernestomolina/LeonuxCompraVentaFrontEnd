@@ -17,6 +17,7 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         private Movimiento.enumerados.enumTipoEmpaque tipoEmpaque;
         private decimal importe;
         private decimal importeMonedaLocal;
+        private string idDeposito;
 
 
         public bool ProcesarOk { get; set; }
@@ -34,16 +35,26 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         public string CntUnd { get { return string.Format("{0:n"+Decimales+"}", (Cantidad * contenido)); } }
         public string CostoUnd { get { return string.Format("{0:n2}", (Costo / contenido)); } }
         public Movimiento.enumerados.enumTipoEmpaque  TipoEmpaqueSeleccionado { get { return tipoEmpaque; } }
+        //public decimal CntExistenciaDeposito
+        //{
+        //    get
+        //    {
+        //        var vt = 0.0m;
+        //        return vt;
+        //    }
+        //}
         public decimal CntExistenciaDeposito
         {
             get
             {
                 var vt = 0.0m;
+                vt = Prd.existencia.depositos.First(w => w.autoId == idDeposito).exFisica;
                 return vt;
             }
         }
         public string Decimales { get { return Prd.Decimales; } }
-        public string ExistenciaDeposito { get { return ""; } }
+        //public string ExistenciaDeposito { get { return ""; } }
+        public string ExistenciaDeposito { get { return CntExistenciaDeposito.ToString("n" + Decimales); } }
         public decimal Importe 
         { 
             get 
@@ -121,9 +132,10 @@ namespace ModInventario.Movimiento.Cargo.Entrada
             }
         }
 
-        public void setFicha (OOB.LibInventario.Producto.Data.Ficha ficha)
+        public void setFicha (OOB.LibInventario.Producto.Data.Ficha ficha, string _idDeposito)
         {
             Prd = ficha;
+            idDeposito = _idDeposito;
         }
 
         public void setEmpaque(int p)

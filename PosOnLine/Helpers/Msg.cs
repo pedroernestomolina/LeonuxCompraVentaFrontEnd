@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace PosOnLine.Src.Helpers
+namespace PosOnLine.Helpers
 {
 
     public class Msg

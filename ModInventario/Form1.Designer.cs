@@ -117,6 +117,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.TSM_REPORTE_VALORIZACION = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -181,11 +182,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(715, 1);
+            this.panel2.Location = new System.Drawing.Point(714, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(168, 52);
+            this.panel2.Size = new System.Drawing.Size(169, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -196,7 +197,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(164, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(165, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -405,7 +406,7 @@
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(127, 52);
+            this.panel20.Size = new System.Drawing.Size(126, 52);
             this.panel20.TabIndex = 3;
             // 
             // tableLayoutPanel8
@@ -421,7 +422,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(123, 48);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(122, 48);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel21
@@ -432,7 +433,7 @@
             this.panel21.Margin = new System.Windows.Forms.Padding(1);
             this.panel21.Name = "panel21";
             this.panel21.Padding = new System.Windows.Forms.Padding(2);
-            this.panel21.Size = new System.Drawing.Size(82, 46);
+            this.panel21.Size = new System.Drawing.Size(81, 46);
             this.panel21.TabIndex = 0;
             // 
             // L_HORA
@@ -442,7 +443,7 @@
             this.L_HORA.ForeColor = System.Drawing.Color.Black;
             this.L_HORA.Location = new System.Drawing.Point(2, 2);
             this.L_HORA.Name = "L_HORA";
-            this.L_HORA.Size = new System.Drawing.Size(78, 42);
+            this.L_HORA.Size = new System.Drawing.Size(77, 42);
             this.L_HORA.TabIndex = 6;
             this.L_HORA.Text = "Hoy";
             this.L_HORA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -717,6 +718,7 @@
             this.TSM_REPORTE_MAESTRO_PRECIO,
             this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO,
             this.TSM_REPORTE_KARDEX,
+            this.TSM_REPORTE_VALORIZACION,
             this.toolStripMenuItem3,
             this.TSM_REPORTE_RELACION_COMPRAVENTA});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
@@ -1062,6 +1064,14 @@
             this.panel10.Size = new System.Drawing.Size(246, 350);
             this.panel10.TabIndex = 0;
             // 
+            // TSM_REPORTE_VALORIZACION
+            // 
+            this.TSM_REPORTE_VALORIZACION.Image = global::ModInventario.Properties.Resources.bt_imprimir_3;
+            this.TSM_REPORTE_VALORIZACION.Name = "TSM_REPORTE_VALORIZACION";
+            this.TSM_REPORTE_VALORIZACION.Size = new System.Drawing.Size(280, 22);
+            this.TSM_REPORTE_VALORIZACION.Text = "Valorizacion Inventario";
+            this.TSM_REPORTE_VALORIZACION.Click += new System.EventHandler(this.TSM_REPORTE_VALORIZACION_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1198,6 +1208,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_REGISTRO_PRECIOS;
         private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_REDONDEO_PRECIOS;
         private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_COSTO_EDAD;
+        private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_VALORIZACION;
     }
 }
 

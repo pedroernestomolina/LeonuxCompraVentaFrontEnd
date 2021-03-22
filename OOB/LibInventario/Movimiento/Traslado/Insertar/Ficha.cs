@@ -37,6 +37,8 @@ namespace OOB.LibInventario.Movimiento.Traslado.Insertar
         public string codigoSucursal { get; set; }
         public string cierreFtp { get; set; }
         public string estatusCierreContable { get; set; }
+        public decimal factorCambio { get; set; }
+        public decimal montoDivisa { get; set; }
 
         public List<FichaDetalle> detalles { get; set; }
         public List<FichaKardex> movKardex { get; set; }

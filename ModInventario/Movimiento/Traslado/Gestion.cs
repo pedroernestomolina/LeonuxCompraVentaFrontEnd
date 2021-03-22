@@ -219,6 +219,11 @@ namespace ModInventario.Movimiento.Traslado
             miData.detalle = _gestionDetalle.Detalle;
             if (miData.Verificar())
             {
+                if (IdSucursal == "") 
+                {
+                    Helpers.Msg.Error("Campo [ Sucursal ] No Seleccionada");
+                    return;
+                }
                 if (IdDepOrigen == "")
                 {
                     Helpers.Msg.Error("[ Depósito Origen ] No Seleccionada");
@@ -279,6 +284,8 @@ namespace ModInventario.Movimiento.Traslado
                 tipo = "03",
                 total = MontoMovimiento,
                 usuario = Sistema.UsuarioP.nombreUsu,
+                factorCambio = tasaCambio,
+                montoDivisa = Math.Round(MontoMovimiento / tasaCambio, 2, MidpointRounding.AwayFromZero),
             };
 
             var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
@@ -314,7 +321,8 @@ namespace ModInventario.Movimiento.Traslado
                 var rg = new OOB.LibInventario.Movimiento.Traslado.Insertar.FichaPrdDeposito()
                 {
                     autoDepositoOrigen = miData.IdDepOrigen,
-                    autoDepositoDestino= miData.IdDepDestino,
+                    nombreProducto = s.DescripcionPrd,
+                    autoDepositoDestino = miData.IdDepDestino,
                     autoProducto = s.FichaPrd.AutoId,
                     cantidadUnd = s.CantidadUnd,
                 };

@@ -160,6 +160,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Valorizacion" msprop:Generator_TableClassName="ValorizacionDataTable" msprop:Generator_TableVarName="tableValorizacion" msprop:Generator_RowChangedName="ValorizacionRowChanged" msprop:Generator_TablePropName="Valorizacion" msprop:Generator_RowDeletingName="ValorizacionRowDeleting" msprop:Generator_RowChangingName="ValorizacionRowChanging" msprop:Generator_RowEvHandlerName="ValorizacionRowChangeEventHandler" msprop:Generator_RowDeletedName="ValorizacionRowDeleted" msprop:Generator_RowClassName="ValorizacionRow" msprop:Generator_UserTableName="Valorizacion" msprop:Generator_RowEvArgName="ValorizacionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="producto" msprop:Generator_ColumnVarNameInTable="columnproducto" msprop:Generator_ColumnPropNameInRow="producto" msprop:Generator_ColumnPropNameInTable="productoColumn" msprop:Generator_UserColumnName="producto" type="xs:string" minOccurs="0" />
+              <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" type="xs:string" minOccurs="0" />
+              <xs:element name="grupo" msprop:Generator_ColumnVarNameInTable="columngrupo" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_UserColumnName="grupo" type="xs:string" minOccurs="0" />
+              <xs:element name="existencia" msprop:Generator_ColumnVarNameInTable="columnexistencia" msprop:Generator_ColumnPropNameInRow="existencia" msprop:Generator_ColumnPropNameInTable="existenciaColumn" msprop:Generator_UserColumnName="existencia" type="xs:decimal" minOccurs="0" />
+              <xs:element name="costoUnd" msprop:Generator_ColumnVarNameInTable="columncostoUnd" msprop:Generator_ColumnPropNameInRow="costoUnd" msprop:Generator_ColumnPropNameInTable="costoUndColumn" msprop:Generator_UserColumnName="costoUnd" type="xs:decimal" minOccurs="0" />
+              <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

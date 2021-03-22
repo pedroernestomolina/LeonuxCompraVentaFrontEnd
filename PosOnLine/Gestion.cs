@@ -28,8 +28,7 @@ namespace PosOnLine
         {
             if (CargarDataXML()) 
             {
-                //Sistema.MyData = new DataPrv(Sistema._Instancia, Sistema._BaseDatos);
-                Sistema.MyData = new DataPrv("localhost", "pita");
+                Sistema.MyData = new DataPrv(Sistema.Instancia, Sistema.BaseDatos);
 
                 _gestionIdentifica.Inicializa();
                 _gestionIdentifica.Inicia();
@@ -44,9 +43,13 @@ namespace PosOnLine
 
         private bool CargarDataXML()
         {
-            var rt = true;
-
-            return rt;
+            var  r01= Helpers.Utilitis.CargarXml();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            return true;
         }
 
     }

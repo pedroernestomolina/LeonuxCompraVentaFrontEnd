@@ -12,6 +12,7 @@ namespace OOB.LibInventario.Movimiento.Cargo.Insertar
     {
 
         public string autoProducto { get; set; }
+        public string nombreProducto { get; set; }
         public string autoDeposito { get; set; }
         public decimal cantidadUnd { get; set; }
 

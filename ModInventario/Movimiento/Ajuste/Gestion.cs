@@ -205,8 +205,15 @@ namespace ModInventario.Movimiento.Ajuste
         public void Procesar()
         {
             miData.detalle = _gestionDetalle.Detalle;
+
             if (miData.Verificar())
             {
+                if (IdSucursal == "")
+                {
+                    Helpers.Msg.Error("Campo [ Sucursal ] No Seleccionada");
+                    return;
+                }
+
                 var msg = MessageBox.Show("Procesar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.No) 
                 {
@@ -256,6 +263,8 @@ namespace ModInventario.Movimiento.Ajuste
                 tipo = "04",
                 total = MontoMovimiento,
                 usuario = Sistema.UsuarioP.nombreUsu,
+                factorCambio = tasaCambio,
+                montoDivisa = Math.Round(MontoMovimiento / tasaCambio, 2, MidpointRounding.AwayFromZero),
             };
 
             var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
@@ -292,7 +301,8 @@ namespace ModInventario.Movimiento.Ajuste
                 {
                     autoDeposito = miData.IdDepOrigen,
                     autoProducto = s.FichaPrd.AutoId,
-                    cantidadUnd = s.CantidadUnd*s.Signo,
+                    nombreProducto = s.DescripcionPrd,
+                    cantidadUnd = s.CantidadUnd * s.Signo,
                 };
                 return rg;
             }).ToList();

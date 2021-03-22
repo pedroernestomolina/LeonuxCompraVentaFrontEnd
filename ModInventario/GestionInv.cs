@@ -381,32 +381,94 @@ namespace ModInventario
 
         public void Conf_CostoEdadProducto()
         {
-            _gestionConfCostoEdad.Inicializa();
-            _gestionConfCostoEdad.Inicia();
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionConfCostoEdad.Inicializa();
+                _gestionConfCostoEdad.Inicia();
+            }
         }
 
         public void Conf_RedondeoPreciosVenta()
         {
-            _gestionConfRedondeoPrecio.Inicializa();
-            _gestionConfRedondeoPrecio.Inicia();
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionConfRedondeoPrecio.Inicializa();
+                _gestionConfRedondeoPrecio.Inicia();
+            }
         }
 
         public void Conf_RegistroPrecio()
         {
-            _gestionConfRegistroPrecio.Inicializa();
-            _gestionConfRegistroPrecio.Inicia();
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionConfRegistroPrecio.Inicializa();
+                _gestionConfRegistroPrecio.Inicia();
+            }
         }
 
         public void Conf_BusquedaPredeterminada()
         {
-            _gestionConfBusquedaPred.Inicializa();
-            _gestionConfBusquedaPred.Inicia();
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionConfBusquedaPred.Inicializa();
+                _gestionConfBusquedaPred.Inicia();
+            }
         }
 
         public void Conf_MetodoCalcUtilidad()
         {
-            _gestionConfMetodoCalUtilidad.Inicializa();
-            _gestionConfMetodoCalUtilidad.Inicia();
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionConfMetodoCalUtilidad.Inicializa();
+                _gestionConfMetodoCalUtilidad.Inicia();
+            }
+        }
+
+        public void ReporteValorizacionInventario()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.Valorizacion.Filtros());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                var rp = new Reportes.Filtros.Valorizacion.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.Generar();
+            }
         }
 
     }

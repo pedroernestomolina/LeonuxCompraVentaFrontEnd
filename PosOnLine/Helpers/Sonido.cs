@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace PosOnLine.Src.Helpers
+namespace PosOnLine.Helpers
 {
     
     public class Sonido

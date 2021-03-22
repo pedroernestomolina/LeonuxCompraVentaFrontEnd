@@ -12,8 +12,12 @@ namespace PosOnLine.Src.Principal
     {
 
 
+        private Pos.Gestion _gestionPos;
+
+
         public Gestion()
         {
+            _gestionPos = new Pos.Gestion();
         }
 
 
@@ -36,7 +40,85 @@ namespace PosOnLine.Src.Principal
         {
             var rt = true;
 
+            var r01 = Sistema.MyData.Jornada_EnUso_GetByIdEquipo(Sistema.IdEquipo);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError )
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            Sistema.PosEnUso = r01.Entidad;
+
+            var r02 = Sistema.MyData.Configuracion_Pos_GetFicha();
+            if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return false;
+            }
+            Sistema.ConfiguracionActual = r02.Entidad;
+
+            if (r02.Entidad.idSucursal != "")
+            {
+                var r03 = Sistema.MyData.Sucursal_GetFichaById(r02.Entidad.idSucursal);
+                if (r03.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r03.Mensaje);
+                    return false;
+                }
+                Sistema.Sucursal = r03.Entidad;
+            }
+
             return rt;
+        }
+
+        public void AbrirPos()
+        {
+            if (Sistema.PosEnUso.IsEnUso)
+            {
+                if (Sistema.PosEnUso.idUsuario != Sistema.Usuario.id)
+                {
+                    Helpers.Msg.Error("USUARIO ACTUAL NO PUEDE ABRIR POS" + Environment.NewLine + "EXISTE UNA JORNADA ABIERTA DE OTRO OPERADOR");
+                    return;
+                }
+            }
+            else 
+            {
+                if (Sistema.Sucursal == null) 
+                {
+                    Helpers.Msg.Error("CONFIGURACION SISTEMA NO HA SIDO REALIZADA, VERIFIQUE");
+                    return;
+                }
+                AbrirJornada();
+            }
+
+            if (Sistema.PosEnUso.IsEnUso) 
+            {
+                frm.setVisibilidad(false);
+                _gestionPos.Inicializa();
+                _gestionPos.Inicia();
+                frm.setVisibilidad(true);
+            }
+        }
+
+        private void AbrirJornada()
+        {
+            var ficha = new OOB.Pos.Abrir.Ficha(Sistema.Sucursal, Sistema.IdEquipo, Sistema.Usuario);
+            var r01 = Sistema.MyData.Jornada_Abrir(ficha);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            var r02 = Sistema.MyData.Jornada_EnUso_GetById(r01.Id);
+            if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return;
+            }
+            Sistema.PosEnUso = r02.Entidad;
+        }
+
+        public void CerrarPos()
+        {
         }
 
     }

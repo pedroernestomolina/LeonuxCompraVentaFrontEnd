@@ -522,6 +522,51 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.Valorizacion.Ficha> Reportes_Valorizacion(OOB.LibInventario.Reportes.Valorizacion.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.Valorizacion.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.Valorizacion.Filtro()
+            {
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reportes_Valorizacion(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.Valorizacion.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var costHist = s.costoUnd;
+                        if (s.costoHist.HasValue) { costHist = Math.Round(s.costoHist.Value / s.contEmpComp, 2, MidpointRounding.AwayFromZero); }
+                        return new OOB.LibInventario.Reportes.Valorizacion.Ficha()
+                        {
+                            auto = s.auto,
+                            cntUnd = s.cntUnd,
+                            codigo = s.codigo,
+                            contEmpComp = s.contEmpComp,
+                            costoHist = costHist,
+                            costoUnd = s.costoUnd,
+                            departamento = s.departamento,
+                            grupo = s.grupo,
+                            nombre = s.nombre,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

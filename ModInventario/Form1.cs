@@ -402,6 +402,16 @@ namespace ModInventario
             _controlador.Conf_MetodoCalcUtilidad();
         }
 
+        private void TSM_REPORTE_VALORIZACION_Click(object sender, EventArgs e)
+        {
+            ReporteValorizacionInventario();
+        }
+
+        private void ReporteValorizacionInventario()
+        {
+            _controlador.ReporteValorizacionInventario();
+        }
+
     }
 
 }

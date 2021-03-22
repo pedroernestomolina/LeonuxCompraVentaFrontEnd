@@ -12,12 +12,15 @@ namespace OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.Editar
     {
 
         public string Metodo { get; set; }
+        public List<FichaPrecio> Precio { get; set; }
 
 
         public Ficha()
         {
             Metodo = "";
+            Precio = new List<FichaPrecio>();
         }
+
     }
 
 }

@@ -154,6 +154,7 @@
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\CostoEdad\Gestion.cs" />
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\CalculaPrecio.cs" />
     <Compile Include="Configuracion\MetodoCalculoUtilidad\ConfigurarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +163,9 @@
     </Compile>
     <Compile Include="Configuracion\MetodoCalculoUtilidad\data.cs" />
     <Compile Include="Configuracion\MetodoCalculoUtilidad\Gestion.cs" />
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\Item.cs" />
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\Precio.cs" />
+    <Compile Include="Configuracion\MetodoCalculoUtilidad\PrecioLineal.cs" />
     <Compile Include="Configuracion\RedondeoPrecio\ConfigurarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -543,6 +547,8 @@
     <Compile Include="Reportes\Filtros\NivelMInimo\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\Filtros.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\GestionRep.cs" />
+    <Compile Include="Reportes\Filtros\Valorizacion\Filtros.cs" />
+    <Compile Include="Reportes\Filtros\Valorizacion\GestionRep.cs" />
     <Compile Include="Reportes\Graficas\DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -812,6 +818,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\RelacionCompraVenta.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\Valorizacion.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Graficas\Top20.rdlc">

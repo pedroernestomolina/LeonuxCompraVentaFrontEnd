@@ -13,10 +13,14 @@ namespace PosOnLine
     {
 
         static public IData MyData;
-        public static OOB.Usuario.Entidad.Ficha Usuario; 
         //static public OOB.LibInventario.Empresa.Data.Ficha Negocio;
-        static public string _Instancia { get; set; }
-        static public string _BaseDatos { get; set; }
+        static public string Instancia;
+        static public string BaseDatos;
+        public static OOB.Usuario.Entidad.Ficha Usuario;
+        public static OOB.Pos.EnUso.Ficha PosEnUso;
+        public static OOB.Configuracion.Entidad.Ficha ConfiguracionActual;
+        public static OOB.Sucursal.Entidad.Ficha Sucursal;
+        public static string IdEquipo;
 
     }
 

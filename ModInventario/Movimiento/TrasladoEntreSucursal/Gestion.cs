@@ -235,20 +235,20 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             var ficha = new OOB.LibInventario.Movimiento.Traslado.Insertar.Ficha()
             {
                 autoConcepto = miData.IdConcepto,
-                autoDepositoDestino = sucDestino.autoDepositoPrincipal ,
-                autoDepositoOrigen = sucOrigen.autoDepositoPrincipal ,
+                autoDepositoDestino = sucDestino.autoDepositoPrincipal,
+                autoDepositoOrigen = sucOrigen.autoDepositoPrincipal,
                 autoRemision = "",
                 autorizado = miData.AutorizadoPor,
                 autoUsuario = Sistema.UsuarioP.autoUsu,
                 cierreFtp = "",
                 codConcepto = concepto.codigo,
-                codDepositoDestino = sucDestino.codigoDepositoPrincipal ,
-                codDepositoOrigen = sucOrigen.codigoDepositoPrincipal ,
+                codDepositoDestino = sucDestino.codigoDepositoPrincipal,
+                codDepositoOrigen = sucOrigen.codigoDepositoPrincipal,
                 codigoSucursal = sucOrigen.codigo,
                 codUsuario = Sistema.UsuarioP.codigoUsu,
                 desConcepto = concepto.nombre,
-                desDepositoDestino = sucDestino.nombreDepositoPrincipal ,
-                desDepositoOrigen = sucOrigen.nombreDepositoPrincipal ,
+                desDepositoDestino = sucDestino.nombreDepositoPrincipal,
+                desDepositoOrigen = sucOrigen.nombreDepositoPrincipal,
                 documentoNombre = "TRANSFERENCIA",
                 estacion = Environment.MachineName,
                 estatusAnulado = "0",
@@ -259,6 +259,8 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 tipo = "03",
                 total = MontoMovimiento,
                 usuario = Sistema.UsuarioP.nombreUsu,
+                factorCambio = tasaCambio,
+                montoDivisa = Math.Round(MontoMovimiento / tasaCambio, 2, MidpointRounding.AwayFromZero),
             };
 
             var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
@@ -293,7 +295,8 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             {
                 var rg = new OOB.LibInventario.Movimiento.Traslado.Insertar.FichaPrdDeposito()
                 {
-                    autoDepositoOrigen = sucOrigen.autoDepositoPrincipal ,
+                    autoDepositoOrigen = sucOrigen.autoDepositoPrincipal,
+                    nombreProducto = s.DescripcionPrd,
                     autoDepositoDestino = sucDestino.autoDepositoPrincipal,
                     autoProducto = s.FichaPrd.AutoId,
                     cantidadUnd = s.CantidadUnd,

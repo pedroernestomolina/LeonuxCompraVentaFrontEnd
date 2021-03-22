@@ -70,31 +70,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Infra\IConfiguracion.cs" />
     <Compile Include="Data\Infra\IData.cs" />
+    <Compile Include="Data\Infra\IJornada.cs" />
+    <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Prov\Configuracion.cs" />
     <Compile Include="Data\Prov\DataPrv.cs" />
+    <Compile Include="Data\Prov\Jornada.cs" />
+    <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gestion.cs" />
+    <Compile Include="OOB\Configuracion\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Pos\Abrir\Arqueo.cs" />
+    <Compile Include="OOB\Pos\Abrir\Ficha.cs" />
+    <Compile Include="OOB\Pos\Abrir\Operador.cs" />
+    <Compile Include="OOB\Pos\Abrir\Resumen.cs" />
+    <Compile Include="OOB\Pos\EnUso\Ficha.cs" />
     <Compile Include="OOB\Resultado\Enumerados.cs" />
     <Compile Include="OOB\Resultado\Ficha.cs" />
     <Compile Include="OOB\Resultado\FichaAuto.cs" />
     <Compile Include="OOB\Resultado\FichaEntidad.cs" />
     <Compile Include="OOB\Resultado\FichaId.cs" />
     <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sistema.cs" />
-    <Compile Include="Src\Helpers\Msg.cs" />
-    <Compile Include="Src\Helpers\Sonido.cs" />
-    <Compile Include="Src\Helpers\Utilitis.cs" />
+    <Compile Include="Helpers\Msg.cs" />
+    <Compile Include="Helpers\Sonido.cs" />
+    <Compile Include="Helpers\Utilitis.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
     <Compile Include="Src\Identificacion\IdentificacionFrm.cs">
       <SubType>Form</SubType>
@@ -102,6 +109,7 @@
     <Compile Include="Src\Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Pos\Gestion.cs" />
     <Compile Include="Src\Pos\PosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +136,9 @@
     <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Pos\PosFrm.resx">
+      <DependentUpon>PosFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +160,9 @@
     <None Include="Resources\alerta.wav" />
     <None Include="Resources\paso.wav" />
     <None Include="Resources\error.wav" />
+    <Content Include="conf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Src\Sonidos\alerta.wav" />
     <Content Include="Src\Sonidos\error.wav" />
     <Content Include="Src\Sonidos\paso.wav" />

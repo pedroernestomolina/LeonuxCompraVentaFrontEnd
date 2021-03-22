@@ -63,8 +63,15 @@ namespace ModInventario.Movimiento.Cargo
                 return;
             }
             ficha.identidad = rt3.Entidad;
+            var rt4 = Sistema.MyData.Producto_GetExistencia(ficha.identidad.auto);
+            if (rt4.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt4.Mensaje);
+                return;
+            }
+            ficha.existencia = rt4.Entidad;
 
-            _gestionEntrada.setFicha(ficha);
+            _gestionEntrada.setFicha(ficha, idDeposito);
             _gestionEntrada.Inicia();
             if (_gestionEntrada.ProcesarOk) 
             {

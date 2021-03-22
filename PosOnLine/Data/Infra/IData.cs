@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace PosOnLine.Data.Infra
 {
 
-    public interface IData: IUsuario
+    public interface IData: IUsuario, IJornada, IConfiguracion, ISucursal
     {
 
         OOB.Resultado.FichaEntidad<DateTime> FechaServidor();

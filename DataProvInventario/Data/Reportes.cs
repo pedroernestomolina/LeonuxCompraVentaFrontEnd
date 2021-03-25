@@ -529,6 +529,7 @@ namespace DataProvInventario.Data
             var filtroDto = new DtoLibInventario.Reportes.Valorizacion.Filtro()
             {
                 hasta = filtro.hasta,
+                idDeposito=filtro.idDeposito,
             };
             var r01 = MyData.Reportes_Valorizacion(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -545,7 +546,7 @@ namespace DataProvInventario.Data
                 {
                     list = r01.Lista.Select(s =>
                     {
-                        var costHist = s.costoUnd;
+                        var costHist = s.divisa/s.contEmpComp;
                         if (s.costoHist.HasValue) { costHist = Math.Round(s.costoHist.Value / s.contEmpComp, 2, MidpointRounding.AwayFromZero); }
                         return new OOB.LibInventario.Reportes.Valorizacion.Ficha()
                         {

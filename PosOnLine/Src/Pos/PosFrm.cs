@@ -167,12 +167,12 @@ namespace PosOnLine.Src.Pos
         {
             //printDialog1.Document = printDocument1;
 
-            //DGV_DETALLE.DataSource = _venta.Items.Source;
-            //L_MONTO_DIVISA.Text = _venta.TasaCambio.ToString("n2");
+            L_MONTO_DIVISA.Text = _controlador.TasaCambioActual.ToString("n2");
             L_FECHA.Text = "Hoy : "+DateTime.Now.ToShortDateString();
             L_HORA.Text = "";
-            //L_USUARIO.Text = Sistema.Usuario.Usuario;
-            //L_ESTACION.Text = Environment.MachineName;
+            L_USUARIO.Text = _controlador.UsuarioActual;
+            L_ESTACION.Text = _controlador.EquipoEstacion;
+            //DGV_DETALLE.DataSource = _venta.Items.Source;
 
             //ActualizarModo();
 
@@ -186,8 +186,8 @@ namespace PosOnLine.Src.Pos
 
         private void Consultar()
         {
-            //_venta.Consultor();
-            //Actualizar();
+            _controlador.Consultor();
+            Actualizar();
         }
 
         private void ActivarBuscar()
@@ -238,15 +238,14 @@ namespace PosOnLine.Src.Pos
 
         private void Cliente()
         {
-            //_venta.ClienteBuscar();
+            _controlador.ClienteBuscar();
             ActualizarCliente();
             IrFoco();
         }
 
         private void ActualizarCliente()
         {
-            //L_CLIENTE.Text = "";
-            //L_CLIENTE.Text = _venta.Cliente.Ficha.Data;
+            L_CLIENTE.Text = _controlador.ClienteData;
         }
 
         private void TB_BUSCAR_KeyPress(object sender, KeyPressEventArgs e)

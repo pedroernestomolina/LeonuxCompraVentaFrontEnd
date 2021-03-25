@@ -18,7 +18,7 @@ namespace ModInventario.Reportes.Filtros.Valorizacion
 
         public bool ActivarDeposito
         {
-            get { return false; }
+            get { return true; }
         }
 
         public bool ActivarSucursal

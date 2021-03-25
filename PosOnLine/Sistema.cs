@@ -21,6 +21,7 @@ namespace PosOnLine
         public static OOB.Configuracion.Entidad.Ficha ConfiguracionActual;
         public static OOB.Sucursal.Entidad.Ficha Sucursal;
         public static string IdEquipo;
+        public static string EquipoEstacion;
 
     }
 

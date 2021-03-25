@@ -30,6 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.BT_LISTA_OFERTA = new System.Windows.Forms.Button();
+            this.BT_LISTA_PLU = new System.Windows.Forms.Button();
+            this.BT_CALCULADORA = new System.Windows.Forms.Button();
+            this.BT_ANULAR = new System.Windows.Forms.Button();
+            this.BT_ABRIR_PENDIENTE = new System.Windows.Forms.Button();
+            this.BT_PENDIENTE = new System.Windows.Forms.Button();
+            this.BT_DEVOLUCION = new System.Windows.Forms.Button();
+            this.BT_CONSULTAR = new System.Windows.Forms.Button();
+            this.BT_CLIENTE = new System.Windows.Forms.Button();
+            this.BT_RESTAR = new System.Windows.Forms.Button();
+            this.BT_MULTIPLICA = new System.Windows.Forms.Button();
+            this.BT_SUMAR = new System.Windows.Forms.Button();
+            this.BT_TOTAL = new System.Windows.Forms.Button();
+            this.L_ESTACION = new System.Windows.Forms.Label();
+            this.L_USUARIO = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -105,46 +120,33 @@
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.panel41 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
-            this.BT_LISTA_OFERTA = new System.Windows.Forms.Button();
             this.panel55 = new System.Windows.Forms.Panel();
             this.BT_GAVETA = new System.Windows.Forms.Button();
             this.panel56 = new System.Windows.Forms.Panel();
-            this.BT_LISTA_PLU = new System.Windows.Forms.Button();
             this.panel57 = new System.Windows.Forms.Panel();
-            this.BT_CALCULADORA = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
             this.panel39 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
-            this.BT_ANULAR = new System.Windows.Forms.Button();
             this.panel38 = new System.Windows.Forms.Panel();
             this.panel37 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
-            this.BT_ABRIR_PENDIENTE = new System.Windows.Forms.Button();
             this.panel36 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
-            this.BT_PENDIENTE = new System.Windows.Forms.Button();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.BT_DEVOLUCION = new System.Windows.Forms.Button();
             this.panel31 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
-            this.BT_CONSULTAR = new System.Windows.Forms.Button();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.BT_CLIENTE = new System.Windows.Forms.Button();
             this.panel30 = new System.Windows.Forms.Panel();
             this.L_CLIENTE = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.panel26 = new System.Windows.Forms.Panel();
-            this.BT_RESTAR = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.BT_MULTIPLICA = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.BT_SUMAR = new System.Windows.Forms.Button();
             this.panel50 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
-            this.BT_TOTAL = new System.Windows.Forms.Button();
             this.panel53 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.panel54 = new System.Windows.Forms.Panel();
@@ -156,19 +158,17 @@
             this.panel44 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.panel52 = new System.Windows.Forms.Panel();
-            this.L_ESTACION = new System.Windows.Forms.Label();
             this.panel48 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel28 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel29 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel43 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.panel51 = new System.Windows.Forms.Panel();
-            this.L_USUARIO = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -242,17 +242,229 @@
             this.tableLayoutPanel20.SuspendLayout();
             this.panel52.SuspendLayout();
             this.panel48.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel28.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel29.SuspendLayout();
             this.panel43.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             this.panel51.SuspendLayout();
             this.panel47.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // BT_LISTA_OFERTA
+            // 
+            this.BT_LISTA_OFERTA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_LISTA_OFERTA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LISTA_OFERTA.FlatAppearance.BorderSize = 0;
+            this.BT_LISTA_OFERTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_LISTA_OFERTA.Location = new System.Drawing.Point(3, 40);
+            this.BT_LISTA_OFERTA.Name = "BT_LISTA_OFERTA";
+            this.BT_LISTA_OFERTA.Size = new System.Drawing.Size(43, 31);
+            this.BT_LISTA_OFERTA.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.BT_LISTA_OFERTA, "OFERTAS DEL DIA");
+            this.BT_LISTA_OFERTA.UseVisualStyleBackColor = true;
+            // 
+            // BT_LISTA_PLU
+            // 
+            this.BT_LISTA_PLU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_LISTA_PLU.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LISTA_PLU.FlatAppearance.BorderSize = 0;
+            this.BT_LISTA_PLU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_LISTA_PLU.Location = new System.Drawing.Point(2, 2);
+            this.BT_LISTA_PLU.Name = "BT_LISTA_PLU";
+            this.BT_LISTA_PLU.Size = new System.Drawing.Size(43, 31);
+            this.BT_LISTA_PLU.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_LISTA_PLU, "LISTA DE PLU");
+            this.BT_LISTA_PLU.UseVisualStyleBackColor = true;
+            // 
+            // BT_CALCULADORA
+            // 
+            this.BT_CALCULADORA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_CALCULADORA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_CALCULADORA.FlatAppearance.BorderSize = 0;
+            this.BT_CALCULADORA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_CALCULADORA.Location = new System.Drawing.Point(2, 2);
+            this.BT_CALCULADORA.Name = "BT_CALCULADORA";
+            this.BT_CALCULADORA.Size = new System.Drawing.Size(43, 31);
+            this.BT_CALCULADORA.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_CALCULADORA, "CALCULADORA");
+            this.BT_CALCULADORA.UseVisualStyleBackColor = true;
+            // 
+            // BT_ANULAR
+            // 
+            this.BT_ANULAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ANULAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ANULAR.Image = global::PosOnLine.Properties.Resources.bt_anular;
+            this.BT_ANULAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_ANULAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_ANULAR.Name = "BT_ANULAR";
+            this.BT_ANULAR.Size = new System.Drawing.Size(98, 74);
+            this.BT_ANULAR.TabIndex = 3;
+            this.BT_ANULAR.Text = "Anular";
+            this.BT_ANULAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_ANULAR, "ANULAR CUENTA");
+            this.BT_ANULAR.UseVisualStyleBackColor = true;
+            // 
+            // BT_ABRIR_PENDIENTE
+            // 
+            this.BT_ABRIR_PENDIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ABRIR_PENDIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ABRIR_PENDIENTE.Image = global::PosOnLine.Properties.Resources.bt_directorio;
+            this.BT_ABRIR_PENDIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_ABRIR_PENDIENTE.Location = new System.Drawing.Point(2, 2);
+            this.BT_ABRIR_PENDIENTE.Name = "BT_ABRIR_PENDIENTE";
+            this.BT_ABRIR_PENDIENTE.Size = new System.Drawing.Size(98, 74);
+            this.BT_ABRIR_PENDIENTE.TabIndex = 3;
+            this.BT_ABRIR_PENDIENTE.Text = "Abrir Cta";
+            this.BT_ABRIR_PENDIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_ABRIR_PENDIENTE, "ABRIR CUENTA PENDIENTE");
+            this.BT_ABRIR_PENDIENTE.UseVisualStyleBackColor = true;
+            // 
+            // BT_PENDIENTE
+            // 
+            this.BT_PENDIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PENDIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PENDIENTE.Image = global::PosOnLine.Properties.Resources.bt_enEspera;
+            this.BT_PENDIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PENDIENTE.Location = new System.Drawing.Point(2, 2);
+            this.BT_PENDIENTE.Name = "BT_PENDIENTE";
+            this.BT_PENDIENTE.Size = new System.Drawing.Size(98, 74);
+            this.BT_PENDIENTE.TabIndex = 3;
+            this.BT_PENDIENTE.Text = "Pendient";
+            this.BT_PENDIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_PENDIENTE, "DEJAR CUENTA EN PENDIENTE");
+            this.BT_PENDIENTE.UseVisualStyleBackColor = true;
+            // 
+            // BT_DEVOLUCION
+            // 
+            this.BT_DEVOLUCION.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_DEVOLUCION.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_DEVOLUCION.Image = global::PosOnLine.Properties.Resources.bt_retornar;
+            this.BT_DEVOLUCION.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_DEVOLUCION.Location = new System.Drawing.Point(2, 2);
+            this.BT_DEVOLUCION.Name = "BT_DEVOLUCION";
+            this.BT_DEVOLUCION.Size = new System.Drawing.Size(98, 74);
+            this.BT_DEVOLUCION.TabIndex = 2;
+            this.BT_DEVOLUCION.Text = "Devol";
+            this.BT_DEVOLUCION.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_DEVOLUCION, "MODO DEVOLUCION ITEM");
+            this.BT_DEVOLUCION.UseVisualStyleBackColor = true;
+            // 
+            // BT_CONSULTAR
+            // 
+            this.BT_CONSULTAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_CONSULTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_CONSULTAR.Image = global::PosOnLine.Properties.Resources.bt_consulta;
+            this.BT_CONSULTAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_CONSULTAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_CONSULTAR.Name = "BT_CONSULTAR";
+            this.BT_CONSULTAR.Size = new System.Drawing.Size(98, 74);
+            this.BT_CONSULTAR.TabIndex = 1;
+            this.BT_CONSULTAR.Text = "Consulta";
+            this.BT_CONSULTAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_CONSULTAR, "CONSULTAR PRODUCTO");
+            this.BT_CONSULTAR.UseVisualStyleBackColor = true;
+            this.BT_CONSULTAR.Click += new System.EventHandler(this.BT_CONSULTAR_Click);
+            // 
+            // BT_CLIENTE
+            // 
+            this.BT_CLIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_CLIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_CLIENTE.Image = global::PosOnLine.Properties.Resources.bt_cliente;
+            this.BT_CLIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_CLIENTE.Location = new System.Drawing.Point(2, 2);
+            this.BT_CLIENTE.Name = "BT_CLIENTE";
+            this.BT_CLIENTE.Size = new System.Drawing.Size(98, 74);
+            this.BT_CLIENTE.TabIndex = 0;
+            this.BT_CLIENTE.Text = "Cliente";
+            this.BT_CLIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_CLIENTE, "BUSCAR / AGREGAR CLIENTE");
+            this.BT_CLIENTE.UseVisualStyleBackColor = true;
+            this.BT_CLIENTE.Click += new System.EventHandler(this.BT_CLIENTE_Click);
+            // 
+            // BT_RESTAR
+            // 
+            this.BT_RESTAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_RESTAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_RESTAR.FlatAppearance.BorderSize = 0;
+            this.BT_RESTAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_RESTAR.Image = global::PosOnLine.Properties.Resources.bt_restar;
+            this.BT_RESTAR.Location = new System.Drawing.Point(4, 4);
+            this.BT_RESTAR.Name = "BT_RESTAR";
+            this.BT_RESTAR.Size = new System.Drawing.Size(61, 60);
+            this.BT_RESTAR.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_RESTAR, "RETORNAR ULTIMO ITEM PROCESADO");
+            this.BT_RESTAR.UseVisualStyleBackColor = true;
+            // 
+            // BT_MULTIPLICA
+            // 
+            this.BT_MULTIPLICA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_MULTIPLICA.FlatAppearance.BorderSize = 0;
+            this.BT_MULTIPLICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_MULTIPLICA.Image = global::PosOnLine.Properties.Resources.bt_mult;
+            this.BT_MULTIPLICA.Location = new System.Drawing.Point(4, 4);
+            this.BT_MULTIPLICA.Name = "BT_MULTIPLICA";
+            this.BT_MULTIPLICA.Size = new System.Drawing.Size(61, 60);
+            this.BT_MULTIPLICA.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_MULTIPLICA, "SUMAR ( X ) CANTIDAD AL ULTIMO ITEM PROCESADO");
+            this.BT_MULTIPLICA.UseVisualStyleBackColor = true;
+            // 
+            // BT_SUMAR
+            // 
+            this.BT_SUMAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_SUMAR.FlatAppearance.BorderSize = 0;
+            this.BT_SUMAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_SUMAR.Image = global::PosOnLine.Properties.Resources.bt_sumar;
+            this.BT_SUMAR.Location = new System.Drawing.Point(4, 4);
+            this.BT_SUMAR.Name = "BT_SUMAR";
+            this.BT_SUMAR.Size = new System.Drawing.Size(61, 60);
+            this.BT_SUMAR.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.BT_SUMAR, "SUMAR ( 1) AL ULTIMO ITEM PROCESADO");
+            this.BT_SUMAR.UseVisualStyleBackColor = true;
+            // 
+            // BT_TOTAL
+            // 
+            this.BT_TOTAL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_TOTAL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_TOTAL.FlatAppearance.BorderSize = 0;
+            this.BT_TOTAL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_TOTAL.Image = global::PosOnLine.Properties.Resources.bt_pagar;
+            this.BT_TOTAL.Location = new System.Drawing.Point(2, 2);
+            this.BT_TOTAL.Name = "BT_TOTAL";
+            this.BT_TOTAL.Padding = new System.Windows.Forms.Padding(2);
+            this.BT_TOTAL.Size = new System.Drawing.Size(65, 138);
+            this.BT_TOTAL.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_TOTAL, "PROCESAR VENTA");
+            this.BT_TOTAL.UseVisualStyleBackColor = true;
+            // 
+            // L_ESTACION
+            // 
+            this.L_ESTACION.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ESTACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ESTACION.ForeColor = System.Drawing.Color.Yellow;
+            this.L_ESTACION.Location = new System.Drawing.Point(2, 2);
+            this.L_ESTACION.Name = "L_ESTACION";
+            this.L_ESTACION.Size = new System.Drawing.Size(180, 44);
+            this.L_ESTACION.TabIndex = 0;
+            this.L_ESTACION.Text = "label12";
+            this.L_ESTACION.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.L_ESTACION, "EQUIPO / ESTACION DE VENTA");
+            // 
+            // L_USUARIO
+            // 
+            this.L_USUARIO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_USUARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_USUARIO.ForeColor = System.Drawing.Color.Yellow;
+            this.L_USUARIO.Location = new System.Drawing.Point(2, 2);
+            this.L_USUARIO.Name = "L_USUARIO";
+            this.L_USUARIO.Size = new System.Drawing.Size(163, 44);
+            this.L_USUARIO.TabIndex = 0;
+            this.L_USUARIO.Text = "label12";
+            this.L_USUARIO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.L_USUARIO, "USUARIO EN SERVICIO");
             // 
             // printDocument1
             // 
@@ -314,7 +526,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.29306F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.70693F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 458F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 548F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1124, 548);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
@@ -1195,19 +1407,6 @@
             this.tableLayoutPanel22.Size = new System.Drawing.Size(98, 74);
             this.tableLayoutPanel22.TabIndex = 8;
             // 
-            // BT_LISTA_OFERTA
-            // 
-            this.BT_LISTA_OFERTA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_LISTA_OFERTA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_LISTA_OFERTA.FlatAppearance.BorderSize = 0;
-            this.BT_LISTA_OFERTA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_LISTA_OFERTA.Location = new System.Drawing.Point(3, 40);
-            this.BT_LISTA_OFERTA.Name = "BT_LISTA_OFERTA";
-            this.BT_LISTA_OFERTA.Size = new System.Drawing.Size(43, 31);
-            this.BT_LISTA_OFERTA.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.BT_LISTA_OFERTA, "OFERTAS DEL DIA");
-            this.BT_LISTA_OFERTA.UseVisualStyleBackColor = true;
-            // 
             // panel55
             // 
             this.panel55.Controls.Add(this.BT_GAVETA);
@@ -1243,19 +1442,6 @@
             this.panel56.Size = new System.Drawing.Size(47, 35);
             this.panel56.TabIndex = 8;
             // 
-            // BT_LISTA_PLU
-            // 
-            this.BT_LISTA_PLU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_LISTA_PLU.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_LISTA_PLU.FlatAppearance.BorderSize = 0;
-            this.BT_LISTA_PLU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_LISTA_PLU.Location = new System.Drawing.Point(2, 2);
-            this.BT_LISTA_PLU.Name = "BT_LISTA_PLU";
-            this.BT_LISTA_PLU.Size = new System.Drawing.Size(43, 31);
-            this.BT_LISTA_PLU.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.BT_LISTA_PLU, "LISTA DE PLU");
-            this.BT_LISTA_PLU.UseVisualStyleBackColor = true;
-            // 
             // panel57
             // 
             this.panel57.Controls.Add(this.BT_CALCULADORA);
@@ -1266,19 +1452,6 @@
             this.panel57.Padding = new System.Windows.Forms.Padding(2);
             this.panel57.Size = new System.Drawing.Size(47, 35);
             this.panel57.TabIndex = 7;
-            // 
-            // BT_CALCULADORA
-            // 
-            this.BT_CALCULADORA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_CALCULADORA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_CALCULADORA.FlatAppearance.BorderSize = 0;
-            this.BT_CALCULADORA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_CALCULADORA.Location = new System.Drawing.Point(2, 2);
-            this.BT_CALCULADORA.Name = "BT_CALCULADORA";
-            this.BT_CALCULADORA.Size = new System.Drawing.Size(43, 31);
-            this.BT_CALCULADORA.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.BT_CALCULADORA, "CALCULADORA");
-            this.BT_CALCULADORA.UseVisualStyleBackColor = true;
             // 
             // panel40
             // 
@@ -1312,20 +1485,6 @@
             this.label19.Size = new System.Drawing.Size(37, 15);
             this.label19.TabIndex = 10;
             this.label19.Text = "Supr";
-            // 
-            // BT_ANULAR
-            // 
-            this.BT_ANULAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ANULAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_ANULAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_ANULAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_ANULAR.Name = "BT_ANULAR";
-            this.BT_ANULAR.Size = new System.Drawing.Size(98, 74);
-            this.BT_ANULAR.TabIndex = 3;
-            this.BT_ANULAR.Text = "Anular";
-            this.BT_ANULAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.toolTip1.SetToolTip(this.BT_ANULAR, "ANULAR CUENTA");
-            this.BT_ANULAR.UseVisualStyleBackColor = true;
             // 
             // panel38
             // 
@@ -1361,20 +1520,6 @@
             this.label18.TabIndex = 9;
             this.label18.Text = "F6";
             // 
-            // BT_ABRIR_PENDIENTE
-            // 
-            this.BT_ABRIR_PENDIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ABRIR_PENDIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_ABRIR_PENDIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_ABRIR_PENDIENTE.Location = new System.Drawing.Point(2, 2);
-            this.BT_ABRIR_PENDIENTE.Name = "BT_ABRIR_PENDIENTE";
-            this.BT_ABRIR_PENDIENTE.Size = new System.Drawing.Size(98, 74);
-            this.BT_ABRIR_PENDIENTE.TabIndex = 3;
-            this.BT_ABRIR_PENDIENTE.Text = "Abrir Cta";
-            this.BT_ABRIR_PENDIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.toolTip1.SetToolTip(this.BT_ABRIR_PENDIENTE, "ABRIR CUENTA PENDIENTE");
-            this.BT_ABRIR_PENDIENTE.UseVisualStyleBackColor = true;
-            // 
             // panel36
             // 
             this.panel36.Controls.Add(this.label17);
@@ -1398,20 +1543,6 @@
             this.label17.Size = new System.Drawing.Size(27, 18);
             this.label17.TabIndex = 9;
             this.label17.Text = "F5";
-            // 
-            // BT_PENDIENTE
-            // 
-            this.BT_PENDIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_PENDIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_PENDIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_PENDIENTE.Location = new System.Drawing.Point(2, 2);
-            this.BT_PENDIENTE.Name = "BT_PENDIENTE";
-            this.BT_PENDIENTE.Size = new System.Drawing.Size(98, 74);
-            this.BT_PENDIENTE.TabIndex = 3;
-            this.BT_PENDIENTE.Text = "Pendient";
-            this.BT_PENDIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.toolTip1.SetToolTip(this.BT_PENDIENTE, "DEJAR CUENTA EN PENDIENTE");
-            this.BT_PENDIENTE.UseVisualStyleBackColor = true;
             // 
             // panel32
             // 
@@ -1437,20 +1568,6 @@
             this.label16.TabIndex = 8;
             this.label16.Text = "F4";
             // 
-            // BT_DEVOLUCION
-            // 
-            this.BT_DEVOLUCION.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_DEVOLUCION.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_DEVOLUCION.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_DEVOLUCION.Location = new System.Drawing.Point(2, 2);
-            this.BT_DEVOLUCION.Name = "BT_DEVOLUCION";
-            this.BT_DEVOLUCION.Size = new System.Drawing.Size(98, 74);
-            this.BT_DEVOLUCION.TabIndex = 2;
-            this.BT_DEVOLUCION.Text = "Devol";
-            this.BT_DEVOLUCION.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.toolTip1.SetToolTip(this.BT_DEVOLUCION, "MODO DEVOLUCION ITEM");
-            this.BT_DEVOLUCION.UseVisualStyleBackColor = true;
-            // 
             // panel31
             // 
             this.panel31.Controls.Add(this.label15);
@@ -1475,20 +1592,6 @@
             this.label15.TabIndex = 8;
             this.label15.Text = "F3";
             // 
-            // BT_CONSULTAR
-            // 
-            this.BT_CONSULTAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_CONSULTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_CONSULTAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_CONSULTAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_CONSULTAR.Name = "BT_CONSULTAR";
-            this.BT_CONSULTAR.Size = new System.Drawing.Size(98, 74);
-            this.BT_CONSULTAR.TabIndex = 1;
-            this.BT_CONSULTAR.Text = "Consulta";
-            this.BT_CONSULTAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.toolTip1.SetToolTip(this.BT_CONSULTAR, "CONSULTAR PRODUCTO");
-            this.BT_CONSULTAR.UseVisualStyleBackColor = true;
-            // 
             // panel23
             // 
             this.panel23.Controls.Add(this.label13);
@@ -1512,20 +1615,6 @@
             this.label13.Size = new System.Drawing.Size(27, 18);
             this.label13.TabIndex = 7;
             this.label13.Text = "F2";
-            // 
-            // BT_CLIENTE
-            // 
-            this.BT_CLIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_CLIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_CLIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_CLIENTE.Location = new System.Drawing.Point(2, 2);
-            this.BT_CLIENTE.Name = "BT_CLIENTE";
-            this.BT_CLIENTE.Size = new System.Drawing.Size(98, 74);
-            this.BT_CLIENTE.TabIndex = 0;
-            this.BT_CLIENTE.Text = "Cliente";
-            this.BT_CLIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.toolTip1.SetToolTip(this.BT_CLIENTE, "BUSCAR / AGREGAR CLIENTE");
-            this.BT_CLIENTE.UseVisualStyleBackColor = true;
             // 
             // panel30
             // 
@@ -1593,19 +1682,6 @@
             this.panel26.Size = new System.Drawing.Size(69, 68);
             this.panel26.TabIndex = 2;
             // 
-            // BT_RESTAR
-            // 
-            this.BT_RESTAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BT_RESTAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_RESTAR.FlatAppearance.BorderSize = 0;
-            this.BT_RESTAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_RESTAR.Location = new System.Drawing.Point(4, 4);
-            this.BT_RESTAR.Name = "BT_RESTAR";
-            this.BT_RESTAR.Size = new System.Drawing.Size(61, 60);
-            this.BT_RESTAR.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.BT_RESTAR, "RETORNAR ULTIMO ITEM PROCESADO");
-            this.BT_RESTAR.UseVisualStyleBackColor = true;
-            // 
             // panel22
             // 
             this.panel22.Controls.Add(this.BT_MULTIPLICA);
@@ -1617,18 +1693,6 @@
             this.panel22.Size = new System.Drawing.Size(69, 68);
             this.panel22.TabIndex = 1;
             // 
-            // BT_MULTIPLICA
-            // 
-            this.BT_MULTIPLICA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_MULTIPLICA.FlatAppearance.BorderSize = 0;
-            this.BT_MULTIPLICA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_MULTIPLICA.Location = new System.Drawing.Point(4, 4);
-            this.BT_MULTIPLICA.Name = "BT_MULTIPLICA";
-            this.BT_MULTIPLICA.Size = new System.Drawing.Size(61, 60);
-            this.BT_MULTIPLICA.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.BT_MULTIPLICA, "SUMAR ( X ) CANTIDAD AL ULTIMO ITEM PROCESADO");
-            this.BT_MULTIPLICA.UseVisualStyleBackColor = true;
-            // 
             // panel27
             // 
             this.panel27.Controls.Add(this.BT_SUMAR);
@@ -1639,18 +1703,6 @@
             this.panel27.Padding = new System.Windows.Forms.Padding(4);
             this.panel27.Size = new System.Drawing.Size(69, 68);
             this.panel27.TabIndex = 0;
-            // 
-            // BT_SUMAR
-            // 
-            this.BT_SUMAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SUMAR.FlatAppearance.BorderSize = 0;
-            this.BT_SUMAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_SUMAR.Location = new System.Drawing.Point(4, 4);
-            this.BT_SUMAR.Name = "BT_SUMAR";
-            this.BT_SUMAR.Size = new System.Drawing.Size(61, 60);
-            this.BT_SUMAR.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.BT_SUMAR, "SUMAR ( 1) AL ULTIMO ITEM PROCESADO");
-            this.BT_SUMAR.UseVisualStyleBackColor = true;
             // 
             // panel50
             // 
@@ -1676,20 +1728,6 @@
             this.label21.Size = new System.Drawing.Size(36, 18);
             this.label21.TabIndex = 10;
             this.label21.Text = "F10";
-            // 
-            // BT_TOTAL
-            // 
-            this.BT_TOTAL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BT_TOTAL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_TOTAL.FlatAppearance.BorderSize = 0;
-            this.BT_TOTAL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_TOTAL.Location = new System.Drawing.Point(2, 2);
-            this.BT_TOTAL.Name = "BT_TOTAL";
-            this.BT_TOTAL.Padding = new System.Windows.Forms.Padding(2);
-            this.BT_TOTAL.Size = new System.Drawing.Size(65, 138);
-            this.BT_TOTAL.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.BT_TOTAL, "PROCESAR VENTA");
-            this.BT_TOTAL.UseVisualStyleBackColor = true;
             // 
             // panel53
             // 
@@ -1741,6 +1779,7 @@
             this.BT_SALIDA.TabIndex = 1;
             this.BT_SALIDA.Text = "SALIR";
             this.BT_SALIDA.UseVisualStyleBackColor = true;
+            this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
             // 
             // panel9
             // 
@@ -1780,12 +1819,12 @@
             this.tableLayoutPanel6.SetColumnSpan(this.panel45, 2);
             this.panel45.Controls.Add(this.L_MODO_FUNCION);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel45.Location = new System.Drawing.Point(509, 1);
+            this.panel45.Location = new System.Drawing.Point(504, 1);
             this.panel45.Margin = new System.Windows.Forms.Padding(1);
             this.panel45.Name = "panel45";
             this.panel45.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel45, 2);
-            this.panel45.Size = new System.Drawing.Size(269, 54);
+            this.panel45.Size = new System.Drawing.Size(266, 54);
             this.panel45.TabIndex = 6;
             // 
             // L_MODO_FUNCION
@@ -1795,7 +1834,7 @@
             this.L_MODO_FUNCION.ForeColor = System.Drawing.Color.Yellow;
             this.L_MODO_FUNCION.Location = new System.Drawing.Point(2, 2);
             this.L_MODO_FUNCION.Name = "L_MODO_FUNCION";
-            this.L_MODO_FUNCION.Size = new System.Drawing.Size(265, 50);
+            this.L_MODO_FUNCION.Size = new System.Drawing.Size(262, 50);
             this.L_MODO_FUNCION.TabIndex = 0;
             this.L_MODO_FUNCION.Text = "Facturación :)";
             this.L_MODO_FUNCION.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1804,12 +1843,12 @@
             // 
             this.panel44.Controls.Add(this.tableLayoutPanel20);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel44.Location = new System.Drawing.Point(246, 1);
+            this.panel44.Location = new System.Drawing.Point(243, 1);
             this.panel44.Margin = new System.Windows.Forms.Padding(1);
             this.panel44.Name = "panel44";
             this.panel44.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel44, 2);
-            this.panel44.Size = new System.Drawing.Size(261, 54);
+            this.panel44.Size = new System.Drawing.Size(259, 54);
             this.panel44.TabIndex = 5;
             // 
             // tableLayoutPanel20
@@ -1826,32 +1865,19 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(257, 50);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(255, 50);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // panel52
             // 
             this.panel52.Controls.Add(this.L_ESTACION);
             this.panel52.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel52.Location = new System.Drawing.Point(71, 1);
+            this.panel52.Location = new System.Drawing.Point(70, 1);
             this.panel52.Margin = new System.Windows.Forms.Padding(1);
             this.panel52.Name = "panel52";
             this.panel52.Padding = new System.Windows.Forms.Padding(2);
-            this.panel52.Size = new System.Drawing.Size(185, 48);
+            this.panel52.Size = new System.Drawing.Size(184, 48);
             this.panel52.TabIndex = 2;
-            // 
-            // L_ESTACION
-            // 
-            this.L_ESTACION.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ESTACION.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ESTACION.ForeColor = System.Drawing.Color.Yellow;
-            this.L_ESTACION.Location = new System.Drawing.Point(2, 2);
-            this.L_ESTACION.Name = "L_ESTACION";
-            this.L_ESTACION.Size = new System.Drawing.Size(181, 44);
-            this.L_ESTACION.TabIndex = 0;
-            this.L_ESTACION.Text = "label12";
-            this.L_ESTACION.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.L_ESTACION, "EQUIPO / ESTACION DE VENTA");
             // 
             // panel48
             // 
@@ -1861,18 +1887,29 @@
             this.panel48.Margin = new System.Windows.Forms.Padding(1);
             this.panel48.Name = "panel48";
             this.panel48.Padding = new System.Windows.Forms.Padding(2);
-            this.panel48.Size = new System.Drawing.Size(68, 48);
+            this.panel48.Size = new System.Drawing.Size(67, 48);
             this.panel48.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::PosOnLine.Properties.Resources.bt_cajero;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(63, 44);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
             // 
             // panel28
             // 
             this.panel28.Controls.Add(this.tableLayoutPanel15);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(780, 1);
+            this.panel28.Location = new System.Drawing.Point(772, 1);
             this.panel28.Margin = new System.Windows.Forms.Padding(1);
             this.panel28.Name = "panel28";
             this.tableLayoutPanel6.SetRowSpan(this.panel28, 2);
-            this.panel28.Size = new System.Drawing.Size(351, 54);
+            this.panel28.Size = new System.Drawing.Size(359, 54);
             this.panel28.TabIndex = 3;
             // 
             // tableLayoutPanel15
@@ -1889,8 +1926,19 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(351, 54);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(359, 54);
             this.tableLayoutPanel15.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PosOnLine.Properties.Resources.carrito_compra;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(229, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(127, 48);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // panel29
             // 
@@ -1899,7 +1947,7 @@
             this.panel29.Location = new System.Drawing.Point(1, 1);
             this.panel29.Margin = new System.Windows.Forms.Padding(1);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(219, 52);
+            this.panel29.Size = new System.Drawing.Size(224, 52);
             this.panel29.TabIndex = 0;
             // 
             // label7
@@ -1909,7 +1957,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(219, 52);
+            this.label7.Size = new System.Drawing.Size(224, 52);
             this.label7.TabIndex = 0;
             this.label7.Text = "Sistema Pos On Line\r\nPara: Leonux, C.A";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1923,7 +1971,7 @@
             this.panel43.Name = "panel43";
             this.panel43.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel43, 2);
-            this.panel43.Size = new System.Drawing.Size(243, 54);
+            this.panel43.Size = new System.Drawing.Size(240, 54);
             this.panel43.TabIndex = 4;
             // 
             // tableLayoutPanel19
@@ -1940,32 +1988,19 @@
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(239, 50);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(236, 50);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
             // panel51
             // 
             this.panel51.Controls.Add(this.L_USUARIO);
             this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel51.Location = new System.Drawing.Point(69, 1);
+            this.panel51.Location = new System.Drawing.Point(68, 1);
             this.panel51.Margin = new System.Windows.Forms.Padding(1);
             this.panel51.Name = "panel51";
             this.panel51.Padding = new System.Windows.Forms.Padding(2);
-            this.panel51.Size = new System.Drawing.Size(169, 48);
+            this.panel51.Size = new System.Drawing.Size(167, 48);
             this.panel51.TabIndex = 1;
-            // 
-            // L_USUARIO
-            // 
-            this.L_USUARIO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_USUARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_USUARIO.ForeColor = System.Drawing.Color.Yellow;
-            this.L_USUARIO.Location = new System.Drawing.Point(2, 2);
-            this.L_USUARIO.Name = "L_USUARIO";
-            this.L_USUARIO.Size = new System.Drawing.Size(165, 44);
-            this.L_USUARIO.TabIndex = 0;
-            this.L_USUARIO.Text = "label12";
-            this.L_USUARIO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.L_USUARIO, "USUARIO EN SERVICIO");
             // 
             // panel47
             // 
@@ -1975,30 +2010,8 @@
             this.panel47.Margin = new System.Windows.Forms.Padding(1);
             this.panel47.Name = "panel47";
             this.panel47.Padding = new System.Windows.Forms.Padding(2);
-            this.panel47.Size = new System.Drawing.Size(66, 48);
+            this.panel47.Size = new System.Drawing.Size(65, 48);
             this.panel47.TabIndex = 0;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::PosOnLine.Properties.Resources.bt_cajero;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(64, 44);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::PosOnLine.Properties.Resources.carrito_compra;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(224, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(124, 48);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -2007,7 +2020,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 44);
+            this.pictureBox2.Size = new System.Drawing.Size(61, 44);
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
             // 
@@ -2103,15 +2116,15 @@
             this.tableLayoutPanel20.ResumeLayout(false);
             this.panel52.ResumeLayout(false);
             this.panel48.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel28.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel29.ResumeLayout(false);
             this.panel43.ResumeLayout(false);
             this.tableLayoutPanel19.ResumeLayout(false);
             this.panel51.ResumeLayout(false);
             this.panel47.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 

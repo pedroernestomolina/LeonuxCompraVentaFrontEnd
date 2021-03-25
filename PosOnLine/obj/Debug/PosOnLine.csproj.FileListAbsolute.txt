@@ -1,3 +1,12 @@
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Buscar.BuscarAgregarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Listar.ListaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Consultor.ConsultorFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Identificacion.IdentificacionFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pos.PosFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Principal.PrincipalFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Producto.Lista.ListaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe
@@ -19,11 +28,5 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ServicePos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\IPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ProvPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibEntityPos.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csprojResolveAssemblyReference.cache
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Properties.Resources.resources
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Identificacion.IdentificacionFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pos.PosFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Principal.PrincipalFrm.resources
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.exe
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.pdb

@@ -47,6 +47,22 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<decimal> Configuracion_FactorDivisa()
+        {
+            var result = new OOB.Resultado.FichaEntidad<decimal>();
+
+            var r01 = MyData.Configuracion_FactorDivisa();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+            result.Entidad = r01.Entidad;
+
+            return result;
+        }
+
     }
 
 }

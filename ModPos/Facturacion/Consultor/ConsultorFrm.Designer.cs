@@ -81,6 +81,8 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.L_NETO_1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.L_DIVISA = new System.Windows.Forms.Label();
             this.TL_PRECIOS_MAYOR = new System.Windows.Forms.TableLayoutPanel();
             this.panel28 = new System.Windows.Forms.Panel();
             this.L_CONT_5 = new System.Windows.Forms.Label();
@@ -114,8 +116,6 @@
             this.L_NETO_2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.L_NETO_5 = new System.Windows.Forms.Label();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.L_DIVISA = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -136,6 +136,7 @@
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel29.SuspendLayout();
             this.TL_PRECIOS_MAYOR.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel27.SuspendLayout();
@@ -153,7 +154,6 @@
             this.panel13.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -788,6 +788,30 @@
             this.label17.TabIndex = 3;
             this.label17.Text = "Neto:";
             // 
+            // panel29
+            // 
+            this.panel29.BackColor = System.Drawing.Color.Green;
+            this.panel29.Controls.Add(this.L_DIVISA);
+            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel29.Location = new System.Drawing.Point(478, 1);
+            this.panel29.Margin = new System.Windows.Forms.Padding(1);
+            this.panel29.Name = "panel29";
+            this.panel29.Padding = new System.Windows.Forms.Padding(2);
+            this.panel29.Size = new System.Drawing.Size(118, 49);
+            this.panel29.TabIndex = 4;
+            // 
+            // L_DIVISA
+            // 
+            this.L_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DIVISA.ForeColor = System.Drawing.Color.White;
+            this.L_DIVISA.Location = new System.Drawing.Point(2, 2);
+            this.L_DIVISA.Name = "L_DIVISA";
+            this.L_DIVISA.Size = new System.Drawing.Size(114, 45);
+            this.L_DIVISA.TabIndex = 6;
+            this.L_DIVISA.Text = "9,999.99$";
+            this.L_DIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // TL_PRECIOS_MAYOR
             // 
             this.TL_PRECIOS_MAYOR.ColumnCount = 4;
@@ -1179,30 +1203,6 @@
             this.L_NETO_5.Text = "999,999,999.99";
             this.L_NETO_5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel29
-            // 
-            this.panel29.BackColor = System.Drawing.Color.Green;
-            this.panel29.Controls.Add(this.L_DIVISA);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(478, 1);
-            this.panel29.Margin = new System.Windows.Forms.Padding(1);
-            this.panel29.Name = "panel29";
-            this.panel29.Padding = new System.Windows.Forms.Padding(2);
-            this.panel29.Size = new System.Drawing.Size(118, 49);
-            this.panel29.TabIndex = 4;
-            // 
-            // L_DIVISA
-            // 
-            this.L_DIVISA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DIVISA.ForeColor = System.Drawing.Color.White;
-            this.L_DIVISA.Location = new System.Drawing.Point(2, 2);
-            this.L_DIVISA.Name = "L_DIVISA";
-            this.L_DIVISA.Size = new System.Drawing.Size(114, 45);
-            this.L_DIVISA.TabIndex = 6;
-            this.L_DIVISA.Text = "9,999.99$";
-            this.L_DIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // ConsultorFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1246,6 +1246,7 @@
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.panel29.ResumeLayout(false);
             this.TL_PRECIOS_MAYOR.ResumeLayout(false);
             this.panel28.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
@@ -1263,7 +1264,6 @@
             this.panel13.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel29.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

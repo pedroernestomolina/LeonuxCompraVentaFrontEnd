@@ -32,6 +32,7 @@ namespace ModInventario.Reportes.Filtros.Valorizacion
             if (dataFiltros != null)
             {
                 filtro.hasta  = dataFiltros.Hasta;
+                filtro.idDeposito = dataFiltros.AutoDeposito;
             };
             var r01 = Sistema.MyData.Reportes_Valorizacion(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -39,8 +40,12 @@ namespace ModInventario.Reportes.Filtros.Valorizacion
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-
-            Imprimir(r01.Lista, "AL: "+dataFiltros.Hasta.ToShortDateString());
+            var filt="AL: "+dataFiltros.Hasta.ToShortDateString();
+            if (dataFiltros.AutoDeposito != "") 
+            {
+                filt += ", DEPOSITO: " + dataFiltros.NombreDeposito;
+            };
+            Imprimir(r01.Lista, filt);
         }
 
         public void Imprimir(List<OOB.LibInventario.Reportes.Valorizacion.Ficha> lista, string filtro)

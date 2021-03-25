@@ -29,6 +29,7 @@ namespace PosOnLine
             if (CargarDataXML()) 
             {
                 Sistema.MyData = new DataPrv(Sistema.Instancia, Sistema.BaseDatos);
+                Sistema.EquipoEstacion = Environment.MachineName;
 
                 _gestionIdentifica.Inicializa();
                 _gestionIdentifica.Inicia();

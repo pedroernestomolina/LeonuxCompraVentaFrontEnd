@@ -29,7 +29,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get 
             { 
-                var rt = CalculoDivisaFull(ficha.utilidad_1, ficha.contenido_1); 
+                var rt = CalculoDivisaFull(ficha.utilidad_1, ficha.contenido_1, ficha.precio_1_habilitado); 
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero); 
                 return rt; 
             }
@@ -38,7 +38,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoDivisaFull(ficha.utilidad_2, ficha.contenido_2);
+                var rt = CalculoDivisaFull(ficha.utilidad_2, ficha.contenido_2, ficha.precio_2_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -47,7 +47,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoDivisaFull(ficha.utilidad_3, ficha.contenido_3);
+                var rt = CalculoDivisaFull(ficha.utilidad_3, ficha.contenido_3, ficha.precio_3_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -56,7 +56,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoDivisaFull(ficha.utilidad_4, ficha.contenido_4);
+                var rt = CalculoDivisaFull(ficha.utilidad_4, ficha.contenido_4, ficha.precio_4_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -65,7 +65,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoDivisaFull(ficha.utilidad_5, ficha.contenido_5);
+                var rt = CalculoDivisaFull(ficha.utilidad_5, ficha.contenido_5, ficha.precio_5_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -73,8 +73,8 @@ namespace ModCompra.Documento.Cargar.Factura
         public decimal PrecioNeto_1 
         { 
             get 
-            { 
-                var rt=CalculoPNeto(ficha.utilidad_1, ficha.contenido_1);
+            {
+                var rt = CalculoPNeto(ficha.utilidad_1, ficha.contenido_1, ficha.precio_1_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             } 
@@ -83,7 +83,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoPNeto(ficha.utilidad_2, ficha.contenido_2);
+                var rt = CalculoPNeto(ficha.utilidad_2, ficha.contenido_2, ficha.precio_2_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -92,7 +92,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoPNeto(ficha.utilidad_3, ficha.contenido_3);
+                var rt = CalculoPNeto(ficha.utilidad_3, ficha.contenido_3, ficha.precio_3_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -101,7 +101,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoPNeto(ficha.utilidad_4, ficha.contenido_4);
+                var rt = CalculoPNeto(ficha.utilidad_4, ficha.contenido_4, ficha.precio_4_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -110,7 +110,7 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             get
             {
-                var rt = CalculoPNeto(ficha.utilidad_5, ficha.contenido_5);
+                var rt = CalculoPNeto(ficha.utilidad_5, ficha.contenido_5, ficha.precio_5_habilitado);
                 rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
                 return rt;
             }
@@ -124,12 +124,15 @@ namespace ModCompra.Documento.Cargar.Factura
         }
 
 
-        private decimal CalculoUtilidad(decimal ut) 
+        private decimal CalculoUtilidad(decimal ut, bool habilitado=true) 
         {
             var rt = 0.0m;
 
             if (ut == 0.0m)
-                return 0.0m;
+                if (habilitado)
+                    return costoDivisaUnd;
+                else
+                    return 0.0m;
 
             if (modoCalculoUtilidad == enumModo.Lineal)
             {
@@ -147,18 +150,18 @@ namespace ModCompra.Documento.Cargar.Factura
             return rt;
         }
 
-        private decimal CalculoDivisaFull(decimal ut, int contenido)
+        private decimal CalculoDivisaFull(decimal ut, int contenido, bool precio_habilitado=true)
         {
             var rt = 0.0m;
-            rt = CalculoUtilidad(ut);
+            rt = CalculoUtilidad(ut, precio_habilitado);
             rt = CaculoIva(rt * contenido);
             return rt;
         }
 
-        private decimal CalculoPNeto(decimal ut, int contenido)
+        private decimal CalculoPNeto(decimal ut, int contenido, bool precio_habilitado=true)
         {
             var rt = 0.0m;
-            rt = CalculoUtilidad(ut);
+            rt = CalculoUtilidad(ut, precio_habilitado);
             rt = CalculaPrecio(rt*contenido);
             return rt;
         }

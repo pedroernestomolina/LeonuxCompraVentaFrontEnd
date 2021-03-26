@@ -24,6 +24,39 @@ namespace OOB.LibCompra.Producto.Utilidad
         public decimal utilidad_3 { get; set; }
         public decimal utilidad_4 { get; set; }
         public decimal utilidad_5 { get; set; }
+        public decimal precio_1 { get; set; }
+        public decimal precio_2 { get; set; }
+        public decimal precio_3 { get; set; }
+        public decimal precio_4 { get; set; }
+        public decimal precio_5 { get; set; }
+        public bool precio_1_habilitado { get { return precio_1 > 0; } }
+        public bool precio_2_habilitado { get { return precio_2 > 0; } }
+        public bool precio_3_habilitado { get { return precio_3 > 0; } }
+        public bool precio_4_habilitado { get { return precio_4 > 0; } }
+        public bool precio_5_habilitado { get { return precio_5 > 0; } }
+
+
+        public Ficha()
+        {
+            auto = "";
+            admDivisa = false;
+            tasaIva = 0.0m;
+            contenido_1 = 0;
+            contenido_2 = 0;
+            contenido_3 = 0;
+            contenido_4 = 0;
+            contenido_5 = 0;
+            utilidad_1 = 0.0m;
+            utilidad_2 = 0.0m;
+            utilidad_3 = 0.0m;
+            utilidad_4 = 0.0m;
+            utilidad_5 = 0.0m;
+            precio_1 = 0.0m;
+            precio_2 = 0.0m;
+            precio_3 = 0.0m;
+            precio_4 = 0.0m;
+            precio_5 = 0.0m;
+        }
 
     }
 

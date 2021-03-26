@@ -494,18 +494,19 @@ namespace ModCompra.Documento.Cargar.Factura
                     autoDep = gestionDoc.IdDeposito,
                     autoPrd = it.Producto.auto,
                     cantidadUnd = it.CantidadUnd,
+                    nombrePrd = it.Producto.descripcion,
                 };
                 fichaPrdDeposito.Add(prdDep);
                 var prdKardex = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdKardex()
                 {
-                    autoConcepto=conceptoCompra.auto,
+                    autoConcepto = conceptoCompra.auto,
                     autoDeposito = gestionDoc.Deposito.auto,
                     autoPrd = it.Producto.auto,
                     cantidadBonoFac = 0.0m,
                     cantidadFac = it.cantidad,
                     cantidadUnd = it.CantidadUnd,
                     cierreFtp = "",
-                    codigoConcepto=conceptoCompra.codigo,
+                    codigoConcepto = conceptoCompra.codigo,
                     codigoDeposito = gestionDoc.Deposito.codigo,
                     codigoMovDoc = "01",
                     codigoSucursal = gestionDoc.Sucursal.codigo,
@@ -515,12 +516,13 @@ namespace ModCompra.Documento.Cargar.Factura
                     esAnulado = "0",
                     modulo = "Compras",
                     montoTotal = it.TotalFinal,
-                    nombreConcepto=conceptoCompra.nombre,
+                    nombreConcepto = conceptoCompra.nombre,
                     nombreDeposito = gestionDoc.Deposito.nombre,
                     nota = "",
                     precioUnd = 0.0m,
                     siglasMovDoc = "FAC",
                     signoDocumento = 1,
+                    nombrePrd = it.Producto.descripcion,
                 };
                 fichaPrdKardex.Add(prdKardex);
                 var prdCosto = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCosto()
@@ -531,6 +533,7 @@ namespace ModCompra.Documento.Cargar.Factura
                     costo = it.CostoFinal,
                     costoDivisa = it.CostoDivisaFinal,
                     costoUnd = it.CostoFinal_Und,
+                    nombrePrd = it.Producto.descripcion,
                 };
                 fichaPrdCosto.Add(prdCosto);
                 var prdCostoHistorico = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdCostoHistorico()

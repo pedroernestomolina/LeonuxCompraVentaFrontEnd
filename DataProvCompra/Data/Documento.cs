@@ -183,6 +183,7 @@ namespace DataProvCompra.Data
                     autoDep = it.autoDep,
                     autoPrd = it.autoPrd,
                     cantidadUnd = it.cantidadUnd,
+                    nombrePrd = it.nombrePrd,
                 };
                 prdDeposito.Add(nr);
             }
@@ -214,6 +215,7 @@ namespace DataProvCompra.Data
                     precioUnd = it.precioUnd,
                     siglasMovDoc = it.siglasMovDoc,
                     signoDocumento = it.signoDocumento,
+                    nombrePrd = it.nombrePrd,
                 };
                 prdKardex.Add(nr);
             }
@@ -228,6 +230,7 @@ namespace DataProvCompra.Data
                     costo = it.costo,
                     costoDivisa = it.costoDivisa,
                     costoUnd = it.costoUnd,
+                    nombrePrd = it.nombrePrd,
                 };
                 prdCosto.Add(nr);
             }

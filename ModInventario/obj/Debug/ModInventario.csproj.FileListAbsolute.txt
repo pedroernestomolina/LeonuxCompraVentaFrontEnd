@@ -48,6 +48,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.An
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Analisis.Existencia.ExistenciaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Analisis.General.AnalisisFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Anular.AnularFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Auditoria.Visualizar.VisualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Buscar.BusquedaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Buscar.Filtrar.FiltrosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Configuracion.BusquedaPredeterminada.ConfigurarFrm.resources

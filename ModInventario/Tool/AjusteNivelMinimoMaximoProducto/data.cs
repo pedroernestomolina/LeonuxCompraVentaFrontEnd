@@ -44,6 +44,13 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             setMaximo(it.nivelOptimo);
         }
 
+        public data(data it)
+        {
+            Ficha = it.Ficha;
+            setMinimo(it.Minimo );
+            setMaximo(it.Maximo );
+        }
+
 
         public void setMinimo(decimal v) 
         {

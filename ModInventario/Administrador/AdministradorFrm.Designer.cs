@@ -1020,6 +1020,7 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(961, 372);
             this.DGV.TabIndex = 0;
+            this.DGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellContentDoubleClick);
             this.DGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DataBindingComplete);
             // 
             // AdministradorFrm

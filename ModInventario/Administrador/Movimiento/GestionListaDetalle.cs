@@ -17,6 +17,7 @@ namespace ModInventario.Administrador.Movimiento
         private BindingSource bs;
         private BindingList<data> bl;
         private Anular.Gestion _anular;
+        private Auditoria.Visualizar.Gestion _gestionAuditoria;
 
 
         public BindingSource Source { get { return bs; } }
@@ -362,6 +363,59 @@ namespace ModInventario.Administrador.Movimiento
                     rp.Generar();
                 }
             }
+        }
+
+        public void VerAnulacion()
+        {
+            if (Item != null)
+            {
+                if (Item.IsAnulado) 
+                {
+                    var tipoDoc= OOB.LibInventario.Sistema.TipoDocumento.enumerados.enumTipoDocumento.SinDefinir;
+                    switch(Item.Ficha.docTipo)
+                    {
+                        case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Cargo:
+                            tipoDoc= OOB.LibInventario.Sistema.TipoDocumento.enumerados.enumTipoDocumento.CARGO;
+                            break;
+                        case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Descargo:
+                            tipoDoc= OOB.LibInventario.Sistema.TipoDocumento.enumerados.enumTipoDocumento.DESCARGO;
+                            break;
+                        case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Traslado:
+                            tipoDoc= OOB.LibInventario.Sistema.TipoDocumento.enumerados.enumTipoDocumento.TRASLADO;
+                            break;
+                        case OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Ajuste:
+                            tipoDoc= OOB.LibInventario.Sistema.TipoDocumento.enumerados.enumTipoDocumento.AJUSTE;
+                            break;
+                    }
+
+                    var r01 = Sistema.MyData.Sistema_TipoDocumento_GetFichaByTipo(tipoDoc);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    var ficha = new OOB.LibInventario.Auditoria.Buscar.Ficha()
+                    {
+                        autoDocumento = Item.Ficha.autoId,
+                        autoTipoDocumento = r01.Entidad.autoId,
+                    };
+                    var r02 = Sistema.MyData.Auditoria_Documento_GetFichaBy(ficha);
+                    if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r02.Mensaje);
+                        return;
+                    }
+                    _gestionAuditoria.Inicializa();
+                    _gestionAuditoria.setData(r02.Entidad);
+                    _gestionAuditoria.Inicia();
+
+                }
+            }
+        }
+
+        public void setGestionAuditoria(Auditoria.Visualizar.Gestion gestion)
+        {
+            _gestionAuditoria = gestion;
         }
 
     }

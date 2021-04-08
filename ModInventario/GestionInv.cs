@@ -27,6 +27,7 @@ namespace ModInventario
         private Configuracion.RegistroPrecio.Gestion _gestionConfRegistroPrecio;
         private Configuracion.BusquedaPredeterminada.Gestion _gestionConfBusquedaPred;
         private Configuracion.MetodoCalculoUtilidad.Gestion _gestionConfMetodoCalUtilidad;
+        private Auditoria.Visualizar.Gestion _gestionAuditoria;
 
 
         public string Version 
@@ -73,6 +74,7 @@ namespace ModInventario
             _gestionConfRegistroPrecio = new Configuracion.RegistroPrecio.Gestion();
             _gestionConfBusquedaPred = new Configuracion.BusquedaPredeterminada.Gestion();
             _gestionConfMetodoCalUtilidad = new Configuracion.MetodoCalculoUtilidad.Gestion();
+            _gestionAuditoria = new Auditoria.Visualizar.Gestion();
         }
 
 
@@ -263,6 +265,7 @@ namespace ModInventario
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 _gestionAdmMov.setGestion(new Administrador.Movimiento.Gestion());
+                _gestionAdmMov.setGestionAuditoria(_gestionAuditoria);
                 _gestionAdmMov.Inicia();
             }
         }

@@ -87,6 +87,10 @@ namespace ModInventario.Maestros.Marca
 
         }
 
+        public void EliminarItem()
+        {
+        }
+
     }
 
 }

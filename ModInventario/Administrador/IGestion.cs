@@ -31,6 +31,8 @@ namespace ModInventario.Administrador
         void VisualizarDocumento();
         void Imprimir();
         void Filtros();
+        void VerAnulacion();
+        void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestion);
 
     }
 

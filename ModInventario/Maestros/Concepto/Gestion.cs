@@ -87,6 +87,10 @@ namespace ModInventario.Maestros.Concepto
 
         }
 
+        public void EliminarItem()
+        {
+        }
+
     }
 
 }

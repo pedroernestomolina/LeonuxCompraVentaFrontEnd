@@ -22,7 +22,6 @@ namespace ModInventario.Producto.AgregarEditar.CodAlterno
         public data(string CodigoAlterno)
             :this()
         {
-            // TODO: Complete member initialization
             this.codigo = CodigoAlterno;
         }
 

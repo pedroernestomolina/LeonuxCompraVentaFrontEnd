@@ -26,7 +26,6 @@ namespace ModCompra.Proveedor.Documentos
 
         public data(OOB.LibCompra.Proveedor.Documentos.Ficha it)
         {
-            // TODO: Complete member initialization
             this.it = it;
         }
 

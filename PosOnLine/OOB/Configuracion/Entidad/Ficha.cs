@@ -25,6 +25,15 @@ namespace PosOnLine.OOB.Configuracion.Entidad
         public string idConceptoSalida { get; set; }
         public string idClaveUsar { get; set; }
         public string idPrecioManejar { get; set; }
+        public string validarExistencia { get; set; }
+        public bool ValidarExistencia_Activa 
+        { 
+            get 
+            { 
+                var rt = validarExistencia.Trim().ToUpper() == "S";
+                return rt;
+            } 
+        }
 
 
         public Ficha()
@@ -43,6 +52,7 @@ namespace PosOnLine.OOB.Configuracion.Entidad
             idConceptoVenta = "";
             idClaveUsar = "";
             idPrecioManejar = "";
+            validarExistencia = "";
         }
 
     }

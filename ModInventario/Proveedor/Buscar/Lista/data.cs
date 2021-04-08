@@ -23,7 +23,6 @@ namespace ModInventario.Proveedor.Buscar.Lista
 
         public data(OOB.LibInventario.Proveedor.Lista.Ficha reg)
         {
-            // TODO: Complete member initialization
             this.reg = reg;
         }
 

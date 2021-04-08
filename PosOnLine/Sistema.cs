@@ -13,6 +13,8 @@ namespace PosOnLine
     {
 
         static public IData MyData;
+        static public Lib.Controles.BalanzaSoloPeso.IBalanza MyBalanza;
+
         //static public OOB.LibInventario.Empresa.Data.Ficha Negocio;
         static public string Instancia;
         static public string BaseDatos;
@@ -22,6 +24,7 @@ namespace PosOnLine
         public static OOB.Sucursal.Entidad.Ficha Sucursal;
         public static string IdEquipo;
         public static string EquipoEstacion;
+
 
     }
 

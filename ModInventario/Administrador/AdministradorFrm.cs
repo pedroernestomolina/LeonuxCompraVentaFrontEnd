@@ -338,6 +338,22 @@ namespace ModInventario.Administrador
             _controlador.Filtros();
         }
 
+        private void DGV_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                if (e.ColumnIndex >= 0)
+                {
+                    VerAnulacion();
+                }
+            }
+        }
+
+        private void VerAnulacion()
+        {
+            _controlador.VerAnulacion();
+        }
+
     }
 
 }

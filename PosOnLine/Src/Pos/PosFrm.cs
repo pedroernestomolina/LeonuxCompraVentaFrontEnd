@@ -63,13 +63,14 @@ namespace PosOnLine.Src.Pos
             L_PRD_CONT.Text = "1";
             L_CLIENTE.Text = "";
             L_MONTO_DIVISA.Text = "0.00";
-            L_TOTAL_DIVISA.Text = "0.00";
+            L_IMPORTE_DIVISA.Text = "0.00";
         }
 
         private void InicializarGrid()
         {
             var f = new Font("Serif", 8, FontStyle.Bold);
             var f1 = new Font("Serif", 10, FontStyle.Regular);
+            var f2 = new Font("Serif", 8, FontStyle.Regular);
 
             DGV_DETALLE.AllowUserToAddRows = false;
             DGV_DETALLE.AllowUserToDeleteRows = false;
@@ -85,10 +86,10 @@ namespace PosOnLine.Src.Pos
             c1.DataPropertyName = "NombrePrd";
             c1.HeaderText = "Descripcion";
             c1.Visible = true;
-            c1.MinimumWidth = 120;
+            c1.MinimumWidth = 140;
             c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             c1.HeaderCell.Style.Font = f;
-            c1.DefaultCellStyle.Font = f1;
+            c1.DefaultCellStyle.Font = f2;
 
             var c2 = new DataGridViewTextBoxColumn();
             c2.DataPropertyName = "Cantidad";
@@ -110,18 +111,27 @@ namespace PosOnLine.Src.Pos
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c3.DefaultCellStyle.Format = "n2";
 
+            var c7 = new DataGridViewTextBoxColumn();
+            c7.DataPropertyName = "ImporteDivisa";
+            c7.HeaderText = "$";
+            c7.Visible = true;
+            c7.Width = 80;
+            c7.HeaderCell.Style.Font = f;
+            c7.DefaultCellStyle.Font = f1;
+            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c7.DefaultCellStyle.Format = "n2";
+
             var c4 = new DataGridViewTextBoxColumn();
-            c4.DataPropertyName = "TasaIvaDesc";
+            c4.DataPropertyName = "TasaIvaDescripcion";
             c4.HeaderText = "%Tasa";
             c4.Visible = true;
             c4.Width = 60;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
             c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            c4.DefaultCellStyle.Format = "n2";
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "Total";
+            c5.DataPropertyName = "TotalItem";
             c5.HeaderText = "SubTotal";
             c5.Visible = true;
             c5.Width = 120;
@@ -129,6 +139,16 @@ namespace PosOnLine.Src.Pos
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c5.DefaultCellStyle.Format = "n2";
+
+            var c8 = new DataGridViewTextBoxColumn();
+            c8.DataPropertyName = "TotalItemDivisa";
+            c8.HeaderText = "$";
+            c8.Visible = true;
+            c8.Width = 80;
+            c8.HeaderCell.Style.Font = f;
+            c8.DefaultCellStyle.Font = f1;
+            c8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c8.DefaultCellStyle.Format = "n2";
 
             var c6 = new DataGridViewCheckBoxColumn();
             c6.DataPropertyName = "EsPesado";
@@ -141,8 +161,10 @@ namespace PosOnLine.Src.Pos
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
             DGV_DETALLE.Columns.Add(c3);
+            DGV_DETALLE.Columns.Add(c7);
             DGV_DETALLE.Columns.Add(c4);
             DGV_DETALLE.Columns.Add(c5);
+            DGV_DETALLE.Columns.Add(c8);
             DGV_DETALLE.Columns.Add(c6);
         }
     
@@ -172,11 +194,8 @@ namespace PosOnLine.Src.Pos
             L_HORA.Text = "";
             L_USUARIO.Text = _controlador.UsuarioActual;
             L_ESTACION.Text = _controlador.EquipoEstacion;
-            //DGV_DETALLE.DataSource = _venta.Items.Source;
-
-            //ActualizarModo();
-
-            //Actualizar();
+            DGV_DETALLE.DataSource = _controlador.ItemSource;
+            Actualizar();
         }
 
         private void BT_CONSULTAR_Click(object sender, EventArgs e)
@@ -201,29 +220,25 @@ namespace PosOnLine.Src.Pos
             if (e.KeyValue == 13) 
             {
                 BuscarProducto();
-                ActivarBuscar();
             }
         }
 
         private void BuscarProducto()
         {
-            var buscar = TB_BUSCAR.Text.Trim().ToUpper();
-            if (buscar != "")
-            {
-                //_venta.BuscarProducto(buscar);
-                Actualizar();
-            }
+            _controlador.BuscarProducto(TB_BUSCAR.Text.Trim().ToUpper());
+            Actualizar();
+            ActivarBuscar();
         }
 
         private void ActualizarTotal()
         {
-            //L_IMPORTE.Text=_venta.Items.SubTotal.ToString("n2");
-            //L_TOTAL_ITEMS.Text = _venta.Items.CantItem.ToString("n0");
-            //L_TOTAL_KILOS.Text = _venta.Items.TotalPeso.ToString("n3");
-            //L_TOTAL_RENGLONES.Text = _venta.Items.Renglones.ToString("n0");
-            //L_TOTAL_DIVISA.Text = _venta.Items.TotalDivisa.ToString("n2");
-
-            //L_PRODUCTO.Text = _venta.Items.PrdActual.Nombre;
+            L_TOTAL_ITEMS.Text = _controlador.CantItem.ToString("n0");
+            L_TOTAL_KILOS.Text = _controlador.TotalPeso.ToString("n3");
+            L_TOTAL_RENGLONES.Text = _controlador.CantRenglones.ToString("n0");
+            L_IMPORTE.Text=_controlador.Importe.ToString("n2");
+            L_IMPORTE_DIVISA.Text = _controlador.ImporteDivisa.ToString("n2");
+            ActualizarItem();
+            //L_PRODUCTO.Text = _controlador.ProductoNombre;
             //L_PRD_NETO.Text = _venta.Items.PrdActual.PrecioNeto.ToString("n2");
             //L_PRD_TASA.Text = _venta.Items.PrdActual.TasaIva;
             //L_PRD_IVA.Text = _venta.Items.PrdActual.Iva.ToString("n2");
@@ -283,17 +298,20 @@ namespace PosOnLine.Src.Pos
 
         private void IncrementarItem()
         {
-            //_venta.IncrementarItem();
+            _controlador.IncrementarItem();
             Actualizar();
         }
 
         private void AnularVenta()
         {
-            DGV_DETALLE.DataSource = null;
-            //_venta.AnularVenta();
+            _controlador.AnularVenta();
             Actualizar();
-            DGV_DETALLE.DataSource = _bs;
-            ActualizarModo();
+
+            //DGV_DETALLE.DataSource = null;
+            ////_venta.AnularVenta();
+            //Actualizar();
+            //DGV_DETALLE.DataSource = _bs;
+            //ActualizarModo();
         }
 
         private void ActualizarModo() 
@@ -320,7 +338,7 @@ namespace PosOnLine.Src.Pos
 
         private void Multiplicar()
         {
-            //_venta.Multiplicar();
+            _controlador.Multiplicar();
             Actualizar();
         }
 
@@ -331,7 +349,7 @@ namespace PosOnLine.Src.Pos
 
         private void Restar()
         {
-            //_venta.Restar();
+            _controlador.DecrementarItem();
             Actualizar();
         }
 
@@ -352,11 +370,11 @@ namespace PosOnLine.Src.Pos
 
         private void PosVenta_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (_venta.Items.SubTotal > 0) 
-            //{
-            //    MessageBox.Show("HAY ITEMS EN PROCESO !!!","*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            //    e.Cancel = true;
-            //}
+            if (!_controlador.SalirIsOk)
+            {
+                MessageBox.Show("HAY ITEMS EN PROCESO !!!", "*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                e.Cancel = true;
+            }
         }
     
 
@@ -443,8 +461,8 @@ namespace PosOnLine.Src.Pos
 
         private void DevolucionItem()
         {
-            //_venta.Devolucion();
-            //Actualizar();
+            _controlador.DevolucionItem();
+            Actualizar();
         }
 
         private void DGV_DETALLE_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -503,6 +521,7 @@ namespace PosOnLine.Src.Pos
         {
             ActualizarCliente();
             ActualizarTotal();
+            ActualizarModo();
             IrFoco();
         }
 
@@ -515,6 +534,15 @@ namespace PosOnLine.Src.Pos
         public void setControlador(Gestion ctr)
         {
             _controlador = ctr;
+        }
+
+        public void ActualizarItem()
+        {
+            L_PRODUCTO.Text = _controlador.ProductoNombre;
+            L_PRD_NETO.Text = _controlador.ProductoPrecioNeto.ToString("n2");
+            L_PRD_TASA.Text = _controlador.ProductoTasaIva;
+            L_PRD_IVA.Text = _controlador.ProductoIva.ToString("n2");
+            L_PRD_CONT.Text = _controlador.ProductoContenido.ToString("n0");
         }
 
     }

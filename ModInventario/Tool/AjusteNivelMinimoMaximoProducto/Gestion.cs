@@ -139,6 +139,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             }
             _deposito = r02.Entidad;
             IsBuscarHabilitado = false;
+            _cadenaBusqueda = "";
         }
 
         public void Limpiar()

@@ -25,6 +25,11 @@ namespace ModInventario.Administrador
             _miGestion = gestion;
         }
 
+        public void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestionAuditoria)
+        {
+            _miGestion.setGestionAuditoria(_gestionAuditoria);
+        }
+
     }
 
 }

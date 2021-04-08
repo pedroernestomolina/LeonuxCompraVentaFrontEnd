@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Analisis.cs" />
+    <Compile Include="Data\Auditoria.cs" />
     <Compile Include="Data\Concepto.cs" />
     <Compile Include="Data\Configuracion.cs" />
     <Compile Include="Data\Costo.cs" />
@@ -65,12 +66,14 @@
     <Compile Include="Data\Producto.cs" />
     <Compile Include="Data\Proveedor.cs" />
     <Compile Include="Data\Reportes.cs" />
+    <Compile Include="Data\Sistema.cs" />
     <Compile Include="Data\Sucursal.cs" />
     <Compile Include="Data\TasaImpuesto.cs" />
     <Compile Include="Data\Tool.cs" />
     <Compile Include="Data\Usuario.cs" />
     <Compile Include="Data\Visor.cs" />
     <Compile Include="InfraEstructura\IAnalisis.cs" />
+    <Compile Include="InfraEstructura\IAuditoria.cs" />
     <Compile Include="InfraEstructura\IConcepto.cs" />
     <Compile Include="InfraEstructura\IConfiguracion.cs" />
     <Compile Include="InfraEstructura\ICosto.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="InfraEstructura\IProducto.cs" />
     <Compile Include="InfraEstructura\IProveedor.cs" />
     <Compile Include="InfraEstructura\IReportes.cs" />
+    <Compile Include="InfraEstructura\ISistema.cs" />
     <Compile Include="InfraEstructura\ISucursal.cs" />
     <Compile Include="InfraEstructura\ITasaImpuesto.cs" />
     <Compile Include="InfraEstructura\ITool.cs" />

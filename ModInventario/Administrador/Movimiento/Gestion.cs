@@ -196,6 +196,16 @@ namespace ModInventario.Administrador.Movimiento
             _gestionFiltros.Inicia();
         }
 
+        public void VerAnulacion()
+        {
+            _gestionListaDetalle.VerAnulacion();
+        }
+
+        public void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestionAuditoria)
+        {
+            _gestionListaDetalle.setGestionAuditoria(_gestionAuditoria);
+        }
+
     }
 
 }

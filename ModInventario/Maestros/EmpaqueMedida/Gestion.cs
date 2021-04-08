@@ -87,6 +87,10 @@ namespace ModInventario.Maestros.EmpaqueMedida
 
         }
 
+        public void EliminarItem()
+        {
+        }
+
     }
 
 }

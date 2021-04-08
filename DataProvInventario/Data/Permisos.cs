@@ -34,7 +34,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarProducto(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -57,7 +56,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CambiarPrecios(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -80,7 +78,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CambiarCostos(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -103,7 +100,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_AsignarDepositos(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -126,7 +122,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CambiarDatosDelDeposito(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -149,7 +144,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ActualizarEstatusDelProducto(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -172,7 +166,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CambiarImagenDelProducto(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -196,6 +189,7 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearDepartamento(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -218,7 +212,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarDepartamento(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -241,6 +234,29 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+        public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarDepartamento(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_EliminarDepartamento(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
 
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearGrupo(string autoGrupoUsuario)
         {
@@ -264,7 +280,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarGrupo(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -288,6 +303,7 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearMarca(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -310,7 +326,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarMarca(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -334,6 +349,7 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearUnidadEmpaque(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -356,7 +372,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarUnidadEmpaque(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -380,6 +395,7 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearConceptoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -402,7 +418,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarConceptoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -425,6 +440,7 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+
 
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ToolInventario(string autoGrupoUsuario)
         {
@@ -465,7 +481,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMedio()
         {
             var rt = new OOB.ResultadoEntidad<string>();
@@ -481,7 +496,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo()
         {
             var rt = new OOB.ResultadoEntidad<string>();
@@ -521,7 +535,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoDescargoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -544,7 +557,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoTrasladoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -567,7 +579,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoAjusteInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -590,7 +601,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_AdministradorMovimientoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -613,7 +623,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_AdmAnularMovimientoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -636,7 +645,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_AdmVisualizarMovimientoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -659,7 +667,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_AdmReporteMovimientoInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();

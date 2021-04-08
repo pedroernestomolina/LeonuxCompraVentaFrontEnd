@@ -47,6 +47,8 @@ namespace PosOnLine.Src.Consultor
         public void BuscarProducto(string buscar)
         {
             _busquedaIsOk = false;
+            _gestionBuscar.GestionListar.setCantidadVisible(false);
+            _gestionBuscar.GestionListar.setPrecioVisible(false);
             _gestionBuscar.ActivarBusqueda(buscar);
             if (_gestionBuscar.BusquedaIsOk) 
             {

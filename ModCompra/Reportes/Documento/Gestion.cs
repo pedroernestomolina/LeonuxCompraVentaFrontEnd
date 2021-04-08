@@ -17,7 +17,6 @@ namespace ModCompra.Reportes.Documento
 
         public Gestion(OOB.LibCompra.Documento.Visualizar.Ficha ficha)
         {
-            // TODO: Complete member initialization
             this.ficha = ficha;
         }
 

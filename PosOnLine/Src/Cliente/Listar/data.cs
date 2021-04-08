@@ -26,7 +26,6 @@ namespace PosOnLine.Src.Cliente.Listar
 
         public data(OOB.Cliente.Lista.Ficha it)
         {
-            // TODO: Complete member initialization
             this.it = it;
         }
 

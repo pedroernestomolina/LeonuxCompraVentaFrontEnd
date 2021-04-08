@@ -123,6 +123,13 @@
       <DependentUpon>AnularFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Anular\Gestion.cs" />
+    <Compile Include="Auditoria\Visualizar\Gestion.cs" />
+    <Compile Include="Auditoria\Visualizar\VisualizarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Auditoria\Visualizar\VisualizarFrm.Designer.cs">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buscar\BusquedaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -657,6 +664,9 @@
     <EmbeddedResource Include="Anular\AnularFrm.resx">
       <DependentUpon>AnularFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Auditoria\Visualizar\VisualizarFrm.resx">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buscar\BusquedaFrm.resx">
       <DependentUpon>BusquedaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -906,6 +916,7 @@
     <Content Include="Imagenes\administrador.png" />
     <Content Include="Imagenes\automatizacion.jpg" />
     <Content Include="Imagenes\bt_alerta.png" />
+    <Content Include="Imagenes\bt_anular.png" />
     <Content Include="Imagenes\bt_asignar.png" />
     <Content Include="Imagenes\bt_borrar.png" />
     <Content Include="Imagenes\bt_buscar.png" />
@@ -919,6 +930,8 @@
     <Content Include="Imagenes\bt_editar_48.png" />
     <Content Include="Imagenes\bt_editar_ficha.png" />
     <Content Include="Imagenes\bt_eliminar.png" />
+    <Content Include="Imagenes\bt_eliminar_2.png" />
+    <Content Include="Imagenes\bt_eliminar_3.png" />
     <Content Include="Imagenes\bt_enEspera.png" />
     <Content Include="Imagenes\bt_exchange.png" />
     <Content Include="Imagenes\bt_exchange_32.png" />
@@ -1036,6 +1049,9 @@
     <None Include="Resources\bt_imprimir_3.png" />
     <None Include="Resources\bt_enEspera.png" />
     <None Include="Resources\bt_configuracion.png" />
+    <None Include="Resources\bt_anular.png" />
+    <None Include="Resources\bt_eliminar_2.png" />
+    <None Include="Resources\bt_eliminar_3.png" />
     <Content Include="Resources\bt_setup.png" />
     <None Include="Resources\libro.png" />
     <None Include="Resources\carpeta.png" />

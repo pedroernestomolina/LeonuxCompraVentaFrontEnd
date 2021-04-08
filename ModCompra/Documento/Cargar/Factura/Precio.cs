@@ -203,7 +203,6 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public Precio(OOB.LibCompra.Producto.Utilidad.Ficha ficha)
         {
-            // TODO: Complete member initialization
             this.ficha = ficha;
         }
 

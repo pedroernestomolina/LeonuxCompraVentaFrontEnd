@@ -53,6 +53,11 @@ namespace ModInventario.Maestros
             _gestion.EditarItem();
         }
 
+        public void EliminarItem()
+        {
+            _gestion.EliminarItem();
+        }
+
     }
 
 }

@@ -30,7 +30,6 @@ namespace ModCompra.Proveedor.ArticulosCompra
 
         public data(OOB.LibCompra.Proveedor.Articulos.Ficha it)
         {
-            // TODO: Complete member initialization
             this.it = it;
         }
 

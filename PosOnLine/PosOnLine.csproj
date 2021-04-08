@@ -78,6 +78,7 @@
     <Compile Include="Data\Infra\IProducto.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Infra\IVenta.cs" />
     <Compile Include="Data\Prov\Cliente.cs" />
     <Compile Include="Data\Prov\Configuracion.cs" />
     <Compile Include="Data\Prov\DataPrv.cs" />
@@ -86,7 +87,23 @@
     <Compile Include="Data\Prov\Producto.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
+    <Compile Include="Data\Prov\Venta.cs" />
     <Compile Include="Gestion.cs" />
+    <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\Balanza.cs" />
+    <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.Designer.cs">
+      <DependentUpon>BalanzaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lib\Controles\BalanzaSoloPeso\IBalanza.cs" />
+    <Compile Include="Lib\Controles\BalanzaSoloPeso\Resultado.cs" />
+    <Compile Include="Lib\Controles\Numero\NumeroDecimal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Lib\Controles\Numero\NumeroEntero.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="OOB\Cliente\Agregar\Ficha.cs" />
     <Compile Include="OOB\Cliente\Entidad\Enumerados.cs" />
     <Compile Include="OOB\Cliente\Entidad\Ficha.cs" />
@@ -102,6 +119,7 @@
     <Compile Include="OOB\Pos\Abrir\Resumen.cs" />
     <Compile Include="OOB\Pos\EnUso\Ficha.cs" />
     <Compile Include="OOB\Producto\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Producto\Existencia\Bloquear\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Buscar\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Entidad\Ficha.cs" />
     <Compile Include="OOB\Producto\Lista\Ficha.cs" />
@@ -115,6 +133,17 @@
     <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Anular\Ficha.cs" />
+    <Compile Include="OOB\Venta\Anular\FichaDeposito.cs" />
+    <Compile Include="OOB\Venta\Anular\FichaItem.cs" />
+    <Compile Include="OOB\Venta\Item\ActualizarCantidad\Aumentar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Item\ActualizarCantidad\Disminuir\Ficha.cs" />
+    <Compile Include="OOB\Venta\Item\Eliminar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Item\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Venta\Item\Lista\Filtro.cs" />
+    <Compile Include="OOB\Venta\Item\Registrar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Item\Registrar\FichaDeposito.cs" />
+    <Compile Include="OOB\Venta\Item\Registrar\FichaItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sistema.cs" />
@@ -148,12 +177,28 @@
     <Compile Include="Src\Consultor\Existencia.cs" />
     <Compile Include="Src\Consultor\Precio.cs" />
     <Compile Include="Src\Consultor\Gestion.cs" />
+    <Compile Include="Src\Devolucion\DevolucionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Devolucion\DevolucionFrm.Designer.cs">
+      <DependentUpon>DevolucionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Devolucion\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
     <Compile Include="Src\Identificacion\IdentificacionFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Src\Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Item\data.cs" />
+    <Compile Include="Src\Item\Gestion.cs" />
+    <Compile Include="Src\Multiplicar\Gestion.cs" />
+    <Compile Include="Src\Multiplicar\MultiplicarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Multiplicar\MultiplicarFrm.Designer.cs">
+      <DependentUpon>MultiplicarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Pos\Gestion.cs" />
     <Compile Include="Src\Pos\PosFrm.cs">
@@ -178,6 +223,9 @@
     <Compile Include="Src\Producto\Lista\ListaFrm.designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.resx">
+      <DependentUpon>BalanzaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -197,8 +245,14 @@
     <EmbeddedResource Include="Src\Consultor\ConsultorFrm.resx">
       <DependentUpon>ConsultorFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Devolucion\DevolucionFrm.resx">
+      <DependentUpon>DevolucionFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Multiplicar\MultiplicarFrm.resx">
+      <DependentUpon>MultiplicarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Pos\PosFrm.resx">
       <DependentUpon>PosFrm.cs</DependentUpon>

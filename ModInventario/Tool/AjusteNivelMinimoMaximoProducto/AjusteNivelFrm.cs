@@ -113,6 +113,14 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             c6.DefaultCellStyle.Font = f1;
             c6.Width = 30;
 
+            var c7 = new DataGridViewCheckBoxColumn();
+            c7.DataPropertyName = "IsEditado";
+            c7.HeaderText = "Editado";
+            c7.Visible = true;
+            c7.Width = 60;
+            c7.HeaderCell.Style.Font = f;
+            c7.DefaultCellStyle.Font = f1;
+
             var c8 = new DataGridViewTextBoxColumn();
             c8.DataPropertyName = "Estatus";
             c8.Name = "Estatus";
@@ -128,6 +136,7 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
+            DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
         }
 
@@ -148,11 +157,14 @@ namespace ModInventario.Tool.AjusteNivelMinimoMaximoProducto
         {
             _controlador.Buscar();
             L_DEPOSITO.Text = _controlador.Deposito;
-            BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
-            CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
-            CB_DEPARTAMENTO.Enabled = _controlador.IsBuscarHabilitado;
             L_ITEMS.Text = _controlador.Items;
-            TB_CADENA.Enabled = _controlador.IsBuscarHabilitado;
+            CB_DEPOSITO.Enabled = _controlador.IsBuscarHabilitado;
+            TB_CADENA.Text = "";
+            DGV.Focus();
+
+            //CB_DEPARTAMENTO.Enabled = _controlador.IsBuscarHabilitado;
+            //TB_CADENA.Enabled = _controlador.IsBuscarHabilitado;
+            //BT_BUSCAR.Enabled = _controlador.IsBuscarHabilitado;
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)

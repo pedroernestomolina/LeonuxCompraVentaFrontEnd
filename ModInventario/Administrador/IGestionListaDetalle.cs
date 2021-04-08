@@ -22,6 +22,8 @@ namespace ModInventario.Administrador
         void setGestionAnular(Anular.Gestion _gestionAnular);
         void VisualizarDocumento();
         void Imprimir(string xfiltros);
+        void VerAnulacion();
+        void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestionAuditoria);
 
     }
 

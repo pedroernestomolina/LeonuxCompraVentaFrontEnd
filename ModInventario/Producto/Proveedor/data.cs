@@ -22,7 +22,6 @@ namespace ModInventario.Producto.Proveedor
 
         public data(OOB.LibInventario.Producto.Data.Proveedor.Detalle rg)
         {
-            // TODO: Complete member initialization
             this.rg = rg;
         }
 

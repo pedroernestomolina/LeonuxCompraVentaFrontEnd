@@ -103,6 +103,16 @@ namespace ModInventario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_anular {
+            get {
+                object obj = ResourceManager.GetObject("bt_anular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_asignar {
             get {
                 object obj = ResourceManager.GetObject("bt_asignar", resourceCulture);
@@ -226,6 +236,26 @@ namespace ModInventario.Properties {
         internal static System.Drawing.Bitmap bt_eliminar {
             get {
                 object obj = ResourceManager.GetObject("bt_eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_eliminar_2 {
+            get {
+                object obj = ResourceManager.GetObject("bt_eliminar_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_eliminar_3 {
+            get {
+                object obj = ResourceManager.GetObject("bt_eliminar_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

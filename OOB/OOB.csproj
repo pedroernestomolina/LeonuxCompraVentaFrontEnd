@@ -151,6 +151,8 @@
     <Compile Include="LibInventario\Analisis\Existencia\Filtro.cs" />
     <Compile Include="LibInventario\Analisis\General\Ficha.cs" />
     <Compile Include="LibInventario\Analisis\General\Filtro.cs" />
+    <Compile Include="LibInventario\Auditoria\Buscar\Ficha.cs" />
+    <Compile Include="LibInventario\Auditoria\Entidad\Ficha.cs" />
     <Compile Include="LibInventario\Concepto\Agregar.cs" />
     <Compile Include="LibInventario\Concepto\Editar.cs" />
     <Compile Include="LibInventario\Concepto\Ficha.cs" />
@@ -298,6 +300,8 @@
     <Compile Include="LibInventario\Reportes\Top20\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\Valorizacion\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Valorizacion\Filtro.cs" />
+    <Compile Include="LibInventario\Sistema\TipoDocumento\Entidad\Ficha.cs" />
+    <Compile Include="LibInventario\Sistema\TipoDocumento\enumerados.cs" />
     <Compile Include="LibInventario\Sucursal\Ficha.cs" />
     <Compile Include="LibInventario\TasaImpuesto\Ficha.cs" />
     <Compile Include="LibInventario\Tool\AjusteNivelMinimoMaximoProducto\Ajustar\Ficha.cs" />

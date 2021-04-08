@@ -182,6 +182,16 @@ namespace ModInventario.Maestros
             _controlador.EditarItem();
         }
 
+        private void BT_ELIMINAR_Click(object sender, EventArgs e)
+        {
+            EliminarItem();
+        }
+
+        private void EliminarItem()
+        {
+            _controlador.EliminarItem();
+        }
+
     }
 
 }

@@ -50,7 +50,6 @@ namespace ModInventario.Administrador.Movimiento
 
         public data(OOB.LibInventario.Movimiento.Lista.Ficha rg)
         {
-            // TODO: Complete member initialization
             this.rg = rg;
         }
 

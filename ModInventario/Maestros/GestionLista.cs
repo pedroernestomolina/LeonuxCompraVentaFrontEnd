@@ -160,6 +160,17 @@ namespace ModInventario.Maestros
             bsLista.CurrencyManager.Refresh();
         }
 
+        public void ActualizarLista()
+        {
+            bsLista.CurrencyManager.Refresh();
+        }
+
+        public void EliminarItem(data itActual)
+        {
+            blLista.Remove(itActual);
+            ActualizarLista();
+        }
+
     }
 
 }

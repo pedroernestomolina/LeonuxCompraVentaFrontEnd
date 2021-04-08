@@ -22,7 +22,6 @@ namespace ModInventario.Analisis.Existencia
 
         public data(OOB.LibInventario.Analisis.Existencia.Ficha it)
         {
-            // TODO: Complete member initialization
             this.it = it;
         }
 

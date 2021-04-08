@@ -516,6 +516,7 @@
             this.TB_CADENA.Name = "TB_CADENA";
             this.TB_CADENA.Size = new System.Drawing.Size(130, 22);
             this.TB_CADENA.TabIndex = 0;
+            this.TB_CADENA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctr_KeyDown);
             this.TB_CADENA.Leave += new System.EventHandler(this.TB_CADENA_Leave);
             // 
             // panel11

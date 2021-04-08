@@ -34,6 +34,8 @@ namespace ModInventario.Maestros
         void setLista(List<OOB.LibInventario.EmpaqueMedida.Ficha> list);
         void ActualizarItem(OOB.LibInventario.EmpaqueMedida.Ficha ficha);
         void Agregar(OOB.LibInventario.EmpaqueMedida.Ficha ficha);
+        void EliminarItem(data itActual);
+
     }
 
 }

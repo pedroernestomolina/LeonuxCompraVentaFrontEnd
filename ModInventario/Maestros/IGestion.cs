@@ -21,6 +21,7 @@ namespace ModInventario.Maestros
         void EditarItem();
         bool IsMarca { get; }
         bool IsEmpaqueMedida { get; }
+        void EliminarItem();
 
     }
 

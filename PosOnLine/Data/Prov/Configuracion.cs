@@ -41,6 +41,7 @@ namespace PosOnLine.Data.Prov
                 idSucursal = ent.idSucursal,
                 idTransporte = ent.idTransporte,
                 idVendedor = ent.idVendedor,
+                validarExistencia = ent.validarExistencia,
             };
             result.Entidad = nr;
 

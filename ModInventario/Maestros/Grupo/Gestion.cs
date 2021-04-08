@@ -87,6 +87,10 @@ namespace ModInventario.Maestros.Grupo
 
         }
 
+        public void EliminarItem()
+        {
+        }
+
     }
 
 }

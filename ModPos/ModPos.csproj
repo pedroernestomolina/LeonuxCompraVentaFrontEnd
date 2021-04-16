@@ -405,6 +405,7 @@
     <Content Include="Imagenes\bt_eliminar.png" />
     <Content Include="Imagenes\bt_print_document.png" />
     <Content Include="Imagenes\bt_undo.png" />
+    <None Include="Imagenes\calc.png" />
     <Content Include="Imagenes\configuracion.png" />
     <None Include="Reportes\DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
@@ -421,6 +422,7 @@
     <None Include="Resources\error.wav" />
     <None Include="Resources\paso.wav" />
     <None Include="Resources\acceso.png" />
+    <None Include="Imagenes\limpiar.png" />
     <Content Include="Sonidos\alerta.wav" />
     <Content Include="Sonidos\error.wav" />
     <Content Include="Sonidos\paso.wav" />

@@ -12,8 +12,6 @@ namespace PosOnLine.Src.Cliente.Listar
     public class Gestion
     {
 
-        public event EventHandler ItemSeleccionadoHnd;
- 
 
         private List<data> _lista;
         private List<OOB.Cliente.Lista.Ficha> _clientes;
@@ -23,6 +21,7 @@ namespace PosOnLine.Src.Cliente.Listar
 
         public OOB.Cliente.Lista.Ficha ItemSeleccionado { get { return _itemSeleccionado; } }
         public BindingSource SourceCliente { get { return _bs; } }
+        public bool ItemSeleccionadoIsOk { get { return _itemSeleccionado != null; } }
 
 
         public Gestion()
@@ -34,17 +33,20 @@ namespace PosOnLine.Src.Cliente.Listar
         }
 
 
-        private ListaFrm frm;
+        ListaFrm frm;
         public void Inicia()
         {
-            if (CargarData())
+            if (!ItemSeleccionadoIsOk)
             {
-                if (frm==null)
+                if (CargarData())
                 {
-                    frm = new ListaFrm();
-                    frm.setControlador(this);
+                    if (frm == null)
+                    {
+                        frm = new ListaFrm();
+                        frm.setControlador(this);
+                    }
+                    frm.ShowDialog();
                 }
-                frm.ShowDialog();
             }
         }
 
@@ -57,6 +59,7 @@ namespace PosOnLine.Src.Cliente.Listar
             {
                 _lista.Add(new data(it));
             }
+            _bs.Position = 0;
             _bs.CurrencyManager.Refresh();
 
             return rt;
@@ -87,17 +90,7 @@ namespace PosOnLine.Src.Cliente.Listar
             if (_bs.Current != null) 
             {
                 _itemSeleccionado = ((data)_bs.Current).Ficha;
-                EventHandler hnd = ItemSeleccionadoHnd;
-                if (hnd != null) 
-                {
-                    hnd(this, null);
-                }
             }
-        }
-
-        public void Cerrar()
-        {
-            frm.Cerrar();
         }
 
     }

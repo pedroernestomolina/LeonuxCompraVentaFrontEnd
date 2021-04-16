@@ -76,6 +76,7 @@ namespace PosOnLine.Src.Producto.Lista
             {
                 _lData.Add(new data(it));
             }
+            _bs.Position = 0;
             _bs.CurrencyManager.Refresh();
         }
 

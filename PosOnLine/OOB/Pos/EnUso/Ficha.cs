@@ -12,6 +12,8 @@ namespace PosOnLine.OOB.Pos.EnUso
     {
 
         public int id { get; set; }
+        public string idAutoArqueoCierre { get; set; }
+        public int idResumen { get; set; }
         public string idUsuario { get; set; }
         public string codUsuario { get; set; }
         public string nomUsuario { get; set; }
@@ -23,6 +25,8 @@ namespace PosOnLine.OOB.Pos.EnUso
         public Ficha()
         {
             id = -1;
+            idAutoArqueoCierre = "";
+            idResumen = -1;
             idUsuario = "";
             codUsuario = "";
             nomUsuario = "";

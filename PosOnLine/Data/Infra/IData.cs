@@ -9,7 +9,8 @@ namespace PosOnLine.Data.Infra
 {
 
     public interface IData: IUsuario, IJornada, IConfiguracion, ISucursal, ICliente,
-        IProducto, IDeposito, IVenta
+        IProducto, IDeposito, IVenta, IPendiente, IDocumento, IConcepto, ISistema,
+        IVendedor
     {
 
         OOB.Resultado.FichaEntidad<DateTime> FechaServidor();

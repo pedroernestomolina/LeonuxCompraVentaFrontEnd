@@ -32,6 +32,8 @@ namespace PosOnLine.Src.Item
         private int _prdContenidoInf;
         private Multiplicar.Gestion _gestionMultiplicar;
         private Devolucion.Gestion _gestionDevolucion;
+        private Pendiente.Gestion _gestionPendiente;
+        private bool _dejarPendienteIsOk; 
 
 
         public int CantItem { get { return _blitems.Sum(s => s.cantItem); } }
@@ -41,6 +43,7 @@ namespace PosOnLine.Src.Item
         public decimal ImporteDivisa { get { return _blitems.Sum(s => s.TotalItemDivisa); } }
         public BindingSource ItemSource { get { return _bsitems; } }
         public bool AnularVentaIsOk { get { return _anularVentaIsOk; } }
+        public bool DejarCtaPendienteIsOk { get { return _dejarPendienteIsOk; } }
         public OOB.Venta.Item.Entidad.Ficha ItemActual { get { return _itemActual; } }
         public string Producto { get { return _productoInf; } }
         public string PrdTasaIva { get { return _prdTasaIvaInf; } }
@@ -55,6 +58,7 @@ namespace PosOnLine.Src.Item
             _autoDeposito = "";
             _tarifaPrecio = "";
             _anularVentaIsOk = false;
+            _dejarPendienteIsOk = false;
             _validarExistencia = true;
             _itemActual = null;
             _litems = new List<data>();
@@ -203,10 +207,10 @@ namespace PosOnLine.Src.Item
                     cantidad = cant,
                     categoria = prd.Categoria,
                     codigo = prd.CodigoPrd,
-                    costoCompra = 0.0m,
-                    costoPromedio = 0.0m,
-                    costoPromedioUnd = 0.0m,
-                    costoUnd = 0.0m,
+                    costoCompra = prd.Costo,
+                    costoPromedio = prd.CostoPromedio,
+                    costoPromedioUnd = prd.CostoPromedioUnidad,
+                    costoUnd = prd.CostoUnidad,
                     decimales = decimales,
                     empaqueContenido = empaqueCont,
                     empaqueDescripcion = empaqueDesc,
@@ -301,6 +305,7 @@ namespace PosOnLine.Src.Item
         public void Inicializar()
         {
             _anularVentaIsOk = false;
+            _dejarPendienteIsOk = false;
             _itemActual = null;
             _productoInf = "";
             _prdContenidoInf = 0;
@@ -479,6 +484,55 @@ namespace PosOnLine.Src.Item
                         }
                     }
                 }
+            }
+        }
+
+        public void DejarCtaPendiente(OOB.Cliente.Entidad.Ficha cliente)
+        {
+            _dejarPendienteIsOk = false;
+            if (_gestionPendiente.DejarPendiente()) 
+            {
+                var agregar = new OOB.Pendiente.DejarCta.Ficha()
+                {
+                    cirifCliente = cliente.CiRif,
+                    idCliente = cliente.Id,
+                    idOperador = Sistema.PosEnUso.id,
+                    monto = Importe,
+                    montoDivisa = ImporteDivisa,
+                    nombreCliente = cliente.Nombre,
+                    renglones = CantRenglones,
+                };
+                agregar.items = _blitems.Select(s =>
+                {
+                    var nr = new OOB.Pendiente.DejarCta.FichaItem()
+                    {
+                        idItem = s.Ficha.id,
+                    };
+                    return nr;
+                }).ToList();
+                var r01 = Sistema.MyData.Pendiente_DejarCta(agregar);
+                if (r01.Result ==  OOB.Resultado.Enumerados.EnumResult.isError )
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error(r01.Mensaje);
+                }
+                _blitems.Clear();
+                _bsitems.CurrencyManager.Refresh();
+                _dejarPendienteIsOk = true;
+                Helpers.Msg.OK("PROCESO REALIZADO CON EXITO !!!");
+            }
+        }
+
+        public void setGestionPendiente(Pendiente.Gestion gestion)
+        {
+            _gestionPendiente = gestion;
+        }
+
+        public void setDescuentoFinal(decimal p)
+        {
+            foreach (var it in _litems)
+            {
+                it.setDescuentoFinal(p);
             }
         }
 

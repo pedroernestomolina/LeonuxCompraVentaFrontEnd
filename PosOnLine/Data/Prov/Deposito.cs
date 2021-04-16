@@ -14,6 +14,7 @@ namespace PosOnLine.Data.Prov
 
         public OOB.Resultado.Lista<OOB.Deposito.Entidad.Ficha> Deposito_GetLista(OOB.Deposito.Lista.Filtro filtro)
         {
+            //TODO: LISTA DE DEPOSITOS
             throw new NotImplementedException();
         }
 

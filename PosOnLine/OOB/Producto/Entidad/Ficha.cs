@@ -72,6 +72,11 @@ namespace PosOnLine.OOB.Producto.Entidad
         public string decimales_4 { get; set; }
         public string decimales_5 { get; set; }
 
+        public decimal Costo { get; set; }
+        public decimal CostoUnidad { get; set; }
+        public decimal CostoPromedio { get; set; }
+        public decimal CostoPromedioUnidad { get; set; }
+
         public bool IsActivo { get { return Estatus.Trim().ToUpper() == "ACTIVO"; } }
         public bool IsDivisa { get { return EstatusDivisa.Trim().ToUpper() == "1"; } }
         public bool IsPesado { get { return EstatusPesado.Trim().ToUpper() == "1"; } }
@@ -138,6 +143,11 @@ namespace PosOnLine.OOB.Producto.Entidad
             decimales_3 = "";
             decimales_4 = "";
             decimales_5 = "";
+
+            Costo = 0.0m;
+            CostoPromedio = 0.0m;
+            CostoPromedioUnidad = 0.0m;
+            CostoUnidad = 0.0m;
         }
 
     }

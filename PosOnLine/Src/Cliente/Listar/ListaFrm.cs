@@ -115,6 +115,10 @@ namespace PosOnLine.Src.Cliente.Listar
         private void SeleccionarItem()
         {
             _controlador.SeleccionarItem();
+            if (_controlador.ItemSeleccionadoIsOk) 
+            {
+                this.Hide();
+            }
         }
 
         public void setControlador(Gestion ctr)

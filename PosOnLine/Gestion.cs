@@ -23,7 +23,6 @@ namespace PosOnLine
         }
 
 
-        Src.Identificacion.IdentificacionFrm frm;
         public void Inicia()
         {
             if (CargarDataXML()) 

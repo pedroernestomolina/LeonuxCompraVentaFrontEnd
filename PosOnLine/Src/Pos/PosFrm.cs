@@ -17,8 +17,6 @@ namespace PosOnLine.Src.Pos
 
         private Gestion _controlador; 
         private Timer _hora;
-        private BindingSource _bs;
-        //private Venta _venta;
 
      
         public PosFrm()
@@ -232,17 +230,13 @@ namespace PosOnLine.Src.Pos
 
         private void ActualizarTotal()
         {
+            L_CTAS_PEND.Text = _controlador.CntCtasPendientes.ToString("n0");
             L_TOTAL_ITEMS.Text = _controlador.CantItem.ToString("n0");
             L_TOTAL_KILOS.Text = _controlador.TotalPeso.ToString("n3");
             L_TOTAL_RENGLONES.Text = _controlador.CantRenglones.ToString("n0");
             L_IMPORTE.Text=_controlador.Importe.ToString("n2");
             L_IMPORTE_DIVISA.Text = _controlador.ImporteDivisa.ToString("n2");
             ActualizarItem();
-            //L_PRODUCTO.Text = _controlador.ProductoNombre;
-            //L_PRD_NETO.Text = _venta.Items.PrdActual.PrecioNeto.ToString("n2");
-            //L_PRD_TASA.Text = _venta.Items.PrdActual.TasaIva;
-            //L_PRD_IVA.Text = _venta.Items.PrdActual.Iva.ToString("n2");
-            //L_PRD_CONT.Text = _venta.Items.PrdActual.Contenido.ToString("n0");
             DGV_DETALLE.Refresh();
         }
 
@@ -306,12 +300,6 @@ namespace PosOnLine.Src.Pos
         {
             _controlador.AnularVenta();
             Actualizar();
-
-            //DGV_DETALLE.DataSource = null;
-            ////_venta.AnularVenta();
-            //Actualizar();
-            //DGV_DETALLE.DataSource = _bs;
-            //ActualizarModo();
         }
 
         private void ActualizarModo() 
@@ -423,6 +411,7 @@ namespace PosOnLine.Src.Pos
 
         private void Totalizar()
         {
+            _controlador.Totalizar();
             //DGV_DETALLE.DataSource = null;
             //_venta.Procesar();
             //if (_venta.DocumentoProcesadoIsOk) 
@@ -442,9 +431,10 @@ namespace PosOnLine.Src.Pos
 
         private void DejarCtaEnPendiente()
         {
+            _controlador.DejarCtaPendiente();
+            Actualizar();
+
             //DGV_DETALLE.DataSource = null;
-            //_venta.DejarCtaPendiente();
-            //Actualizar();
             //DGV_DETALLE.DataSource = _bs;
         }
 
@@ -455,8 +445,8 @@ namespace PosOnLine.Src.Pos
 
         private void AbrirCtaEnPendiente()
         {
-            //_venta.CtaPendiente();
-            //Actualizar();
+            _controlador.AbriCtaPendiente();
+            Actualizar();
         }
 
         private void DevolucionItem()

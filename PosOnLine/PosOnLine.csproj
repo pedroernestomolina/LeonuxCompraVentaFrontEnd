@@ -71,22 +71,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Infra\ICliente.cs" />
+    <Compile Include="Data\Infra\IConcepto.cs" />
     <Compile Include="Data\Infra\IConfiguracion.cs" />
     <Compile Include="Data\Infra\IData.cs" />
     <Compile Include="Data\Infra\IDeposito.cs" />
+    <Compile Include="Data\Infra\IDocumento.cs" />
     <Compile Include="Data\Infra\IJornada.cs" />
+    <Compile Include="Data\Infra\IPendiente.cs" />
     <Compile Include="Data\Infra\IProducto.cs" />
+    <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Infra\IVendedor.cs" />
     <Compile Include="Data\Infra\IVenta.cs" />
     <Compile Include="Data\Prov\Cliente.cs" />
+    <Compile Include="Data\Prov\Concepto.cs" />
     <Compile Include="Data\Prov\Configuracion.cs" />
     <Compile Include="Data\Prov\DataPrv.cs" />
     <Compile Include="Data\Prov\Deposito.cs" />
+    <Compile Include="Data\Prov\Documento.cs" />
     <Compile Include="Data\Prov\Jornada.cs" />
+    <Compile Include="Data\Prov\Pendiente.cs" />
     <Compile Include="Data\Prov\Producto.cs" />
+    <Compile Include="Data\Prov\Sistema.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
+    <Compile Include="Data\Prov\Vendedor.cs" />
     <Compile Include="Data\Prov\Venta.cs" />
     <Compile Include="Gestion.cs" />
     <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\Balanza.cs" />
@@ -110,9 +120,24 @@
     <Compile Include="OOB\Cliente\Lista\Enumerados.cs" />
     <Compile Include="OOB\Cliente\Lista\Ficha.cs" />
     <Compile Include="OOB\Cliente\Lista\Filtro.cs" />
+    <Compile Include="OOB\Concepto\Entidad\Ficha.cs" />
     <Compile Include="OOB\Configuracion\Entidad\Ficha.cs" />
     <Compile Include="OOB\Deposito\Entidad\Ficha.cs" />
     <Compile Include="OOB\Deposito\Lista\Filtro.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\Ficha.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaCxC.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaCxCDocumento.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaCxCMetodoPago.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaCxcPago.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaCxcRecibo.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaDeposito.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaDetalle.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaKardex.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaPosResumen.cs" />
+    <Compile Include="OOB\Pendiente\DejarCta\Ficha.cs" />
+    <Compile Include="OOB\Pendiente\DejarCta\FichaItem.cs" />
+    <Compile Include="OOB\Pendiente\Lista\Ficha.cs" />
+    <Compile Include="OOB\Pendiente\Lista\Filtro.cs" />
     <Compile Include="OOB\Pos\Abrir\Arqueo.cs" />
     <Compile Include="OOB\Pos\Abrir\Ficha.cs" />
     <Compile Include="OOB\Pos\Abrir\Operador.cs" />
@@ -130,9 +155,17 @@
     <Compile Include="OOB\Resultado\FichaEntidad.cs" />
     <Compile Include="OOB\Resultado\FichaId.cs" />
     <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Sistema\Cobrador\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\MedioPago\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\SerieFiscal\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\TasaFiscal\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\TasaFiscal\Listar\Filtro.cs" />
+    <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Transporte\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
+    <Compile Include="OOB\Vendedor\Entidad\Ficha.cs" />
     <Compile Include="OOB\Venta\Anular\Ficha.cs" />
     <Compile Include="OOB\Venta\Anular\FichaDeposito.cs" />
     <Compile Include="OOB\Venta\Anular\FichaItem.cs" />
@@ -200,6 +233,38 @@
     <Compile Include="Src\Multiplicar\MultiplicarFrm.Designer.cs">
       <DependentUpon>MultiplicarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Pago\Descuento\DescuentoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Pago\Descuento\DescuentoFrm.Designer.cs">
+      <DependentUpon>DescuentoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Pago\Descuento\Gestion.cs" />
+    <Compile Include="Src\Pago\LoteReferencia\Gestion.cs" />
+    <Compile Include="Src\Pago\LoteReferencia\LoteReferenciaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Pago\LoteReferencia\LoteReferenciaFrm.Designer.cs">
+      <DependentUpon>LoteReferenciaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Pago\Procesar\Enumerados.cs" />
+    <Compile Include="Src\Pago\Procesar\Gestion.cs" />
+    <Compile Include="Src\Pago\Procesar\Pago.cs" />
+    <Compile Include="Src\Pago\Procesar\PagoDetalle.cs" />
+    <Compile Include="Src\Pago\Procesar\ProcesarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Pago\Procesar\ProcesarFrm.Designer.cs">
+      <DependentUpon>ProcesarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Pendiente\AbrirPendienteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Pendiente\AbrirPendienteFrm.Designer.cs">
+      <DependentUpon>AbrirPendienteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Pendiente\data.cs" />
+    <Compile Include="Src\Pendiente\Gestion.cs" />
     <Compile Include="Src\Pos\Gestion.cs" />
     <Compile Include="Src\Pos\PosFrm.cs">
       <SubType>Form</SubType>
@@ -254,6 +319,18 @@
     <EmbeddedResource Include="Src\Multiplicar\MultiplicarFrm.resx">
       <DependentUpon>MultiplicarFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Pago\Descuento\DescuentoFrm.resx">
+      <DependentUpon>DescuentoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Pago\LoteReferencia\LoteReferenciaFrm.resx">
+      <DependentUpon>LoteReferenciaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Pago\Procesar\ProcesarFrm.resx">
+      <DependentUpon>ProcesarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Pendiente\AbrirPendienteFrm.resx">
+      <DependentUpon>AbrirPendienteFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Pos\PosFrm.resx">
       <DependentUpon>PosFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +361,10 @@
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Src\Imagenes\calc.png" />
+    <None Include="Src\Imagenes\limpiar.png" />
+    <None Include="Resources\calc.png" />
+    <None Include="Resources\limpiar.png" />
     <Content Include="Src\Sonidos\alerta.wav" />
     <Content Include="Src\Sonidos\error.wav" />
     <Content Include="Src\Sonidos\paso.wav" />
@@ -356,6 +437,7 @@
     <Content Include="Src\Imagenes\carrito_compra.png" />
     <Content Include="Src\Imagenes\configuracion.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

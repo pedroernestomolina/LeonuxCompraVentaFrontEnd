@@ -59,11 +59,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.TB_BUSCAR = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.RB_NOMBRE = new System.Windows.Forms.RadioButton();
             this.RB_CI = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.TB_BUSCAR = new System.Windows.Forms.TextBox();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -81,6 +82,7 @@
             this.panel12.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel9
@@ -462,27 +464,17 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.96567F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.03433F));
-            this.tableLayoutPanel5.Controls.Add(this.TB_BUSCAR, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.panel13, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel11, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(466, 66);
             this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // TB_BUSCAR
-            // 
-            this.TB_BUSCAR.BackColor = System.Drawing.Color.Yellow;
-            this.TB_BUSCAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_BUSCAR.Location = new System.Drawing.Point(3, 36);
-            this.TB_BUSCAR.Name = "TB_BUSCAR";
-            this.TB_BUSCAR.Size = new System.Drawing.Size(460, 26);
-            this.TB_BUSCAR.TabIndex = 0;
-            this.TB_BUSCAR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_BUSCAR.Leave += new System.EventHandler(this.TB_BUSCAR_Leave);
             // 
             // panel13
             // 
@@ -532,6 +524,28 @@
             this.label7.Text = "Buscar Por:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.TB_BUSCAR);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(1, 34);
+            this.panel11.Margin = new System.Windows.Forms.Padding(1);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(2);
+            this.panel11.Size = new System.Drawing.Size(464, 31);
+            this.panel11.TabIndex = 0;
+            // 
+            // TB_BUSCAR
+            // 
+            this.TB_BUSCAR.BackColor = System.Drawing.Color.Yellow;
+            this.TB_BUSCAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_BUSCAR.Location = new System.Drawing.Point(2, 2);
+            this.TB_BUSCAR.Name = "TB_BUSCAR";
+            this.TB_BUSCAR.Size = new System.Drawing.Size(460, 26);
+            this.TB_BUSCAR.TabIndex = 1;
+            this.TB_BUSCAR.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_BUSCAR.Leave += new System.EventHandler(this.TB_BUSCAR_Leave);
+            // 
             // BuscarAgregarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,9 +577,10 @@
             this.panel10.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -599,7 +614,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton RB_NOMBRE;
         private System.Windows.Forms.RadioButton RB_CI;
-        private System.Windows.Forms.TextBox TB_BUSCAR;
         private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel8;
@@ -608,5 +622,7 @@
         private System.Windows.Forms.Button BT_ACEPTAR;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button BT_LIMPIAR;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TextBox TB_BUSCAR;
     }
 }

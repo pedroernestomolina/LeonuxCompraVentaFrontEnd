@@ -129,6 +129,10 @@ namespace PosOnLine.Data.Prov
                 decimales_3 = ent.decimales_3,
                 decimales_4 = ent.decimales_4,
                 decimales_5 = ent.decimales_5,
+                Costo=ent.Costo,
+                CostoPromedio=ent.CostoPromedio,
+                CostoPromedioUnidad=ent.CostoPromedioUnidad,
+                CostoUnidad=ent.CostoUnidad,
             };
             result.Entidad = nr;
 

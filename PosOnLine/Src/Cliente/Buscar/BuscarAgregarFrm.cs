@@ -28,6 +28,7 @@ namespace PosOnLine.Src.Cliente.Buscar
         private void BuscarAgregarFrm_Load(object sender, EventArgs e)
         {
             InicializarFicha();
+            IrFoco();
         }
 
         private void RB_CI_CheckedChanged(object sender, EventArgs e)
@@ -38,7 +39,10 @@ namespace PosOnLine.Src.Cliente.Buscar
 
         private void IrFoco()
         {
+            panel11.Focus();
+            TB_BUSCAR.Enabled = true;
             TB_BUSCAR.Focus();
+            TB_BUSCAR.SelectAll();
         }
 
         private void RB_NOMBRE_CheckedChanged(object sender, EventArgs e)
@@ -59,6 +63,7 @@ namespace PosOnLine.Src.Cliente.Buscar
 
         private void Salir()
         {
+            IrFoco();
             this.Close();
         }
 
@@ -110,22 +115,22 @@ namespace PosOnLine.Src.Cliente.Buscar
                     RB_NOMBRE.Checked = true;
                     break;
             }
-            TB_BUSCAR.Focus();
             TB_CIRIF.Enabled = _controlador.HabilitarFicha;
             TB_DIRFISCAL.Enabled = _controlador.HabilitarFicha;
             TB_NOMBRE.Enabled = _controlador.HabilitarFicha;
             TB_TELEFONO.Enabled = _controlador.HabilitarFicha;
+
+            IrFoco();
         }
 
         public void ActualizarCliente()
         {
-            TB_BUSCAR.Enabled = false;
-            RB_CI.Enabled = false;
-            RB_NOMBRE.Enabled = false;
-            BT_ACEPTAR.Enabled = true;
-            BT_GUARDAR.Enabled = false;
-            BT_LIMPIAR.Enabled = true;
-            
+            //TB_BUSCAR.Enabled = false;
+            //RB_CI.Enabled = false;
+            //RB_NOMBRE.Enabled = false;
+            //BT_GUARDAR.Enabled = false;
+            //BT_LIMPIAR.Enabled = true;
+
             TB_CIRIF.Text = _controlador.Cliente.CiRif;
             TB_DIRFISCAL.Text = _controlador.Cliente.DireccionFiscal;
             TB_NOMBRE.Text = _controlador.Cliente.Nombre;
@@ -134,6 +139,10 @@ namespace PosOnLine.Src.Cliente.Buscar
             TB_DIRFISCAL.Enabled = false;
             TB_NOMBRE.Enabled = false;
             TB_TELEFONO.Enabled = false;
+
+            BT_ACEPTAR.Enabled = true;
+            BT_GUARDAR.Enabled = false;
+            BT_LIMPIAR.Enabled = true;
             BT_ACEPTAR.Focus();
         }
 
@@ -145,6 +154,7 @@ namespace PosOnLine.Src.Cliente.Buscar
         private void AceptarCliente()
         {
             _controlador.AceptarCliente();
+            IrFoco();
         }
 
         public void Cerrar()
@@ -176,26 +186,28 @@ namespace PosOnLine.Src.Cliente.Buscar
             TB_DIRFISCAL.Enabled = true;
             TB_NOMBRE.Enabled = true;
             TB_TELEFONO.Enabled = true;
+            TB_NOMBRE.Focus();
+            TB_NOMBRE.SelectAll();
         }
 
         private void TB_CIRIF_Leave(object sender, EventArgs e)
         {
-            _controlador.setCiRif(TB_CIRIF.Text);
+            _controlador.setCiRif(TB_CIRIF.Text.Trim().ToUpper());
         }
 
         private void TB_NOMBRE_Leave(object sender, EventArgs e)
         {
-            _controlador.setNombre(TB_NOMBRE.Text);
+            _controlador.setNombre(TB_NOMBRE.Text.Trim().ToUpper());
         }
 
         private void TB_DIRFISCAL_Leave(object sender, EventArgs e)
         {
-            _controlador.setDirFiscal(TB_DIRFISCAL.Text);
+            _controlador.setDirFiscal(TB_DIRFISCAL.Text.Trim().ToUpper());
         }
 
         private void TB_TELEFONO_Leave(object sender, EventArgs e)
         {
-            _controlador.setTelefono(TB_TELEFONO.Text);
+            _controlador.setTelefono(TB_TELEFONO.Text.Trim().ToUpper());
         }
 
         private void BT_GUARDAR_Click(object sender, EventArgs e)
@@ -206,6 +218,14 @@ namespace PosOnLine.Src.Cliente.Buscar
         private void Guardar()
         {
             _controlador.Guardar();
+            if (_controlador.GuardarIsOk)
+            {
+                ActualizarCliente();
+            }
+            else 
+            {
+                TB_NOMBRE.Focus();
+            }
         }
 
     }

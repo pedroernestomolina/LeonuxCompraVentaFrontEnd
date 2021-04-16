@@ -42,6 +42,11 @@ namespace PosOnLine.Src.Cliente
             _gestionBuscar.Inicializar();
         }
 
+        public void CargarCliente(string autoId)
+        {
+            _gestionBuscar.CargarCliente(autoId);
+        }
+
     }
 
 }

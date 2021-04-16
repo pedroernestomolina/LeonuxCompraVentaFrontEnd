@@ -26,6 +26,12 @@ namespace PosOnLine.OOB.Configuracion.Entidad
         public string idClaveUsar { get; set; }
         public string idPrecioManejar { get; set; }
         public string validarExistencia { get; set; }
+        public string idTipoDocumentoVenta { get; set; }
+        public string idTipoDocumentoDevVenta { get; set; }
+        public string idTipoDocumentoNotaEntrega { get; set; }
+        public string idSerieFactura { get; set; }
+        public string idSerieNotaCredito { get; set; }
+        public string idSerieNotaEntrega { get; set; }
         public bool ValidarExistencia_Activa 
         { 
             get 
@@ -52,6 +58,12 @@ namespace PosOnLine.OOB.Configuracion.Entidad
             idConceptoVenta = "";
             idClaveUsar = "";
             idPrecioManejar = "";
+            idTipoDocumentoVenta = "0000000001";
+            idTipoDocumentoDevVenta = "0000000003";
+            idTipoDocumentoNotaEntrega = "0000000004";
+            idSerieFactura = "0000000001";
+            idSerieNotaCredito = "0000000002";
+            idSerieNotaEntrega = "0000000003";
             validarExistencia = "";
         }
 

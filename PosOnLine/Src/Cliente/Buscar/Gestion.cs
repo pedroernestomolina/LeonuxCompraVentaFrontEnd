@@ -23,6 +23,7 @@ namespace PosOnLine.Src.Cliente.Buscar
         private bool _clienteSeleccionadoIsOk;
         private bool _habilitarBusqueda;
         private data _dataNewCliente;
+        private bool _guardarIsOk; 
 
 
         public enumMetodoBusqueda MetodoBusqueda { get { return _metodoBusqueda; } }
@@ -30,29 +31,16 @@ namespace PosOnLine.Src.Cliente.Buscar
         public bool ClienteSeleccionadoIsOk { get { return _clienteSeleccionadoIsOk; } }
         public OOB.Cliente.Entidad.Ficha Cliente { get { return _cliente; } }
         public bool HabilitarBusqueda { get { return _habilitarBusqueda; } }
+        public bool GuardarIsOk { get { return _guardarIsOk; } }
         
 
         public Gestion()
         {
             _dataNewCliente = new data();
             _gestionLista = new Cliente.Listar.Gestion();
-            _gestionLista.ItemSeleccionadoHnd +=_gestionLista_ItemSeleccionadoHnd;
             Limpiar();
         }
 
-        private void _gestionLista_ItemSeleccionadoHnd(object sender, EventArgs e)
-        {
-            var idCliente = _gestionLista.ItemSeleccionado.auto;
-            var r02 = Sistema.MyData.Cliente_GetFicha(idCliente);
-            if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r02.Mensaje);
-                return;
-            }
-            _cliente = r02.Entidad;
-            _gestionLista.Cerrar();
-            frm.ActualizarCliente();
-        }
 
         private BuscarAgregarFrm frm;
         public void Inicia() 
@@ -96,6 +84,7 @@ namespace PosOnLine.Src.Cliente.Buscar
 
         public void Inicializar()
         {
+            _guardarIsOk = false;
             Limpiar();
         }
 
@@ -161,11 +150,26 @@ namespace PosOnLine.Src.Cliente.Buscar
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
+                return;
             }
 
             _gestionLista.Inicializar();
             _gestionLista.setLista(r01.ListaD);
             _gestionLista.Inicia();
+
+            if (_gestionLista.ItemSeleccionado != null)
+            {
+                _habilitarBusqueda = false;
+                var idCliente = _gestionLista.ItemSeleccionado.auto;
+                var r02 = Sistema.MyData.Cliente_GetFicha(idCliente);
+                if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return;
+                }
+                _cliente = r02.Entidad;
+                frm.ActualizarCliente();
+            }
         }
 
         public void AceptarCliente()
@@ -196,6 +200,7 @@ namespace PosOnLine.Src.Cliente.Buscar
 
         public void Guardar()
         {
+            _guardarIsOk = false;
             if (_dataNewCliente.IsOk()) 
             {
                 var msg = MessageBox.Show("Guardar Ficha ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -247,11 +252,21 @@ namespace PosOnLine.Src.Cliente.Buscar
                     }
 
                     _cliente = r02.Entidad;
-                    frm.ActualizarCliente();
+                    _guardarIsOk = true;
                 }
             }
         }
 
+        public void CargarCliente(string autoId)
+        {
+            var r01 = Sistema.MyData.Cliente_GetFicha(autoId);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _cliente = r01.Entidad;
+        }
 
     }
 

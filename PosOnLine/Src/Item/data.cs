@@ -13,6 +13,7 @@ namespace PosOnLine.Src.Item
 
         private OOB.Venta.Item.Entidad.Ficha _it;
         private decimal _tasaCambio;
+        private decimal _dsctoFinal;
 
 
         public OOB.Venta.Item.Entidad.Ficha Ficha { get { return _it; } }
@@ -25,6 +26,7 @@ namespace PosOnLine.Src.Item
         public decimal TotalUnd { get { return Cantidad * ContenidoEmp; } }
         public decimal TotalItem { get { return MontoTotal(); } }
         public decimal TotalItemDivisa { get { return TotalItem /_tasaCambio ; } }
+        public string IdTasaFiscal { get { return _it.autoTasa; } }
         public string TasaIvaDescripcion  
         { 
             get 
@@ -122,6 +124,60 @@ namespace PosOnLine.Src.Item
         public void setDisminuyeCantidad(int p)
         {
             _it.cantidad -= p;
+        }
+
+        public void setDescuentoFinal(decimal dscto)
+        {
+            _dsctoFinal = dscto;
+        }
+
+
+        //
+        public decimal TotalNeto { get { return Cantidad * _it.pneto; } }
+        public decimal CostoVenta { get { return _it.costoUnd * TotalUnd; } }
+        public decimal Impuesto { get { return TotalNeto * _it.tasaIva / 100; } }
+        public decimal Total { get { return TotalNeto + Impuesto; } }
+        public decimal PrecioFinal { get { return _it.pneto - (_it.pneto * _dsctoFinal / 100); } }
+        public decimal PrecioUnd { get { return PrecioFinal; } }
+        public decimal Utilidad { get { return (PrecioUnd - _it.costoUnd) * TotalUnd; } }
+        public decimal UtilidadP { get { return 100 - ((_it.costoUnd / PrecioUnd) * 100); } }
+        public decimal PrecioItem { get { return _it.pneto; } }
+        public decimal VentaNeta { get { return (PrecioFinal * Cantidad); } }
+        //
+        public decimal BaseExenta 
+        { 
+            get 
+            {
+                var rt = 0.0m;
+                if (_it.tasaIva == 0.0m) 
+                {
+                    rt = Cantidad * PrecioFinal;
+                }
+                return rt;
+            } 
+        }
+
+        public decimal MontoBase 
+        {
+            get
+            {
+                var rt = 0.0m;
+                rt = Cantidad * PrecioFinal;
+                return rt;
+            } 
+        }
+
+        public decimal MontoImpuesto
+        {
+            get
+            {
+                var rt = 0.0m;
+                if (_it.tasaIva > 0) 
+                {
+                    rt = (MontoBase * _it.tasaIva / 100);
+                }
+                return rt;
+            }
         }
 
     }

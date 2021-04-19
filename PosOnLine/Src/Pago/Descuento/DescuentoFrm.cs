@@ -45,15 +45,18 @@ namespace PosOnLine.Src.Pago.Descuento
         private void BT_OK_Click(object sender, EventArgs e)
         {
             _controlador.Aceptar();
-            if (_controlador.IsOk) 
+            if (_controlador.IsOk)
             {
+                IrFoco();
                 Salir();
             }
+            IrFoco();
         }
 
         private void DescuentoFrm_Load(object sender, EventArgs e)
         {
             TB_CANTIDAD.Text = _controlador.Descuento.ToString("n2");
+            IrFoco();
         }
 
         public void setControlador(Gestion ctr)
@@ -64,6 +67,12 @@ namespace PosOnLine.Src.Pago.Descuento
         private void TB_CANTIDAD_Leave(object sender, EventArgs e)
         {
             _controlador.setPorcentaje(decimal.Parse(TB_CANTIDAD.Text.Trim()));
+        }
+
+        private void IrFoco() 
+        {
+            TB_CANTIDAD.Focus();
+            TB_CANTIDAD.SelectAll();
         }
 
     }

@@ -28,7 +28,6 @@ namespace PosOnLine.Src.Pago.Procesar
         public decimal MontoPagarDivisa { get { return _pago.MontoPagarDivisa; } }
         public decimal MontoResta_MonedaNacional { get { return _pago.MontoResta_MonedaNacional; } }
         public decimal MontoResta_Divisa { get { return _pago.MontoResta_Divisa; } }
-        public bool IsCredito { get { return _pago.IsCredito; } }
         public decimal MontoDivisa { get { return _pago.MontoDivisa; } }
         public decimal MontoRecibido { get { return _pago.MontoRecibido; } }
         public decimal MontoCambioDar_MonedaNacional { get { return _pago.MontoCambioDar_MonedaNacional; } }
@@ -45,6 +44,7 @@ namespace PosOnLine.Src.Pago.Procesar
         public string PagoElectronico_REF_4 { get { return _pago.PagoElectronico_REF(4); } }
         public bool PagoIsOk { get { return _pagoIsOk; } }
         public List<PagoDetalle> PagoDetalles { get { return _pago.Detalle; } }
+        public bool IsCreditoOk { get { return _pago.IsCredito; } }
         
 
         public Gestion()
@@ -141,6 +141,12 @@ namespace PosOnLine.Src.Pago.Procesar
         public void DarDescuento()
         {
             _pago.DarDescuento();
+        }
+
+        public void DarCredito()
+        {
+            _pago.DarCredito();
+            _pagoIsOk = _pago.IsCredito;
         }
 
     }

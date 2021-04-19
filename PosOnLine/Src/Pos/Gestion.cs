@@ -48,6 +48,7 @@ namespace PosOnLine.Src.Pos
         private Multiplicar.Gestion _gestionMultiplicar;
         private Pago.Procesar.Gestion _gestionProcesarPago;
         private Pendiente.Gestion _gestionPendiente;
+        private PassWord.Gestion _gestionPassW;
 
 
         public Decimal TasaCambioActual { get { return _tasaCambioActual; } }
@@ -329,13 +330,16 @@ namespace PosOnLine.Src.Pos
 
         public void AnularVenta()
         {
-            _gestionItem.Inicializar();
-            _gestionItem.AnularVenta();
-            if (_gestionItem.AnularVentaIsOk)
+            if (PassWIsOk(Sistema.FuncionPosAnularVenta))
             {
-                _gestionCliente.Limpiar();
+                _gestionItem.Inicializar();
+                _gestionItem.AnularVenta();
+                if (_gestionItem.AnularVentaIsOk)
+                {
+                    _gestionCliente.Limpiar();
+                }
+                _gestionItem.setItemActualInicializar();
             }
-            _gestionItem.setItemActualInicializar();
         }
 
         public void DevolucionItem()
@@ -443,7 +447,7 @@ namespace PosOnLine.Src.Pos
             var dsctoFinal= _gestionProcesarPago.DescuentoPorct;
             _gestionItem.setDescuentoFinal(dsctoFinal);
 
-            var isCredito = _gestionProcesarPago.IsCredito;
+            var isCredito = _gestionProcesarPago.IsCreditoOk;
             var montoRecibido = _gestionProcesarPago.MontoRecibido;
             var montoCambio = _gestionProcesarPago.MontoCambioDar_MonedaNacional;
             var BaseExenta= _gestionItem.Items.Sum(s=>s.BaseExenta);
@@ -713,6 +717,15 @@ namespace PosOnLine.Src.Pos
                 CastigoP=0.0m,
                 CierreFtp="", 
             };
+            
+            var PMontoEfectivo = 0.0m;
+            var PMontoDivisa= 0.0m;
+            var PMontoElectronico = 0.0m;
+            var PMontoOtro= 0.0m;
+            var CntEfectivo = 0;
+            var CntDivisa= 0;
+            var CntElectronico= 0;
+            var CntOtro= 0;
 
             if (isCredito)
             {
@@ -786,6 +799,7 @@ namespace PosOnLine.Src.Pos
                     ComisionP = 0.0m,
                     CierreFtp = "",
                 };
+
                 var pM = new List<OOB.Documento.Agregar.Factura.FichaCxCMetodoPago>();
                 foreach (var it in _gestionProcesarPago.PagoDetalles) 
                 {
@@ -802,6 +816,8 @@ namespace PosOnLine.Src.Pos
                             autoMedioPago = _medioPagoEfectivo.id;
                             codigoMedioPago = _medioPagoEfectivo.codigo;
                             descMedioPago = _medioPagoEfectivo.nombre;
+                            PMontoEfectivo = montoRecibe;
+                            CntEfectivo += 1;
                             break;
                         case Pago.Procesar.Enumerados.ModoPago.Divisa:
                             montoRecibe = it.Monto;
@@ -810,6 +826,8 @@ namespace PosOnLine.Src.Pos
                             descMedioPago = _medioPagoDivisa.nombre;
                             lote = it.Cantidad.ToString("n2");
                             referencia = TasaCambioActual.ToString("n0").Replace(".","");
+                            PMontoDivisa= montoRecibe;
+                            CntDivisa = (int)it.Cantidad;
                             break;
                         case Pago.Procesar.Enumerados.ModoPago.Electronico:
                             autoMedioPago =  _medioPagoElectronico.id;
@@ -817,6 +835,8 @@ namespace PosOnLine.Src.Pos
                             descMedioPago = _medioPagoElectronico.nombre;
                             lote = it.Lote;
                             referencia = it.Referencia;
+                            PMontoElectronico= montoRecibe;
+                            CntElectronico += 1;
                             break;
                         case Pago.Procesar.Enumerados.ModoPago.Otro:
                             autoMedioPago = _medioPagoOtro.id;
@@ -824,6 +844,8 @@ namespace PosOnLine.Src.Pos
                             descMedioPago = _medioPagoOtro.nombre;
                             lote = it.Lote;
                             referencia = it.Referencia;
+                            PMontoOtro= montoRecibe;
+                            CntOtro+= 1;
                             break;
                     }
 
@@ -850,6 +872,38 @@ namespace PosOnLine.Src.Pos
                 fichaOOB.DocCxCPago.Documento = pD;
                 fichaOOB.DocCxCPago.MetodoPago = pM;
             }
+            fichaOOB.PosVenta = _gestionItem.Items.Select(s =>
+            {
+                var nr = new OOB.Documento.Agregar.Factura.FichaPosVenta()
+                {
+                    id = s.Ficha.id,
+                    idOperador = s.Ficha.idOperador,
+                };
+                return nr;
+            }).ToList();
+            fichaOOB.Resumen = new OOB.Documento.Agregar.Factura.FichaPosResumen()
+            {
+                cntDoc = 1,
+                cntDevolucion = 0,
+                cntFac = 1,
+                cntNCr = 0,
+                idResumen = Sistema.PosEnUso.idResumen,
+                mDevolucion = 0.0m,
+                mFac = importeDocumento,
+                mNCr = 0.0m,
+                cntEfectivo = CntEfectivo,
+                cntDivisa = CntDivisa,
+                cntElectronico = CntElectronico,
+                cntotros = CntOtro,
+                mEfectivo = PMontoEfectivo,
+                mDivisa = PMontoDivisa,
+                mElectronico = PMontoElectronico,
+                mOtros = PMontoOtro,
+                cntDocContado = isCredito ? 0 : 1,
+                cntDocCredito = isCredito ? 1 : 0,
+                mContado = isCredito ? 0 : importeDocumento,
+                mCredito = isCredito ? importeDocumento : 0,
+            };
 
             var r01 = Sistema.MyData.Documento_Agregar_Factura(fichaOOB);
             if (r01.Result ==  OOB.Resultado.Enumerados.EnumResult.isError)
@@ -857,6 +911,71 @@ namespace PosOnLine.Src.Pos
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+
+            _gestionItem.Limpiar();
+            _gestionCliente.Limpiar();
+        }
+
+        public void ActivarCalculadora()
+        {
+            Helpers.Utilitis.Calculadora();
+            _gestionItem.setItemActualInicializar();
+        }
+
+        public void ListaPlu()
+        {
+            var filtro = new OOB.Producto.Lista.Filtro()
+            {
+                autoDeposito = _depositoAsignado.id,
+                cadena = "",
+                idPrecioManejar = Sistema.ConfiguracionActual.idPrecioManejar,
+                isPorPlu = true,
+            };
+            var r04 = Sistema.MyData.Producto_GetLista(filtro);
+            if (r04.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r04.Mensaje);
+                return;
+            }
+            _gestionListar.Inicializa();
+            _gestionListar.setData(r04.ListaD);
+            _gestionListar.Inicia();
+            if (_gestionListar.ItemSeleccionIsOk) 
+            {
+                _gestionItem.Inicializar();
+                _gestionItem.RegistraItem(_gestionListar.ItemSeleccionado.Auto);
+            }
+        }
+
+        public void setGestionPassW(PassWord.Gestion gestion)
+        {
+            _gestionPassW = gestion;
+        }
+
+        private bool PassWIsOk(string funcion)
+        {
+            var rt = true;
+
+            var ficha = new OOB.Permiso.Buscar.Ficha() { IdGrupoUsuario = Sistema.Usuario.idGrupo, CodigoFuncion = funcion };
+            var r01 = Sistema.MyData.Permiso_Pos(ficha);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            if (r01.Entidad.permisoHabilitado)
+            {
+                if (r01.Entidad.requiereClave)
+                {
+                    Helpers.Sonido.ClvaeAcceso();
+                    _gestionPassW.Inicializa();
+                    _gestionPassW.Inicia();
+                }
+            }
+            else { rt = false; }
+
+            return rt;
         }
 
     }

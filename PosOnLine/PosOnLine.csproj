@@ -78,6 +78,7 @@
     <Compile Include="Data\Infra\IDocumento.cs" />
     <Compile Include="Data\Infra\IJornada.cs" />
     <Compile Include="Data\Infra\IPendiente.cs" />
+    <Compile Include="Data\Infra\IPermiso.cs" />
     <Compile Include="Data\Infra\IProducto.cs" />
     <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Data\Prov\Documento.cs" />
     <Compile Include="Data\Prov\Jornada.cs" />
     <Compile Include="Data\Prov\Pendiente.cs" />
+    <Compile Include="Data\Prov\Permiso.cs" />
     <Compile Include="Data\Prov\Producto.cs" />
     <Compile Include="Data\Prov\Sistema.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
@@ -134,10 +136,13 @@
     <Compile Include="OOB\Documento\Agregar\Factura\FichaDetalle.cs" />
     <Compile Include="OOB\Documento\Agregar\Factura\FichaKardex.cs" />
     <Compile Include="OOB\Documento\Agregar\Factura\FichaPosResumen.cs" />
+    <Compile Include="OOB\Documento\Agregar\Factura\FichaPosVenta.cs" />
     <Compile Include="OOB\Pendiente\DejarCta\Ficha.cs" />
     <Compile Include="OOB\Pendiente\DejarCta\FichaItem.cs" />
     <Compile Include="OOB\Pendiente\Lista\Ficha.cs" />
     <Compile Include="OOB\Pendiente\Lista\Filtro.cs" />
+    <Compile Include="OOB\Permiso\Buscar\Ficha.cs" />
+    <Compile Include="OOB\Permiso\Entidad\Ficha.cs" />
     <Compile Include="OOB\Pos\Abrir\Arqueo.cs" />
     <Compile Include="OOB\Pos\Abrir\Ficha.cs" />
     <Compile Include="OOB\Pos\Abrir\Operador.cs" />
@@ -257,6 +262,13 @@
     <Compile Include="Src\Pago\Procesar\ProcesarFrm.Designer.cs">
       <DependentUpon>ProcesarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\PassWord\Gestion.cs" />
+    <Compile Include="Src\PassWord\PassWordFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\PassWord\PassWordFrm.Designer.cs">
+      <DependentUpon>PassWordFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\Pendiente\AbrirPendienteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -328,6 +340,9 @@
     <EmbeddedResource Include="Src\Pago\Procesar\ProcesarFrm.resx">
       <DependentUpon>ProcesarFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\PassWord\PassWordFrm.resx">
+      <DependentUpon>PassWordFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Pendiente\AbrirPendienteFrm.resx">
       <DependentUpon>AbrirPendienteFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +380,10 @@
     <None Include="Src\Imagenes\limpiar.png" />
     <None Include="Resources\calc.png" />
     <None Include="Resources\limpiar.png" />
+    <None Include="Resources\bt_salida_2.png" />
+    <None Include="Resources\bt_ok_3.png" />
+    <Content Include="Src\Imagenes\bt_ok_3.png" />
+    <Content Include="Src\Imagenes\bt_salida_2.png" />
     <Content Include="Src\Sonidos\alerta.wav" />
     <Content Include="Src\Sonidos\error.wav" />
     <Content Include="Src\Sonidos\paso.wav" />
@@ -437,7 +456,9 @@
     <Content Include="Src\Imagenes\carrito_compra.png" />
     <Content Include="Src\Imagenes\configuracion.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="OOB\Permiso\Buscar\NewFolder1\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

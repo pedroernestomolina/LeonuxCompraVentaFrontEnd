@@ -148,6 +148,7 @@ namespace PosOnLine.Data.Prov
                 AutoDeposito = filtro.autoDeposito,
                 IdPrecioManejar = filtro.idPrecioManejar,
                 Cadena = filtro.cadena,
+                IsPorPlu=filtro.isPorPlu,
             };
             var r01 = MyData.Producto_GetLista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -180,6 +181,7 @@ namespace PosOnLine.Data.Prov
                             PrecioFullDivisa = s.PrecioFullDivisa,
                             PrecioNeto = s.PrecioNeto,
                             TasaIva = s.TasaIva,
+                            PLU=s.PLU,
                         };
                         return nr;
                     }).ToList();

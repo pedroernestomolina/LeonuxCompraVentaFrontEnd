@@ -64,7 +64,7 @@
             this.panel9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel9.Controls.Add(this.tableLayoutPanel1);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(0, 131);
+            this.panel9.Location = new System.Drawing.Point(0, 140);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(2);
@@ -105,11 +105,14 @@
             this.BT_SALIDA.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIDA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIDA.Image = global::PosOnLine.Properties.Resources.bt_salida_2;
+            this.BT_SALIDA.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIDA.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIDA.Name = "BT_SALIDA";
             this.BT_SALIDA.Size = new System.Drawing.Size(118, 35);
             this.BT_SALIDA.TabIndex = 5;
             this.BT_SALIDA.Text = "Salida";
+            this.BT_SALIDA.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIDA.UseVisualStyleBackColor = true;
             this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
             // 
@@ -143,7 +146,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 27);
             this.panel3.Margin = new System.Windows.Forms.Padding(1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(500, 104);
+            this.panel3.Size = new System.Drawing.Size(500, 113);
             this.panel3.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -166,7 +169,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(500, 104);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(500, 113);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // panel8
@@ -177,7 +180,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(192, 40);
+            this.panel8.Size = new System.Drawing.Size(192, 49);
             this.panel8.TabIndex = 1;
             // 
             // TB_REFERENCIA
@@ -200,7 +203,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(192, 40);
+            this.panel7.Size = new System.Drawing.Size(192, 49);
             this.panel7.TabIndex = 0;
             // 
             // TB_LOTE
@@ -224,16 +227,16 @@
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(8);
             this.tableLayoutPanel2.SetRowSpan(this.panel6, 2);
-            this.panel6.Size = new System.Drawing.Size(110, 72);
+            this.panel6.Size = new System.Drawing.Size(110, 81);
             this.panel6.TabIndex = 2;
             // 
             // BT_ACEPTAR
             // 
             this.BT_ACEPTAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ACEPTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ACEPTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_ACEPTAR.Location = new System.Drawing.Point(8, 8);
             this.BT_ACEPTAR.Name = "BT_ACEPTAR";
-            this.BT_ACEPTAR.Size = new System.Drawing.Size(94, 56);
+            this.BT_ACEPTAR.Size = new System.Drawing.Size(94, 65);
             this.BT_ACEPTAR.TabIndex = 0;
             this.BT_ACEPTAR.Text = "Aceptar";
             this.BT_ACEPTAR.UseVisualStyleBackColor = true;
@@ -288,7 +291,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BT_SALIDA;
-            this.ClientSize = new System.Drawing.Size(500, 176);
+            this.ClientSize = new System.Drawing.Size(500, 185);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel9);

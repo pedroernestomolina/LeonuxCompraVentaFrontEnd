@@ -32,6 +32,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.TB_CANTIDAD = new PosOnLine.Lib.Controles.Numero.NumeroDecimal();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BT_OK = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TB_CANTIDAD = new PosOnLine.Lib.Controles.Numero.NumeroDecimal();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -120,6 +120,21 @@
             this.panel5.Size = new System.Drawing.Size(200, 80);
             this.panel5.TabIndex = 0;
             // 
+            // TB_CANTIDAD
+            // 
+            this.TB_CANTIDAD.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CANTIDAD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CANTIDAD.Location = new System.Drawing.Point(1, 1);
+            this.TB_CANTIDAD.MaxLength = 5;
+            this.TB_CANTIDAD.Name = "TB_CANTIDAD";
+            this.TB_CANTIDAD.Size = new System.Drawing.Size(198, 80);
+            this.TB_CANTIDAD.TabIndex = 1;
+            this.TB_CANTIDAD.Text = "0";
+            this.TB_CANTIDAD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_CANTIDAD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_CANTIDAD_KeyDown);
+            this.TB_CANTIDAD.Leave += new System.EventHandler(this.TB_CANTIDAD_Leave);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.BT_OK);
@@ -188,6 +203,8 @@
             this.BT_SALIDA.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIDA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIDA.Image = global::PosOnLine.Properties.Resources.bt_salida_2;
+            this.BT_SALIDA.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIDA.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIDA.Name = "BT_SALIDA";
             this.BT_SALIDA.Size = new System.Drawing.Size(109, 40);
@@ -268,21 +285,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(66, 51);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // TB_CANTIDAD
-            // 
-            this.TB_CANTIDAD.BackColor = System.Drawing.Color.Yellow;
-            this.TB_CANTIDAD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CANTIDAD.Location = new System.Drawing.Point(1, 1);
-            this.TB_CANTIDAD.MaxLength = 5;
-            this.TB_CANTIDAD.Name = "TB_CANTIDAD";
-            this.TB_CANTIDAD.Size = new System.Drawing.Size(198, 80);
-            this.TB_CANTIDAD.TabIndex = 1;
-            this.TB_CANTIDAD.Text = "0";
-            this.TB_CANTIDAD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_CANTIDAD.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_CANTIDAD_KeyDown);
-            this.TB_CANTIDAD.Leave += new System.EventHandler(this.TB_CANTIDAD_Leave);
             // 
             // DescuentoFrm
             // 

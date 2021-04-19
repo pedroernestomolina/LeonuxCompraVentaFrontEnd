@@ -237,9 +237,11 @@ namespace PosOnLine.Src.Item
                 Helpers.Msg.Error(r02.Mensaje);
                 return;
             }
+
             _itemActual = r02.Entidad;
             _blitems.Insert(0, new data(r02.Entidad, _tasaCambio));
             _bsitems.Position = 0;
+            Helpers.Sonido.SonidoOk();
         }
 
         public void setTarifaPrecio(string tarifa)
@@ -353,6 +355,7 @@ namespace PosOnLine.Src.Item
                                 return;
                             }
                             it.setAumentaCantiad(cnt);
+                            Helpers.Sonido.SonidoOk();
                         }
                     }
                 }
@@ -398,6 +401,7 @@ namespace PosOnLine.Src.Item
                                 return;
                             }
                             _blitems.Remove(it);
+                            Helpers.Sonido.SonidoOk();
                         }
                         else
                         {
@@ -417,6 +421,7 @@ namespace PosOnLine.Src.Item
                                 return;
                             }
                             it.setDisminuyeCantidad(1);
+                            Helpers.Sonido.SonidoOk();
                         }
                     }
                 }
@@ -534,6 +539,13 @@ namespace PosOnLine.Src.Item
             {
                 it.setDescuentoFinal(p);
             }
+        }
+
+        public void Limpiar()
+        {
+            Inicializar();
+            _blitems.Clear();
+            _bsitems.CurrencyManager.Refresh();
         }
 
     }

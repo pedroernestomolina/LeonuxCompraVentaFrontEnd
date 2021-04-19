@@ -104,6 +104,7 @@ namespace PosOnLine.Src.Devolucion
             }
             _fichaCambio = true;
             _bl.Remove(it);
+            Helpers.Sonido.SonidoOk();
         }
 
         public void DevolerItem()
@@ -140,6 +141,7 @@ namespace PosOnLine.Src.Devolucion
                     }
                     it.setDisminuyeCantidad(1);
                     _fichaCambio = true;
+                    Helpers.Sonido.SonidoOk();
                 }
                 _bs.CurrencyManager.Refresh();
             }

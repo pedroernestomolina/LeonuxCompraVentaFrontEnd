@@ -73,8 +73,18 @@ namespace PosOnLine.Src.Producto.Lista
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
+            var c6 = new DataGridViewTextBoxColumn();
+            c6.DataPropertyName = "Plu";
+            c6.HeaderText = "PLU";
+            c6.Visible = true;
+            c6.Width = 80;
+            c6.HeaderCell.Style.Font = f;
+            c6.DefaultCellStyle.Font = f1;
+            c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
+            DGV.Columns.Add(c6);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
         }
@@ -100,8 +110,8 @@ namespace PosOnLine.Src.Producto.Lista
         private void ListaFrm_Load(object sender, EventArgs e)
         {
             DGV.DataSource = _controlador.Source;
-            DGV.Columns[2].Visible = _controlador.IsCantidadVisible;
-            DGV.Columns[3].Visible = _controlador.IsPrecioVisible;
+            DGV.Columns[3].Visible = _controlador.IsCantidadVisible;
+            DGV.Columns[4].Visible = _controlador.IsPrecioVisible;
             DGV.Focus();
             DGV.Refresh();
         }

@@ -14,6 +14,7 @@ namespace PosOnLine.Helpers
 
         public static void Error(string msg) 
         {
+            Sonido.Error();
             MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 

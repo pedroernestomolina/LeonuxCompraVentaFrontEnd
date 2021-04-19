@@ -306,7 +306,6 @@ namespace PosOnLine.Src.Pos
         {
             L_MODO_FUNCION.Text = "Facturación :)";
             L_MODO_FUNCION.ForeColor = Color.Yellow;
-
             //if (_venta.ModoFuncion == Enumerados.EnumModoFuncion.NotaCredito)
             //{
             //    L_MODO_FUNCION.Text = ":( Nt/Crédito";
@@ -373,7 +372,7 @@ namespace PosOnLine.Src.Pos
 
         private void ActivarCalculadora()
         {
-            //_venta.ActivarCalculador();
+            _controlador.ActivarCalculadora();
             Actualizar();
         }
 
@@ -395,7 +394,7 @@ namespace PosOnLine.Src.Pos
 
         private void ListaPlu()
         {
-            //_venta.ListaPlu();
+            _controlador.ListaPlu();
             Actualizar();
         }
 
@@ -412,16 +411,8 @@ namespace PosOnLine.Src.Pos
         private void Totalizar()
         {
             _controlador.Totalizar();
-            //DGV_DETALLE.DataSource = null;
-            //_venta.Procesar();
-            //if (_venta.DocumentoProcesadoIsOk) 
-            //{
+            Actualizar();
             //    printDocument1.Print();
-            //}
-
-            //ActualizarModo();
-            //Actualizar();
-            //DGV_DETALLE.DataSource = _bs;
         }
 
         private void BT_PENDIENTE_Click(object sender, EventArgs e)
@@ -433,9 +424,6 @@ namespace PosOnLine.Src.Pos
         {
             _controlador.DejarCtaPendiente();
             Actualizar();
-
-            //DGV_DETALLE.DataSource = null;
-            //DGV_DETALLE.DataSource = _bs;
         }
 
         private void BT_ABRIR_PENDIENTE_Click(object sender, EventArgs e)
@@ -453,10 +441,6 @@ namespace PosOnLine.Src.Pos
         {
             _controlador.DevolucionItem();
             Actualizar();
-        }
-
-        private void DGV_DETALLE_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
         }
 
         private void PosVenta_KeyDown(object sender, KeyEventArgs e)
@@ -494,13 +478,6 @@ namespace PosOnLine.Src.Pos
                 Totalizar();
             }
         }
-
-        //public void setVenta(Venta venta) 
-        //{
-        //    _venta = venta;
-        //    _bs = _venta.Items.Source;
-        //    _bs.CurrentChanged+= _bs_CurrentChanged;
-        //}
 
         private void _bs_CurrentChanged(object sender, EventArgs e)
         {

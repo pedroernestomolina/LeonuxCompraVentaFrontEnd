@@ -220,7 +220,7 @@ namespace PosOnLine.Src.Pago.Procesar
 
         private void ActualizaMontoResta()
         {
-            if (_controlador.IsCredito)
+            if (_controlador.IsCreditoOk)
             {
                 panel12.BackColor = Color.Green;
                 L_RESTA_CAMBIO_DAR.Text = "CREDITO HABILITADO";
@@ -323,13 +323,14 @@ namespace PosOnLine.Src.Pago.Procesar
 
         private void DarCredito()
         {
-            //if (_controlador.ActivarCredito()) 
-            //{
-            //    LimpiarPago();
-            //    ActualizaMontoResta();
-            //    this.Close();
-            //}
             IrFocoPrincipal();
+            _controlador.DarCredito();
+            if (_controlador.IsCreditoOk)
+            {
+                LimpiarPago();
+                ActualizaMontoResta();
+                this.Close();
+            }
         }
 
         private void Procesar()

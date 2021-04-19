@@ -19,6 +19,7 @@ namespace PosOnLine.Src.Producto.Lista
         public string codigo { get { return _item.Codigo; } }
         public string nombre { get { return _item.Nombre; } }
         public decimal precio { get { return _item.PrecioFullDivisa; } }
+        public string plu { get { return _item.PLU; } }
         public decimal cantidadEx 
         { 
             get 

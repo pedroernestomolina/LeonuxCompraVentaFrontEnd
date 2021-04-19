@@ -361,20 +361,6 @@ namespace PosOnLine.Src.Pago.Procesar
             return true;
         }
 
-        public bool ProcesarCredito()
-        {
-            var rt = false;
-
-            var msg = MessageBox.Show("Procesar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (msg == DialogResult.Yes)
-            {
-                return true;
-            }
-            _isCredito = false;
-
-            return rt;
-        }
-
         public void DarDescuento() 
         {
             _gestionDescuento.Inicializa();
@@ -384,12 +370,6 @@ namespace PosOnLine.Src.Pago.Procesar
             {
                 _dsctoPorct = _gestionDescuento.Descuento;
             }
-            //var dsctFrm = new DescuentoFrm();
-            //dsctFrm.ShowDialog();
-            //if (dsctFrm.DsctoIsOk) 
-            //{
-            //    _dsctoPorct = dsctFrm.DsctoPorcentaje;
-            //}
         }
 
         public void setGestionLoteRef(LoteReferencia.Gestion gestion)
@@ -401,6 +381,17 @@ namespace PosOnLine.Src.Pago.Procesar
         {
             _gestionDescuento = gestion;
         }
+
+        public void DarCredito()
+        {
+            _isCredito = false;
+            var msg = MessageBox.Show("Procesar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                _isCredito = true;
+            }
+        }
+
 
     }
 

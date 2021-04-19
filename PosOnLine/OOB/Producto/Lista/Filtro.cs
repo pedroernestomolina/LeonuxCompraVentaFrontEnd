@@ -14,6 +14,7 @@ namespace PosOnLine.OOB.Producto.Lista
         public string autoDeposito { get; set; }
         public string cadena { get; set; }
         public string idPrecioManejar { get; set; }
+        public bool isPorPlu { get; set; }
 
 
         public Filtro()
@@ -21,6 +22,7 @@ namespace PosOnLine.OOB.Producto.Lista
             cadena = "";
             autoDeposito = "";
             idPrecioManejar = "";
+            isPorPlu = false;
         }
 
 

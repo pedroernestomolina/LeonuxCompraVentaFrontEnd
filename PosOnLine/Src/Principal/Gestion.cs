@@ -13,11 +13,14 @@ namespace PosOnLine.Src.Principal
 
 
         private Pos.Gestion _gestionPos;
+        private PassWord.Gestion _gestionPassW;
 
 
         public Gestion()
         {
+            _gestionPassW = new PassWord.Gestion();
             _gestionPos = new Pos.Gestion();
+            _gestionPos.setGestionPassW(_gestionPassW);
         }
 
 

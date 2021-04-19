@@ -370,6 +370,38 @@ namespace PosOnLine.Data.Prov
                 };
                 fichaDTO.DocCxCPago = dp;
             }
+            fichaDTO.PosVenta = ficha.PosVenta.Select(s =>
+            {
+                var nr = new DtoLibPos.Documento.Agregar.Factura.FichaPosVenta()
+                {
+                     id=s.id,
+                     idOperador=s.idOperador,
+                };
+                return nr;
+            }).ToList();
+            fichaDTO.Resumen = new DtoLibPos.Documento.Agregar.Factura.FichaPosResumen()
+            {
+                cntDevolucion = ficha.Resumen.cntDevolucion,
+                cntDivisa = ficha.Resumen.cntDivisa,
+                cntDoc = ficha.Resumen.cntDoc,
+                cntDocContado = ficha.Resumen.cntDocContado,
+                cntDocCredito = ficha.Resumen.cntDocCredito,
+                cntEfectivo = ficha.Resumen.cntEfectivo,
+                cntElectronico = ficha.Resumen.cntElectronico,
+                cntFac = ficha.Resumen.cntFac,
+                cntNCr = ficha.Resumen.cntNCr,
+                cntotros = ficha.Resumen.cntotros,
+                idResumen = ficha.Resumen.idResumen,
+                mContado = ficha.Resumen.mContado,
+                mCredito = ficha.Resumen.mCredito,
+                mDevolucion = ficha.Resumen.mDevolucion,
+                mDivisa = ficha.Resumen.mDivisa,
+                mEfectivo = ficha.Resumen.mEfectivo,
+                mElectronico = ficha.Resumen.mElectronico,
+                mFac = ficha.Resumen.mFac,
+                mNCr = ficha.Resumen.mNCr,
+                mOtros = ficha.Resumen.mOtros,
+            };
 
             var r01 = MyData.Documento_Agregar_Factura(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

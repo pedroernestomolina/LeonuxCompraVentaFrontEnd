@@ -58,12 +58,12 @@ namespace PosOnLine.OOB.Configuracion.Entidad
             idConceptoVenta = "";
             idClaveUsar = "";
             idPrecioManejar = "";
-            idTipoDocumentoVenta = "0000000001";
-            idTipoDocumentoDevVenta = "0000000003";
-            idTipoDocumentoNotaEntrega = "0000000004";
-            idSerieFactura = "0000000001";
-            idSerieNotaCredito = "0000000002";
-            idSerieNotaEntrega = "0000000003";
+            idTipoDocumentoVenta = "";
+            idTipoDocumentoDevVenta = "";
+            idTipoDocumentoNotaEntrega = "";
+            idSerieFactura = "";
+            idSerieNotaCredito = "";
+            idSerieNotaEntrega = "";
             validarExistencia = "";
         }
 

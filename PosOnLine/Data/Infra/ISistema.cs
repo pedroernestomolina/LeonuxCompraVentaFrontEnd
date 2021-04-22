@@ -23,6 +23,8 @@ namespace PosOnLine.Data.Infra
 
         OOB.Resultado.FichaEntidad<OOB.Sistema.MedioPago.Entidad.Ficha> Sistema_MedioPago_GetFichaById(string id);
 
+        OOB.Resultado.FichaEntidad<string> Sistema_ClaveAcceso_GetByIdNivel(int id);
+
     }
 
 }

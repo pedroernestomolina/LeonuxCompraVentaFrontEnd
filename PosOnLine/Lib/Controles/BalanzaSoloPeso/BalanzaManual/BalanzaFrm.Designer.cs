@@ -346,6 +346,8 @@
             this.BT_SALIDA.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIDA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIDA.Image = global::PosOnLine.Properties.Resources.bt_ok_3;
+            this.BT_SALIDA.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIDA.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIDA.Name = "BT_SALIDA";
             this.BT_SALIDA.Size = new System.Drawing.Size(130, 40);
@@ -383,6 +385,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BT_SALIDA;
             this.ClientSize = new System.Drawing.Size(542, 374);
             this.Controls.Add(this.panel3);
             this.KeyPreview = true;

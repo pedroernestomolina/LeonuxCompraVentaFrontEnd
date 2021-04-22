@@ -13,19 +13,20 @@ namespace PosOnLine.Src.Devolucion
     public class Gestion
     {
 
+        public event EventHandler<int> EliminarItemHnd;
+        public event EventHandler<int> DevolverItemHnd;
+
+
         private BindingList<Item.data> _bl;
         private BindingSource _bs;
-        private bool _fichaCambio;
 
 
-        public bool FichaCambioIsOk { get { return _fichaCambio; } }
         public decimal MontoSubTotal { get { return _bl.Sum(f => f.MontoTotal()); } }
         public BindingSource DataSource { get { return _bs; } }
 
 
         public Gestion()
         {
-            _fichaCambio = false;
             _bl = new BindingList<Item.data>();
             _bs = new BindingSource();
             _bs.DataSource = _bl;
@@ -34,7 +35,6 @@ namespace PosOnLine.Src.Devolucion
 
         public void Inicializa()
         {
-            _fichaCambio = false;
         }
 
         DevolucionFrm frm;
@@ -81,30 +81,13 @@ namespace PosOnLine.Src.Devolucion
         {
             if (_bs.Current != null)
             {
-                eliminar();
+                var it=(Item.data) _bs.Current;
+                EventHandler<int> hnd = EliminarItemHnd;
+                if (hnd != null) 
+                {
+                    hnd(this, it.Ficha.id);
+                }
             }
-        }
-
-        private void eliminar()
-        {
-            var it = (Item.data)_bs.Current;
-            var ficha = new OOB.Venta.Item.Eliminar.Ficha()
-            {
-                idOperador = it.Ficha.idOperador,
-                idItem = it.Ficha.id,
-                autoProducto = it.Ficha.autoProducto,
-                autoDeposito = it.Ficha.autoDeposito,
-                cantUndBloq = it.TotalUnd,
-            };
-            var r01 = Sistema.MyData.Venta_Item_Eliminar(ficha);
-            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return;
-            }
-            _fichaCambio = true;
-            _bl.Remove(it);
-            Helpers.Sonido.SonidoOk();
         }
 
         public void DevolerItem()
@@ -112,36 +95,32 @@ namespace PosOnLine.Src.Devolucion
             if (_bs.Current != null)
             {
                 var it = (Item.data)_bs.Current;
-                if (it.EsPesado) 
+                EventHandler<int> hnd = DevolverItemHnd;
+                if (hnd != null)
                 {
-                    Helpers.Msg.Error("PRODUCTO PESADO DEBE SER ELIMINADO POR COMPLETO");
-                    return;
+                    hnd(this, it.Ficha.id);
                 }
+            }
+        }
 
-                if (it.Cantidad == 1)
+        public void Eliminar(int e)
+        {
+            var it = _bl.FirstOrDefault(f=>f.Id==e);
+            if (it != null)
+            {
+                _bl.Remove(it);
+            }
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void DevolverItem(int e)
+        {
+            var it = _bl.FirstOrDefault(f => f.Id == e);
+            if (it != null)
+            {
+                if (it.Cantidad == 0)
                 {
-                    eliminar();
-                }
-                else 
-                {
-                    var ficha = new OOB.Venta.Item.ActualizarCantidad.Disminuir.Ficha()
-                    {
-                        idOperador = it.Ficha.idOperador,
-                        idItem = it.Ficha.id,
-                        autoProducto = it.Ficha.autoProducto,
-                        autoDeposito = it.Ficha.autoDeposito,
-                        cantUndBloq = it.ContenidoEmp,
-                        cantidad = 1,
-                    };
-                    var r01 = Sistema.MyData.Venta_Item_ActualizarCantidad_Disminuir(ficha);
-                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    it.setDisminuyeCantidad(1);
-                    _fichaCambio = true;
-                    Helpers.Sonido.SonidoOk();
+                    _bl.Remove(it);
                 }
                 _bs.CurrencyManager.Refresh();
             }

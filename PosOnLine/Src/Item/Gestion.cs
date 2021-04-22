@@ -66,8 +66,109 @@ namespace PosOnLine.Src.Item
             _bsitems = new BindingSource();
             _bsitems.DataSource = _blitems;
             _bsitems.CurrentChanged += _bsitems_CurrentChanged;
+            _gestionDevolucion = new Devolucion.Gestion();
+            _gestionDevolucion.EliminarItemHnd+=_gestionDevolucion_EliminarItemHnd;
+            _gestionDevolucion.DevolverItemHnd+=_gestionDevolucion_DevolverItemHnd;
         }
 
+        private void _gestionDevolucion_DevolverItemHnd(object sender, int e)
+        {
+            if (DevolverItem(e)) 
+            {
+                _gestionDevolucion.DevolverItem(e);
+            }
+        }
+
+        private bool DevolverItem(int id)
+        {
+            var rt = false;
+
+            var it = _blitems.FirstOrDefault(f=>f.Id==id);
+            if (it != null)
+            {
+                if (it.EsPesado)
+                {
+                    Helpers.Msg.Error("PRODUCTO PESADO DEBE SER ELIMINADO POR COMPLETO");
+                    return false;
+                }
+
+                if (it.Cantidad == 1)
+                {
+                    if (EliminarItem(it.Id)) 
+                    {
+                        it.setDisminuyeCantidad(1);
+                        return true;
+                    }
+                }
+                else
+                {
+                    if (_modoFactura)
+                    {
+                        var ficha = new OOB.Venta.Item.ActualizarCantidad.Disminuir.Ficha()
+                        {
+                            idOperador = it.Ficha.idOperador,
+                            idItem = it.Ficha.id,
+                            autoProducto = it.Ficha.autoProducto,
+                            autoDeposito = it.Ficha.autoDeposito,
+                            cantUndBloq = it.ContenidoEmp,
+                            cantidad = 1,
+                        };
+                        var r01 = Sistema.MyData.Venta_Item_ActualizarCantidad_Disminuir(ficha);
+                        if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return false;
+                        }
+                    }
+                    it.setDisminuyeCantidad(1);
+                    Helpers.Sonido.SonidoOk();
+                    _bsitems.CurrencyManager.Refresh();
+                    return true;
+                }
+            }
+
+            return rt;
+        }
+
+        private void _gestionDevolucion_EliminarItemHnd(object sender, int e)
+        {
+            if (EliminarItem(e))
+            {
+                _gestionDevolucion.Eliminar(e);
+            }
+        }
+
+        private bool EliminarItem(int id)
+        {
+            var rt = false;
+
+            var it = _blitems.FirstOrDefault(f=>f.Id==id);
+            if (it != null)
+            {
+                if (_modoFactura)
+                {
+                    var ficha = new OOB.Venta.Item.Eliminar.Ficha()
+                    {
+                        idOperador = it.Ficha.idOperador,
+                        idItem = it.Ficha.id,
+                        autoProducto = it.Ficha.autoProducto,
+                        autoDeposito = it.Ficha.autoDeposito,
+                        cantUndBloq = it.TotalUnd,
+                    };
+                    var r01 = Sistema.MyData.Venta_Item_Eliminar(ficha);
+                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return false;
+                    }
+                }
+                _blitems.Remove(it);
+                Helpers.Sonido.SonidoOk();
+                return true;
+            }
+
+            return rt;
+        }
 
         private void _bsitems_CurrentChanged(object sender, EventArgs e)
         {
@@ -264,7 +365,7 @@ namespace PosOnLine.Src.Item
             }
         }
 
-        public void AnularVenta()
+        public void AnularVenta(bool modoFactura=true)
         {
             _anularVentaIsOk = false;
 
@@ -288,16 +389,19 @@ namespace PosOnLine.Src.Item
                 litemsDeposito.Add(nitDep);
             }
 
-            var ficha = new OOB.Venta.Anular.Ficha()
+            if (modoFactura)
             {
-                items = litems,
-                itemDeposito = litemsDeposito,
-            };
-            var r01 = Sistema.MyData.Venta_Anular(ficha);
-            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return;
+                var ficha = new OOB.Venta.Anular.Ficha()
+                {
+                    items = litems,
+                    itemDeposito = litemsDeposito,
+                };
+                var r01 = Sistema.MyData.Venta_Anular(ficha);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
             }
             _blitems.Clear();
             _bsitems.CurrencyManager.Refresh();
@@ -438,32 +542,15 @@ namespace PosOnLine.Src.Item
             _gestionMultiplicar = gestion;
         }
 
-        public void setGestionDevolucion(Devolucion.Gestion gestion )
+        bool _modoFactura = false;
+        public void DevolucionItem(bool modoFactura = true)
         {
-            _gestionDevolucion= gestion;
-        }
-
-        public void DevolucionItem()
-        {
+            _modoFactura = modoFactura;
             if (_blitems.Count>0)
             {
                 _gestionDevolucion.Inicializa();
                 _gestionDevolucion.setData(Items);
                 _gestionDevolucion.Inicia();
-                if (_gestionDevolucion.FichaCambioIsOk)
-                {
-                    var filtro = new OOB.Venta.Item.Lista.Filtro()
-                    {
-                        idOperador = Sistema.PosEnUso.id,
-                    };
-                    var r01 = Sistema.MyData.Venta_Item_GetLista(filtro);
-                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
-                    }
-                    ActualizarLista(r01.ListaD);
-                }
                 setItemActualInicializar();
             }
         }
@@ -546,6 +633,20 @@ namespace PosOnLine.Src.Item
             Inicializar();
             _blitems.Clear();
             _bsitems.CurrencyManager.Refresh();
+        }
+
+        public void setData(List<OOB.Documento.Entidad.FichaItem> list, decimal _tasaCambioActual)
+        {
+            setTasaCambio(_tasaCambioActual);
+            _blitems.Clear();
+            var id = 0;
+            foreach (var it in list)
+            {
+                id += 1;
+                var rg = new data(it, _tasaCambioActual);
+                rg.setId(id);
+                _blitems.Add(rg);
+            }
         }
 
     }

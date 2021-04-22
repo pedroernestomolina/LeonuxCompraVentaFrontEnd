@@ -14,13 +14,16 @@ namespace PosOnLine.Src.Principal
 
         private Pos.Gestion _gestionPos;
         private PassWord.Gestion _gestionPassW;
+        private AdministradorDoc.Principal.Gestion _gestionDoc;
 
 
         public Gestion()
         {
+            _gestionDoc = new AdministradorDoc.Principal.Gestion();
             _gestionPassW = new PassWord.Gestion();
             _gestionPos = new Pos.Gestion();
             _gestionPos.setGestionPassW(_gestionPassW);
+            Helpers.PassWord.setGestion(_gestionPassW);
         }
 
 
@@ -122,6 +125,21 @@ namespace PosOnLine.Src.Principal
 
         public void CerrarPos()
         {
+        }
+
+        public void AdmDocumentos()
+        {
+            if (Sistema.PosEnUso.IsEnUso)
+            {
+                _gestionDoc.Inicializa();
+                _gestionDoc.Inicia();
+                if (_gestionDoc.NotaCreditoIsOk)
+                {
+                    _gestionPos.Inicializa();
+                    _gestionPos.setNotaCredito(_gestionDoc.DocAplicaNotaCredito);
+                    _gestionPos.Inicia();
+                }
+            }
         }
 
     }

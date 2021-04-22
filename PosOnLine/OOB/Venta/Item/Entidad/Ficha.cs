@@ -11,6 +11,7 @@ namespace PosOnLine.OOB.Venta.Item.Entidad
     public class Ficha
     {
 
+
         public int id { get; set; }
         public int idOperador { get; set; }
         public string autoProducto { get; set; }
@@ -64,6 +65,36 @@ namespace PosOnLine.OOB.Venta.Item.Entidad
             autoGrupo = "";
             autoDepartamento = "";
             autoProducto = "";
+            idOperador = -1;
+            id = -1;
+        }
+
+
+        public Ficha(Documento.Entidad.FichaItem it)
+        {
+            autoDeposito = it.AutoDeposito;
+            costoPromedio = it.CostoPromedioUnd*it.ContenidoEmpaque*it.Cantidad ;
+            costoCompra = it.CostoCompra;
+            costoPromedioUnd =it.CostoPromedioUnd;
+            costoUnd = it.CostoUnd;
+            estatusPesado = it.EstatusPesado;
+            empaqueContenido = it.ContenidoEmpaque;
+            empaqueDescripcion = it.Empaque;
+            decimales = it.Decimales;
+            categoria = it.Categoria;
+            tipoIva = "";
+            tasaIva = it.Tasa;
+            tarifaPrecio = it.Tarifa;
+            pfullDivisa = 0.0m;
+            pneto = it.PrecioNeto;
+            cantidad = it.Cantidad;
+            nombre = it.Nombre;
+            codigo = it.Codigo;
+            autoTasa = it.AutoTasa;
+            autoSubGrupo = it.AutoSubGrupo;
+            autoGrupo = it.AutoGrupo;
+            autoDepartamento = it.AutoDepartamento;
+            autoProducto = it.AutoProducto;
             idOperador = -1;
             id = -1;
         }

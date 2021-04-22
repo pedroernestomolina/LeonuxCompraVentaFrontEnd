@@ -306,11 +306,17 @@ namespace PosOnLine.Src.Pos
         {
             L_MODO_FUNCION.Text = "Facturación :)";
             L_MODO_FUNCION.ForeColor = Color.Yellow;
-            //if (_venta.ModoFuncion == Enumerados.EnumModoFuncion.NotaCredito)
-            //{
-            //    L_MODO_FUNCION.Text = ":( Nt/Crédito";
-            //    L_MODO_FUNCION.ForeColor = Color.Red;
-            //}
+
+            if (_controlador.IsNotaCredito)
+            {
+                L_MODO_FUNCION.Text = ":( Nt/Crédito";
+                L_MODO_FUNCION.ForeColor = Color.Red;
+            }
+            else if (_controlador.IsNotaEntrega)
+            {
+                L_MODO_FUNCION.Text = ":) Nt/Entrega ):";
+                L_MODO_FUNCION.ForeColor = Color.Black;
+            }
         }
 
         private void IrFoco()
@@ -445,6 +451,10 @@ namespace PosOnLine.Src.Pos
 
         private void PosVenta_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Alt && e.Control && e.KeyCode == Keys.N) 
+            {
+                NotaEntrega();
+            }
             if (e.KeyCode == Keys.F1) 
             {
                 IrFoco();
@@ -479,6 +489,12 @@ namespace PosOnLine.Src.Pos
             }
         }
 
+        private void NotaEntrega()
+        {
+            _controlador.NotaEntrega();
+            ActualizarModo();
+        }
+
         private void _bs_CurrentChanged(object sender, EventArgs e)
         {
             Actualizar();
@@ -510,6 +526,10 @@ namespace PosOnLine.Src.Pos
             L_PRD_TASA.Text = _controlador.ProductoTasaIva;
             L_PRD_IVA.Text = _controlador.ProductoIva.ToString("n2");
             L_PRD_CONT.Text = _controlador.ProductoContenido.ToString("n0");
+        }
+
+        private void PosFrm_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
 
     }

@@ -166,6 +166,22 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<string> Sistema_ClaveAcceso_GetByIdNivel(int id)
+        {
+            var result = new OOB.Resultado.FichaEntidad<string>();
+
+            var r01 = MyData.Sistema_ClaveAcceso_GetByIdNivel(id);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+            result.Entidad = r01.Entidad;
+
+            return result;
+        }
+
     }
 
 }

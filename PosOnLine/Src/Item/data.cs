@@ -17,6 +17,7 @@ namespace PosOnLine.Src.Item
 
 
         public OOB.Venta.Item.Entidad.Ficha Ficha { get { return _it; } }
+        public int Id { get { return _it.id; } }
         public string NombrePrd { get { return _it.nombre; } }
         public decimal Cantidad { get { return _it.cantidad; } }
         public int ContenidoEmp { get { return _it.empaqueContenido; } }
@@ -76,6 +77,12 @@ namespace PosOnLine.Src.Item
         {
             this._it = it;
             this._tasaCambio = tasaCamb;
+        }
+
+        public data(OOB.Documento.Entidad.FichaItem it, decimal _tasaCambioActual)
+        {
+            this._it = new OOB.Venta.Item.Entidad.Ficha(it);
+            this._tasaCambio = _tasaCambioActual;
         }
 
 
@@ -162,7 +169,10 @@ namespace PosOnLine.Src.Item
             get
             {
                 var rt = 0.0m;
-                rt = Cantidad * PrecioFinal;
+                if (_it.tasaIva > 0.0m)
+                {
+                    rt = Cantidad * PrecioFinal;
+                }
                 return rt;
             } 
         }
@@ -172,12 +182,17 @@ namespace PosOnLine.Src.Item
             get
             {
                 var rt = 0.0m;
-                if (_it.tasaIva > 0) 
+                if (_it.tasaIva > 0.0m) 
                 {
                     rt = (MontoBase * _it.tasaIva / 100);
                 }
                 return rt;
             }
+        }
+
+        public void setId(int id)
+        {
+            _it.id = id;
         }
 
     }

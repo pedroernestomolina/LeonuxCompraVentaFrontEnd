@@ -24,7 +24,19 @@ namespace PosOnLine
         public static OOB.Sucursal.Entidad.Ficha Sucursal;
         public static string IdEquipo;
         public static string EquipoEstacion;
-        public static string FuncionPosAnularVenta = "0816020000";
+
+        //FUNCIONES DEL POS
+        public static string FuncionPosDevolucion           = "0816010000";
+        public static string FuncionPosAnularVenta          = "0816020000";
+        public static string FuncionPosTeclaSumar           = "0816030000";
+        public static string FuncionPosTeclaMultiplicar     = "0816040000";
+        public static string FuncionPosTeclaRestar          = "0816050000";
+        public static string FuncionPosTeclaPendiente       = "0816060000";
+        public static string FuncionPosTeclaPendienteAnular = "0816070000";
+        public static string FuncionPosTeclaDescuento       = "0816080000";
+        public static string FuncionPosTeclaCredito         = "0816090000";
+        public static string FuncionAdmNotaCredito          = "0816110000";
+        public static string FuncionAdmAnularDocumento      = "0816100000";
 
     }
 

@@ -140,13 +140,24 @@ namespace PosOnLine.Src.Pago.Procesar
 
         public void DarDescuento()
         {
-            _pago.DarDescuento();
+            if (Helpers.PassWord.PassWIsOk(Sistema.FuncionPosTeclaDescuento))
+            {
+                _pago.DarDescuento();
+            }
         }
 
         public void DarCredito()
         {
-            _pago.DarCredito();
-            _pagoIsOk = _pago.IsCredito;
+            if (Helpers.PassWord.PassWIsOk(Sistema.FuncionPosTeclaCredito))
+            {
+                _pago.DarCredito();
+                _pagoIsOk = _pago.IsCredito;
+            }
+        }
+
+        public void setDescuento(decimal dsctoFinal)
+        {
+            _pago.setDescuento(dsctoFinal);
         }
 
     }

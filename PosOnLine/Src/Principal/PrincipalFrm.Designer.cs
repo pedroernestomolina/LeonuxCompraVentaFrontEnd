@@ -31,6 +31,7 @@
             this.BT_ABRIR_POS = new System.Windows.Forms.Button();
             this.BT_CERRAR_POS = new System.Windows.Forms.Button();
             this.BT_SALIDA = new System.Windows.Forms.Button();
+            this.BT_ADM_DOCUMENTOS = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BT_ABRIR_POS
@@ -45,7 +46,7 @@
             // 
             // BT_CERRAR_POS
             // 
-            this.BT_CERRAR_POS.Location = new System.Drawing.Point(12, 105);
+            this.BT_CERRAR_POS.Location = new System.Drawing.Point(12, 135);
             this.BT_CERRAR_POS.Name = "BT_CERRAR_POS";
             this.BT_CERRAR_POS.Size = new System.Drawing.Size(75, 23);
             this.BT_CERRAR_POS.TabIndex = 1;
@@ -63,11 +64,22 @@
             this.BT_SALIDA.UseVisualStyleBackColor = true;
             this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
             // 
+            // BT_ADM_DOCUMENTOS
+            // 
+            this.BT_ADM_DOCUMENTOS.Location = new System.Drawing.Point(12, 106);
+            this.BT_ADM_DOCUMENTOS.Name = "BT_ADM_DOCUMENTOS";
+            this.BT_ADM_DOCUMENTOS.Size = new System.Drawing.Size(75, 23);
+            this.BT_ADM_DOCUMENTOS.TabIndex = 3;
+            this.BT_ADM_DOCUMENTOS.Text = "Documentos";
+            this.BT_ADM_DOCUMENTOS.UseVisualStyleBackColor = true;
+            this.BT_ADM_DOCUMENTOS.Click += new System.EventHandler(this.BT_ADM_DOCUMENTOS_Click);
+            // 
             // PrincipalFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 390);
+            this.Controls.Add(this.BT_ADM_DOCUMENTOS);
             this.Controls.Add(this.BT_SALIDA);
             this.Controls.Add(this.BT_CERRAR_POS);
             this.Controls.Add(this.BT_ABRIR_POS);
@@ -85,5 +97,6 @@
         private System.Windows.Forms.Button BT_ABRIR_POS;
         private System.Windows.Forms.Button BT_CERRAR_POS;
         private System.Windows.Forms.Button BT_SALIDA;
+        private System.Windows.Forms.Button BT_ADM_DOCUMENTOS;
     }
 }

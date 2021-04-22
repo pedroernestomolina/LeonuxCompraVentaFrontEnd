@@ -154,6 +154,8 @@ namespace PosOnLine.Data.Prov
                 id = ent.id,
                 idUsuario = ent.idUsuario,
                 nomUsuario = ent.nomUsuario,
+                idAutoArqueoCierre = ent.idArqueoCierre,
+                idResumen = ent.idResumen,
             };
             result.Entidad = nr;
 

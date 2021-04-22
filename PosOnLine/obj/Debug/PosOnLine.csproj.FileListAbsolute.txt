@@ -22,6 +22,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibEntityPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Lib.Controles.BalanzaSoloPeso.BalanzaManual.BalanzaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Properties.Resources.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.AdministradorDoc.Principal.AdmDocFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Buscar.BuscarAgregarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Listar.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Consultor.ConsultorFrm.resources

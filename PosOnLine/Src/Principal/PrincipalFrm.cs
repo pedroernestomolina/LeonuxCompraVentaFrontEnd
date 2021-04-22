@@ -68,6 +68,16 @@ namespace PosOnLine.Src.Principal
             this.Close();
         }
 
+        private void BT_ADM_DOCUMENTOS_Click(object sender, EventArgs e)
+        {
+            AdmDocumentos();
+        }
+
+        private void AdmDocumentos()
+        {
+            _controlador.AdmDocumentos();
+        }
+
     }
 
 }

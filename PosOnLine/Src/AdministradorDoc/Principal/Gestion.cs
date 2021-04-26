@@ -14,6 +14,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
 
         private bool _notaCreditoIsOk;
+        private Anular.Gestion _gestionAnular;
 
 
         public string TotItems { get { return _gestionLista.TotItems; } }
@@ -95,29 +96,42 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             {
                 if (Helpers.PassWord.PassWIsOk(Sistema.FuncionAdmAnularDocumento))
                 {
-                    var rt = false;
-                    switch (_gestionLista.DocAplicaParaAulacion.DocTipo) 
+
+                    _gestionAnular.Inicializa();
+                    _gestionAnular.Inicia();
+                    if (_gestionAnular.IsAnularOK)
                     {
-                        case Lista.data.enumTipoDoc.NotaEntrega:
-                            rt=AnularNotaEntrega(_gestionLista.DocAplicaParaAulacion.idDocumento);
-                            break;
-                        case Lista.data.enumTipoDoc.NotaCredito:
-                            rt = AnularNotaCredito(_gestionLista.DocAplicaParaAulacion.idDocumento);
-                            break;
-                        case Lista.data.enumTipoDoc.Factura:
-                            rt = AnularFactura(_gestionLista.DocAplicaParaAulacion.idDocumento);
-                            break;
-                    }
-                    if (rt) 
-                    {
-                        _gestionLista.setAnularDoc();
-                        Helpers.Msg.EliminarOk();
+                        var msg = MessageBox.Show("Estas Seguro De Anular Este Documento ?", "** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                        if (msg == DialogResult.No)
+                        {
+                            return;
+                        }
+
+                        var motivo = _gestionAnular.Motivo;
+                        var rt = false;
+                        switch (_gestionLista.DocAplicaParaAulacion.DocTipo)
+                        {
+                            case Lista.data.enumTipoDoc.NotaEntrega:
+                                rt = AnularNotaEntrega(_gestionLista.DocAplicaParaAulacion.idDocumento,motivo);
+                                break;
+                            case Lista.data.enumTipoDoc.NotaCredito:
+                                rt = AnularNotaCredito(_gestionLista.DocAplicaParaAulacion.idDocumento,motivo);
+                                break;
+                            case Lista.data.enumTipoDoc.Factura:
+                                rt = AnularFactura(_gestionLista.DocAplicaParaAulacion.idDocumento,motivo);
+                                break;
+                        }
+                        if (rt)
+                        {
+                            _gestionLista.setAnularDoc();
+                            Helpers.Msg.EliminarOk();
+                        }
                     }
                 }
             }
         }
 
-        private bool AnularNotaEntrega(string idDoc)
+        private bool AnularNotaEntrega(string idDoc, string mtv)
         {
             var r01 = Sistema.MyData.Documento_GetById(idDoc);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
@@ -136,7 +150,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
                     autoUsuario = Sistema.Usuario.id,
                     codigo = Sistema.Usuario.codigo,
                     estacion = Sistema.EquipoEstacion,
-                    motivo = "PRUEBA",
+                    motivo = mtv,
                     usuario = Sistema.Usuario.nombre,
                 },
                 deposito = r01.Entidad.items.Select(s =>
@@ -165,7 +179,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             return true;
         }
 
-        private bool AnularNotaCredito(string idDoc)
+        private bool AnularNotaCredito(string idDoc, string mtv)
         {
             var r01 = Sistema.MyData.Documento_GetById(idDoc);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -185,7 +199,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
                     autoUsuario = Sistema.Usuario.id,
                     codigo = Sistema.Usuario.codigo,
                     estacion = Sistema.EquipoEstacion,
-                    motivo = "PRUEBA",
+                    motivo = mtv,
                     usuario = Sistema.Usuario.nombre,
                 },
                 deposito = r01.Entidad.items.Select(s =>
@@ -215,7 +229,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             return true;
         }
 
-        private bool AnularFactura(string idDoc)
+        private bool AnularFactura(string idDoc, string mtv)
         {
             var r01 = Sistema.MyData.Documento_GetById(idDoc);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -236,7 +250,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
                     autoUsuario = Sistema.Usuario.id,
                     codigo = Sistema.Usuario.codigo,
                     estacion = Sistema.EquipoEstacion,
-                    motivo = "PRUEBA",
+                    motivo = mtv,
                     usuario = Sistema.Usuario.nombre,
                 },
                 deposito = r01.Entidad.items.Select(s =>
@@ -264,6 +278,16 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             }
 
             return true;
+        }
+
+        public void setGestionAnular(Anular.Gestion gestion)
+        {
+            _gestionAnular = gestion;
+        }
+
+        public void ImprimirDocumento()
+        {
+            _gestionLista.ImprimirDocumento();
         }
 
     }

@@ -46,6 +46,8 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -60,6 +62,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -101,6 +104,21 @@
     <Compile Include="Data\Prov\Vendedor.cs" />
     <Compile Include="Data\Prov\Venta.cs" />
     <Compile Include="Gestion.cs" />
+    <Compile Include="Helpers\Imprimir\data.cs" />
+    <Compile Include="Helpers\Imprimir\Fiscal\Documento.cs" />
+    <Compile Include="Helpers\Imprimir\Grafico\Documento.cs" />
+    <Compile Include="Helpers\Imprimir\Grafico\ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Imprimir\Grafico\ReporteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Imprimir\Grafico\ReporteFrm.Designer.cs">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Imprimir\IDocumento.cs" />
     <Compile Include="Helpers\PassWord.cs" />
     <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\Balanza.cs" />
     <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.cs">
@@ -232,6 +250,21 @@
       <DependentUpon>AdmDocFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\AdministradorDoc\Principal\Gestion.cs" />
+    <Compile Include="Src\Anular\AnularFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Anular\AnularFrm.Designer.cs">
+      <DependentUpon>AnularFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Anular\Gestion.cs" />
+    <Compile Include="Src\Cierre\data.cs" />
+    <Compile Include="Src\Cierre\CierreFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cierre\CierreFrm.Designer.cs">
+      <DependentUpon>CierreFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cierre\Gestion.cs" />
     <Compile Include="Src\Cliente\Buscar\BuscarAgregarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +377,12 @@
     <Compile Include="Src\Producto\Lista\ListaFrm.designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Helpers\Imprimir\Grafico\Documento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Imprimir\Grafico\ReporteFrm.resx">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.resx">
       <DependentUpon>BalanzaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +398,12 @@
     </Compile>
     <EmbeddedResource Include="Src\AdministradorDoc\Principal\AdmDocFrm.resx">
       <DependentUpon>AdmDocFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Anular\AnularFrm.resx">
+      <DependentUpon>AnularFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cierre\CierreFrm.resx">
+      <DependentUpon>CierreFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Cliente\Buscar\BuscarAgregarFrm.resx">
       <DependentUpon>BuscarAgregarFrm.cs</DependentUpon>
@@ -402,6 +447,17 @@
     <EmbeddedResource Include="Src\Producto\Lista\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Helpers\Imprimir\Grafico\ds.xsc">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </None>
+    <None Include="Helpers\Imprimir\Grafico\ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Helpers\Imprimir\Grafico\ds.xss">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -429,6 +485,8 @@
     <None Include="Resources\limpiar.png" />
     <None Include="Resources\bt_salida_2.png" />
     <None Include="Resources\bt_ok_3.png" />
+    <None Include="Resources\bt_alerta.png" />
+    <Content Include="Src\Imagenes\bt_alerta.png" />
     <Content Include="Src\Imagenes\bt_ok_3.png" />
     <Content Include="Src\Imagenes\bt_salida_2.png" />
     <Content Include="Src\Sonidos\alerta.wav" />
@@ -505,6 +563,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OOB\Permiso\Buscar\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibControles\LibControles.csproj">
+      <Project>{1ED1D146-C74F-41D5-92FD-2F651C40698E}</Project>
+      <Name>LibControles</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

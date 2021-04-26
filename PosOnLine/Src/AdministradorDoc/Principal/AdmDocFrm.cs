@@ -218,6 +218,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         private void ImprimirDocumento()
         {
+            _controlador.ImprimirDocumento();
             //if (_controlador.PrepararDocumento()) 
             //{
             //    printDocument1.Print();
@@ -230,8 +231,8 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             {
                 if ((string)row.Cells["Estatus"].Value != "") 
                 {
-                    row.DefaultCellStyle.BackColor = Color.Red ;
-                    row.DefaultCellStyle.ForeColor = Color.White;
+                    row.Cells["Estatus"].Style.BackColor = Color.Red ;
+                    row.Cells["Estatus"].Style.ForeColor = Color.White;
                 }
             }
         }

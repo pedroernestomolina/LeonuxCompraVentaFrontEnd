@@ -68,13 +68,17 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
             if (_bs.Current != null)
             {
                 var it = (data)_bs.Current;
-                if (it.DocCodigo == "01") 
+                if (it.DocTipo == data.enumTipoDoc.Factura)
                 {
-                    if (!it.IsAnulado) 
+                    if (!it.IsAnulado)
                     {
                         _docAplicarNotaCredito = it;
                         return true;
                     }
+                }
+                else 
+                {
+                    Helpers.Msg.Error("NO SE PUEDE APLICAR NOTA DE CREDITO A ESTE TIPO DE DOCUMENTO");
                 }
             }
 
@@ -110,6 +114,68 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                 it.setAnularDoc();
             }
             _bs.CurrencyManager.Refresh();
+        }
+
+        public void ImprimirDocumento()
+        {
+            if (_bs.Current != null)
+            {
+                var it = (data)_bs.Current;
+                var xr1 = Sistema.MyData.Documento_GetById(it.idDocumento);
+                if (xr1.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(xr1.Mensaje);
+                    return;
+                }
+
+                var xdata = new Helpers.Imprimir.data();
+                xdata.negocio = new Helpers.Imprimir.data.Negocio()
+                { 
+                    Nombre = "PITA COMERCIALIZADORA, C.A",
+                };
+                xdata.encabezado = new Helpers.Imprimir.data.Encabezado()
+                {
+                    CiRifCli = xr1.Entidad.CiRif,
+                    DireccionCli = xr1.Entidad.DirFiscal,
+                    DocumentoCondicionPago = xr1.Entidad.CondicionPago,
+                    DocumentoControl = xr1.Entidad.Control,
+                    DocumentoDiasCredito = xr1.Entidad.Dias,
+                    DocumentoFecha = xr1.Entidad.Fecha,
+                    DocumentoFechaVencimiento = xr1.Entidad.FechaVencimiento,
+                    DocumentoNombre = xr1.Entidad.DocumentoNombre,
+                    DocumentoNro = xr1.Entidad.DocumentoNro,
+                    DocumentoSerie = xr1.Entidad.Serie,
+                    DocumentoAplica = xr1.Entidad.Aplica,
+                    NombreCli = xr1.Entidad.RazonSocial,
+                };
+                xdata.item = new List<Helpers.Imprimir.data.Item>();
+                foreach (var rg in xr1.Entidad.items)
+                {
+                    var nr = new Helpers.Imprimir.data.Item()
+                    {
+                        NombrePrd = rg.Nombre,
+                    };
+                    xdata.item.Add(nr);
+                }
+
+                switch (it.DocTipo)
+                { 
+                    case data.enumTipoDoc.Factura:
+                        Sistema.ImprimirFactura.setData(xdata);
+                        Sistema.ImprimirFactura.ImprimirCopiaDoc();
+                        break;
+
+                    case data.enumTipoDoc.NotaCredito:
+                        Sistema.ImprimirNotaCredito.setData(xdata);
+                        Sistema.ImprimirNotaCredito.ImprimirCopiaDoc();
+                        break;
+
+                    case data.enumTipoDoc.NotaEntrega:
+                        Sistema.ImprimirNotaCredito.setData(xdata);
+                        Sistema.ImprimirNotaCredito.ImprimirCopiaDoc();
+                        break;
+                }
+            }
         }
 
     }

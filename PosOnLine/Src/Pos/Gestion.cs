@@ -1720,6 +1720,41 @@ namespace PosOnLine.Src.Pos
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+
+            var xdata = new Helpers.Imprimir.data();
+            xdata.negocio = new Helpers.Imprimir.data.Negocio()
+            {
+                Nombre = "PITA COMERCIALIZADORA, C.A",
+            };
+            xdata.encabezado = new Helpers.Imprimir.data.Encabezado()
+            {
+                NombreCli = fichaOOB.RazonSocial ,
+                CiRifCli = fichaOOB.CiRif ,
+                DireccionCli = fichaOOB.DirFiscal  ,
+                DocumentoCondicionPago = fichaOOB.CondicionPago ,
+                DocumentoControl = fichaOOB.Control ,
+                DocumentoDiasCredito = fichaOOB.Dias ,
+                DocumentoFecha = DateTime.Now.Date,
+                DocumentoFechaVencimiento = DateTime.Now.Date.AddDays(fichaOOB.Dias),
+                DocumentoNombre = fichaOOB.DocumentoNombre,
+                DocumentoNro = "XYZ123",
+                DocumentoSerie = fichaOOB.Serie,
+                DocumentoAplica = fichaOOB.Aplica ,
+            };
+            xdata.item = new List<Helpers.Imprimir.data.Item>();
+            foreach (var rg in _gestionItem.Items)
+            {
+                var nr = new Helpers.Imprimir.data.Item()
+                {
+                    NombrePrd = rg.NombrePrd,
+                };
+                xdata.item.Add(nr);
+            }
+
+            Sistema.ImprimirNotaEntrega.setData(xdata);
+            Sistema.ImprimirNotaEntrega.ImprimirDoc();
+
+
             _gestionItem.Limpiar();
             _gestionCliente.Limpiar();
             Helpers.Msg.OK("DOCUMENTO PROCESADO EXITOSAMENTE");

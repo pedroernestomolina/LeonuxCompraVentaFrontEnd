@@ -15,11 +15,16 @@ namespace PosOnLine.Src.Principal
         private Pos.Gestion _gestionPos;
         private PassWord.Gestion _gestionPassW;
         private AdministradorDoc.Principal.Gestion _gestionDoc;
+        private Anular.Gestion _gestionAnular;
+        private Cierre.Gestion _gestionCierre;
 
 
         public Gestion()
         {
+            _gestionCierre = new Cierre.Gestion();
+            _gestionAnular = new Anular.Gestion();
             _gestionDoc = new AdministradorDoc.Principal.Gestion();
+            _gestionDoc.setGestionAnular(_gestionAnular);
             _gestionPassW = new PassWord.Gestion();
             _gestionPos = new Pos.Gestion();
             _gestionPos.setGestionPassW(_gestionPassW);
@@ -123,10 +128,6 @@ namespace PosOnLine.Src.Principal
             Sistema.PosEnUso = r02.Entidad;
         }
 
-        public void CerrarPos()
-        {
-        }
-
         public void AdmDocumentos()
         {
             if (Sistema.PosEnUso.IsEnUso)
@@ -140,6 +141,12 @@ namespace PosOnLine.Src.Principal
                     _gestionPos.Inicia();
                 }
             }
+        }
+
+        public void CerrarPos()
+        {
+            _gestionCierre.Inicializa();
+            _gestionCierre.Inicia();
         }
 
     }

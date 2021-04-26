@@ -121,10 +121,14 @@
             this.panel29 = new System.Windows.Forms.Panel();
             this.L_MONTO_DOC_FACTURA = new System.Windows.Forms.Label();
             this.panel43 = new System.Windows.Forms.Panel();
+            this.TB_EFECTIVO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel44 = new System.Windows.Forms.Panel();
             this.L_MONTO_POR_DIVISA = new System.Windows.Forms.Label();
+            this.TB_CNT_DIVISA = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel45 = new System.Windows.Forms.Panel();
+            this.TB_TARJETA = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel46 = new System.Windows.Forms.Panel();
+            this.TB_OTRO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel48 = new System.Windows.Forms.Panel();
@@ -150,10 +154,6 @@
             this.panel63 = new System.Windows.Forms.Panel();
             this.BT_PAGO_RESUMEN = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.TB_EFECTIVO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_CNT_DIVISA = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_TARJETA = new ModPos.Lib.Controles.Numero.NumeroDecimal();
-            this.TB_OTRO = new ModPos.Lib.Controles.Numero.NumeroDecimal();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -281,13 +281,13 @@
             this.tableLayoutPanel5.Controls.Add(this.panel52, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel51, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(407, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(408, 1);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(291, 34);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(290, 34);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // panel52
@@ -298,7 +298,7 @@
             this.panel52.Margin = new System.Windows.Forms.Padding(1);
             this.panel52.Name = "panel52";
             this.panel52.Padding = new System.Windows.Forms.Padding(2);
-            this.panel52.Size = new System.Drawing.Size(144, 32);
+            this.panel52.Size = new System.Drawing.Size(143, 32);
             this.panel52.TabIndex = 1;
             // 
             // BT_SALIDA
@@ -308,7 +308,7 @@
             this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_SALIDA.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIDA.Name = "BT_SALIDA";
-            this.BT_SALIDA.Size = new System.Drawing.Size(140, 28);
+            this.BT_SALIDA.Size = new System.Drawing.Size(139, 28);
             this.BT_SALIDA.TabIndex = 1;
             this.BT_SALIDA.Text = "Salir";
             this.BT_SALIDA.UseVisualStyleBackColor = true;
@@ -352,14 +352,14 @@
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(404, 34);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(405, 34);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // panel59
             // 
             this.panel59.Controls.Add(this.L_DIFERENCIA);
             this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel59.Location = new System.Drawing.Point(227, 1);
+            this.panel59.Location = new System.Drawing.Point(228, 1);
             this.panel59.Margin = new System.Windows.Forms.Padding(1);
             this.panel59.Name = "panel59";
             this.panel59.Padding = new System.Windows.Forms.Padding(2);
@@ -386,7 +386,7 @@
             this.panel58.Margin = new System.Windows.Forms.Padding(1);
             this.panel58.Name = "panel58";
             this.panel58.Padding = new System.Windows.Forms.Padding(2);
-            this.panel58.Size = new System.Drawing.Size(224, 32);
+            this.panel58.Size = new System.Drawing.Size(225, 32);
             this.panel58.TabIndex = 0;
             // 
             // L_DIFERENCIA_TEXTO
@@ -395,7 +395,7 @@
             this.L_DIFERENCIA_TEXTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_DIFERENCIA_TEXTO.Location = new System.Drawing.Point(2, 2);
             this.L_DIFERENCIA_TEXTO.Name = "L_DIFERENCIA_TEXTO";
-            this.L_DIFERENCIA_TEXTO.Size = new System.Drawing.Size(220, 28);
+            this.L_DIFERENCIA_TEXTO.Size = new System.Drawing.Size(221, 28);
             this.L_DIFERENCIA_TEXTO.TabIndex = 9;
             this.L_DIFERENCIA_TEXTO.Text = "Diferencia:";
             this.L_DIFERENCIA_TEXTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1364,6 +1364,20 @@
             this.panel43.Size = new System.Drawing.Size(214, 35);
             this.panel43.TabIndex = 0;
             // 
+            // TB_EFECTIVO
+            // 
+            this.TB_EFECTIVO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_EFECTIVO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_EFECTIVO.Location = new System.Drawing.Point(2, 2);
+            this.TB_EFECTIVO.Name = "TB_EFECTIVO";
+            this.TB_EFECTIVO.Size = new System.Drawing.Size(210, 26);
+            this.TB_EFECTIVO.TabIndex = 0;
+            this.TB_EFECTIVO.Text = "0";
+            this.TB_EFECTIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_EFECTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_EFECTIVO.Leave += new System.EventHandler(this.TB_EFECTIVO_Leave);
+            // 
             // panel44
             // 
             this.panel44.Controls.Add(this.L_MONTO_POR_DIVISA);
@@ -1388,6 +1402,21 @@
             this.L_MONTO_POR_DIVISA.Text = "999999999.99";
             this.L_MONTO_POR_DIVISA.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // TB_CNT_DIVISA
+            // 
+            this.TB_CNT_DIVISA.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CNT_DIVISA.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_CNT_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CNT_DIVISA.Location = new System.Drawing.Point(2, 2);
+            this.TB_CNT_DIVISA.MaxLength = 5;
+            this.TB_CNT_DIVISA.Name = "TB_CNT_DIVISA";
+            this.TB_CNT_DIVISA.Size = new System.Drawing.Size(51, 26);
+            this.TB_CNT_DIVISA.TabIndex = 0;
+            this.TB_CNT_DIVISA.Text = "0";
+            this.TB_CNT_DIVISA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_CNT_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_CNT_DIVISA.Leave += new System.EventHandler(this.TB_CNT_DIVISA_Leave);
+            // 
             // panel45
             // 
             this.panel45.Controls.Add(this.TB_TARJETA);
@@ -1399,6 +1428,20 @@
             this.panel45.Size = new System.Drawing.Size(214, 35);
             this.panel45.TabIndex = 2;
             // 
+            // TB_TARJETA
+            // 
+            this.TB_TARJETA.BackColor = System.Drawing.Color.Yellow;
+            this.TB_TARJETA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_TARJETA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_TARJETA.Location = new System.Drawing.Point(2, 2);
+            this.TB_TARJETA.Name = "TB_TARJETA";
+            this.TB_TARJETA.Size = new System.Drawing.Size(210, 26);
+            this.TB_TARJETA.TabIndex = 1;
+            this.TB_TARJETA.Text = "0";
+            this.TB_TARJETA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_TARJETA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_TARJETA.Leave += new System.EventHandler(this.TB_TARJETA_Leave);
+            // 
             // panel46
             // 
             this.panel46.Controls.Add(this.TB_OTRO);
@@ -1409,6 +1452,20 @@
             this.panel46.Padding = new System.Windows.Forms.Padding(2);
             this.panel46.Size = new System.Drawing.Size(214, 35);
             this.panel46.TabIndex = 3;
+            // 
+            // TB_OTRO
+            // 
+            this.TB_OTRO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_OTRO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_OTRO.Location = new System.Drawing.Point(2, 2);
+            this.TB_OTRO.Name = "TB_OTRO";
+            this.TB_OTRO.Size = new System.Drawing.Size(210, 26);
+            this.TB_OTRO.TabIndex = 1;
+            this.TB_OTRO.Text = "0";
+            this.TB_OTRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_OTRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_OTRO.Leave += new System.EventHandler(this.TB_OTRO_Leave);
             // 
             // panel47
             // 
@@ -1706,63 +1763,6 @@
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // TB_EFECTIVO
-            // 
-            this.TB_EFECTIVO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_EFECTIVO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_EFECTIVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_EFECTIVO.Location = new System.Drawing.Point(2, 2);
-            this.TB_EFECTIVO.Name = "TB_EFECTIVO";
-            this.TB_EFECTIVO.Size = new System.Drawing.Size(210, 26);
-            this.TB_EFECTIVO.TabIndex = 0;
-            this.TB_EFECTIVO.Text = "0";
-            this.TB_EFECTIVO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_EFECTIVO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_EFECTIVO.Leave += new System.EventHandler(this.TB_EFECTIVO_Leave);
-            // 
-            // TB_CNT_DIVISA
-            // 
-            this.TB_CNT_DIVISA.BackColor = System.Drawing.Color.Yellow;
-            this.TB_CNT_DIVISA.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_CNT_DIVISA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CNT_DIVISA.Location = new System.Drawing.Point(2, 2);
-            this.TB_CNT_DIVISA.MaxLength = 5;
-            this.TB_CNT_DIVISA.Name = "TB_CNT_DIVISA";
-            this.TB_CNT_DIVISA.Size = new System.Drawing.Size(51, 26);
-            this.TB_CNT_DIVISA.TabIndex = 0;
-            this.TB_CNT_DIVISA.Text = "0";
-            this.TB_CNT_DIVISA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_CNT_DIVISA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_CNT_DIVISA.Leave += new System.EventHandler(this.TB_CNT_DIVISA_Leave);
-            // 
-            // TB_TARJETA
-            // 
-            this.TB_TARJETA.BackColor = System.Drawing.Color.Yellow;
-            this.TB_TARJETA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_TARJETA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_TARJETA.Location = new System.Drawing.Point(2, 2);
-            this.TB_TARJETA.Name = "TB_TARJETA";
-            this.TB_TARJETA.Size = new System.Drawing.Size(210, 26);
-            this.TB_TARJETA.TabIndex = 1;
-            this.TB_TARJETA.Text = "0";
-            this.TB_TARJETA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_TARJETA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_TARJETA.Leave += new System.EventHandler(this.TB_TARJETA_Leave);
-            // 
-            // TB_OTRO
-            // 
-            this.TB_OTRO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_OTRO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TB_OTRO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_OTRO.Location = new System.Drawing.Point(2, 2);
-            this.TB_OTRO.Name = "TB_OTRO";
-            this.TB_OTRO.Size = new System.Drawing.Size(210, 26);
-            this.TB_OTRO.TabIndex = 1;
-            this.TB_OTRO.Text = "0";
-            this.TB_OTRO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_OTRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
-            this.TB_OTRO.Leave += new System.EventHandler(this.TB_OTRO_Leave);
             // 
             // CierreFrm
             // 

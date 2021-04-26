@@ -129,6 +129,7 @@
             this.BT_IMPRIMIR.TabIndex = 2;
             this.toolTip1.SetToolTip(this.BT_IMPRIMIR, "ReImprimir  Documento");
             this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
             // 
             // printDialog1
             // 

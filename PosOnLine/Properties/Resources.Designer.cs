@@ -92,6 +92,16 @@ namespace PosOnLine.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_alerta {
+            get {
+                object obj = ResourceManager.GetObject("bt_alerta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_anular {
             get {
                 object obj = ResourceManager.GetObject("bt_anular", resourceCulture);

@@ -1,4 +1,5 @@
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\conf.xml
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Documento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.pdb
@@ -6,11 +7,13 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\DtoLibPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ServicePos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\IPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ProvPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibEntityPos.dll
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\DtoLib.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\DtoLibPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\EntityFramework.xml
@@ -20,9 +23,12 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\IPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ProvPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibEntityPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csprojResolveAssemblyReference.cache
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Helpers.Imprimir.Grafico.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Lib.Controles.BalanzaSoloPeso.BalanzaManual.BalanzaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.AdministradorDoc.Principal.AdmDocFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Anular.AnularFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cierre.CierreFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Buscar.BuscarAgregarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Listar.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Consultor.ConsultorFrm.resources
@@ -38,5 +44,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pos.Po
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Principal.PrincipalFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Producto.Lista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csproj.GenerateResource.Cache
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\RdlCompile.cache
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.exe
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.pdb

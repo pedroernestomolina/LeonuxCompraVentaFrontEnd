@@ -45,6 +45,8 @@
             this.testFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItem_Herramientas_Limpiar_BD_Local = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -105,8 +107,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
             this.L_ID_SUCURSAL = new System.Windows.Forms.Label();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -309,6 +309,18 @@
             this.MenuItem_Herramientas_Limpiar_BD_Local.Size = new System.Drawing.Size(202, 22);
             this.MenuItem_Herramientas_Limpiar_BD_Local.Text = "Limpiar BD Local";
             this.MenuItem_Herramientas_Limpiar_BD_Local.Click += new System.EventHandler(this.MenuItem_Herramientas_Limpiar_BD_Local_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(199, 6);
+            // 
+            // TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL
+            // 
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Name = "TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL";
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Size = new System.Drawing.Size(202, 22);
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Text = "Actualizar Data Servidor ";
+            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Click += new System.EventHandler(this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL_Click);
             // 
             // panel1
             // 
@@ -1043,18 +1055,6 @@
             this.L_ID_SUCURSAL.TabIndex = 1;
             this.L_ID_SUCURSAL.Text = "label5";
             this.L_ID_SUCURSAL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(199, 6);
-            // 
-            // TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL
-            // 
-            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Name = "TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL";
-            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Size = new System.Drawing.Size(202, 22);
-            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Text = "Actualizar Data Servidor ";
-            this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL.Click += new System.EventHandler(this.TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL_Click);
             // 
             // Form1
             // 

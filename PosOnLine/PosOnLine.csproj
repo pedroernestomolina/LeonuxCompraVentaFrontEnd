@@ -142,6 +142,8 @@
     <Compile Include="OOB\Cliente\Lista\Ficha.cs" />
     <Compile Include="OOB\Cliente\Lista\Filtro.cs" />
     <Compile Include="OOB\Concepto\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Configuracion\Actualizar\Ficha.cs" />
+    <Compile Include="OOB\Configuracion\Entidad\Enumerados.cs" />
     <Compile Include="OOB\Configuracion\Entidad\Ficha.cs" />
     <Compile Include="OOB\Deposito\Entidad\Ficha.cs" />
     <Compile Include="OOB\Deposito\Lista\Filtro.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="OOB\Documento\Anular\Resumen.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
+    <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
     <Compile Include="OOB\Documento\Lista\Ficha.cs" />
     <Compile Include="OOB\Documento\Lista\Filtro.cs" />
     <Compile Include="OOB\Pendiente\DejarCta\Ficha.cs" />
@@ -200,7 +203,10 @@
     <Compile Include="OOB\Pos\Abrir\Ficha.cs" />
     <Compile Include="OOB\Pos\Abrir\Operador.cs" />
     <Compile Include="OOB\Pos\Abrir\Resumen.cs" />
+    <Compile Include="OOB\Pos\Cerrar\FichaArqueo.cs" />
+    <Compile Include="OOB\Pos\Cerrar\Ficha.cs" />
     <Compile Include="OOB\Pos\EnUso\Ficha.cs" />
+    <Compile Include="OOB\Pos\Resumen\Ficha.cs" />
     <Compile Include="OOB\Producto\Entidad\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Bloquear\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Buscar\Ficha.cs" />
@@ -213,9 +219,13 @@
     <Compile Include="OOB\Resultado\FichaEntidad.cs" />
     <Compile Include="OOB\Resultado\FichaId.cs" />
     <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Sistema\Clave\Ficha.cs" />
     <Compile Include="OOB\Sistema\Cobrador\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\MedioPago\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\MedioPago\Lista\Filtro.cs" />
+    <Compile Include="OOB\Sistema\ModoPrecio\Ficha.cs" />
     <Compile Include="OOB\Sistema\SerieFiscal\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\TarifaPrecio\Ficha.cs" />
     <Compile Include="OOB\Sistema\TasaFiscal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\TasaFiscal\Listar\Filtro.cs" />
     <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
@@ -282,6 +292,14 @@
     <Compile Include="Src\Cliente\Listar\ListaFrm.Designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Configuracion\Gestion.cs" />
+    <Compile Include="Src\Configuracion\ConfigurarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Configuracion\ConfigurarFrm.Designer.cs">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Configuracion\data.cs" />
     <Compile Include="Src\Consultor\data.cs" />
     <Compile Include="Src\Consultor\ConsultorFrm.cs">
       <SubType>Form</SubType>
@@ -410,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Cliente\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Configuracion\ConfigurarFrm.resx">
+      <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Consultor\ConsultorFrm.resx">
       <DependentUpon>ConsultorFrm.cs</DependentUpon>

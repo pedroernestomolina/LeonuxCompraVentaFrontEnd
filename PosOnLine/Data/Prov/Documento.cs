@@ -398,10 +398,13 @@ namespace PosOnLine.Data.Prov
                 mNCr = ficha.Resumen.mNCr,
                 mOtros = ficha.Resumen.mOtros,
                 //
-                cntAnu=ficha.Resumen.cntAnu,
-                cntNte=ficha.Resumen.cntNte,
-                mAnu=ficha.Resumen.mAnu,
+                cntAnu = ficha.Resumen.cntAnu,
+                cntNte = ficha.Resumen.cntNte,
+                mAnu = ficha.Resumen.mAnu,
                 mNte = ficha.Resumen.mNte,
+                //
+                cntCambio = ficha.Resumen.cntCambio,
+                mCambio = ficha.Resumen.mCambio,
             };
             if (ficha.SerieFiscal != null) 
             {
@@ -1333,7 +1336,7 @@ namespace PosOnLine.Data.Prov
             {
                 autoDocumento = ficha.autoDocumento,
                 autoDocCxC = ficha.autoDocCxC,
-                autoReciboCxC=ficha.autoReciboCxC,
+                autoReciboCxC = ficha.autoReciboCxC,
                 CodigoDocumento = ficha.CodigoDocumento,
                 auditoria = new DtoLibPos.Documento.Anular.Factura.FichaAuditoria()
                 {
@@ -1359,6 +1362,20 @@ namespace PosOnLine.Data.Prov
                 {
                     idResumen = ficha.resumen.idResumen,
                     monto = ficha.resumen.monto,
+                    cntContado = ficha.resumen.cntContado,
+                    cntCredito = ficha.resumen.cntCredito,
+                    cntDivisa = ficha.resumen.cntDivisa,
+                    cntEfectivo = ficha.resumen.cntEfectivo,
+                    cntElectronico = ficha.resumen.cntElectronico,
+                    cntOtros = ficha.resumen.cntOtros,
+                    mContado = ficha.resumen.mContado,
+                    mCredito = ficha.resumen.mCredito,
+                    mDivisa = ficha.resumen.mDivisa,
+                    mEfectivo = ficha.resumen.mEfectivo,
+                    mElectronico = ficha.resumen.mElectronico,
+                    mOtros = ficha.resumen.mOtros,
+                    cntCambio=ficha.resumen.cntCambio,
+                    mCambio=ficha.resumen.mCambio,
                 },
             };
 
@@ -1369,6 +1386,50 @@ namespace PosOnLine.Data.Prov
                 result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
                 return result;
             }
+
+            return result;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idRecibo"></param>
+        /// <returns></returns>
+
+        public OOB.Resultado.Lista<OOB.Documento.Entidad.FichaMetodoPago> Documento_Get_MetodosPago_ByIdRecibo(string idRecibo)
+        {
+            var result = new OOB.Resultado.Lista<OOB.Documento.Entidad.FichaMetodoPago>();
+
+            var r01 = MyData.Documento_Get_MetodosPago_ByIdRecibo(idRecibo);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst = new List<OOB.Documento.Entidad.FichaMetodoPago>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Documento.Entidad.FichaMetodoPago()
+                        {
+                            autoMedioPago = s.autoMedioPago,
+                            codigoMedioPago = s.codigoMedioPago,
+                            descMedioPago = s.descMedioPago,
+                            lote = s.lote,
+                            montoRecibido = s.montoRecibido,
+                            referencia = s.referencia,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD = lst;
 
             return result;
         }

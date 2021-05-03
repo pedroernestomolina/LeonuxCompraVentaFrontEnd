@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe
@@ -8,6 +7,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ServiceSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLibSistema.dll

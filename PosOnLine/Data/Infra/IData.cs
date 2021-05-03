@@ -14,6 +14,7 @@ namespace PosOnLine.Data.Infra
     {
 
         OOB.Resultado.FichaEntidad<DateTime> FechaServidor();
+        OOB.Resultado.Ficha Test();
 
     }
 

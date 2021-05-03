@@ -12,6 +12,7 @@ namespace PosOnLine.Data.Infra
     {
 
         OOB.Resultado.FichaEntidad<OOB.Concepto.Entidad.Ficha> Concepto_GetFichaById(string id);
+        OOB.Resultado.Lista<OOB.Concepto.Entidad.Ficha> Concepto_GetLista();
 
     }
 

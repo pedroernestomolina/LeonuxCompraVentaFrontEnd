@@ -35,6 +35,19 @@ namespace PosOnLine.Helpers
         {
             var rt = true;
 
+            if (funcion == "") 
+            {
+                Helpers.Sonido.ClvaeAcceso();
+                _gestion.Inicializa();
+                _gestion.Inicia();
+                if (_gestion.Clave != Sistema.CLAVE_ADMINISTRADOR)
+                {
+                    Helpers.Msg.Error("CLAVE INCORRECTA");
+                    return false;
+                }
+                return true;
+            }
+
             var ficha = new OOB.Permiso.Buscar.Ficha() { IdGrupoUsuario = Sistema.Usuario.idGrupo, CodigoFuncion = funcion };
             var r01 = Sistema.MyData.Permiso_Pos(ficha);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)

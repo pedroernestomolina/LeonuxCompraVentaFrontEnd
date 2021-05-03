@@ -15,6 +15,8 @@ namespace PosOnLine.Data.Infra
 
         OOB.Resultado.FichaEntidad<OOB.Configuracion.Entidad.Ficha> Configuracion_Pos_GetFicha();
 
+        OOB.Resultado.Ficha Configuracion_Pos_Actualizar(OOB.Configuracion.Actualizar.Ficha ficha);
+
     }
 
 }

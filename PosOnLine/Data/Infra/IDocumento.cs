@@ -20,6 +20,8 @@ namespace PosOnLine.Data.Infra
         OOB.Resultado.Ficha Documento_Anular_NotaEntrega(OOB.Documento.Anular.NotaEntrega.Ficha ficha);
         OOB.Resultado.Ficha Documento_Anular_NotaCredito(OOB.Documento.Anular.NotaCredito.Ficha ficha);
         OOB.Resultado.Ficha Documento_Anular_Factura(OOB.Documento.Anular.Factura.Ficha ficha);
+        //
+        OOB.Resultado.Lista<OOB.Documento.Entidad.FichaMetodoPago> Documento_Get_MetodosPago_ByIdRecibo(string idRecibo);
 
     }
 

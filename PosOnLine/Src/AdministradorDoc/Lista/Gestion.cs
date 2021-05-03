@@ -75,6 +75,10 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                         _docAplicarNotaCredito = it;
                         return true;
                     }
+                    else 
+                    {
+                        Helpers.Msg.Error("A DOCUMENTO ANULADO NO SE PUEDE APLICAR NOTA DE CREDITO");
+                    }
                 }
                 else 
                 {

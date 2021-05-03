@@ -17,7 +17,7 @@ namespace PosOnLine.OOB.Usuario.Entidad
         public string codigo { get; set; }
         public string nombre { get; set; }
         public string nombreGrupo { get; set; }
-        public bool IsInvitado { get { return id != ""; } }
+        public bool IsInvitado { get { return id == ""; } }
 
 
         public Ficha()

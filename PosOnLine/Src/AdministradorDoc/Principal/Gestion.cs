@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -231,11 +232,62 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         private bool AnularFactura(string idDoc, string mtv)
         {
+            var _condPagoIsContado=false;
+            var _cntEfectivo = 0;
+            var _cntDivisa = 0;
+            var _cntElectronico = 0;
+            var _cntOtros = 0;
+            var _mDivisa=0.0m;
+            var _mElectronico=0.0m;
+            var _mEfectivo=0.0m;
+            var _mOtros=0.0m;
+            var _cntCambio=0;
+            var _mCambio=0.0m;
+
             var r01 = Sistema.MyData.Documento_GetById(idDoc);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
+            }
+            var metPago = new List<OOB.Documento.Entidad.FichaMetodoPago>();
+            if (r01.Entidad.CondicionPago.Trim().ToUpper() == "CONTADO") 
+            {
+                _mCambio=r01.Entidad.Cambio;
+                _cntCambio=_mCambio>0?1:0;
+                _condPagoIsContado=true;
+                if (r01.Entidad.AutoReciboCxC != "") 
+                {
+                    var r04 = Sistema.MyData.Documento_Get_MetodosPago_ByIdRecibo(r01.Entidad.AutoReciboCxC);
+                    if (r04.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r04.Mensaje);
+                        return false;
+                    }
+                    foreach (var rg in r04.ListaD) 
+                    {
+                        if (rg.descMedioPago.Trim().ToUpper() == "EFECTIVO") 
+                        {
+                            _cntEfectivo += 1;
+                            _mEfectivo += rg.montoRecibido;
+                        }
+                        else if (rg.descMedioPago.Trim().ToUpper() == "DIVISA")
+                        {
+                            _cntDivisa+= rg.cntDivisa;
+                            _mDivisa += rg.montoRecibido;
+                        }
+                        else if (rg.descMedioPago.Trim().ToUpper() == "TARJETA DEBITO")
+                        {
+                            _cntElectronico += 1;
+                            _mElectronico += rg.montoRecibido;
+                        }
+                        else 
+                        {
+                            _cntOtros += 1;
+                            _mOtros+= rg.montoRecibido;
+                        }
+                    }
+                }
             }
 
             var ficha = new OOB.Documento.Anular.Factura.Ficha()
@@ -268,6 +320,20 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
                 {
                     idResumen = Sistema.PosEnUso.idResumen,
                     monto = r01.Entidad.Total,
+                    mContado = _condPagoIsContado ? r01.Entidad.Total : 0,
+                    mCredito = _condPagoIsContado ? 0 : r01.Entidad.Total,
+                    cntContado = _condPagoIsContado ? 1 : 0,
+                    cntCredito = _condPagoIsContado ? 0 : 1,
+                    cntDivisa = _cntDivisa,
+                    cntEfectivo = _cntEfectivo,
+                    cntElectronico = _cntElectronico,
+                    cntOtros = _cntOtros,
+                    cntCambio = _cntCambio,
+                    mDivisa = _mDivisa,
+                    mEfectivo = _mEfectivo,
+                    mElectronico = _mElectronico,
+                    mOtros = _mOtros,
+                    mCambio = _mCambio,
                 },
             };
             var r03 = Sistema.MyData.Documento_Anular_Factura(ficha);

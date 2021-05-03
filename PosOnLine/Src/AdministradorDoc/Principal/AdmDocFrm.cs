@@ -218,7 +218,10 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         private void ImprimirDocumento()
         {
-            _controlador.ImprimirDocumento();
+            if (Helpers.PassWord.PassWIsOk(Sistema.FuncionAdmReimprimirDocumento))
+            {
+                _controlador.ImprimirDocumento();
+            }
             //if (_controlador.PrepararDocumento()) 
             //{
             //    printDocument1.Print();

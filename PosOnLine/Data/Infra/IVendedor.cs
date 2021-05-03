@@ -12,6 +12,7 @@ namespace PosOnLine.Data.Infra
     {
 
         OOB.Resultado.FichaEntidad<OOB.Vendedor.Entidad.Ficha> Vendedor_GetFichaById(string id);
+        OOB.Resultado.Lista<OOB.Vendedor.Entidad.Ficha> Vendedor_GetLista();
 
     }
 

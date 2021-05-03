@@ -35,13 +35,18 @@ namespace PosOnLine
         public static string FuncionPosTeclaPendienteAnular = "0816070000";
         public static string FuncionPosTeclaDescuento       = "0816080000";
         public static string FuncionPosTeclaCredito         = "0816090000";
-        public static string FuncionAdmNotaCredito          = "0816110000";
+        public static string FuncionPosElaborarNotaEntrega  = "0816130000";
         public static string FuncionAdmAnularDocumento      = "0816100000";
+        public static string FuncionAdmNotaCredito          = "0816110000";
+        public static string FuncionAdmReimprimirDocumento  = "0816120000";
 
         //METODOS DE IMPRESION DOCUMENTO
         public static Helpers.Imprimir.IDocumento ImprimirFactura;
         public static Helpers.Imprimir.IDocumento ImprimirNotaCredito;
         public static Helpers.Imprimir.IDocumento ImprimirNotaEntrega;
+
+        //
+        public static string CLAVE_ADMINISTRADOR = "71277128";
 
     }
 

@@ -182,6 +182,182 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.Lista<OOB.Sistema.MedioPago.Entidad.Ficha> Sistema_MedioPago_GetLista(OOB.Sistema.MedioPago.Lista.Filtro filtro)
+        {
+            var result = new OOB.Resultado.Lista<OOB.Sistema.MedioPago.Entidad.Ficha>();
+
+            var filtroDTO = new DtoLibPos.MedioPago.Lista.Filtro() { };
+            var r01 = MyData.MedioPago_GetLista(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst=new List<OOB.Sistema.MedioPago.Entidad.Ficha>();
+            if (r01.Lista !=null)
+            {
+                if (r01.Lista.Count>0)
+                {
+                    lst= r01.Lista.Select(s=>
+                    {
+                        var nr = new OOB.Sistema.MedioPago.Entidad.Ficha()
+                        {
+                            id = s.id,
+                            codigo = s.codigo,
+                            nombre = s.nombre,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD=lst;
+
+            return result;
+        }
+
+        public OOB.Resultado.Lista<OOB.Sistema.TipoDocumento.Entidad.Ficha> Sistema_TipoDocumento_GetLista()
+        {
+            var result = new OOB.Resultado.Lista<OOB.Sistema.TipoDocumento.Entidad.Ficha>();
+
+            var r01 = MyData.Sistema_TipoDocumento_GetLista();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst = new List<OOB.Sistema.TipoDocumento.Entidad.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Sistema.TipoDocumento.Entidad.Ficha()
+                        {
+                            autoId = s.autoId,
+                            codigo = s.codigo,
+                            nombre = s.nombre,
+                            siglas = s.siglas,
+                            signo = s.signo,
+                            tipo = s.tipo,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD = lst;
+
+            return result;
+        }
+
+        public OOB.Resultado.Lista<OOB.Sistema.SerieFiscal.Entidad.Ficha> Sistema_Serie_GetLista()
+        {
+            var result = new OOB.Resultado.Lista<OOB.Sistema.SerieFiscal.Entidad.Ficha>();
+
+            var r01 = MyData.Sistema_Serie_GetLista();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst = new List<OOB.Sistema.SerieFiscal.Entidad.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Sistema.SerieFiscal.Entidad.Ficha()
+                        {
+                            Auto = s.Auto,
+                            Control = s.Control,
+                            Serie = s.Serie,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD = lst;
+
+            return result;
+        }
+
+        public OOB.Resultado.Lista<OOB.Sistema.Transporte.Entidad.Ficha> Sistema_Transporte_GetLista()
+        {
+            var result = new OOB.Resultado.Lista<OOB.Sistema.Transporte.Entidad.Ficha>();
+
+            var filtroDTO = new DtoLibPos.Transporte.Lista.Filtro();
+            var r01 = MyData.Transporte_GetLista(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst = new List<OOB.Sistema.Transporte.Entidad.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Sistema.Transporte.Entidad.Ficha()
+                        {
+                            id = s.id,
+                            codigo = s.codigo,
+                            nombre = s.nombre,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD = lst;
+
+            return result;
+        }
+
+        public OOB.Resultado.Lista<OOB.Sistema.Cobrador.Entidad.Ficha> Sistema_Cobrador_GetLista()
+        {
+            var result = new OOB.Resultado.Lista<OOB.Sistema.Cobrador.Entidad.Ficha>();
+
+            var filtroDTO = new DtoLibPos.Cobrador.Lista.Filtro();
+            var r01 = MyData.Cobrador_GetLista(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst = new List<OOB.Sistema.Cobrador.Entidad.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Sistema.Cobrador.Entidad.Ficha()
+                        {
+                            id = s.id,
+                            codigo = s.codigo,
+                            nombre = s.nombre,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD = lst;
+
+            return result;
+        }
+
     }
 
 }

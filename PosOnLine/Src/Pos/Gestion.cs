@@ -17,6 +17,7 @@ namespace PosOnLine.Src.Pos
 
         private string _claveAcceso;
         private decimal _tasaCambioActual;
+        private string _precioManejar; 
         private OOB.Deposito.Entidad.Ficha _depositoAsignado;
         private OOB.Sucursal.Entidad.Ficha _sucursalAsignada;
         private OOB.Concepto.Entidad.Ficha _conceptoVenta;
@@ -86,9 +87,10 @@ namespace PosOnLine.Src.Pos
 
         public Gestion()
         {
+            _precioManejar = "";
             _docAplicarNotaCredito = null;
             _modoFuncion = EnumModoFuncion.Facturacion;
-            _permitirBusquedaPorDescripcion = true;
+            _permitirBusquedaPorDescripcion = false;
 
             _gestionListar = new Producto.Lista.Gestion();
             _gestionBuscar = new Producto.Buscar.Gestion();
@@ -277,6 +279,7 @@ namespace PosOnLine.Src.Pos
                 return false;
             }
 
+            _permitirBusquedaPorDescripcion = Sistema.ConfiguracionActual.BusquedaPorDescripcion_Activa;
             _tasaCambioActual = r01.Entidad;
             _depositoAsignado = r02.Entidad;
             _conceptoVenta = r02_1.Entidad;
@@ -301,13 +304,25 @@ namespace PosOnLine.Src.Pos
             _claveAcceso = r02_I.Entidad;
             _conceptoSalida = r02_J.Entidad;
 
+
+            switch (Sistema.ConfiguracionActual.EnumModoPrecio) 
+            {
+                case   OOB.Configuracion.Entidad.Enumerados.enumModoPrecio.PorTipoNegocio:
+                    _precioManejar = _sucursalAsignada.idPrecioManejar;
+                    break;
+                case OOB.Configuracion.Entidad.Enumerados.enumModoPrecio.PorPrecioFijo:
+                    _precioManejar = Sistema.ConfiguracionActual.idPrecioManejar;
+                    break;
+            }
+
+
             Helpers.PassWord.setClave(_claveAcceso);
             _gestionBuscar.setDepositoAsignado(_depositoAsignado);
-            _gestionBuscar.setTarifaPrecio(Sistema.ConfiguracionActual.idPrecioManejar);
-            _gestionConsultor.setTarifaPrecio(Sistema.ConfiguracionActual.idPrecioManejar);
+            _gestionBuscar.setTarifaPrecio(_precioManejar);
+            _gestionConsultor.setTarifaPrecio(_precioManejar);
             _gestionItem.Inicializar();
             _gestionItem.setDepositoAsignado(_depositoAsignado);
-            _gestionItem.setTarifaPrecio(Sistema.ConfiguracionActual.idPrecioManejar);
+            _gestionItem.setTarifaPrecio(_precioManejar);
             _gestionItem.setValidarExistencia(Sistema.ConfiguracionActual.ValidarExistencia_Activa);
             if (!IsNotaCredito)
             {
@@ -633,7 +648,7 @@ namespace PosOnLine.Src.Pos
                 Situacion = "Procesado",
                 Signo = _tipoDocumentoVenta.signo,
                 Serie = _serieFactura.Serie,
-                Tarifa = Sistema.ConfiguracionActual.idPrecioManejar,
+                Tarifa = _precioManejar,
                 TipoRemision = "",
                 DocumentoRemision = "",
                 AutoRemision = "",
@@ -727,7 +742,7 @@ namespace PosOnLine.Src.Pos
                     CostoPromedioUnd = s.Ficha.costoPromedioUnd,
                     CostoCompra = s.Ficha.costoCompra,
                     EstatusChecked = "1",
-                    Tarifa = Sistema.ConfiguracionActual.idPrecioManejar,
+                    Tarifa = _precioManejar,
                     TotalDescuento = 0.0m,
                     CodigoVendedor = _vendedorAsignado.codigo,
                     AutoVendedor = _vendedorAsignado.id,
@@ -907,7 +922,7 @@ namespace PosOnLine.Src.Pos
                             autoMedioPago = _medioPagoEfectivo.id;
                             codigoMedioPago = _medioPagoEfectivo.codigo;
                             descMedioPago = _medioPagoEfectivo.nombre;
-                            PMontoEfectivo = montoRecibe;
+                            PMontoEfectivo += montoRecibe;
                             CntEfectivo += 1;
                             break;
                         case Pago.Procesar.Enumerados.ModoPago.Divisa:
@@ -917,26 +932,30 @@ namespace PosOnLine.Src.Pos
                             descMedioPago = _medioPagoDivisa.nombre;
                             lote = it.Cantidad.ToString("n2");
                             referencia = TasaCambioActual.ToString("n0").Replace(".","");
-                            PMontoDivisa= montoRecibe;
+                            PMontoDivisa+= montoRecibe;
                             CntDivisa = (int)it.Cantidad;
                             break;
                         case Pago.Procesar.Enumerados.ModoPago.Electronico:
-                            autoMedioPago =  _medioPagoElectronico.id;
-                            codigoMedioPago = _medioPagoElectronico.codigo;
-                            descMedioPago = _medioPagoElectronico.nombre;
-                            lote = it.Lote;
-                            referencia = it.Referencia;
-                            PMontoElectronico= montoRecibe;
-                            CntElectronico += 1;
-                            break;
-                        case Pago.Procesar.Enumerados.ModoPago.Otro:
-                            autoMedioPago = _medioPagoOtro.id;
-                            codigoMedioPago = _medioPagoOtro.codigo;
-                            descMedioPago = _medioPagoOtro.nombre;
-                            lote = it.Lote;
-                            referencia = it.Referencia;
-                            PMontoOtro= montoRecibe;
-                            CntOtro+= 1;
+                            if (it.Id != 4) //DEBITO
+                            {
+                                autoMedioPago = _medioPagoElectronico.id;
+                                codigoMedioPago = _medioPagoElectronico.codigo;
+                                descMedioPago = _medioPagoElectronico.nombre;
+                                lote = it.Lote;
+                                referencia = it.Referencia;
+                                PMontoElectronico += montoRecibe;
+                                CntElectronico += 1;
+                            }
+                            else //OTROS
+                            {
+                                autoMedioPago = _medioPagoOtro.id;
+                                codigoMedioPago = _medioPagoOtro.codigo;
+                                descMedioPago = _medioPagoOtro.nombre;
+                                lote = it.Lote;
+                                referencia = it.Referencia;
+                                PMontoOtro += montoRecibe;
+                                CntOtro += 1;
+                            }
                             break;
                     }
 
@@ -999,6 +1018,9 @@ namespace PosOnLine.Src.Pos
                 cntNte = 0,
                 mAnu = 0.0m,
                 mNte = 0.0m,
+                //
+                mCambio = montoCambio,
+                cntCambio = montoCambio > 0 ? 1 : 0,
             };
             fichaOOB.SerieFiscal = new OOB.Documento.Agregar.Factura.FichaSerie() { auto = _serieFactura.Auto };
 
@@ -1027,7 +1049,7 @@ namespace PosOnLine.Src.Pos
                 {
                     autoDeposito = _depositoAsignado.id,
                     cadena = "",
-                    idPrecioManejar = Sistema.ConfiguracionActual.idPrecioManejar,
+                    idPrecioManejar = _precioManejar,
                     isPorPlu = true,
                 };
                 var r04 = Sistema.MyData.Producto_GetLista(filtro);
@@ -1172,7 +1194,7 @@ namespace PosOnLine.Src.Pos
                 Situacion = "Procesado",
                 Signo = _tipoDocumentoDevVenta.signo,
                 Serie = _serieNotaCredito.Serie,
-                Tarifa = Sistema.ConfiguracionActual.idPrecioManejar,
+                Tarifa = _precioManejar,
                 TipoRemision = "01",
                 DocumentoRemision = _docAplicarNotaCredito.DocumentoNro,
                 AutoRemision = _docAplicarNotaCredito.Auto,
@@ -1266,7 +1288,7 @@ namespace PosOnLine.Src.Pos
                     CostoPromedioUnd = s.Ficha.costoPromedioUnd,
                     CostoCompra = s.Ficha.costoCompra,
                     EstatusChecked = "1",
-                    Tarifa = Sistema.ConfiguracionActual.idPrecioManejar,
+                    Tarifa = _precioManejar,
                     TotalDescuento = 0.0m,
                     CodigoVendedor = _vendedorAsignado.codigo,
                     AutoVendedor = _vendedorAsignado.id,
@@ -1376,8 +1398,8 @@ namespace PosOnLine.Src.Pos
                 mDivisa = PMontoDivisa,
                 mElectronico = PMontoElectronico,
                 mOtros = PMontoOtro,
-                cntDocContado = isCredito ? 0 : 1,
-                cntDocCredito = isCredito ? 1 : 0,
+                cntDocContado = 0,
+                cntDocCredito = 0,
                 mContado = 0,
                 mCredito = 0,
                 //
@@ -1404,13 +1426,16 @@ namespace PosOnLine.Src.Pos
         {
             if (!IsNotaCredito) 
             {
-                if (_modoFuncion == EnumModoFuncion.Facturacion)
+                if (PassWIsOk(Sistema.FuncionPosElaborarNotaEntrega))
                 {
-                    _modoFuncion = EnumModoFuncion.NotaEntrega;
-                }
-                else 
-                {
-                    _modoFuncion = EnumModoFuncion.Facturacion;
+                    if (_modoFuncion == EnumModoFuncion.Facturacion)
+                    {
+                        _modoFuncion = EnumModoFuncion.NotaEntrega;
+                    }
+                    else
+                    {
+                        _modoFuncion = EnumModoFuncion.Facturacion;
+                    }
                 }
             }
         }
@@ -1518,7 +1543,7 @@ namespace PosOnLine.Src.Pos
                 Situacion = "Procesado",
                 Signo = _tipoDocumentoNotaEntrega.signo ,
                 Serie = _serieNotaEntrega.Serie,
-                Tarifa = Sistema.ConfiguracionActual.idPrecioManejar,
+                Tarifa = _precioManejar,
                 TipoRemision = "",
                 DocumentoRemision = "",
                 AutoRemision = "",
@@ -1612,7 +1637,7 @@ namespace PosOnLine.Src.Pos
                     CostoPromedioUnd = s.Ficha.costoPromedioUnd,
                     CostoCompra = s.Ficha.costoCompra,
                     EstatusChecked = "1",
-                    Tarifa = Sistema.ConfiguracionActual.idPrecioManejar,
+                    Tarifa = _precioManejar,
                     TotalDescuento = 0.0m,
                     CodigoVendedor = _vendedorAsignado.codigo,
                     AutoVendedor = _vendedorAsignado.id,

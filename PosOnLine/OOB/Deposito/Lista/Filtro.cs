@@ -10,6 +10,15 @@ namespace PosOnLine.OOB.Deposito.Lista
     
     public class Filtro
     {
+
+        public string PorCodigoSuc { get; set; }
+
+
+        public Filtro()
+        {
+            PorCodigoSuc = "";
+        }
+
     }
 
 }

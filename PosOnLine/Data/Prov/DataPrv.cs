@@ -39,6 +39,21 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.Ficha Test()
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var r01 = MyData.Test();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
     }
 
 }

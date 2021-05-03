@@ -14,13 +14,17 @@ namespace PosOnLine.OOB.Sucursal.Entidad
         public string id { get; set; }
         public string codigo { get; set; }
         public string nombre { get; set; }
+        public string nombreGrupo { get; set; }
+        public string idPrecioManejar { get; set; }
 
 
         public Ficha()
         {
             id = "";
+            idPrecioManejar = "";
             codigo = "";
             nombre = "";
+            nombreGrupo = "";
         }
 
     }

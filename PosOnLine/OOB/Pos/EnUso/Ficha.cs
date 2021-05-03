@@ -24,6 +24,16 @@ namespace PosOnLine.OOB.Pos.EnUso
 
         public Ficha()
         {
+            Inicializa();
+        }
+
+        public void Cerrar()
+        {
+            Inicializa();
+        }
+
+        private void Inicializa()
+        {
             id = -1;
             idAutoArqueoCierre = "";
             idResumen = -1;

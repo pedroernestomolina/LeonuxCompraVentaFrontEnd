@@ -82,7 +82,7 @@ namespace ModInventario.Administrador
 
             var c5A = new DataGridViewTextBoxColumn();
             c5A.DataPropertyName = "Concepto";
-            c5A.HeaderText = "Cocnepto";
+            c5A.HeaderText = "Concepto";
             c5A.Visible = true;
             c5A.MinimumWidth = 120;
             c5A.HeaderCell.Style.Font = f;
@@ -133,6 +133,23 @@ namespace ModInventario.Administrador
             c8A.HeaderCell.Style.Font = f;
             c8A.DefaultCellStyle.Font = f1;
 
+            var c9 = new DataGridViewTextBoxColumn();
+            c9.DataPropertyName = "DepOrigen";
+            c9.HeaderText = "Origen";
+            c9.Visible = true;
+            c9.Width = 120;
+            c9.HeaderCell.Style.Font = f;
+            c9.DefaultCellStyle.Font = f1;
+
+            var cA = new DataGridViewTextBoxColumn();
+            cA.DataPropertyName = "DepDestino";
+            cA.HeaderText = "Destino";
+            cA.Visible = true;
+            cA.Width = 120;
+            cA.HeaderCell.Style.Font = f;
+            cA.DefaultCellStyle.Font = f1;
+
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
@@ -143,6 +160,8 @@ namespace ModInventario.Administrador
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
+            DGV.Columns.Add(c9);
+            DGV.Columns.Add(cA);
             DGV.Columns.Add(c8A);
         }
 

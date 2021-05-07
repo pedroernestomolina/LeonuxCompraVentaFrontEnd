@@ -6,27 +6,27 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.83952cm</Width>
+              <Width>2.47545cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.09808cm</Width>
+              <Width>1.71296cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.89929cm</Width>
+              <Width>1.51417cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.2212cm</Width>
+              <Width>1.83608cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.36037cm</Width>
+              <Width>1.97525cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.2212cm</Width>
+              <Width>1.83608cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.97042cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -72,7 +72,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Existencia</Value>
+                              <Value>Exist</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -107,7 +107,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Costo/Und</Value>
+                              <Value>Costo/</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Und</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -142,7 +155,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Costo/Monto</Value>
+                              <Value>Costo/</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Monto</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -177,7 +203,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Precio/Und</Value>
+                              <Value>Precio/</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Und</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -212,7 +251,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Venta/Mont</Value>
+                              <Value>Venta/</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Mont</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -809,7 +861,7 @@
                             <TextRun>
                               <Value>=Fields!nombreDep.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2228,7 +2280,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.64405cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox34">
                     <CanGrow>true</CanGrow>
@@ -2237,7 +2289,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>departamento</Value>
+                            <Value>Departamento</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -2266,7 +2318,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.11488cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox74">
                         <CanGrow>true</CanGrow>
@@ -2275,7 +2327,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>grupo</Value>
+                                <Value>Grupo</Value>
                                 <Style>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -2304,7 +2356,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox43">
                             <CanGrow>true</CanGrow>
@@ -2360,7 +2412,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.64405cm</Size>
                 <CellContents>
                   <Textbox Name="departamento1">
                     <CanGrow>true</CanGrow>
@@ -2371,7 +2423,7 @@
                           <TextRun>
                             <Value>=Fields!departamento.Value</Value>
                             <Style>
-                              <FontSize>8pt</FontSize>
+                              <FontSize>6pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -2396,7 +2448,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.11488cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox75">
                         <CanGrow>true</CanGrow>
@@ -2432,7 +2484,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox67">
                             <CanGrow>true</CanGrow>
@@ -2480,7 +2532,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.11488cm</Size>
                     <CellContents>
                       <Textbox Name="grupo1">
                         <CanGrow>true</CanGrow>
@@ -2491,7 +2543,7 @@
                               <TextRun>
                                 <Value>=Fields!grupo.Value</Value>
                                 <Style>
-                                  <FontSize>8pt</FontSize>
+                                  <FontSize>6pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
                               </TextRun>
@@ -2516,7 +2568,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox93">
                             <CanGrow>true</CanGrow>
@@ -2564,7 +2616,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>6.12858cm</Size>
+                            <Size>4.23534cm</Size>
                             <CellContents>
                               <Textbox Name="nombrePrd1">
                                 <CanGrow>true</CanGrow>
@@ -2575,7 +2627,7 @@
                                       <TextRun>
                                         <Value>=Fields!nombrePrd.Value</Value>
                                         <Style>
-                                          <FontSize>8pt</FontSize>
+                                          <FontSize>6pt</FontSize>
                                           <FontWeight>Bold</FontWeight>
                                         </Style>
                                       </TextRun>
@@ -2618,7 +2670,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox203">
                             <CanGrow>true</CanGrow>
@@ -2657,7 +2709,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.11488cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox100">
                         <CanGrow>true</CanGrow>
@@ -2693,7 +2745,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox101">
                             <CanGrow>true</CanGrow>
@@ -2738,7 +2790,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.64405cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox46">
                     <CanGrow>true</CanGrow>
@@ -2776,7 +2828,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.11488cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox80">
                         <CanGrow>true</CanGrow>
@@ -2814,7 +2866,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox37">
                             <CanGrow>true</CanGrow>
@@ -2857,7 +2909,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.64405cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox49">
                     <CanGrow>true</CanGrow>
@@ -2893,7 +2945,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.11488cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox81">
                         <CanGrow>true</CanGrow>
@@ -2929,7 +2981,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>6.12858cm</Size>
+                        <Size>4.23534cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox19">
                             <CanGrow>true</CanGrow>
@@ -2972,8 +3024,8 @@
         </TablixRowHierarchy>
         <DataSetName>MaestroExistencia</DataSetName>
         <Left>0.28787cm</Left>
-        <Height>6.6cm</Height>
-        <Width>25.76824cm</Width>
+        <Height>6.97042cm</Height>
+        <Width>20.34428cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2984,7 +3036,7 @@
     <Height>3.30709in</Height>
     <Style />
   </Body>
-  <Width>10.46131in</Width>
+  <Width>8.33123in</Width>
   <Page>
     <PageHeader>
       <Height>2.89292cm</Height>
@@ -3009,7 +3061,7 @@
           </Paragraphs>
           <rd:DefaultName>ExecutionTime</rd:DefaultName>
           <Top>0.29076cm</Top>
-          <Left>15.87972cm</Left>
+          <Left>15.45576cm</Left>
           <Height>0.49417cm</Height>
           <Width>5.17639cm</Width>
           <Style>
@@ -3040,7 +3092,7 @@
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>0.96132cm</Top>
-          <Left>20.38173cm</Left>
+          <Left>19.95777cm</Left>
           <Height>0.6cm</Height>
           <Width>0.67438cm</Width>
           <ZIndex>1</ZIndex>
@@ -3072,7 +3124,7 @@
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
           <Top>0.96132cm</Top>
-          <Left>18.355cm</Left>
+          <Left>17.93104cm</Left>
           <Height>0.6cm</Height>
           <Width>0.62146cm</Width>
           <ZIndex>2</ZIndex>
@@ -3106,7 +3158,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
           <Top>0.96132cm</Top>
-          <Left>16.83222cm</Left>
+          <Left>16.40826cm</Left>
           <Height>0.6cm</Height>
           <Width>1.41521cm</Width>
           <ZIndex>3</ZIndex>
@@ -3140,7 +3192,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
           <Top>0.96132cm</Top>
-          <Left>19.31787cm</Left>
+          <Left>18.89391cm</Left>
           <Height>0.6cm</Height>
           <Width>0.92275cm</Width>
           <ZIndex>4</ZIndex>
@@ -3190,7 +3242,7 @@
         <Line Name="Line1">
           <Top>2.78709cm</Top>
           <Height>0cm</Height>
-          <Width>26.05611cm</Width>
+          <Width>20.63215cm</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -3280,8 +3332,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>21.59cm</PageHeight>
-    <PageWidth>27.94cm</PageWidth>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
     <LeftMargin>0cm</LeftMargin>
     <RightMargin>0cm</RightMargin>
     <TopMargin>0cm</TopMargin>

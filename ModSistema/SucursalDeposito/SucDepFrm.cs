@@ -52,7 +52,7 @@ namespace ModSistema.SucursalDeposito
             c2.DataPropertyName = "Codigo";
             c2.HeaderText = "Cod/Suc";
             c2.Visible = true;
-            c2.Width = 120;
+            c2.Width = 80;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 
@@ -60,16 +60,15 @@ namespace ModSistema.SucursalDeposito
             c3.DataPropertyName = "nombreGrupoSucursal";
             c3.HeaderText = "Grupo";
             c3.Visible = true;
-            c3.Width = 140;
+            c3.Width = 100;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
-            c3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "nombreDepositoPrincipal";
             c4.HeaderText = "Deposito Principal";
             c4.Visible = true;
-            c4.Width = 140;
+            c4.MinimumWidth = 160;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
             c4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

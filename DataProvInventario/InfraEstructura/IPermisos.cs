@@ -32,20 +32,25 @@ namespace DataProvInventario.InfraEstructura
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearGrupo(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarGrupo(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarGrupo(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearMarca(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarMarca(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarMarca(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearUnidadEmpaque(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarUnidadEmpaque(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarUnidadEmpaque(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearConceptoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarConceptoInventario(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarConceptoInventario(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoCargoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoDescargoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoTrasladoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoAjusteInventario(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoTrasladoPorDevolucion(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_AdministradorMovimientoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_AdmAnularMovimientoInventario(string autoGrupoUsuario);

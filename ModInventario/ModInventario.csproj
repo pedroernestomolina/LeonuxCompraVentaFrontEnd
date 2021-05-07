@@ -333,6 +333,15 @@
     <Compile Include="Movimiento\MvFrm.Designer.cs">
       <DependentUpon>MvFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Movimiento\TrasladoDevolucion\EntradaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimiento\TrasladoDevolucion\EntradaFrm.Designer.cs">
+      <DependentUpon>EntradaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimiento\TrasladoDevolucion\Entrada\Gestion.cs" />
+    <Compile Include="Movimiento\TrasladoDevolucion\Gestion.cs" />
+    <Compile Include="Movimiento\TrasladoDevolucion\GestionDetalle.cs" />
     <Compile Include="Movimiento\TrasladoEntreSucursal\EntradaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -501,6 +510,13 @@
     </Compile>
     <Compile Include="Producto\QR\QRFrm.Designer.cs">
       <DependentUpon>QRFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\VisualizarFicha\Gestion.cs" />
+    <Compile Include="Producto\VisualizarFicha\VisualizarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\VisualizarFicha\VisualizarFrm.Designer.cs">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -727,6 +743,9 @@
     <EmbeddedResource Include="Movimiento\MvFrm.resx">
       <DependentUpon>MvFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Movimiento\TrasladoDevolucion\EntradaFrm.resx">
+      <DependentUpon>EntradaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\TrasladoEntreSucursal\EntradaFrm.resx">
       <DependentUpon>EntradaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -786,6 +805,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\QR\QRFrm.resx">
       <DependentUpon>QRFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\VisualizarFicha\VisualizarFrm.resx">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

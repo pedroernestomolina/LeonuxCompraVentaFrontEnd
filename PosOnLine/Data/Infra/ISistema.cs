@@ -30,6 +30,8 @@ namespace PosOnLine.Data.Infra
 
         OOB.Resultado.FichaEntidad<string> Sistema_ClaveAcceso_GetByIdNivel(int id);
 
+        OOB.Resultado.FichaEntidad<OOB.Sistema.Empresa.Ficha> Sistema_Empresa_GetFicha();
+
     }
 
 }

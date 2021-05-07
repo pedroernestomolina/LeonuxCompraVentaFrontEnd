@@ -47,6 +47,7 @@
             this.MenuItem_Archivo_Salida = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Configuracion_Sistema = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItem_Configuracion_Deposito = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Herramientas_TestBD = new System.Windows.Forms.ToolStripMenuItem();
             this.testFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,6 +116,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
             this.L_SUCURSAL_ID = new System.Windows.Forms.Label();
+            this.MenuItem_Configuracion_Deposito_Viveres = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -263,7 +265,7 @@
             // L_BD_NOMBRE
             // 
             this.L_BD_NOMBRE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_BD_NOMBRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_BD_NOMBRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_BD_NOMBRE.ForeColor = System.Drawing.Color.Yellow;
             this.L_BD_NOMBRE.Location = new System.Drawing.Point(2, 2);
             this.L_BD_NOMBRE.Name = "L_BD_NOMBRE";
@@ -308,7 +310,7 @@
             // L_BD_RUTA
             // 
             this.L_BD_RUTA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_BD_RUTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_BD_RUTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_BD_RUTA.ForeColor = System.Drawing.Color.Yellow;
             this.L_BD_RUTA.Location = new System.Drawing.Point(2, 2);
             this.L_BD_RUTA.Name = "L_BD_RUTA";
@@ -375,7 +377,9 @@
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItem_Configuracion_Sistema});
+            this.MenuItem_Configuracion_Sistema,
+            this.MenuItem_Configuracion_Deposito,
+            this.MenuItem_Configuracion_Deposito_Viveres});
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuracionToolStripMenuItem.Text = "Configuración";
@@ -383,9 +387,16 @@
             // MenuItem_Configuracion_Sistema
             // 
             this.MenuItem_Configuracion_Sistema.Name = "MenuItem_Configuracion_Sistema";
-            this.MenuItem_Configuracion_Sistema.Size = new System.Drawing.Size(152, 22);
+            this.MenuItem_Configuracion_Sistema.Size = new System.Drawing.Size(221, 22);
             this.MenuItem_Configuracion_Sistema.Text = "Sistema";
             this.MenuItem_Configuracion_Sistema.Click += new System.EventHandler(this.MenuItem_Configuracion_Sistema_Click);
+            // 
+            // MenuItem_Configuracion_Deposito
+            // 
+            this.MenuItem_Configuracion_Deposito.Name = "MenuItem_Configuracion_Deposito";
+            this.MenuItem_Configuracion_Deposito.Size = new System.Drawing.Size(221, 22);
+            this.MenuItem_Configuracion_Deposito.Text = "Configurar Deposito Frio";
+            this.MenuItem_Configuracion_Deposito.Click += new System.EventHandler(this.MenuItem_Configuracion_Deposito_Click);
             // 
             // herramientasToolStripMenuItem
             // 
@@ -1208,6 +1219,13 @@
             this.L_SUCURSAL_ID.Text = "label5";
             this.L_SUCURSAL_ID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // MenuItem_Configuracion_Deposito_Viveres
+            // 
+            this.MenuItem_Configuracion_Deposito_Viveres.Name = "MenuItem_Configuracion_Deposito_Viveres";
+            this.MenuItem_Configuracion_Deposito_Viveres.Size = new System.Drawing.Size(221, 22);
+            this.MenuItem_Configuracion_Deposito_Viveres.Text = "Configurar Deposito Viveres";
+            this.MenuItem_Configuracion_Deposito_Viveres.Click += new System.EventHandler(this.MenuItem_Configuracion_Deposito_Viveres_Click);
+            // 
             // PrincipalFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1368,6 +1386,8 @@
         private System.Windows.Forms.Label L_BD_NOMBRE;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label L_BD_RUTA;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Configuracion_Deposito;
+        private System.Windows.Forms.ToolStripMenuItem MenuItem_Configuracion_Deposito_Viveres;
 
     }
 }

@@ -140,6 +140,12 @@ namespace ModInventario.Administrador.Movimiento
                     filtro.IdDepOrigen = _gestionFiltros.DataFiltrar.depOrigen.auto;
                     xfiltros += ", Dep/Origen: " + _gestionFiltros.DataFiltrar.depOrigen.nombre;
                 }
+                if (_gestionFiltros.DataFiltrar.concepto != null)
+                {
+                    filtro.IdConcepto = _gestionFiltros.DataFiltrar.concepto.auto;
+                    xfiltros += ", Concepto: " + _gestionFiltros.DataFiltrar.concepto.nombre;
+                }
+
                 if (_gestionFiltros.DataFiltrar.estatus != null)
                 {
                     filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo;

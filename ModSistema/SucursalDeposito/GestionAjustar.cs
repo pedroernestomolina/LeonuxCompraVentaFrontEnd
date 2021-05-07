@@ -79,7 +79,7 @@ namespace ModSistema.SucursalDeposito
                 return false;
             }
             lDeposito.Clear();
-            lDeposito.AddRange(r02.Lista);
+            lDeposito.AddRange(r02.Lista.OrderBy(o=>o.nombre).ToList());
 
             return rt;
         }

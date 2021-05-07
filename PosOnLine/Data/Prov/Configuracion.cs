@@ -134,7 +134,37 @@ namespace PosOnLine.Data.Prov
 
             return result;
         }
-        
+
+        public OOB.Resultado.Ficha Configuracion_Pos_CambioDepositoSucursalFrio()
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var r01 = MyData.Configuracion_Pos_CambioDepositoSucursalFrio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        public OOB.Resultado.Ficha Configuracion_Pos_CambioDepositoSucursalViveres()
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var r01 = MyData.Configuracion_Pos_CambioDepositoSucursalViveres();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
     }
 
 }

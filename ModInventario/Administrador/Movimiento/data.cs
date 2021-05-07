@@ -23,6 +23,8 @@ namespace ModInventario.Administrador.Movimiento
         public string Situacion { get { return rg.docSituacion ; } }
         public bool IsAnulado { get { return rg.isDocAnulado; } }
         public string SRenglones { get { return rg.docRenglones.ToString(); } }
+        public string DepOrigen { get { return rg.depositoOrigen; } }
+        public string DepDestino { get { return rg.depositoDestino; } }
         public string STipoDoc
         { 
             get 

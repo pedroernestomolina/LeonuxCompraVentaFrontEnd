@@ -1003,13 +1003,13 @@ namespace DataProvInventario.Data
                 var s=r01.Entidad;
                 var id = new OOB.LibInventario.Producto.Data.Identificacion()
                 {
-                    AdmPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa) s.AdmPorDivisa,
+                    AdmPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)s.AdmPorDivisa,
                     advertencia = s.advertencia,
                     auto = s.auto,
                     autoDepartamento = s.autoDepartamento,
                     autoGrupo = s.autoGrupo,
                     autoMarca = s.autoMarca,
-                    categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria) s.categoria,
+                    categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria)s.categoria,
                     codigo = s.codigo,
                     codigoDepartamento = s.codigoDepartamento,
                     codigoGrupo = s.codigoGrupo,
@@ -1019,7 +1019,7 @@ namespace DataProvInventario.Data
                     departamento = s.departamento,
                     descripcion = s.descripcion,
                     empaqueCompra = s.empaqueCompra,
-                    estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus) s.estatus,
+                    estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)s.estatus,
                     fechaAlta = s.fechaAlta,
                     fechaBaja = s.fechaBaja,
                     fechaUltActualizacion = s.fechaUltActualizacion,
@@ -1028,12 +1028,23 @@ namespace DataProvInventario.Data
                     modelo = s.modelo,
                     nombre = s.nombre,
                     nombreTasaIva = s.nombreTasaIva,
-                    origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen) s.origen,
+                    origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen)s.origen,
                     presentacion = s.presentacion,
                     referencia = s.referencia,
                     tasaIva = s.tasaIva,
                     tipoABC = s.tipoABC,
-                    activarCatalogo= (OOB.LibInventario.Producto.Enumerados.EnumCatalogo) s.activarCatalogo,
+                    activarCatalogo = (OOB.LibInventario.Producto.Enumerados.EnumCatalogo)s.activarCatalogo,
+                    estatusPesado = s.estatusPesado,
+                    plu = s.plu,
+                    diasEmpaque = s.diasEmpaque,
+                    codAlterno = s.codAlterno.Select(ss =>
+                    {
+                        var nr = new OOB.LibInventario.Producto.Data.CodAlterno()
+                        {
+                            codigo = ss.codigo,
+                        };
+                        return nr;
+                    }).ToList(),
                 };
                 rt.Entidad = id;
             }

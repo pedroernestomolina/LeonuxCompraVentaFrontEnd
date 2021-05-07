@@ -53,7 +53,7 @@ namespace ModInventario.Maestros
         public void Agregar(OOB.LibInventario.Concepto.Ficha ficha)
         {
             blLista.Add(new data(ficha));
-            bsLista.CurrencyManager.Refresh();
+            ActualizarLista();
         }
 
         public void ActualizarItem(OOB.LibInventario.Concepto.Ficha ficha)
@@ -77,7 +77,7 @@ namespace ModInventario.Maestros
         public void Agregar(OOB.LibInventario.Departamento.Ficha ficha)
         {
             blLista.Add(new data(ficha));
-            bsLista.CurrencyManager.Refresh();
+            ActualizarLista();
         }
 
         public void ActualizarItem(OOB.LibInventario.Departamento.Ficha ficha)
@@ -109,7 +109,7 @@ namespace ModInventario.Maestros
         public void Agregar(OOB.LibInventario.Grupo.Ficha ficha)
         {
             blLista.Add(new data(ficha));
-            bsLista.CurrencyManager.Refresh();
+            ActualizarLista();
         }
         
         public void setLista(List<OOB.LibInventario.Marca.Ficha> list)
@@ -133,7 +133,7 @@ namespace ModInventario.Maestros
         public void Agregar(OOB.LibInventario.Marca.Ficha ficha)
         {
             blLista.Add(new data(ficha));
-            bsLista.CurrencyManager.Refresh();
+            ActualizarLista();
         }
 
         public void setLista(List<OOB.LibInventario.EmpaqueMedida.Ficha> list)
@@ -157,11 +157,17 @@ namespace ModInventario.Maestros
         public void Agregar(OOB.LibInventario.EmpaqueMedida.Ficha ficha)
         {
             blLista.Add(new data(ficha));
-            bsLista.CurrencyManager.Refresh();
+            ActualizarLista();
         }
 
         public void ActualizarLista()
         {
+            var l = blLista.OrderBy(o => o.descripcion).ToList();
+            blLista.Clear();
+            foreach (var r in l)
+            {
+                blLista.Add(r);
+            }
             bsLista.CurrencyManager.Refresh();
         }
 

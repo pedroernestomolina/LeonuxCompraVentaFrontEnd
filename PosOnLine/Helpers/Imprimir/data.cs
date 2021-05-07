@@ -16,12 +16,14 @@ namespace PosOnLine.Helpers.Imprimir
             public string Nombre { get; set; }
             public string Direccion { get; set; }
             public string CiRif { get; set; }
+            public string Telefonos { get; set; }
 
             public Negocio()
             {
                 Nombre = "";
                 Direccion = "";
                 CiRif = "";
+                Telefonos = "";
             }
         }
 
@@ -42,6 +44,13 @@ namespace PosOnLine.Helpers.Imprimir
             public string CiRifCli { get; set; }
             public string CodigoCli { get; set; }
 
+            public decimal FactorCambio { get; set; }
+            public decimal SubTotal { get; set; }
+            public decimal Descuento { get; set; }
+            public decimal Total { get; set; }
+            public decimal TotalDivisa { get; set; }
+
+
             public Encabezado()
             {
                 NombreCli = "";
@@ -58,16 +67,45 @@ namespace PosOnLine.Helpers.Imprimir
                 DocumentoNombre = "";
                 DocumentoNro = "";
                 DocumentoSerie = "";
+
+                FactorCambio = 0.0m;
+                SubTotal = 0.0m;
+                Descuento = 0.0m;
+                Total = 0.0m;
+                TotalDivisa = 0.0m;
             }
         }
 
         public class Item
         {
             public string NombrePrd { get; set; }
+            public string CodigoPrd { get; set; }
+            public decimal Cantidad { get; set; }
+            public string Empaque { get; set; }
+            public int Contenido { get; set; }
+            public string DepositoCodigo { get; set; }
+            public string DepositoDesc { get; set; }
+            public decimal Precio { get; set; }
+            public decimal PrecioDivisa { get; set; }
+            public decimal Importe { get; set; }
+            public decimal ImporteDivisa { get; set; }
+            public decimal TotalUnd { get; set; }
+
 
             public Item()
             {
                 NombrePrd = "";
+                CodigoPrd = "";
+                Cantidad = 0.0m;
+                Empaque = "";
+                Contenido = 0;
+                DepositoCodigo = "";
+                DepositoDesc = "";
+                Precio = 0.0m;
+                PrecioDivisa = 0.0m;
+                Importe = 0.0m;
+                ImporteDivisa = 0.0m;
+                TotalUnd = 0.0m;
             }
         }
 

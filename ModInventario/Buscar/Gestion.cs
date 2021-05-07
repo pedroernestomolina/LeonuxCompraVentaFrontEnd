@@ -29,6 +29,7 @@ namespace ModInventario.Buscar
         private OOB.LibInventario.Producto.Filtro _filtros;
         private Producto.Imagen.Gestion _gestionImagen;
         private Producto.Proveedor.Gestion _gestionProveedor;
+        private Producto.VisualizarFicha.Gestion _gestionVisualizarFicha;
 
 
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
@@ -60,6 +61,7 @@ namespace ModInventario.Buscar
             _gestionKardex = new Kardex.Movimiento.Gestion();
             _gestionImagen = new Producto.Imagen.Gestion();
             _gestionProveedor = new Producto.Proveedor.Gestion();
+            _gestionVisualizarFicha = new Producto.VisualizarFicha.Gestion();
             LimpiarEntradas();
         }
 
@@ -385,12 +387,19 @@ namespace ModInventario.Buscar
                     _gestionEditarFicha.Inicia();
                     if (_gestionEditarFicha.IsAgregarEditarOk)
                     {
+                        var auto = Item.identidad.auto;
                         var filtros = new OOB.LibInventario.Producto.Filtro();
                         filtros.autoProducto = Item.identidad.auto;
                         ActualizarItemLista(filtros);
+                        ListaPosicion(auto);
                     }
                 }
             }
+        }
+
+        private void ListaPosicion(string auto)
+        {
+            _gestionLista.ListaPosicion(auto);
         }
 
         public void AgregarFicha()
@@ -408,6 +417,7 @@ namespace ModInventario.Buscar
                 if (_gestionAgregarFicha.IsAgregarEditarOk)
                 {
                     var filtros = new OOB.LibInventario.Producto.Filtro();
+                    var auto=_gestionAgregarFicha.AutoProductoAgregado;
                     filtros.autoProducto = _gestionAgregarFicha.AutoProductoAgregado;
                     var r01 = Sistema.MyData.Producto_GetLista(filtros);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -420,6 +430,7 @@ namespace ModInventario.Buscar
                         if (r01.Lista.Count > 0)
                         {
                             _gestionLista.Agregar(r01.Lista);
+                            ListaPosicion(auto);
                         }
                     }
                 }
@@ -507,6 +518,16 @@ namespace ModInventario.Buscar
             {
                 _gestionProveedor.setFicha(Item.identidad.auto);
                 _gestionProveedor.Inicia();
+            }
+        }
+
+        public void VisualizarItem()
+        {
+            if (Item != null)
+            {
+                _gestionVisualizarFicha.Inicializa();
+                _gestionVisualizarFicha.setFicha(Item.identidad.auto);
+                _gestionVisualizarFicha.Inicia();
             }
         }
 

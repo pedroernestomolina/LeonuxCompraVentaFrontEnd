@@ -107,6 +107,21 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.Resultado Marca_Eliminar(string auto)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Marca_Eliminar(auto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

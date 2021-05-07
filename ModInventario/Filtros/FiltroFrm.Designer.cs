@@ -54,6 +54,10 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.CB_ESTATUS = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.L_CONCEPTO = new System.Windows.Forms.Label();
+            this.CB_CONCEPTO = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -68,6 +72,8 @@
             this.panel16.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -185,7 +191,7 @@
             this.BT_LIMPIAR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_LIMPIAR.Location = new System.Drawing.Point(2, 2);
             this.BT_LIMPIAR.Name = "BT_LIMPIAR";
-            this.BT_LIMPIAR.Size = new System.Drawing.Size(58, 26);
+            this.BT_LIMPIAR.Size = new System.Drawing.Size(59, 26);
             this.BT_LIMPIAR.TabIndex = 0;
             this.toolTip1.SetToolTip(this.BT_LIMPIAR, "LImpiar Filtros de Busqueda");
             this.BT_LIMPIAR.UseVisualStyleBackColor = true;
@@ -197,7 +203,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.41497F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.58503F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.Controls.Add(this.panel8, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel22, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 3);
@@ -205,6 +211,8 @@
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel16, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel23, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
@@ -237,7 +245,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(243, 28);
+            this.panel8.Size = new System.Drawing.Size(242, 28);
             this.panel8.TabIndex = 2;
             // 
             // CB_DEP_DESTINO
@@ -248,7 +256,7 @@
             this.CB_DEP_DESTINO.FormattingEnabled = true;
             this.CB_DEP_DESTINO.Location = new System.Drawing.Point(2, 2);
             this.CB_DEP_DESTINO.Name = "CB_DEP_DESTINO";
-            this.CB_DEP_DESTINO.Size = new System.Drawing.Size(239, 24);
+            this.CB_DEP_DESTINO.Size = new System.Drawing.Size(238, 24);
             this.CB_DEP_DESTINO.TabIndex = 1;
             this.CB_DEP_DESTINO.SelectedIndexChanged += new System.EventHandler(this.CB_DEP_DESTINO_SelectedIndexChanged);
             // 
@@ -256,7 +264,7 @@
             // 
             this.panel22.Controls.Add(this.L_ESTATUS);
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(1, 93);
+            this.panel22.Location = new System.Drawing.Point(1, 123);
             this.panel22.Margin = new System.Windows.Forms.Padding(1);
             this.panel22.Name = "panel22";
             this.panel22.Padding = new System.Windows.Forms.Padding(2);
@@ -310,7 +318,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(243, 28);
+            this.panel6.Size = new System.Drawing.Size(242, 28);
             this.panel6.TabIndex = 1;
             // 
             // CB_DEP_ORIGEN
@@ -321,7 +329,7 @@
             this.CB_DEP_ORIGEN.FormattingEnabled = true;
             this.CB_DEP_ORIGEN.Location = new System.Drawing.Point(2, 2);
             this.CB_DEP_ORIGEN.Name = "CB_DEP_ORIGEN";
-            this.CB_DEP_ORIGEN.Size = new System.Drawing.Size(239, 24);
+            this.CB_DEP_ORIGEN.Size = new System.Drawing.Size(238, 24);
             this.CB_DEP_ORIGEN.TabIndex = 0;
             this.CB_DEP_ORIGEN.SelectedIndexChanged += new System.EventHandler(this.CB_DEP_ORIGEN_SelectedIndexChanged);
             // 
@@ -354,22 +362,22 @@
             // 
             this.panel16.Controls.Add(this.BT_LIMPIAR);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(392, 1);
+            this.panel16.Location = new System.Drawing.Point(391, 1);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(62, 30);
+            this.panel16.Size = new System.Drawing.Size(63, 30);
             this.panel16.TabIndex = 14;
             // 
             // panel23
             // 
             this.panel23.Controls.Add(this.CB_ESTATUS);
             this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel23.Location = new System.Drawing.Point(147, 93);
+            this.panel23.Location = new System.Drawing.Point(147, 123);
             this.panel23.Margin = new System.Windows.Forms.Padding(1);
             this.panel23.Name = "panel23";
             this.panel23.Padding = new System.Windows.Forms.Padding(2);
-            this.panel23.Size = new System.Drawing.Size(243, 28);
+            this.panel23.Size = new System.Drawing.Size(242, 28);
             this.panel23.TabIndex = 8;
             // 
             // CB_ESTATUS
@@ -380,7 +388,7 @@
             this.CB_ESTATUS.FormattingEnabled = true;
             this.CB_ESTATUS.Location = new System.Drawing.Point(2, 2);
             this.CB_ESTATUS.Name = "CB_ESTATUS";
-            this.CB_ESTATUS.Size = new System.Drawing.Size(239, 24);
+            this.CB_ESTATUS.Size = new System.Drawing.Size(238, 24);
             this.CB_ESTATUS.TabIndex = 5;
             this.CB_ESTATUS.SelectedIndexChanged += new System.EventHandler(this.CB_ESTATUS_SelectedIndexChanged);
             // 
@@ -394,6 +402,54 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(455, 456);
             this.panel3.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.L_CONCEPTO);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(1, 93);
+            this.panel4.Margin = new System.Windows.Forms.Padding(1);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(2);
+            this.panel4.Size = new System.Drawing.Size(144, 28);
+            this.panel4.TabIndex = 15;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.CB_CONCEPTO);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(147, 93);
+            this.panel10.Margin = new System.Windows.Forms.Padding(1);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(2);
+            this.panel10.Size = new System.Drawing.Size(242, 28);
+            this.panel10.TabIndex = 16;
+            // 
+            // L_CONCEPTO
+            // 
+            this.L_CONCEPTO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_CONCEPTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CONCEPTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CONCEPTO.ForeColor = System.Drawing.Color.Blue;
+            this.L_CONCEPTO.Location = new System.Drawing.Point(2, 2);
+            this.L_CONCEPTO.Name = "L_CONCEPTO";
+            this.L_CONCEPTO.Size = new System.Drawing.Size(140, 24);
+            this.L_CONCEPTO.TabIndex = 2;
+            this.L_CONCEPTO.Text = "Concepto:";
+            this.L_CONCEPTO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_CONCEPTO.Click += new System.EventHandler(this.L_CONCEPTO_Click);
+            // 
+            // CB_CONCEPTO
+            // 
+            this.CB_CONCEPTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_CONCEPTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_CONCEPTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_CONCEPTO.FormattingEnabled = true;
+            this.CB_CONCEPTO.Location = new System.Drawing.Point(2, 2);
+            this.CB_CONCEPTO.Name = "CB_CONCEPTO";
+            this.CB_CONCEPTO.Size = new System.Drawing.Size(238, 24);
+            this.CB_CONCEPTO.TabIndex = 2;
+            this.CB_CONCEPTO.SelectedIndexChanged += new System.EventHandler(this.CB_CONCEPTO_SelectedIndexChanged);
             // 
             // FiltroFrm
             // 
@@ -423,6 +479,8 @@
             this.panel16.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -454,6 +512,10 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.ComboBox CB_ESTATUS;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label L_CONCEPTO;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.ComboBox CB_CONCEPTO;
 
     }
 }

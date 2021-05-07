@@ -39,6 +39,7 @@ namespace ModInventario.Movimiento
         public DateTime FechaMov { get { return miGestion.FechaMov; } set { miGestion.FechaMov = value; } }
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return miGestion.MetodoBusqueda; } set { miGestion.MetodoBusqueda = value; } }
         public string CadenaBusqueda { get { return miGestion.CadenaBusqueda; } set { miGestion.CadenaBusqueda = value; } }
+        public bool HabilitarConcepto { get { return miGestion.HabilitarConcepto; } }
 
 
         public Gestion()
@@ -128,6 +129,11 @@ namespace ModInventario.Movimiento
             _gestionMaestro.setGestion(new Maestros.Concepto.Gestion());
             _gestionMaestro.Inicia();
             miGestion.ActualizarConceptos();
+        }
+
+        public void setHabilitarConcepto(bool p)
+        {
+            miGestion.setHabilitarConcepto(p);
         }
 
     }

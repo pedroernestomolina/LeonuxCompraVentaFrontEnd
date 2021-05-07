@@ -100,10 +100,10 @@
             // 
             this.TB_CANTIDAD.BackColor = System.Drawing.Color.Yellow;
             this.TB_CANTIDAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CANTIDAD.Location = new System.Drawing.Point(41, 44);
-            this.TB_CANTIDAD.MaxLength = 3;
+            this.TB_CANTIDAD.Location = new System.Drawing.Point(11, 44);
+            this.TB_CANTIDAD.MaxLength = 4;
             this.TB_CANTIDAD.Name = "TB_CANTIDAD";
-            this.TB_CANTIDAD.Size = new System.Drawing.Size(150, 80);
+            this.TB_CANTIDAD.Size = new System.Drawing.Size(180, 80);
             this.TB_CANTIDAD.TabIndex = 0;
             this.TB_CANTIDAD.Text = "0";
             this.TB_CANTIDAD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

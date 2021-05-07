@@ -382,6 +382,15 @@ namespace ModInventario.Movimiento.Descargo
             bsConcepto.CurrencyManager.Refresh();
         }
 
+        public void setHabilitarConcepto(bool p)
+        {
+        }
+
+        public bool HabilitarConcepto
+        {
+            get { return true; }
+        }
+
     }
 
 }

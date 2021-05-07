@@ -719,6 +719,7 @@ namespace DataProvInventario.Data
                 IdSucursal = filtro.IdSucursal,
                 IdDepDestino = filtro.IdDepDestino,
                 IdDepOrigen = filtro.IdDepOrigen,
+                IdConcepto=filtro.IdConcepto,
                 Estatus = (DtoLibInventario.Movimiento.enumerados.EnumEstatus)filtro.Estatus,
             };
             var r01 = MyData.Producto_Movimiento_GetLista(filtroDto);
@@ -752,6 +753,8 @@ namespace DataProvInventario.Data
                             estacion = s.estacion,
                             isDocAnulado = s.isDocAnulado,
                             usuario = s.usuario,
+                            depositoOrigen=s.depositoOrigen,
+                            depositoDestino=s.depositoDestino,
                         };
                     }).ToList();
                 }
@@ -857,6 +860,124 @@ namespace DataProvInventario.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
+
+            return rt;
+        }
+
+        public OOB.ResultadoAuto Producto_Movimiento_Traslado_Devolucion_Insertar(OOB.LibInventario.Movimiento.Traslado.Insertar.Ficha ficha)
+        {
+            var rt = new OOB.ResultadoAuto();
+
+            var fichaDTO = new DtoLibInventario.Movimiento.Traslado.Insertar.Ficha()
+            {
+                autoConcepto = ficha.autoConcepto,
+                autoDepositoDestino = ficha.autoDepositoDestino,
+                autoDepositoOrigen = ficha.autoDepositoOrigen,
+                autoRemision = ficha.autoRemision,
+                autorizado = ficha.autorizado,
+                autoUsuario = ficha.autoUsuario,
+                cierreFtp = ficha.cierreFtp,
+                codConcepto = ficha.codConcepto,
+                codDepositoDestino = ficha.codDepositoDestino,
+                codDepositoOrigen = ficha.codDepositoOrigen,
+                codigoSucursal = ficha.codigoSucursal,
+                codUsuario = ficha.codUsuario,
+                desConcepto = ficha.desConcepto,
+                desDepositoDestino = ficha.desDepositoDestino,
+                desDepositoOrigen = ficha.desDepositoOrigen,
+                documentoNombre = ficha.documentoNombre,
+                estacion = ficha.estacion,
+                estatusAnulado = ficha.estatusAnulado,
+                estatusCierreContable = ficha.estatusCierreContable,
+                nota = ficha.nota,
+                renglones = ficha.renglones,
+                situacion = ficha.situacion,
+                tipo = ficha.tipo,
+                total = ficha.total,
+                usuario = ficha.usuario,
+                factorCambio = ficha.factorCambio,
+                montoDivisa = ficha.montoDivisa,
+            };
+            var listDet = ficha.detalles.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Traslado.Insertar.FichaDetalle()
+                {
+                    autoDepartamento = s.autoDepartamento,
+                    autoGrupo = s.autoGrupo,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    categoria = s.categoria,
+                    codigoProducto = s.codigoProducto,
+                    contEmpaque = s.contEmpaque,
+                    costoCompra = s.costoCompra,
+                    costoUnd = s.costoUnd,
+                    decimales = s.decimales,
+                    empaque = s.empaque,
+                    estatusAnulado = s.estatusAnulado,
+                    estatusUnidad = s.estatusUnidad,
+                    nombreProducto = s.nombreProducto,
+                    signo = s.signo,
+                    tipo = s.tipo,
+                    total = s.total,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.detalles = listDet; ;
+
+            var listKardex = ficha.movKardex.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Traslado.Insertar.FichaKardex()
+                {
+                    autoConcepto = s.autoConcepto,
+                    autoDeposito = s.autoDeposito,
+                    autoProducto = s.autoProducto,
+                    cantidad = s.cantidad,
+                    cantidadBono = s.cantidadBono,
+                    cantidadUnd = s.cantidadUnd,
+                    codigo = s.codigoMov,
+                    codigoSucursal = s.codigoSucursal,
+                    costoUnd = s.costoUnd,
+                    entidad = s.entidad,
+                    estatusAnulado = s.estatusAnulado,
+                    modulo = s.modulo,
+                    nota = s.nota,
+                    precioUnd = s.precioUnd,
+                    siglas = s.siglasMov,
+                    signo = s.signoMov,
+                    total = s.total,
+                    codigoConcepto = s.codigoConcepto,
+                    nombreConcepto = s.nombreConcepto,
+                    codigoDeposito = s.codigoDeposito,
+                    nombreDeposito = s.nombreDeposito,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.movKardex = listKardex; ;
+
+            var listPrdDep = ficha.prdDeposito.Select(s =>
+            {
+                var dt = new DtoLibInventario.Movimiento.Traslado.Insertar.FichaPrdDeposito()
+                {
+                    autoProducto = s.autoProducto,
+                    nombreProducto = s.nombreProducto,
+                    autoDepositoOrigen = s.autoDepositoOrigen,
+                    autoDepositoDestino = s.autoDepositoDestino,
+                    cantidadUnd = s.cantidadUnd,
+                };
+                return dt;
+            }).ToList();
+            fichaDTO.prdDeposito = listPrdDep;
+
+            var r01 = MyData.Producto_Movimiento_Traslado_Devolucion_Insertar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Auto = r01.Auto;
 
             return rt;
         }

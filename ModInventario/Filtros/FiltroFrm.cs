@@ -33,6 +33,8 @@ namespace ModInventario.Filtros
             CB_DEP_DESTINO.ValueMember = "Auto";
             CB_ESTATUS.DisplayMember = "Descripcion";
             CB_ESTATUS.ValueMember = "Id";
+            CB_CONCEPTO.DisplayMember = "Nombre";
+            CB_CONCEPTO.ValueMember = "Auto";
         }
 
         private void FiltroFrm_Load(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace ModInventario.Filtros
             CB_DEP_ORIGEN.DataSource=_controlador.SourceDepOrigen;
             CB_DEP_DESTINO.DataSource = _controlador.SourceDepDestino;
             CB_ESTATUS.DataSource = _controlador.SourceEstatus;
+            CB_CONCEPTO.DataSource = _controlador.SourceConcepto;
 
             CB_DEP_ORIGEN.Enabled = _controlador.ActivarDepOrigen;
             CB_DEP_DESTINO.Enabled = _controlador.ActivarDepDestino;
@@ -118,6 +121,12 @@ namespace ModInventario.Filtros
             LimpiarDepOrigen();
             LimpiarDepDestino();
             LimpiarEstatus();
+            LimpiarConcepto();
+        }
+
+        private void LimpiarConcepto()
+        {
+            CB_CONCEPTO.SelectedIndex = -1;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -134,6 +143,20 @@ namespace ModInventario.Filtros
         {
             _controlador.Filtrar();
             Salir();
+        }
+
+        private void L_CONCEPTO_Click(object sender, EventArgs e)
+        {
+            CB_CONCEPTO.SelectedIndex = -1;
+        }
+
+        private void CB_CONCEPTO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.setConcepto("");
+            if (CB_CONCEPTO.SelectedIndex != -1)
+            {
+                _controlador.setConcepto(CB_CONCEPTO.SelectedValue.ToString());
+            }
         }
 
     }

@@ -33,6 +33,7 @@ namespace ModInventario.Movimiento
         OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
         string CadenaBusqueda { get; set; }
         enumerados.enumTipoMovimiento EnumTipoMovimiento { get; }
+        bool HabilitarConcepto { get; }
 
 
         void Inicia();
@@ -46,6 +47,7 @@ namespace ModInventario.Movimiento
         bool AbandonarDocumento();
         void setFiltros(Buscar.Filtrar.data data);
         void ActualizarConceptos();
+        void setHabilitarConcepto(bool p);
 
     }
 

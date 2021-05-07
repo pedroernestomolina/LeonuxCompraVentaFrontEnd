@@ -306,17 +306,13 @@ namespace ModInventario.Buscar
         {
             if (e.ColumnIndex != -1 && e.RowIndex != -1)
             {
-                SeleccionarItem();
+                VisualizarItem();
             }
         }
 
-        private void SeleccionarItem()
+        private void VisualizarItem()
         {
-            //_controlador.SeleccionarItem();
-            //if (_controlador.HayItemSeleccionado) 
-            //{
-            //    Salir();
-            //}
+            _controlador.VisualizarItem();
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)

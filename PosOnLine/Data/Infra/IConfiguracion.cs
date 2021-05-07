@@ -17,6 +17,10 @@ namespace PosOnLine.Data.Infra
 
         OOB.Resultado.Ficha Configuracion_Pos_Actualizar(OOB.Configuracion.Actualizar.Ficha ficha);
 
+        OOB.Resultado.Ficha Configuracion_Pos_CambioDepositoSucursalFrio();
+
+        OOB.Resultado.Ficha Configuracion_Pos_CambioDepositoSucursalViveres();
+
     }
 
 }

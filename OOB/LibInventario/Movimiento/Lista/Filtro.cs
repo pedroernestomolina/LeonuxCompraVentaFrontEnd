@@ -17,6 +17,7 @@ namespace OOB.LibInventario.Movimiento.Lista
         public string IdSucursal { get; set; }
         public string IdDepOrigen { get; set; }
         public string IdDepDestino { get; set; }
+        public string IdConcepto { get; set; }
         public enumerados.EnumEstatus Estatus { get; set; }
 
 
@@ -29,6 +30,7 @@ namespace OOB.LibInventario.Movimiento.Lista
             IdSucursal = "";
             IdDepOrigen = "";
             IdDepDestino = "";
+            IdConcepto = "";
         }
 
     }

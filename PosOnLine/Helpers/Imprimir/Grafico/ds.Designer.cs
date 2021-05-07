@@ -365,6 +365,14 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             private global::System.Data.DataColumn columnDocontrol;
             
+            private global::System.Data.DataColumn columnSubTotal;
+            
+            private global::System.Data.DataColumn columnDescuento;
+            
+            private global::System.Data.DataColumn columnTotal;
+            
+            private global::System.Data.DataColumn columnTotalDivisa;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public EncabezadoDataTable() {
@@ -464,6 +472,38 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubTotalColumn {
+                get {
+                    return this.columnSubTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescuentoColumn {
+                get {
+                    return this.columnDescuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalColumn {
+                get {
+                    return this.columnTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalDivisaColumn {
+                get {
+                    return this.columnTotalDivisa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +539,7 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EncabezadoRow AddEncabezadoRow(string NombreCli, string DireccionCli, string CiRifCli, string CodigoCli, string DocNombre, string DocNro, System.DateTime DocFecha, string Docontrol) {
+            public EncabezadoRow AddEncabezadoRow(string NombreCli, string DireccionCli, string CiRifCli, string CodigoCli, string DocNombre, string DocNro, System.DateTime DocFecha, string Docontrol, decimal SubTotal, decimal Descuento, decimal Total, decimal TotalDivisa) {
                 EncabezadoRow rowEncabezadoRow = ((EncabezadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NombreCli,
@@ -509,7 +549,11 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
                         DocNombre,
                         DocNro,
                         DocFecha,
-                        Docontrol};
+                        Docontrol,
+                        SubTotal,
+                        Descuento,
+                        Total,
+                        TotalDivisa};
                 rowEncabezadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEncabezadoRow);
                 return rowEncabezadoRow;
@@ -540,6 +584,10 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
                 this.columnDocNro = base.Columns["DocNro"];
                 this.columnDocFecha = base.Columns["DocFecha"];
                 this.columnDocontrol = base.Columns["Docontrol"];
+                this.columnSubTotal = base.Columns["SubTotal"];
+                this.columnDescuento = base.Columns["Descuento"];
+                this.columnTotal = base.Columns["Total"];
+                this.columnTotalDivisa = base.Columns["TotalDivisa"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -561,6 +609,14 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
                 base.Columns.Add(this.columnDocFecha);
                 this.columnDocontrol = new global::System.Data.DataColumn("Docontrol", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDocontrol);
+                this.columnSubTotal = new global::System.Data.DataColumn("SubTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubTotal);
+                this.columnDescuento = new global::System.Data.DataColumn("Descuento", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescuento);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
+                this.columnTotalDivisa = new global::System.Data.DataColumn("TotalDivisa", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalDivisa);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -696,6 +752,26 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             private global::System.Data.DataColumn columnNombrePrd;
             
+            private global::System.Data.DataColumn columnCodigoPrd;
+            
+            private global::System.Data.DataColumn columnCantidad;
+            
+            private global::System.Data.DataColumn columnEmpaque;
+            
+            private global::System.Data.DataColumn columnDeposito;
+            
+            private global::System.Data.DataColumn columnPrecio;
+            
+            private global::System.Data.DataColumn columnAlicuota;
+            
+            private global::System.Data.DataColumn columnImporte;
+            
+            private global::System.Data.DataColumn columnPrecioDivisa;
+            
+            private global::System.Data.DataColumn columnImporteDivisa;
+            
+            private global::System.Data.DataColumn columnTotalUnd;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ItemDataTable() {
@@ -739,6 +815,86 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CodigoPrdColumn {
+                get {
+                    return this.columnCodigoPrd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CantidadColumn {
+                get {
+                    return this.columnCantidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EmpaqueColumn {
+                get {
+                    return this.columnEmpaque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DepositoColumn {
+                get {
+                    return this.columnDeposito;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PrecioColumn {
+                get {
+                    return this.columnPrecio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AlicuotaColumn {
+                get {
+                    return this.columnAlicuota;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImporteColumn {
+                get {
+                    return this.columnImporte;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PrecioDivisaColumn {
+                get {
+                    return this.columnPrecioDivisa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImporteDivisaColumn {
+                get {
+                    return this.columnImporteDivisa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalUndColumn {
+                get {
+                    return this.columnTotalUnd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -774,10 +930,20 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemRow AddItemRow(string NombrePrd) {
+            public ItemRow AddItemRow(string NombrePrd, string CodigoPrd, decimal Cantidad, string Empaque, string Deposito, decimal Precio, decimal Alicuota, decimal Importe, decimal PrecioDivisa, decimal ImporteDivisa, decimal TotalUnd) {
                 ItemRow rowItemRow = ((ItemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        NombrePrd};
+                        NombrePrd,
+                        CodigoPrd,
+                        Cantidad,
+                        Empaque,
+                        Deposito,
+                        Precio,
+                        Alicuota,
+                        Importe,
+                        PrecioDivisa,
+                        ImporteDivisa,
+                        TotalUnd};
                 rowItemRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowItemRow);
                 return rowItemRow;
@@ -801,6 +967,16 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnNombrePrd = base.Columns["NombrePrd"];
+                this.columnCodigoPrd = base.Columns["CodigoPrd"];
+                this.columnCantidad = base.Columns["Cantidad"];
+                this.columnEmpaque = base.Columns["Empaque"];
+                this.columnDeposito = base.Columns["Deposito"];
+                this.columnPrecio = base.Columns["Precio"];
+                this.columnAlicuota = base.Columns["Alicuota"];
+                this.columnImporte = base.Columns["Importe"];
+                this.columnPrecioDivisa = base.Columns["PrecioDivisa"];
+                this.columnImporteDivisa = base.Columns["ImporteDivisa"];
+                this.columnTotalUnd = base.Columns["TotalUnd"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -808,6 +984,26 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             private void InitClass() {
                 this.columnNombrePrd = new global::System.Data.DataColumn("NombrePrd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombrePrd);
+                this.columnCodigoPrd = new global::System.Data.DataColumn("CodigoPrd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigoPrd);
+                this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCantidad);
+                this.columnEmpaque = new global::System.Data.DataColumn("Empaque", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmpaque);
+                this.columnDeposito = new global::System.Data.DataColumn("Deposito", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeposito);
+                this.columnPrecio = new global::System.Data.DataColumn("Precio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecio);
+                this.columnAlicuota = new global::System.Data.DataColumn("Alicuota", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAlicuota);
+                this.columnImporte = new global::System.Data.DataColumn("Importe", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImporte);
+                this.columnPrecioDivisa = new global::System.Data.DataColumn("PrecioDivisa", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecioDivisa);
+                this.columnImporteDivisa = new global::System.Data.DataColumn("ImporteDivisa", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImporteDivisa);
+                this.columnTotalUnd = new global::System.Data.DataColumn("TotalUnd", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalUnd);
                 this.ExtendedProperties.Add("Generator_RowClassName", "ItemRow");
                 this.ExtendedProperties.Add("Generator_RowEvArgName", "ItemRowChangeEvent");
                 this.ExtendedProperties.Add("Generator_RowEvHandlerName", "ItemRowChangeEventHandler");
@@ -954,6 +1150,8 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             private global::System.Data.DataColumn columnCiRif;
             
+            private global::System.Data.DataColumn columnTelefono;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DatosNegocioDataTable() {
@@ -1013,6 +1211,14 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TelefonoColumn {
+                get {
+                    return this.columnTelefono;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1048,12 +1254,13 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DatosNegocioRow AddDatosNegocioRow(string Nombre, string Direccion, string CiRif) {
+            public DatosNegocioRow AddDatosNegocioRow(string Nombre, string Direccion, string CiRif, string Telefono) {
                 DatosNegocioRow rowDatosNegocioRow = ((DatosNegocioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombre,
                         Direccion,
-                        CiRif};
+                        CiRif,
+                        Telefono};
                 rowDatosNegocioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDatosNegocioRow);
                 return rowDatosNegocioRow;
@@ -1079,6 +1286,7 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
                 this.columnNombre = base.Columns["Nombre"];
                 this.columnDireccion = base.Columns["Direccion"];
                 this.columnCiRif = base.Columns["CiRif"];
+                this.columnTelefono = base.Columns["Telefono"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1090,6 +1298,8 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
                 base.Columns.Add(this.columnDireccion);
                 this.columnCiRif = new global::System.Data.DataColumn("CiRif", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCiRif);
+                this.columnTelefono = new global::System.Data.DataColumn("Telefono", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefono);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1360,6 +1570,70 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SubTotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEncabezado.SubTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal\' in table \'Encabezado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncabezado.SubTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Descuento {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEncabezado.DescuentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Descuento\' in table \'Encabezado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncabezado.DescuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Total {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEncabezado.TotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'Encabezado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncabezado.TotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TotalDivisa {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEncabezado.TotalDivisaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalDivisa\' in table \'Encabezado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEncabezado.TotalDivisaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNombreCliNull() {
                 return this.IsNull(this.tableEncabezado.NombreCliColumn);
             }
@@ -1453,6 +1727,54 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             public void SetDocontrolNull() {
                 this[this.tableEncabezado.DocontrolColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubTotalNull() {
+                return this.IsNull(this.tableEncabezado.SubTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubTotalNull() {
+                this[this.tableEncabezado.SubTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDescuentoNull() {
+                return this.IsNull(this.tableEncabezado.DescuentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDescuentoNull() {
+                this[this.tableEncabezado.DescuentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalNull() {
+                return this.IsNull(this.tableEncabezado.TotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalNull() {
+                this[this.tableEncabezado.TotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalDivisaNull() {
+                return this.IsNull(this.tableEncabezado.TotalDivisaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalDivisaNull() {
+                this[this.tableEncabezado.TotalDivisaColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1487,6 +1809,166 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CodigoPrd {
+                get {
+                    try {
+                        return ((string)(this[this.tableItem.CodigoPrdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CodigoPrd\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.CodigoPrdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Cantidad {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.CantidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cantidad\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.CantidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Empaque {
+                get {
+                    try {
+                        return ((string)(this[this.tableItem.EmpaqueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Empaque\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.EmpaqueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Deposito {
+                get {
+                    try {
+                        return ((string)(this[this.tableItem.DepositoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Deposito\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.DepositoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Precio {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.PrecioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Precio\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.PrecioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Alicuota {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.AlicuotaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Alicuota\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.AlicuotaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Importe {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.ImporteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Importe\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.ImporteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal PrecioDivisa {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.PrecioDivisaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PrecioDivisa\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.PrecioDivisaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ImporteDivisa {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.ImporteDivisaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImporteDivisa\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.ImporteDivisaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TotalUnd {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableItem.TotalUndColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalUnd\' in table \'Item\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItem.TotalUndColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNombrePrdNull() {
                 return this.IsNull(this.tableItem.NombrePrdColumn);
             }
@@ -1495,6 +1977,126 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNombrePrdNull() {
                 this[this.tableItem.NombrePrdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCodigoPrdNull() {
+                return this.IsNull(this.tableItem.CodigoPrdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCodigoPrdNull() {
+                this[this.tableItem.CodigoPrdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCantidadNull() {
+                return this.IsNull(this.tableItem.CantidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCantidadNull() {
+                this[this.tableItem.CantidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEmpaqueNull() {
+                return this.IsNull(this.tableItem.EmpaqueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEmpaqueNull() {
+                this[this.tableItem.EmpaqueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDepositoNull() {
+                return this.IsNull(this.tableItem.DepositoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDepositoNull() {
+                this[this.tableItem.DepositoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrecioNull() {
+                return this.IsNull(this.tableItem.PrecioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrecioNull() {
+                this[this.tableItem.PrecioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAlicuotaNull() {
+                return this.IsNull(this.tableItem.AlicuotaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAlicuotaNull() {
+                this[this.tableItem.AlicuotaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImporteNull() {
+                return this.IsNull(this.tableItem.ImporteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImporteNull() {
+                this[this.tableItem.ImporteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrecioDivisaNull() {
+                return this.IsNull(this.tableItem.PrecioDivisaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrecioDivisaNull() {
+                this[this.tableItem.PrecioDivisaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImporteDivisaNull() {
+                return this.IsNull(this.tableItem.ImporteDivisaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImporteDivisaNull() {
+                this[this.tableItem.ImporteDivisaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalUndNull() {
+                return this.IsNull(this.tableItem.TotalUndColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalUndNull() {
+                this[this.tableItem.TotalUndColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1562,6 +2164,22 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Telefono {
+                get {
+                    try {
+                        return ((string)(this[this.tableDatosNegocio.TelefonoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Telefono\' in table \'DatosNegocio\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDatosNegocio.TelefonoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNombreNull() {
                 return this.IsNull(this.tableDatosNegocio.NombreColumn);
             }
@@ -1594,6 +2212,18 @@ namespace PosOnLine.Helpers.Imprimir.Grafico {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCiRifNull() {
                 this[this.tableDatosNegocio.CiRifColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTelefonoNull() {
+                return this.IsNull(this.tableDatosNegocio.TelefonoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTelefonoNull() {
+                this[this.tableDatosNegocio.TelefonoColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -89,6 +89,31 @@ namespace ModInventario.Maestros.Concepto
 
         public void EliminarItem()
         {
+            var itActual = (data)_gestionLista.ItemActual;
+            if (itActual != null)
+            {
+                var r00 = Sistema.MyData.Permiso_EliminarConceptoInventario(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    var msg = MessageBox.Show("Eliminar Item Actual ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (msg == DialogResult.Yes)
+                    {
+                        var r01 = Sistema.MyData.Concepto_Eliminar(itActual.id);
+                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+                        Helpers.Msg.OK("ITEM ELIMINADO SATISFACTORIAMENTE");
+                        _gestionLista.EliminarItem(itActual);
+                    }
+                }
+            }
         }
 
     }

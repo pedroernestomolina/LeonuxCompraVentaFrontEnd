@@ -113,6 +113,7 @@ namespace PosOnLine.OOB.Documento.Entidad
         public string MesRelacion { get; set; }
         public string AutoDocCxC { get; set; }
         public string AutoReciboCxC { get; set; }
+        public decimal Descuento { get { return Descuento1 + Descuento2; } }
         public List<FichaItem> items;
 
 

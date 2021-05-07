@@ -13,6 +13,7 @@ namespace ModInventario.Filtros
 
         public OOB.LibInventario.Deposito.Ficha depOrigen { get; set; }
         public OOB.LibInventario.Deposito.Ficha depDestino{ get; set; }
+        public OOB.LibInventario.Concepto.Ficha concepto { get; set; }
         public Estatus estatus { get; set; }
 
 
@@ -27,6 +28,7 @@ namespace ModInventario.Filtros
             depOrigen = null;
             depDestino = null;
             estatus = null;
+            concepto = null;
         }
 
     }

@@ -412,6 +412,16 @@ namespace ModInventario
             _controlador.ReporteValorizacionInventario();
         }
 
+        private void TSM_Movimiento_Control_Traslado_Devolucion_Click(object sender, EventArgs e)
+        {
+            TrasladoPorDevolucion();
+        }
+
+        private void TrasladoPorDevolucion()
+        {
+            _controlador.TrasladoPorDevolucion();
+        }
+
     }
 
 }

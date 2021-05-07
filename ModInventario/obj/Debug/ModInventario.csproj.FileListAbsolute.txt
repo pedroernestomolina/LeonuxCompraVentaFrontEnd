@@ -69,6 +69,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Mo
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Cargo.EntradaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Descargo.EntradaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.MvFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.TrasladoDevolucion.EntradaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.TrasladoEntreSucursal.EntradaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.TrasladoEntreSucursal.MovimientoFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Traslado.EntradaFrm.resources
@@ -89,6 +90,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Pr
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Producto.Precio.Ver.VerFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Producto.Proveedor.ProveedoresFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Producto.QR.QRFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Producto.VisualizarFicha.VisualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Proveedor.Buscar.BuscarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Reportes.Filtros.FiltrosFrm.resources

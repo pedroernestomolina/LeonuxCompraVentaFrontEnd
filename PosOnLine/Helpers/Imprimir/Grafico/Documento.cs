@@ -31,10 +31,13 @@ namespace PosOnLine.Helpers.Imprimir.Grafico
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Helpers\Imprimir\Grafico\Documento.rdlc";
             var ds = new ds();
+            var factor = _ds.encabezado.FactorCambio;
 
             //NEGOCIO
             DataRow N = ds.Tables["DatosNegocio"].NewRow();
             N["Nombre"] = _ds.negocio.Nombre;
+            N["CiRif"] = _ds.negocio.CiRif;
+            N["Direccion"] = _ds.negocio.Direccion;
             ds.Tables["DatosNegocio"].Rows.Add(N);
 
             //ENCABEZADO
@@ -46,6 +49,10 @@ namespace PosOnLine.Helpers.Imprimir.Grafico
             E["DocNombre"] = _ds.encabezado.DocumentoNombre;
             E["DocNro"] = _ds.encabezado.DocumentoNro;
             E["DocFecha"] = _ds.encabezado.DocumentoFecha;
+            E["SubTotal"] = _ds.encabezado.SubTotal;
+            E["Descuento"] = _ds.encabezado.Descuento;
+            E["Total"] = _ds.encabezado.Total;
+            E["TotalDivisa"] = _ds.encabezado.TotalDivisa;
             ds.Tables["Encabezado"].Rows.Add(E);
 
             //ITEMS
@@ -53,6 +60,15 @@ namespace PosOnLine.Helpers.Imprimir.Grafico
             {
                 DataRow p = ds.Tables["Item"].NewRow();
                 p["NombrePrd"] = rg.NombrePrd;
+                p["CodigoPrd"] = rg.CodigoPrd;
+                p["Cantidad"] = rg.Cantidad;
+                p["Empaque"] = rg.Empaque+Environment.NewLine+"( "+rg.Contenido.ToString().Trim()+" )";
+                p["Deposito"] = rg.DepositoDesc;
+                p["Precio"] = rg.Precio;
+                p["PrecioDivisa"] = rg.PrecioDivisa/factor;
+                p["Importe"] = rg.Importe;
+                p["ImporteDivisa"] = rg.ImporteDivisa/factor;
+                p["TotalUnd"] = rg.TotalUnd ;
                 ds.Tables["Item"].Rows.Add(p);
             }
 

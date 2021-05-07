@@ -221,6 +221,7 @@
     <Compile Include="OOB\Resultado\Lista.cs" />
     <Compile Include="OOB\Sistema\Clave\Ficha.cs" />
     <Compile Include="OOB\Sistema\Cobrador\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Empresa\Ficha.cs" />
     <Compile Include="OOB\Sistema\MedioPago\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\MedioPago\Lista\Filtro.cs" />
     <Compile Include="OOB\Sistema\ModoPrecio\Ficha.cs" />

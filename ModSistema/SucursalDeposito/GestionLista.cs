@@ -36,7 +36,7 @@ namespace ModSistema.SucursalDeposito
         public void setLista(List<OOB.LibSistema.Sucursal.Ficha> list)
         {
             blLista.Clear();
-            foreach (var it in list.OrderBy(o => o.codigo).ToList())
+            foreach (var it in list.OrderBy(o => o.nombre).ToList())
             {
                 blLista.Add(it);
             }

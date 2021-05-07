@@ -42,6 +42,39 @@ namespace OOB.LibInventario.Producto.Data
         public string advertencia { get; set; }
         public string presentacion { get; set; }
         public Enumerados.EnumCatalogo activarCatalogo { get; set; }
+        public string estatusPesado { get; set; }
+        public string plu { get; set; }
+        public int diasEmpaque { get; set; }
+        public List<CodAlterno> codAlterno { get; set; }
+
+        public bool IsInactivo { get { return estatus == Enumerados.EnumEstatus.Inactivo ? true : false; } }
+        public bool IsPesado { get { return estatusPesado.Trim().ToUpper() == "1" ? true : false; } }
+        public string categoriaDesc 
+        {
+            get 
+            { 
+                var rt="";
+                switch (categoria)
+                {
+                    case Enumerados.EnumCategoria.ProductoTerminado:
+                        rt="Prod Terminado";
+                        break;
+                    case Enumerados.EnumCategoria.BienServicio:
+                        rt = "Bien Servicio";
+                        break;
+                    case Enumerados.EnumCategoria.MateriaPrima:
+                        rt = "Materia Prima";
+                        break;
+                    case Enumerados.EnumCategoria.UsoInterno:
+                        rt = "Uso Interno";
+                        break;
+                    case Enumerados.EnumCategoria.SubProducto:
+                        rt = "SubProducto";
+                        break;
+                }
+                return rt;
+            } 
+        }
 
 
         public Identificacion()
@@ -78,6 +111,10 @@ namespace OOB.LibInventario.Producto.Data
             advertencia = "";
             presentacion = "";
             activarCatalogo = Enumerados.EnumCatalogo.SnDefinir;
+            estatusPesado = "";
+            plu = "";
+            diasEmpaque = 0;
+            codAlterno = new List<CodAlterno>();
         }
 
 

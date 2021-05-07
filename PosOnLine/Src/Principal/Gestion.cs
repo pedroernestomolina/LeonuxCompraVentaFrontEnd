@@ -103,6 +103,14 @@ namespace PosOnLine.Src.Principal
                 Sistema.Sucursal = r03.Entidad;
             }
 
+            var r04 = Sistema.MyData.Sistema_Empresa_GetFicha();
+            if (r04.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r04.Mensaje);
+                return false;
+            }
+            Sistema.DatosEmpresa = r04.Entidad;
+
             return rt;
         }
 
@@ -225,6 +233,35 @@ namespace PosOnLine.Src.Principal
             }
         }
 
+        public void ConfigurarSucursalDepositoFrio()
+        {
+            var msg = MessageBox.Show("Estas Seguro De Cambiar Sucursal/Deposito Frio", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg==  DialogResult.Yes)
+            {
+                var r01 = Sistema.MyData.Configuracion_Pos_CambioDepositoSucursalFrio();
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                Helpers.Msg.EditarOk();
+            }
+        }
+
+        public void ConfigurarSucursalDepositoViveres()
+        {
+            var msg = MessageBox.Show("Estas Seguro De Cambiar Sucursal/Deposito Viveres", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                var r01 = Sistema.MyData.Configuracion_Pos_CambioDepositoSucursalViveres();
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                Helpers.Msg.EditarOk();
+            }
+        }
     }
 
 }

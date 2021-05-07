@@ -474,6 +474,27 @@ namespace ModInventario
             }
         }
 
+        public void TrasladoPorDevolucion()
+        {
+            var r00 = Sistema.MyData.Permiso_MovimientoTrasladoPorDevolucion(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var _gestion = new Movimiento.TrasladoDevolucion.Gestion();
+                _gestion.setConcepto("0000000034");
+
+                _gestionMov = new Movimiento.Gestion();
+                _gestionMov.setGestion(_gestion);
+                _gestionMov.setHabilitarConcepto(false);
+                _gestionMov.Inicia();
+            }
+        }
+
     }
 
 }

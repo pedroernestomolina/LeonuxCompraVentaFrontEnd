@@ -22,6 +22,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.Resultado Producto_Movimiento_Descargo_Anular(OOB.LibInventario.Movimiento.Anular.Descargo.Ficha ficha);
         OOB.Resultado Producto_Movimiento_Traslado_Anular(OOB.LibInventario.Movimiento.Anular.Traslado.Ficha ficha);
         OOB.Resultado Producto_Movimiento_Ajuste_Anular(OOB.LibInventario.Movimiento.Anular.Ajuste.Ficha ficha);
+        OOB.ResultadoAuto Producto_Movimiento_Traslado_Devolucion_Insertar(OOB.LibInventario.Movimiento.Traslado.Insertar.Ficha ficha);
 
     }
 

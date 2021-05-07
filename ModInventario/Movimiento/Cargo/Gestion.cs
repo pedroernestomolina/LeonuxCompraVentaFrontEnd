@@ -577,6 +577,15 @@ namespace ModInventario.Movimiento.Cargo
             bsConcepto.CurrencyManager.Refresh();
         }
 
+        public void setHabilitarConcepto(bool p)
+        {
+        }
+
+        public bool HabilitarConcepto
+        {
+            get { return true; }
+        }
+
     }
 
 }

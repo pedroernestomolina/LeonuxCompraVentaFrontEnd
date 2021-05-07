@@ -84,7 +84,7 @@ namespace ModInventario.Buscar
                     blLista.Add(it);
                 }
             }
-            bsLista.CurrencyManager.Refresh();
+            ActualizarLista();
         }
 
         public void Agregar(List<OOB.LibInventario.Producto.Data.Ficha> list)
@@ -92,6 +92,27 @@ namespace ModInventario.Buscar
             foreach (var it in list)
             {
                 blLista.Add(it);
+            }
+            ActualizarLista();
+        }
+
+        private void ActualizarLista()
+        {
+            var l = blLista.OrderBy(o => o.identidad.descripcion).ToList();
+            blLista.Clear();
+            foreach (var it in l)
+            {
+                blLista.Add(it);
+            }
+            bsLista.CurrencyManager.Refresh();
+        }
+
+        public void ListaPosicion(string auto)
+        {
+            var it = blLista.FirstOrDefault(f => f.identidad.auto == auto);
+            if (it != null) 
+            {
+                bsLista.Position = blLista.IndexOf(it);
             }
             bsLista.CurrencyManager.Refresh();
         }

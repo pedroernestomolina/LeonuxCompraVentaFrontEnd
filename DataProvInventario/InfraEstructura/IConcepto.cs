@@ -16,6 +16,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoAuto Concepto_Agregar(OOB.LibInventario.Concepto.Agregar ficha);
         OOB.Resultado Concepto_Editar(OOB.LibInventario.Concepto.Editar ficha);
         OOB.ResultadoEntidad<OOB.LibInventario.Concepto.Ficha> Concepto_PorTraslado();
+        OOB.Resultado Concepto_Eliminar(string auto);
 
     }
 

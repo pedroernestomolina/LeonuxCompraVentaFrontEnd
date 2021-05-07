@@ -36,7 +36,7 @@ namespace ModSistema.Deposito
         public void setLista(List<OOB.LibSistema.Deposito.Ficha> lista)
         {
             blLista.Clear();
-            foreach (var it in lista.OrderBy(o => o.codigo).ToList())
+            foreach (var it in lista.OrderBy(o => o.nombre).ToList())
             {
                 blLista.Add(it);
             }

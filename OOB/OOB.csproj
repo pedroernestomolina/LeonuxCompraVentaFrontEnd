@@ -243,6 +243,7 @@
     <Compile Include="LibInventario\Producto\Agregar\FichaCodAlterno.cs" />
     <Compile Include="LibInventario\Producto\Categoria\Ficha.cs" />
     <Compile Include="LibInventario\Producto\ClasificacionAbc\Ficha.cs" />
+    <Compile Include="LibInventario\Producto\Data\CodAlterno.cs" />
     <Compile Include="LibInventario\Producto\Data\Costo.cs" />
     <Compile Include="LibInventario\Producto\Data\Deposito.cs" />
     <Compile Include="LibInventario\Producto\Data\Existencia.cs" />

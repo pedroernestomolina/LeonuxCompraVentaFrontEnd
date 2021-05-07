@@ -91,6 +91,7 @@
             this.TSM_REPORTE_MAESTRO_PRECIO = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_MAESTRO_NIVEL_MINIMO = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTE_KARDEX = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTE_VALORIZACION = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTE_RELACION_COMPRAVENTA = new System.Windows.Forms.ToolStripMenuItem();
             this.estadisticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +118,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_REPORTE_VALORIZACION = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_Movimiento_Control_Traslado_Devolucion = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -182,11 +183,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(714, 1);
+            this.panel2.Location = new System.Drawing.Point(713, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(169, 52);
+            this.panel2.Size = new System.Drawing.Size(170, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -197,7 +198,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(165, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(166, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -212,7 +213,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(381, 52);
+            this.panel7.Size = new System.Drawing.Size(380, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -231,7 +232,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(377, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(376, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -242,7 +243,7 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
             this.panel13.Name = "panel13";
             this.panel13.Padding = new System.Windows.Forms.Padding(2);
-            this.panel13.Size = new System.Drawing.Size(88, 22);
+            this.panel13.Size = new System.Drawing.Size(87, 22);
             this.panel13.TabIndex = 2;
             // 
             // label5
@@ -252,7 +253,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(2, 2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 18);
+            this.label5.Size = new System.Drawing.Size(83, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fecha:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -261,7 +262,7 @@
             // 
             this.panel14.Controls.Add(this.L_FECHA);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(91, 1);
+            this.panel14.Location = new System.Drawing.Point(90, 1);
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
@@ -288,7 +289,7 @@
             this.panel15.Margin = new System.Windows.Forms.Padding(1);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(2);
-            this.panel15.Size = new System.Drawing.Size(88, 22);
+            this.panel15.Size = new System.Drawing.Size(87, 22);
             this.panel15.TabIndex = 2;
             // 
             // label3
@@ -298,7 +299,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(2, 2);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 18);
+            this.label3.Size = new System.Drawing.Size(83, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ruta BD:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -307,7 +308,7 @@
             // 
             this.panel16.Controls.Add(this.L_HOST);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(91, 25);
+            this.panel16.Location = new System.Drawing.Point(90, 25);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
@@ -330,7 +331,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(384, 1);
+            this.panel17.Location = new System.Drawing.Point(383, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -402,7 +403,7 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(586, 1);
+            this.panel20.Location = new System.Drawing.Point(585, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -598,7 +599,8 @@
             this.controlDeMovimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_Movimiento_Control_Cargo,
             this.TSM_Movimiento_Control_DesCargo,
-            this.TSM_Movimiento_Control_Traslado});
+            this.TSM_Movimiento_Control_Traslado,
+            this.TSM_Movimiento_Control_Traslado_Devolucion});
             this.controlDeMovimientosToolStripMenuItem.Name = "controlDeMovimientosToolStripMenuItem";
             this.controlDeMovimientosToolStripMenuItem.Size = new System.Drawing.Size(356, 22);
             this.controlDeMovimientosToolStripMenuItem.Text = "Control De Movimientos";
@@ -607,7 +609,7 @@
             // 
             this.TSM_Movimiento_Control_Cargo.Image = global::ModInventario.Properties.Resources.fecha_derecha;
             this.TSM_Movimiento_Control_Cargo.Name = "TSM_Movimiento_Control_Cargo";
-            this.TSM_Movimiento_Control_Cargo.Size = new System.Drawing.Size(123, 22);
+            this.TSM_Movimiento_Control_Cargo.Size = new System.Drawing.Size(203, 22);
             this.TSM_Movimiento_Control_Cargo.Text = "Cargo";
             this.TSM_Movimiento_Control_Cargo.Click += new System.EventHandler(this.TSM_Movimiento_Control_Cargo_Click);
             // 
@@ -615,7 +617,7 @@
             // 
             this.TSM_Movimiento_Control_DesCargo.Image = global::ModInventario.Properties.Resources.flecha_izquierda;
             this.TSM_Movimiento_Control_DesCargo.Name = "TSM_Movimiento_Control_DesCargo";
-            this.TSM_Movimiento_Control_DesCargo.Size = new System.Drawing.Size(123, 22);
+            this.TSM_Movimiento_Control_DesCargo.Size = new System.Drawing.Size(203, 22);
             this.TSM_Movimiento_Control_DesCargo.Text = "Descargo";
             this.TSM_Movimiento_Control_DesCargo.Click += new System.EventHandler(this.TSM_Movimiento_Control_DesCargo_Click);
             // 
@@ -623,7 +625,7 @@
             // 
             this.TSM_Movimiento_Control_Traslado.Image = global::ModInventario.Properties.Resources.transferencia;
             this.TSM_Movimiento_Control_Traslado.Name = "TSM_Movimiento_Control_Traslado";
-            this.TSM_Movimiento_Control_Traslado.Size = new System.Drawing.Size(123, 22);
+            this.TSM_Movimiento_Control_Traslado.Size = new System.Drawing.Size(203, 22);
             this.TSM_Movimiento_Control_Traslado.Text = "Traslado";
             this.TSM_Movimiento_Control_Traslado.Click += new System.EventHandler(this.TSM_Movimiento_Control_Traslado_Click);
             // 
@@ -780,6 +782,14 @@
             this.TSM_REPORTE_KARDEX.Size = new System.Drawing.Size(280, 22);
             this.TSM_REPORTE_KARDEX.Text = "Kardex";
             this.TSM_REPORTE_KARDEX.Click += new System.EventHandler(this.TSM_REPORTE_KARDEX_Click);
+            // 
+            // TSM_REPORTE_VALORIZACION
+            // 
+            this.TSM_REPORTE_VALORIZACION.Image = global::ModInventario.Properties.Resources.bt_imprimir_3;
+            this.TSM_REPORTE_VALORIZACION.Name = "TSM_REPORTE_VALORIZACION";
+            this.TSM_REPORTE_VALORIZACION.Size = new System.Drawing.Size(280, 22);
+            this.TSM_REPORTE_VALORIZACION.Text = "Valorizacion Inventario";
+            this.TSM_REPORTE_VALORIZACION.Click += new System.EventHandler(this.TSM_REPORTE_VALORIZACION_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -1064,13 +1074,12 @@
             this.panel10.Size = new System.Drawing.Size(246, 350);
             this.panel10.TabIndex = 0;
             // 
-            // TSM_REPORTE_VALORIZACION
+            // TSM_Movimiento_Control_Traslado_Devolucion
             // 
-            this.TSM_REPORTE_VALORIZACION.Image = global::ModInventario.Properties.Resources.bt_imprimir_3;
-            this.TSM_REPORTE_VALORIZACION.Name = "TSM_REPORTE_VALORIZACION";
-            this.TSM_REPORTE_VALORIZACION.Size = new System.Drawing.Size(280, 22);
-            this.TSM_REPORTE_VALORIZACION.Text = "Valorizacion Inventario";
-            this.TSM_REPORTE_VALORIZACION.Click += new System.EventHandler(this.TSM_REPORTE_VALORIZACION_Click);
+            this.TSM_Movimiento_Control_Traslado_Devolucion.Name = "TSM_Movimiento_Control_Traslado_Devolucion";
+            this.TSM_Movimiento_Control_Traslado_Devolucion.Size = new System.Drawing.Size(203, 22);
+            this.TSM_Movimiento_Control_Traslado_Devolucion.Text = "Traslado Por Devolucion";
+            this.TSM_Movimiento_Control_Traslado_Devolucion.Click += new System.EventHandler(this.TSM_Movimiento_Control_Traslado_Devolucion_Click);
             // 
             // Form1
             // 
@@ -1209,6 +1218,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_REDONDEO_PRECIOS;
         private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_COSTO_EDAD;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_VALORIZACION;
+        private System.Windows.Forms.ToolStripMenuItem TSM_Movimiento_Control_Traslado_Devolucion;
     }
 }
 

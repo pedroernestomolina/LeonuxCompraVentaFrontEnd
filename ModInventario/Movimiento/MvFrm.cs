@@ -194,6 +194,9 @@ namespace ModInventario.Movimiento
             DGV_DETALLE.Columns["TipoMov"].Visible = _controlador.VisualizarColumnaTipoMovimiento;
             DGV_DETALLE.DataSource = _controlador.DetalleSource;
             DGV_DETALLE.Refresh();
+
+            CB_CONCEPTO.Enabled = _controlador.HabilitarConcepto;
+            L_CONCEPTO.Enabled = _controlador.HabilitarConcepto;
         }
 
         private void Inicializar()

@@ -15,10 +15,12 @@ namespace ModInventario.Filtros
         private IFiltros filtros;
         private List<OOB.LibInventario.Deposito.Ficha> lDepOrigen;
         private List<OOB.LibInventario.Deposito.Ficha> lDepDestino;
+        private List<OOB.LibInventario.Concepto.Ficha> lConcepto;
         private List<Estatus> lEstatus;
         private BindingSource bsDepOrigen;
         private BindingSource bsDepDestino ;
         private BindingSource bsEstatus;
+        private BindingSource bsConcepto;
         private data dataFiltro;
 
 
@@ -28,9 +30,8 @@ namespace ModInventario.Filtros
         public BindingSource SourceDepOrigen { get { return bsDepOrigen; } }
         public BindingSource SourceDepDestino { get { return bsDepDestino; } }
         public BindingSource SourceEstatus { get { return bsEstatus; } }
+        public BindingSource SourceConcepto { get { return bsConcepto; } }
         public data DataFiltrar { get { return dataFiltro; } }
-
-
         public bool FiltrosIsOk { get; set; }
 
 
@@ -39,13 +40,16 @@ namespace ModInventario.Filtros
             dataFiltro = new data();
             lDepOrigen = new List<OOB.LibInventario.Deposito.Ficha>();
             lDepDestino= new List<OOB.LibInventario.Deposito.Ficha>();
+            lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
             lEstatus = new List<Estatus>();
             bsDepOrigen = new BindingSource();
             bsDepDestino = new BindingSource();
             bsEstatus = new BindingSource();
+            bsConcepto = new BindingSource();
             bsDepOrigen.DataSource = lDepOrigen;
             bsDepDestino.DataSource =lDepDestino ;
             bsEstatus.DataSource = lEstatus;
+            bsConcepto.DataSource = lConcepto;
             FiltrosIsOk = false;
         }
 
@@ -72,6 +76,14 @@ namespace ModInventario.Filtros
                 return false;
             }
 
+            var xr2 = Sistema.MyData.Concepto_GetLista();
+            if (xr2.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(xr2.Mensaje);
+                return false;
+            }
+
+            lConcepto.Clear();
             lDepOrigen.Clear();
             lDepDestino.Clear();
             lEstatus.Clear();
@@ -82,6 +94,10 @@ namespace ModInventario.Filtros
             }
             lEstatus.Add(new Estatus("01", "ACTIVO"));
             lEstatus.Add(new Estatus("02", "ANULADO"));
+            foreach (var it in xr2.Lista.OrderBy(o => o.nombre).ToList())
+            {
+                lConcepto.Add(new OOB.LibInventario.Concepto.Ficha(it));
+            }
 
             return rt;
         }
@@ -120,6 +136,11 @@ namespace ModInventario.Filtros
         public void LimpiarFiltros()
         {
             Limpiar();
+        }
+
+        public void setConcepto(string autoId)
+        {
+            dataFiltro.concepto = lConcepto.FirstOrDefault(f => f.auto == autoId);
         }
 
     }

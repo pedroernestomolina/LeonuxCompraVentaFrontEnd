@@ -579,6 +579,28 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+        public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoTrasladoPorDevolucion(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_MovimientoTrasladoPorDevolucionInventario(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
         public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoAjusteInventario(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
@@ -811,6 +833,95 @@ namespace DataProvInventario.Data
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
 
             var r01 = MyData.Permiso_Configuracion_Sistema(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarGrupo(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_EliminarGrupo(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarMarca(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_EliminarMarca(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarUnidadEmpaque(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_EliminarUnidadEmpaque(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibInventario.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarConceptoInventario(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_EliminarConceptoInventario(autoGrupoUsuario);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

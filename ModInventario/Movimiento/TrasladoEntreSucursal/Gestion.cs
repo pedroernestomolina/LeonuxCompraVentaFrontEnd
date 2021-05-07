@@ -547,6 +547,15 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             }
         }
 
+        public void setHabilitarConcepto(bool p)
+        {
+        }
+
+        public bool HabilitarConcepto
+        {
+            get { return true; }
+        }
+
     }
 
 }

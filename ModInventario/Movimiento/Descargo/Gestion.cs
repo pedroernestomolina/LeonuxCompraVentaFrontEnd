@@ -391,6 +391,10 @@ namespace ModInventario.Movimiento.Descargo
             get { return true; }
         }
 
+        public void Inicializa()
+        {
+        }
+
     }
 
 }

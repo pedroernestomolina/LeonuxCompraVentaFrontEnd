@@ -205,6 +205,9 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             DGV_DETALLE.Columns["TipoMov"].Visible = _controlador.VisualizarColumnaTipoMovimiento;
             DGV_DETALLE.DataSource = _controlador.DetalleSouce;
             DGV_DETALLE.Refresh();
+
+            CB_CONCEPTO.Enabled = _controlador.HabilitarConcepto;
+
         }
 
         private void Inicializar()
@@ -221,6 +224,10 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             CB_DEP_DESTINO.ValueMember = "Auto";
             CB_DEP_DESTINO.DataSource = _controlador.DepDestinoSource;
 
+            CB_DEPARTAMENTO.DisplayMember = "Nombre";
+            CB_DEPARTAMENTO.ValueMember = "Auto";
+            CB_DEPARTAMENTO.DataSource = _controlador.DepartamentoSource;
+
             Limpiar();
         }
 
@@ -233,6 +240,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             CB_CONCEPTO.SelectedIndex =-1;
             CB_DEP_ORIGEN.SelectedIndex=-1;
             CB_DEP_DESTINO.SelectedIndex=-1;
+            CB_DEPARTAMENTO.SelectedIndex = -1;
 
             TB_MOTIVO.Text = "";
             TB_AUTORIZADO_POR.Text = "";
@@ -268,6 +276,8 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 TB_AUTORIZADO_POR.Focus();
                 CB_DEP_ORIGEN.Enabled = true;
                 CB_DEP_DESTINO.Enabled = true;
+                CB_DEPARTAMENTO.Enabled = true;
+                L_DEPARTAMENTO.Enabled = true;
                 BT_CARGAR_DATA.Enabled = true;
             }
             else 
@@ -339,6 +349,8 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             {
                 CB_DEP_ORIGEN.Enabled = false;
                 CB_DEP_DESTINO.Enabled = false;
+                CB_DEPARTAMENTO.Enabled = false;
+                L_DEPARTAMENTO.Enabled = false;
                 BT_CARGAR_DATA.Enabled = false;
             }
         }
@@ -501,6 +513,26 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         private void VerExistenciaDeposito()
         {
             _controlador.VerExistenciaDeposito();
+        }
+
+        private void L_DEPARTAMENTO_Click(object sender, EventArgs e)
+        {
+            DepartamentoLimpiar();
+        }
+
+        private void DepartamentoLimpiar()
+        {
+            CB_DEPARTAMENTO.SelectedIndex = -1;
+        }
+
+        private void CB_DEPARTAMENTO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controlador.setDepartamento("");
+            if (CB_DEPARTAMENTO.SelectedIndex != -1)
+            {
+                _controlador.setDepartamento(CB_DEPARTAMENTO.SelectedValue.ToString());
+            }
+
         }
     
     }

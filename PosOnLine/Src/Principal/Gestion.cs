@@ -36,7 +36,31 @@ namespace PosOnLine.Src.Principal
                 var rt = "";
                 if (Sistema.Sucursal != null) 
                 {
-                    rt = Sistema.Sucursal.codigo+Environment.NewLine +Sistema.Sucursal.nombre;
+                    rt = Sistema.Sucursal.codigo;
+                }
+                return rt;
+            }
+        }
+        public string Sucursal
+        {
+            get
+            {
+                var rt = "";
+                if (Sistema.Sucursal != null)
+                {
+                    rt = Sistema.Sucursal.nombre;
+                }
+                return rt;
+            }
+        }
+        public string Deposito 
+        {
+            get
+            {
+                var rt = "";
+                if (Sistema.Deposito != null)
+                {
+                    rt = Sistema.Deposito.nombre;
                 }
                 return rt;
             }
@@ -110,6 +134,17 @@ namespace PosOnLine.Src.Principal
                 return false;
             }
             Sistema.DatosEmpresa = r04.Entidad;
+
+            if (r02.Entidad.idDeposito != "")
+            {
+                var r05 = Sistema.MyData.Deposito_GetFichaById(r02.Entidad.idDeposito);
+                if (r05.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r05.Mensaje);
+                    return false;
+                }
+                Sistema.Deposito = r05.Entidad;
+            }
 
             return rt;
         }
@@ -244,6 +279,7 @@ namespace PosOnLine.Src.Principal
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
+                ActualizarDeposito();
                 Helpers.Msg.EditarOk();
             }
         }
@@ -259,9 +295,44 @@ namespace PosOnLine.Src.Principal
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
+                ActualizarDeposito();
                 Helpers.Msg.EditarOk();
             }
         }
+
+        private void ActualizarDeposito() 
+        {
+            var r01 = Sistema.MyData.Configuracion_Pos_GetFicha();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return ;
+            }
+            Sistema.ConfiguracionActual = r01.Entidad;
+
+            if (r01.Entidad.idDeposito != "")
+            {
+                var r02 = Sistema.MyData.Deposito_GetFichaById(r01.Entidad.idDeposito);
+                if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return ;
+                }
+                Sistema.Deposito = r02.Entidad;
+            }
+
+            if (r01.Entidad.idSucursal != "")
+            {
+                var r03 = Sistema.MyData.Sucursal_GetFichaById(r01.Entidad.idSucursal);
+                if (r03.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r03.Mensaje);
+                    return ;
+                }
+                Sistema.Sucursal = r03.Entidad;
+            }
+        }
+
     }
 
 }

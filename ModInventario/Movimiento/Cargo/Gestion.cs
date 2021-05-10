@@ -586,6 +586,10 @@ namespace ModInventario.Movimiento.Cargo
             get { return true; }
         }
 
+        public void Inicializa()
+        {
+        }
+
     }
 
 }

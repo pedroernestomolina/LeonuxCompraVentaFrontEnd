@@ -136,6 +136,11 @@ namespace ModInventario.Movimiento
             miGestion.setHabilitarConcepto(p);
         }
 
+        public void Inicializa()
+        {
+            miGestion.Inicializa();
+        }
+
     }
 
 }

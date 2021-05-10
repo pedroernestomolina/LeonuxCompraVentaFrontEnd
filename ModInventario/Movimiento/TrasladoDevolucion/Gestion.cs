@@ -446,6 +446,10 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
             get { return false; }
         }
 
+        public void Inicializa()
+        {
+        }
+
     }
 
 }

@@ -48,6 +48,7 @@ namespace ModInventario.Movimiento
         void setFiltros(Buscar.Filtrar.data data);
         void ActualizarConceptos();
         void setHabilitarConcepto(bool p);
+        void Inicializa();
 
     }
 

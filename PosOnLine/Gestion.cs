@@ -33,6 +33,7 @@ namespace PosOnLine
                 Sistema.ImprimirFactura = new Helpers.Imprimir.Grafico.Documento();
                 Sistema.ImprimirNotaCredito = new Helpers.Imprimir.Grafico.Documento();
                 Sistema.ImprimirNotaEntrega= new Helpers.Imprimir.Grafico.Documento();
+                Sistema.ImprimirCuadreCaja = new Helpers.Imprimir.Grafico.CuadreDoc();
 
                 _gestionIdentifica.Inicializa();
                 _gestionIdentifica.Inicia();

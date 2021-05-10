@@ -495,6 +495,45 @@ namespace PosOnLine.Src.Cierre
                          montoNCr=montoNCredito,
                     },
                 };
+
+                var dat = new Helpers.Imprimir.dataCuadre();
+                dat.cntFAC = cntFactura;
+                dat.cntNCR = cntNCredito;
+                dat.cntNEN = cntNEntrega;
+                dat.cntFACAnu = cntFacturaAnulada;
+                dat.cntNCRAnu = cntNCreditoAnulada;
+                dat.cntNENAnu = cntNEntregaAnulada;
+                dat.montoFAC = montoFactura;
+                dat.montoFACAnu = montoFacturaAnulada;
+                dat.montoNCR = montoNCredito;
+                dat.montoNCRAnu = montoNCreditoAnulada;
+                dat.montoNEN = montoNEntrega;
+                dat.montoNENAnu = montoNEntregaAnulada;
+                dat.montoVenta = montoVenta;
+                dat.montoVentaContado = montoDocContado;
+                dat.montoVentaCredito = montoDocCredito;
+                dat.efectivo_s = montoEfectivo;
+                dat.divisa_s = montoDivisa;
+                dat.electronico_s = montoElectronico;
+                dat.otros_s = montoOtros;
+                dat.devoluciones_s = montoNCredito;
+                dat.credito_s = montoDocCredito;
+                dat.cambio_s = montoCambio;
+                dat.efectivo_u = _entradaEfectivo;
+                dat.divisa_u = montoEntradaDivisa;
+                dat.electronico_u = _entradaTarjeta;
+                dat.otros_u = _entradaOtro;
+                dat.cnt_efectivo_s = cntEfecitvo;
+                dat.cnt_divisa_s = cntDivisa;
+                dat.cnt_electronico_s = cntElectronico;
+                dat.cnt_otros_s = cntOtros;
+                dat.cnt_divisa_u = _entradaCntDivisa;
+                dat.cuadre_s=montoDesgloze;
+                dat.cuadre_u=montoEntrada;
+                Sistema.ImprimirCuadreCaja.setData(dat);
+                Sistema.ImprimirCuadreCaja.ImprimirDoc();
+                return;
+
                 var r02 = Sistema.MyData.Jornada_Cerrar(ficha);
                 if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
                 {

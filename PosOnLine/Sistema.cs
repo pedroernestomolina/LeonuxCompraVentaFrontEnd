@@ -22,6 +22,7 @@ namespace PosOnLine
         public static OOB.Pos.EnUso.Ficha PosEnUso;
         public static OOB.Configuracion.Entidad.Ficha ConfiguracionActual;
         public static OOB.Sucursal.Entidad.Ficha Sucursal;
+        public static OOB.Deposito.Entidad.Ficha Deposito;
         public static OOB.Sistema.Empresa.Ficha DatosEmpresa;
         public static string IdEquipo;
         public static string EquipoEstacion;
@@ -45,6 +46,7 @@ namespace PosOnLine
         public static Helpers.Imprimir.IDocumento ImprimirFactura;
         public static Helpers.Imprimir.IDocumento ImprimirNotaCredito;
         public static Helpers.Imprimir.IDocumento ImprimirNotaEntrega;
+        public static Helpers.Imprimir.ICuadreCaja ImprimirCuadreCaja;
 
         //
         public static string CLAVE_ADMINISTRADOR = "71277128";

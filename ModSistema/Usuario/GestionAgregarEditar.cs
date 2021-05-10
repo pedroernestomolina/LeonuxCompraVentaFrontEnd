@@ -72,7 +72,7 @@ namespace ModSistema.Usuario
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.UsuarioGrupo_GetLista ();
+            var r01 = Sistema.MyData.UsuarioGrupo_GetLista();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -80,6 +80,7 @@ namespace ModSistema.Usuario
             }
             lGrupo.Clear();
             lGrupo.AddRange(r01.Lista.OrderBy(o => o.nombre).ToList());
+            bsGrupo.CurrencyManager.Refresh();
 
             return rt;
         }

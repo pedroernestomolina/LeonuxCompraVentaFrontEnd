@@ -1031,6 +1031,13 @@ namespace PosOnLine.Src.Pos
                 return;
             }
 
+            var xdata=CargarDataDocumento(r01.Auto);
+            if (xdata!=null)
+            {
+                Sistema.ImprimirFactura.setData(xdata);
+                Sistema.ImprimirFactura.ImprimirDoc();
+            }
+
             _gestionItem.Limpiar();
             _gestionCliente.Limpiar();
         }
@@ -1416,6 +1423,14 @@ namespace PosOnLine.Src.Pos
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+
+            var xdata = CargarDataDocumento(r01.Auto);
+            if (xdata != null)
+            {
+                Sistema.ImprimirNotaCredito.setData(xdata);
+                Sistema.ImprimirNotaCredito.ImprimirDoc();
+            }
+
             _gestionItem.Limpiar();
             _gestionCliente.Limpiar();
             Helpers.Msg.OK("DOCUMENTO PROCESADO EXITOSAMENTE");
@@ -1746,11 +1761,26 @@ namespace PosOnLine.Src.Pos
                 return;
             }
 
-            var xr1 = Sistema.MyData.Documento_GetById(r01.Auto );
+            var xdata = CargarDataDocumento(r01.Auto);
+            if (xdata != null)
+            {
+                Sistema.ImprimirNotaEntrega.setData(xdata);
+                Sistema.ImprimirNotaEntrega.ImprimirDoc();
+            }
+
+            _gestionItem.Limpiar();
+            _gestionCliente.Limpiar();
+            Helpers.Msg.OK("DOCUMENTO PROCESADO EXITOSAMENTE");
+            Inicializa();
+        }
+
+        private Helpers.Imprimir.data CargarDataDocumento(string p)
+        {
+            var xr1 = Sistema.MyData.Documento_GetById(p);
             if (xr1.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(xr1.Mensaje);
-                return;
+                return null;
             }
 
             var xdata = new Helpers.Imprimir.data();
@@ -1817,13 +1847,7 @@ namespace PosOnLine.Src.Pos
                 };
                 xdata.item.Add(nr);
             }
-            Sistema.ImprimirNotaEntrega.setData(xdata);
-            Sistema.ImprimirNotaEntrega.ImprimirDoc();
-
-            _gestionItem.Limpiar();
-            _gestionCliente.Limpiar();
-            Helpers.Msg.OK("DOCUMENTO PROCESADO EXITOSAMENTE");
-            Inicializa();
+            return xdata;
         }
 
     }

@@ -241,6 +241,7 @@ namespace ModPos
         private void LimpiarBD_Local()
         {
             _controlador.InicializarBDLocal();
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL_Click(object sender, EventArgs e)

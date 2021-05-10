@@ -1,4 +1,5 @@
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\conf.xml
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Cuadre.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Documento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe

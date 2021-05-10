@@ -72,7 +72,7 @@ namespace PosOnLine.Src.Producto.Lista
         public void setData(List<OOB.Producto.Lista.Ficha> lst)
         {
             _lData.Clear();
-            foreach (var it in lst)
+            foreach (var it in lst.OrderBy(o=>o.Nombre).ToList())
             {
                 _lData.Add(new data(it));
             }

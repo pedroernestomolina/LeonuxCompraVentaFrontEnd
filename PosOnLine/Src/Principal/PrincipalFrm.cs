@@ -89,6 +89,8 @@ namespace PosOnLine.Src.Principal
             L_USUARIO.Text = _controlador.UsuarioActual;
             L_EQUIPO_ID.Text = _controlador.EquipoId;
             L_SUCURSAL_ID.Text = _controlador.SucursalId;
+            L_SUCURSAL.Text = _controlador.Sucursal;
+            L_DEPOSITO.Text = _controlador.Deposito;
             L_VERSION.Text = _controlador.Version;
             L_BD_NOMBRE.Text = _controlador.BD_Nombre;
             L_BD_RUTA.Text = _controlador.BD_Ruta;
@@ -128,6 +130,7 @@ namespace PosOnLine.Src.Principal
         private void ConfigurarSucursalDeposito()
         {
             _controlador.ConfigurarSucursalDepositoFrio();
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void MenuItem_Configuracion_Deposito_Viveres_Click(object sender, EventArgs e)
@@ -138,6 +141,7 @@ namespace PosOnLine.Src.Principal
         private void ConfigurarSucursalDepositoViveres()
         {
             _controlador.ConfigurarSucursalDepositoViveres();
+            ActualizarJornadaOperadorUsuario();
         }
 
     }

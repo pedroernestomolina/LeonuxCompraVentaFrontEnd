@@ -208,6 +208,7 @@ namespace ModInventario
             {
                 _gestionMov = new Movimiento.Gestion();
                 _gestionMov.setGestion(new Movimiento.TrasladoEntreSucursal.Gestion());
+                _gestionMov.Inicializa();
                 _gestionMov.Inicia2();
             }
         }

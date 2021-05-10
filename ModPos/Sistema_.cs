@@ -599,7 +599,8 @@ namespace ModPos
                         Helpers.Msg.Error(r01.Mensaje);
                         return;
                     }
-
+                    Sistema.MyJornada = null;
+                    Sistema.MyOperador = null;
                     Helpers.Msg.OK("PROCESO REALIZADO CON EXITO !!!");
                 }
             }

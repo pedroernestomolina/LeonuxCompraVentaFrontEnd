@@ -12,6 +12,14 @@ namespace OOB.LibInventario.Movimiento.Traslado.Consultar
     {
 
         public string autoDeposito { get; set; }
+        public string autoDepartamento { get; set; }
+
+
+        public Filtro()
+        {
+            autoDeposito = "";
+            autoDepartamento = "";
+        }
 
     }
 

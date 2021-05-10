@@ -18,19 +18,22 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         private Analisis.General.Gestion _gestionAnalisisGeneral;
         private Analisis.Detallado.Gestion _gestionAnalisisDetallado;
         private Analisis.Existencia.Gestion _gestionAnalisisExistencia;
-
         private List<OOB.LibInventario.Concepto.Ficha> lConcepto;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucOrigen;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucDestino;
+        private List<OOB.LibInventario.Departamento.Ficha> lDepartamento;
         private BindingSource bsConcepto;
         private BindingSource bsSucOrigen;
         private BindingSource bsSucDestino;
+        private BindingSource bsDepartamento;
         private Movimiento.data miData;
         private GestionDetalle _gestionDetalle;
         private decimal tasaCambio;
         private bool isCerrarOk;
         private OOB.LibInventario.Sucursal.Ficha sucOrigen;
         private OOB.LibInventario.Sucursal.Ficha sucDestino;
+        private OOB.LibInventario.Departamento.Ficha _departamento;
+
 
         public bool IsCerrarOk { get { return isCerrarOk; } }
         public string TipoMovimiento { get {return "TRASLADO";} }
@@ -42,6 +45,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         public BindingSource SucursalSource { get { return null; } }
         public BindingSource DepOrigenSource { get { return bsSucOrigen; } }
         public BindingSource DepDestinoSource { get { return bsSucDestino; } }
+        public BindingSource DepartamentoSource { get { return bsDepartamento; } }
         public string IdSucursal { get { return miData.IdSucursal; } set { miData.IdSucursal = value; } }
         public string IdConcepto { get { return miData.IdConcepto; } set { miData.IdConcepto = value; } }
         public string IdDepOrigen
@@ -78,12 +82,15 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
             lSucOrigen = new List<OOB.LibInventario.Sucursal.Ficha>();
             lSucDestino = new List<OOB.LibInventario.Sucursal.Ficha>();
+            lDepartamento = new List<OOB.LibInventario.Departamento.Ficha>();
             bsConcepto = new BindingSource();
             bsSucOrigen = new BindingSource();
             bsSucDestino = new BindingSource();
+            bsDepartamento = new BindingSource();
             bsConcepto.DataSource = lConcepto;
             bsSucOrigen.DataSource = lSucOrigen;
             bsSucDestino.DataSource = lSucDestino;
+            bsDepartamento.DataSource = lDepartamento;
         }
 
         private void _gestionAnalisisGeneral_ItemSeleccionado(object sender, EventArgs e)
@@ -141,6 +148,13 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 Helpers.Msg.Error(rt4.Mensaje);
                 return false;
             }
+            var rt5 = Sistema.MyData.Departamento_GetLista();
+            if (rt5.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt5.Mensaje);
+                return false;
+            }
+
             tasaCambio = rt4.Entidad;
             _gestionDetalle.setTasaCambio(tasaCambio);
 
@@ -156,6 +170,10 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             lSucDestino.AddRange(rt1.Lista.OrderBy(o=>o.nombre).ToList());
             bsSucDestino.CurrencyManager.Refresh();
 
+            lDepartamento.Clear();
+            lDepartamento.AddRange(rt5.Lista.OrderBy(o => o.nombre).ToList());
+            bsDepartamento.CurrencyManager.Refresh();
+
             return rt;
         }
 
@@ -165,6 +183,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             isCerrarOk = false;
             miData.Limpiar();
             _gestionDetalle.Limpiar();
+            _departamento = null;
         }
 
         public bool LimpiarVistaIsOk()
@@ -202,6 +221,7 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
         public void Procesar()
         {
             miData.detalle = _gestionDetalle.Detalle;
+            IdConcepto = "0000000008";
             if (miData.Verificar())
             {
                 if (IdDepOrigen == "")
@@ -426,6 +446,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
             var filtro = new OOB.LibInventario.Movimiento.Traslado.Consultar.Filtro();
             filtro.autoDeposito = sucDestino.autoDepositoPrincipal;
+            if (_departamento != null) 
+            {
+                filtro.autoDepartamento = _departamento.auto;
+            }
+
             var rt3 = Sistema.MyData.Producto_Movimiento_Traslado_Consultar_ProductosPorDebajoNivelMinimo(filtro);
             if (rt3.Result == OOB.Enumerados.EnumResult.isError)
             {
@@ -498,6 +523,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             }
         }
 
+        public void setDepartamento(string idDepart)
+        {
+            _departamento = lDepartamento.FirstOrDefault(s => s.auto == idDepart);
+        }
+
+
         public void VerExistencia()
         {
             if (_gestionDetalle.ItemActual != null)
@@ -553,7 +584,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         public bool HabilitarConcepto
         {
-            get { return true; }
+            get { return false; }
+        }
+
+        public void Inicializa()
+        {
+            _departamento = null;
         }
 
     }

@@ -17,6 +17,11 @@ namespace PosOnLine.Helpers.Imprimir.Grafico
         private data _ds;
 
 
+        public Documento()
+        {
+        }
+
+
         public void ImprimirDoc()
         {
             Imprimir();

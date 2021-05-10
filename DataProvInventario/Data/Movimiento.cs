@@ -18,6 +18,7 @@ namespace DataProvInventario.Data
 
             var filtroDto = new DtoLibInventario.Movimiento.Traslado.Consultar.Filtro();
             filtroDto.autoDeposito = filtro.autoDeposito;
+            filtroDto.autoDepartamento = filtro.autoDepartamento;
             var r01 = MyData.Producto_Movimiento_Traslado_Consultar_ProductosPorDebajoNivelMinimo(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {

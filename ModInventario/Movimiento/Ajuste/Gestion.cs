@@ -406,6 +406,10 @@ namespace ModInventario.Movimiento.Ajuste
             get { return true; }
         }
 
+        public void Inicializa()
+        {
+        }
+
     }
 
 }

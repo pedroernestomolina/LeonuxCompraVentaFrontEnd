@@ -374,6 +374,7 @@ namespace DataProvCompra.Data
                 montoIva2=s.montoIva2,
                 montoIva3=s.montoIva3,
                 horaRegistro=s.horaRegistro,
+                aplica=s.aplica,
             };
             var det = s.detalles.Select(ss =>
             {
@@ -448,6 +449,7 @@ namespace DataProvCompra.Data
                             codigoTipo = s.tipo,
                             Signo = s.signo,
                             ControlNro= s.control,
+                            Aplica=s.aplica,
                         };
                         return nr;
                     }).ToList();

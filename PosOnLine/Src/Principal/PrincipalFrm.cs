@@ -124,10 +124,10 @@ namespace PosOnLine.Src.Principal
 
         private void MenuItem_Configuracion_Deposito_Click(object sender, EventArgs e)
         {
-            ConfigurarSucursalDeposito();
+            ConfigurarSucursalDepositoFrio();
         }
 
-        private void ConfigurarSucursalDeposito()
+        private void ConfigurarSucursalDepositoFrio()
         {
             _controlador.ConfigurarSucursalDepositoFrio();
             ActualizarJornadaOperadorUsuario();
@@ -141,6 +141,17 @@ namespace PosOnLine.Src.Principal
         private void ConfigurarSucursalDepositoViveres()
         {
             _controlador.ConfigurarSucursalDepositoViveres();
+            ActualizarJornadaOperadorUsuario();
+        }
+
+        private void MenuItem_Configuracion_SucursalDeposito_Click(object sender, EventArgs e)
+        {
+            ConfigurarSucursalDeposito();
+        }
+
+        private void ConfigurarSucursalDeposito()
+        {
+            _controlador.ConfigurarSucursalDeposito();
             ActualizarJornadaOperadorUsuario();
         }
 

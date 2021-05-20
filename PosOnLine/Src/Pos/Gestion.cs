@@ -1110,7 +1110,7 @@ namespace PosOnLine.Src.Pos
             _gestionProcesarPago.setDescuento(dsctoFinal);
 
             var isCredito = false;;
-            var montoRecibido = 0.0m;
+            //var montoRecibido = 0.0m;
             var montoCambio = 0.0m;;
             var BaseExenta = _gestionItem.Items.Sum(s => s.BaseExenta);
             var MontoBase = _gestionItem.Items.Sum(s => s.MontoBase);
@@ -1467,7 +1467,7 @@ namespace PosOnLine.Src.Pos
             _gestionProcesarPago.setDescuento(dsctoFinal);
 
             var isCredito = false; ;
-            var montoRecibido = 0.0m;
+           // var montoRecibido = 0.0m;
             var montoCambio = 0.0m; ;
             var BaseExenta = _gestionItem.Items.Sum(s => s.BaseExenta);
             var MontoBase = _gestionItem.Items.Sum(s => s.MontoBase);

@@ -520,6 +520,8 @@ namespace ModCompra.Reportes {
             
             private global::System.Data.DataColumn columnfactorCambio;
             
+            private global::System.Data.DataColumn columnaplica;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DocEncabezadoDataTable() {
@@ -819,6 +821,14 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn aplicaColumn {
+                get {
+                    return this.columnaplica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -887,7 +897,8 @@ namespace ModCompra.Reportes {
                         decimal tasaIva3, 
                         decimal montoDivisa, 
                         string fechaHoraRegistro, 
-                        decimal factorCambio) {
+                        decimal factorCambio, 
+                        string aplica) {
                 DocEncabezadoRow rowDocEncabezadoRow = ((DocEncabezadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         provNombre,
@@ -922,7 +933,8 @@ namespace ModCompra.Reportes {
                         tasaIva3,
                         montoDivisa,
                         fechaHoraRegistro,
-                        factorCambio};
+                        factorCambio,
+                        aplica};
                 rowDocEncabezadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDocEncabezadoRow);
                 return rowDocEncabezadoRow;
@@ -978,6 +990,7 @@ namespace ModCompra.Reportes {
                 this.columnmontoDivisa = base.Columns["montoDivisa"];
                 this.columnfechaHoraRegistro = base.Columns["fechaHoraRegistro"];
                 this.columnfactorCambio = base.Columns["factorCambio"];
+                this.columnaplica = base.Columns["aplica"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1049,6 +1062,8 @@ namespace ModCompra.Reportes {
                 base.Columns.Add(this.columnfechaHoraRegistro);
                 this.columnfactorCambio = new global::System.Data.DataColumn("factorCambio", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfactorCambio);
+                this.columnaplica = new global::System.Data.DataColumn("aplica", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaplica);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3528,6 +3543,22 @@ namespace ModCompra.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string aplica {
+                get {
+                    try {
+                        return ((string)(this[this.tableDocEncabezado.aplicaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'aplica\' in table \'DocEncabezado\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDocEncabezado.aplicaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsprovNombreNull() {
                 return this.IsNull(this.tableDocEncabezado.provNombreColumn);
             }
@@ -3920,6 +3951,18 @@ namespace ModCompra.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetfactorCambioNull() {
                 this[this.tableDocEncabezado.factorCambioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsaplicaNull() {
+                return this.IsNull(this.tableDocEncabezado.aplicaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetaplicaNull() {
+                this[this.tableDocEncabezado.aplicaColumn] = global::System.Convert.DBNull;
             }
         }
         

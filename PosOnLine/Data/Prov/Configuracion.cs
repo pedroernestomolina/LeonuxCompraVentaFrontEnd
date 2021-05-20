@@ -165,6 +165,26 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.Ficha Configuracion_Pos_CambioSucursalDeposito(OOB.Configuracion.CambioSucursalDeposito.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.Configuracion.CambioDepositoSucursal.Ficha()
+            {
+                idSucursal = ficha.idSucursal,
+                idDeposito = ficha.idDeposito,
+            };
+            var r01 = MyData.Configuracion_Pos_CambioDepositoSucursal (fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
     }
 
 }

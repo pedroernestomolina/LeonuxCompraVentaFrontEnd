@@ -77,7 +77,7 @@ namespace ModSistema.Deposito
                 return false;
             }
             lSucursal.Clear();
-            lSucursal.AddRange(r01.Lista);
+            lSucursal.AddRange(r01.Lista.OrderBy(o=>o.nombre).ToList());
 
             var r02 = Sistema.MyData.Deposito_GeneraCodigoAutomatico();
             if (r02.Result == OOB.Enumerados.EnumResult.isError)

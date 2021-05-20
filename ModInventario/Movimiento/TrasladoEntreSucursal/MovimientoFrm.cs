@@ -426,7 +426,18 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             _controlador.Procesar();
             if (_controlador.IsCerrarOk) 
             {
-                Salir();
+                _controlador.Limpiar();
+
+                DGV_DETALLE.DataSource = null;
+                DGV_DETALLE.Rows.Clear();
+                Limpiar();
+                DGV_DETALLE.DataSource = _controlador.DetalleSouce;
+                TB_AUTORIZADO_POR.Focus();
+                CB_DEP_ORIGEN.Enabled = true;
+                CB_DEP_DESTINO.Enabled = true;
+                CB_DEPARTAMENTO.Enabled = true;
+                L_DEPARTAMENTO.Enabled = true;
+                BT_CARGAR_DATA.Enabled = true;
             }
         }
 

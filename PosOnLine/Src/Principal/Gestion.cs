@@ -19,6 +19,7 @@ namespace PosOnLine.Src.Principal
         private Anular.Gestion _gestionAnular;
         private Cierre.Gestion _gestionCierre;
         private Configuracion.Gestion _gestionCnf;
+        private Configuracion.SucursalDeposito.Gestion _gestionCnfSucDeposito;
 
 
         public string BD_Ruta { get { return Sistema.Instancia; } }
@@ -70,6 +71,7 @@ namespace PosOnLine.Src.Principal
         public Gestion()
         {
             _gestionCnf = new Configuracion.Gestion();
+            _gestionCnfSucDeposito = new Configuracion.SucursalDeposito.Gestion();
             _gestionCierre = new Cierre.Gestion();
             _gestionAnular = new Anular.Gestion();
             _gestionDoc = new AdministradorDoc.Principal.Gestion();
@@ -330,6 +332,25 @@ namespace PosOnLine.Src.Principal
                     return ;
                 }
                 Sistema.Sucursal = r03.Entidad;
+            }
+        }
+
+        public void ConfigurarSucursalDeposito()
+        {
+            if (Sistema.ConfiguracionActual.Estatus_Activa)
+            {
+                _gestionCnfSucDeposito.Inicializa();
+                _gestionCnfSucDeposito.Inicia();
+                if (_gestionCnfSucDeposito.ConfiguracionIsOk)
+                {
+                    ActualizarDeposito();
+                    Helpers.Msg.EditarOk();
+                }
+            }
+            else
+            {
+                Helpers.Msg.Error("CONFIGURACION NO DEFNIDA");
+                return;
             }
         }
 

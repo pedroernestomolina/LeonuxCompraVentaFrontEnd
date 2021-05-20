@@ -33,6 +33,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cierre
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Buscar.BuscarAgregarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Cliente.Listar.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Configuracion.ConfigurarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Configuracion.SucursalDeposito.CnfSucDepFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Consultor.ConsultorFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Devolucion.DevolucionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Identificacion.IdentificacionFrm.resources

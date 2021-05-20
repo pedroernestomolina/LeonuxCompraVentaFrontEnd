@@ -80,6 +80,14 @@ namespace ModCompra.Administrador
             c3B.HeaderCell.Style.Font = f;
             c3B.DefaultCellStyle.Font = f1;
 
+            var cA = new DataGridViewTextBoxColumn();
+            cA.DataPropertyName = "Aplica";
+            cA.HeaderText = "Aplica";
+            cA.Visible = true;
+            cA.Width = 100;
+            cA.HeaderCell.Style.Font = f;
+            cA.DefaultCellStyle.Font = f1;
+
             var c3A = new DataGridViewTextBoxColumn();
             c3A.DataPropertyName = "FechaReg";
             c3A.HeaderText = "Fecha/Reg";
@@ -174,6 +182,7 @@ namespace ModCompra.Administrador
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c3B);
+            DGV.Columns.Add(cA);
             DGV.Columns.Add(c3A);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);

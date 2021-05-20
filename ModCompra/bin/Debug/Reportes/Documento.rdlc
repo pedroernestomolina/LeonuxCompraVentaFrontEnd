@@ -789,7 +789,7 @@
         <Top>0.14111cm</Top>
         <Left>0.3937cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.93604cm</Width>
+        <Width>19.93605cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -803,7 +803,7 @@
   <Width>8.08185in</Width>
   <Page>
     <PageHeader>
-      <Height>5.09474cm</Height>
+      <Height>5.17411cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -929,8 +929,8 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>4.998cm</Top>
-          <Left>0.3937cm</Left>
+          <Top>4.98891cm</Top>
+          <Left>0.39371cm</Left>
           <Height>0cm</Height>
           <Width>19.93604cm</Width>
           <ZIndex>4</ZIndex>
@@ -990,7 +990,7 @@
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>0.99515cm</Top>
-          <Left>19.55835cm</Left>
+          <Left>19.52307cm</Left>
           <Height>0.6cm</Height>
           <Width>0.67438cm</Width>
           <ZIndex>6</ZIndex>
@@ -1022,7 +1022,7 @@
           </Paragraphs>
           <rd:DefaultName>TotalPages</rd:DefaultName>
           <Top>0.99515cm</Top>
-          <Left>17.53162cm</Left>
+          <Left>17.49634cm</Left>
           <Height>0.6cm</Height>
           <Width>0.62146cm</Width>
           <ZIndex>7</ZIndex>
@@ -1056,7 +1056,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
           <Top>0.99515cm</Top>
-          <Left>16.00884cm</Left>
+          <Left>15.97356cm</Left>
           <Height>0.6cm</Height>
           <Width>1.41521cm</Width>
           <ZIndex>8</ZIndex>
@@ -1090,7 +1090,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox50</rd:DefaultName>
           <Top>0.99515cm</Top>
-          <Left>18.49449cm</Left>
+          <Left>18.45921cm</Left>
           <Height>0.6cm</Height>
           <Width>0.92275cm</Width>
           <ZIndex>9</ZIndex>
@@ -1123,8 +1123,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox22</rd:DefaultName>
-          <Top>1.9812cm</Top>
-          <Left>15.02106cm</Left>
+          <Top>2.13029cm</Top>
+          <Left>15.05634cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>10</ZIndex>
@@ -1158,10 +1158,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox22</rd:DefaultName>
-          <Top>1.9812cm</Top>
-          <Left>17.69745cm</Left>
+          <Top>2.13029cm</Top>
+          <Left>17.73273cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.46472cm</Width>
           <ZIndex>11</ZIndex>
           <Style>
             <Border>
@@ -1184,6 +1184,7 @@
                   <Value>=First(Fields!documento.Value, "DocEncabezado")</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -1193,10 +1194,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>documento</rd:DefaultName>
-          <Top>2.80995cm</Top>
-          <Left>12.03599cm</Left>
+          <Top>2.76557cm</Top>
+          <Left>10.77042cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.84396cm</Width>
+          <Width>4.07425cm</Width>
           <ZIndex>12</ZIndex>
           <Style>
             <Border>
@@ -1227,10 +1228,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>control</rd:DefaultName>
-          <Top>2.80995cm</Top>
-          <Left>15.05634cm</Left>
+          <Top>2.76557cm</Top>
+          <Left>15.02106cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.53528cm</Width>
           <ZIndex>13</ZIndex>
           <Style>
             <Border>
@@ -1262,10 +1263,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>fechaEmision</rd:DefaultName>
-          <Top>2.80995cm</Top>
+          <Top>2.76557cm</Top>
           <Left>17.73273cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.46472cm</Width>
           <ZIndex>14</ZIndex>
           <Style>
             <Border>
@@ -1284,7 +1285,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Mes/Año Relacion</Value>
+                  <Value>Mes/Año Rel</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -1297,10 +1298,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox27</rd:DefaultName>
-          <Top>3.55106cm</Top>
-          <Left>12.03599cm</Left>
+          <Top>3.54196cm</Top>
+          <Left>10.77042cm</Left>
           <Height>0.56472cm</Height>
-          <Width>2.84396cm</Width>
+          <Width>2.36771cm</Width>
           <ZIndex>15</ZIndex>
           <Style>
             <Border>
@@ -1332,10 +1333,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox29</rd:DefaultName>
-          <Top>3.55106cm</Top>
-          <Left>15.02106cm</Left>
+          <Top>3.54196cm</Top>
+          <Left>15.70898cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.53528cm</Width>
+          <Width>2.29715cm</Width>
           <ZIndex>16</ZIndex>
           <Style>
             <Border>
@@ -1367,10 +1368,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox30</rd:DefaultName>
-          <Top>3.55106cm</Top>
-          <Left>17.73273cm</Left>
+          <Top>3.54196cm</Top>
+          <Left>18.07669cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.12076cm</Width>
           <ZIndex>17</ZIndex>
           <Style>
             <Border>
@@ -1401,15 +1402,16 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>mesAnoRelacion</rd:DefaultName>
-          <Top>4.18606cm</Top>
-          <Left>12.03599cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.84396cm</Width>
+          <Top>4.14196cm</Top>
+          <Left>10.77042cm</Left>
+          <Height>0.6441cm</Height>
+          <Width>2.36771cm</Width>
           <ZIndex>18</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1435,15 +1437,16 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ordenCompra</rd:DefaultName>
-          <Top>4.19516cm</Top>
-          <Left>15.05634cm</Left>
+          <Top>4.18606cm</Top>
+          <Left>15.70898cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>2.29715cm</Width>
           <ZIndex>19</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1470,15 +1473,16 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>fechaVencimiento</rd:DefaultName>
-          <Top>4.22162cm</Top>
-          <Left>17.69745cm</Left>
+          <Top>4.18606cm</Top>
+          <Left>18.07669cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.53528cm</Width>
+          <Width>2.12076cm</Width>
           <ZIndex>20</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1504,16 +1508,86 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DOCUMENTO</rd:DefaultName>
-          <Top>1.9812cm</Top>
-          <Left>12.03599cm</Left>
+          <Top>2.13029cm</Top>
+          <Left>10.77042cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.80868cm</Width>
+          <Width>4.07425cm</Width>
           <ZIndex>21</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
             <BackgroundColor>DarkGray</BackgroundColor>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox28">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Aplica</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox27</rd:DefaultName>
+          <Top>3.54196cm</Top>
+          <Left>13.24397cm</Left>
+          <Height>0.56472cm</Height>
+          <Width>2.39445cm</Width>
+          <ZIndex>22</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="aplica">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!aplica.Value, "DocEncabezado")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>aplica</rd:DefaultName>
+          <Top>4.14196cm</Top>
+          <Left>13.24397cm</Left>
+          <Height>0.6441cm</Height>
+          <Width>2.39445cm</Width>
+          <ZIndex>23</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
             <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -2854,6 +2928,10 @@
         <Field Name="factorCambio">
           <DataField>factorCambio</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="aplica">
+          <DataField>aplica</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

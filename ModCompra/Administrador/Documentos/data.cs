@@ -29,6 +29,7 @@ namespace ModCompra.Administrador.Documentos
         public string Situacion { get { return rg.situacion; } }
         public bool IsAnulado { get { return rg.esAnulado; } }
         public string Signo { get { return rg.Signo == 1 ? "+" : "-"; } }
+        public string Aplica { get { return rg.Aplica; } }
         public string Estatus 
         { 
             get 

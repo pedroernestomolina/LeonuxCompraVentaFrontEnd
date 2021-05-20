@@ -27,6 +27,7 @@ namespace OOB.LibCompra.Documento.Lista
         public Enumerados.enumTipoDocumento tipoDoc {get;set;}
         public int Signo { get; set; }
         public string ControlNro { get; set; }
+        public string Aplica { get; set; }
 
     }
 

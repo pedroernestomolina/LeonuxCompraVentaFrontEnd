@@ -59,6 +59,7 @@ namespace ModCompra.Reportes.Documento
             rt["fechaHoraRegistro"] = ficha.fechaRegistro.ToShortDateString()+", "+ficha.horaRegistro;
             rt["factorCambio"] = ficha.factorCambio;
             rt["notas"] = ficha.notas;
+            rt["aplica"] = ficha.aplica;
             ds.Tables["DocEncabezado"].Rows.Add(rt);
 
             foreach (var it in ficha.detalles.ToList())

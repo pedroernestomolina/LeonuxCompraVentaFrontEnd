@@ -413,7 +413,15 @@ namespace ModInventario.Movimiento
             _controlador.Procesar();
             if (_controlador.IsCerrarOk) 
             {
-                Salir();
+                _controlador.Limpiar();
+
+                DGV_DETALLE.DataSource = null;
+                DGV_DETALLE.Rows.Clear();
+                Limpiar();
+                DGV_DETALLE.DataSource = _controlador.DetalleSource;
+                TB_AUTORIZADO_POR.Focus();
+                
+                //Salir();
             }
         }
 

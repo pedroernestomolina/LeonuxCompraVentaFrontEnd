@@ -530,9 +530,6 @@ namespace PosOnLine.Src.Cierre
                 dat.cnt_divisa_u = _entradaCntDivisa;
                 dat.cuadre_s=montoDesgloze;
                 dat.cuadre_u=montoEntrada;
-                Sistema.ImprimirCuadreCaja.setData(dat);
-                Sistema.ImprimirCuadreCaja.ImprimirDoc();
-                return;
 
                 var r02 = Sistema.MyData.Jornada_Cerrar(ficha);
                 if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -540,6 +537,9 @@ namespace PosOnLine.Src.Cierre
                     Helpers.Msg.Error(r02.Mensaje);
                     return;
                 }
+                Sistema.ImprimirCuadreCaja.setData(dat);
+                Sistema.ImprimirCuadreCaja.ImprimirDoc();
+
                 Helpers.Msg.OK("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
                 _cierreOk = true;
                 Sistema.PosEnUso.Cerrar();

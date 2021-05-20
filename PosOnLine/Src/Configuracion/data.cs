@@ -329,6 +329,24 @@ namespace PosOnLine.Src.Configuracion
             return rt;
         }
 
+        public bool ValidarSucursalDepositoIsOk()
+        {
+            var rt = true;
+
+            if (_sucursal == null)
+            {
+                Helpers.Msg.Error("Sucursal No Puede Estar Vacio");
+                return false;
+            }
+            if (_deposito == null)
+            {
+                Helpers.Msg.Error("Deposito No Puede Estar Vacio");
+                return false;
+            }
+
+            return rt;
+        }
+
         public void setLimiteSuperior(decimal v)
         {
             _limiteSupRepesaje = v;

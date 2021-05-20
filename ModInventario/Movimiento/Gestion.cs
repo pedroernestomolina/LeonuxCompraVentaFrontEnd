@@ -80,7 +80,7 @@ namespace ModInventario.Movimiento
             return miGestion.CargarData();
         }
 
-        private void Limpiar()
+        public void Limpiar()
         {
             miGestion.Limpiar();
         }

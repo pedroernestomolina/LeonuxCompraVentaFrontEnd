@@ -146,6 +146,7 @@
     <Compile Include="OOB\Cliente\Lista\Filtro.cs" />
     <Compile Include="OOB\Concepto\Entidad\Ficha.cs" />
     <Compile Include="OOB\Configuracion\Actualizar\Ficha.cs" />
+    <Compile Include="OOB\Configuracion\CambioSucursalDeposito\Ficha.cs" />
     <Compile Include="OOB\Configuracion\Entidad\Enumerados.cs" />
     <Compile Include="OOB\Configuracion\Entidad\Ficha.cs" />
     <Compile Include="OOB\Deposito\Entidad\Ficha.cs" />
@@ -304,6 +305,13 @@
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Configuracion\data.cs" />
+    <Compile Include="Src\Configuracion\SucursalDeposito\CnfSucDepFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Configuracion\SucursalDeposito\CnfSucDepFrm.Designer.cs">
+      <DependentUpon>CnfSucDepFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Configuracion\SucursalDeposito\Gestion.cs" />
     <Compile Include="Src\Consultor\data.cs" />
     <Compile Include="Src\Consultor\ConsultorFrm.cs">
       <SubType>Form</SubType>
@@ -438,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Configuracion\ConfigurarFrm.resx">
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Configuracion\SucursalDeposito\CnfSucDepFrm.resx">
+      <DependentUpon>CnfSucDepFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Consultor\ConsultorFrm.resx">
       <DependentUpon>ConsultorFrm.cs</DependentUpon>

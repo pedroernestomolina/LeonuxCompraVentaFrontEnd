@@ -11,7 +11,7 @@ namespace ModPos
     static class Program
     {
 
-        static Identificacion.IdentificacionFrm frm;
+        //static Identificacion.IdentificacionFrm frm;
 
         /// <summary>
         /// The main entry point for the application.

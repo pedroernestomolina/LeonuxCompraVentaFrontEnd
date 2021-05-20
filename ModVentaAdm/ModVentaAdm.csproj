@@ -32,7 +32,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DtoLib">
+      <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\DtoLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DtoLibPos">
+      <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\DtoLibPos.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="ServicePos">
+      <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\ServicePos.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,23 +70,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Data\Infra\IData.cs" />
+    <Compile Include="Data\Infra\ISucursal.cs" />
+    <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Prov\DataPrv.cs" />
+    <Compile Include="Data\Prov\Sucursal.cs" />
+    <Compile Include="Data\Prov\Usuario.cs" />
+    <Compile Include="Gestion.cs" />
+    <Compile Include="Helpers\Msg.cs" />
+    <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="OOB\Documento\Lista\Ficha.cs" />
+    <Compile Include="OOB\Documento\Lista\Filtro.cs" />
+    <Compile Include="OOB\Resultado\Enumerados.cs" />
+    <Compile Include="OOB\Resultado\Ficha.cs" />
+    <Compile Include="OOB\Resultado\FichaAuto.cs" />
+    <Compile Include="OOB\Resultado\FichaEntidad.cs" />
+    <Compile Include="OOB\Resultado\FichaId.cs" />
+    <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sistema.cs" />
+    <Compile Include="Src\Administrador\data.cs" />
+    <Compile Include="Src\Administrador\Documentos\AdmDocFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Administrador\Documentos\AdmDocFrm.Designer.cs">
+      <DependentUpon>AdmDocFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Administrador\Documentos\Gestion.cs" />
+    <Compile Include="Src\Administrador\Documentos\GestionLista.cs" />
+    <Compile Include="Src\Administrador\Gestion.cs" />
+    <Compile Include="Src\Administrador\IGestion.cs" />
+    <Compile Include="Src\Administrador\IGestionListaDetalle.cs" />
+    <Compile Include="Src\Filtro\data.cs" />
+    <Compile Include="Src\Filtro\Gestion.cs" />
+    <Compile Include="Src\Identificacion\Gestion.cs" />
+    <Compile Include="Src\Identificacion\IdentificacionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Identificacion\IdentificacionFrm.Designer.cs">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Principal\Gestion.cs" />
+    <Compile Include="Src\Principal\PrincipalFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Principal\PrincipalFrm.Designer.cs">
+      <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Administrador\Documentos\AdmDocFrm.resx">
+      <DependentUpon>AdmDocFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
+      <DependentUpon>IdentificacionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
+      <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,6 +154,92 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="conf.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\images %281%29.jpg" />
+    <Content Include="Src\Imagenes\images %281%29.jpg" />
+    <Content Include="Src\Imagenes\images.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\administracion-compras-logistica.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\administrador.png" />
+    <EmbeddedResource Include="Src\Imagenes\automatizacion.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\aydai-logistica.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\bt_alerta.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_asignar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_borrar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_buscar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_campana.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_consulta.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_costo.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_documento.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_dollar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_editar_20.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_editar_32.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_editar_48.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_editar_ficha.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_eliminar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_enEspera.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_exchange.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_exchange_32.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_exchange_48.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_gestion.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_grafico.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_guardar %282%29.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_guardar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_historico_32.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_imagen.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_imagen_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_imprimir.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_imprimir_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_imprimir_3.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_limpiar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_limpiar_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_limpiar_20.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_limpiar_24.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_limpiar_3.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_lista.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_mobil_notification.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_mov.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_mov_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_notificacion.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_ok_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_ok_3.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_price.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_proceso.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_proveedor.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_qr.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_salida.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_salida_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_setup.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_status.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_sumar.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_sumar_2.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_usuario %282%29.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_usuario.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_visor.png" />
+    <EmbeddedResource Include="Src\Imagenes\bt_warehouse.png" />
+    <EmbeddedResource Include="Src\Imagenes\carpeta.png" />
+    <EmbeddedResource Include="Src\Imagenes\dollar.png" />
+    <EmbeddedResource Include="Src\Imagenes\fecha_derecha.png" />
+    <EmbeddedResource Include="Src\Imagenes\flecha_izquierda.png" />
+    <EmbeddedResource Include="Src\Imagenes\Gestion-Logistica-Integral-768x400.jpeg" />
+    <EmbeddedResource Include="Src\Imagenes\icon_setup.png" />
+    <EmbeddedResource Include="Src\Imagenes\inventario.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\inventario_2.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\libro.png" />
+    <EmbeddedResource Include="Src\Imagenes\Machine-learning-1024x682.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\mobile.ico" />
+    <EmbeddedResource Include="Src\Imagenes\plataforma-efosearch.jpg" />
+    <EmbeddedResource Include="Src\Imagenes\sinImagen.png" />
+    <EmbeddedResource Include="Src\Imagenes\TOOLS.ico" />
+    <EmbeddedResource Include="Src\Imagenes\transferencia.png" />
+    <EmbeddedResource Include="Src\Imagenes\warehouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

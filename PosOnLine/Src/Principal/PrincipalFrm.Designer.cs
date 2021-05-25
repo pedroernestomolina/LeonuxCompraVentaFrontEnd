@@ -50,6 +50,7 @@
             this.MenuItem_Configuracion_Deposito = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Configuracion_Deposito_Viveres = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Configuracion_SucursalDeposito = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Herramientas_TestBD = new System.Windows.Forms.ToolStripMenuItem();
             this.testFiscalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,7 +125,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
             this.L_SUCURSAL_ID = new System.Windows.Forms.Label();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -429,6 +429,11 @@
             this.MenuItem_Configuracion_SucursalDeposito.Size = new System.Drawing.Size(230, 22);
             this.MenuItem_Configuracion_SucursalDeposito.Text = "Configurar Sucursal/Deposito";
             this.MenuItem_Configuracion_SucursalDeposito.Click += new System.EventHandler(this.MenuItem_Configuracion_SucursalDeposito_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(227, 6);
             // 
             // herramientasToolStripMenuItem
             // 
@@ -1320,11 +1325,6 @@
             this.L_SUCURSAL_ID.TabIndex = 1;
             this.L_SUCURSAL_ID.Text = "label5";
             this.L_SUCURSAL_ID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(227, 6);
             // 
             // PrincipalFrm
             // 

@@ -21,8 +21,8 @@ namespace ModVentaAdm.Src.Administrador
         //void setGestionAnular(Anular.Gestion _gestionAnular);
         void VisualizarDocumento();
         void Imprimir();
-        //void setLista(List<OOB.LibCompra.Documento.Lista.Ficha> list);
         void CorrectorDocumento();
+        void setLista(List<OOB.Documento.Lista.Ficha> list);
 
     }
 

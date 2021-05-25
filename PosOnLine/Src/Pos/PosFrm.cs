@@ -185,7 +185,7 @@ namespace PosOnLine.Src.Pos
 
         private void PosVenta_Load(object sender, EventArgs e)
         {
-            //printDialog1.Document = printDocument1;
+            printDialog1.Document = printDocument1;
 
             L_MONTO_DIVISA.Text = _controlador.TasaCambioActual.ToString("n2");
             L_FECHA.Text = "Hoy : "+DateTime.Now.ToShortDateString();
@@ -417,8 +417,11 @@ namespace PosOnLine.Src.Pos
         private void Totalizar()
         {
             _controlador.Totalizar();
+            if (_controlador.IsTickeraOk) 
+            {
+                printDocument1.Print();
+            }
             Actualizar();
-            //    printDocument1.Print();
         }
 
         private void BT_PENDIENTE_Click(object sender, EventArgs e)
@@ -508,12 +511,6 @@ namespace PosOnLine.Src.Pos
             IrFoco();
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            //e.Cancel = false;
-            //_venta.Imprimir(e);
-        }
-
         public void setControlador(Gestion ctr)
         {
             _controlador = ctr;
@@ -528,8 +525,10 @@ namespace PosOnLine.Src.Pos
             L_PRD_CONT.Text = _controlador.ProductoContenido.ToString("n0");
         }
 
-        private void PosFrm_KeyPress(object sender, KeyPressEventArgs e)
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            e.Cancel = false;
+            _controlador.Imprimir(e);
         }
 
     }

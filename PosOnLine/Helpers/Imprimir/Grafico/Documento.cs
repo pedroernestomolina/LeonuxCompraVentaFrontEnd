@@ -54,7 +54,7 @@ namespace PosOnLine.Helpers.Imprimir.Grafico
             E["DocNombre"] = _ds.encabezado.DocumentoNombre;
             E["DocNro"] = _ds.encabezado.DocumentoNro;
             E["DocFecha"] = _ds.encabezado.DocumentoFecha;
-            E["SubTotal"] = _ds.encabezado.SubTotal;
+            E["SubTotal"] = _ds.encabezado.SubTotalItemFull;
             E["Descuento"] = _ds.encabezado.Descuento;
             E["Total"] = _ds.encabezado.Total;
             E["TotalDivisa"] = _ds.encabezado.TotalDivisa;
@@ -69,9 +69,9 @@ namespace PosOnLine.Helpers.Imprimir.Grafico
                 p["Cantidad"] = rg.Cantidad;
                 p["Empaque"] = rg.Empaque+Environment.NewLine+"( "+rg.Contenido.ToString().Trim()+" )";
                 p["Deposito"] = rg.DepositoDesc;
-                p["Precio"] = rg.Precio;
-                p["PrecioDivisa"] = rg.PrecioDivisa/factor;
-                p["Importe"] = rg.Importe;
+                p["Precio"] = rg.PrecioFull;
+                p["PrecioDivisa"] = rg.PrecioFull/factor;
+                p["Importe"] = rg.ImporteFull;
                 p["ImporteDivisa"] = rg.ImporteDivisa/factor;
                 p["TotalUnd"] = rg.TotalUnd ;
                 ds.Tables["Item"].Rows.Add(p);

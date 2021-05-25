@@ -275,26 +275,26 @@ namespace PosOnLine.Src.Configuracion
                 return false;
             }
 
-            if (_serieFactura == null)
-            {
-                Helpers.Msg.Error("Serie Factura No Puede Estar Vacio");
-                return false;
-            }
-            if (_serieNtCredito == null)
-            {
-                Helpers.Msg.Error("Serie Nota Credito No Puede Estar Vacio");
-                return false;
-            }
-            if (_serieNtDebito== null)
-            {
-                Helpers.Msg.Error("Serie Nota Debito No Puede Estar Vacio");
-                return false;
-            }
-            if (_serieNtEntrega== null)
-            {
-                Helpers.Msg.Error("Serie Nota Entrega No Puede Estar Vacio");
-                return false;
-            }
+            //if (_serieFactura == null)
+            //{
+            //    Helpers.Msg.Error("Serie Factura No Puede Estar Vacio");
+            //    return false;
+            //}
+            //if (_serieNtCredito == null)
+            //{
+            //    Helpers.Msg.Error("Serie Nota Credito No Puede Estar Vacio");
+            //    return false;
+            //}
+            //if (_serieNtDebito== null)
+            //{
+            //    Helpers.Msg.Error("Serie Nota Debito No Puede Estar Vacio");
+            //    return false;
+            //}
+            //if (_serieNtEntrega== null)
+            //{
+            //    Helpers.Msg.Error("Serie Nota Entrega No Puede Estar Vacio");
+            //    return false;
+            //}
 
             if (_modoPrecio == null)
             {

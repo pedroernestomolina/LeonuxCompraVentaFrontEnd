@@ -11,7 +11,7 @@ namespace ModVentaAdm.OOB.Documento.Lista
     public class Filtro
     {
 
-
+        public string idArqueo;
         public DateTime desde { get; set; }
         public DateTime hasta { get; set; }
         public string codSucursal { get; set; }
@@ -20,6 +20,7 @@ namespace ModVentaAdm.OOB.Documento.Lista
 
         public Filtro()
         {
+            idArqueo = "";
             desde = DateTime.Now.Date;
             hasta = DateTime.Now.Date;
             codSucursal = "";

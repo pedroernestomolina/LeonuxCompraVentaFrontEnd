@@ -23,6 +23,8 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
         public bool NotaCreditoIsOk { get { return _notaCreditoIsOk; } }
         public Lista.data DocAplicaNotaCredito { get { return _gestionLista.DocAplicarNotaCredito; } }
         public BindingSource Source { get { return _gestionLista.Source; } }
+        public bool IsTickeraOk { get { return _gestionLista.IsTickeraOk; } }
+        public Helpers.Imprimir.IDocumento ImprimirDoc { get { return _gestionLista.ImprimirDoc; } }
 
 
         public Gestion()
@@ -354,6 +356,25 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
         public void ImprimirDocumento()
         {
             _gestionLista.ImprimirDocumento();
+        }
+
+        public void Imprimir(System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //if (Sistema.ImprimirFactura.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
+            //{
+            //    var t = (Helpers.Imprimir.Tickera58.Documento)Sistema.ImprimirFactura;
+            //    t.setControlador(e);
+            //    t.setEmpresa(Sistema.DatosEmpresa);
+            //    t.ImprimirDoc();
+            //}
+            if (ImprimirDoc.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
+            {
+                var t = (Helpers.Imprimir.Tickera58.Documento)ImprimirDoc;
+                t.setControlador(e);
+                t.setEmpresa(Sistema.DatosEmpresa);
+                t.ImprimirDoc();
+            }
+
         }
 
     }

@@ -46,6 +46,8 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.8.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.8.1\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -60,6 +62,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,14 +74,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Infra\IData.cs" />
+    <Compile Include="Data\Infra\IDocumento.cs" />
+    <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
     <Compile Include="Data\Prov\DataPrv.cs" />
+    <Compile Include="Data\Prov\Documento.cs" />
+    <Compile Include="Data\Prov\Sistema.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
     <Compile Include="Gestion.cs" />
+    <Compile Include="Helpers\Imprimir\data.cs" />
+    <Compile Include="Helpers\Imprimir\Grafico\Documento.cs" />
+    <Compile Include="Helpers\Imprimir\Grafico\ds1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Imprimir\Grafico\ReporteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Imprimir\Grafico\ReporteFrm.Designer.cs">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Imprimir\IDocumento.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
+    <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
     <Compile Include="OOB\Documento\Lista\Ficha.cs" />
     <Compile Include="OOB\Documento\Lista\Filtro.cs" />
     <Compile Include="OOB\Resultado\Enumerados.cs" />
@@ -87,6 +111,7 @@
     <Compile Include="OOB\Resultado\FichaEntidad.cs" />
     <Compile Include="OOB\Resultado\FichaId.cs" />
     <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Sistema\Empresa\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
@@ -127,6 +152,12 @@
     <Compile Include="Src\Principal\PrincipalFrm.Designer.cs">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Helpers\Imprimir\Grafico\Documento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\Imprimir\Grafico\ReporteFrm.resx">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -141,6 +172,17 @@
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Helpers\Imprimir\Grafico\ds.xsc">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </None>
+    <None Include="Helpers\Imprimir\Grafico\ds.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ds1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Helpers\Imprimir\Grafico\ds.xss">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

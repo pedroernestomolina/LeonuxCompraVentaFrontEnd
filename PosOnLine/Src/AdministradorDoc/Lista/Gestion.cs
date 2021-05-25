@@ -19,15 +19,22 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
         private BindingSource _bs;
         private data _docAplicarNotaCredito;
         private data _docAplicaParaAnulacion;
+        private bool _isTickeraOk;
+        private Helpers.Imprimir.IDocumento _imprimirDoc;
+
 
         public string TotItems { get { return _bs.Count.ToString().Trim(); } }
         public data DocAplicarNotaCredito { get { return _docAplicarNotaCredito; } }
         public data DocAplicaParaAulacion { get { return _docAplicaParaAnulacion; } }
         public BindingSource Source { get { return _bs; } }
+        public bool IsTickeraOk { get { return _isTickeraOk; } }
+        public Helpers.Imprimir.IDocumento ImprimirDoc { get { return _imprimirDoc; } }
 
 
         public Gestion()
         {
+            _isTickeraOk=false;
+            _imprimirDoc = null;
             _docAplicarNotaCredito = null;
             _docAplicaParaAnulacion = null;
             _l= new List<data>();
@@ -39,6 +46,8 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
 
         public void Inicializa() 
         {
+            _isTickeraOk = false;
+            _imprimirDoc = null;
             _docAplicarNotaCredito = null;
             _docAplicaParaAnulacion = null;
         }
@@ -122,6 +131,7 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
 
         public void ImprimirDocumento()
         {
+            _isTickeraOk = false;
             if (_bs.Current != null)
             {
                 var it = (data)_bs.Current;
@@ -129,6 +139,13 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                 if (xr1.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
                 {
                     Helpers.Msg.Error(xr1.Mensaje);
+                    return;
+                }
+
+                var xr2 = Sistema.MyData.Documento_Get_MetodosPago_ByIdRecibo(xr1.Entidad.AutoReciboCxC);
+                if (xr2.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(xr2.Mensaje);
                     return;
                 }
 
@@ -144,16 +161,16 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                 switch (xr1.Entidad.Tipo.Trim().ToUpper())
                 {
                     case "01":
-                        docNombre = "FACTURA";
+                        docNombre = "COPIA FACTURA";
                         break;
                     case "02":
-                        docNombre = "NOTA DE DEBITO";
+                        docNombre = "COPIA NOTA DE DEBITO";
                         break;
                     case "03":
-                        docNombre = "NOTA DE CREDITO";
+                        docNombre = "COPIA NOTA DE CREDITO";
                         break;
                     case "04":
-                        docNombre = "NOTA DE ENTREGA";
+                        docNombre = "COPIA NOTA DE ENTREGA";
                         break;
                 }
                 xdata.encabezado = new Helpers.Imprimir.data.Encabezado()
@@ -171,10 +188,19 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                     DocumentoAplica = xr1.Entidad.Aplica,
                     NombreCli = xr1.Entidad.RazonSocial,
                     FactorCambio=xr1.Entidad.FactorCambio,
-                    SubTotal=xr1.Entidad.SubTotalNeto,
+                    SubTotal=xr1.Entidad.SubTotal,
                     Descuento=xr1.Entidad.Descuento,
                     Total=xr1.Entidad.Total,
                     TotalDivisa=xr1.Entidad.MontoDivisa,
+                    EstacionEquipo = xr1.Entidad.Estacion,
+                    Usuario = xr1.Entidad.Usuario,
+                    CambioDar = xr1.Entidad.Cambio,
+                    DocumentoHora = xr1.Entidad.Hora,
+                    TelefonoCli = xr1.Entidad.Telefono,
+                    CodigoCli = xr1.Entidad.CodigoCliente,
+                    DescuentoPorc = xr1.Entidad.Descuento1p,
+                    Cargo = xr1.Entidad.Cargos,
+                    CargoPorc = xr1.Entidad.Cargosp,
                 };
                 xdata.item = new List<Helpers.Imprimir.data.Item>();
                 foreach (var rg in xr1.Entidad.items)
@@ -189,29 +215,67 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                         DepositoDesc = rg.Deposito,
                         Empaque = rg.Empaque,
                         Importe = rg.TotalNeto,
-                        ImporteDivisa = rg.TotalNeto,
+                        ImporteFull= rg.Total,
+                        ImporteDivisa = rg.Total,
                         Precio = rg.PrecioItem,
                         PrecioDivisa = rg.PrecioItem,
                         TotalUnd=rg.CantidadUnd,
+                        TasaIva=rg.Tasa,
                     };
                     xdata.item.Add(nr);
+                }
+                xdata.metodoPago = new List<Helpers.Imprimir.data.MetodoPago>();
+                foreach (var mp in xr2.ListaD)
+                {
+                    if (mp.cntDivisa > 1)
+                    {
+                        var pag = new Helpers.Imprimir.data.MetodoPago() { descripcion = "Efectivo", monto = mp.montoRecibido };
+                        xdata.metodoPago.Add(pag);
+                    }
+                    else
+                    {
+                        var pag = new Helpers.Imprimir.data.MetodoPago() { descripcion = mp.descMedioPago, monto = mp.montoRecibido };
+                        xdata.metodoPago.Add(pag);
+                    }
                 }
 
                 switch (it.DocTipo)
                 { 
                     case data.enumTipoDoc.Factura:
                         Sistema.ImprimirFactura.setData(xdata);
-                        Sistema.ImprimirFactura.ImprimirCopiaDoc();
+                        if (Sistema.ImprimirFactura.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
+                        {
+                            _isTickeraOk = true;
+                            _imprimirDoc = Sistema.ImprimirFactura;
+                        }
+                        else
+                        {
+                            Sistema.ImprimirFactura.ImprimirCopiaDoc();
+                        }
                         break;
-
                     case data.enumTipoDoc.NotaCredito:
                         Sistema.ImprimirNotaCredito.setData(xdata);
-                        Sistema.ImprimirNotaCredito.ImprimirCopiaDoc();
+                        if (Sistema.ImprimirNotaCredito.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
+                        {
+                            _isTickeraOk = true;
+                            _imprimirDoc = Sistema.ImprimirNotaCredito;
+                        }
+                        else
+                        {
+                            Sistema.ImprimirNotaCredito.ImprimirCopiaDoc();
+                        }
                         break;
-
                     case data.enumTipoDoc.NotaEntrega:
-                        Sistema.ImprimirNotaCredito.setData(xdata);
-                        Sistema.ImprimirNotaCredito.ImprimirCopiaDoc();
+                        Sistema.ImprimirNotaEntrega.setData(xdata);
+                        if (Sistema.ImprimirNotaEntrega.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
+                        {
+                            _isTickeraOk = true;
+                            _imprimirDoc = Sistema.ImprimirNotaEntrega;
+                        }
+                        else
+                        {
+                            Sistema.ImprimirNotaEntrega.ImprimirCopiaDoc();
+                        }
                         break;
                 }
             }

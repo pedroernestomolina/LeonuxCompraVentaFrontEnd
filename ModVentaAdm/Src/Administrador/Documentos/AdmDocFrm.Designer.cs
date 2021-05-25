@@ -1015,6 +1015,8 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(961, 372);
             this.DGV.TabIndex = 0;
+            this.DGV.Tag = "";
+            this.DGV.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_CellFormatting);
             this.DGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DataBindingComplete);
             // 
             // AdmDocFrm

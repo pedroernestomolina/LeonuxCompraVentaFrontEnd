@@ -26,6 +26,10 @@ namespace ModVentaAdm.OOB.Documento.Lista
         public string DocNombre { get; set; }
         public string DocCodigo { get; set; }
         public int DocSigno { get; set; }
+        public string DocAplica { get; set; }
+        public string DocSituacion { get; set; }
+        public string SucursalDesc { get; set; }
+        public string SucursalCod { get; set; }
         public bool IsActivo { get { return Estatus.Trim().ToUpper() == "0" ? true : false; } }
         public string DocSiglas
         {
@@ -66,7 +70,12 @@ namespace ModVentaAdm.OOB.Documento.Lista
             DocNombre = "";
             DocCodigo = "";
             DocSigno = 1;
+            DocAplica = "";
+            DocSituacion = "";
+            SucursalCod = "";
+            SucursalDesc = "";
         }
+
 
     }
 

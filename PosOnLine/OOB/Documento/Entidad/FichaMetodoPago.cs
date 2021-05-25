@@ -23,10 +23,13 @@ namespace PosOnLine.OOB.Documento.Entidad
             get 
             {  
                 var rt=0;
-                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
-                var culture = CultureInfo.CreateSpecificCulture("es-ES");
-                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
-                int.TryParse(lote, style, culture, out rt);
+                if (codigoMedioPago.Trim().ToUpper() == "02")
+                {
+                    var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                    var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                    //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                    int.TryParse(lote, style, culture, out rt);
+                }
                 return rt;
             } 
         }

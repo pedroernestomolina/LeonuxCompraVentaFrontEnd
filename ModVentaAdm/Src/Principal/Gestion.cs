@@ -49,6 +49,14 @@ namespace ModVentaAdm.Src.Principal
         {
             var rt = true;
 
+            var r01 = Sistema.MyData.Sistema_Empresa_GetFicha();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            Sistema.DatosEmpresa = r01.Entidad;
+
             return rt;
         }
 

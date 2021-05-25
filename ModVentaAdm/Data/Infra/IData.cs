@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ModVentaAdm.Data.Infra
 {
 
-    public interface IData: IUsuario, ISucursal
+    public interface IData: IUsuario, ISucursal, IDocumento, ISistema
     {
 
         OOB.Resultado.FichaEntidad<DateTime> FechaServidor();

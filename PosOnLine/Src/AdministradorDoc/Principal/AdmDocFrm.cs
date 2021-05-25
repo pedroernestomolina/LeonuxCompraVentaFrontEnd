@@ -221,11 +221,11 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             if (Helpers.PassWord.PassWIsOk(Sistema.FuncionAdmReimprimirDocumento))
             {
                 _controlador.ImprimirDocumento();
+                if (_controlador.IsTickeraOk)
+                {
+                    printDocument1.Print();
+                }
             }
-            //if (_controlador.PrepararDocumento()) 
-            //{
-            //    printDocument1.Print();
-            //}
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -242,7 +242,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //_controlador.Imprimir(e);
+            _controlador.Imprimir(e);
         }
 
         private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

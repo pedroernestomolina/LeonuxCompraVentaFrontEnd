@@ -381,6 +381,29 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<OOB.Sistema.SerieFiscal.Entidad.Ficha> Sistema_Serie_GetFichaBySerie(string serie)
+        {
+            var result = new OOB.Resultado.FichaEntidad<OOB.Sistema.SerieFiscal.Entidad.Ficha>();
+
+            var r01 = MyData.Sistema_Serie_GetFichaByNombre(serie);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var ent = r01.Entidad;
+            result.Entidad = new OOB.Sistema.SerieFiscal.Entidad.Ficha()
+            {
+                Auto = ent.Auto,
+                Control = ent.Control,
+                Serie = ent.Serie
+            };
+
+            return result;
+        }
+
     }
 
 }

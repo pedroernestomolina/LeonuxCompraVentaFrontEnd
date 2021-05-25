@@ -122,6 +122,10 @@
     </Compile>
     <Compile Include="Helpers\Imprimir\ICuadreCaja.cs" />
     <Compile Include="Helpers\Imprimir\IDocumento.cs" />
+    <Compile Include="Helpers\Imprimir\Tickera58\Documento.cs" />
+    <Compile Include="Helpers\Imprimir\Tickera58\Ticket.cs" />
+    <Compile Include="Helpers\Imprimir\Tickera80\Documento.cs" />
+    <Compile Include="Helpers\Imprimir\Tickera80\Ticket.cs" />
     <Compile Include="Helpers\PassWord.cs" />
     <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\Balanza.cs" />
     <Compile Include="Lib\Controles\BalanzaSoloPeso\BalanzaManual\BalanzaFrm.cs">

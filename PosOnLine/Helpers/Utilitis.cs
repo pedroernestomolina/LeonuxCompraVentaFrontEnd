@@ -63,23 +63,68 @@ namespace PosOnLine.Helpers
                                     _DataLocal = nv.InnerText.Trim();
                                 }
 
-                                if (nv.LocalName.ToUpper().Trim()=="IMPRESORATICKET")
+                                if (nv.LocalName.ToUpper().Trim() == "SERIEFACTURA")
                                 {
-                                    foreach (XmlNode mi in nv.ChildNodes)
-                                    {
-                                        if (mi.LocalName.Trim().ToUpper() == "TAMANOROLLO")
-                                        {
-                                            if (mi.InnerText.Trim().ToUpper() == "G")
-                                            {
-                                                //Sistema.ImpresoraTicket = Sistema.EnumModoRolloTicket.Grande;
-                                            }                                            
-                                            if (mi.InnerText.Trim().ToUpper() == "P")
-                                            {
-                                                //Sistema.ImpresoraTicket = Sistema.EnumModoRolloTicket.Pequeno;
-                                            }
-                                        }
-                                    }
+                                    Sistema.SerieFactura = nv.InnerText.Trim().ToUpper();
+                                }
+                                if (nv.LocalName.ToUpper().Trim() == "SERIENCREDITO")
+                                {
+                                    Sistema.SerieNCredito = nv.InnerText.Trim().ToUpper();
+                                }
+                                if (nv.LocalName.ToUpper().Trim() == "SERIENENTREGA")
+                                {
+                                    Sistema.SerieNEntrega = nv.InnerText.Trim().ToUpper();
+                                }
 
+                                if (nv.LocalName.ToUpper().Trim() == "MODOIMPRESIONFACTURA")
+                                {
+                                    switch (nv.InnerText.Trim().ToUpper())
+                                    {
+                                        case "G":
+                                            Sistema.ImprimirFactura = new Helpers.Imprimir.Grafico.Documento();
+                                            break;
+                                        case "F":
+                                            break;
+                                        case "T80":
+                                            break;
+                                        case "T58":
+                                            Sistema.ImprimirFactura = new Helpers.Imprimir.Tickera58.Documento();
+                                            break;
+                                    }
+                                }
+
+                                if (nv.LocalName.ToUpper().Trim() == "MODOIMPRESIONNENTREGA")
+                                {
+                                    switch (nv.InnerText.Trim().ToUpper())
+                                    {
+                                        case "G":
+                                            Sistema.ImprimirNotaEntrega = new Helpers.Imprimir.Grafico.Documento();
+                                            break;
+                                        case "F":
+                                            break;
+                                        case "T80":
+                                            break;
+                                        case "T58":
+                                            Sistema.ImprimirNotaEntrega = new Helpers.Imprimir.Tickera58.Documento();
+                                            break;
+                                    }
+                                }
+
+                                if (nv.LocalName.ToUpper().Trim() == "MODOIMPRESIONNCREDITO")
+                                {
+                                    switch (nv.InnerText.Trim().ToUpper())
+                                    {
+                                        case "G":
+                                            Sistema.ImprimirNotaCredito = new Helpers.Imprimir.Grafico.Documento();
+                                            break;
+                                        case "F":
+                                            break;
+                                        case "T80":
+                                            break;
+                                        case "T58":
+                                            Sistema.ImprimirNotaCredito = new Helpers.Imprimir.Tickera58.Documento();
+                                            break;
+                                    }
                                 }
                             }
                         }

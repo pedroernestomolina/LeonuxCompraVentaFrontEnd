@@ -56,15 +56,15 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             DGV.ReadOnly = true;
 
             var c1 = new DataGridViewTextBoxColumn();
-            c1.DataPropertyName = "Fecha";
+            c1.DataPropertyName = "FechaHora";
             c1.HeaderText = "Fecha";
             c1.Visible = true;
-            c1.Width = 80;
+            c1.Width = 100;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
 
             var c2 = new DataGridViewTextBoxColumn();
-            c2.DataPropertyName = "NombreDoc";
+            c2.DataPropertyName = "DocNombre";
             c2.HeaderText = "Tipo";
             c2.Visible = true;
             c2.Width = 100;
@@ -75,17 +75,10 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             c3.DataPropertyName = "Documento";
             c3.HeaderText = "Documento";
             c3.Visible = true;
-            c3.Width = 100;
+            c3.Width = 80;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
-
-            var c3B = new DataGridViewTextBoxColumn();
-            c3B.DataPropertyName = "Control";
-            c3B.HeaderText = "Control";
-            c3B.Visible = true;
-            c3B.Width = 100;
-            c3B.HeaderCell.Style.Font = f;
-            c3B.DefaultCellStyle.Font = f1;
+            c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var cA = new DataGridViewTextBoxColumn();
             cA.DataPropertyName = "Aplica";
@@ -95,17 +88,10 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             cA.HeaderCell.Style.Font = f;
             cA.DefaultCellStyle.Font = f1;
 
-            var c3A = new DataGridViewTextBoxColumn();
-            c3A.DataPropertyName = "FechaReg";
-            c3A.HeaderText = "Fecha/Reg";
-            c3A.Visible = true;
-            c3A.Width = 80;
-            c3A.HeaderCell.Style.Font = f;
-            c3A.DefaultCellStyle.Font = f1;
-
             var c4 = new DataGridViewTextBoxColumn();
-            c4.DataPropertyName = "Sucursal";
+            c4.DataPropertyName = "SucursalCod";
             c4.HeaderText = "Sucursal";
+            c4.Name = "Sucursal";
             c4.Visible = true;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
@@ -113,8 +99,8 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             c4.Width = 60;
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "ProvNombre";
-            c5.HeaderText = "Proveedor";
+            c5.DataPropertyName = "ClienteNombre";
+            c5.HeaderText = "Cliente";
             c5.Visible = true;
             c5.MinimumWidth = 220;
             c5.HeaderCell.Style.Font = f;
@@ -122,7 +108,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             c5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c5A = new DataGridViewTextBoxColumn();
-            c5A.DataPropertyName = "ProvCiRif";
+            c5A.DataPropertyName = "ClienteCiRif";
             c5A.HeaderText = "Ci/Rif";
             c5A.Visible = true;
             c5A.Width = 90;
@@ -179,18 +165,22 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             var c8A = new DataGridViewTextBoxColumn();
             c8A.DataPropertyName = "Estatus";
             c8A.HeaderText= "Estatus";
-            c8A.Name = "Anulado";
+            c8A.Name = "Estatus";
             c8A.Visible = true;
             c8A.Width = 80;
             c8A.HeaderCell.Style.Font = f;
             c8A.DefaultCellStyle.Font = f1;
 
+            var cX = new DataGridViewTextBoxColumn();
+            cX.DataPropertyName = "SucursalDesc";
+            cX.Name = "SucursalDesc";
+            cX.Visible = false;
+
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
-            DGV.Columns.Add(c3B);
             DGV.Columns.Add(cA);
-            DGV.Columns.Add(c3A);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
             DGV.Columns.Add(c5A);
@@ -200,6 +190,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             DGV.Columns.Add(c7);
             DGV.Columns.Add(c8);
             DGV.Columns.Add(c8A);
+            DGV.Columns.Add(cX);
         }
 
         private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -209,6 +200,8 @@ namespace ModVentaAdm.Src.Administrador.Documentos
                 if ((bool)row.Cells["IsAnulado"].Value == true)
                 {
                     row.DefaultCellStyle.ForeColor = Color.Red;
+                    row.Cells["Estatus"].Style.BackColor = Color.Red;
+                    row.Cells["Estatus"].Style.ForeColor = Color.White;
                 }
             }
         }
@@ -364,6 +357,15 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         private void CorrectorDocumentos()
         {
+        }
+
+        private void DGV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((e.ColumnIndex == DGV.Columns["Sucursal"].Index) && e.Value != null)
+            { 
+                DataGridViewCell cell =DGV.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                cell.ToolTipText = DGV.Rows[e.RowIndex].Cells["SucursalDesc"].Value.ToString();
+            }
         }
 
     }

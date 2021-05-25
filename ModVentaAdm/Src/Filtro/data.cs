@@ -20,8 +20,8 @@ namespace ModVentaAdm.Src.Filtro
 
         public DateTime Desde { get { return _desde; } }
         public DateTime Hasta { get { return _hasta; } }
-        public OOB.Sucursal.Entidad.Ficha Sucursal;
-        public OOB.Sistema.TipoDocumento.Entidad.Ficha TipoDocumento;
+        public OOB.Sucursal.Entidad.Ficha Sucursal { get { return _sucursal; } }
+        public OOB.Sistema.TipoDocumento.Entidad.Ficha TipoDocumento { get { return _tipoDoc; } }
 
 
         public data()

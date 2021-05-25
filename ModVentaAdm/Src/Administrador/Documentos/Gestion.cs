@@ -59,13 +59,13 @@ namespace ModVentaAdm.Src.Administrador.Documentos
                 return;
             }
 
-            //var rt1 = Sistema.MyData.Compra_DocumentoGetLista(filtro);
-            //if (rt1.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(rt1.Mensaje);
-            //    return;
-            //}
-            //_gestionLista.setLista(rt1.Lista);
+            var rt1 = Sistema.MyData.Documento_Get_Lista(r01.Entidad);
+            if (rt1.Result == OOB.Resultado.Enumerados.EnumResult.isError )
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return;
+            }
+            _gestionLista.setLista(rt1.ListaD);
         }
 
 
@@ -80,10 +80,12 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         public void LimpiarData()
         {
+            _gestionLista.LimpiarData();
         }
 
         public void VisualizarDocumento()
         {
+            _gestionLista.VisualizarDocumento();
         }
 
         public void Imprimir()

@@ -15,7 +15,6 @@ namespace PosOnLine
         static public IData MyData;
         static public Lib.Controles.BalanzaSoloPeso.IBalanza MyBalanza;
 
-        //static public OOB.LibInventario.Empresa.Data.Ficha Negocio;
         static public string Instancia;
         static public string BaseDatos;
         public static OOB.Usuario.Entidad.Ficha Usuario;
@@ -47,6 +46,11 @@ namespace PosOnLine
         public static Helpers.Imprimir.IDocumento ImprimirNotaCredito;
         public static Helpers.Imprimir.IDocumento ImprimirNotaEntrega;
         public static Helpers.Imprimir.ICuadreCaja ImprimirCuadreCaja;
+
+        //
+        public static string SerieFactura;
+        public static string SerieNCredito;
+        public static string SerieNEntrega;
 
         //
         public static string CLAVE_ADMINISTRADOR = "71277128";

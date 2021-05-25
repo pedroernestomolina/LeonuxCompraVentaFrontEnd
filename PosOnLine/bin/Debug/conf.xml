@@ -5,4 +5,10 @@
     <Catalogo>pita</Catalogo>
   </Servidor>
   <IdEquipo>1</IdEquipo>
+  <SerieFactura>1</SerieFactura>
+  <SerieNCredito>1D</SerieNCredito>
+  <SerieNEntrega>NEN</SerieNEntrega>
+  <ModoImpresionFactura>G</ModoImpresionFactura>
+  <ModoImpresionNEntrega>G</ModoImpresionNEntrega>
+  <ModoImpresionNCredito>G</ModoImpresionNCredito>
 </Configuracion>

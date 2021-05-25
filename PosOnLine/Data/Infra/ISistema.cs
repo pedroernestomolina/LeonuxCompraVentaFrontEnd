@@ -18,6 +18,7 @@ namespace PosOnLine.Data.Infra
         OOB.Resultado.Lista<OOB.Sistema.TipoDocumento.Entidad.Ficha> Sistema_TipoDocumento_GetLista();
 
         OOB.Resultado.FichaEntidad<OOB.Sistema.SerieFiscal.Entidad.Ficha> Sistema_Serie_GetFichaById(string id);
+        OOB.Resultado.FichaEntidad<OOB.Sistema.SerieFiscal.Entidad.Ficha> Sistema_Serie_GetFichaBySerie(string serie);
         OOB.Resultado.Lista<OOB.Sistema.SerieFiscal.Entidad.Ficha> Sistema_Serie_GetLista();
 
         OOB.Resultado.Lista<OOB.Sistema.TasaFiscal.Entidad.Ficha> Sistema_Fiscal_GetTasas(OOB.Sistema.TasaFiscal.Listar.Filtro filtro);

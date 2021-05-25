@@ -166,10 +166,7 @@ namespace PosOnLine.Src.Configuracion
             CHB_VALIDAR_EXISTENCIA.Checked = _controlador.ValidarExistencia;
             CHB_REPESAJE.Checked = _controlador.ActivarRepesaje;
 
-            //TB_TARIFA.Text = _controlador.CnfActual.TarifaPrecio;
-            //CHB_ETIQUETAR_PRECIO_NEGOCIO.Checked = _controlador.CnfActual.EtiquetarPrecioPorTipoNegocio;
-            //TB_ID_EQUIPO.Text = _controlador.CnfActual.EquipoNumero;
-
+            tabControl1.TabPages.Remove(tabPage3);
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)

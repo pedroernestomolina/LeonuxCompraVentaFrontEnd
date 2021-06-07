@@ -224,6 +224,10 @@ namespace PosOnLine.Src.Principal
             {
                 _gestionCierre.Inicializa();
                 _gestionCierre.Inicia();
+                if (_gestionCierre.CierreIsOk)
+                {
+                    Helpers.Msg.OK("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
+                }
             }
             else 
             {

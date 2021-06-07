@@ -86,6 +86,7 @@ namespace PosOnLine.Helpers
                                         case "F":
                                             break;
                                         case "T80":
+                                            Sistema.ImprimirFactura = new Helpers.Imprimir.Tickera80.Documento();
                                             break;
                                         case "T58":
                                             Sistema.ImprimirFactura = new Helpers.Imprimir.Tickera58.Documento();
@@ -103,6 +104,7 @@ namespace PosOnLine.Helpers
                                         case "F":
                                             break;
                                         case "T80":
+                                            Sistema.ImprimirNotaEntrega = new Helpers.Imprimir.Tickera80.Documento();
                                             break;
                                         case "T58":
                                             Sistema.ImprimirNotaEntrega = new Helpers.Imprimir.Tickera58.Documento();
@@ -120,9 +122,28 @@ namespace PosOnLine.Helpers
                                         case "F":
                                             break;
                                         case "T80":
+                                            Sistema.ImprimirNotaCredito = new Helpers.Imprimir.Tickera80.Documento();
                                             break;
                                         case "T58":
                                             Sistema.ImprimirNotaCredito = new Helpers.Imprimir.Tickera58.Documento();
+                                            break;
+                                    }
+                                }
+
+                                if (nv.LocalName.ToUpper().Trim() == "MODOIMPRESIONCUADRECAJA")
+                                {
+                                    switch (nv.InnerText.Trim().ToUpper())
+                                    {
+                                        case "G":
+                                            Sistema.ImprimirCuadreCaja= new Helpers.Imprimir.Grafico.CuadreDoc();
+                                            break;
+                                        case "F":
+                                            break;
+                                        case "T80":
+                                            Sistema.ImprimirCuadreCaja = new Helpers.Imprimir.Tickera80.CuadreDoc();
+                                            break;
+                                        case "T58":
+                                            Sistema.ImprimirCuadreCaja = new Helpers.Imprimir.Tickera58.CuadreDoc();
                                             break;
                                     }
                                 }

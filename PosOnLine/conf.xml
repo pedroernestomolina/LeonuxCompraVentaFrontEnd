@@ -8,7 +8,8 @@
   <SerieFactura>1</SerieFactura>
   <SerieNCredito>1D</SerieNCredito>
   <SerieNEntrega>NEN</SerieNEntrega>
-  <ModoImpresionFactura>G</ModoImpresionFactura>
-  <ModoImpresionNEntrega>G</ModoImpresionNEntrega>
-  <ModoImpresionNCredito>G</ModoImpresionNCredito>
+  <ModoImpresionFactura>T80</ModoImpresionFactura>
+  <ModoImpresionNEntrega>T80</ModoImpresionNEntrega>
+  <ModoImpresionNCredito>T80</ModoImpresionNCredito>
+  <ModoImpresionCuadreCaja>T80</ModoImpresionCuadreCaja>
 </Configuracion>

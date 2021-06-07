@@ -174,6 +174,16 @@ namespace ModCajaBanco
         {
             _controlador.AnalisisVentasProducto();
         }
+
+        private void TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT_Click(object sender, EventArgs e)
+        {
+            ReporteResumenVentaSaltoFactura();
+        }
+
+        private void ReporteResumenVentaSaltoFactura()
+        {
+            _controlador.ReporteResumenVentaSaltoFactura();
+        }
     
     }
 

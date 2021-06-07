@@ -11,6 +11,8 @@ namespace PosOnLine.Helpers.Imprimir
     public class dataCuadre
     {
 
+        public string Usuario { get; set; }
+
         public int cntFAC { get; set; }
         public int cntNCR { get; set; }
         public int cntNEN { get; set; }
@@ -44,10 +46,17 @@ namespace PosOnLine.Helpers.Imprimir
         public int cnt_divisa_u { get; set; }
         public decimal cuadre_s { get; set; }
         public decimal cuadre_u { get; set; }
+        //
+        public int cntDocContado { get; set; }
+        public int cntDocCredito { get; set; }
 
 
         public dataCuadre()
         {
+            Usuario = "";
+            cntDocContado = 0;
+            cntDocCredito = 0;
+            //
             cntFAC = 0;
             cntFACAnu = 0;
             cntNCR=0;

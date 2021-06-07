@@ -14,6 +14,7 @@ namespace ModVentaAdm.Src.Principal
 
 
         private Administrador.Gestion _gestionAdm;
+        private Reportes.Gestion _gestionRep;
 
 
         public string BD_Ruta { get { return Sistema.Instancia; } }
@@ -23,10 +24,10 @@ namespace ModVentaAdm.Src.Principal
         public string Usuario { get { return Sistema.Usuario.codigo + Environment.NewLine + Sistema.Usuario.nombre; } }
 
 
-
         public Gestion()
         {
             _gestionAdm = new Administrador.Gestion();
+            _gestionRep = new Reportes.Gestion();
         }
 
 
@@ -67,6 +68,30 @@ namespace ModVentaAdm.Src.Principal
             _gestionAdm.Inicializa();
             _gestionAdm.Inicia();
         }
+
+        public void Reporte_GeneralDocumentos()
+        {
+            Reporte(new Reportes.Modo.GeneralDocumento.Gestion());
+        }
+
+        private void Reporte(Reportes.IGestion gestion)
+        {
+            var r00 = Sistema.MyData.Permiso_Reportes(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRep.setGestion(gestion);
+                _gestionRep.Inicializa();
+                _gestionRep.Inicia();
+            }
+        }
+
+
 
     }
 

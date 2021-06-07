@@ -510,7 +510,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
         public void Reporte(List<string> lineas) 
         {
             var l = 0;
-            var fr = new Font("Arial", 7, FontStyle.Regular);
+            var fr = new Font(FontFamily.GenericMonospace, 7, FontStyle.Regular);
             foreach (var lin in lineas)
             {
                 eg.Graphics.DrawString(lin, fr, Brushes.Black, 0, l);

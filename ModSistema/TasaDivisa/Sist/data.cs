@@ -80,10 +80,24 @@ namespace ModSistema.TasaDivisa.Sist
                     case OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.SinRedeondeo:
                         break;
                     case OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Unidad:
-                        pr = Helpers.MetodosExtension.RoundUnidad((int)pr);
+                        if (pr > int.MaxValue)
+                        {
+                            pr = Helpers.MetodosExtension.RoundUnidad((long)pr);
+                        }
+                        else 
+                        {
+                            pr = Helpers.MetodosExtension.RoundUnidad((int)pr);
+                        }
                         break;
                     case OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Decena:
-                        pr = Helpers.MetodosExtension.RoundDecena((int)pr);
+                        if (pr > int.MaxValue)
+                        {
+                            pr = Helpers.MetodosExtension.RoundDecena((long)pr);
+                        }
+                        else
+                        {
+                            pr = Helpers.MetodosExtension.RoundDecena((int)pr);
+                        }
                         break;
                 }
 

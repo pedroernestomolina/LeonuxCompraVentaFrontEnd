@@ -84,6 +84,16 @@ namespace ModVentaAdm.Src.Principal
             _controlador.AdministradorDoc();
         }
 
+        private void MENU_REPORTES_GENERAL_DOCUMENTOS_Click(object sender, EventArgs e)
+        {
+            Reporte_GeneralDocumentos();
+        }
+
+        private void Reporte_GeneralDocumentos()
+        {
+            _controlador.Reporte_GeneralDocumentos();
+        }
+
     }
 
 }

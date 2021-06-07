@@ -30,7 +30,6 @@ namespace PosOnLine
                 Sistema.MyData = new DataPrv(Sistema.Instancia, Sistema.BaseDatos);
                 Sistema.MyBalanza = new Lib.Controles.BalanzaSoloPeso.BalanzaManual.Balanza();
                 Sistema.EquipoEstacion = Environment.MachineName;
-                Sistema.ImprimirCuadreCaja = new Helpers.Imprimir.Grafico.CuadreDoc();
 
                 _gestionIdentifica.Inicializa();
                 _gestionIdentifica.Inicia();

@@ -146,13 +146,18 @@ namespace PosOnLine.Src.Cierre
             _controlador.Procesar();
             if (_controlador.CierreIsOk) 
             {
+                if (_controlador.IsTicket) 
+                {
+                    printDocument1.Print();
+                }
                 Salir();
             }
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-           // _controlador.Imprimir(e);
+            e.Cancel = false;
+            _controlador.Imprimir(e);
         }
 
         private void BT_DETALLE_Click(object sender, EventArgs e)

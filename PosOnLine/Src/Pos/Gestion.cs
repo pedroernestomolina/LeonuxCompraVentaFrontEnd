@@ -1046,6 +1046,11 @@ namespace PosOnLine.Src.Pos
                     _isTickeraOk = true;
                     _ImprimirDoc = (Helpers.Imprimir.Tickera58.Documento)Sistema.ImprimirFactura;
                 }
+                else if (Sistema.ImprimirFactura.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+                {
+                    _isTickeraOk = true;
+                    _ImprimirDoc = (Helpers.Imprimir.Tickera80.Documento)Sistema.ImprimirFactura;
+                }
                 else
                 {
                     Sistema.ImprimirFactura.ImprimirDoc();
@@ -1451,6 +1456,11 @@ namespace PosOnLine.Src.Pos
                     _isTickeraOk = true;
                     _ImprimirDoc = (Helpers.Imprimir.Tickera58.Documento)Sistema.ImprimirNotaCredito;
                 }
+                else if (Sistema.ImprimirNotaCredito.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+                {
+                    _isTickeraOk = true;
+                    _ImprimirDoc = (Helpers.Imprimir.Tickera80.Documento)Sistema.ImprimirNotaCredito;
+                }
                 else
                 {
                     Sistema.ImprimirNotaCredito.ImprimirDoc();
@@ -1797,6 +1807,11 @@ namespace PosOnLine.Src.Pos
                     _isTickeraOk = true;
                     _ImprimirDoc = (Helpers.Imprimir.Tickera58.Documento)Sistema.ImprimirNotaEntrega;
                 }
+                else if (Sistema.ImprimirNotaEntrega.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+                {
+                    _isTickeraOk = true;
+                    _ImprimirDoc = (Helpers.Imprimir.Tickera80.Documento)Sistema.ImprimirNotaEntrega;
+                }
                 else
                 {
                     Sistema.ImprimirNotaEntrega.ImprimirDoc();
@@ -1923,6 +1938,14 @@ namespace PosOnLine.Src.Pos
             {
                 _isTickeraOk = false;
                 var t = (Helpers.Imprimir.Tickera58.Documento)_ImprimirDoc;
+                t.setControlador(e);
+                t.setEmpresa(Sistema.DatosEmpresa);
+                t.ImprimirDoc();
+            }
+            if (_ImprimirDoc.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+            {
+                _isTickeraOk = false;
+                var t = (Helpers.Imprimir.Tickera80.Documento)_ImprimirDoc;
                 t.setControlador(e);
                 t.setEmpresa(Sistema.DatosEmpresa);
                 t.ImprimirDoc();

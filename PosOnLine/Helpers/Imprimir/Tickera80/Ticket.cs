@@ -12,7 +12,6 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
     public class Ticket
     {
 
-
         public class DatosNegocio
         {
             public string cirif { get; set; }
@@ -54,74 +53,75 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                 cirif = ficha.CiRif;
                 var n = ficha.Nombre.Trim();
                 var l = n.Length;
+                var ml = 50;
 
-                if (n.Length > 120)
+                if (n.Length > ml*3)
                 {
-                    razonsocial_1 = n.Substring(0, 40);
-                    razonsocial_2 = n.Substring(40, 40);
-                    razonsocial_3 = n.Substring(80, 40);
+                    razonsocial_1 = n.Substring(0, ml);
+                    razonsocial_2 = n.Substring(ml, ml);
+                    razonsocial_3 = n.Substring(ml*2, ml);
                 }
-                if (n.Length > 80 && n.Length<=120) 
+                if (n.Length > (ml*2) && n.Length<=(ml*3)) 
                 {
-                    razonsocial_1 = n.Substring(0,40);
-                    razonsocial_2 = n.Substring(40,40);
-                    razonsocial_3 = n.Substring(80);
+                    razonsocial_1 = n.Substring(0,ml);
+                    razonsocial_2 = n.Substring(ml,ml);
+                    razonsocial_3 = n.Substring(ml*2);
                 }
-                if (n.Length>40 && n.Length<=80) 
+                if (n.Length>ml && n.Length<=(ml*2)) 
                 {
-                    razonsocial_1 = n.Substring(0, 40);
-                    razonsocial_2 = n.Substring(40);
+                    razonsocial_1 = n.Substring(0, ml);
+                    razonsocial_2 = n.Substring(ml);
                 }
-                if (n.Length > 0 && n.Length <=40)
+                if (n.Length > 0 && n.Length <=ml)
                 {
                     razonsocial_1 = n.Substring(0);
                 }
 
                 var nd = ficha.Direccion.Trim();
                 var ld = nd.Length;
-                if (nd.Length > 160)
+                if (nd.Length > (ml*4))
                 {
-                    direcionFiscal_1 = nd.Substring(0, 40);
-                    direcionFiscal_2 = nd.Substring(40, 40);
-                    direcionFiscal_3 = nd.Substring(80, 40);
-                    direcionFiscal_4 = nd.Substring(120, 40);
+                    direcionFiscal_1 = nd.Substring(0, ml);
+                    direcionFiscal_2 = nd.Substring(ml, ml);
+                    direcionFiscal_3 = nd.Substring((ml*2), ml);
+                    direcionFiscal_4 = nd.Substring((ml*3), ml);
                 }
-                if (nd.Length > 120 && nd.Length <=160)
+                if (nd.Length > (ml*3)&& nd.Length <=(ml*4))
                 {
-                    direcionFiscal_1 = nd.Substring(0, 40);
-                    direcionFiscal_2 = nd.Substring(40, 40);
-                    direcionFiscal_3 = nd.Substring(80, 40);
-                    direcionFiscal_4 = nd.Substring(120, ld);
+                    direcionFiscal_1 = nd.Substring(0, ml);
+                    direcionFiscal_2 = nd.Substring(ml, ml);
+                    direcionFiscal_3 = nd.Substring((ml*2), ml);
+                    direcionFiscal_4 = nd.Substring((ml*3));
                 }
-                if (nd.Length > 80 && nd.Length <= 120)
+                if (nd.Length > (ml*2) && nd.Length <= (ml*3))
                 {
-                    direcionFiscal_1 = nd.Substring(0, 40);
-                    direcionFiscal_2 = nd.Substring(40, 40);
-                    direcionFiscal_3 = nd.Substring(80);
+                    direcionFiscal_1 = nd.Substring(0, ml);
+                    direcionFiscal_2 = nd.Substring(ml, ml);
+                    direcionFiscal_3 = nd.Substring(ml*2);
                 }
-                if (nd.Length > 40 && nd.Length <=80)
+                if (nd.Length > ml && nd.Length <=(ml*2))
                 {
-                    direcionFiscal_1 = nd.Substring(0, 40);
-                    direcionFiscal_2 = nd.Substring(40);
+                    direcionFiscal_1 = nd.Substring(0, ml);
+                    direcionFiscal_2 = nd.Substring(ml);
                 }
-                if (nd.Length > 0 && nd.Length <= 40)
+                if (nd.Length > 0 && nd.Length <= ml)
                 {
                     direcionFiscal_1 = nd.Substring(0);
                 }
 
                 var tlf = ficha.Telefono.Trim();
                 var ltlf = tlf.Length;
-                if (ltlf > 80)
+                if (ltlf > (ml*2))
                 {
-                    telefono_1 = tlf.Substring(0, 40);
-                    telefono_2 = tlf.Substring(40, 40);
+                    telefono_1 = tlf.Substring(0, ml);
+                    telefono_2 = tlf.Substring(ml, ml);
                 }
-                if (ltlf> 40 && ltlf<=80)
+                if (ltlf> ml && ltlf<=(ml*2))
                 {
-                    telefono_1 = tlf.Substring(0, 40);
-                    telefono_2 = tlf.Substring(40);
+                    telefono_1 = tlf.Substring(0, ml);
+                    telefono_2 = tlf.Substring(ml);
                 }
-                if (ltlf > 0 && ltlf <= 40)
+                if (ltlf > 0 && ltlf <= ml)
                 {
                     telefono_1 = tlf.Substring(0);
                 }
@@ -190,9 +190,9 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                     get
                     {
                         var t = descripcion.Trim();
-                        if (t.Length >= 40)
+                        if (t.Length >= 30)
                         {
-                            t = t.Substring(0, 40);
+                            t = t.Substring(0, 30);
                         }
                         if (isExento) { t = t + " (E)"; }
                         return t;
@@ -291,6 +291,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
 
         public Ticket()
         {
+            setModo(EnumModoTicket.Modo80mm);
             Negocio = new DatosNegocio();
             Cliente = new DatosCliente();
             Documento = new DatosDocumento();
@@ -308,13 +309,11 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
             switch (modo) 
             {
                 case EnumModoTicket.Modo58mm:
-                    //caracterPorLinea = 35;
-                    //anchoPapel = 186;
                     caracterPorLinea = 32;
-                    anchoPapel = 180;
+                    anchoPapel = 184;
                     break;
                 case EnumModoTicket.Modo80mm:
-                    caracterPorLinea = 51;
+                    caracterPorLinea = 50;
                     anchoPapel = 285;
                     break;
             }
@@ -365,7 +364,9 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
             {
                 if (s.Trim() != "")
                 {
-                    eg.Graphics.DrawString(s, fr, Brushes.Black, centrar(s), l);
+                    var t = eg.Graphics.MeasureString(s, fr).Width;
+                    var c = (anchoPapel - t) / 2;
+                    eg.Graphics.DrawString(s, fr, Brushes.Black, c, l);
                     l += 10f;
                 }
             }
@@ -384,12 +385,12 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
             eg.Graphics.DrawString(df.nombre, fb, Brushes.Black, centrar(df.nombre), l);
             l += 10;
             eg.Graphics.DrawString(df.nombre+":", fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.numero, fr, Brushes.Black, dder(df.numero), l);
+            eg.Graphics.DrawString(df.numero, fr, Brushes.Black, dder2(df.numero,fr), l);
             l += 10;
             eg.Graphics.DrawString("FECHA: " + df.fecha, fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString("HORA: " + df.hora, fr, Brushes.Black, dder("HORA: " + df.hora), l);
+            eg.Graphics.DrawString("HORA: " + df.hora, fr, Brushes.Black, dder2("HORA: " + df.hora,fr), l);
             l += 10;
-            eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString("-".PadRight(85, '-'), fb, Brushes.Black, 0, l);
             l += 10;
 
             foreach (var r in df.Items)
@@ -399,7 +400,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                 }
                 else
                 {
-                    var xdes = r.descripcion.Trim();
+                    var xdes = r.sdescripcion.Trim();
                     if (_modoTicket == EnumModoTicket.Modo58mm)
                     {
                         if (xdes.Length > 15)
@@ -409,7 +410,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                     if (r.cantidad == 1.0m)
                     {
                         eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
-                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder(r.simporte), l);
+                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte,fr), l);
                         l += 10;
                     }
                     else
@@ -417,18 +418,18 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                         eg.Graphics.DrawString(r.scantidadPrecio, fr, Brushes.Black, 0, l);
                         l += 10;
                         eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
-                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder(r.simporte), l);
+                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte,fr), l);
                         l += 10;
                     }
                 }
             }
 
-            eg.Graphics.DrawString("-".PadRight(85, '-'), fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString("-".PadRight(85, '-'), fb, Brushes.Black, 0, l);
             l += 10;
             eg.Graphics.DrawString("SUBTOTAL", fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.subtotalNeto, fr, Brushes.Black, dder(df.subtotalNeto), l);
+            eg.Graphics.DrawString(df.subtotal, fr, Brushes.Black, dder2(df.subtotal,fr), l);
             l += 10;
-            eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString("-".PadRight(85, '-'), fb, Brushes.Black, 0, l);
             l += 10;
 
             if (df.HayCargo || df.HayDescuento) 
@@ -436,7 +437,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                 if (df.HayDescuento)
                 {
                     eg.Graphics.DrawString(df.descuento, fr, Brushes.Black, 0, l);
-                    eg.Graphics.DrawString(df.descuentoMonto, fr, Brushes.Black, dder(df.descuentoMonto), l);
+                    eg.Graphics.DrawString(df.descuentoMonto, fr, Brushes.Black, dder2(df.descuentoMonto,fr), l);
                     l += 10;
                     eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
                     l += 10;
@@ -444,63 +445,47 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                 if (df.HayCargo)
                 {
                     eg.Graphics.DrawString(df.cargo, fr, Brushes.Black, 0, l);
-                    eg.Graphics.DrawString(df.cargoMonto, fr, Brushes.Black, dder(df.cargoMonto), l);
+                    eg.Graphics.DrawString(df.cargoMonto, fr, Brushes.Black, dder2(df.cargoMonto,fr), l);
                     l += 10;
                     eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
                     l += 10;
                 }
-                eg.Graphics.DrawString("SUBTOTAL", fr, Brushes.Black, 0, l);
-                eg.Graphics.DrawString(df.subtotal, fr, Brushes.Black, dder(df.subtotal), l);
-                l += 10;
-                eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
-                l += 10;
             }
 
             eg.Graphics.DrawString("TOTAL", fb, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.total, fr, Brushes.Black, dder(df.total), l);
+            eg.Graphics.DrawString(df.total, fr, Brushes.Black, dder2(df.total,fr), l);
             l += 15;
 
             foreach (var mp in df.MediosPago)
             {
                 eg.Graphics.DrawString(mp.descripcion, fr, Brushes.Black, 0, l);
-                eg.Graphics.DrawString(mp.monto, fr, Brushes.Black, dder(mp.monto), l);
+                eg.Graphics.DrawString(mp.monto, fr, Brushes.Black, dder2(mp.monto,fr), l);
                 l += 10;
             }
             eg.Graphics.DrawString("CAMBIO", fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.cambio, fr, Brushes.Black, dder(df.cambio), l);
+            eg.Graphics.DrawString(df.cambio, fr, Brushes.Black, dder2(df.cambio,fr), l);
             l += 10;
         }
 
         private float centrar(string t)
         {
             float r = 0.0f;
-            ////r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
-            //float tl = (275.0f / 51.0f);
-            //r = ((50.0f - t.Trim().Length) / 2.0f) * tl;
-            //return r;
-
             float tl = (anchoPapel/ caracterPorLinea);
             r = (( caracterPorLinea- t.Trim().Length) / 2.0f) * tl;
             return r;
         }
 
-        private float dder(string t)
+        private float dder2(string texto, Font fuente)
         {
             float r = 0.0f;
-            ////r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
-            //float tl = (285.0f / 51.0f);
-            //r = ((51.0f - t.Length)) * tl;
-            //return r;
-
-            float tl = ((anchoPapel+0) / caracterPorLinea);
-            r = (((caracterPorLinea+1) - t.Length)) * tl;
-            return r;
+            var t = eg.Graphics.MeasureString(texto, fuente).Width;
+            return (anchoPapel - t);
         }
 
         public void Reporte(List<string> lineas) 
         {
             var l = 0;
-            var fr = new Font("Arial", 7, FontStyle.Regular);
+            var fr = new Font(FontFamily.GenericMonospace, 7, FontStyle.Regular);
             foreach (var lin in lineas)
             {
                 eg.Graphics.DrawString(lin, fr, Brushes.Black, 0, l);

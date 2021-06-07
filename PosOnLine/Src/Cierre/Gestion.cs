@@ -21,6 +21,7 @@ namespace PosOnLine.Src.Cierre
         private decimal _entradaOtro;
         private int _entradaCntDivisa;
         private decimal _factorCambio;
+        private bool _isTicket;
 
 
         public int cntDoc { get { return _resumen.cntDoc-_resumen.cnt_anu; } }
@@ -66,6 +67,7 @@ namespace PosOnLine.Src.Cierre
         public string FechaHoraApertura { get { return Sistema.PosEnUso.fechaApertura.ToShortDateString() + ", " + Sistema.PosEnUso.horaApertura; } }
         public bool CierreIsOk { get { return _cierreOk; } }
         public bool AbandonarIsOk { get { return _abandonarOk; } }
+        public bool IsTicket { get { return _isTicket; } }
 
 
         //public bool IsOperadorCerrado { get; set; }
@@ -354,6 +356,7 @@ namespace PosOnLine.Src.Cierre
 
         public void Inicializa()
         {
+            _isTicket = false;
             _cierreOk = false;
             _abandonarOk = false;
             _entradaCntDivisa = 0;
@@ -530,6 +533,9 @@ namespace PosOnLine.Src.Cierre
                 dat.cnt_divisa_u = _entradaCntDivisa;
                 dat.cuadre_s=montoDesgloze;
                 dat.cuadre_u=montoEntrada;
+                dat.Usuario=Sistema.PosEnUso.nomUsuario;
+                dat.cntDocContado = cntDocContado;
+                dat.cntDocCredito = cntDocCredito;
 
                 var r02 = Sistema.MyData.Jornada_Cerrar(ficha);
                 if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -538,9 +544,18 @@ namespace PosOnLine.Src.Cierre
                     return;
                 }
                 Sistema.ImprimirCuadreCaja.setData(dat);
-                Sistema.ImprimirCuadreCaja.ImprimirDoc();
-
-                Helpers.Msg.OK("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
+                if (Sistema.ImprimirCuadreCaja.GetType() == typeof(Helpers.Imprimir.Tickera58.CuadreDoc))
+                {
+                    _isTicket = true;
+                }
+                else if (Sistema.ImprimirCuadreCaja.GetType() == typeof(Helpers.Imprimir.Tickera80.CuadreDoc)) 
+                {
+                    _isTicket = true;
+                }
+                else if (Sistema.ImprimirCuadreCaja.GetType() == typeof(Helpers.Imprimir.Grafico.CuadreDoc))
+                {
+                    Sistema.ImprimirCuadreCaja.ImprimirDoc();
+                }
                 _cierreOk = true;
                 Sistema.PosEnUso.Cerrar();
             }
@@ -554,6 +569,21 @@ namespace PosOnLine.Src.Cierre
             {
                 _abandonarOk = true;
             }
+        }
+
+        public void Imprimir(System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (Sistema.ImprimirCuadreCaja.GetType() == typeof(Helpers.Imprimir.Tickera80.CuadreDoc))
+            {
+                var tick = (Helpers.Imprimir.Tickera80.CuadreDoc)Sistema.ImprimirCuadreCaja;
+                tick.setGrafico(e);
+            }
+            else if (Sistema.ImprimirCuadreCaja.GetType() == typeof(Helpers.Imprimir.Tickera58.CuadreDoc))
+            {
+                var tick = (Helpers.Imprimir.Tickera58.CuadreDoc)Sistema.ImprimirCuadreCaja;
+                tick.setGrafico(e);
+            }
+            Sistema.ImprimirCuadreCaja.ImprimirDoc();
         }
 
     }

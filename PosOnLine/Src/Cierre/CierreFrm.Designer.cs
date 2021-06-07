@@ -192,8 +192,6 @@
             this.panel74 = new System.Windows.Forms.Panel();
             this.panel60 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel62 = new System.Windows.Forms.Panel();
-            this.BT_NC_DETALLE = new System.Windows.Forms.Button();
             this.panel61 = new System.Windows.Forms.Panel();
             this.BT_DETALLE = new System.Windows.Forms.Button();
             this.panel63 = new System.Windows.Forms.Panel();
@@ -289,7 +287,6 @@
             this.panel73.SuspendLayout();
             this.panel60.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.panel62.SuspendLayout();
             this.panel61.SuspendLayout();
             this.panel63.SuspendLayout();
             this.SuspendLayout();
@@ -2294,46 +2291,20 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.panel62, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.panel61, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel63, 0, 2);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 5;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.RowCount = 6;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(89, 539);
             this.tableLayoutPanel7.TabIndex = 0;
-            // 
-            // panel62
-            // 
-            this.panel62.Controls.Add(this.BT_NC_DETALLE);
-            this.panel62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel62.Location = new System.Drawing.Point(1, 108);
-            this.panel62.Margin = new System.Windows.Forms.Padding(1);
-            this.panel62.Name = "panel62";
-            this.panel62.Padding = new System.Windows.Forms.Padding(2);
-            this.panel62.Size = new System.Drawing.Size(87, 105);
-            this.panel62.TabIndex = 1;
-            // 
-            // BT_NC_DETALLE
-            // 
-            this.BT_NC_DETALLE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_NC_DETALLE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_NC_DETALLE.Image = ((System.Drawing.Image)(resources.GetObject("BT_NC_DETALLE.Image")));
-            this.BT_NC_DETALLE.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_NC_DETALLE.Location = new System.Drawing.Point(2, 2);
-            this.BT_NC_DETALLE.Name = "BT_NC_DETALLE";
-            this.BT_NC_DETALLE.Size = new System.Drawing.Size(83, 101);
-            this.BT_NC_DETALLE.TabIndex = 1;
-            this.BT_NC_DETALLE.Text = "N/Credito Detalle";
-            this.BT_NC_DETALLE.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_NC_DETALLE.UseVisualStyleBackColor = true;
-            this.BT_NC_DETALLE.Click += new System.EventHandler(this.BT_NC_DETALLE_Click);
             // 
             // panel61
             // 
@@ -2366,7 +2337,7 @@
             // 
             this.panel63.Controls.Add(this.BT_PAGO_RESUMEN);
             this.panel63.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel63.Location = new System.Drawing.Point(1, 215);
+            this.panel63.Location = new System.Drawing.Point(1, 108);
             this.panel63.Margin = new System.Windows.Forms.Padding(1);
             this.panel63.Name = "panel63";
             this.panel63.Padding = new System.Windows.Forms.Padding(2);
@@ -2500,7 +2471,6 @@
             this.panel73.ResumeLayout(false);
             this.panel60.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.panel62.ResumeLayout(false);
             this.panel61.ResumeLayout(false);
             this.panel63.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -2624,10 +2594,8 @@
         private System.Windows.Forms.Label L_DIFERENCIA;
         private System.Windows.Forms.Panel panel60;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Panel panel62;
         private System.Windows.Forms.Panel panel61;
         private System.Windows.Forms.Button BT_DETALLE;
-        private System.Windows.Forms.Button BT_NC_DETALLE;
         private System.Windows.Forms.Panel panel63;
         private System.Windows.Forms.Button BT_PAGO_RESUMEN;
         private LibControles.NumeroDecimal TB_EFECTIVO;

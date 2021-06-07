@@ -21,6 +21,7 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
         private data _docAplicaParaAnulacion;
         private bool _isTickeraOk;
         private Helpers.Imprimir.IDocumento _imprimirDoc;
+        private Visualizar.Gestion _gestionVer;
 
 
         public string TotItems { get { return _bs.Count.ToString().Trim(); } }
@@ -65,7 +66,7 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
         public void setData(List<OOB.Documento.Lista.Ficha> list)
         {
             _bl.Clear();
-            foreach (var it in list.OrderByDescending(o=>o.FechaEmision).ThenByDescending(o=>o.Id).ToList()) 
+            foreach (var it in list.OrderByDescending(o=>o.FechaEmision.ToShortDateString()).ThenByDescending(o=>o.HoraEmision).ThenByDescending(o=>o.DocNumero).ToList()) 
             {
                 _bl.Add(new data(it));
             }
@@ -248,6 +249,11 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                             _isTickeraOk = true;
                             _imprimirDoc = Sistema.ImprimirFactura;
                         }
+                        else if (Sistema.ImprimirFactura.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+                        {
+                            _isTickeraOk = true;
+                            _imprimirDoc = Sistema.ImprimirFactura;
+                        }
                         else
                         {
                             Sistema.ImprimirFactura.ImprimirCopiaDoc();
@@ -256,6 +262,11 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                     case data.enumTipoDoc.NotaCredito:
                         Sistema.ImprimirNotaCredito.setData(xdata);
                         if (Sistema.ImprimirNotaCredito.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
+                        {
+                            _isTickeraOk = true;
+                            _imprimirDoc = Sistema.ImprimirNotaCredito;
+                        }
+                        else if (Sistema.ImprimirNotaCredito.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
                         {
                             _isTickeraOk = true;
                             _imprimirDoc = Sistema.ImprimirNotaCredito;
@@ -272,6 +283,11 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                             _isTickeraOk = true;
                             _imprimirDoc = Sistema.ImprimirNotaEntrega;
                         }
+                        else if (Sistema.ImprimirNotaEntrega.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+                        {
+                            _isTickeraOk = true;
+                            _imprimirDoc = Sistema.ImprimirNotaEntrega;
+                        }
                         else
                         {
                             Sistema.ImprimirNotaEntrega.ImprimirCopiaDoc();
@@ -279,6 +295,25 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                         break;
                 }
             }
+        }
+
+        public void VisualizarDocumento()
+        {
+            if (_bs != null)
+            {
+                if (_bs.Current != null)
+                {
+                    var item = (data)_bs.Current;
+                    _gestionVer.Inicializa();
+                    _gestionVer.setDocumento(item);
+                    _gestionVer.Inicia();
+                }
+            }
+        }
+
+        public void setVisualizar(Visualizar.Gestion _gestionVisualizar)
+        {
+            _gestionVer = _gestionVisualizar;
         }
 
     }

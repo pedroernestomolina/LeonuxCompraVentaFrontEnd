@@ -247,12 +247,12 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            VerDocumento();
+            VisualizarDocumento();
         }
 
-        private void VerDocumento()
+        private void VisualizarDocumento()
         {
-            //_controlador.VerDocumento();
+            _controlador.VisualizarDocumento();
         }
 
         public void setControlador(Gestion ctr)

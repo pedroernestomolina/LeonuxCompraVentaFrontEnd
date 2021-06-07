@@ -685,6 +685,91 @@ namespace ModCajaBanco
             }
         }
 
+        public void ReporteResumenVentaSaltoFactura()
+        {
+            if (Sistema._ActivarComoSucursal)
+            {
+                _filtroGestion.setHabilitarSucursal(false);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+            else
+            {
+                _filtroGestion.setHabilitarSucursal(true);
+                _filtroGestion.setHabilitarDeposito(false);
+            }
+
+            _filtroGestion.setHabilitarPorFecha(true);
+            _filtroGestion.setHabilitarPorNumeroCierre(false);
+            _filtroGestion.Inicia();
+            if (_filtroGestion.IsFiltroOk)
+            {
+                var filtro = new OOB.LibCajaBanco.Reporte.Movimiento.ResumenVenta.Filtro()
+                {
+                    desdeFecha = _filtroGestion.desdeFecha,
+                    hastaFecha = _filtroGestion.hastaFecha,
+                };
+
+                var sucursalNombre = "";
+                if (Sistema._ActivarComoSucursal)
+                {
+                    var r00 = Sistema.MyData.Sucursal_GetPrincipal();
+                    if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                        return;
+                    }
+                    sucursalNombre = r00.Entidad.nombre;
+                    filtro.codigoSucursal = r00.Entidad.codigo;
+                }
+                else
+                {
+                    var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
+                    if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                        return;
+                    }
+                    filtro.codigoSucursal = r00.Entidad.codigo;
+                    sucursalNombre = r00.Entidad.nombre;
+                }
+
+                var r01 = Sistema.MyData.Reporte_ResumenVenta(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                if (r01.Lista != null)
+                {
+                    if (r01.Lista.Count > 0)
+                    {
+                        var xl = r01.Lista.GroupBy(g => new { g.estacion, g.tipo }).Select(t => t).ToList();
+                        foreach (var t in xl)
+                        {
+                            var d = r01.Lista.First(w=>w.estacion==t.Key.estacion.ToString() && w.tipo==t.Key.tipo.ToString());
+                            if (d != null) 
+                            {
+                                var x = int.Parse(d.documento);
+                                foreach (var r in r01.Lista.Where(w=>w.estacion==t.Key.estacion.ToString() && w.tipo==t.Key.tipo.ToString()).OrderBy(o=>o.documento).ToList())
+                                {
+                                    if (int.Parse(r.documento) != x)
+                                    {
+                                        var st = r.documento + " de fecha " + r.fecha.ToShortDateString();
+                                        Helpers.Msg.Error(st);
+                                        return;
+                                    }
+                                    x += 1;
+                                }
+                            }
+                        }
+                        Helpers.Msg.OK("TODO OK");
+                        return;
+                    }
+                }
+            }
+        }
+
     }
 
 }

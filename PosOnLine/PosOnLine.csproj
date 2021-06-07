@@ -122,8 +122,10 @@
     </Compile>
     <Compile Include="Helpers\Imprimir\ICuadreCaja.cs" />
     <Compile Include="Helpers\Imprimir\IDocumento.cs" />
+    <Compile Include="Helpers\Imprimir\Tickera58\CuadreDoc.cs" />
     <Compile Include="Helpers\Imprimir\Tickera58\Documento.cs" />
     <Compile Include="Helpers\Imprimir\Tickera58\Ticket.cs" />
+    <Compile Include="Helpers\Imprimir\Tickera80\CuadreDoc.cs" />
     <Compile Include="Helpers\Imprimir\Tickera80\Documento.cs" />
     <Compile Include="Helpers\Imprimir\Tickera80\Ticket.cs" />
     <Compile Include="Helpers\PassWord.cs" />
@@ -269,6 +271,14 @@
       <DependentUpon>AdmDocFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\AdministradorDoc\Principal\Gestion.cs" />
+    <Compile Include="Src\AdministradorDoc\Visualizar\data.cs" />
+    <Compile Include="Src\AdministradorDoc\Visualizar\Gestion.cs" />
+    <Compile Include="Src\AdministradorDoc\Visualizar\VerFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\AdministradorDoc\Visualizar\VerFrm.Designer.cs">
+      <DependentUpon>VerFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\Anular\AnularFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,6 +445,9 @@
     </Compile>
     <EmbeddedResource Include="Src\AdministradorDoc\Principal\AdmDocFrm.resx">
       <DependentUpon>AdmDocFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\AdministradorDoc\Visualizar\VerFrm.resx">
+      <DependentUpon>VerFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Anular\AnularFrm.resx">
       <DependentUpon>AnularFrm.cs</DependentUpon>

@@ -45,6 +45,7 @@ namespace PosOnLine.Src.Principal
         private void AbrirPos()
         {
             _controlador.AbrirPos();
+            ActualizarJornadaOperadorUsuario();
         }
 
         private void BT_CERRAR_POS_Click(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace PosOnLine.Src.Principal
         private void CerrarPos()
         {
             _controlador.CerrarPos();
+            ActualizarJornadaOperadorUsuario();
         }
 
         public void setVisibilidad(bool p)

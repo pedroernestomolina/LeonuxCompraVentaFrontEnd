@@ -16,6 +16,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         private bool _notaCreditoIsOk;
         private Anular.Gestion _gestionAnular;
+        private Visualizar.Gestion _gestionVisualizar;
 
 
         public string TotItems { get { return _gestionLista.TotItems; } }
@@ -30,7 +31,9 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
         public Gestion()
         {
             _notaCreditoIsOk = false;
+            _gestionVisualizar = new Visualizar.Gestion();
             _gestionLista = new Lista.Gestion();
+            _gestionLista.setVisualizar(_gestionVisualizar);
         }
 
 
@@ -360,13 +363,6 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
         public void Imprimir(System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //if (Sistema.ImprimirFactura.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
-            //{
-            //    var t = (Helpers.Imprimir.Tickera58.Documento)Sistema.ImprimirFactura;
-            //    t.setControlador(e);
-            //    t.setEmpresa(Sistema.DatosEmpresa);
-            //    t.ImprimirDoc();
-            //}
             if (ImprimirDoc.GetType() == typeof(Helpers.Imprimir.Tickera58.Documento))
             {
                 var t = (Helpers.Imprimir.Tickera58.Documento)ImprimirDoc;
@@ -374,7 +370,18 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
                 t.setEmpresa(Sistema.DatosEmpresa);
                 t.ImprimirDoc();
             }
+            else if (ImprimirDoc.GetType() == typeof(Helpers.Imprimir.Tickera80.Documento))
+            {
+                var t = (Helpers.Imprimir.Tickera80.Documento)ImprimirDoc;
+                t.setControlador(e);
+                t.setEmpresa(Sistema.DatosEmpresa);
+                t.ImprimirDoc();
+            }
+        }
 
+        public void VisualizarDocumento()
+        {
+            _gestionLista.VisualizarDocumento();
         }
 
     }

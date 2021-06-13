@@ -10,6 +10,8 @@ namespace ModVentaAdm.Src.Maestros
     
     public class data
     {
+        private OOB.Maestro.Zona.Entidad.Ficha rg;
+
 
         public string id { get; set; }
         public string codigo { get; set; }
@@ -24,7 +26,15 @@ namespace ModVentaAdm.Src.Maestros
         }
 
 
-        public data(OOB.LibCompra.Maestros.Grupo.Ficha it)
+        public data(OOB.Maestro.Grupo.Entidad.Ficha it)
+            :this()
+        {
+            id = it.auto;
+            codigo = it.codigo;
+            descripcion = it.nombre;
+        }
+
+        public data(OOB.Maestro.Zona.Entidad.Ficha it)
             :this()
         {
             id = it.auto;

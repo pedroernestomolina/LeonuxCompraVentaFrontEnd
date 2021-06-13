@@ -19,7 +19,7 @@ namespace ModVentaAdm.Src.Maestros
 
 
         public BindingSource Source { get { return bsLista; } }
-        public object ItemActual { get { return bsLista.Current; } }
+        public data ItemActual { get { return (data)bsLista.Current; } }
 
 
         public GestionLista()
@@ -38,31 +38,32 @@ namespace ModVentaAdm.Src.Maestros
 
         public void setLista(List<data> list)
         {
-        }
-
-
-        public void setLista(List<OOB.LibCompra.Maestros.Grupo.Ficha> list)
-        {
             blLista.Clear();
-            foreach (var it in list.OrderBy(o => o.nombre).ToList())
+            foreach (var it in list.OrderBy(o => o.descripcion).ToList())
             {
-                blLista.Add(new data(it));
+                blLista.Add(it);
             }
             bsLista.CurrencyManager.Refresh();
         }
 
-        public void ActualizarItem(OOB.LibCompra.Maestros.Grupo.Ficha ficha)
+        public void Agregar(data dat)
         {
-            var it = blLista.FirstOrDefault(f => f.id == ficha.auto);
-            if (it != null)
-                blLista.Remove(it);
-            Agregar(ficha);
+            blLista.Add(dat);
+            var l = blLista.ToList();
+            setLista(l);
+
+            var ind = blLista.IndexOf(blLista.FirstOrDefault(f => f.id == dat.id));
+            bsLista.Position = ind;
         }
 
-        public void Agregar(OOB.LibCompra.Maestros.Grupo.Ficha ficha)
+        public void Actualizar(data data)
         {
-            blLista.Add(new data(ficha));
-            bsLista.CurrencyManager.Refresh();
+            var it = blLista.FirstOrDefault(f => f.id == data.id);
+            if (it != null)
+            {
+                blLista.Remove(it);
+            }
+            Agregar(data);
         }
 
     }

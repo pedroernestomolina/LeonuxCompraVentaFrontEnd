@@ -12,27 +12,30 @@ namespace ModVentaAdm.Src.Maestros.Grupo
     public class AgregarEditar
     {
 
-        private bool isModoAgregar;
-        private OOB.LibCompra.Maestros.Grupo.Ficha ficha;
+        private data _data;
+        private bool _isModoAgregar;
+        private OOB.Maestro.Grupo.Entidad.Ficha _ficha;
+        private bool _isOk;
 
 
-        public string Id { get; set; }
-        public string Nombre { get; set; }
-        public string Codigo { get; set; }
-        public bool IsOk { get; set; }
-        public OOB.LibCompra.Maestros.Grupo.Ficha Ficha { get { return ficha; } }
+        public bool IsOk { get { return _isOk; } }
+        public string Codigo { get { return _data.Codigo; } }
+        public string Nombre { get { return _data.Descripcion; } }
+        public OOB.Maestro.Grupo.Entidad.Ficha FichaAgregadaActualizada { get { return _ficha; } }
 
 
         public AgregarEditar()
         {
-            ficha = null;
+            _data = new data();
+            _ficha= null;
         }
+
 
         AgregarEditarFrm frm;
         public void Agregar()
         {
+            _isModoAgregar = true;
             LimpiarEntradas();
-            isModoAgregar = true;
             if (CargarData())
             {
                 if (frm == null)
@@ -47,10 +50,9 @@ namespace ModVentaAdm.Src.Maestros.Grupo
 
         private void LimpiarEntradas()
         {
-            IsOk = false;
-            Nombre = "";
-            Codigo = "";
-            ficha = null;
+            _data.Limpiar();
+            _isOk = false;
+            _ficha = null;
         }
 
         private bool CargarData()
@@ -61,87 +63,84 @@ namespace ModVentaAdm.Src.Maestros.Grupo
 
         public void Guardar()
         {
-            if (Codigo.Trim() == "")
+            if (_data.VerificarIsOk())
             {
-                Helpers.Msg.Error("Campo [ Codigo Grupo ] No Puede Estar Vacio");
-                return;
-            }
-            if (Nombre.Trim() == "")
-            {
-                Helpers.Msg.Error("Campo [ Nombre Grupo ] No Puede Estar Vacio");
-                return;
-            }
-
-            if (isModoAgregar)
-            {
-                var msg = MessageBox.Show("Guardar Data ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == DialogResult.Yes)
+                if (_isModoAgregar)
                 {
-                    var xficha = new OOB.LibCompra.Maestros.Grupo.Agregar()
+                    var msg = MessageBox.Show("Guardar Data ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (msg == DialogResult.Yes)
                     {
-                        nombre = Nombre,
-                        codigo = Codigo,
-                    };
-                    var r01 = Sistema.MyData.Grupo_Agregar(xficha);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
-                        return;
+                        var xficha = new OOB.Maestro.Grupo.Agregar.Ficha()
+                        {
+                            nombre = Nombre,
+                            codigo = Codigo,
+                        };
+                        var r01 = Sistema.MyData.ClienteGrupo_Agregar(xficha);
+                        if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+                        var r02 = Sistema.MyData.ClienteGrupo_GetFichaById(r01.Auto);
+                        if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r02.Mensaje);
+                            return;
+                        }
+                        _ficha = r02.Entidad;
+                        _isOk = true;
                     }
-                    var r02 = Sistema.MyData.Grupo_GetFicha(r01.Auto);
-                    if (r02.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r02.Mensaje);
-                        return;
-                    }
-                    ficha = r02.Entidad;
-                    IsOk = true;
                 }
-            }
-            else
-            {
-                var msg = MessageBox.Show("Cambiar/Actualizar Data ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (msg == DialogResult.Yes)
+                else
                 {
-                    var xficha = new OOB.LibCompra.Maestros.Grupo.Editar()
+                    if (_data.Id.Trim() == "")
                     {
-                        auto = Id,
-                        nombre = Nombre,
-                        codigo = Codigo,
-                    };
-                    var r01 = Sistema.MyData.Grupo_Editar(xficha);
-                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                    {
-                        Helpers.Msg.Error(r01.Mensaje);
+                        Helpers.Msg.Error("ID ENTIDAD NO PUEDE ESTAR VACIO");
                         return;
                     }
-                    var r02 = Sistema.MyData.Grupo_GetFicha(Id);
-                    if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                    var msg = MessageBox.Show("Cambiar/Actualizar Data ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (msg == DialogResult.Yes)
                     {
-                        Helpers.Msg.Error(r02.Mensaje);
-                        return;
+                        var xficha = new OOB.Maestro.Grupo.Editar.Ficha()
+                        {
+                            auto = _data.Id,
+                            nombre = Nombre,
+                            codigo = Codigo,
+                        };
+                        var r01 = Sistema.MyData.ClienteGrupo_Editar(xficha);
+                        if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+                        var r02 = Sistema.MyData.ClienteGrupo_GetFichaById(_data.Id);
+                        if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r02.Mensaje);
+                            return;
+                        }
+                        _ficha = r02.Entidad;
+                        _isOk = true;
                     }
-                    ficha = r02.Entidad;
-                    IsOk = true;
                 }
             }
         }
 
-        public void Editar(data it)
+        public void Editar(Maestros.data itActual)
         {
             LimpiarEntradas();
-            isModoAgregar = false;
+            _isModoAgregar = false;
             if (CargarData())
             {
-                var r01 = Sistema.MyData.Grupo_GetFicha(it.id);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                var r01 = Sistema.MyData.ClienteGrupo_GetFichaById(itActual.id);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
-                Id = r01.Entidad.auto;
-                Codigo = r01.Entidad.codigo;
-                Nombre = r01.Entidad.nombre;
+                _data.setId(r01.Entidad.auto);
+                setCodigo(r01.Entidad.codigo);
+                setNombre(r01.Entidad.nombre);
                 if (frm == null)
                 {
                     frm = new AgregarEditarFrm();
@@ -156,6 +155,16 @@ namespace ModVentaAdm.Src.Maestros.Grupo
         {
             var msg = MessageBox.Show("Abandonar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             return (msg == DialogResult.Yes);
+        }
+
+        public void setNombre(string p)
+        {
+            _data.setNombre(p);
+        }
+
+        public void setCodigo(string p)
+        {
+            _data.setCodigo(p);
         }
 
     }

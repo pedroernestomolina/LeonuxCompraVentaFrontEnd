@@ -238,6 +238,12 @@ namespace ModCompra.Documento.Cargar.Factura
             var fichaPrdPrecioHistorico = new List<OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico>();
             foreach (dataItem it in gestionItem.Lista)
             {
+
+                if (it.Producto.costoUnd >= it.CostoFinal_Und)
+                {
+                    continue;
+                }
+
                 var rt5 = Sistema.MyData.Producto_GetUtilidadPrecio(it.Producto.auto);
                 if (rt5.Result == OOB.Enumerados.EnumResult.isError)
                 {

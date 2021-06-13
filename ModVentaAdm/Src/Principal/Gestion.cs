@@ -15,6 +15,8 @@ namespace ModVentaAdm.Src.Principal
 
         private Administrador.Gestion _gestionAdm;
         private Reportes.Gestion _gestionRep;
+        private Maestros.Gestion _gestionMaestro;
+        private Cliente.Administrador.Gestion _gestionAdmCliente;
 
 
         public string BD_Ruta { get { return Sistema.Instancia; } }
@@ -28,6 +30,8 @@ namespace ModVentaAdm.Src.Principal
         {
             _gestionAdm = new Administrador.Gestion();
             _gestionRep = new Reportes.Gestion();
+            _gestionMaestro = new Maestros.Gestion();
+            _gestionAdmCliente = new Cliente.Administrador.Gestion();
         }
 
 
@@ -74,6 +78,16 @@ namespace ModVentaAdm.Src.Principal
             Reporte(new Reportes.Modo.GeneralDocumento.Gestion());
         }
 
+        public void Reporte_GeneralPorDepartamento()
+        {
+            Reporte(new Reportes.Modo.GeneralPorDepartamento.Gestion());
+        }
+
+        public void Reporte_GeneralPorGrupo()
+        {
+            Reporte(new Reportes.Modo.GeneralPorGrupo.Gestion());
+        }
+
         private void Reporte(Reportes.IGestion gestion)
         {
             var r00 = Sistema.MyData.Permiso_Reportes(Sistema.Usuario.idGrupo);
@@ -91,7 +105,40 @@ namespace ModVentaAdm.Src.Principal
             }
         }
 
+        public void MaestroGrupo()
+        {
+            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
+            _gestionMaestro.Inicializa();
+            _gestionMaestro.Inicia();
+        }
 
+        public void MaestroZona()
+        {
+            _gestionMaestro.setGestion(new Maestros.Zona.Gestion());
+            _gestionMaestro.Inicializa();
+            _gestionMaestro.Inicia();
+        }
+
+        public void MaestroClientes()
+        {
+            _gestionAdmCliente.Inicializa();
+            _gestionAdmCliente.Inicia();
+        }
+
+        public void Reporte_Resumen()
+        {
+            Reporte(new Reportes.Modo.Resumen.Gestion());
+        }
+
+        public void Reporte_GeneralPorProducto()
+        {
+            Reporte(new Reportes.Modo.GeneralPorProducto.Gestion());
+        }
+
+        public void Reporte_GeneralDocumentoDetalle()
+        {
+            Reporte(new Reportes.Modo.GeneralDocumentoDetalle.Gestion());
+        }
 
     }
 

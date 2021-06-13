@@ -13,11 +13,11 @@ namespace ModVentaAdm.Src.Maestros
 
         int TotalItems { get; }
         System.Windows.Forms.BindingSource Source { get; }
-        object ItemActual { get; }
+        data ItemActual { get; }
 
-        void setLista(List<OOB.LibCompra.Maestros.Grupo.Ficha> list);
-        void ActualizarItem(OOB.LibCompra.Maestros.Grupo.Ficha ficha);
-        void Agregar(OOB.LibCompra.Maestros.Grupo.Ficha ficha);
+        void setLista(List<data> lst);
+        void Agregar(data data);
+        void Actualizar(data data);
 
     }
 

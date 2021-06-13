@@ -59,69 +59,6 @@ namespace ModVentaAdm.Src.Maestros
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
         }
-
-        private void InicializaGridMarca()
-        {
-            var f = new Font("Serif", 8, FontStyle.Bold);
-            var f1 = new Font("Serif", 10, FontStyle.Regular);
-
-            DGV.AllowUserToAddRows = false;
-            DGV.AllowUserToDeleteRows = false;
-            DGV.AutoGenerateColumns = false;
-            DGV.AllowUserToResizeRows = false;
-            DGV.AllowUserToResizeColumns = false;
-            DGV.AllowUserToOrderColumns = false;
-            DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV.MultiSelect = false;
-            DGV.ReadOnly = true;
-
-            var c1 = new DataGridViewTextBoxColumn();
-            c1.DataPropertyName = "Descripcion";
-            c1.HeaderText = "Nombre";
-            c1.Visible = true;
-            c1.HeaderCell.Style.Font = f;
-            c1.DefaultCellStyle.Font = f1;
-            c1.MinimumWidth = 180;
-            c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            DGV.Columns.Add(c1);
-        }
-
-        private void InicializarGridEmpaque()
-        {
-            var f = new Font("Serif", 8, FontStyle.Bold);
-            var f1 = new Font("Serif", 10, FontStyle.Regular);
-
-            DGV.AllowUserToAddRows = false;
-            DGV.AllowUserToDeleteRows = false;
-            DGV.AutoGenerateColumns = false;
-            DGV.AllowUserToResizeRows = false;
-            DGV.AllowUserToResizeColumns = false;
-            DGV.AllowUserToOrderColumns = false;
-            DGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DGV.MultiSelect = false;
-            DGV.ReadOnly = true;
-
-            var c1 = new DataGridViewTextBoxColumn();
-            c1.DataPropertyName = "Descripcion";
-            c1.HeaderText = "Nombre";
-            c1.Visible = true;
-            c1.HeaderCell.Style.Font = f;
-            c1.DefaultCellStyle.Font = f1;
-            c1.MinimumWidth = 120;
-            c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            var c2 = new DataGridViewTextBoxColumn();
-            c2.DataPropertyName = "Codigo";
-            c2.HeaderText = "Decimales";
-            c2.Visible = true;
-            c2.Width = 80;
-            c2.HeaderCell.Style.Font = f;
-            c2.DefaultCellStyle.Font = f1;
-
-            DGV.Columns.Add(c1);
-            DGV.Columns.Add(c2);
-        }
         
         public void setControlador(Gestion ctr)
         {
@@ -130,12 +67,7 @@ namespace ModVentaAdm.Src.Maestros
 
         private void MaestroFrm_Load(object sender, EventArgs e)
         {
-            if (_controlador.IsMarca)
-                InicializaGridMarca();
-            else if (_controlador.IsEmpaqueMedida)
-                InicializarGridEmpaque();
-            else
-                InicializaGrid();
+            InicializaGrid();
             DGV.DataSource = _controlador.Source;
             L_MAESTRO.Text = _controlador.Maestro;
             ActualizarItems();

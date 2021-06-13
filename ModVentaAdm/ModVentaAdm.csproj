@@ -73,6 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Infra\ICliente.cs" />
+    <Compile Include="Data\Infra\IClienteGrupo.cs" />
+    <Compile Include="Data\Infra\IClienteZona.cs" />
+    <Compile Include="Data\Infra\IConfiguracion.cs" />
     <Compile Include="Data\Infra\IData.cs" />
     <Compile Include="Data\Infra\IDocumento.cs" />
     <Compile Include="Data\Infra\IPermiso.cs" />
@@ -80,6 +84,10 @@
     <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Prov\Cliente.cs" />
+    <Compile Include="Data\Prov\ClienteGrupo.cs" />
+    <Compile Include="Data\Prov\ClienteZona.cs" />
+    <Compile Include="Data\Prov\Configuracion.cs" />
     <Compile Include="Data\Prov\DataPrv.cs" />
     <Compile Include="Data\Prov\Documento.cs" />
     <Compile Include="Data\Prov\Permiso.cs" />
@@ -104,15 +112,43 @@
     <Compile Include="Helpers\Imprimir\IDocumento.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Enumerado.cs" />
+    <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
     <Compile Include="OOB\Documento\Lista\Ficha.cs" />
     <Compile Include="OOB\Documento\Lista\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Articulos\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Articulos\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Documento\Enumerados.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Documento\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Documento\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Lista\Enumerados.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Lista\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Grupo\Agregar\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Grupo\Editar\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Grupo\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Grupo\Lista\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Zona\Agregar\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Zona\Editar\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Zona\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Zona\Lista\Filtro.cs" />
     <Compile Include="OOB\Permiso\Entidad\Enumerados.cs" />
     <Compile Include="OOB\Permiso\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Reportes\GeneralDocumentoDetalle\Ficha.cs" />
+    <Compile Include="OOB\Reportes\GeneralDocumentoDetalle\Filtro.cs" />
     <Compile Include="OOB\Reportes\GeneralDocumento\Ficha.cs" />
     <Compile Include="OOB\Reportes\GeneralDocumento\Filtro.cs" />
+    <Compile Include="OOB\Reportes\GeneralPorDepartamento\Ficha.cs" />
+    <Compile Include="OOB\Reportes\GeneralPorDepartamento\Filtro.cs" />
+    <Compile Include="OOB\Reportes\GeneralPorGrupo\Ficha.cs" />
+    <Compile Include="OOB\Reportes\GeneralPorGrupo\Filtro.cs" />
+    <Compile Include="OOB\Reportes\Resumen\Ficha.cs" />
+    <Compile Include="OOB\Reportes\Resumen\Filtro.cs" />
+    <Compile Include="OOB\Reportes\VentaPorProducto\Ficha.cs" />
+    <Compile Include="OOB\Reportes\VentaPorProducto\Filtro.cs" />
     <Compile Include="OOB\Resultado\Enumerados.cs" />
     <Compile Include="OOB\Resultado\Ficha.cs" />
     <Compile Include="OOB\Resultado\FichaAuto.cs" />
@@ -144,6 +180,35 @@
     <Compile Include="Src\Administrador\Gestion.cs" />
     <Compile Include="Src\Administrador\IGestion.cs" />
     <Compile Include="Src\Administrador\IGestionListaDetalle.cs" />
+    <Compile Include="Src\Cliente\Administrador\AdmFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\Administrador\AdmFrm.Designer.cs">
+      <DependentUpon>AdmFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cliente\Administrador\data.cs" />
+    <Compile Include="Src\Cliente\Administrador\dataFiltro.cs" />
+    <Compile Include="Src\Cliente\Administrador\Enumerados.cs" />
+    <Compile Include="Src\Cliente\Administrador\Gestion.cs" />
+    <Compile Include="Src\Cliente\Administrador\GestionLista.cs" />
+    <Compile Include="Src\Cliente\Articulos\CompraArticulosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\Articulos\CompraArticulosFrm.designer.cs">
+      <DependentUpon>CompraArticulosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cliente\Articulos\data.cs" />
+    <Compile Include="Src\Cliente\Articulos\Filtro.cs" />
+    <Compile Include="Src\Cliente\Articulos\Gestion.cs" />
+    <Compile Include="Src\Cliente\Documentos\data.cs" />
+    <Compile Include="Src\Cliente\Documentos\DocumentosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\Documentos\DocumentosFrm.designer.cs">
+      <DependentUpon>DocumentosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cliente\Documentos\Filtro.cs" />
+    <Compile Include="Src\Cliente\Documentos\Gestion.cs" />
     <Compile Include="Src\Filtro\data.cs" />
     <Compile Include="Src\Filtro\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
@@ -163,6 +228,7 @@
     <Compile Include="Src\Maestros\Grupo\AgregarEditarFrm.Designer.cs">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Maestros\Grupo\data.cs" />
     <Compile Include="Src\Maestros\Grupo\Gestion.cs" />
     <Compile Include="Src\Maestros\IGestion.cs" />
     <Compile Include="Src\Maestros\IGestionLista.cs" />
@@ -172,6 +238,15 @@
     <Compile Include="Src\Maestros\MaestroFrm.designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Maestros\Zona\AgregarEditar.cs" />
+    <Compile Include="Src\Maestros\Zona\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Maestros\Zona\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Maestros\Zona\data.cs" />
+    <Compile Include="Src\Maestros\Zona\Gestion.cs" />
     <Compile Include="Src\Principal\Gestion.cs" />
     <Compile Include="Src\Principal\PrincipalFrm.cs">
       <SubType>Form</SubType>
@@ -195,8 +270,18 @@
     <Compile Include="Src\Reportes\Filtro\IFiltro.cs" />
     <Compile Include="Src\Reportes\Gestion.cs" />
     <Compile Include="Src\Reportes\IGestion.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralDocumentoDetalle\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralDocumentoDetalle\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralDocumento\Filtro.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralDocumento\Gestion.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralPorDepartamento\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralPorDepartamento\Gestion.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralPorGrupo\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralPorGrupo\Gestion.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralPorProducto\Gestion.cs" />
+    <Compile Include="Src\Reportes\Modo\GeneralPorProducto\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\Resumen\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\Resumen\Gestion.cs" />
     <Compile Include="Src\Reportes\ReporteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +310,15 @@
     <EmbeddedResource Include="Src\Administrador\Documentos\AdmDocFrm.resx">
       <DependentUpon>AdmDocFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\Administrador\AdmFrm.resx">
+      <DependentUpon>AdmFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\Articulos\CompraArticulosFrm.resx">
+      <DependentUpon>CompraArticulosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\Documentos\DocumentosFrm.resx">
+      <DependentUpon>DocumentosFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Maestros\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Maestros\Zona\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
@@ -243,8 +340,23 @@
     <EmbeddedResource Include="Src\Reportes\GeneralDocumento.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\GeneralDocumentoDet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\GeneralPorDepartamento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\GeneralPorGrupo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\GeneralPorProducto.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\ReporteFrm.resx">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\Resumen.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Seguridad\SeguridadFrm.resx">
       <DependentUpon>SeguridadFrm.cs</DependentUpon>
@@ -287,6 +399,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\" />
+    <Folder Include="OOB\Maestro\Cliente\Agregar\" />
+    <Folder Include="OOB\Maestro\Cliente\Editar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="conf.xml">

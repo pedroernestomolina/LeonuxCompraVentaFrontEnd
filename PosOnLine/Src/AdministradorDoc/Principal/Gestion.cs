@@ -62,7 +62,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             var rt = true;
 
             var filtro = new OOB.Documento.Lista.Filtro() { idArqueo = Sistema.PosEnUso.idAutoArqueoCierre };
-            var r01 = Sistema.MyData.Documento_Get_Lista (filtro);
+            var r01 = Sistema.MyData.Documento_Get_Lista(filtro);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);

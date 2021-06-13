@@ -19,8 +19,7 @@ namespace ModVentaAdm.Src.Maestros
         bool CargarData();
         void AgregarItem();
         void EditarItem();
-        bool IsMarca { get; }
-        bool IsEmpaqueMedida { get; }
+        void Inicializa();
 
     }
 

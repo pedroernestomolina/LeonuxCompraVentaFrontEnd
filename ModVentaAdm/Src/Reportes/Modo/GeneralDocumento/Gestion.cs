@@ -76,6 +76,17 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralDocumento
                 DataRow rt = ds.Tables["GeneralDocumento"].NewRow();
                 rt["FechaHora"] = it.fecha.ToShortDateString();
                 rt["Documento"] = it.documento;
+                rt["Control"] = it.control;
+                rt["Serie"] = it.serie;
+                rt["Cliente"] = it.clienteNombre+Environment.NewLine+it.clienteCiRif;
+                rt["monto"] = it.total*it.signoDoc;
+                rt["montoDivisa"] = it.totalDivisa*it.signoDoc;
+                rt["docNombre"] = it.nombreDoc;
+                rt["Renglones"] = it.renglones;
+                rt["Dscto"] = it.montoDscto;
+                rt["Cargo"] = it.montoCargo;
+                rt["Sucursal"] = it.sucNombre+Environment.NewLine+it.sucCodigo;
+                rt["Estacion"] = it.estacion;
                 ds.Tables["GeneralDocumento"].Rows.Add(rt);
             }
 

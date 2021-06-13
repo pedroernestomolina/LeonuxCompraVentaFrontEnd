@@ -19,8 +19,6 @@ namespace ModVentaAdm.Src.Maestros
         public string Maestro { get { return _gestion.Maestro; } }
         public int TotalItems { get { return _gestion.TotalItems; } }
         public BindingSource Source { get { return _gestion.Source; } }
-        public bool IsMarca { get { return _gestion.IsMarca; } }
-        public bool IsEmpaqueMedida { get { return _gestion.IsEmpaqueMedida; } }
 
 
         public Gestion()
@@ -51,6 +49,11 @@ namespace ModVentaAdm.Src.Maestros
         public void EditarItem()
         {
             _gestion.EditarItem();
+        }
+
+        public void Inicializa()
+        {
+            _gestion.Inicializa();
         }
 
     }

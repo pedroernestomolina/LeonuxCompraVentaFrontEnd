@@ -103,7 +103,7 @@
             // 
             this.BT_GUARDAR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_GUARDAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_GUARDAR.Image = global::ModCompra.Properties.Resources.bt_guardar__2_;
+            this.BT_GUARDAR.Image = global::ModVentaAdm.Properties.Resources.bt_ok_3;
             this.BT_GUARDAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_GUARDAR.Location = new System.Drawing.Point(2, 2);
             this.BT_GUARDAR.Name = "BT_GUARDAR";
@@ -130,7 +130,7 @@
             this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_SALIR.Image = global::ModCompra.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.Image = global::ModVentaAdm.Properties.Resources.bt_salida_2;
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
@@ -238,7 +238,7 @@
             this.TB_NOMBRE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TB_NOMBRE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_NOMBRE.Location = new System.Drawing.Point(2, 2);
-            this.TB_NOMBRE.MaxLength = 50;
+            this.TB_NOMBRE.MaxLength = 60;
             this.TB_NOMBRE.Name = "TB_NOMBRE";
             this.TB_NOMBRE.Size = new System.Drawing.Size(238, 22);
             this.TB_NOMBRE.TabIndex = 0;
@@ -284,7 +284,7 @@
             this.TB_CODIGO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TB_CODIGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_CODIGO.Location = new System.Drawing.Point(2, 2);
-            this.TB_CODIGO.MaxLength = 10;
+            this.TB_CODIGO.MaxLength = 20;
             this.TB_CODIGO.Name = "TB_CODIGO";
             this.TB_CODIGO.Size = new System.Drawing.Size(238, 22);
             this.TB_CODIGO.TabIndex = 1;

@@ -68,7 +68,7 @@ namespace PosOnLine.Src.AdministradorDoc.Visualizar
             c4.DataPropertyName = "Precio";
             c4.HeaderText = "Precio";
             c4.Visible = true;
-            c4.Width = 110;
+            c4.Width = 130;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
             c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -78,7 +78,7 @@ namespace PosOnLine.Src.AdministradorDoc.Visualizar
             c5.DataPropertyName = "Importe";
             c5.HeaderText = "Importe";
             c5.Visible = true;
-            c5.Width = 110;
+            c5.Width = 150;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

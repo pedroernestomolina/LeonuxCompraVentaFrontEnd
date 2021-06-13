@@ -66,7 +66,7 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
         public void setData(List<OOB.Documento.Lista.Ficha> list)
         {
             _bl.Clear();
-            foreach (var it in list.OrderByDescending(o=>o.FechaEmision.ToShortDateString()).ThenByDescending(o=>o.HoraEmision).ThenByDescending(o=>o.DocNumero).ToList()) 
+            foreach (var it in list.OrderByDescending(o=>o.FechaEmision.Date).ThenByDescending(o=>o.HoraEmision).ThenByDescending(o=>o.DocNumero).ToList()) 
             {
                 _bl.Add(new data(it));
             }

@@ -94,6 +94,86 @@ namespace ModVentaAdm.Src.Principal
             _controlador.Reporte_GeneralDocumentos();
         }
 
+        private void MENU_MAESTRO_GRUPO_Click(object sender, EventArgs e)
+        {
+            MaestroGrupo();
+        }
+
+        private void MaestroGrupo()
+        {
+            _controlador.MaestroGrupo();
+        }
+
+        private void MENU_MAESTRO_ZONA_Click(object sender, EventArgs e)
+        {
+            MaestroZona();
+        }
+
+        private void MaestroZona()
+        {
+            _controlador.MaestroZona();
+        }
+
+        private void MENU_REPORTES_GENERAL_POR_DEPARTAMENTO_Click(object sender, EventArgs e)
+        {
+            Reporte_GeneralPorDepartamento();
+        }
+
+        private void Reporte_GeneralPorDepartamento()
+        {
+            _controlador.Reporte_GeneralPorDepartamento();
+        }
+
+        private void MENU_REPORTES_GENERAL_POR_GRUPO_Click(object sender, EventArgs e)
+        {
+            Reporte_GeneralPorGrupo();
+        }
+
+        private void Reporte_GeneralPorGrupo()
+        {
+            _controlador.Reporte_GeneralPorGrupo();
+        }
+
+        private void MENU_MAESTRO_CLIENTES_Click(object sender, EventArgs e)
+        {
+            MaestroClientes();
+        }
+
+        private void MaestroClientes()
+        {
+            _controlador.MaestroClientes();
+        }
+
+        private void MENU_REPORTES_RESUMEN_Click(object sender, EventArgs e)
+        {
+            Reporte_Resumen();
+        }
+
+        private void Reporte_Resumen()
+        {
+            _controlador.Reporte_Resumen();
+        }
+
+        private void MENU_REPORTES_GENERAL_POR_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            Reporte_GeneralPorProducto();
+        }
+
+        private void Reporte_GeneralPorProducto()
+        {
+            _controlador.Reporte_GeneralPorProducto();
+        }
+
+        private void MENU_REPORTES_GENERAL_DOCUMENTOS_DETALLE_Click(object sender, EventArgs e)
+        {
+            Reporte_GeneralDocumentoDetalle();
+        }
+
+        private void Reporte_GeneralDocumentoDetalle()
+        {
+            _controlador.Reporte_GeneralDocumentoDetalle();
+        }
+
     }
 
 }

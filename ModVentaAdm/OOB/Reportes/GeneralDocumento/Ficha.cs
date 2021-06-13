@@ -27,6 +27,9 @@ namespace ModVentaAdm.OOB.Reportes.GeneralDocumento
         public string nombreDoc { get; set; }
         public decimal montoDscto { get; set; }
         public decimal montoCargo { get; set; }
+        public string sucCodigo { get; set; }
+        public string sucNombre { get; set; }
+        public string estacion { get; set; }
 
 
         public Ficha()
@@ -46,6 +49,9 @@ namespace ModVentaAdm.OOB.Reportes.GeneralDocumento
             nombreDoc = "";
             montoDscto = 0.0m;
             montoCargo = 0.0m;
+            sucCodigo = "";
+            sucNombre = "";
+            estacion = "";
         }
 
     }

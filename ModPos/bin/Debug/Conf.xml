@@ -2,7 +2,7 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>pita</Catalogo>
+    <Catalogo>bodega</Catalogo>
   </Servidor>
   <DataLocal>D:\Proyectos FoxSystem\CompraVenta\LeonuxPosOffLine.db</DataLocal>
   <ImpresoraTicket>

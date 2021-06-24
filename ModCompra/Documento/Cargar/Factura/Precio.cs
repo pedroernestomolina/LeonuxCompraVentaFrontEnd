@@ -154,7 +154,8 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             var rt = 0.0m;
             rt = CalculoUtilidad(ut, precio_habilitado);
-            rt = CaculoIva(rt * contenido);
+            //rt = CaculoIva(rt * contenido);
+            rt = CaculoIva(rt);
             return rt;
         }
 
@@ -162,7 +163,8 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             var rt = 0.0m;
             rt = CalculoUtilidad(ut, precio_habilitado);
-            rt = CalculaPrecio(rt*contenido);
+            //rt = CalculaPrecio(rt*contenido);
+            rt = CalculaPrecio(rt);
             return rt;
         }
 

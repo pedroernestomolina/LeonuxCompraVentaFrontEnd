@@ -119,6 +119,7 @@
     <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
     <Compile Include="OOB\Documento\Lista\Ficha.cs" />
     <Compile Include="OOB\Documento\Lista\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Agregar\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Articulos\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Articulos\Filtro.cs" />
     <Compile Include="OOB\Maestro\Cliente\Documento\Enumerados.cs" />
@@ -155,8 +156,11 @@
     <Compile Include="OOB\Resultado\FichaEntidad.cs" />
     <Compile Include="OOB\Resultado\FichaId.cs" />
     <Compile Include="OOB\Resultado\Lista.cs" />
+    <Compile Include="OOB\Sistema\Cobrador\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Empresa\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Estado\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Vendedor\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
@@ -191,6 +195,16 @@
     <Compile Include="Src\Cliente\Administrador\Enumerados.cs" />
     <Compile Include="Src\Cliente\Administrador\Gestion.cs" />
     <Compile Include="Src\Cliente\Administrador\GestionLista.cs" />
+    <Compile Include="Src\Cliente\AgregarEditar\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\AgregarEditar\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cliente\AgregarEditar\Agregar\data.cs" />
+    <Compile Include="Src\Cliente\AgregarEditar\Agregar\Gestion.cs" />
+    <Compile Include="Src\Cliente\AgregarEditar\Gestion.cs" />
+    <Compile Include="Src\Cliente\AgregarEditar\IGestion.cs" />
     <Compile Include="Src\Cliente\Articulos\CompraArticulosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +327,9 @@
     <EmbeddedResource Include="Src\Cliente\Administrador\AdmFrm.resx">
       <DependentUpon>AdmFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\AgregarEditar\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Cliente\Articulos\CompraArticulosFrm.resx">
       <DependentUpon>CompraArticulosFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,7 +416,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\" />
-    <Folder Include="OOB\Maestro\Cliente\Agregar\" />
     <Folder Include="OOB\Maestro\Cliente\Editar\" />
   </ItemGroup>
   <ItemGroup>

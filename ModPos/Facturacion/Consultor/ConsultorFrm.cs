@@ -168,6 +168,16 @@ namespace ModPos.Facturacion.Consultor
                     L_CONT_5.Text = _consulta.Precio_5.ContenidoDescripcion;
                 }
 
+                if (_controlador.Habilitar_precio5_ventaMayor)
+                {
+                    if (_consulta.Precio_5.Contenido > 1) 
+                    {
+                        L_NETO_5.Text = _consulta.Precio_5.Neto.ToString("n2");
+                        L_FULL_5.Text = _consulta.Precio_5.Full.ToString("n2");
+                        L_CONT_5.Text = _consulta.Precio_5.ContenidoDescripcion;
+                    }
+                }
+
                 L_INACTIVO.Visible = _consulta.IsInactivo;
                 P_PRODUCTO.BackColor = _consulta.IsInactivo ? Color.Red : Color.Navy;
                 L_PRODUCTO.ForeColor = _consulta.IsInactivo ? Color.Yellow : Color.White;

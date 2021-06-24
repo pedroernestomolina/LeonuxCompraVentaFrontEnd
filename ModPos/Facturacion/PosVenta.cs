@@ -137,12 +137,21 @@ namespace ModPos.Facturacion
             c6.DefaultCellStyle.Font = f1;
             c6.Width = 30;
 
+            var c7 = new DataGridViewCheckBoxColumn();
+            c7.DataPropertyName = "EsMayor";
+            c7.HeaderText = "My";
+            c7.Name = "EsMayor";
+            c7.HeaderCell.Style.Font = f;
+            c7.DefaultCellStyle.Font = f1;
+            c7.Width = 30;
+
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
             DGV_DETALLE.Columns.Add(c3);
             DGV_DETALLE.Columns.Add(c4);
             DGV_DETALLE.Columns.Add(c5);
             DGV_DETALLE.Columns.Add(c6);
+            DGV_DETALLE.Columns.Add(c7);
         }
     
         private void DGV_DETALLE_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

@@ -39,6 +39,17 @@ namespace ModPos.Facturacion
         public OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle DetalleItem { get; set; }
 
 
+        public bool EsMayor
+        {
+            get 
+            {
+                var rt = false;
+                if (TarifaPrecio == "5")
+                    rt = true;
+                return rt;
+            }
+        }
+
         public int CantItem 
         {
             get 

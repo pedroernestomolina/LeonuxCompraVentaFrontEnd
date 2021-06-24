@@ -739,6 +739,15 @@ namespace ModPos.Facturacion
             }
             _movConceptoInv = r0i.Entidad;
 
+            var r0j = Sistema.MyData2.Configuracion_Habilitar_Precio5_VentaMayor();
+            if (r0j.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r0j.Mensaje);
+                return false;
+            }
+            _ctrItem.setHabilitar_Precio5_VentaMayor(r0j.Entidad);
+            _ctrConsultar.setHabilitar_Precio5_VentaMayor(r0j.Entidad);
+
             _documentoVenta = null;
             if (_modoFuncion == Enumerados.EnumModoFuncion.NotaCredito) 
             {

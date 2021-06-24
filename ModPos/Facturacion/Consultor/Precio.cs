@@ -67,6 +67,9 @@ namespace ModPos.Facturacion.Consultor
             }
         }
 
+        public int Contenido { get { return _contEmpaque; } }
+
+
         public Precio()
         {
             Limpiar();

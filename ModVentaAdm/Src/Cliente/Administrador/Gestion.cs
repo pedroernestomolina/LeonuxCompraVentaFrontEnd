@@ -16,7 +16,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         private OOB.Configuracion.BusquedaCliente.Entidad.Ficha _metodoBusqPred;
         private dataFiltro _filtrar;
         private GestionLista _gestionLista;
-        //private AgregarEditar.Gestion _gestionAgregarEditar;
+        private AgregarEditar.Gestion _gestionAgregarEditar;
         private Articulos.Gestion _gestionArticulos;
         private Documentos.Gestion _gestionDocumentos;
 
@@ -34,7 +34,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             _filtrar= new dataFiltro();
             _gestionLista = new GestionLista();
             _gestionLista.ItemChanged +=_gestionLista_ItemChanged;
-            //_gestionAgregarEditar= new AgregarEditar.Gestion();
+            _gestionAgregarEditar= new AgregarEditar.Gestion();
             _gestionArticulos = new Articulos.Gestion();
             _gestionDocumentos = new Documentos.Gestion();
         }
@@ -145,9 +145,9 @@ namespace ModVentaAdm.Src.Cliente.Administrador
 
         public void AgregarFicha()
         {
-            //_gestionAgregarEditar.setGestion(new AgregarEditar.Agregar.Gestion());
-            //_gestionAgregarEditar.Inicializar();
-            //_gestionAgregarEditar.Inicia();
+            _gestionAgregarEditar.setGestion(new AgregarEditar.Agregar.Gestion());
+            _gestionAgregarEditar.Inicializa();
+            _gestionAgregarEditar.Inicia();
             //if (_gestionAgregarEditar.AgregarIsOk) 
             //{
             //    InsertarFichaLista(_gestionAgregarEditar.autoProvRegistrado);

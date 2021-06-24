@@ -42,6 +42,7 @@ namespace ModInventario.Producto.Precio.Editar
         public data Precio_4 { get { return miGestion.Precio_4; } }
         public data Precio_5 { get { return miGestion.Precio_5; } }
         public bool Habilitar_ContenidoEmpaque { get { return miGestion.Habilitar_ContenidoEmpaque; } }
+        public bool Habilitar_ContenidoEmpaque5 { get { return miGestion.Habilitar_ContenidoEmpaque5; } }
         public bool Habilitar_Empaque { get { return miGestion.Habilitar_Empaque; } }
         public bool IsCerrarHabilitado { get { return miGestion.IsCerrarHabilitado; } }
         public bool IsModoDivisa { get { return miGestion.IsModoDivisa; } }

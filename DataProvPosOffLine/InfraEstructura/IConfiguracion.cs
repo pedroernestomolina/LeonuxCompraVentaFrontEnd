@@ -31,6 +31,8 @@ namespace DataProvPosOffLine.InfraEstructura
         OOB.Resultado Configuracion_GuardarCambio(OOB.LibVenta.PosOffline.Configuracion.Guardar.Ficha ficha);
         OOB.ResultadoEntidad<OOB.LibVenta.PosOffline.Configuracion.Actual.Ficha> Configuracion_ActualCargar();
 
+        OOB.ResultadoEntidad<bool> Configuracion_Habilitar_Precio5_VentaMayor();
+
     }
 
 }

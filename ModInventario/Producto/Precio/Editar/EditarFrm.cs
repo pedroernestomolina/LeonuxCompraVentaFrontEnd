@@ -112,7 +112,7 @@ namespace ModInventario.Producto.Precio.Editar
             TB_CONT_2.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
             TB_CONT_3.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
             TB_CONT_4.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
-            TB_CONT_5.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
+            TB_CONT_5.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque5;
 
             TB_NETO_1.Enabled = true;
             TB_NETO_2.Enabled = true;

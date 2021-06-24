@@ -309,6 +309,25 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+
+        public OOB.ResultadoEntidad<bool> Configuracion_HabilitarPrecio_5_ParaVentaMayorPos()
+        {
+            var rt = new OOB.ResultadoEntidad<bool>();
+
+            var r01 = MyData.Configuracion_HabilitarPrecio_5_ParaVentaMayorPos();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = false;
+            if (r01.Entidad.Trim().ToUpper()=="SI")
+                rt.Entidad = true;
+
+            return rt;
+        }
+
     }
 
 }

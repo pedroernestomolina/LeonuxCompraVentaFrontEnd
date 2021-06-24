@@ -11,6 +11,7 @@ namespace ModPos.Facturacion.Consultor
     public class Consulta
     {
 
+
         public string CodigoPrd { get; set; }
         public string CodigoPlu { get; set; } 
         public string CodigoBarra { get; set; } 

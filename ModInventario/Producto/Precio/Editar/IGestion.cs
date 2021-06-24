@@ -41,6 +41,7 @@ namespace ModInventario.Producto.Precio.Editar
         data Precio_4 { get; }
         data Precio_5 { get; }
         bool Habilitar_ContenidoEmpaque { get; }
+        bool Habilitar_ContenidoEmpaque5 { get; }
         bool Habilitar_Empaque { get; }
         bool IsCerrarHabilitado { get; }
 

@@ -176,7 +176,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
 
         private void AgregarFicha()
         {
-            //_controlador.AgregarFicha();
+            _controlador.AgregarFicha();
             //ActualizarData();
             //ActualizarDataProveedor();
         }

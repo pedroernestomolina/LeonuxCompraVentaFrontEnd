@@ -26,6 +26,8 @@ namespace DataProvInventario.InfraEstructura
 
         OOB.ResultadoLista<OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha> Configuracion_MetodoCalculoUtilidad_CapturarData();
 
+        OOB.ResultadoEntidad<bool> Configuracion_HabilitarPrecio_5_ParaVentaMayorPos();
+
     }
 
 }

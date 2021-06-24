@@ -178,6 +178,8 @@ namespace DataProvPosOffLine.Data
             {
                 Id=ficha.Id,
                 Cantidad = ficha.Cantidad,
+                Precio=ficha.precio,
+                Tarifa=ficha.tarifa,
             };
             var r01 = MyData.Item_Actualizar(actualizarDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

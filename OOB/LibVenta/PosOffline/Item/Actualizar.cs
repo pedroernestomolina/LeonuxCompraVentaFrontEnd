@@ -13,6 +13,8 @@ namespace OOB.LibVenta.PosOffline.Item
 
         public int Id { get; set; }
         public decimal Cantidad { get; set; }
+        public decimal precio { get; set; }
+        public string tarifa { get; set; }
 
     }
 

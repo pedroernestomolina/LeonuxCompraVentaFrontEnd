@@ -318,6 +318,7 @@ namespace ModPos.Facturacion
             }
         }
 
+        private bool _habilitarPos_precio_5_para_venta_mayor = false;
         public void RegistraItem(OOB.LibVenta.PosOffline.Producto.Ficha _prd, decimal peso)
         {
             if (!_prd.IsActivo)
@@ -325,6 +326,17 @@ namespace ModPos.Facturacion
                 Helpers.Sonido.Error();
                 Helpers.Msg.Error("PRODUCTO EN ESTADO INACTIVO, VERIFIQUE POR FAVOR... !!");
                 return;
+            }
+
+
+            var ent=_items.FirstOrDefault(f => f.AutoId == _prd.Auto);
+            if (ent != null) 
+            {
+                if (!ent.EsPesado)
+                {
+                    IncrementarItem(ent, 1);
+                    return;
+                }
             }
 
             OOB.LibVenta.PosOffline.Precio.Ficha precio=null;
@@ -368,15 +380,30 @@ namespace ModPos.Facturacion
                 }
                 precio = _prd.Precio_4;
             }
-            if (_tarifaPrecio == "5")
+
+            if (_habilitarPos_precio_5_para_venta_mayor)
             {
-                if (_prd.Precio_5.PrecioNeto <= 0.0m)
+                var xcnt = Items.Where(f=>f.AutoId ==_prd.Auto).Sum(f=>f.Cantidad);
+                if (xcnt >= (_prd.Precio_5.ContEmpVenta-1))
                 {
-                    Helpers.Sonido.Error();
-                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
-                    return;
+                    if (_prd.Precio_5.PrecioNeto > 0.0m && _prd.Precio_5.ContEmpVenta > 1)
+                    {
+                        precio = _prd.Precio_5;
+                    }
                 }
-                precio = _prd.Precio_5;
+            }
+            else 
+            {
+                if (_tarifaPrecio == "5")
+                {
+                    if (_prd.Precio_5.PrecioNeto <= 0.0m)
+                    {
+                        Helpers.Sonido.Error();
+                        Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                        return;
+                    }
+                    precio = _prd.Precio_5;
+                }
             }
 
             if (_prd.IsPreEmpaque)
@@ -589,10 +616,33 @@ namespace ModPos.Facturacion
             {
                 if (cnt > 0)
                 {
+
+                    var n_tarifa = it.TarifaPrecio;
+                    var n_precio = it.PrecioNeto;
+                    if (_habilitarPos_precio_5_para_venta_mayor)
+                    {
+                        var r00 = Sistema.MyData2.Producto(it.AutoId);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                        }
+
+                        if ((it.Cantidad + cnt) >= r00.Entidad.Precio_5.ContEmpVenta) 
+                        {
+                            if (r00.Entidad.Precio_5.PrecioNeto > 0 && r00.Entidad.Precio_5.ContEmpVenta>1)
+                            {
+                                n_tarifa = "5";
+                                n_precio = r00.Entidad.Precio_5.PrecioNeto ;
+                            }
+                        }
+                    }
+
                     var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
                     {
                         Id = it.Id,
                         Cantidad = (it.Cantidad + cnt),
+                        precio = n_precio,
+                        tarifa = n_tarifa,
                     };
                     var r01 = Sistema.MyData2.Item_Actualizar(act);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -602,7 +652,13 @@ namespace ModPos.Facturacion
                         return;
                     }
                     Helpers.Sonido.SonidoOk();
+
+                    _bItems.Remove(it);
                     it.Cantidad += cnt;
+                    it.PrecioNeto = n_precio;
+                    it.TarifaPrecio = n_tarifa;
+                    _bItems.Insert(0, it);
+                    _bs.MoveFirst();
                 }
             }
         }
@@ -615,10 +671,48 @@ namespace ModPos.Facturacion
             {
                 if (it.Cantidad > 1)
                 {
+
+                    var n_tarifa = it.TarifaPrecio;
+                    var n_precio = it.PrecioNeto;
+                    if (_habilitarPos_precio_5_para_venta_mayor)
+                    {
+                        var r00 = Sistema.MyData2.Producto(it.AutoId);
+                        if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r00.Mensaje);
+                        }
+
+                        if ((it.Cantidad - 1) < r00.Entidad.Precio_5.ContEmpVenta)
+                        {
+                            if (_tarifaPrecio == "1")
+                            {
+                                n_tarifa = "1";
+                                n_precio = r00.Entidad.Precio_1.PrecioNeto;
+                            }
+                            if (_tarifaPrecio == "2")
+                            {
+                                n_tarifa = "2";
+                                n_precio = r00.Entidad.Precio_2.PrecioNeto;
+                            }
+                            if (_tarifaPrecio == "3")
+                            {
+                                n_tarifa = "3";
+                                n_precio = r00.Entidad.Precio_3.PrecioNeto;
+                            }
+                            if (_tarifaPrecio == "4")
+                            {
+                                n_tarifa = "4";
+                                n_precio = r00.Entidad.Precio_4.PrecioNeto;
+                            }
+                        }
+                    }
+
                     var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
                     {
                         Id = it.Id,
                         Cantidad = it.Cantidad - 1,
+                        precio=n_precio,
+                        tarifa=n_tarifa,
                     };
                     var r01 = Sistema.MyData2.Item_Actualizar(act);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -628,6 +722,8 @@ namespace ModPos.Facturacion
                         return;
                     }
                     it.Cantidad -= 1;
+                    it.PrecioNeto = n_precio;
+                    it.TarifaPrecio = n_tarifa;
                 }
                 else
                 {
@@ -811,10 +907,47 @@ namespace ModPos.Facturacion
             var it = _bItems.First(f => f.Id == id);
             if (it != null)
             {
+
+                var n_tarifa = it.TarifaPrecio;
+                var n_precio = it.PrecioNeto;
+                if (_habilitarPos_precio_5_para_venta_mayor)
+                {
+                    var r00 = Sistema.MyData2.Producto(it.AutoId);
+                    if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                    }
+
+                    if ((it.Cantidad - 1) < r00.Entidad.Precio_5.ContEmpVenta)
+                    {
+                        if (_tarifaPrecio == "1")
+                        {
+                            n_tarifa = "1";
+                            n_precio = r00.Entidad.Precio_1.PrecioNeto;
+                        }
+                        if (_tarifaPrecio == "2")
+                        {
+                            n_tarifa = "2";
+                            n_precio = r00.Entidad.Precio_2.PrecioNeto;
+                        }
+                        if (_tarifaPrecio == "3")
+                        {
+                            n_tarifa = "3";
+                            n_precio = r00.Entidad.Precio_3.PrecioNeto;
+                        }
+                        if (_tarifaPrecio == "4")
+                        {
+                            n_tarifa = "4";
+                            n_precio = r00.Entidad.Precio_4.PrecioNeto;
+                        }
+                    }
+                }
                 var act = new OOB.LibVenta.PosOffline.Item.Actualizar()
                 {
                     Id = it.Id,
                     Cantidad = it.Cantidad - 1,
+                    precio = n_precio,
+                    tarifa = n_tarifa,
                 };
                 var r01 = Sistema.MyData2.Item_Actualizar(act);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -823,6 +956,8 @@ namespace ModPos.Facturacion
                     Helpers.Msg.Error(r01.Mensaje);
                     return false;
                 }
+                it.PrecioNeto = n_precio;
+                it.TarifaPrecio = n_tarifa;
                 rt = true;
             }
 
@@ -865,6 +1000,11 @@ namespace ModPos.Facturacion
             }
 
             return rt;
+        }
+
+        public void setHabilitar_Precio5_VentaMayor(bool p)
+        {
+            _habilitarPos_precio_5_para_venta_mayor = p;
         }
 
     }

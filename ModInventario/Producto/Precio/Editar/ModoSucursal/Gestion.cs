@@ -27,6 +27,7 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         private OOB.LibInventario.Precio.PrecioCosto.Ficha fichaPrecioCosto;
         private bool prefRegistroPrecioIsNeto;
         private bool editarPrecioIsOk;
+        private bool _habilitarContenidoEmpaque5_ParaVentaMayor;
 
         private List<OOB.LibInventario.EmpaqueMedida.Ficha> empaque1;
         private List<OOB.LibInventario.EmpaqueMedida.Ficha> empaque2;
@@ -103,6 +104,12 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
         public bool Habilitar_ContenidoEmpaque
         {
             get { return false; }
+        }
+
+        public bool Habilitar_ContenidoEmpaque5
+        {
+            //CONDICION DE QUE EL PRECIO 5, SIRVA PARA VENTA DE MAYOR
+            get { return _habilitarContenidoEmpaque5_ParaVentaMayor; }
         }
 
         public bool Habilitar_Empaque
@@ -196,6 +203,15 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
             }
             prefRegistroPrecioIsNeto = (r06.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Neto);
 
+            var r07 = Sistema.MyData.Configuracion_HabilitarPrecio_5_ParaVentaMayorPos();
+            if (r07.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r07.Mensaje);
+                return false;
+            }
+            _habilitarContenidoEmpaque5_ParaVentaMayor = r07.Entidad;
+
+
             //PREFERENCIA PRECIO
             var preferenciaPrecio = data.enumPreferenciaPrecio.Neto;
             if (r06.Entidad == OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio.Full) 
@@ -259,11 +275,11 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
                 costoUnit = r01.Entidad.costoUndDivisa.ToString("N2");
             }
             var _tasaIva = r01.Entidad.tasaIva;
-            precio_1.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad1, _p1, modoUtilidad, r01.Entidad.etiqueta1, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
-            precio_2.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad2, _p2, modoUtilidad, r01.Entidad.etiqueta2, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
-            precio_3.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad3, _p3, modoUtilidad, r01.Entidad.etiqueta3, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
-            precio_4.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad4, _p4, modoUtilidad, r01.Entidad.etiqueta4, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
-            precio_5.setData(1, _costoUnd, _tasaIva, r01.Entidad.utilidad5, _p5, modoUtilidad, r01.Entidad.etiqueta5, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_1.setData(r01.Entidad.contenido1, _costoUnd, _tasaIva, r01.Entidad.utilidad1, _p1, modoUtilidad, r01.Entidad.etiqueta1, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_2.setData(r01.Entidad.contenido2, _costoUnd, _tasaIva, r01.Entidad.utilidad2, _p2, modoUtilidad, r01.Entidad.etiqueta2, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_3.setData(r01.Entidad.contenido3, _costoUnd, _tasaIva, r01.Entidad.utilidad3, _p3, modoUtilidad, r01.Entidad.etiqueta3, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_4.setData(r01.Entidad.contenido4, _costoUnd, _tasaIva, r01.Entidad.utilidad4, _p4, modoUtilidad, r01.Entidad.etiqueta4, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
+            precio_5.setData(r01.Entidad.contenido5, _costoUnd, _tasaIva, r01.Entidad.utilidad5, _p5, modoUtilidad, r01.Entidad.etiqueta5, "0000000001", _modoDivisa, tasaCambioActual, redondeo, preferenciaPrecio);
 
             //empaques
             empaque1.Clear();

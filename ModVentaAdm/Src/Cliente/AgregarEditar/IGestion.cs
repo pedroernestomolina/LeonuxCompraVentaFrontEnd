@@ -51,6 +51,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
         int DiasCredito { get; }
         int LimiteDoc { get; }
         decimal LimiteCredito { get; }
+        string AutoClienteAgregado { get; }
+        bool IsModoAgregar { get; }
 
         
         Boolean CargarData();
@@ -85,6 +87,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
         void setDiasCredito(int p);
         void setLimiteCredito(decimal p);
         void setLimiteDoc(int p);
+        void setFichaEditar(string autoId);
 
     }
 

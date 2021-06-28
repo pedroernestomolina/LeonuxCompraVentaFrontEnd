@@ -147,9 +147,11 @@
             this.panel57 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.panel58 = new System.Windows.Forms.Panel();
+            this.TB_DSCTO = new ModVentaAdm.LibControl.NumeroDec();
             this.panel59 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.panel60 = new System.Windows.Forms.Panel();
+            this.TB_CARGO = new ModVentaAdm.LibControl.NumeroDec();
             this.panel51 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -166,12 +168,15 @@
             this.panel65 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.panel66 = new System.Windows.Forms.Panel();
+            this.TB_DIAS_CREDITO = new ModVentaAdm.LibControl.NumeroEnt();
             this.panel67 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel68 = new System.Windows.Forms.Panel();
+            this.TB_LIMITE_CREDITO = new ModVentaAdm.LibControl.NumeroDec();
             this.panel69 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.panel70 = new System.Windows.Forms.Panel();
+            this.TB_LIMITE_DOC = new ModVentaAdm.LibControl.NumeroEnt();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -244,7 +249,9 @@
             this.panel55.SuspendLayout();
             this.panel56.SuspendLayout();
             this.panel57.SuspendLayout();
+            this.panel58.SuspendLayout();
             this.panel59.SuspendLayout();
+            this.panel60.SuspendLayout();
             this.panel51.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -255,8 +262,11 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.panel64.SuspendLayout();
             this.panel65.SuspendLayout();
+            this.panel66.SuspendLayout();
             this.panel67.SuspendLayout();
+            this.panel68.SuspendLayout();
             this.panel69.SuspendLayout();
+            this.panel70.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1207,11 +1217,12 @@
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 13);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 4;
+            this.tableLayoutPanel7.RowCount = 5;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(642, 121);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
@@ -1646,7 +1657,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(85, 24);
             this.label20.TabIndex = 1;
-            this.label20.Text = "Vendedor:";
+            this.label20.Text = "* Vendedor:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel54
@@ -1692,7 +1703,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(85, 24);
             this.label21.TabIndex = 1;
-            this.label21.Text = "Precio:";
+            this.label21.Text = "* Precio:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel56
@@ -1743,6 +1754,7 @@
             // 
             // panel58
             // 
+            this.panel58.Controls.Add(this.TB_DSCTO);
             this.panel58.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel58.Location = new System.Drawing.Point(92, 31);
             this.panel58.Margin = new System.Windows.Forms.Padding(1);
@@ -1750,6 +1762,21 @@
             this.panel58.Padding = new System.Windows.Forms.Padding(2);
             this.panel58.Size = new System.Drawing.Size(227, 27);
             this.panel58.TabIndex = 5;
+            // 
+            // TB_DSCTO
+            // 
+            this.TB_DSCTO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_DSCTO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_DSCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_DSCTO.Location = new System.Drawing.Point(2, 2);
+            this.TB_DSCTO.MaxLength = 6;
+            this.TB_DSCTO.Name = "TB_DSCTO";
+            this.TB_DSCTO.Size = new System.Drawing.Size(75, 22);
+            this.TB_DSCTO.TabIndex = 0;
+            this.TB_DSCTO.Text = "0";
+            this.TB_DSCTO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_DSCTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_DSCTO.Leave += new System.EventHandler(this.TB_DSCTO_Leave);
             // 
             // panel59
             // 
@@ -1775,6 +1802,7 @@
             // 
             // panel60
             // 
+            this.panel60.Controls.Add(this.TB_CARGO);
             this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel60.Location = new System.Drawing.Point(412, 31);
             this.panel60.Margin = new System.Windows.Forms.Padding(1);
@@ -1782,6 +1810,21 @@
             this.panel60.Padding = new System.Windows.Forms.Padding(2);
             this.panel60.Size = new System.Drawing.Size(229, 27);
             this.panel60.TabIndex = 7;
+            // 
+            // TB_CARGO
+            // 
+            this.TB_CARGO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CARGO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_CARGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CARGO.Location = new System.Drawing.Point(2, 2);
+            this.TB_CARGO.MaxLength = 6;
+            this.TB_CARGO.Name = "TB_CARGO";
+            this.TB_CARGO.Size = new System.Drawing.Size(75, 22);
+            this.TB_CARGO.TabIndex = 0;
+            this.TB_CARGO.Text = "0";
+            this.TB_CARGO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_CARGO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_CARGO.Leave += new System.EventHandler(this.TB_CARGO_Leave);
             // 
             // panel51
             // 
@@ -1844,7 +1887,7 @@
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(85, 24);
             this.label24.TabIndex = 2;
-            this.label24.Text = "Cobrador:";
+            this.label24.Text = "* Cobrador:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel62
@@ -1978,6 +2021,7 @@
             // 
             // panel66
             // 
+            this.panel66.Controls.Add(this.TB_DIAS_CREDITO);
             this.panel66.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel66.Location = new System.Drawing.Point(92, 30);
             this.panel66.Margin = new System.Windows.Forms.Padding(1);
@@ -1985,6 +2029,21 @@
             this.panel66.Padding = new System.Windows.Forms.Padding(2);
             this.panel66.Size = new System.Drawing.Size(227, 27);
             this.panel66.TabIndex = 3;
+            // 
+            // TB_DIAS_CREDITO
+            // 
+            this.TB_DIAS_CREDITO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_DIAS_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_DIAS_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_DIAS_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.TB_DIAS_CREDITO.MaxLength = 5;
+            this.TB_DIAS_CREDITO.Name = "TB_DIAS_CREDITO";
+            this.TB_DIAS_CREDITO.Size = new System.Drawing.Size(75, 22);
+            this.TB_DIAS_CREDITO.TabIndex = 0;
+            this.TB_DIAS_CREDITO.Text = "0";
+            this.TB_DIAS_CREDITO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_DIAS_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_DIAS_CREDITO.Leave += new System.EventHandler(this.TB_DIAS_CREDITO_Leave);
             // 
             // panel67
             // 
@@ -2010,6 +2069,7 @@
             // 
             // panel68
             // 
+            this.panel68.Controls.Add(this.TB_LIMITE_CREDITO);
             this.panel68.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel68.Location = new System.Drawing.Point(412, 30);
             this.panel68.Margin = new System.Windows.Forms.Padding(1);
@@ -2017,6 +2077,21 @@
             this.panel68.Padding = new System.Windows.Forms.Padding(2);
             this.panel68.Size = new System.Drawing.Size(229, 27);
             this.panel68.TabIndex = 5;
+            // 
+            // TB_LIMITE_CREDITO
+            // 
+            this.TB_LIMITE_CREDITO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_LIMITE_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.TB_LIMITE_CREDITO.MaxLength = 14;
+            this.TB_LIMITE_CREDITO.Name = "TB_LIMITE_CREDITO";
+            this.TB_LIMITE_CREDITO.Size = new System.Drawing.Size(107, 22);
+            this.TB_LIMITE_CREDITO.TabIndex = 0;
+            this.TB_LIMITE_CREDITO.Text = "0";
+            this.TB_LIMITE_CREDITO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_LIMITE_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_LIMITE_CREDITO.Leave += new System.EventHandler(this.TB_LIMITE_CREDITO_Leave);
             // 
             // panel69
             // 
@@ -2042,6 +2117,7 @@
             // 
             // panel70
             // 
+            this.panel70.Controls.Add(this.TB_LIMITE_DOC);
             this.panel70.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel70.Location = new System.Drawing.Point(92, 59);
             this.panel70.Margin = new System.Windows.Forms.Padding(1);
@@ -2049,6 +2125,21 @@
             this.panel70.Padding = new System.Windows.Forms.Padding(2);
             this.panel70.Size = new System.Drawing.Size(227, 27);
             this.panel70.TabIndex = 7;
+            // 
+            // TB_LIMITE_DOC
+            // 
+            this.TB_LIMITE_DOC.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_DOC.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_LIMITE_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_DOC.Location = new System.Drawing.Point(2, 2);
+            this.TB_LIMITE_DOC.MaxLength = 5;
+            this.TB_LIMITE_DOC.Name = "TB_LIMITE_DOC";
+            this.TB_LIMITE_DOC.Size = new System.Drawing.Size(75, 22);
+            this.TB_LIMITE_DOC.TabIndex = 0;
+            this.TB_LIMITE_DOC.Text = "0";
+            this.TB_LIMITE_DOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_LIMITE_DOC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_LIMITE_DOC.Leave += new System.EventHandler(this.TB_LIMITE_DOC_Leave);
             // 
             // AgregarEditarFrm
             // 
@@ -2149,7 +2240,11 @@
             this.panel55.ResumeLayout(false);
             this.panel56.ResumeLayout(false);
             this.panel57.ResumeLayout(false);
+            this.panel58.ResumeLayout(false);
+            this.panel58.PerformLayout();
             this.panel59.ResumeLayout(false);
+            this.panel60.ResumeLayout(false);
+            this.panel60.PerformLayout();
             this.panel51.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
@@ -2161,8 +2256,14 @@
             this.panel64.ResumeLayout(false);
             this.panel64.PerformLayout();
             this.panel65.ResumeLayout(false);
+            this.panel66.ResumeLayout(false);
+            this.panel66.PerformLayout();
             this.panel67.ResumeLayout(false);
+            this.panel68.ResumeLayout(false);
+            this.panel68.PerformLayout();
             this.panel69.ResumeLayout(false);
+            this.panel70.ResumeLayout(false);
+            this.panel70.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2313,6 +2414,11 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox TB_PAIS;
+        private LibControl.NumeroDec TB_DSCTO;
+        private LibControl.NumeroDec TB_CARGO;
+        private LibControl.NumeroEnt TB_DIAS_CREDITO;
+        private LibControl.NumeroDec TB_LIMITE_CREDITO;
+        private LibControl.NumeroEnt TB_LIMITE_DOC;
         //  private LibControles.NumeroDecimal TB_RET_IVA;
     }
 }

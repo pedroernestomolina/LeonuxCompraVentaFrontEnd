@@ -56,14 +56,16 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
             _controlador = ctr;
         }
 
+        bool isModoInicializar;
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
             L_TITULO.Text = _controlador.TituloFicha;
 
-            //TB_DIAS_CREDITO.Enabled = false;
-            //TB_LIMITE_CREDITO.Enabled = false;
-            //TB_LIMITE_DOC.Enabled = false;
+            TB_DIAS_CREDITO.Enabled = false;
+            TB_LIMITE_CREDITO.Enabled = false;
+            TB_LIMITE_DOC.Enabled = false;
 
+            isModoInicializar = true;
             CB_VENDEDOR.DataSource = _controlador.SourceVendedor;
             CB_COBRADOR.DataSource = _controlador.SourceCobrador;
             CB_GRUPO.DataSource = _controlador.SourceGrupo;
@@ -72,14 +74,15 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
             CB_NIVEL.DataSource = _controlador.SourceNivel;
             CB_TARIFA.DataSource = _controlador.SourceTarifa;
             CB_ESTADO.DataSource = _controlador.SourceEstado;
+            isModoInicializar = false;
 
             TB_CIRIF.Text = _controlador.CiRif;
             TB_CODIGO.Text = _controlador.Codigo;
             TB_RAZON_SOCIAL.Text = _controlador.RazonSocial;
-            TB_DIR_FISCAL.Text= _controlador.DirFiscal;
+            TB_DIR_FISCAL.Text = _controlador.DirFiscal;
             TB_DIR_DESPACHO.Text = _controlador.DirDespacho;
-            TB_PAIS.Text=_controlador.Pais;
-            TB_COD_POSTAL.Text=_controlador.CodPostal;
+            TB_PAIS.Text = _controlador.Pais;
+            TB_COD_POSTAL.Text = _controlador.CodPostal;
             TB_CONTACTO.Text = _controlador.Contacto;
             TB_TEL_1.Text = _controlador.Telefono1;
             TB_TEL_2.Text = _controlador.Telefono2;
@@ -87,44 +90,44 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
             TB_FAX.Text = _controlador.Fax;
             TB_EMAIL.Text = _controlador.Email;
             TB_WEB_SITE.Text = _controlador.WebSite;
-            CHB_CREDITO.Checked = _controlador.CreditoIsActivo;
-            //TB_DSCTO.Text = _controlador.Dscto.ToString("n2");
-            //TB_CARGO.Text = _controlador.Cargo.ToString("n2");
-            //TB_DIAS_CREDITO.Text = _controlador.DiasCredito.ToString("n0");
-            //TB_LIMITE_DOC.Text = _controlador.LimiteDoc.ToString("n0");
-            //TB_LIMITE_CREDITO.Text = _controlador.LimiteCredito.ToString("n2");
 
-            CB_GRUPO.SelectedIndex=-1;
-            if (_controlador.IdGrupo!="")
-                CB_GRUPO.SelectedValue = _controlador.IdGrupo;
+            TB_DSCTO.Text = _controlador.Dscto.ToString("n2");
+            TB_CARGO.Text = _controlador.Cargo.ToString("n2");
+            TB_DIAS_CREDITO.Text = _controlador.DiasCredito.ToString("n0");
+            TB_LIMITE_DOC.Text = _controlador.LimiteDoc.ToString("n0");
+            TB_LIMITE_CREDITO.Text = _controlador.LimiteCredito.ToString("n2");
 
-            CB_ZONA.SelectedIndex = -1;
-            if (_controlador.IdZona != "")
-                CB_ZONA.SelectedValue = _controlador.IdZona;
-
-            CB_CATEGORIA.SelectedIndex = -1;
-            if (_controlador.IdCategoria!= "")
-                CB_CATEGORIA.SelectedValue = _controlador.IdCategoria;
-
-            CB_NIVEL.SelectedIndex = -1;
-            if (_controlador.IdNivel!= "")
-                CB_NIVEL.SelectedValue = _controlador.IdNivel;
-
-            CB_TARIFA.SelectedIndex = -1;
-            if (_controlador.IdTarifa != "")
-                CB_TARIFA.SelectedValue = _controlador.IdTarifa;
-
-            CB_ESTADO.SelectedIndex = -1;
-            if (_controlador.IdEstado != "")
-                CB_ESTADO.SelectedValue = _controlador.IdEstado;
-
-            CB_VENDEDOR.SelectedIndex = -1;
-            if (_controlador.IdVendedor != "")
-                CB_VENDEDOR.SelectedValue = _controlador.IdVendedor;
-
-            CB_COBRADOR.SelectedIndex = -1;
-            if (_controlador.IdCobrador != "")
-                CB_COBRADOR.SelectedValue = _controlador.IdCobrador; 
+            if (_controlador.IsModoAgregar)
+            {
+                CB_GRUPO.SelectedIndex = -1;
+                CB_ZONA.SelectedIndex = -1;
+                CB_CATEGORIA.SelectedIndex = -1;
+                CB_NIVEL.SelectedIndex = -1;
+                CB_TARIFA.SelectedIndex = -1;
+                CB_ESTADO.SelectedIndex = -1;
+                CB_VENDEDOR.SelectedIndex = -1;
+                CB_COBRADOR.SelectedIndex = -1;
+            }
+            else
+            {
+                if (_controlador.IdGrupo != "")
+                    CB_GRUPO.SelectedValue = _controlador.IdGrupo;
+                if (_controlador.IdZona != "")
+                    CB_ZONA.SelectedValue = _controlador.IdZona;
+                if (_controlador.IdCategoria != "")
+                    CB_CATEGORIA.SelectedValue = _controlador.IdCategoria;
+                if (_controlador.IdNivel != "")
+                    CB_NIVEL.SelectedValue = _controlador.IdNivel;
+                if (_controlador.IdTarifa != "")
+                    CB_TARIFA.SelectedValue = _controlador.IdTarifa;
+                if (_controlador.IdEstado != "")
+                    CB_ESTADO.SelectedValue = _controlador.IdEstado;
+                if (_controlador.IdVendedor != "")
+                    CB_VENDEDOR.SelectedValue = _controlador.IdVendedor;
+                if (_controlador.IdCobrador != "")
+                    CB_COBRADOR.SelectedValue = _controlador.IdCobrador;
+                CHB_CREDITO.Checked = _controlador.CreditoIsActivo;
+            }
         }
 
         private void BT_PROCESAR_Click(object sender, EventArgs e)
@@ -135,7 +138,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
         private void Procesar()
         {
             _controlador.Procesar();
-            if (_controlador.ProcesarIsoK) 
+            if (_controlador.ProcesarIsoK)
             {
                 this.Close();
             }
@@ -174,6 +177,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setGrupo("");
             if (CB_GRUPO.SelectedIndex != -1)
             {
@@ -183,6 +188,9 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_CATEGORIA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
+
             _controlador.setCategoria("");
             if (CB_CATEGORIA.SelectedIndex != -1)
             {
@@ -192,12 +200,14 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
             CHB_CREDITO.Enabled = _controlador.CategoriaIsAdministrativo;
             if (!_controlador.CategoriaIsAdministrativo)
             {
-                CHB_CREDITO.Checked=false;
+                CHB_CREDITO.Checked = false;
             }
         }
 
         private void CB_NIVEL_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setNivel("");
             if (CB_NIVEL.SelectedIndex != -1)
             {
@@ -207,6 +217,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_ESTADO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setEstado("");
             if (CB_ESTADO.SelectedIndex != -1)
             {
@@ -216,6 +228,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_ZONA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setZona("");
             if (CB_ZONA.SelectedIndex != -1)
             {
@@ -225,6 +239,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_VENDEDOR_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setVendedor("");
             if (CB_VENDEDOR.SelectedIndex != -1)
             {
@@ -234,6 +250,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_TARIFA_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setTarifa("");
             if (CB_TARIFA.SelectedIndex != -1)
             {
@@ -243,6 +261,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CB_COBRADOR_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setCobrador("");
             if (CB_COBRADOR.SelectedIndex != -1)
             {
@@ -331,35 +351,35 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
         private void CHB_CREDITO_CheckedChanged(object sender, EventArgs e)
         {
             _controlador.setCredito(CHB_CREDITO.Checked);
-            //TB_DIAS_CREDITO.Enabled = _controlador.CreditoIsActivo;
-            //TB_LIMITE_CREDITO.Enabled = _controlador.CreditoIsActivo;
-            //TB_LIMITE_DOC.Enabled = _controlador.CreditoIsActivo;
+            TB_DIAS_CREDITO.Enabled = _controlador.CreditoIsActivo;
+            TB_LIMITE_CREDITO.Enabled = _controlador.CreditoIsActivo;
+            TB_LIMITE_DOC.Enabled = _controlador.CreditoIsActivo;
         }
 
-        //private void TB_DSCTO_Leave(object sender, EventArgs e)
-        //{
-        //    _controlador.setDscto(decimal.Parse(TB_DSCTO.Text));
+        private void TB_DSCTO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setDscto(decimal.Parse(TB_DSCTO.Text));
 
-        //}
-        //private void TB_CARGO_Leave(object sender, EventArgs e)
-        //{
-        //    _controlador.setCargo(decimal.Parse(TB_CARGO.Text));
-        //}
+        }
+        private void TB_CARGO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCargo(decimal.Parse(TB_CARGO.Text));
+        }
 
-        //private void TB_DIAS_CREDITO_Leave(object sender, EventArgs e)
-        //{
-        //    _controlador.setDiasCredito(int.Parse(TB_DIAS_CREDITO.Text));
-        //}
+        private void TB_DIAS_CREDITO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setDiasCredito(int.Parse(TB_DIAS_CREDITO.Text));
+        }
 
-        //private void TB_LIMITE_CREDITO_Leave(object sender, EventArgs e)
-        //{
-        //    _controlador.setLimiteCredito(decimal.Parse(TB_LIMITE_CREDITO.Text));
-        //}
+        private void TB_LIMITE_CREDITO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setLimiteCredito(decimal.Parse(TB_LIMITE_CREDITO.Text));
+        }
 
-        //private void TB_LIMITE_DOC_Leave(object sender, EventArgs e)
-        //{
-        //    _controlador.setLimiteDoc(int.Parse(TB_LIMITE_DOC.Text));
-        //}
+        private void TB_LIMITE_DOC_Leave(object sender, EventArgs e)
+        {
+            _controlador.setLimiteDoc(int.Parse(TB_LIMITE_DOC.Text));
+        }
 
     }
 

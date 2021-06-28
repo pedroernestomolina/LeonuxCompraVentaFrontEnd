@@ -80,11 +80,11 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             _bs.CurrencyManager.Refresh();
         }
 
-        //public void AgregarFicha(OOB.LibCompra.Proveedor.Data.Ficha ficha)
-        //{
-        //    _lst.Add(ficha);
-        //    _bs.CurrencyManager.Refresh();
-        //}
+        public void AgregarFicha(OOB.Maestro.Cliente.Entidad.Ficha ficha)
+        {
+            _lst.Add(new data(ficha));
+            _bs.CurrencyManager.Refresh();
+        }
 
         //public void EliminarItem(string autoId)
         //{

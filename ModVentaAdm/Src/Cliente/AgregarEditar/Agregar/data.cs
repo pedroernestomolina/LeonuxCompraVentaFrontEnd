@@ -44,7 +44,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
         public Gestion.general Grupo { get { return _grupo; } }
         public Gestion.general Categoria{ get { return _categoria; } }
         public Gestion.general Nivel { get { return _nivel; } }
-        public Gestion.general Estado { get { return _categoria; } }
+        public Gestion.general Estado { get { return _estado; } }
         public Gestion.general Zona { get { return _zona; } }
         public Gestion.general Vendedor { get { return _vendedor; } }
         public Gestion.general Cobrador { get { return _cobrador; } }

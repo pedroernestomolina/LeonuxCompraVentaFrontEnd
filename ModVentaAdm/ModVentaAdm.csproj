@@ -112,6 +112,12 @@
     <Compile Include="Helpers\Imprimir\IDocumento.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
+    <Compile Include="LibControl\NumeroDec.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibControl\NumeroEnt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Enumerado.cs" />
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
@@ -125,6 +131,8 @@
     <Compile Include="OOB\Maestro\Cliente\Documento\Enumerados.cs" />
     <Compile Include="OOB\Maestro\Cliente\Documento\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Documento\Filtro.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Editar\Actualizar\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Cliente\Editar\ObtenerData\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Entidad\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Lista\Enumerados.cs" />
     <Compile Include="OOB\Maestro\Cliente\Lista\Filtro.cs" />
@@ -203,6 +211,8 @@
     </Compile>
     <Compile Include="Src\Cliente\AgregarEditar\Agregar\data.cs" />
     <Compile Include="Src\Cliente\AgregarEditar\Agregar\Gestion.cs" />
+    <Compile Include="Src\Cliente\AgregarEditar\Editar\data.cs" />
+    <Compile Include="Src\Cliente\AgregarEditar\Editar\Gestion.cs" />
     <Compile Include="Src\Cliente\AgregarEditar\Gestion.cs" />
     <Compile Include="Src\Cliente\AgregarEditar\IGestion.cs" />
     <Compile Include="Src\Cliente\Articulos\CompraArticulosFrm.cs">
@@ -416,7 +426,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\" />
-    <Folder Include="OOB\Maestro\Cliente\Editar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="conf.xml">

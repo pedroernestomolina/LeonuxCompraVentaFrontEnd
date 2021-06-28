@@ -16,6 +16,8 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Maestro.Cliente.Documento.Ficha> Cliente_Documentos_GetLista(OOB.Maestro.Cliente.Documento.Filtro filtro);
         OOB.Resultado.Lista<OOB.Maestro.Cliente.Articulos.Ficha> Cliente_ArticulosVenta_GetLista(OOB.Maestro.Cliente.Articulos.Filtro filtro);
         OOB.Resultado.FichaAuto Cliente_Agregar(OOB.Maestro.Cliente.Agregar.Ficha ficha);
+        OOB.Resultado.FichaEntidad<OOB.Maestro.Cliente.Editar.ObtenerData.Ficha> Cliente_Editar_GetFicha(string autoCli);
+        OOB.Resultado.Ficha Cliente_Editar(OOB.Maestro.Cliente.Editar.Actualizar.Ficha ficha);
 
     }
 

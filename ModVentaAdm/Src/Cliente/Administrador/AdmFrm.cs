@@ -177,8 +177,8 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         private void AgregarFicha()
         {
             _controlador.AgregarFicha();
-            //ActualizarData();
-            //ActualizarDataProveedor();
+            ActualizarData();
+            ActualizarFicha();
         }
 
         private void BT_EDITAR_FICHA_Click(object sender, EventArgs e)

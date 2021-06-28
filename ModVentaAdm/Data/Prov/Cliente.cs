@@ -259,6 +259,102 @@ namespace ModVentaAdm.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<OOB.Maestro.Cliente.Editar.ObtenerData.Ficha> Cliente_Editar_GetFicha(string autoCli)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Maestro.Cliente.Editar.ObtenerData.Ficha>();
+
+            var r01 = MyData.Cliente_Editar_GetFicha(autoCli);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.Maestro.Cliente.Editar.ObtenerData.Ficha()
+            {
+                idGrupo = s.idGrupo,
+                idEstado = s.idEstado,
+                idZona = s.idZona,
+                idVendedor = s.idVendedor,
+                idCobrador = s.idCobrador ,
+                tarifa = s.tarifa,
+                categoria = s.categoria,
+                nivel = s.nivel,
+                ciRif = s.ciRif,
+                codigo = s.codigo,
+                razonSocial = s.razonSocial,
+                dirFiscal = s.dirFiscal,
+                dirDespacho = s.dirDespacho,
+                pais = s.pais,
+                contacto = s.contacto,
+                telefono1 = s.telefono1,
+                telefono2 = s.telefono2,
+                email = s.email,
+                celular = s.celular,
+                fax = s.fax,
+                webSite = s.webSite,
+                codPostal = s.codPostal,
+                estatusCredito = s.estatusCredito,
+                dscto = s.dscto,
+                cargo = s.cargo,
+                limiteDoc = s.limiteDoc,
+                diasCredito = s.diasCredito,
+                limiteCredito = s.limiteCredito,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.Resultado.Ficha Cliente_Editar(OOB.Maestro.Cliente.Editar.Actualizar.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.Cliente.Editar.Actualizar.Ficha()
+            {
+                autoId=ficha.idAuto,
+                idGrupo = ficha.idGrupo,
+                idEstado = ficha.idEstado,
+                idZona = ficha.idZona,
+                idVendedor = ficha.idVendedor,
+                idCobrador = ficha.idCobrador,
+                tarifa = ficha.tarifa,
+                categoria = ficha.categoria,
+                nivel = ficha.nivel,
+                ciRif = ficha.ciRif,
+                codigo = ficha.codigo,
+                razonSocial = ficha.razonSocial,
+                dirFiscal = ficha.dirFiscal,
+                dirDespacho = ficha.dirDespacho,
+                pais = ficha.pais,
+                contacto = ficha.contacto,
+                telefono1 = ficha.telefono1,
+                telefono2 = ficha.telefono2,
+                email = ficha.email,
+                celular = ficha.celular,
+                fax = ficha.fax,
+                webSite = ficha.webSite,
+                codPostal = ficha.codPostal,
+                estatusCredito = ficha.estatusCredito,
+                dscto = ficha.dscto,
+                cargo = ficha.cargo,
+                limiteDoc = ficha.limiteDoc,
+                diasCredito = ficha.diasCredito,
+                limiteCredito = ficha.limiteCredito,
+            };
+            var r01 = MyData.Cliente_Editar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
     }
 
 }

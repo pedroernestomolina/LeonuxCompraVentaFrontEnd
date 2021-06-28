@@ -148,37 +148,37 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             _gestionAgregarEditar.setGestion(new AgregarEditar.Agregar.Gestion());
             _gestionAgregarEditar.Inicializa();
             _gestionAgregarEditar.Inicia();
-            //if (_gestionAgregarEditar.AgregarIsOk) 
-            //{
-            //    InsertarFichaLista(_gestionAgregarEditar.autoProvRegistrado);
-            //}
+            if (_gestionAgregarEditar.ProcesarIsoK)
+            {
+                InsertarFichaLista(_gestionAgregarEditar.AutoClienteAgregado);
+            }
         }
 
-        private void InsertarFichaLista(string autoPrv)
+        private void InsertarFichaLista(string autoId)
         {
-            //var r01 = Sistema.MyData.Proveedor_GetFicha (autoPrv);
-            //if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            //{
-            //    Helpers.Msg.Error(r01.Mensaje);
-            //    return;
-            //}
-            //_gestionLista.AgregarFicha(r01.Entidad);
+            var r01 = Sistema.MyData.Cliente_GetFicha(autoId);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _gestionLista.AgregarFicha(r01.Entidad);
         }
 
         public void EditarFicha()
         {
-            //if (Item != null)
-            //{
-            //    _gestionAgregarEditar.setGestion(new AgregarEditar.Editar.Gestion());
-            //    _gestionAgregarEditar.Inicializar();
-            //    _gestionAgregarEditar.setFichaEditar(Item);
-            //    _gestionAgregarEditar.Inicia();
-            //    if (_gestionAgregarEditar.EditarIsOk)
-            //    {
-            //        var auto = Item.autoId;
-            //        ActualizarFichaLista(auto);
-            //    }
-            //}
+            if (Item != null)
+            {
+                _gestionAgregarEditar.setGestion(new AgregarEditar.Editar.Gestion());
+                _gestionAgregarEditar.Inicializa();
+                _gestionAgregarEditar.setFichaEditar(Item.Id);
+                _gestionAgregarEditar.Inicia();
+                //if (_gestionAgregarEditar.EditarIsOk)
+                //{
+                //    var auto = Item.autoId;
+                //    ActualizarFichaLista(auto);
+                //}
+            }
         }
 
         private void ActualizarFichaLista(string autoId)

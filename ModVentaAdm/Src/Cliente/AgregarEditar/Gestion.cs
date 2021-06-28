@@ -57,6 +57,10 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
         public int DiasCredito { get { return _gestion.DiasCredito; } }
         public int LimiteDoc { get { return _gestion.LimiteDoc; } }
         public decimal LimiteCredito { get { return _gestion.LimiteCredito; } }
+        //
+        public string AutoClienteAgregado { get { return _gestion.AutoClienteAgregado; } }
+        //
+        public bool IsModoAgregar { get { return _gestion.IsModoAgregar; } }
 
         
         private AgregarEditarFrm frm;
@@ -83,7 +87,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
             _gestion.Inicializa();
         }
 
-        public void setGestion(Agregar.Gestion gestion)
+        public void setGestion(IGestion gestion)
         {
             _gestion = gestion;
         }
@@ -236,6 +240,11 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
         public void setLimiteDoc(int p)
         {
             _gestion.setLimiteDoc(p);
+        }
+
+        public void setFichaEditar(string autoId)
+        {
+            _gestion.setFichaEditar(autoId);
         }
 
     }

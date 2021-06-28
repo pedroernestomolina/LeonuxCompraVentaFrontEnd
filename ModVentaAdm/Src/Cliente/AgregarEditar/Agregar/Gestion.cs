@@ -425,12 +425,14 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
             _bsCategoria.CurrencyManager.Refresh();
 
             _lNivel.Clear();
+            _lNivel.Add(new general("00", "Sin Definir"));
             _lNivel.Add(new general("01", "Tipo A"));
             _lNivel.Add(new general("02", "Tipo B"));
             _lNivel.Add(new general("03", "Tipo C"));
             _bsNivel.CurrencyManager.Refresh();
 
             _lTarifa.Clear();
+            _lTarifa.Add(new general("00", "Sin Definir"));
             _lTarifa.Add(new general("01", "Precio 1"));
             _lTarifa.Add(new general("02", "Precio 2"));
             _lTarifa.Add(new general("03", "Precio 3"));
@@ -567,17 +569,60 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
                 var rt = MessageBox.Show("Guardar Ficha ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (rt == DialogResult.Yes) 
                 {
-                    GuardarFicha();
+                    _procesarIsOk = GuardarFicha();
+                    if (_procesarIsOk) 
+                    {
+                        Helpers.Msg.AgregarOk();
+                    }
                 }
             }
         }
 
-        private void GuardarFicha()
+        private bool  GuardarFicha()
         {
             var _isCredito = _data.IsCredito ? "1" : "0";
             var _diasCredito = 0;
             var _limiteCredito = 0.0m;
             var _limiteDoc = 0;
+            if (_data.IsCredito) 
+            {
+                _diasCredito = _data.DiasCredito;
+                _limiteCredito = _data.LimiteCredito;
+                _limiteDoc = _data.LimiteDoc;
+            }
+
+            var _abc= "";
+            switch (_data.Nivel.id) 
+            { 
+                case "01":
+                    _abc = "A";
+                    break;
+                case "02":
+                    _abc = "B";
+                    break;
+                case "03":
+                    _abc = "C";
+                    break;
+            }
+            var _tarifa= "";
+            switch (_data.Tarifa.id)
+            {
+                case "01":
+                    _tarifa = "1";
+                    break;
+                case "02":
+                    _tarifa = "2";
+                    break;
+                case "03":
+                    _tarifa = "3";
+                    break;
+                case "04":
+                    _tarifa = "4";
+                    break;
+                case "05":
+                    _tarifa = "5";
+                    break;
+            }
 
             var ficha = new OOB.Maestro.Cliente.Agregar.Ficha()
             {
@@ -591,10 +636,11 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
                 autoCodigoCobrar = "0000000001",
                 autoCodigoIngreso = "0000000001",
                 ciRif =_data.CiRif ,
+                codigo=_data.Codigo,
                 razonSocial = _data.RazonSocial ,
                 dirFiscal = _data.DirFiscal,
                 categoria = _data.Categoria.desc,
-                abc=_data.Nivel.desc,
+                abc=_abc,
                 dirDespacho=_data.DirDespacho,
                 pais = _data.Pais,
                 codigoPostal=_data.CodPostal,
@@ -606,7 +652,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
                 email=_data.Email,
                 webSite=_data.WebSite,
                 estatus = "Activo",
-                tarifa = int.Parse(_data.Tarifa.id).ToString().Trim(),
+                tarifa = _tarifa,
                 denominacionFiscal = "No Contribuyente",
                 estatusMorosidad = "0",
                 estatusLunes = "0",
@@ -617,6 +663,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
                 estatusSabado = "0",
                 estatusDomingo = "0",
                 descuento=_data.Dscto,
+                recargo = _data.Cargo,
                 estatusCredito = _isCredito,
                 diasCredito=_diasCredito,
                 limiteCredito=_limiteCredito,
@@ -626,10 +673,10 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r01.Mensaje);
-                return;
+                return false;
             }
             _autoClienteAgregado= r01.Auto;
-            _procesarIsOk = true;
+            return true;
         }
 
         public void Abandonar()
@@ -670,6 +717,15 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Agregar
         public void setLimiteDoc(int p)
         {
             _data.setLimiteDoc(p);
+        }
+
+        public void setFichaEditar(string autoId)
+        {
+        }
+
+        public bool IsModoAgregar
+        {
+            get { return true; }
         }
 
     }

@@ -73,7 +73,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
                 return false;
             }
             _cliente = r01.Entidad;
-            _filtro.setCliente(_cliente.Id);
+            _filtro.setCliente(_cliente.id);
 
             return rt;
         }
@@ -117,7 +117,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         public void Limpiar()
         {
             _filtro.Limpiar();
-            _filtro.setCliente(_cliente.Id);
+            _filtro.setCliente(_cliente.id);
             _ldata.Clear();
             _bs.CurrencyManager.Refresh();
         }

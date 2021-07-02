@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ModVentaAdm.Src.Cliente.Administrador
 {
-    
+
     public class Gestion
     {
 
@@ -19,6 +19,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         private AgregarEditar.Gestion _gestionAgregarEditar;
         private Articulos.Gestion _gestionArticulos;
         private Documentos.Gestion _gestionDocumentos;
+        private Estatus.Gestion _gestionEstatus;
 
 
         public int cntItem { get { return _gestionLista.Items; } }
@@ -31,12 +32,13 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         public Gestion()
         {
             _metodoBusqPred = null;
-            _filtrar= new dataFiltro();
+            _filtrar = new dataFiltro();
             _gestionLista = new GestionLista();
-            _gestionLista.ItemChanged +=_gestionLista_ItemChanged;
-            _gestionAgregarEditar= new AgregarEditar.Gestion();
+            _gestionLista.ItemChanged += _gestionLista_ItemChanged;
+            _gestionAgregarEditar = new AgregarEditar.Gestion();
             _gestionArticulos = new Articulos.Gestion();
             _gestionDocumentos = new Documentos.Gestion();
+            _gestionEstatus = new Estatus.Gestion();
         }
 
 
@@ -48,9 +50,9 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         private AdmFrm frm;
         public void Inicia()
         {
-            if (CargarData()) 
+            if (CargarData())
             {
-                if (frm==null)
+                if (frm == null)
                 {
                     frm = new AdmFrm();
                     frm.setControlador(this);
@@ -107,10 +109,6 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             _gestionLista.setLista(r01.ListaD);
             _filtrar.Limpiar();
             asignaMetodoBusqueda(_metodoBusqPred);
-
-            //_gestionFiltro.Limpiar();
-            //frm.ActualizarItem();
-            //Cadena = "";
         }
 
         public void Inicializa()
@@ -145,12 +143,22 @@ namespace ModVentaAdm.Src.Cliente.Administrador
 
         public void AgregarFicha()
         {
-            _gestionAgregarEditar.setGestion(new AgregarEditar.Agregar.Gestion());
-            _gestionAgregarEditar.Inicializa();
-            _gestionAgregarEditar.Inicia();
-            if (_gestionAgregarEditar.ProcesarIsoK)
+            var r00 = Sistema.MyData.Permiso_Cliente_Agregar(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
-                InsertarFichaLista(_gestionAgregarEditar.AutoClienteAgregado);
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionAgregarEditar.setGestion(new AgregarEditar.Agregar.Gestion());
+                _gestionAgregarEditar.Inicializa();
+                _gestionAgregarEditar.Inicia();
+                if (_gestionAgregarEditar.ProcesarIsoK)
+                {
+                    InsertarFichaLista(_gestionAgregarEditar.AutoClienteAgregado);
+                }
             }
         }
 
@@ -169,27 +177,47 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         {
             if (Item != null)
             {
-                _gestionAgregarEditar.setGestion(new AgregarEditar.Editar.Gestion());
-                _gestionAgregarEditar.Inicializa();
-                _gestionAgregarEditar.setFichaEditar(Item.Id);
-                _gestionAgregarEditar.Inicia();
-                //if (_gestionAgregarEditar.EditarIsOk)
-                //{
-                //    var auto = Item.autoId;
-                //    ActualizarFichaLista(auto);
-                //}
+                if (!Item.IsActivo) 
+                {
+                    Helpers.Msg.Error("CLIENTE EN ESTADO INACTIVO");
+                    return;
+                }
+
+                var r00 = Sistema.MyData.Permiso_Cliente_Editar(Sistema.Usuario.idGrupo);
+                if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionAgregarEditar.setGestion(new AgregarEditar.Editar.Gestion());
+                    _gestionAgregarEditar.Inicializa();
+                    _gestionAgregarEditar.setFichaEditar(Item.Id);
+                    _gestionAgregarEditar.Inicia();
+                    if (_gestionAgregarEditar.ProcesarIsoK)
+                    {
+                        ActualizarFichaLista(Item.Id);
+                    }
+                }
             }
         }
 
         private void ActualizarFichaLista(string autoId)
         {
-            //_gestionLista.EliminarItem(autoId);
-            //InsertarFichaLista(autoId);
+            var r01 = Sistema.MyData.Cliente_GetFicha(autoId);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _gestionLista.ActualizarFicha(r01.Entidad);
         }
 
         public void CompraArticulos()
         {
-            if (Item != null) 
+            if (Item != null)
             {
                 _gestionArticulos.Inicializa();
                 _gestionArticulos.setCliente(Item);
@@ -204,6 +232,30 @@ namespace ModVentaAdm.Src.Cliente.Administrador
                 _gestionDocumentos.Inicializa();
                 _gestionDocumentos.setCliente(Item);
                 _gestionDocumentos.Inicia();
+            }
+        }
+
+        public void ActualizarEstatus()
+        {
+            if (Item != null)
+            {
+                var r00 = Sistema.MyData.Permiso_Cliente_ActivarInactivar(Sistema.Usuario.idGrupo);
+                if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionEstatus.Inicializa();
+                    _gestionEstatus.setCliente(Item.Id);
+                    _gestionEstatus.Inicia();
+                    if (_gestionEstatus.ProcesarIsOk)
+                    {
+                        ActualizarFichaLista(Item.Id);
+                    }
+                }
             }
         }
 

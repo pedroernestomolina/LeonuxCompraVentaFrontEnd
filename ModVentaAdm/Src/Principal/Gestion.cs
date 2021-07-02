@@ -17,6 +17,7 @@ namespace ModVentaAdm.Src.Principal
         private Reportes.Gestion _gestionRep;
         private Maestros.Gestion _gestionMaestro;
         private Cliente.Administrador.Gestion _gestionAdmCliente;
+        private ReportesCliente.Gestion _gestionRepCli;
 
 
         public string BD_Ruta { get { return Sistema.Instancia; } }
@@ -32,6 +33,7 @@ namespace ModVentaAdm.Src.Principal
             _gestionRep = new Reportes.Gestion();
             _gestionMaestro = new Maestros.Gestion();
             _gestionAdmCliente = new Cliente.Administrador.Gestion();
+            _gestionRepCli = new ReportesCliente.Gestion();
         }
 
 
@@ -107,22 +109,52 @@ namespace ModVentaAdm.Src.Principal
 
         public void MaestroGrupo()
         {
-            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
-            _gestionMaestro.Inicializa();
-            _gestionMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_ClienteGrupo(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
+                _gestionMaestro.Inicializa();
+                _gestionMaestro.Inicia();
+            }
         }
 
         public void MaestroZona()
         {
-            _gestionMaestro.setGestion(new Maestros.Zona.Gestion());
-            _gestionMaestro.Inicializa();
-            _gestionMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_ClienteZona(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionMaestro.setGestion(new Maestros.Zona.Gestion());
+                _gestionMaestro.Inicializa();
+                _gestionMaestro.Inicia();
+            }
         }
 
         public void MaestroClientes()
         {
-            _gestionAdmCliente.Inicializa();
-            _gestionAdmCliente.Inicia();
+            var r00 = Sistema.MyData.Permiso_Cliente (Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionAdmCliente.Inicializa();
+                _gestionAdmCliente.Inicia();
+            }
         }
 
         public void Reporte_Resumen()
@@ -138,6 +170,33 @@ namespace ModVentaAdm.Src.Principal
         public void Reporte_GeneralDocumentoDetalle()
         {
             Reporte(new Reportes.Modo.GeneralDocumentoDetalle.Gestion());
+        }
+
+        public void Reporte_Consolidado()
+        {
+            Reporte(new Reportes.Modo.Consolidado.Gestion());
+        }
+
+        public void Reporte_Cliente_Maestro()
+        {
+            ReporteCliente(new ReportesCliente.Modo.Maestro.Gestion());
+        }
+
+        private void ReporteCliente(ReportesCliente.IGestion gestion)
+        {
+            var r00 = Sistema.MyData.Permiso_Cliente_Reportes(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRepCli.setGestion(gestion);
+                _gestionRepCli.Inicializa();
+                _gestionRepCli.Inicia();
+            }
         }
 
     }

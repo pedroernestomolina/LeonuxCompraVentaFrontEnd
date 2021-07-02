@@ -259,6 +259,9 @@
   <data name="bt_status" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\src\imagenes\bt_status.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bt_status1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bt_status.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bt_sumar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\src\imagenes\bt_sumar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

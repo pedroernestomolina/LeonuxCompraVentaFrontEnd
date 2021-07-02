@@ -74,6 +74,17 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
             CB_NIVEL.DataSource = _controlador.SourceNivel;
             CB_TARIFA.DataSource = _controlador.SourceTarifa;
             CB_ESTADO.DataSource = _controlador.SourceEstado;
+            CHB_CREDITO.CheckState = CheckState.Indeterminate ;
+
+            CHB_CREDITO.CheckState = CheckState.Unchecked;
+            if (_controlador.CreditoIsActivo)
+            {
+                CHB_CREDITO.CheckState = CheckState.Checked;
+                TB_DIAS_CREDITO.Enabled = true;
+                TB_LIMITE_CREDITO.Enabled = true;
+                TB_LIMITE_DOC.Enabled = true;
+            }
+
             isModoInicializar = false;
 
             TB_CIRIF.Text = _controlador.CiRif;
@@ -126,7 +137,6 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
                     CB_VENDEDOR.SelectedValue = _controlador.IdVendedor;
                 if (_controlador.IdCobrador != "")
                     CB_COBRADOR.SelectedValue = _controlador.IdCobrador;
-                CHB_CREDITO.Checked = _controlador.CreditoIsActivo;
             }
         }
 
@@ -350,6 +360,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar
 
         private void CHB_CREDITO_CheckedChanged(object sender, EventArgs e)
         {
+            if (isModoInicializar)
+                return;
             _controlador.setCredito(CHB_CREDITO.Checked);
             TB_DIAS_CREDITO.Enabled = _controlador.CreditoIsActivo;
             TB_LIMITE_CREDITO.Enabled = _controlador.CreditoIsActivo;

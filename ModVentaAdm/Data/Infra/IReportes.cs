@@ -17,6 +17,7 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Reportes.Resumen.Ficha> Reportes_Resumen(OOB.Reportes.Resumen.Filtro filtro);
         OOB.Resultado.Lista<OOB.Reportes.VentaPorProducto.Ficha> Reportes_VentaPorProducto(OOB.Reportes.VentaPorProducto.Filtro filtro);
         OOB.Resultado.Lista<OOB.Reportes.GeneralDocumentoDetalle.Ficha> Reportes_GeneralDocumentoDetalle(OOB.Reportes.GeneralDocumentoDetalle.Filtro filtro);
+        OOB.Resultado.Lista<OOB.Reportes.Consolidado.Ficha> Reportes_Consolidado(OOB.Reportes.Consolidado.Filtro filtro);
 
     }
 

@@ -67,13 +67,13 @@ namespace PosOnLine.Data.Prov
             var ent = r01.Entidad;
             result.Entidad = new OOB.Cliente.Entidad.Ficha()
             {
-                CiRif = ent.CiRif,
-                Codigo = ent.Codigo,
-                Id = ent.Id,
-                Nombre = ent.Nombre,
+                CiRif = ent.ciRif,
+                Codigo = ent.codigo,
+                Id = ent.id,
+                Nombre = ent.razonSocial,
                 Estatus = ent.estatus,
-                DireccionFiscal = ent.DireccionFiscal,
-                Telefono = ent.Telefono,
+                DireccionFiscal = ent.dirFiscal,
+                Telefono = ent.telefono1,
             };
 
             return result;
@@ -94,13 +94,13 @@ namespace PosOnLine.Data.Prov
             var ent = r01.Entidad;
             result.Entidad = new OOB.Cliente.Entidad.Ficha()
             {
-                CiRif = ent.CiRif,
-                Codigo = ent.Codigo,
-                Id = ent.Id,
-                Nombre = ent.Nombre,
+                CiRif = ent.ciRif,
+                Codigo = ent.codigo,
+                Id = ent.id,
+                Nombre = ent.razonSocial,
                 Estatus = ent.estatus,
-                DireccionFiscal = ent.DireccionFiscal,
-                Telefono = ent.Telefono,
+                DireccionFiscal = ent.dirFiscal,
+                Telefono = ent.telefono1,
             };
 
             return result;

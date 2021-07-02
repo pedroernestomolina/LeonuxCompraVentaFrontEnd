@@ -38,10 +38,11 @@ namespace ModVentaAdm.Data.Prov
                     {
                         var nr = new OOB.Maestro.Cliente.Entidad.Ficha()
                         {
-                            Id = s.auto,
-                            CiRif = s.ciRif,
-                            Codigo = s.codigo,
-                            Nombre = s.nombre,
+                            id= s.auto,
+                            ciRif= s.ciRif,
+                            codigo= s.codigo,
+                            razonSocial = s.nombre,
+                            estatus=s.estatus,
                         };
                         return nr;
                     }).ToList();
@@ -113,12 +114,44 @@ namespace ModVentaAdm.Data.Prov
             var s = r01.Entidad;
             var nr = new OOB.Maestro.Cliente.Entidad.Ficha()
             {
-                Id = s.Id,
-                CiRif = s.CiRif,
-                Codigo = s.Codigo,
-                DireccionFiscal = s.DireccionFiscal,
-                Nombre = s.Nombre,
-                Telefono = s.Telefono,
+                id = s.id,
+                idGrupo = s.idGrupo,
+                idEstado = s.idEstado,
+                idZona = s.idZona,
+                idVendedor = s.idVendedor,
+                idCobrador = s.idCobrador,
+                tarifa = s.tarifa,
+                categoria = s.categoria,
+                nivel = s.nivel,
+                ciRif = s.ciRif,
+                codigo = s.codigo,
+                razonSocial = s.razonSocial,
+                dirFiscal = s.dirFiscal,
+                dirDespacho = s.dirDespacho,
+                pais = s.pais,
+                contacto = s.contacto,
+                telefono1 = s.telefono1,
+                telefono2 = s.telefono2,
+                email = s.email,
+                celular = s.celular,
+                fax = s.fax,
+                webSite = s.webSite,
+                codPostal = s.codPostal,
+                estatusCredito = s.estatusCredito,
+                dscto = s.dscto,
+                cargo = s.cargo,
+                limiteDoc = s.limiteDoc,
+                diasCredito = s.diasCredito,
+                limiteCredito = s.limiteCredito,
+                estatus = s.estatus,
+                cobrador = s.cobrador,
+                denFiscal = s.denFiscal,
+                estado = s.estado,
+                fechaAlta = s.fechaAlta,
+                fechaBaja = s.fechaBaja,
+                grupo = s.grupo,
+                vendedor = s.vendedor,
+                zona = s.zona,
             };
             rt.Entidad = nr;
 
@@ -345,6 +378,44 @@ namespace ModVentaAdm.Data.Prov
                 limiteCredito = ficha.limiteCredito,
             };
             var r01 = MyData.Cliente_Editar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        public OOB.Resultado.Ficha Cliente_Activar(OOB.Maestro.Cliente.EstatusActivarInactivar.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.Cliente.EstatusActivarInactivar.Ficha()
+            {
+                autoId = ficha.autoId,
+            };
+            var r01 = MyData.Cliente_Activar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        public OOB.Resultado.Ficha Cliente_Inactivar(OOB.Maestro.Cliente.EstatusActivarInactivar.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.Cliente.EstatusActivarInactivar.Ficha()
+            {
+                autoId = ficha.autoId,
+            };
+            var r01 = MyData.Cliente_Inactivar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 result.Mensaje = r01.Mensaje;

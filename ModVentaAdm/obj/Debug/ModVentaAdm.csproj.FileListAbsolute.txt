@@ -1,5 +1,7 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Helpers\Imprimir\Grafico\Documento.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\ReportesCliente\Maestro.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Consolidado.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralDocumento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralDocumentoDet.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorDepartamento.rdlc
@@ -34,11 +36,13 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cl
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.AgregarEditar.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Articulos.CompraArticulosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Documentos.DocumentosFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Estatus.EstatusFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Identificacion.IdentificacionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.Grupo.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.Zona.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Principal.PrincipalFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.ReportesCliente.Filtro.FiltroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Reportes.Filtro.FiltroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Reportes.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Seguridad.SeguridadFrm.resources

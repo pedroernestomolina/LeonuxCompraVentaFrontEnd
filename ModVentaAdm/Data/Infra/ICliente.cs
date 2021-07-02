@@ -18,6 +18,8 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.FichaAuto Cliente_Agregar(OOB.Maestro.Cliente.Agregar.Ficha ficha);
         OOB.Resultado.FichaEntidad<OOB.Maestro.Cliente.Editar.ObtenerData.Ficha> Cliente_Editar_GetFicha(string autoCli);
         OOB.Resultado.Ficha Cliente_Editar(OOB.Maestro.Cliente.Editar.Actualizar.Ficha ficha);
+        OOB.Resultado.Ficha Cliente_Activar(OOB.Maestro.Cliente.EstatusActivarInactivar.Ficha ficha);
+        OOB.Resultado.Ficha Cliente_Inactivar(OOB.Maestro.Cliente.EstatusActivarInactivar.Ficha ficha);
 
     }
 

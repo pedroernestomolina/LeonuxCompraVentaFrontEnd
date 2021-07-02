@@ -14,15 +14,22 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         private OOB.Maestro.Cliente.Entidad.Ficha _it;
 
 
-        public string Id { get { return _it.Id; } }
-        public string Codigo { get { return _it.Codigo; } }
-        public string NombreRazonSocial { get { return _it.Nombre; } }
-        public string CiRif { get { return _it.CiRif; } }
+        public string Id { get { return _it.id; } }
+        public string Codigo { get { return _it.codigo; } }
+        public string NombreRazonSocial { get { return _it.razonSocial; } }
+        public string CiRif { get { return _it.ciRif; } }
+        public bool IsActivo { get { return _it.IsActivo; } }
+        public string Estatus { get { return IsActivo ? "" : _it.estatus; } }
 
 
         public data(OOB.Maestro.Cliente.Entidad.Ficha it)
         {
             this._it = it;
+        }
+
+        public void SetActualizarFicha(OOB.Maestro.Cliente.Entidad.Ficha ficha)
+        {
+            this._it = ficha;
         }
 
     }

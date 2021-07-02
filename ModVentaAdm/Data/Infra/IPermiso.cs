@@ -30,6 +30,14 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_ClienteZona_Agregar(string idGrupoUsu);
         OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_ClienteZona_Editar(string idGrupoUsu);
 
+        //
+
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente (string idGrupoUsu);
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente_Agregar(string idGrupoUsu);
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente_Editar(string idGrupoUsu);
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente_Reportes(string idGrupoUsu);
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente_ActivarInactivar(string idGrupoUsu);
+
     }
 
 }

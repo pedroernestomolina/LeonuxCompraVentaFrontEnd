@@ -97,7 +97,7 @@ namespace ModVentaAdm.Src.Cliente.Articulos
                 {
                     desde = _filtro.desde,
                     hasta = _filtro.hasta,
-                    autoCliente = _filtro.cliente.Id,
+                    autoCliente = _filtro.cliente.id,
                 };
                 var r01 = Sistema.MyData.Cliente_ArticulosVenta_GetLista(filtroOOB);
                 if (r01.Result ==  OOB.Resultado.Enumerados.EnumResult.isError) 

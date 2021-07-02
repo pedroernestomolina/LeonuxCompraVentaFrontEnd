@@ -66,7 +66,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         {
             _item = null;
             _lst.Clear();
-            foreach (var it in list.OrderBy(o => o.Nombre).ToList())
+            foreach (var it in list.OrderBy(o => o.razonSocial).ToList())
             {
                 _lst.Add(new data(it));
             }
@@ -95,6 +95,16 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         //    //    _bs.CurrencyManager.Refresh();
         //    //}
         //}
+
+        public void ActualizarFicha(OOB.Maestro.Cliente.Entidad.Ficha ficha)
+        {
+            var it = _bl.FirstOrDefault(f => f.Id == ficha.id);
+            if (it != null)
+            {
+                it.SetActualizarFicha(ficha);
+                _bs.CurrencyManager.Refresh();
+            }
+        }
 
     }
 

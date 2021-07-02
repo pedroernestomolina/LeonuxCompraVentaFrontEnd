@@ -81,6 +81,7 @@
     <Compile Include="Data\Infra\IDocumento.cs" />
     <Compile Include="Data\Infra\IPermiso.cs" />
     <Compile Include="Data\Infra\IReportes.cs" />
+    <Compile Include="Data\Infra\IReportesCli.cs" />
     <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Data\Prov\Documento.cs" />
     <Compile Include="Data\Prov\Permiso.cs" />
     <Compile Include="Data\Prov\Reportes.cs" />
+    <Compile Include="Data\Prov\ReportesCli.cs" />
     <Compile Include="Data\Prov\Sistema.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="OOB\Maestro\Cliente\Editar\Actualizar\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Editar\ObtenerData\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Maestro\Cliente\EstatusActivarInactivar\Ficha.cs" />
     <Compile Include="OOB\Maestro\Cliente\Lista\Enumerados.cs" />
     <Compile Include="OOB\Maestro\Cliente\Lista\Filtro.cs" />
     <Compile Include="OOB\Maestro\Grupo\Agregar\Ficha.cs" />
@@ -146,6 +149,10 @@
     <Compile Include="OOB\Maestro\Zona\Lista\Filtro.cs" />
     <Compile Include="OOB\Permiso\Entidad\Enumerados.cs" />
     <Compile Include="OOB\Permiso\Entidad\Ficha.cs" />
+    <Compile Include="OOB\ReporteCli\Maestro\Ficha.cs" />
+    <Compile Include="OOB\ReporteCli\Maestro\Filtro.cs" />
+    <Compile Include="OOB\Reportes\Consolidado\Ficha.cs" />
+    <Compile Include="OOB\Reportes\Consolidado\Filtro.cs" />
     <Compile Include="OOB\Reportes\GeneralDocumentoDetalle\Ficha.cs" />
     <Compile Include="OOB\Reportes\GeneralDocumentoDetalle\Filtro.cs" />
     <Compile Include="OOB\Reportes\GeneralDocumento\Ficha.cs" />
@@ -233,6 +240,13 @@
     </Compile>
     <Compile Include="Src\Cliente\Documentos\Filtro.cs" />
     <Compile Include="Src\Cliente\Documentos\Gestion.cs" />
+    <Compile Include="Src\Cliente\Estatus\EstatusFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\Estatus\EstatusFrm.Designer.cs">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cliente\Estatus\Gestion.cs" />
     <Compile Include="Src\Filtro\data.cs" />
     <Compile Include="Src\Filtro\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
@@ -278,6 +292,25 @@
     <Compile Include="Src\Principal\PrincipalFrm.Designer.cs">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\ReportesCliente\DS_CLI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_CLI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Src\ReportesCliente\Filtro\data.cs" />
+    <Compile Include="Src\ReportesCliente\Filtro\FiltroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\ReportesCliente\Filtro\FiltroFrm.Designer.cs">
+      <DependentUpon>FiltroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\ReportesCliente\Filtro\general.cs" />
+    <Compile Include="Src\ReportesCliente\Filtro\Gestion.cs" />
+    <Compile Include="Src\ReportesCliente\Filtro\IFiltro.cs" />
+    <Compile Include="Src\ReportesCliente\Gestion.cs" />
+    <Compile Include="Src\ReportesCliente\IGestion.cs" />
+    <Compile Include="Src\ReportesCliente\Modo\Maestro\Filtro.cs" />
+    <Compile Include="Src\ReportesCliente\Modo\Maestro\Gestion.cs" />
     <Compile Include="Src\Reportes\DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -294,6 +327,9 @@
     <Compile Include="Src\Reportes\Filtro\IFiltro.cs" />
     <Compile Include="Src\Reportes\Gestion.cs" />
     <Compile Include="Src\Reportes\IGestion.cs" />
+    <Compile Include="Src\Reportes\Modo\Consolidado\data.cs" />
+    <Compile Include="Src\Reportes\Modo\Consolidado\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\Consolidado\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralDocumentoDetalle\Filtro.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralDocumentoDetalle\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralDocumento\Filtro.cs" />
@@ -346,6 +382,9 @@
     <EmbeddedResource Include="Src\Cliente\Documentos\DocumentosFrm.resx">
       <DependentUpon>DocumentosFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\Estatus\EstatusFrm.resx">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,6 +399,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\ReportesCliente\Filtro\FiltroFrm.resx">
+      <DependentUpon>FiltroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\ReportesCliente\Maestro.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\Consolidado.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\Filtro\FiltroFrm.resx">
       <DependentUpon>FiltroFrm.cs</DependentUpon>
@@ -409,6 +457,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Src\ReportesCliente\DS_CLI.xsc">
+      <DependentUpon>DS_CLI.xsd</DependentUpon>
+    </None>
+    <None Include="Src\ReportesCliente\DS_CLI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_CLI.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Src\ReportesCliente\DS_CLI.xss">
+      <DependentUpon>DS_CLI.xsd</DependentUpon>
+    </None>
     <None Include="Src\Reportes\DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
@@ -433,6 +492,7 @@
     </Content>
     <None Include="Resources\images.jpg" />
     <None Include="Resources\images %281%29.jpg" />
+    <None Include="Resources\bt_status.png" />
     <Content Include="Src\Imagenes\images %281%29.jpg" />
     <Content Include="Src\Imagenes\images.jpg" />
     <EmbeddedResource Include="Src\Imagenes\administracion-compras-logistica.jpg" />

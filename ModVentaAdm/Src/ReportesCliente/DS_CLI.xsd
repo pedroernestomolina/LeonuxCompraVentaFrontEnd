@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_CLI" targetNamespace="http://tempuri.org/DS_CLI.xsd" xmlns:mstns="http://tempuri.org/DS_CLI.xsd" xmlns="http://tempuri.org/DS_CLI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_CLI" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_CLI" msprop:Generator_UserDSName="DS_CLI">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Maestro" msprop:Generator_TableClassName="MaestroDataTable" msprop:Generator_TableVarName="tableMaestro" msprop:Generator_RowChangedName="MaestroRowChanged" msprop:Generator_TablePropName="Maestro" msprop:Generator_RowDeletingName="MaestroRowDeleting" msprop:Generator_RowChangingName="MaestroRowChanging" msprop:Generator_RowEvHandlerName="MaestroRowChangeEventHandler" msprop:Generator_RowDeletedName="MaestroRowDeleted" msprop:Generator_RowClassName="MaestroRow" msprop:Generator_UserTableName="Maestro" msprop:Generator_RowEvArgName="MaestroRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo" msprop:Generator_ColumnVarNameInTable="columncodigo" msprop:Generator_ColumnPropNameInRow="codigo" msprop:Generator_ColumnPropNameInTable="codigoColumn" msprop:Generator_UserColumnName="codigo" type="xs:string" minOccurs="0" />
+              <xs:element name="ciRif" msprop:Generator_ColumnVarNameInTable="columnciRif" msprop:Generator_ColumnPropNameInRow="ciRif" msprop:Generator_ColumnPropNameInTable="ciRifColumn" msprop:Generator_UserColumnName="ciRif" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="dirFiscal" msprop:Generator_ColumnVarNameInTable="columndirFiscal" msprop:Generator_ColumnPropNameInRow="dirFiscal" msprop:Generator_ColumnPropNameInTable="dirFiscalColumn" msprop:Generator_UserColumnName="dirFiscal" type="xs:string" minOccurs="0" />
+              <xs:element name="telefonos" msprop:Generator_ColumnVarNameInTable="columntelefonos" msprop:Generator_ColumnPropNameInRow="telefonos" msprop:Generator_ColumnPropNameInTable="telefonosColumn" msprop:Generator_UserColumnName="telefonos" type="xs:string" minOccurs="0" />
+              <xs:element name="estatus" msprop:Generator_ColumnVarNameInTable="columnestatus" msprop:Generator_ColumnPropNameInRow="estatus" msprop:Generator_ColumnPropNameInTable="estatusColumn" msprop:Generator_UserColumnName="estatus" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

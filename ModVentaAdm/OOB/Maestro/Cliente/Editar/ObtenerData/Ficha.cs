@@ -11,34 +11,34 @@ namespace ModVentaAdm.OOB.Maestro.Cliente.Editar.ObtenerData
     public class Ficha
     {
 
-        public string idGrupo;
-        public string idEstado;
-        public string idZona;
-        public string idVendedor;
-        public string idCobrador;
-        public string tarifa;
-        public string categoria;
-        public string nivel;
-        public string ciRif;
-        public string codigo;
-        public string razonSocial;
-        public string dirFiscal;
-        public string dirDespacho;
-        public string pais;
-        public string contacto;
-        public string telefono1;
-        public string telefono2;
-        public string email;
-        public string celular;
-        public string fax;
-        public string webSite;
-        public string codPostal;
-        public string estatusCredito;
-        public decimal dscto;
-        public decimal cargo;
-        public int limiteDoc;
-        public int diasCredito;
-        public decimal limiteCredito;
+        public string idGrupo { get; set; }
+        public string idEstado { get; set; }
+        public string idZona { get; set; }
+        public string idVendedor { get; set; }
+        public string idCobrador { get; set; }
+        public string tarifa { get; set; }
+        public string categoria { get; set; }
+        public string nivel { get; set; }
+        public string ciRif { get; set; }
+        public string codigo { get; set; }
+        public string razonSocial { get; set; }
+        public string dirFiscal { get; set; }
+        public string dirDespacho { get; set; }
+        public string pais { get; set; }
+        public string contacto { get; set; }
+        public string telefono1 { get; set; }
+        public string telefono2 { get; set; }
+        public string email { get; set; }
+        public string celular { get; set; }
+        public string fax { get; set; }
+        public string webSite { get; set; }
+        public string codPostal { get; set; }
+        public string estatusCredito { get; set; }
+        public decimal dscto { get; set; }
+        public decimal cargo { get; set; }
+        public int limiteDoc { get; set; }
+        public int diasCredito { get; set; }
+        public decimal limiteCredito { get; set; }
         public bool isCreditoActivo { get { return estatusCredito.Trim().ToUpper() == "1" ? true : false; } }
 
 

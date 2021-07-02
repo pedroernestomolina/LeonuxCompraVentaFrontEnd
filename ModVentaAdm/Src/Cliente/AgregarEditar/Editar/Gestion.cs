@@ -632,7 +632,7 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Editar
                     _procesarIsOk = GuardarFicha();
                     if (_procesarIsOk) 
                     {
-                        Helpers.Msg.AgregarOk();
+                        Helpers.Msg.EditarOk();
                     }
                 }
             }
@@ -695,8 +695,8 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Editar
             {
                 idAuto = _autoIdEditar,
                 idGrupo = IdGrupo,
-                idEstado = IdEstado ,
-                idZona = IdEstado ,
+                idEstado = IdEstado,
+                idZona = IdEstado,
                 idVendedor = IdVendedor,
                 idCobrador = IdCobrador,
                 tarifa = _tarifa,
@@ -716,12 +716,12 @@ namespace ModVentaAdm.Src.Cliente.AgregarEditar.Editar
                 fax = Fax,
                 webSite = WebSite,
                 codPostal = CodPostal,
-                estatusCredito = _data.IsCredito?"1":"0",
+                estatusCredito = _isCredito,
                 dscto = Dscto,
                 cargo = Cargo,
-                limiteDoc = LimiteDoc,
-                diasCredito = DiasCredito,
-                limiteCredito = LimiteCredito,
+                limiteDoc = _limiteDoc,
+                diasCredito = _diasCredito,
+                limiteCredito = _limiteCredito,
             };
             var r01 = Sistema.MyData.Cliente_Editar (ficha);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 

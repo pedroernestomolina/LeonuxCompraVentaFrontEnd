@@ -304,6 +304,55 @@ namespace ModVentaAdm.Data.Prov
             return rt;
         }
 
+        public OOB.Resultado.Lista<OOB.Reportes.Consolidado.Ficha> Reportes_Consolidado(OOB.Reportes.Consolidado.Filtro filtro)
+        {
+            var rt = new OOB.Resultado.Lista<OOB.Reportes.Consolidado.Ficha>();
+
+            var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.Consolidado.Filtro()
+            {
+                codSucursal = filtro.codSucursal,
+                desde= filtro.desde,
+                hasta= filtro.hasta,
+            };
+            var r01 = MyData.Reporte_Consolidado(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.Reportes.Consolidado.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Reportes.Consolidado.Ficha()
+                        {
+                            aplica = s.aplica,
+                            codigoSuc = s.codigoSuc,
+                            docNombre = s.docNombre,
+                            documento = s.documento,
+                            factor = s.factor,
+                            fecha = s.fecha,
+                            nombreSuc = s.nombreSuc,
+                            signo = s.signo,
+                            tipo = s.tipo,
+                            total = s.total,
+                            totalDivisa=s.totalDivisa,
+                            caja=s.caja,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.ListaD = list;
+
+            return rt;
+        }
+
     }
 
 }

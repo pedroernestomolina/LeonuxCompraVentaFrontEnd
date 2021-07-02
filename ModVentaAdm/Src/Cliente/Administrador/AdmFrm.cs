@@ -65,9 +65,20 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             c3.DefaultCellStyle.Font = f1;
             c3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var c4 = new DataGridViewTextBoxColumn();
+            c4.DataPropertyName = "Estatus";
+            c4.HeaderText = "Estatus";
+            c4.Name = "Estatus";
+            c4.Visible = true;
+            c4.Width = 60;
+            c4.HeaderCell.Style.Font = f;
+            c4.DefaultCellStyle.Font = f;
+            c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
+            DGV.Columns.Add(c4);
         }
 
         public void setControlador(Gestion ctr)
@@ -214,6 +225,28 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         public void ActualizarFicha()
         {
             L_PROVEEDOR.Text = _controlador.Cliente;
+        }
+
+        private void BT_ESTATUS_Click(object sender, EventArgs e)
+        {
+            ActualizarEstatus();
+        }
+
+        private void ActualizarEstatus()
+        {
+            _controlador.ActualizarEstatus();
+        }
+
+        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Red;
+                    row.Cells["Estatus"].Style.ForeColor = Color.White;
+                }
+            }
         }
 
     }

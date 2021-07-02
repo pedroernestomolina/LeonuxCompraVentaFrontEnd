@@ -174,6 +174,26 @@ namespace ModVentaAdm.Src.Principal
             _controlador.Reporte_GeneralDocumentoDetalle();
         }
 
+        private void MENU_MAESTRO_REPORTE_MAESTRO_CLIENTE_Click(object sender, EventArgs e)
+        {
+            MaestroCliente();
+        }
+
+        private void MaestroCliente()
+        {
+            _controlador.Reporte_Cliente_Maestro();
+        }
+
+        private void MENU_REPORTES_CONSOLIDADO_Click(object sender, EventArgs e)
+        {
+            Reporte_Consolidado();
+        }
+
+        private void Reporte_Consolidado()
+        {
+            _controlador.Reporte_Consolidado();
+        }
+
     }
 
 }

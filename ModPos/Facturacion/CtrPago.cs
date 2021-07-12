@@ -92,7 +92,7 @@ namespace ModPos.Facturacion
         public bool Procesar() 
         {
             var rt = false;
-            rt=Pago.Procesar();
+            rt=Pago.Procesar(true);
             if (rt) 
             {
                 PagoIsOk = true;

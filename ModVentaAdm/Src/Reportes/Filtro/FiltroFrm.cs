@@ -39,8 +39,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             CB_ESTATUS.ValueMember = "Id";
         }
 
+        private bool modoInicializar; 
         private void FiltrosFrm_Load(object sender, EventArgs e)
         {
+            modoInicializar = true;
             L_ESTATUS.Enabled = _controlador.ActivarEstatus;
             CB_ESTATUS.DataSource = _controlador.SourceEstatus;
             CB_ESTATUS.Enabled = _controlador.ActivarEstatus;
@@ -69,6 +71,11 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             CHB_NT_ENTREGA.Enabled = _controlador.ActivarTipoDocumento;
 
             LimpiarFiltros();
+            modoInicializar = false;
+
+            DTP_DESDE.Value = _controlador.FechaDesde;
+            DTP_HASTA.Value = _controlador.FechaHasta;
+            CB_SUCURSAL.SelectedValue = _controlador.IdSucursal;
         }
 
         private void BT_LIMPIAR_Click(object sender, EventArgs e)
@@ -84,6 +91,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             LimpiarSucursal();
             LimpiarMesAnoRelacion();
             LimpiarTipoDocumento();
+            LimpiarCliente();
         }
 
         private void L_SUCURSAL_Click(object sender, EventArgs e)
@@ -148,6 +156,9 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setSucursal("");
             if (CB_SUCURSAL.SelectedIndex != -1)
             {
@@ -157,6 +168,9 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void CB_ESTATUS_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setEstatus("");
             if (CB_ESTATUS.SelectedIndex != -1)
             {
@@ -166,11 +180,17 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setFechaDesde(DTP_DESDE.Value);
         }
 
         private void DTP_HASTA_ValueChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setFechaHasta(DTP_HASTA.Value);
         }
 
@@ -196,16 +216,36 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void TB_MES_RELACION_ValueChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setMesRelacion((int)TB_MES_RELACION.Value);
         }
 
         private void TB_ANO_RELACION_ValueChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setAnoRelacion((int)TB_ANO_RELACION.Value);
         }
 
         private void BT_CLIENTE_BUSCAR_Click(object sender, EventArgs e)
         {
+            BuscarCliente();
+        }
+
+        private void BuscarCliente()
+        {
+            _controlador.BuscarCliente();
+            if (_controlador.ClienteSeleccionadoIsOK)
+            {
+                TB_CLIENTE.Text = _controlador.NombreCliente;
+            }
+            else 
+            {
+                TB_CLIENTE.Text = "";
+            }
         }
 
         private void FiltroFrm_FormClosing(object sender, FormClosingEventArgs e)
@@ -234,22 +274,50 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void CHB_FACTURA_CheckedChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setTipoDocFactura(CHB_FACTURA.Checked);
         }
 
         private void CHB_NT_DEBITO_CheckedChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setTipoDocNtDebito(CHB_NT_DEBITO.Checked);
         }
 
         private void CHB_NT_CREDITO_CheckedChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setTipoDocNtCredito(CHB_NT_CREDITO.Checked);
         }
 
         private void CHB_NT_ENTREGA_CheckedChanged(object sender, EventArgs e)
         {
+            if (modoInicializar)
+                return;
+
             _controlador.setTipoDocNtEntrega(CHB_NT_ENTREGA.Checked);
+        }
+
+        private void TB_CLIENTE_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCliente(TB_CLIENTE.Text);
+        }
+
+        private void L_CLIENTE_Click(object sender, EventArgs e)
+        {
+            LimpiarCliente();
+        }
+
+        private void LimpiarCliente()
+        {
+            _controlador.LimpiarCliente();
+            TB_CLIENTE.Text = "";
         }
 
     }

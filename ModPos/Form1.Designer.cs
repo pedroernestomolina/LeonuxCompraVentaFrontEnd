@@ -214,11 +214,14 @@
             this.BT_SALIDA.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BT_SALIDA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BT_SALIDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIDA.Image = global::ModPos.Properties.Resources.bt_salida_2;
+            this.BT_SALIDA.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIDA.Location = new System.Drawing.Point(4, 4);
             this.BT_SALIDA.Name = "BT_SALIDA";
             this.BT_SALIDA.Size = new System.Drawing.Size(112, 40);
             this.BT_SALIDA.TabIndex = 2;
             this.BT_SALIDA.Text = "Salir";
+            this.BT_SALIDA.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIDA.UseVisualStyleBackColor = true;
             this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
             // 

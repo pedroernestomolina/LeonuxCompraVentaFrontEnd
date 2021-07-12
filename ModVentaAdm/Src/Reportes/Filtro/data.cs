@@ -13,6 +13,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
     {
 
         private OOB.Sucursal.Entidad.Ficha _sucursal;
+        private general _cliente;
         private Gestion.Estatus _estatus;
         private DateTime? _desde;
         private DateTime? _hasta;
@@ -25,13 +26,41 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         private bool _validarTipoDocumento;
 
 
+        public string IdSucursal 
+        { 
+            get 
+            {
+                var rt = "";
+                if (Sucursal != null) { rt = Sucursal.auto; }
+                return rt;
+            } 
+        }
         public OOB.Sucursal.Entidad.Ficha Sucursal { get { return _sucursal; } }
+        public general Cliente { get { return _cliente; } }
         public DateTime? Desde { get { return _desde; } }
         public DateTime? Hasta { get { return _hasta; } }
         public bool? TipoDocFactura { get { return _tipoDocFactura; } }
         public bool? TipoDocNtDebito { get { return _tipoDocNtDebito; } }
         public bool? TipoDocNtCredito { get { return _tipoDocNtCredito; } }
         public bool? TipoDocNtEntrega { get { return _tipoDocNtEntrega; } }
+        public string ClienteNombre 
+        {
+            get 
+            {
+                var rt = "";
+                if (_cliente != null) { rt = _cliente.descripcion; }
+                return rt;
+            }
+        }
+        public string ClienteId
+        {
+            get
+            {
+                var rt = "";
+                if (_cliente != null) { rt = _cliente.auto; }
+                return rt;
+            }
+        }
 
 
         public data()
@@ -44,8 +73,8 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         {
             _sucursal = null;
             _estatus = null;
-            _desde = null;
-            _hasta = null;
+            _desde = DateTime.Now.Date;
+            _hasta = DateTime.Now.Date;
             _mesRelacion = null;
             _anoRelacion = null;
             _tipoDocFactura = null;
@@ -53,6 +82,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             _tipoDocNtCredito = null;
             _tipoDocNtEntrega = null;
             _validarTipoDocumento = false;
+            _cliente = null;
         }
 
         public void setSucursal(OOB.Sucursal.Entidad.Ficha ficha)
@@ -145,6 +175,22 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         public void setValidarTipoDocumento(bool p)
         {
             _validarTipoDocumento = p;
+        }
+
+        public void setCliente(string id, string desc)
+        {
+            if (_cliente ==null)
+                _cliente=new general(id,desc); 
+            else
+            {
+                _cliente.limpiar();
+            }
+            _cliente.setficha(id, desc);
+        }
+
+        public void LimpiarCliente()
+        {
+            _cliente = null;
         }
 
     }

@@ -32,6 +32,7 @@ namespace ModVentaAdm.Src.Administrador
         void setSucursal(string autoId);
         void setTipoDoc(string id);
         void CorrectorDocumento();
+        void Filtros();
 
     }
 

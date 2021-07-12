@@ -19,6 +19,7 @@ namespace ModVentaAdm.Data.Prov
             var filtroDTO = new DtoLibPos.Documento.Lista.Filtro()
             {
                 idArqueo = filtro.idArqueo,
+                idCliente=filtro.idCliente,
                 codSucursal = filtro.codSucursal,
                 codTipoDocumento = filtro.codTipoDocumento,
                 fecha = new DtoLibPos.Documento.Lista.Filtro.Fecha() { desde = filtro.desde, hasta = filtro.hasta },

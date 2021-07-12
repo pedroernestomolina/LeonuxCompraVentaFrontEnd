@@ -9,6 +9,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ModPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\DataProvPosOffLine.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.Data.SQLite.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.Data.SQLite.EF6.dll
@@ -21,6 +22,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ProvSqLitePosOffLine.dl
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\MySql.Data.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\LibEntitySqLitePosOffLine.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\DataProvPosOffLine.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.SqlServer.xml
@@ -45,6 +47,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Mult
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.DescuentoFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.LoteReferenciaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.PagoFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.ValidarCambio.ValidarCambioFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.PosVenta.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.ProductoLista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.ProductoLista.ListaOfertaFrm.resources

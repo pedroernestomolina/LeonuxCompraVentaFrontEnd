@@ -15,6 +15,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         private IGestionListaDetalle _gestionLista;
         private Filtro.Gestion _gestionFiltro;
+        private Reportes.Filtro.Gestion _gestionFiltro2;
 
 
         public BindingSource ItemsSource { get { return _gestionLista.ItemsSource; } }
@@ -27,6 +28,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         {
             _gestionLista = new GestionLista();
             _gestionFiltro = new Filtro.Gestion();
+            _gestionFiltro2 = new Reportes.Filtro.Gestion();
         }
 
 
@@ -48,6 +50,8 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         public void Buscar()
         {
             GenerarBusqueda();
+            _gestionFiltro2.Inicializa();
+            _gestionFiltro2.LimpiarCliente();
         }
 
         private void GenerarBusqueda()
@@ -57,6 +61,10 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
+            }
+            if (_gestionFiltro2.ClienteSeleccionadoIsOK)
+            {
+                r01.Entidad.idCliente = _gestionFiltro2.IdCliente;
             }
 
             var rt1 = Sistema.MyData.Documento_Get_Lista(r01.Entidad);
@@ -76,6 +84,8 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         public void LimpiarFiltros()
         {
             _gestionFiltro.LimpiarFiltros();
+            _gestionFiltro2.Inicializa();
+            _gestionFiltro2.LimpiarCliente();
         }
 
         public void LimpiarData()
@@ -101,19 +111,25 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             return _gestionFiltro.CargarData();
         }
 
+        private DateTime _fechaDesde=DateTime.Now.Date;
         public void setFechaDesde(DateTime fecha)
         {
             _gestionFiltro.setFechaDesde(fecha);
+            _fechaDesde = fecha;
         }
 
+        private DateTime _fechaHasta=DateTime.Now.Date;
         public void setFechaHasta(DateTime fecha)
         {
             _gestionFiltro.setFechaHasta(fecha);
+            _fechaHasta = fecha;
         }
 
+        private string _idSucursal;
         public void setSucursal(string autoId)
         {
             _gestionFiltro.setSucursal(autoId);
+            _idSucursal = autoId;
         }
 
         public void setTipoDoc(string id)
@@ -123,6 +139,20 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         public void CorrectorDocumento()
         {
+        }
+
+        public void Filtros()
+        {
+            var filt = new filtro();
+            _gestionFiltro2.Inicializa();
+            _gestionFiltro2.setFiltros(filt);
+            if (_gestionFiltro2.CargarData()) 
+            {
+                _gestionFiltro2.setFechaDesde(_fechaDesde);
+                _gestionFiltro2.setFechaHasta(_fechaHasta);
+                _gestionFiltro2.setSucursal(_idSucursal);
+                _gestionFiltro2.Inicia();
+            }
         }
 
     }

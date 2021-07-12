@@ -100,6 +100,8 @@
     </Compile>
     <Compile Include="Reportes\Analisis\Gestion.cs" />
     <Compile Include="Reportes\Analisis\IGestion.cs" />
+    <Compile Include="Reportes\Analisis\VentaDiaria\data.cs" />
+    <Compile Include="Reportes\Analisis\VentaDiaria\Gestion.cs" />
     <Compile Include="Reportes\Analisis\VentaProducto\Gestion.cs" />
     <Compile Include="Reportes\Analisis\VentaPromedio\Gestion.cs" />
     <Compile Include="Reportes\Hablador\dsHablador.Designer.cs">
@@ -158,6 +160,9 @@
     </Compile>
     <EmbeddedResource Include="Reportes\Analisis\FiltrarFrm.resx">
       <DependentUpon>FiltrarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Analisis\VentaDiaria.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Analisis\VentaProducto.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

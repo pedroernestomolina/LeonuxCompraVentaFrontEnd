@@ -146,7 +146,7 @@ namespace ModVentaAdm.Src.Cliente.Articulos
 
         private void CompraArticulosFrm_Load(object sender, EventArgs e)
         {
-            L_PROVEEDOR.Text = _controlador.Cliente;
+            L_CLIENTE.Text = _controlador.Cliente;
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
             DGV.DataSource = _controlador.Source;
@@ -204,6 +204,16 @@ namespace ModVentaAdm.Src.Cliente.Articulos
             _controlador.Limpiar();
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
+        }
+
+        private void BT_IMPRIMIR_Click(object sender, EventArgs e)
+        {
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            _controlador.Imprimir();
         }
 
     }

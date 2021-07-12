@@ -25,9 +25,11 @@ namespace ModPos.Lib.Controles.Numero
         private const char SignoDecimal = ','; // Carácter separador decimal
         private string _prevTextBoxValue; // Variable que almacena el valor anterior del Textbox
 
+
         protected override void OnTextChanged(EventArgs e)
         {
             var textBox = (TextBox)this;
+
             if (textBox.Text.Trim() == "")
             {
                 textBox.Text = "0";

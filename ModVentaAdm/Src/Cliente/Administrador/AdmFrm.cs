@@ -249,6 +249,19 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             }
         }
 
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1)
+            {
+                VisualizarFicha();
+            }
+        }
+
+        private void VisualizarFicha()
+        {
+            _controlador.VisualizarFicha();
+        }
+
     }
 
 }

@@ -292,6 +292,16 @@ namespace ModPos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_ok_3 {
+            get {
+                object obj = ResourceManager.GetObject("bt_ok_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_pagar {
             get {
                 object obj = ResourceManager.GetObject("bt_pagar", resourceCulture);
@@ -325,6 +335,16 @@ namespace ModPos.Properties {
         internal static System.Drawing.Bitmap bt_retornar {
             get {
                 object obj = ResourceManager.GetObject("bt_retornar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_salida_2 {
+            get {
+                object obj = ResourceManager.GetObject("bt_salida_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

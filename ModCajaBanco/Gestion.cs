@@ -770,6 +770,16 @@ namespace ModCajaBanco
             }
         }
 
+        public void AnalisisVentasDiaria()
+        {
+            if (!Sistema._ActivarComoSucursal)
+            {
+                _analisisGestion.setGestion(new Reportes.Analisis.VentaDiaria.Gestion());
+                _analisisGestion.Inicializar();
+                _analisisGestion.Inicia();
+            }
+        }
+
     }
 
 }

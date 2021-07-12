@@ -640,6 +640,45 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Ficha> Reporte_Analisis_VentaDiaria(OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Analisis.VentaDiaria.Filtro()
+            {
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reporte_Analisis_VentaDiaria(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Ficha()
+                        {
+                            auto = s.auto,
+                            codSucursal = s.codSucursal,
+                            fecha = s.fecha,
+                            nomSucursal=s.nomSucursal,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

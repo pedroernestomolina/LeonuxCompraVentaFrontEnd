@@ -51,7 +51,7 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.BT_LIMPIAR_FILTROS = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.BT_FILTROS = new System.Windows.Forms.Button();
             this.panel21 = new System.Windows.Forms.Panel();
             this.BT_BUSCAR = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -438,7 +438,7 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.button6);
+            this.panel19.Controls.Add(this.BT_FILTROS);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.Location = new System.Drawing.Point(1, 1);
             this.panel19.Margin = new System.Windows.Forms.Padding(1);
@@ -447,18 +447,19 @@
             this.panel19.Size = new System.Drawing.Size(30, 30);
             this.panel19.TabIndex = 0;
             // 
-            // button6
+            // BT_FILTROS
             // 
-            this.button6.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_consulta;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(2, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(26, 26);
-            this.button6.TabIndex = 1;
-            this.button6.UseVisualStyleBackColor = true;
+            this.BT_FILTROS.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_consulta;
+            this.BT_FILTROS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_FILTROS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_FILTROS.FlatAppearance.BorderSize = 0;
+            this.BT_FILTROS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_FILTROS.Location = new System.Drawing.Point(2, 2);
+            this.BT_FILTROS.Name = "BT_FILTROS";
+            this.BT_FILTROS.Size = new System.Drawing.Size(26, 26);
+            this.BT_FILTROS.TabIndex = 1;
+            this.BT_FILTROS.UseVisualStyleBackColor = true;
+            this.BT_FILTROS.Click += new System.EventHandler(this.BT_FILTROS_Click);
             // 
             // panel21
             // 
@@ -1125,7 +1126,7 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Button BT_LIMPIAR_FILTROS;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button BT_FILTROS;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button BT_BUSCAR;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;

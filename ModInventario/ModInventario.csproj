@@ -654,6 +654,16 @@
       <DependentUpon>ExistenciaFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Visor\Existencia\Gestion.cs" />
+    <Compile Include="Visor\Precio\dataFiltro.cs" />
+    <Compile Include="Visor\Precio\dataVista.cs" />
+    <Compile Include="Visor\Precio\general.cs" />
+    <Compile Include="Visor\Precio\Gestion.cs" />
+    <Compile Include="Visor\Precio\PrecioFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visor\Precio\PrecioFrm.Designer.cs">
+      <DependentUpon>PrecioFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visor\Traslado\data.cs" />
     <Compile Include="Visor\Traslado\Gestion.cs" />
     <Compile Include="Visor\Traslado\TrasladoFrm.cs">
@@ -887,6 +897,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visor\Existencia\ExistenciaFrm.resx">
       <DependentUpon>ExistenciaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visor\Precio\PrecioFrm.resx">
+      <DependentUpon>PrecioFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visor\Traslado\TrasladoFrm.resx">
       <DependentUpon>TrasladoFrm.cs</DependentUpon>

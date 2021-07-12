@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +22,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         private List<data> _ldata;
 
 
-        public string Cliente { get { return ""; } }
+        public string Cliente { get { return _cliente.ciRif+Environment.NewLine+_cliente.razonSocial; } }
         public BindingSource Source { get { return _bs; } }
         public DateTime Desde { get { return _filtro.desde; } }
         public DateTime Hasta { get { return _filtro.hasta; } }
@@ -120,6 +122,37 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             _filtro.setCliente(_cliente.id);
             _ldata.Clear();
             _bs.CurrencyManager.Refresh();
+        }
+
+        public void Imprimir()
+        {
+            var pt = AppDomain.CurrentDomain.BaseDirectory + @"ReportesCliente\Documento.rdlc";
+            var ds = new ReportesCliente.DS_CLI();
+
+            foreach (var it in _ldata.ToList())
+            {
+                DataRow rt = ds.Tables["Documento"].NewRow();
+                rt["fecha"] = it.Fecha.Date;
+                rt["tipo"] = it.Tipo;
+                rt["serie"] = it.Serie;
+                rt["documento"] = it.Documento;
+                rt["importeDivisa"] = it.ImporteDivisa;
+                ds.Tables["Documento"].Rows.Add(rt);
+            }
+
+            var Rds = new List<ReportDataSource>();
+            var pmt = new List<ReportParameter>();
+            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            //pmt.Add(new ReportParameter("EMPRESA_DIRECCION", Sistema.Negocio.DireccionFiscal));
+            //pmt.Add(new ReportParameter("DOCUMENTO", ficha.documentoModo));
+            Rds.Add(new ReportDataSource("Documento", ds.Tables["Documento"]));
+
+            var frp = new Reportes.ReporteFrm();
+            frp.rds = Rds;
+            frp.prmts = pmt;
+            frp.Path = pt;
+            frp.ShowDialog();
         }
 
     }

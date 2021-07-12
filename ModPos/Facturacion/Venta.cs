@@ -528,7 +528,7 @@ namespace ModPos.Facturacion
                     var m = fmp.MontoRecibido*fmp.Tasa;
                     var itP = new Ticket.DatosDocumento.MedioPago()
                     {
-                        descripcion = "Efectivo",
+                        descripcion = "Efectivo ($"+fmp.MontoRecibido.ToString("N0")+")",
                         monto = "Bs " + m.ToString("n2"),
                     };
                     _ticketFactura.Documento.MediosPago.Add(itP);

@@ -368,6 +368,16 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             }
         }
 
+        private void BT_FILTROS_Click(object sender, EventArgs e)
+        {
+            Filtros();
+        }
+
+        private void Filtros()
+        {
+            _controlador.Filtros();
+        }
+
     }
 
 }

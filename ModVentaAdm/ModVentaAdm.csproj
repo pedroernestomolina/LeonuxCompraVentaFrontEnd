@@ -194,6 +194,7 @@
     <Compile Include="Src\Administrador\Documentos\AdmDocFrm.Designer.cs">
       <DependentUpon>AdmDocFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Administrador\Documentos\filtro.cs" />
     <Compile Include="Src\Administrador\Documentos\Gestion.cs" />
     <Compile Include="Src\Administrador\Documentos\GestionLista.cs" />
     <Compile Include="Src\Administrador\Gestion.cs" />
@@ -247,6 +248,21 @@
       <DependentUpon>EstatusFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Cliente\Estatus\Gestion.cs" />
+    <Compile Include="Src\Cliente\Lista\data.cs" />
+    <Compile Include="Src\Cliente\Lista\Gestion.cs" />
+    <Compile Include="Src\Cliente\Lista\ListaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\Lista\ListaFrm.designer.cs">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Cliente\Visualizar\Gestion.cs" />
+    <Compile Include="Src\Cliente\Visualizar\VisualizaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Cliente\Visualizar\VisualizaFrm.Designer.cs">
+      <DependentUpon>VisualizaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\Filtro\data.cs" />
     <Compile Include="Src\Filtro\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
@@ -323,6 +339,7 @@
     <Compile Include="Src\Reportes\Filtro\FiltroFrm.Designer.cs">
       <DependentUpon>FiltroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Reportes\Filtro\general.cs" />
     <Compile Include="Src\Reportes\Filtro\Gestion.cs" />
     <Compile Include="Src\Reportes\Filtro\IFiltro.cs" />
     <Compile Include="Src\Reportes\Gestion.cs" />
@@ -385,6 +402,12 @@
     <EmbeddedResource Include="Src\Cliente\Estatus\EstatusFrm.resx">
       <DependentUpon>EstatusFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\Lista\ListaFrm.resx">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Cliente\Visualizar\VisualizaFrm.resx">
+      <DependentUpon>VisualizaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +422,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\ReportesCliente\Articulo.rdlc" />
+    <EmbeddedResource Include="Src\ReportesCliente\Documento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\ReportesCliente\Filtro\FiltroFrm.resx">
       <DependentUpon>FiltroFrm.cs</DependentUpon>

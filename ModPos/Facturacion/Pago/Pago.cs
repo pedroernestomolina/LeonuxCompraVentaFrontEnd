@@ -18,6 +18,8 @@ namespace ModPos.Facturacion.Pago
         private decimal _dsctoPorct;
         private bool _isCredito;
         LoteReferencia _gestionLoteRef;
+        ValidarCambio.Gestion _gestionValidarCambio;
+       
 
 
         public decimal MontoRecibido
@@ -190,6 +192,7 @@ namespace ModPos.Facturacion.Pago
             _dsctoPorct = 0.0m;
             _detalle = new List<PagoDetalle>();
             _gestionLoteRef = new LoteReferencia();
+            _gestionValidarCambio = new ValidarCambio.Gestion();
         }
 
 
@@ -325,7 +328,7 @@ namespace ModPos.Facturacion.Pago
             _dsctoPorct= porct;
         }
 
-        public bool Procesar() 
+        public bool Procesar(bool validar=false) 
         {
             var rt = false;
 
@@ -334,6 +337,19 @@ namespace ModPos.Facturacion.Pago
                 var msg = MessageBox.Show("Procesar Pago ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.Yes)
                 {
+                    if (validar) 
+                    {
+                        if (MontoRecibido > MontoPagar) 
+                        {
+                            _gestionValidarCambio.Inicializa();
+                            _gestionValidarCambio.setMontoValidar(MontoCambioDar_MonedaNacional);
+                            _gestionValidarCambio.Inicia();
+                            if (_gestionValidarCambio.ValidarIsOk)
+                                return true;
+                            else
+                                return false;
+                        }
+                    }
                     return true;
                 }
             }

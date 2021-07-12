@@ -20,6 +20,7 @@ namespace ModInventario
         private Visor.Traslado.Gestion _gestionVisorTraslado;
         private Visor.Ajuste.Gestion _gestionVisorAjuste;
         private Visor.CostoExistencia.Gestion _gestionVisorCostoExistencia;
+        private Visor.Precio.Gestion _gestionVisorPrecio;
         private Administrador.Gestion _gestionAdmMov;
         private Reportes.Filtros.Gestion _gestionReporteFiltros;
         private Configuracion.CostoEdad.Gestion _gestionConfCostoEdad;
@@ -67,6 +68,7 @@ namespace ModInventario
             _gestionVisorTraslado = new Visor.Traslado.Gestion();
             _gestionVisorAjuste = new Visor.Ajuste.Gestion();
             _gestionVisorCostoExistencia = new Visor.CostoExistencia.Gestion();
+            _gestionVisorPrecio = new Visor.Precio.Gestion();
             _gestionAdmMov = new Administrador.Gestion();
             _gestionReporteFiltros = new Reportes.Filtros.Gestion();
             _gestionConfCostoEdad = new Configuracion.CostoEdad.Gestion();
@@ -494,6 +496,12 @@ namespace ModInventario
                 _gestionMov.setHabilitarConcepto(false);
                 _gestionMov.Inicia();
             }
+        }
+
+        public void VisorPrecios()
+        {
+            _gestionVisorPrecio.Inicializa();
+            _gestionVisorPrecio.Inicia();
         }
 
     }

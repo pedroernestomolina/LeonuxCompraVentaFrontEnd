@@ -20,6 +20,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
         private Articulos.Gestion _gestionArticulos;
         private Documentos.Gestion _gestionDocumentos;
         private Estatus.Gestion _gestionEstatus;
+        private Visualizar.Gestion _gestionVisualizar;
 
 
         public int cntItem { get { return _gestionLista.Items; } }
@@ -39,6 +40,7 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             _gestionArticulos = new Articulos.Gestion();
             _gestionDocumentos = new Documentos.Gestion();
             _gestionEstatus = new Estatus.Gestion();
+            _gestionVisualizar = new Visualizar.Gestion();
         }
 
 
@@ -256,6 +258,16 @@ namespace ModVentaAdm.Src.Cliente.Administrador
                         ActualizarFichaLista(Item.Id);
                     }
                 }
+            }
+        }
+
+        public void VisualizarFicha()
+        {
+            if (Item != null)
+            {
+                _gestionVisualizar.Inicializa();
+                _gestionVisualizar.setFicha(Item.Id);
+                _gestionVisualizar.Inicia();
             }
         }
 

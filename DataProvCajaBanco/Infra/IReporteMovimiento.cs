@@ -26,6 +26,7 @@ namespace DataProvCajaBanco.Infra
 
         OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Ficha> Reporte_Analisis_VentaPromedio(OOB.LibCajaBanco.Reporte.Analisis.VentaPromedio.Filtro filtro);
         OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Ficha> Reporte_Analisis_VentaProducto(OOB.LibCajaBanco.Reporte.Analisis.VentaProducto.Filtro filtro);
+        OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Ficha> Reporte_Analisis_VentaDiaria(OOB.LibCajaBanco.Reporte.Analisis.VentaDiaria.Filtro filtro);
 
     }
 

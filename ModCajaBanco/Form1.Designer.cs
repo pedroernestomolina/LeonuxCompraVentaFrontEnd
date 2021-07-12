@@ -44,6 +44,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.TSM_REPORTES_INVENTARIO_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_VENTA_RESUMEN = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_VENTA_DETALLE = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_REPORTES_VENTA_POR_PRODUCTO = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
@@ -64,7 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
-            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_ANALISIS_Ventas_Diaria = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -241,6 +242,13 @@
             this.TSM_REPORTES_VENTA_RESUMEN.Text = "Ventas Resumen";
             this.TSM_REPORTES_VENTA_RESUMEN.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_RESUMEN_Click);
             // 
+            // TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT
+            // 
+            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Name = "TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT";
+            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Size = new System.Drawing.Size(263, 22);
+            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Text = "Ventas Resumen Salto Factura";
+            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT_Click);
+            // 
             // TSM_REPORTES_VENTA_DETALLE
             // 
             this.TSM_REPORTES_VENTA_DETALLE.Name = "TSM_REPORTES_VENTA_DETALLE";
@@ -305,22 +313,23 @@
             // 
             this.TSM_ANALISIS_Ventas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_ANALISIS_Ventas_PROMEDIO,
-            this.TSM_ANALISIS_Ventas_PRODUCTO});
+            this.TSM_ANALISIS_Ventas_PRODUCTO,
+            this.TSM_ANALISIS_Ventas_Diaria});
             this.TSM_ANALISIS_Ventas.Name = "TSM_ANALISIS_Ventas";
-            this.TSM_ANALISIS_Ventas.Size = new System.Drawing.Size(109, 22);
+            this.TSM_ANALISIS_Ventas.Size = new System.Drawing.Size(152, 22);
             this.TSM_ANALISIS_Ventas.Text = "Ventas";
             // 
             // TSM_ANALISIS_Ventas_PROMEDIO
             // 
             this.TSM_ANALISIS_Ventas_PROMEDIO.Name = "TSM_ANALISIS_Ventas_PROMEDIO";
-            this.TSM_ANALISIS_Ventas_PROMEDIO.Size = new System.Drawing.Size(126, 22);
+            this.TSM_ANALISIS_Ventas_PROMEDIO.Size = new System.Drawing.Size(152, 22);
             this.TSM_ANALISIS_Ventas_PROMEDIO.Text = "Promedio";
             this.TSM_ANALISIS_Ventas_PROMEDIO.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_PROMEDIO_Click);
             // 
             // TSM_ANALISIS_Ventas_PRODUCTO
             // 
             this.TSM_ANALISIS_Ventas_PRODUCTO.Name = "TSM_ANALISIS_Ventas_PRODUCTO";
-            this.TSM_ANALISIS_Ventas_PRODUCTO.Size = new System.Drawing.Size(126, 22);
+            this.TSM_ANALISIS_Ventas_PRODUCTO.Size = new System.Drawing.Size(152, 22);
             this.TSM_ANALISIS_Ventas_PRODUCTO.Text = "Producto";
             this.TSM_ANALISIS_Ventas_PRODUCTO.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_PRODUCTO_Click);
             // 
@@ -424,12 +433,12 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT
+            // TSM_ANALISIS_Ventas_Diaria
             // 
-            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Name = "TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT";
-            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Size = new System.Drawing.Size(263, 22);
-            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Text = "Ventas Resumen Salto Factura";
-            this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT.Click += new System.EventHandler(this.TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT_Click);
+            this.TSM_ANALISIS_Ventas_Diaria.Name = "TSM_ANALISIS_Ventas_Diaria";
+            this.TSM_ANALISIS_Ventas_Diaria.Size = new System.Drawing.Size(152, 22);
+            this.TSM_ANALISIS_Ventas_Diaria.Text = "Diaria";
+            this.TSM_ANALISIS_Ventas_Diaria.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_Diaria_Click);
             // 
             // Form1
             // 
@@ -500,6 +509,7 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_PROMEDIO;
         private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_PRODUCTO;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT;
+        private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_Diaria;
 
     }
 

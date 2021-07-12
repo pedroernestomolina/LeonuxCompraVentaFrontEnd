@@ -41,6 +41,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         private data _data;
         private bool _isOk;
         private bool _procesarIsOk;
+        private Cliente.Lista.Gestion _gestionClienteLista;
 
 
         public BindingSource SourceSucursal { get { return _bsSucursal; } }
@@ -54,6 +55,13 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         public bool IsOk { get { return _isOk; } }
         public data Data { get { return _data; } }
         public bool ProcesarIsOk { get { return _procesarIsOk; } }
+        //
+        public DateTime FechaDesde { get { return _data.Desde.Value; } }
+        public DateTime FechaHasta { get { return _data.Hasta.Value; } }
+        public object IdSucursal { get { return _data.IdSucursal; } }
+        public bool ClienteSeleccionadoIsOK { get { return _data.Cliente != null ? true : false; } }
+        public string NombreCliente { get { return _data.ClienteNombre; } }
+        public string IdCliente { get { return _data.ClienteId; } }
 
 
         public Gestion()
@@ -65,8 +73,9 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             _bsSucursal.DataSource = _lSucursal;
             _bsEstatus = new BindingSource();
             _bsEstatus.DataSource = _lEstatus;
+            _gestionClienteLista = new Cliente.Lista.Gestion();
         }
-
+        
 
         public void Inicializa()
         {
@@ -179,6 +188,32 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         public void setTipoDocNtEntrega(bool p)
         {
             _data.setTipoDocNtEntrega(p);
+        }
+
+        private string _cliente;
+        public void setCliente(string p)
+        {
+            _cliente = p.Trim();
+        }
+
+        public void BuscarCliente()
+        {
+            if (_cliente != "")
+            {
+                _gestionClienteLista.Inicializa();
+                _gestionClienteLista.setBuscar(_cliente);
+                _gestionClienteLista.Inicia();
+                if (_gestionClienteLista.ItemSeleccionadoIsOk)
+                {
+                    _data.setCliente(_gestionClienteLista.ItemSeleccionado.auto, _gestionClienteLista.ItemSeleccionado.razonSocial);
+                }
+            }
+        }
+
+        public void LimpiarCliente()
+        {
+            _cliente = "";
+            _data.LimpiarCliente();
         }
 
     }

@@ -147,9 +147,11 @@
             this.panel57 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.panel58 = new System.Windows.Forms.Panel();
+            this.TB_DSCTO = new ModVentaAdm.LibControl.NumeroDec();
             this.panel59 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.panel60 = new System.Windows.Forms.Panel();
+            this.TB_CARGO = new ModVentaAdm.LibControl.NumeroDec();
             this.panel51 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
@@ -166,16 +168,14 @@
             this.panel65 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.panel66 = new System.Windows.Forms.Panel();
+            this.TB_DIAS_CREDITO = new ModVentaAdm.LibControl.NumeroEnt();
             this.panel67 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel68 = new System.Windows.Forms.Panel();
+            this.TB_LIMITE_CREDITO = new ModVentaAdm.LibControl.NumeroDec();
             this.panel69 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.panel70 = new System.Windows.Forms.Panel();
-            this.TB_DSCTO = new ModVentaAdm.LibControl.NumeroDec();
-            this.TB_CARGO = new ModVentaAdm.LibControl.NumeroDec();
-            this.TB_DIAS_CREDITO = new ModVentaAdm.LibControl.NumeroEnt();
-            this.TB_LIMITE_CREDITO = new ModVentaAdm.LibControl.NumeroDec();
             this.TB_LIMITE_DOC = new ModVentaAdm.LibControl.NumeroEnt();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1763,6 +1763,21 @@
             this.panel58.Size = new System.Drawing.Size(227, 27);
             this.panel58.TabIndex = 5;
             // 
+            // TB_DSCTO
+            // 
+            this.TB_DSCTO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_DSCTO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_DSCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_DSCTO.Location = new System.Drawing.Point(2, 2);
+            this.TB_DSCTO.MaxLength = 6;
+            this.TB_DSCTO.Name = "TB_DSCTO";
+            this.TB_DSCTO.Size = new System.Drawing.Size(75, 22);
+            this.TB_DSCTO.TabIndex = 0;
+            this.TB_DSCTO.Text = "0";
+            this.TB_DSCTO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_DSCTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_DSCTO.Leave += new System.EventHandler(this.TB_DSCTO_Leave);
+            // 
             // panel59
             // 
             this.panel59.Controls.Add(this.label23);
@@ -1795,6 +1810,21 @@
             this.panel60.Padding = new System.Windows.Forms.Padding(2);
             this.panel60.Size = new System.Drawing.Size(229, 27);
             this.panel60.TabIndex = 7;
+            // 
+            // TB_CARGO
+            // 
+            this.TB_CARGO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_CARGO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_CARGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_CARGO.Location = new System.Drawing.Point(2, 2);
+            this.TB_CARGO.MaxLength = 6;
+            this.TB_CARGO.Name = "TB_CARGO";
+            this.TB_CARGO.Size = new System.Drawing.Size(75, 22);
+            this.TB_CARGO.TabIndex = 0;
+            this.TB_CARGO.Text = "0";
+            this.TB_CARGO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_CARGO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_CARGO.Leave += new System.EventHandler(this.TB_CARGO_Leave);
             // 
             // panel51
             // 
@@ -2000,6 +2030,21 @@
             this.panel66.Size = new System.Drawing.Size(227, 27);
             this.panel66.TabIndex = 3;
             // 
+            // TB_DIAS_CREDITO
+            // 
+            this.TB_DIAS_CREDITO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_DIAS_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_DIAS_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_DIAS_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.TB_DIAS_CREDITO.MaxLength = 5;
+            this.TB_DIAS_CREDITO.Name = "TB_DIAS_CREDITO";
+            this.TB_DIAS_CREDITO.Size = new System.Drawing.Size(75, 22);
+            this.TB_DIAS_CREDITO.TabIndex = 0;
+            this.TB_DIAS_CREDITO.Text = "0";
+            this.TB_DIAS_CREDITO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_DIAS_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_DIAS_CREDITO.Leave += new System.EventHandler(this.TB_DIAS_CREDITO_Leave);
+            // 
             // panel67
             // 
             this.panel67.Controls.Add(this.label26);
@@ -2033,6 +2078,21 @@
             this.panel68.Size = new System.Drawing.Size(229, 27);
             this.panel68.TabIndex = 5;
             // 
+            // TB_LIMITE_CREDITO
+            // 
+            this.TB_LIMITE_CREDITO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_LIMITE_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TB_LIMITE_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_LIMITE_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.TB_LIMITE_CREDITO.MaxLength = 14;
+            this.TB_LIMITE_CREDITO.Name = "TB_LIMITE_CREDITO";
+            this.TB_LIMITE_CREDITO.Size = new System.Drawing.Size(107, 22);
+            this.TB_LIMITE_CREDITO.TabIndex = 0;
+            this.TB_LIMITE_CREDITO.Text = "0";
+            this.TB_LIMITE_CREDITO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_LIMITE_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
+            this.TB_LIMITE_CREDITO.Leave += new System.EventHandler(this.TB_LIMITE_CREDITO_Leave);
+            // 
             // panel69
             // 
             this.panel69.Controls.Add(this.label27);
@@ -2065,66 +2125,6 @@
             this.panel70.Padding = new System.Windows.Forms.Padding(2);
             this.panel70.Size = new System.Drawing.Size(227, 27);
             this.panel70.TabIndex = 7;
-            // 
-            // TB_DSCTO
-            // 
-            this.TB_DSCTO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_DSCTO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_DSCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_DSCTO.Location = new System.Drawing.Point(2, 2);
-            this.TB_DSCTO.MaxLength = 6;
-            this.TB_DSCTO.Name = "TB_DSCTO";
-            this.TB_DSCTO.Size = new System.Drawing.Size(75, 22);
-            this.TB_DSCTO.TabIndex = 0;
-            this.TB_DSCTO.Text = "0";
-            this.TB_DSCTO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_DSCTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
-            this.TB_DSCTO.Leave += new System.EventHandler(this.TB_DSCTO_Leave);
-            // 
-            // TB_CARGO
-            // 
-            this.TB_CARGO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_CARGO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_CARGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_CARGO.Location = new System.Drawing.Point(2, 2);
-            this.TB_CARGO.MaxLength = 6;
-            this.TB_CARGO.Name = "TB_CARGO";
-            this.TB_CARGO.Size = new System.Drawing.Size(75, 22);
-            this.TB_CARGO.TabIndex = 0;
-            this.TB_CARGO.Text = "0";
-            this.TB_CARGO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_CARGO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
-            this.TB_CARGO.Leave += new System.EventHandler(this.TB_CARGO_Leave);
-            // 
-            // TB_DIAS_CREDITO
-            // 
-            this.TB_DIAS_CREDITO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_DIAS_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_DIAS_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_DIAS_CREDITO.Location = new System.Drawing.Point(2, 2);
-            this.TB_DIAS_CREDITO.MaxLength = 5;
-            this.TB_DIAS_CREDITO.Name = "TB_DIAS_CREDITO";
-            this.TB_DIAS_CREDITO.Size = new System.Drawing.Size(75, 22);
-            this.TB_DIAS_CREDITO.TabIndex = 0;
-            this.TB_DIAS_CREDITO.Text = "0";
-            this.TB_DIAS_CREDITO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_DIAS_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
-            this.TB_DIAS_CREDITO.Leave += new System.EventHandler(this.TB_DIAS_CREDITO_Leave);
-            // 
-            // TB_LIMITE_CREDITO
-            // 
-            this.TB_LIMITE_CREDITO.BackColor = System.Drawing.Color.Yellow;
-            this.TB_LIMITE_CREDITO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TB_LIMITE_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_LIMITE_CREDITO.Location = new System.Drawing.Point(2, 2);
-            this.TB_LIMITE_CREDITO.MaxLength = 14;
-            this.TB_LIMITE_CREDITO.Name = "TB_LIMITE_CREDITO";
-            this.TB_LIMITE_CREDITO.Size = new System.Drawing.Size(107, 22);
-            this.TB_LIMITE_CREDITO.TabIndex = 0;
-            this.TB_LIMITE_CREDITO.Text = "0";
-            this.TB_LIMITE_CREDITO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TB_LIMITE_CREDITO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ctrl_KeyDown);
-            this.TB_LIMITE_CREDITO.Leave += new System.EventHandler(this.TB_LIMITE_CREDITO_Leave);
             // 
             // TB_LIMITE_DOC
             // 

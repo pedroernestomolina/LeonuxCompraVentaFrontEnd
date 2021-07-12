@@ -184,6 +184,16 @@ namespace ModCajaBanco
         {
             _controlador.ReporteResumenVentaSaltoFactura();
         }
+
+        private void TSM_ANALISIS_Ventas_Diaria_Click(object sender, EventArgs e)
+        {
+            AnalisisVentasDiaria();
+        }
+
+        private void AnalisisVentasDiaria()
+        {
+            _controlador.AnalisisVentasDiaria();
+        }
     
     }
 

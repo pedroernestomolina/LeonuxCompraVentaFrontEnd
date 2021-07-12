@@ -306,6 +306,58 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Visor.Precio.Ficha> Visor_Precio(OOB.LibInventario.Visor.Precio.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Visor.Precio.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Visor.Precio.Filtro();
+            filtroDto.autoDepart = filtro.autoDepart;
+            filtroDto.autoGrupo= filtro.autoGrupo;
+            var r01 = MyData.Visor_Precio(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Visor.Precio.Ficha>();
+            if (r01.Lista != null)
+            {
+                var se = r01.Lista;
+                if (se.Count > 0)
+                {
+                    list = se.Select(s =>
+                    {
+                        return new OOB.LibInventario.Visor.Precio.Ficha()
+                        {
+                            autoPrd = s.autoPrd,
+                            codigoDep = s.codigoDep,
+                            codigoGrupo = s.codigoGrupo,
+                            codigoPrd = s.codigoPrd,
+                            costoUnd = s.costoUnd,
+                            estatus = s.estatus,
+                            estatusDivisa = s.estatusDivisa,
+                            fechaUltCosto = s.fechaUltCosto,
+                            nombreDep = s.nombreDep,
+                            nombreGrupo = s.nombreGrupo,
+                            nombrePrd = s.nombrePrd,
+                            contEmpCompra = s.contEmpCompra,
+                            costoDivisa = s.costoDivisa,
+                            precio_1 = s.precio_1,
+                            precio_2 = s.precio_2,
+                            precio_3 = s.precio_3,
+                            precio_4 = s.precio_4,
+                            precio_5 = s.precio_5,
+                        };
+                    }).ToList();
+                }
+                rt.Lista = list;
+            }
+
+            return rt;
+        }
+
     }
 
 }

@@ -1,5 +1,6 @@
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Analisis\VentaDiaria.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Analisis\VentaPorCierre.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Analisis\VentaProducto.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Analisis\VentaPromedio.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCajaBanco\bin\Debug\Reportes\Hablador\Hablador.rdlc

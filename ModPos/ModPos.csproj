@@ -100,6 +100,8 @@
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\Data.cs" />
+    <Compile Include="ExportarData\Cliente\Gestion.cs" />
+    <Compile Include="ExportarData\Cliente\IExportar.cs" />
     <Compile Include="Facturacion\AbrirPendiente\AbrirPendienteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +398,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CSV\CSV.csproj">
+      <Project>{de667d13-3a05-4428-960d-d47fdbf74d89}</Project>
+      <Name>CSV</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataProvPosOffLine\DataProvPosOffLine.csproj">
       <Project>{5907b4fc-499d-46c4-b3aa-bcf099e7ac3b}</Project>
       <Name>DataProvPosOffLine</Name>

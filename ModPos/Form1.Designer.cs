@@ -36,6 +36,8 @@
             this.BT_SALIDA = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MENU_ARCHIVO_EXPORTAR_CLIENTE = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItem_Archivo_Salida = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_Configuracion_Permisos = new System.Windows.Forms.ToolStripMenuItem();
@@ -240,15 +242,29 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MENU_ARCHIVO_EXPORTAR_CLIENTE,
+            this.toolStripMenuItem4,
             this.MenuItem_Archivo_Salida});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
             this.toolStripMenuItem1.Text = "Archivo";
             // 
+            // MENU_ARCHIVO_EXPORTAR_CLIENTE
+            // 
+            this.MENU_ARCHIVO_EXPORTAR_CLIENTE.Name = "MENU_ARCHIVO_EXPORTAR_CLIENTE";
+            this.MENU_ARCHIVO_EXPORTAR_CLIENTE.Size = new System.Drawing.Size(184, 22);
+            this.MENU_ARCHIVO_EXPORTAR_CLIENTE.Text = "Exportar Data Cliente";
+            this.MENU_ARCHIVO_EXPORTAR_CLIENTE.Click += new System.EventHandler(this.MENU_ARCHIVO_EXPORTAR_CLIENTE_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(181, 6);
+            // 
             // MenuItem_Archivo_Salida
             // 
             this.MenuItem_Archivo_Salida.Name = "MenuItem_Archivo_Salida";
-            this.MenuItem_Archivo_Salida.Size = new System.Drawing.Size(105, 22);
+            this.MenuItem_Archivo_Salida.Size = new System.Drawing.Size(184, 22);
             this.MenuItem_Archivo_Salida.Text = "Salida";
             this.MenuItem_Archivo_Salida.Click += new System.EventHandler(this.MenuItem_Archivo_Salida_Click);
             // 
@@ -1200,6 +1216,8 @@
         private System.Windows.Forms.Label L_ID_SUCURSAL;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem TSM_HERRAMIENTAS_ACTUALIZAR_DATA_SERVIDOR_MANUAL;
+        private System.Windows.Forms.ToolStripMenuItem MENU_ARCHIVO_EXPORTAR_CLIENTE;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
     }
 }
 

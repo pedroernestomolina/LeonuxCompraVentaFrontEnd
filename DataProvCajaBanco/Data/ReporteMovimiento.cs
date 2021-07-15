@@ -679,6 +679,55 @@ namespace DataProvCajaBanco.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaPorCierre.Ficha> Reporte_Analisis_VentaPorCierre(OOB.LibCajaBanco.Reporte.Analisis.VentaPorCierre.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCajaBanco.Reporte.Analisis.VentaPorCierre.Ficha>();
+
+            var filtroDTO = new DtoLibCajaBanco.Reporte.Analisis.VentaPorCierre.Filtro()
+            {
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reporte_Analisis_VentaPorCierre(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCajaBanco.Reporte.Analisis.VentaPorCierre.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibCajaBanco.Reporte.Analisis.VentaPorCierre.Ficha()
+                        {
+                            autoCierre = s.autoCierre,
+                            cntDivisa = s.cntDivisa,
+                            cntDoc = s.cntDoc,
+                            cntDocFac = s.cntDocFac,
+                            cntDocNcr = s.cntDocNcr,
+                            codSucursal = s.codSucursal,
+                            fecha = s.fecha,
+                            hora = s.hora,
+                            montoDebito = s.montoDebito,
+                            montoDivisa = s.montoDivisa,
+                            montoEfectivo = s.montoEfectivo,
+                            montoOtros = s.montoOtros,
+                            nomSucursal = s.nomSucursal,
+                            total = s.total,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

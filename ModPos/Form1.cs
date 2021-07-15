@@ -254,6 +254,16 @@ namespace ModPos
             ActualizaDataDelServidor();
         }
 
+        private void MENU_ARCHIVO_EXPORTAR_CLIENTE_Click(object sender, EventArgs e)
+        {
+            ExportarDataClientes();
+        }
+
+        private void ExportarDataClientes()
+        {
+            _controlador.ExportarDataClientes();
+        }
+
     }
 
 }

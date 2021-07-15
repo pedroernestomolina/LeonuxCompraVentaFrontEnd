@@ -57,6 +57,7 @@
             this.TSM_ANALISIS_Ventas = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_ANALISIS_Ventas_PROMEDIO = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_ANALISIS_Ventas_PRODUCTO = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_ANALISIS_Ventas_Diaria = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,7 +66,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.L_VERSION = new System.Windows.Forms.Label();
-            this.TSM_ANALISIS_Ventas_Diaria = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_ANALISIS_Ventas_Por_Cierre = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -314,7 +316,9 @@
             this.TSM_ANALISIS_Ventas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_ANALISIS_Ventas_PROMEDIO,
             this.TSM_ANALISIS_Ventas_PRODUCTO,
-            this.TSM_ANALISIS_Ventas_Diaria});
+            this.TSM_ANALISIS_Ventas_Diaria,
+            this.toolStripMenuItem4,
+            this.TSM_ANALISIS_Ventas_Por_Cierre});
             this.TSM_ANALISIS_Ventas.Name = "TSM_ANALISIS_Ventas";
             this.TSM_ANALISIS_Ventas.Size = new System.Drawing.Size(152, 22);
             this.TSM_ANALISIS_Ventas.Text = "Ventas";
@@ -332,6 +336,13 @@
             this.TSM_ANALISIS_Ventas_PRODUCTO.Size = new System.Drawing.Size(152, 22);
             this.TSM_ANALISIS_Ventas_PRODUCTO.Text = "Producto";
             this.TSM_ANALISIS_Ventas_PRODUCTO.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_PRODUCTO_Click);
+            // 
+            // TSM_ANALISIS_Ventas_Diaria
+            // 
+            this.TSM_ANALISIS_Ventas_Diaria.Name = "TSM_ANALISIS_Ventas_Diaria";
+            this.TSM_ANALISIS_Ventas_Diaria.Size = new System.Drawing.Size(152, 22);
+            this.TSM_ANALISIS_Ventas_Diaria.Text = "Diaria";
+            this.TSM_ANALISIS_Ventas_Diaria.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_Diaria_Click);
             // 
             // panel3
             // 
@@ -433,12 +444,17 @@
             this.L_VERSION.Text = "Ver 1.0.0.0";
             this.L_VERSION.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // TSM_ANALISIS_Ventas_Diaria
+            // toolStripMenuItem4
             // 
-            this.TSM_ANALISIS_Ventas_Diaria.Name = "TSM_ANALISIS_Ventas_Diaria";
-            this.TSM_ANALISIS_Ventas_Diaria.Size = new System.Drawing.Size(152, 22);
-            this.TSM_ANALISIS_Ventas_Diaria.Text = "Diaria";
-            this.TSM_ANALISIS_Ventas_Diaria.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_Diaria_Click);
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // TSM_ANALISIS_Ventas_Por_Cierre
+            // 
+            this.TSM_ANALISIS_Ventas_Por_Cierre.Name = "TSM_ANALISIS_Ventas_Por_Cierre";
+            this.TSM_ANALISIS_Ventas_Por_Cierre.Size = new System.Drawing.Size(152, 22);
+            this.TSM_ANALISIS_Ventas_Por_Cierre.Text = "Por Cierre";
+            this.TSM_ANALISIS_Ventas_Por_Cierre.Click += new System.EventHandler(this.TSM_ANALISIS_Ventas_Por_Cierre_Click);
             // 
             // Form1
             // 
@@ -510,6 +526,8 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_PRODUCTO;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTES_VENTA_RESUMEN_SALTO_FACT;
         private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_Diaria;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem TSM_ANALISIS_Ventas_Por_Cierre;
 
     }
 

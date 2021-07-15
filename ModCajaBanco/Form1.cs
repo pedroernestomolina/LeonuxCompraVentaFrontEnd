@@ -194,6 +194,16 @@ namespace ModCajaBanco
         {
             _controlador.AnalisisVentasDiaria();
         }
+
+        private void TSM_ANALISIS_Ventas_Por_Cierre_Click(object sender, EventArgs e)
+        {
+            AnalisisVentasPorCierre();
+        }
+
+        private void AnalisisVentasPorCierre()
+        {
+            _controlador.AnalisisVentasPorCierre();
+        }
     
     }
 

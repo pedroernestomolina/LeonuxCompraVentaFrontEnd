@@ -22,6 +22,7 @@ namespace ModPos
         private List<OOB.LibVenta.PosOffline.Permiso.Actual.Permiso> _litsActualPermisos; 
         private string _bdRemota;
         private string _bdLocal;
+        private ExportarData.Cliente.IExportar _gestionExportar;
 
 
         public string IdSucursal { get { return Sistema.CodigoSucursal; } }
@@ -643,7 +644,24 @@ namespace ModPos
                 }
             }
         }
-      
+
+        public void ExportarDataClientes()
+        {
+            var filtro= new OOB.LibVenta.PosOffline.Cliente.ExportarData.Filtro();
+            var r01 = Sistema.MyData2.Cliente_ExportarData(filtro);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            _gestionExportar = new ExportarData.Cliente.Gestion();
+            _gestionExportar.Inicializa();
+            _gestionExportar.setLista(r01.Lista);
+            _gestionExportar.Inicia();
+
+        }
+
     }
 
 }

@@ -121,6 +121,41 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibVenta.PosOffline.Cliente.ExportarData.Ficha> Cliente_ExportarData(OOB.LibVenta.PosOffline.Cliente.ExportarData.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibVenta.PosOffline.Cliente.ExportarData.Ficha>();
+
+            var filtroDTO= new DtoLibPosOffLine.Cliente.ExportarData.Filtro ();
+            var r01 = MyData.Cliente_ExportarData(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibVenta.PosOffline.Cliente.ExportarData.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibVenta.PosOffline.Cliente.ExportarData.Ficha()
+                        {
+                            CiRif = s.CiRif,
+                            NombreRazonSocial = s.NombreRazonSocial,
+                            DirFiscal = s.DirFiscal,
+                            Telefono = s.Telefono,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

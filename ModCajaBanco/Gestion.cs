@@ -780,6 +780,16 @@ namespace ModCajaBanco
             }
         }
 
+        public void AnalisisVentasPorCierre()
+        {
+            if (!Sistema._ActivarComoSucursal)
+            {
+                _analisisGestion.setGestion(new Reportes.Analisis.VentaPorCierre.Gestion());
+                _analisisGestion.Inicializar();
+                _analisisGestion.Inicia();
+            }
+        }
+
     }
 
 }

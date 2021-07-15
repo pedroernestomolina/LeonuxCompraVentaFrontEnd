@@ -48,6 +48,24 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="VentaPorCierre" msprop:Generator_TableClassName="VentaPorCierreDataTable" msprop:Generator_TableVarName="tableVentaPorCierre" msprop:Generator_RowChangedName="VentaPorCierreRowChanged" msprop:Generator_TablePropName="VentaPorCierre" msprop:Generator_RowDeletingName="VentaPorCierreRowDeleting" msprop:Generator_RowChangingName="VentaPorCierreRowChanging" msprop:Generator_RowEvHandlerName="VentaPorCierreRowChangeEventHandler" msprop:Generator_RowDeletedName="VentaPorCierreRowDeleted" msprop:Generator_RowClassName="VentaPorCierreRow" msprop:Generator_UserTableName="VentaPorCierre" msprop:Generator_RowEvArgName="VentaPorCierreRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sucursal" msprop:Generator_ColumnVarNameInTable="columnsucursal" msprop:Generator_ColumnPropNameInRow="sucursal" msprop:Generator_ColumnPropNameInTable="sucursalColumn" msprop:Generator_UserColumnName="sucursal" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaHora" msprop:Generator_ColumnVarNameInTable="columnfechaHora" msprop:Generator_ColumnPropNameInRow="fechaHora" msprop:Generator_ColumnPropNameInTable="fechaHoraColumn" msprop:Generator_UserColumnName="fechaHora" type="xs:string" minOccurs="0" />
+              <xs:element name="cierre" msprop:Generator_ColumnVarNameInTable="columncierre" msprop:Generator_ColumnPropNameInRow="cierre" msprop:Generator_ColumnPropNameInTable="cierreColumn" msprop:Generator_UserColumnName="cierre" type="xs:string" minOccurs="0" />
+              <xs:element name="cntDoc" msprop:Generator_ColumnVarNameInTable="columncntDoc" msprop:Generator_ColumnPropNameInRow="cntDoc" msprop:Generator_ColumnPropNameInTable="cntDocColumn" msprop:Generator_UserColumnName="cntDoc" type="xs:int" minOccurs="0" />
+              <xs:element name="cntDocFac" msprop:Generator_ColumnVarNameInTable="columncntDocFac" msprop:Generator_ColumnPropNameInRow="cntDocFac" msprop:Generator_ColumnPropNameInTable="cntDocFacColumn" msprop:Generator_UserColumnName="cntDocFac" type="xs:int" minOccurs="0" />
+              <xs:element name="cntDocNCR" msprop:Generator_ColumnVarNameInTable="columncntDocNCR" msprop:Generator_ColumnPropNameInRow="cntDocNCR" msprop:Generator_ColumnPropNameInTable="cntDocNCRColumn" msprop:Generator_UserColumnName="cntDocNCR" type="xs:int" minOccurs="0" />
+              <xs:element name="efectivo" msprop:Generator_ColumnVarNameInTable="columnefectivo" msprop:Generator_ColumnPropNameInRow="efectivo" msprop:Generator_ColumnPropNameInTable="efectivoColumn" msprop:Generator_UserColumnName="efectivo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="divisa" msprop:Generator_ColumnVarNameInTable="columndivisa" msprop:Generator_ColumnPropNameInRow="divisa" msprop:Generator_ColumnPropNameInTable="divisaColumn" msprop:Generator_UserColumnName="divisa" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cntDivisa" msprop:Generator_ColumnVarNameInTable="columncntDivisa" msprop:Generator_ColumnPropNameInRow="cntDivisa" msprop:Generator_ColumnPropNameInTable="cntDivisaColumn" msprop:Generator_UserColumnName="cntDivisa" type="xs:int" minOccurs="0" />
+              <xs:element name="debito" msprop:Generator_ColumnVarNameInTable="columndebito" msprop:Generator_ColumnPropNameInRow="debito" msprop:Generator_ColumnPropNameInTable="debitoColumn" msprop:Generator_UserColumnName="debito" type="xs:decimal" minOccurs="0" />
+              <xs:element name="otros" msprop:Generator_ColumnVarNameInTable="columnotros" msprop:Generator_ColumnPropNameInRow="otros" msprop:Generator_ColumnPropNameInTable="otrosColumn" msprop:Generator_UserColumnName="otros" type="xs:decimal" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

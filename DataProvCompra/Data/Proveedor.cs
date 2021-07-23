@@ -225,7 +225,8 @@ namespace DataProvCompra.Data
                             montoDivisa = s.montoDivisa,
                             serie = s.serie,
                             tasaDivisa = s.tasaDivisa,
-                            nombreTipoDoc=s.nombreTipoDoc,
+                            nombreTipoDoc = s.nombreTipoDoc,
+                            controlNro = s.controlNro,
                         };
                         return rg;
                     }).ToList();

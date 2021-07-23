@@ -164,6 +164,16 @@ namespace ModCompra
             _controlador.MaestroProveedor();
         }
 
+        private void MENU_MAESTROS_REPORTE_PROVEEDORES_Click(object sender, EventArgs e)
+        {
+            ReporteMaestroProveedores();
+        }
+
+        private void ReporteMaestroProveedores()
+        {
+            _controlador.ReporteMaestroProveedor();
+        }
+
     }
 
 }

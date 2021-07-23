@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Src\Imagenes\TOOLS.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DtoLib">
       <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\DtoLib.dll</HintPath>

@@ -20,6 +20,7 @@ namespace OOB.LibCompra.Proveedor.Documentos
         public string codTipoDoc { get; set; }
         public string nombreTipoDoc { get; set; }
         public string serie { get; set; }
+        public string controlNro { get; set; }
         public bool IsAnulado { get { return estatus.Trim().ToUpper() == "0" ? false : true; } }
 
     }

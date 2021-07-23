@@ -62,14 +62,14 @@
             this.BT_LIMPIAR = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.BT_BUSCAR = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.L_CLIENTE = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.L_CLIENTE = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -93,12 +93,12 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -539,6 +539,28 @@
             this.BT_BUSCAR.UseVisualStyleBackColor = true;
             this.BT_BUSCAR.Click += new System.EventHandler(this.BT_BUSCAR_Click);
             // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.L_CLIENTE);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel22.Location = new System.Drawing.Point(264, 1);
+            this.panel22.Margin = new System.Windows.Forms.Padding(1);
+            this.panel22.Name = "panel22";
+            this.panel22.Padding = new System.Windows.Forms.Padding(2);
+            this.panel22.Size = new System.Drawing.Size(359, 67);
+            this.panel22.TabIndex = 3;
+            // 
+            // L_CLIENTE
+            // 
+            this.L_CLIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CLIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CLIENTE.Location = new System.Drawing.Point(2, 2);
+            this.L_CLIENTE.Name = "L_CLIENTE";
+            this.L_CLIENTE.Size = new System.Drawing.Size(355, 63);
+            this.L_CLIENTE.TabIndex = 2;
+            this.L_CLIENTE.Text = "Ventas x Artículos";
+            this.L_CLIENTE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.DGV);
@@ -610,28 +632,6 @@
             this.label1.Text = "Ventas x Artículos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.L_CLIENTE);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(264, 1);
-            this.panel22.Margin = new System.Windows.Forms.Padding(1);
-            this.panel22.Name = "panel22";
-            this.panel22.Padding = new System.Windows.Forms.Padding(2);
-            this.panel22.Size = new System.Drawing.Size(359, 67);
-            this.panel22.TabIndex = 3;
-            // 
-            // L_CLIENTE
-            // 
-            this.L_CLIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CLIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CLIENTE.Location = new System.Drawing.Point(2, 2);
-            this.L_CLIENTE.Name = "L_CLIENTE";
-            this.L_CLIENTE.Size = new System.Drawing.Size(355, 63);
-            this.L_CLIENTE.TabIndex = 2;
-            this.L_CLIENTE.Text = "Ventas x Artículos";
-            this.L_CLIENTE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CompraArticulosFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,12 +666,12 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

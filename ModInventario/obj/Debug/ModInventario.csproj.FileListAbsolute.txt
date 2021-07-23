@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Documentos\MovTraslado.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\DepositoResumen.rdlc
@@ -13,7 +14,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Grafica
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Movimientos\Movimientos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Visor\Existencia.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe.config
-D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DataProvInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\EntityFramework.dll

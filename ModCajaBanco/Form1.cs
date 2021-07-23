@@ -204,6 +204,16 @@ namespace ModCajaBanco
         {
             _controlador.AnalisisVentasPorCierre();
         }
+
+        private void TSM_REPORTES_VENTA_POR_CLIENTE_Click(object sender, EventArgs e)
+        {
+            ReporteResumenVentaporCliente();
+        }
+
+        private void ReporteResumenVentaporCliente()
+        {
+            _controlador.ReporteResumenVentaporCliente();
+        }
     
     }
 

@@ -170,6 +170,16 @@ namespace ModCompra.Proveedor.Documentos
             DTP_HASTA.Value = _controlador.Hasta;
         }
 
+        private void BT_IMPRIMIR_Click(object sender, EventArgs e)
+        {
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            _controlador.Imprimir();
+        }
+
     }
 
 }

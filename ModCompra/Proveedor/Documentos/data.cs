@@ -22,6 +22,8 @@ namespace ModCompra.Proveedor.Documentos
         public string Documento { get { return it.documento; } }
         public decimal ImporteDivisa { get { return it.montoDivisa; } }
         public string Estatus { get { return it.IsAnulado ? "ANULADO" : ""; } }
+        public string ControlNro { get { return it.controlNro; } }
+        public decimal Importe { get { return it.monto ; } }
 
 
         public data(OOB.LibCompra.Proveedor.Documentos.Ficha it)

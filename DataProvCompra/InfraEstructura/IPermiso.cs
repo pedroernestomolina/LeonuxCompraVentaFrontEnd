@@ -31,6 +31,11 @@ namespace DataProvCompra.InfraEstructura
 
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Reportes(string autoGrupoUsuario);
 
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_Agregar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_Editar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_Reportes(string autoGrupoUsuario);
+
     }
 
 }

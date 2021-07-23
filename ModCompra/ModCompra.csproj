@@ -255,6 +255,25 @@
     <Compile Include="Proveedor\Listar\ListaFrm.Designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteProveedor\DS_PROV.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_PROV.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteProveedor\Filtro\data.cs" />
+    <Compile Include="ReporteProveedor\Filtro\FiltroFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteProveedor\Filtro\FiltroFrm.Designer.cs">
+      <DependentUpon>FiltroFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteProveedor\Filtro\general.cs" />
+    <Compile Include="ReporteProveedor\Filtro\Gestion.cs" />
+    <Compile Include="ReporteProveedor\Filtro\IFiltro.cs" />
+    <Compile Include="ReporteProveedor\Gestion.cs" />
+    <Compile Include="ReporteProveedor\IGestion.cs" />
+    <Compile Include="ReporteProveedor\Modo\Maestro\Filtro.cs" />
+    <Compile Include="ReporteProveedor\Modo\Maestro\Gestion.cs" />
     <Compile Include="Reportes\Documento\Gestion.cs" />
     <Compile Include="Reportes\DS.cs">
       <DependentUpon>DS.xsd</DependentUpon>
@@ -365,6 +384,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor\Articulo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor\Documento.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor\Filtro\FiltroFrm.resx">
+      <DependentUpon>FiltroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor\Maestro.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Documento.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -497,6 +528,17 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="ReporteProveedor\DS_PROV.xsc">
+      <DependentUpon>DS_PROV.xsd</DependentUpon>
+    </None>
+    <None Include="ReporteProveedor\DS_PROV.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_PROV.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReporteProveedor\DS_PROV.xss">
+      <DependentUpon>DS_PROV.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>

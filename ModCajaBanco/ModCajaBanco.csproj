@@ -134,6 +134,8 @@
     <Compile Include="Reportes\Movimientos\ResumenVentaSucursal\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\ResumenVenta\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\VentaDetalle\GestionRep.cs" />
+    <Compile Include="Reportes\Movimientos\VentaPorCliente\data.cs" />
+    <Compile Include="Reportes\Movimientos\VentaPorCliente\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\VentaPorProducto\GestionRep.cs" />
     <Compile Include="Reportes\Movimientos\VentaProductoSucursal\GestionRep.cs" />
     <Compile Include="Reportes\Reporte.cs">
@@ -205,6 +207,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Movimientos\ResumenVentaPrdSuc.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Movimientos\ResumenVentCliente.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte.resx">

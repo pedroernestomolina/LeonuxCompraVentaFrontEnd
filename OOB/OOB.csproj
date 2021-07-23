@@ -66,6 +66,8 @@
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaDetalle\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaDiarioSucursal\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaDiarioSucursal\Filtro.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorCliente\Ficha.cs" />
+    <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorCliente\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorProducto\Ficha.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaPorProducto\Filtro.cs" />
     <Compile Include="LibCajaBanco\Reporte\Movimiento\ResumenVentaProductoSucursal\Ficha.cs" />
@@ -135,6 +137,8 @@
     <Compile Include="LibCompra\Proveedor\Editar\Ficha.cs" />
     <Compile Include="LibCompra\Proveedor\Enumerados.cs" />
     <Compile Include="LibCompra\Proveedor\Lista\Filtro.cs" />
+    <Compile Include="LibCompra\ReporteProv\Maestro\Ficha.cs" />
+    <Compile Include="LibCompra\ReporteProv\Maestro\Filtro.cs" />
     <Compile Include="LibCompra\Reportes\CompraporDepartamento\Ficha.cs" />
     <Compile Include="LibCompra\Reportes\CompraporDepartamento\Filtro.cs" />
     <Compile Include="LibCompra\Reportes\CompraPorProductoDetalle\Ficha.cs" />

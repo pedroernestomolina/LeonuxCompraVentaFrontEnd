@@ -17,6 +17,7 @@ namespace ModCompra
         private Reportes.Filtros.Gestion _gestionRep;
         private Maestros.Gestion _gestionMaestro;
         private Proveedor.Administrador.Gestion _gestionProveedor;
+        private ReporteProveedor.Gestion _gestionRepPrv;
 
 
         public string Version
@@ -52,6 +53,7 @@ namespace ModCompra
             _gestionRep = new Reportes.Filtros.Gestion();
             _gestionMaestro = new Maestros.Gestion();
             _gestionProveedor = new Proveedor.Administrador.Gestion();
+            _gestionRepPrv = new ReporteProveedor.Gestion();
         }
 
 
@@ -196,10 +198,41 @@ namespace ModCompra
 
         public void MaestroProveedor()
         {
-            _gestionProveedor.Inicializar();
-            _gestionProveedor.Inicia();
+            var r00 = Sistema.MyData.Permiso_Proveedor(Sistema.UsuarioP.autoGru);
+            if (r00.Result ==  OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionProveedor.Inicializar();
+                _gestionProveedor.Inicia();
+            }
         }
 
+        public void ReporteMaestroProveedor()
+        {
+            ReporteProveedor(new ReporteProveedor.Modo.Maestro.Gestion());
+        }
+
+        private void ReporteProveedor(ReporteProveedor.IGestion gestion)
+        {
+            var r00 = Sistema.MyData.Permiso_Proveedor_Reportes(Sistema.UsuarioP.autoGru);
+            if (r00.Result ==  OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionRepPrv.setGestion(gestion);
+                _gestionRepPrv.Inicializa();
+                _gestionRepPrv.Inicia();
+            }
+        }
     }
 
 }

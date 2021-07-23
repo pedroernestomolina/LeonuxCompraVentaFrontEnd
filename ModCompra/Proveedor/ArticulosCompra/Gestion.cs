@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,6 +123,41 @@ namespace ModCompra.Proveedor.ArticulosCompra
             _filtro.setProveedor(_proveedor.autoId);
             _ldata.Clear();
             _bs.CurrencyManager.Refresh();
+        }
+
+        public void Imprimir()
+        {
+            var pt = AppDomain.CurrentDomain.BaseDirectory + @"ReporteProveedor\Articulo.rdlc";
+            var ds = new ReporteProveedor.DS_PROV();
+
+            foreach (var it in _ldata.ToList())
+            {
+                DataRow rt = ds.Tables["Articulo"].NewRow();
+                rt["fecha"] = it.Fecha.Date;
+                rt["tipo"] = it.Tipo;
+                rt["serie"] = it.Serie;
+                rt["documento"] = it.Documento;
+                rt["producto"] = it.CodPrd + Environment.NewLine + it.DescripcionPrd;
+                rt["cantidad"] = it.Cantidad;
+                rt["empaque"] = it.EmpaqueCompra;
+                rt["costoDivisa"] = it.CostoDivisa;
+                rt["estatus"] = it.Estatus;
+                ds.Tables["Articulo"].Rows.Add(rt);
+            }
+
+            var Rds = new List<ReportDataSource>();
+            var pmt = new List<ReportParameter>();
+            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            //pmt.Add(new ReportParameter("EMPRESA_DIRECCION", Sistema.Negocio.DireccionFiscal));
+            //pmt.Add(new ReportParameter("DOCUMENTO", ficha.documentoModo));
+            Rds.Add(new ReportDataSource("Articulo", ds.Tables["Articulo"]));
+
+            var frp = new Reportes.ReporteFrm();
+            frp.rds = Rds;
+            frp.prmts = pmt;
+            frp.Path = pt;
+            frp.ShowDialog();
         }
 
     }

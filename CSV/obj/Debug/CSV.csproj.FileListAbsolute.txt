@@ -11,5 +11,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\CSV\bin\Debug\System.Buffers.xml
 D:\Proyectos FoxSystem\CompraVentaFront\CSV\bin\Debug\System.Memory.xml
 D:\Proyectos FoxSystem\CompraVentaFront\CSV\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Proyectos FoxSystem\CompraVentaFront\CSV\bin\Debug\System.ValueTuple.xml
+D:\Proyectos FoxSystem\CompraVentaFront\CSV\obj\Debug\CSV.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\CSV\obj\Debug\CSV.dll
 D:\Proyectos FoxSystem\CompraVentaFront\CSV\obj\Debug\CSV.pdb

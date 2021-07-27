@@ -310,6 +310,23 @@ namespace ModCompra.Documento.Cargar
             CalculaDscto();
         }
 
+        public dataItem(OOB.LibCompra.Documento.ListaItemImportar.Ficha it, decimal factorDivisa)
+        {
+            this._modoNCActivo = false;
+            this.factorDivisa = factorDivisa;
+            this.producto = new OOB.LibCompra.Producto.Data.Ficha(it);
+            this.CodRefPrv = it.codRefProv ;
+            this.cantidad = it.cntFactura ;
+            this.costoMoneda = it.precioFactura;
+            this.costoDivisa = it.precioFactura / factorDivisa;
+            this.dsct_1_p = it.dscto1p ;
+            this.dsct_2_p = it.dscto2p ;
+            this.dsct_3_p = it.dscto3p ;
+            ActualizarCosto();
+            ActualizarCostoDivisa();
+            CalculaDscto();
+        }
+
 
         public void setFactorDivisa(decimal p)
         {
@@ -382,6 +399,7 @@ namespace ModCompra.Documento.Cargar
         private decimal _dscto_final;
         private decimal _cargo_final;
         private decimal _total_final;
+        private OOB.LibCompra.Documento.ListaItemImportar.Ficha it;
 
 
         public decimal MontoDsctoFinal 

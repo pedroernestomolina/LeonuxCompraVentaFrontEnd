@@ -6,28 +6,28 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.10312cm</Width>
+              <Width>1.99685cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.36771cm</Width>
+              <Width>2.7167cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.52104cm</Width>
+              <Width>1.20858cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.84899cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.84899cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.84899cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.79608cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.84899cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -43,7 +43,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>fecha</Value>
+                              <Value>FECHA</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -80,7 +80,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>tipo</Value>
+                              <Value>TIPO/DOC</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -117,7 +117,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>serie</Value>
+                              <Value>SERIE</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -154,7 +154,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>doc Nro</Value>
+                              <Value>DOCUMENTO Nro</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -191,7 +191,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>control Nro</Value>
+                              <Value>CONTROL NRo</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -228,7 +228,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>monto</Value>
+                              <Value>MONTO</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -265,7 +265,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>monto Divisa</Value>
+                              <Value>MONTO $</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -302,7 +302,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>estatus</Value>
+                              <Value>ESTATUS</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -417,7 +417,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>serie</rd:DefaultName>
@@ -584,7 +586,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>estatus</rd:DefaultName>
@@ -632,7 +636,7 @@
         <Top>0.03528cm</Top>
         <Left>0.26458cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.49187cm</Width>
+        <Width>20.11418cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -646,9 +650,219 @@
   <Width>8.16667in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>2.72521cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="ExecutionTime">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ExecutionTime</rd:DefaultName>
+          <Top>0.3175cm</Top>
+          <Left>15.23765cm</Left>
+          <Height>0.49417cm</Height>
+          <Width>5.14111cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.98806cm</Top>
+          <Left>19.70438cm</Left>
+          <Height>0.6cm</Height>
+          <Width>0.67438cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="TotalPages">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!TotalPages</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>TotalPages</rd:DefaultName>
+          <Top>0.98806cm</Top>
+          <Left>17.67765cm</Left>
+          <Height>0.6cm</Height>
+          <Width>0.62146cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox50">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Total Pag:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox50</rd:DefaultName>
+          <Top>0.98806cm</Top>
+          <Left>16.15487cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.41521cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox51">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value> Pag:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox50</rd:DefaultName>
+          <Top>0.98806cm</Top>
+          <Left>18.64052cm</Left>
+          <Height>0.6cm</Height>
+          <Width>0.92275cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line1">
+          <Top>2.62434cm</Top>
+          <Left>0.36458cm</Left>
+          <Height>0cm</Height>
+          <Width>20.01418cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="Textbox12">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>DOCUMENTOS POR PROVEEDOR</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox11</rd:DefaultName>
+          <Top>1.92732cm</Top>
+          <Left>0.36458cm</Left>
+          <Height>0.62646cm</Height>
+          <Width>11.45055cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

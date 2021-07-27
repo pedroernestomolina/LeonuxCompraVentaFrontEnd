@@ -483,6 +483,7 @@
     <Content Include="Imagenes\bt_historico_32.png" />
     <Content Include="Imagenes\bt_imagen.png" />
     <Content Include="Imagenes\bt_imagen_2.png" />
+    <Content Include="Imagenes\bt_importar_archivo.png" />
     <Content Include="Imagenes\bt_imprimir.png" />
     <Content Include="Imagenes\bt_imprimir_2.png" />
     <Content Include="Imagenes\bt_imprimir_3.png" />
@@ -528,6 +529,7 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\bt_importar_archivo.png" />
     <None Include="ReporteProveedor\DS_PROV.xsc">
       <DependentUpon>DS_PROV.xsd</DependentUpon>
     </None>

@@ -99,6 +99,11 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.CargarItems(list, factorCambio);
         }
 
+        public void AgregarListaItemImportar(List<OOB.LibCompra.Documento.ListaItemImportar.Ficha> list, string idPrv, decimal factorDivisa)
+        {
+            _gestion.AgregarListaItemImportar(list, idPrv, factorDivisa);
+        }
+
     }
 
 }

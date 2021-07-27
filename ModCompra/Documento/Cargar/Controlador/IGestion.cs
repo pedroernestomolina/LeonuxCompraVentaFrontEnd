@@ -40,6 +40,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void Guardar();
         void CargarItems();
         void Totalizar();
+        void AdmDocumentos();
 
     }
 

@@ -101,6 +101,8 @@ namespace ModCompra
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 _gestionAdmDoc.setGestion(new Administrador.Documentos.Gestion());
+                _gestionAdmDoc.setActivarSeleccionItem(false);
+                _gestionAdmDoc.Inicializa();
                 _gestionAdmDoc.Inicia();
             }
         }

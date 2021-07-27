@@ -21,6 +21,11 @@ namespace ModCompra.Administrador
         public BindingSource ItemsSource { get { return _miGestion.ItemsSource; } }
         public BindingSource SucursalSource { get { return _miGestion.SucursalSource; } }
         public BindingSource TipoDocSource { get { return _miGestion.TipoDocSource; } }
+        public string Proveedor { get { return _miGestion.Proveedor; } }
+        public bool ItemSeleccionadoIsOk { get { return _miGestion.ItemSeleccionadoIsOk; } }
+        public Documentos.data ItemSeleccionado { get { return _miGestion.ItemSeleccionado; } }
+        public DateTime FechaDesde { get { return _miGestion.FechaDesde; } }
+        public DateTime FechaHasta { get { return _miGestion.FechaHasta; } }
 
         
         AdministradorFrm frm;
@@ -29,9 +34,12 @@ namespace ModCompra.Administrador
             _miGestion.Limpiar();
             if (_miGestion.CargarData())
             {
-                frm = new AdministradorFrm();
-                frm.setControlador(this);
-                frm.Show();
+                if (frm == null) 
+                {
+                    frm = new AdministradorFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
             }
         }
 
@@ -94,6 +102,43 @@ namespace ModCompra.Administrador
         public void CorrectorDocumentos()
         {
             _miGestion.CorrectorDocumento();
+        }
+
+        public void BuscarProveedor()
+        {
+            _miGestion.BuscarProveedor();
+        }
+
+        public void setCadenaBusProv(string cad)
+        {
+            _miGestion.setCadenaBusProv(cad);
+        }
+
+        public void LimpiarProveedor()
+        {
+            _miGestion.LimpiarProveedor();
+        }
+
+        public void SeleccionarItem()
+        {
+            _miGestion.SeleccionarItem();
+            if (_miGestion.ItemSeleccionadoIsOk)
+                CerrarFrm();
+        }
+
+        private void CerrarFrm()
+        {
+            frm.Close();
+        }
+
+        public void Inicializa()
+        {
+            _miGestion.Inicializa();
+        }
+
+        public void setActivarSeleccionItem(bool p)
+        {
+            _miGestion.setActivarSeleccionItem(p);
         }
 
     }

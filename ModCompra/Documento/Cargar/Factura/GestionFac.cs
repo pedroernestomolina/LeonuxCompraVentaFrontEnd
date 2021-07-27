@@ -19,6 +19,7 @@ namespace ModCompra.Documento.Cargar.Factura
         private Controlador.IGestionItem gestionItem;
         private Controlador.IGestionProductoBuscar gestionPrdBuscar;
         private Controlador.IGestionTotalizar gestionTotalizar;
+        private Administrador.Gestion _gestionAdmDoc;
         private OOB.LibCompra.Empresa.Fiscal.Ficha tasasFiscal;
         private OOB.LibCompra.Concepto.Ficha conceptoCompra;
 
@@ -46,6 +47,7 @@ namespace ModCompra.Documento.Cargar.Factura
             gestionPrdBuscar = new GestionProductoBuscarFac();
             gestionTotalizar = new GestionTotalizarFac();
             gestionItem.ActualizarItemHnd +=gestionItem_ActualizarItemHnd;
+            _gestionAdmDoc = new Administrador.Gestion();
         }
 
         private void gestionItem_ActualizarItemHnd(object sender, EventArgs e)
@@ -87,6 +89,13 @@ namespace ModCompra.Documento.Cargar.Factura
                 return false;
             }
 
+            var r04 = Sistema.MyData.Configuracion_TasaCambioActual ();
+            if (r04.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r04.Mensaje);
+                return false;
+            }
+
             var mt = Controlador.GestionProductoBuscar.metodoBusqueda.SinDefinir;
             switch (r01.Entidad)
             {
@@ -103,6 +112,7 @@ namespace ModCompra.Documento.Cargar.Factura
             gestionPrdBuscar.setMetodoBusqueda(mt);
             tasasFiscal = r02.Entidad;
             conceptoCompra = r03.Entidad;
+            gestionDoc.setFactorCambio(r04.Entidad);
 
             return rt;
         }
@@ -627,6 +637,58 @@ namespace ModCompra.Documento.Cargar.Factura
                 gestionItem.setCargoFinal(gestionTotalizar.Cargo);
                 gestionDoc.setNotas(gestionTotalizar.Notas);
                 Guardar();
+            }
+        }
+
+        public void AdmDocumentos()
+        {
+            if (!gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Alerta("Debe Primero Hacer Click En Nuevo Documento");
+                return;
+            }
+
+            var r00 = Sistema.MyData.Permiso_AdmDoc(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionAdmDoc.setGestion(new Administrador.Documentos.Gestion());
+                _gestionAdmDoc.setActivarSeleccionItem(true);
+                _gestionAdmDoc.Inicializa();
+                _gestionAdmDoc.Inicia();
+
+                if (_gestionAdmDoc.ItemSeleccionadoIsOk)
+                {
+                    if (_gestionAdmDoc.ItemSeleccionado != null)
+                    {
+                        if (gestionItem.TotalMonto != 0.0m || gestionItem.TItems != 0)
+                        {
+                            Helpers.Msg.Error("Para Importar Data de un Documento, no deben haber Items Cargados");
+                            return;
+                        }
+
+                        if (_gestionAdmDoc.ItemSeleccionado.CodigoDoc!="01")
+                        {
+                            Helpers.Msg.Error("Tipo Documento Incorrecto Para Importar");
+                            return;
+                        }
+
+                        var doc = _gestionAdmDoc.ItemSeleccionado.AutoDoc;
+                        var rt = Sistema.MyData.Compra_Documento_ItemImportar_GetLista(doc);
+                        if (rt.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(rt.Mensaje);
+                            return;
+                        }
+
+                        gestionItem.AgregarListaItemImportar(rt.Lista, gestionDoc.IdProveedor, gestionDoc.FactorDivisa);
+                    }
+                }
             }
         }
 

@@ -30,6 +30,18 @@ namespace ModCompra.Documento.Cargar
         public string mesRelacion { get { return fechaServidor.Month.ToString().Trim().PadLeft(2,'0'); } }
         public string anoRelacion { get { return fechaServidor.Year.ToString().Trim().PadLeft(4, '0'); } }
         public DateTime fechaVencimiento { get { return fechaEmision.AddDays(diasCredito); } }
+
+        public string idProveedor 
+        {
+            get 
+            {
+                var rt = "";
+                if (proveedor != null)
+                    rt = proveedor.identidad.auto;
+                return rt;
+            }
+        }
+
         public string ciRif 
         { 
             get 

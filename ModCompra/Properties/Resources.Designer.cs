@@ -353,6 +353,16 @@ namespace ModCompra.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_importar_archivo {
+            get {
+                object obj = ResourceManager.GetObject("bt_importar_archivo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_imprimir {
             get {
                 object obj = ResourceManager.GetObject("bt_imprimir", resourceCulture);

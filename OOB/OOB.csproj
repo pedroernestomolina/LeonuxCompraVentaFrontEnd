@@ -105,6 +105,7 @@
     <Compile Include="LibCompra\Documento\Enumerados.cs" />
     <Compile Include="LibCompra\Documento\GetData\Ficha.cs" />
     <Compile Include="LibCompra\Documento\GetData\FichaDetalle.cs" />
+    <Compile Include="LibCompra\Documento\ListaItemImportar\Ficha.cs" />
     <Compile Include="LibCompra\Documento\ListaRemision\Ficha.cs" />
     <Compile Include="LibCompra\Documento\ListaRemision\Filtro.cs" />
     <Compile Include="LibCompra\Documento\Lista\Ficha.cs" />

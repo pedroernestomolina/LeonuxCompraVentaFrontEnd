@@ -341,6 +341,11 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             }
         }
 
+
+        public void AgregarListaItemImportar(List<OOB.LibCompra.Documento.ListaItemImportar.Ficha> list, string idPrv, decimal factorDivisa)
+        {
+        }
+
     }
 
 }

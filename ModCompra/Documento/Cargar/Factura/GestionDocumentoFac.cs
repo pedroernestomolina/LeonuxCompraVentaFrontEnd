@@ -36,6 +36,7 @@ namespace ModCompra.Documento.Cargar.Factura
         public string MesRelacion { get { return data.mesRelacion; }  }
         public string AnoRelacion { get { return data.anoRelacion; }  }
         public DateTime FechaVencimiento { get { return data.fechaVencimiento; }  }
+        public string IdProveedor { get { return data.idProveedor; } }
         public string RifProveedor { get { return data.ciRif; }  }
         public string RazonSocialProveedor { get { return data.nombreRazonSocial; }  }
         public string DireccionProveedor { get { return data.direccionFiscal; }  }
@@ -260,6 +261,12 @@ namespace ModCompra.Documento.Cargar.Factura
         public void setFormulario(Formulario.DatosDocumentoFrm frm)
         {
             _frm = frm;
+        }
+
+        public void setFactorCambio(decimal p)
+        {
+            _tasaCambio = p;
+            data.setFactorDivisa(p);
         }
 
     }

@@ -18,6 +18,7 @@ namespace ModCompra.Administrador.Documentos
         public string AutoDoc { get { return rg.auto; } }
         public DateTime Fecha { get { return rg.fechaEmision; } }
         public string NombreDoc { get { return rg.tipoDocNombre; } }
+        public string CodigoDoc { get { return rg.codigoTipo; } }
         public string Documento { get { return rg.documentoNro; } }
         public string Control { get { return rg.ControlNro; } }
         public DateTime FechaReg { get { return rg.fechaRegistro; } }

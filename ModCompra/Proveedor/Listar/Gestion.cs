@@ -98,6 +98,12 @@ namespace ModCompra.Proveedor.Listar
             frm.Hide();
         }
 
+        public void Inicializa()
+        {
+            ItemSeleccionado = null;
+            list.Clear();
+        }
+
     }
 
 }

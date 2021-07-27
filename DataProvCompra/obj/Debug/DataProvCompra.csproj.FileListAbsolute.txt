@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\DataProvCompra.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\DataProvCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\DtoLib.dll
@@ -7,6 +6,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\ServiceCompra.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\ILibCompras.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\ProvLibCompra.dll
+D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\LibEntityCompra.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvCompra\bin\Debug\DtoLib.pdb

@@ -427,6 +427,37 @@ namespace ModCompra.Documento.Cargar.Formulario
             _controlador.Totalizar();
         }
 
+        private void BT_IMPORTAR_DOC_Click(object sender, EventArgs e)
+        {
+            ImportarDoc();
+        }
+
+        private void ImportarDoc()
+        {
+            _controlador.ImportarDoc();
+            ActualizarDatosTotales();
+            DGV.Refresh();
+            IniciarBusqueda();
+        }
+
+        private void BT_EDITAR_DOC_Click(object sender, EventArgs e)
+        {
+            EditarDoc();
+        }
+
+        private void EditarDoc()
+        {
+            _controlador.EditarDoc();
+        }
+
+        private void DGV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete) 
+            {
+                EliminarItem();
+            }
+        }
+
     }
 
 }

@@ -415,6 +415,7 @@ namespace DataProvCompra.Data
                 Hasta = filtro.Hasta,
                 CodigoSuc = filtro.CodigoSuc,
                 TipoDocumento = (DtoLibCompra.Enumerados.enumTipoDocumento)filtro.TipoDocumento,
+                idProveedor=filtro.idProveedor,
             };
             var r01 = MyData.Compra_DocumentoGetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -908,6 +909,56 @@ namespace DataProvCompra.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
+
+            return rt;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCompra.Documento.ListaItemImportar.Ficha> Compra_Documento_ItemImportar_GetLista(string autoDoc)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCompra.Documento.ListaItemImportar.Ficha>();
+
+            var r01 = MyData.Compra_Documento_ItemImportar_GetLista(autoDoc);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCompra.Documento.ListaItemImportar.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.LibCompra.Documento.ListaItemImportar.Ficha()
+                        {
+                            categoria = s.categoria,
+                            cntFactura = s.cntFactura,
+                            codRefProv = s.codRefProv,
+                            contenidoEmp = s.contenidoEmp,
+                            decimales = s.decimales,
+                            dscto1p = s.dscto1p,
+                            dscto2p = s.dscto2p,
+                            dscto3p = s.dscto3p,
+                            empaqueCompra = s.empaqueCompra,
+                            estatusUnidad = s.estatusUnidad,
+                            prdAuto = s.prdAuto,
+                            prdAutoDepartamento = s.prdAutoDepartamento,
+                            prdAutoGrupo = s.prdAutoGrupo,
+                            prdAutoSubGrupo = s.prdAutoSubGrupo,
+                            prdAutoTasaIva = s.prdAutoTasaIva,
+                            prdCodigo = s.prdCodigo,
+                            prdNombre = s.prdNombre,
+                            precioFactura = s.precioFactura,
+                            tasaIva = s.tasaIva,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
 
             return rt;
         }

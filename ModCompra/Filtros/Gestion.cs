@@ -22,6 +22,9 @@ namespace ModCompra.Filtros
         public data DataFiltrar { get { return aFiltrar; } }
         public BindingSource SucursalSource { get { return bsSucursal; } }
         public BindingSource TipoDocSource { get { return bsTipoDoc; } }
+        public string Proveedor { get { return aFiltrar.Proveedor; } }
+        public DateTime FechaDesde { get { return aFiltrar.FechaDesde; } }
+        public DateTime FechaHasta { get { return aFiltrar.FechaHasta; } }
 
 
         public Gestion()
@@ -90,6 +93,11 @@ namespace ModCompra.Filtros
         public void setTipoDoc(string id)
         {
             aFiltrar.setTipoDoc(lTipoDoc.FirstOrDefault(f => f.id == id));
+        }
+
+        public void setProveedor(OOB.LibCompra.Proveedor.Data.Ficha prv)
+        {
+            aFiltrar.setProveedor(prv);
         }
 
     }

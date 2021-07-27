@@ -11,6 +11,7 @@ namespace OOB.LibCompra.Producto.Data
     public class Ficha
     {
 
+
         public string auto { get; set; }
         public string autoDepartamento { get; set; }
         public string autoMarca { get; set; }
@@ -97,7 +98,6 @@ namespace OOB.LibCompra.Producto.Data
             autoMarca = "";
             autoTasa = "";
             autoSubGrupo = "";
-
             codigo = "";
             nombre = "";
             descripcion = "";
@@ -131,6 +131,22 @@ namespace OOB.LibCompra.Producto.Data
             nombre = it.prdNombre;
             descripcion = it.prdNombre;
             contenidoCompra = it.contenido ;
+            tasaIva = it.tasaIva;
+            empaqueCompra = it.empaqueCompra;
+            decimales = it.decimales;
+            categoria = it.categoria;
+        }
+
+        public Ficha(Documento.ListaItemImportar.Ficha it): this()
+        {
+            auto = it.prdAuto;
+            autoDepartamento = it.prdAutoDepartamento;
+            autoGrupo = it.prdAutoGrupo;
+            autoTasa = it.prdAutoTasaIva;
+            codigo = it.prdCodigo;
+            nombre = it.prdNombre;
+            descripcion = it.prdNombre;
+            contenidoCompra = it.contenidoEmp ;
             tasaIva = it.tasaIva;
             empaqueCompra = it.empaqueCompra;
             decimales = it.decimales;

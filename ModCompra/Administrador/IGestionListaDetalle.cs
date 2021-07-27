@@ -23,6 +23,8 @@ namespace ModCompra.Administrador
         void Imprimir();
         void setLista(List<OOB.LibCompra.Documento.Lista.Ficha> list);
         void CorrectorDocumento();
+        Documentos.data ItemActual { get; }
+        void Inicializa();
 
     }
 

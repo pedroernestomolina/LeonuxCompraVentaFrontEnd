@@ -24,6 +24,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         string MesRelacion { get; }
         string AnoRelacion { get; }
         DateTime FechaVencimiento { get; }
+        string IdProveedor { get; }
         string RifProveedor { get; }
         string RazonSocialProveedor { get; }
         string DireccionProveedor { get; }
@@ -56,6 +57,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         void Limpiar();
         void setNotas(string p);
         void setFormulario(Formulario.DatosDocumentoFrm frm);
+        void setFactorCambio(decimal p);
 
     }
 

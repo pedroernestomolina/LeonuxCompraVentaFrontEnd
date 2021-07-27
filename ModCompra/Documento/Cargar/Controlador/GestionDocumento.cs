@@ -26,6 +26,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string IdDeposito { get { return _gestion.IdDeposito; } set { _gestion.IdDeposito = value; } } 
         public string MesRelacion { get { return _gestion.MesRelacion; } }
         public string AnoRelacion { get { return _gestion.AnoRelacion; } }
+        public string IdProveedor { get { return _gestion.IdProveedor; } }
         public string RifProveedor { get { return _gestion.RifProveedor; } }
         public string RazonSocialProveedor { get { return _gestion.RazonSocialProveedor; } }
         public string DireccionProveedor { get { return _gestion.DireccionProveedor; } } 

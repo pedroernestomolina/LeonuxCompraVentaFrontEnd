@@ -593,6 +593,12 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             }
         }
 
+        public void AdmDocumentos()
+        {
+            Helpers.Msg.Alerta("FUNCION NO IMPLEMENTADA PARA ESTE TIPO DE DOCUMENTO");
+            return;
+        }
+
     }
 
 }

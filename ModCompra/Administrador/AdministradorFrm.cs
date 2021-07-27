@@ -38,6 +38,7 @@ namespace ModCompra.Administrador
             var f1 = new Font("Serif", 8, FontStyle.Regular);
             var f2 = new Font("Serif", 10, FontStyle.Bold);
 
+            DGV.Columns.Clear();
             DGV.AllowUserToAddRows = false;
             DGV.AllowUserToDeleteRows = false;
             DGV.AutoGenerateColumns = false;
@@ -208,6 +209,10 @@ namespace ModCompra.Administrador
 
         private void AdministradorFrm_Load(object sender, EventArgs e)
         {
+            DTP_DESDE.Value = _controlador.FechaDesde;
+            DTP_HASTA.Value = _controlador.FechaHasta;
+            TB_CADENA_BUS_PROV.Text = _controlador.Proveedor;
+
             CB_SUCURSAL.DataSource = _controlador.SucursalSource;
             CB_SUCURSAL.SelectedIndex = -1;
             CB_TIPO_DOC.DataSource = _controlador.TipoDocSource;
@@ -317,6 +322,8 @@ namespace ModCompra.Administrador
             DTP_HASTA.Value = DateTime.Now;
             CB_SUCURSAL.SelectedIndex = -1;
             CB_TIPO_DOC.SelectedIndex = -1;
+            TB_CADENA_BUS_PROV.Text = "";
+            LimpiarProveedor();
         }
 
         private void BT_LIMPIAR_DATA_Click(object sender, EventArgs e)
@@ -363,6 +370,47 @@ namespace ModCompra.Administrador
         private void CorrectorDocumentos()
         {
             _controlador.CorrectorDocumentos();
+        }
+
+        private void BT_BUSCAR_PROVEEDOR_Click(object sender, EventArgs e)
+        {
+            BuscarProveedor();
+        }
+
+        private void BuscarProveedor()
+        {
+            _controlador.BuscarProveedor();
+            TB_CADENA_BUS_PROV.Text = _controlador.Proveedor;
+        }
+
+        private void TB_CADENA_BUS_PROV_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCadenaBusProv(TB_CADENA_BUS_PROV.Text.Trim().ToUpper());
+        }
+
+        private void L_PROVEEDOR_Click(object sender, EventArgs e)
+        {
+            LimpiarProveedor();
+        }
+
+        private void LimpiarProveedor()
+        {
+            TB_CADENA_BUS_PROV.Text = "";
+            _controlador.setCadenaBusProv("");
+            _controlador.LimpiarProveedor();
+        }
+
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1)
+            {
+                SeleccionarItem();
+            }
+        }
+
+        private void SeleccionarItem()
+        {
+            _controlador.SeleccionarItem();
         }
 
     }

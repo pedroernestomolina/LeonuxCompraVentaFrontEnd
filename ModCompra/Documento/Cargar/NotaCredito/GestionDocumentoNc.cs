@@ -290,6 +290,15 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             _frm = frm;
         }
 
+        public string IdProveedor
+        {
+            get { return ""; }
+        }
+
+        public void setFactorCambio(decimal p)
+        {
+        }
+
     }
 
 }

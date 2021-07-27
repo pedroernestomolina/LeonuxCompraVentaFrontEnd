@@ -17,7 +17,6 @@ namespace ModCompra.Documento.Cargar.Controlador
         private GestionItem _gestionItem;
         private GestionTotalizar _gestionTotalizar;
 
-
         //
         public System.Drawing.Color ColorFondoDocumento { get { return _gestion.ColorFondoDocumento; } }
         public string TituloDocumento { get { return _gestion.TituloDocumento; } }
@@ -160,36 +159,20 @@ namespace ModCompra.Documento.Cargar.Controlador
         public void Totalizar()
         {
             _gestion.Totalizar();
+        }
 
-            //if (!_gestionDoc.IsAceptarOk)
-            //{
-            //    Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
-            //    return;
-            //}
+        public void ImportarDoc()
+        {
+            AdmDocumentos();
+        }
 
-            //if (_gestionItem.TItems == 0)
-            //{
-            //    Helpers.Msg.Error("No Hay Items Que Procesar !!!");
-            //    return;
-            //}
+        private void AdmDocumentos()
+        {
+            _gestion.AdmDocumentos();
+        }
 
-            //if (_gestionItem.TotalMonto == 0.0m)
-            //{
-            //    Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
-            //    return;
-            //}
-
-            //_gestionTotalizar.SetMonto(_gestionItem.TotalMonto);
-            //_gestionTotalizar.SetNotas(_gestionDoc.Notas);
-            //_gestionTotalizar.DsctoCargo();
-            //_gestionTotalizar.Inicia();
-            //if (_gestionTotalizar.IsOk)
-            //{
-            //    _gestionItem.setDescuentoFinal(_gestionTotalizar.Dscto);
-            //    _gestionItem.setCargoFinal(_gestionTotalizar.Cargo);
-            //    _gestionDoc.setNotas(_gestionTotalizar.Notas);
-            //    _gestion.Guardar();
-            //}
+        public void EditarDoc()
+        {
         }
 
     }

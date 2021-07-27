@@ -23,6 +23,10 @@ namespace ModCompra.Administrador.Documentos
         public BindingSource ItemsSource { get { return bs; } }
         public string ItemsEncontrados { get { return string.Format("Items Encontrados: {0}", bs.Count); } }
         public data Item { get; set; }
+        public data ItemActual
+        {
+            get { return Item; }
+        }
 
 
         public GestionListaDetalle()
@@ -196,6 +200,12 @@ namespace ModCompra.Administrador.Documentos
                     _corrector.Inicia();
                 }
             }
+        }
+
+        public void Inicializa()
+        {
+            bl.Clear();
+            bs.CurrencyManager.Refresh();
         }
 
     }

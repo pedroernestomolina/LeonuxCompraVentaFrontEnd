@@ -963,6 +963,83 @@ namespace DataProvCompra.Data
             return rt;
         }
 
+        public OOB.Resultado Compra_Documento_Pendiente_Agregar(OOB.LibCompra.Documento.Pendiente.Agregar.Ficha ficha)
+        {
+            var result = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibCompra.Documento.Pendiente.Agregar.Ficha()
+            {
+                docFactorCambio = ficha.docFactorCambio,
+                docItemsNro = ficha.docItemsNro,
+                docMonto = ficha.docMonto,
+                docMontoDivisa = ficha.docMontoDivisa,
+                docNombre = ficha.docNombre,
+                docTipo = ficha.docTipo,
+                docNumero = ficha.docNumero,
+                docControl = ficha.docControl,
+                entidadCiRif = ficha.entidadCiRif,
+                entidadNombre = ficha.entidadNombre,
+                usuarioId = ficha.usuarioId,
+                usuarioNombre = ficha.usuarioNombre,
+                items = ficha.items.Select(s =>
+                {
+                    var rg = new DtoLibCompra.Documento.Pendiente.Agregar.FichaDetalle()
+                    {
+                        categoria = s.categoria,
+                        cntFactura = s.cntFactura,
+                        codRefProv = s.codRefProv,
+                        contenidoEmp = s.contenidoEmp,
+                        decimales = s.decimales,
+                        dscto1p = s.dscto1p,
+                        dscto2p = s.dscto2p,
+                        dscto3p = s.dscto3p,
+                        empaqueCompra = s.empaqueCompra,
+                        estatusUnidad = s.estatusUnidad,
+                        prdAuto = s.prdAuto,
+                        prdAutoDepartamento = s.prdAutoDepartamento,
+                        prdAutoGrupo = s.prdAutoGrupo,
+                        prdAutoSubGrupo = s.prdAutoSubGrupo,
+                        prdAutoTasaIva = s.prdAutoTasaIva,
+                        prdCodigo = s.prdCodigo,
+                        prdNombre = s.prdNombre,
+                        precioFactura = s.precioFactura,
+                        tasaIva = s.tasaIva,
+                    };
+                    return rg;
+                }).ToList(),
+            };
+            var r01 = MyData.Compra_Documento_Pendiente_Agregar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        public OOB.ResultadoEntidad<int> Compra_Documento_Pendiente_Cnt(OOB.LibCompra.Documento.Pendiente.Filtro.Ficha filtro)
+        {
+            var result = new OOB.ResultadoEntidad<int>();
+
+            var fichaDTO = new DtoLibCompra.Documento.Pendiente.Filtro.Ficha()
+            {
+                idUsuario = filtro.idUsuario,
+                docTipo = filtro.docTipo,
+            };
+            var r01 = MyData.Compra_Documento_Pendiente_Cnt(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Enumerados.EnumResult.isError;
+                return result;
+            }
+            result.Entidad = r01.Entidad;
+
+            return result;
+        }
+
     }
 
 }

@@ -55,6 +55,9 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string Item_EmpaqueCont { get { return _gestionItem.Item_EmpaqueCont; } }
         public string Item_CodRefPrv { get { return _gestionItem.Item_CodRefPrv; } }
         public decimal Item_Dscto { get { return _gestionItem.Item_Dscto; } }
+        //
+        public bool DejarPendienteIsOk { get { return _gestion.DejarPendienteIsOk; } }
+        public string CntPend { get { return _gestion.CntPend; } }
 
 
         public Gestion()
@@ -173,6 +176,16 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         public void EditarDoc()
         {
+        }
+
+        public void DejarPendiente()
+        {
+            _gestion.DejarPendiente();
+        }
+
+        public void AbrirPendiente()
+        {
+            _gestion.AbrirPendiente();
         }
 
     }

@@ -36,6 +36,8 @@
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BT_TOTALIZAR = new System.Windows.Forms.Button();
+            this.panel37 = new System.Windows.Forms.Panel();
+            this.BT_PENDIENTE_DEJAR = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,6 +48,7 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.BT_IMPORTAR_DOC = new System.Windows.Forms.Button();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.BT_PENDIENTE_ABRIR = new System.Windows.Forms.Button();
             this.panel38 = new System.Windows.Forms.Panel();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
@@ -206,12 +209,14 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel37.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel23.SuspendLayout();
+            this.panel36.SuspendLayout();
             this.panel40.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -353,6 +358,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel1.Controls.Add(this.panel4, 7, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel37, 5, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -415,6 +421,33 @@
             this.BT_TOTALIZAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_TOTALIZAR.UseVisualStyleBackColor = true;
             this.BT_TOTALIZAR.Click += new System.EventHandler(this.BT_TOTALIZAR_Click);
+            // 
+            // panel37
+            // 
+            this.panel37.Controls.Add(this.BT_PENDIENTE_DEJAR);
+            this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel37.Location = new System.Drawing.Point(706, 1);
+            this.panel37.Margin = new System.Windows.Forms.Padding(1);
+            this.panel37.Name = "panel37";
+            this.panel37.Padding = new System.Windows.Forms.Padding(2);
+            this.panel37.Size = new System.Drawing.Size(139, 49);
+            this.panel37.TabIndex = 2;
+            // 
+            // BT_PENDIENTE_DEJAR
+            // 
+            this.BT_PENDIENTE_DEJAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_PENDIENTE_DEJAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PENDIENTE_DEJAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PENDIENTE_DEJAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
+            this.BT_PENDIENTE_DEJAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PENDIENTE_DEJAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_PENDIENTE_DEJAR.Name = "BT_PENDIENTE_DEJAR";
+            this.BT_PENDIENTE_DEJAR.Size = new System.Drawing.Size(135, 45);
+            this.BT_PENDIENTE_DEJAR.TabIndex = 6;
+            this.BT_PENDIENTE_DEJAR.Text = "Pendiente";
+            this.BT_PENDIENTE_DEJAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_PENDIENTE_DEJAR.UseVisualStyleBackColor = true;
+            this.BT_PENDIENTE_DEJAR.Click += new System.EventHandler(this.BT_PENDIENTE_DEJAR_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -551,6 +584,7 @@
             // 
             // panel36
             // 
+            this.panel36.Controls.Add(this.BT_PENDIENTE_ABRIR);
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel36.Location = new System.Drawing.Point(484, 1);
             this.panel36.Margin = new System.Windows.Forms.Padding(1);
@@ -558,6 +592,21 @@
             this.panel36.Padding = new System.Windows.Forms.Padding(2);
             this.panel36.Size = new System.Drawing.Size(159, 36);
             this.panel36.TabIndex = 3;
+            // 
+            // BT_PENDIENTE_ABRIR
+            // 
+            this.BT_PENDIENTE_ABRIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PENDIENTE_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PENDIENTE_ABRIR.Image = global::ModCompra.Properties.Resources.bt_importar_archivo;
+            this.BT_PENDIENTE_ABRIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PENDIENTE_ABRIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_PENDIENTE_ABRIR.Name = "BT_PENDIENTE_ABRIR";
+            this.BT_PENDIENTE_ABRIR.Size = new System.Drawing.Size(155, 32);
+            this.BT_PENDIENTE_ABRIR.TabIndex = 5;
+            this.BT_PENDIENTE_ABRIR.Text = "Abrir Pendiendte";
+            this.BT_PENDIENTE_ABRIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_PENDIENTE_ABRIR.UseVisualStyleBackColor = true;
+            this.BT_PENDIENTE_ABRIR.Click += new System.EventHandler(this.BT_PENDIENTE_ABRIR_Click);
             // 
             // panel38
             // 
@@ -2501,12 +2550,14 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel37.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel23.ResumeLayout(false);
+            this.panel36.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -2783,5 +2834,8 @@
         private System.Windows.Forms.Label L_SUCURSAL;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label L_DEPOSITO;
+        private System.Windows.Forms.Panel panel37;
+        private System.Windows.Forms.Button BT_PENDIENTE_DEJAR;
+        private System.Windows.Forms.Button BT_PENDIENTE_ABRIR;
     }
 }

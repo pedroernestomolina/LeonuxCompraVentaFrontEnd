@@ -21,7 +21,8 @@ namespace DataProvCompra.InfraEstructura
         OOB.Resultado Compra_DocumentoAnularNotaCredito(OOB.LibCompra.Documento.Anular.NotaCredito.Ficha ficha);
         OOB.Resultado Compra_DocumentoCorrector(OOB.LibCompra.Documento.Corrector.Ficha ficha);
         OOB.ResultadoLista<OOB.LibCompra.Documento.ListaItemImportar.Ficha> Compra_Documento_ItemImportar_GetLista(string autoDoc);
-
+        OOB.Resultado Compra_Documento_Pendiente_Agregar(OOB.LibCompra.Documento.Pendiente.Agregar.Ficha ficha);
+        OOB.ResultadoEntidad<int> Compra_Documento_Pendiente_Cnt (OOB.LibCompra.Documento.Pendiente.Filtro.Ficha filtro);
 
     }
 

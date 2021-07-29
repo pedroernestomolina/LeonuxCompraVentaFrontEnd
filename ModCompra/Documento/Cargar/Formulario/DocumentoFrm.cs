@@ -197,6 +197,7 @@ namespace ModCompra.Documento.Cargar.Formulario
             DGV.Columns[2].Frozen = true;
             DGV.Columns[3].Visible = _controlador.VisualizarColDevolucion;
             DGV.DataSource = _controlador.ItemSource;
+            BT_PENDIENTE_DEJAR.Text = "Pendiente " + _controlador.CntPend;
         }
 
         private void Inicializar_1()
@@ -272,6 +273,7 @@ namespace ModCompra.Documento.Cargar.Formulario
 
         private void ActualizarDatosDocumento()
         {
+            BT_PENDIENTE_DEJAR.Text = "Pendiente " + _controlador.CntPend;
             L_PROVEEDOR.Text = _controlador.Proveedor;
             L_FECHA_EMISION.Text = _controlador.FechaEmision.ToShortDateString();
             L_DOCUMENTO.Text = _controlador.DocumentoNro;
@@ -456,6 +458,33 @@ namespace ModCompra.Documento.Cargar.Formulario
             {
                 EliminarItem();
             }
+        }
+
+        private void BT_PENDIENTE_DEJAR_Click(object sender, EventArgs e)
+        {
+            DejarPendiente();
+        }
+
+        private void DejarPendiente()
+        {
+            _controlador.DejarPendiente();
+            if (_controlador.DejarPendienteIsOk) 
+            {
+                ActualizarDatosDocumento();
+                ActualizarDatosTotales();
+                DGV.Refresh();
+                IniciarBusqueda();
+            }
+        }
+
+        private void BT_PENDIENTE_ABRIR_Click(object sender, EventArgs e)
+        {
+            AbrirPendiente();
+        }
+
+        private void AbrirPendiente()
+        {
+            _controlador.AbrirPendiente();
         }
 
     }

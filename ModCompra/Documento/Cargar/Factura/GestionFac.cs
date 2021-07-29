@@ -22,6 +22,8 @@ namespace ModCompra.Documento.Cargar.Factura
         private Administrador.Gestion _gestionAdmDoc;
         private OOB.LibCompra.Empresa.Fiscal.Ficha tasasFiscal;
         private OOB.LibCompra.Concepto.Ficha conceptoCompra;
+        private bool _dejarPendienteIsOk;
+        private int _cntPend;
 
 
         public Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get { return gestionPrdBuscar.MetodoBusquedaProducto; } }
@@ -37,10 +39,14 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public string TituloDocumento { get { return "Entrada Documento: ( FACTURA )"; } }
         public System.Drawing.Color ColorFondoDocumento { get { return System.Drawing.Color.Green; } }
-
+        public bool DejarPendienteIsOk { get { return _dejarPendienteIsOk; } }
+        public string CntPend { get { return "(" + _cntPend.ToString("n0") + ")"; } }
+        
 
         public GestionFac()
         {
+            _cntPend = 0;
+            _dejarPendienteIsOk = false;
             SalidaOk = false;
             gestionDoc= new GestionDocumentoFac();
             gestionItem = new GestionItemFac();
@@ -61,6 +67,8 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public void Inicializar() 
         {
+            _cntPend = 0;
+            _dejarPendienteIsOk = false;
             SalidaOk = false;
         }
 
@@ -95,6 +103,19 @@ namespace ModCompra.Documento.Cargar.Factura
                 Helpers.Msg.Error(r04.Mensaje);
                 return false;
             }
+
+            var filtro = new OOB.LibCompra.Documento.Pendiente.Filtro.Ficha()
+            {
+                docTipo = "01",
+                idUsuario = Sistema.UsuarioP.autoUsu,
+            };
+            var r05 = Sistema.MyData.Compra_Documento_Pendiente_Cnt(filtro);
+            if (r05.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r05.Mensaje);
+                return false;
+            }
+            _cntPend = r05.Entidad;
 
             var mt = Controlador.GestionProductoBuscar.metodoBusqueda.SinDefinir;
             switch (r01.Entidad)
@@ -690,6 +711,107 @@ namespace ModCompra.Documento.Cargar.Factura
                     }
                 }
             }
+        }
+
+        public void DejarPendiente()
+        {
+            if (!gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Error("Datos Del Documento Incorrectos !!!");
+                return;
+            }
+            if (gestionItem.TItems == 0)
+            {
+                Helpers.Msg.Error("No Hay Items Que Procesar !!!");
+                return;
+            }
+            if (gestionItem.TotalMonto == 0.0m)
+            {
+                Helpers.Msg.Error("Monto del Documento Incorrecto !!!");
+                return;
+            }
+
+            var msg = MessageBox.Show("Dejar Documento En Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes) 
+            {
+                if (CrearPendiente())
+                {
+                    _dejarPendienteIsOk = true;
+                    gestionItem.Limpiar();
+                    gestionDoc.Limpiar();
+
+                    var filtro = new OOB.LibCompra.Documento.Pendiente.Filtro.Ficha()
+                    {
+                        docTipo = "01",
+                        idUsuario = Sistema.UsuarioP.autoUsu,
+                    };
+                    var r01 = Sistema.MyData.Compra_Documento_Pendiente_Cnt(filtro);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _cntPend = r01.Entidad;
+                }
+            }
+        }
+
+        private bool CrearPendiente()
+        {
+            var ficha = new OOB.LibCompra.Documento.Pendiente.Agregar.Ficha()
+            {
+                docFactorCambio = gestionDoc.FactorDivisa,
+                docItemsNro = gestionItem.TItems,
+                docMonto = gestionItem.TotalMonto,
+                docMontoDivisa = gestionItem.MontoDivisa,
+                docNombre = "COMPRAS",
+                docTipo = "01",
+                docControl = gestionDoc.ControlNro,
+                docNumero = gestionDoc.DocumentoNro,
+                entidadCiRif = gestionDoc.Proveedor.ciRif,
+                entidadNombre = gestionDoc.Proveedor.nombreRazonSocial,
+                usuarioId = Sistema.UsuarioP.autoUsu,
+                usuarioNombre = Sistema.UsuarioP.nombreUsu,
+            };
+            var items = new List<OOB.LibCompra.Documento.Pendiente.Agregar.FichaDetalle>();
+            foreach (dataItem it in gestionItem.Lista)
+            {
+                var item = new OOB.LibCompra.Documento.Pendiente.Agregar.FichaDetalle()
+                {
+                    categoria = it.Producto.categoria,
+                    cntFactura = it.cantidad,
+                    codRefProv = it.CodRefPrv,
+                    contenidoEmp = it.Producto.contenidoCompra,
+                    decimales = it.Producto.decimales,
+                    dscto1p = it.dsct_1_p,
+                    dscto2p = it.dsct_2_p,
+                    dscto3p = it.dsct_3_p,
+                    empaqueCompra = it.ProductoEmpaqueDesc,
+                    prdAuto = it.Producto.auto,
+                    prdAutoDepartamento = it.Producto.autoDepartamento,
+                    prdAutoGrupo = it.Producto.autoGrupo,
+                    prdAutoSubGrupo = it.Producto.autoSubGrupo,
+                    prdAutoTasaIva = it.Producto.autoTasa,
+                    prdCodigo = it.Producto.codigo,
+                    prdNombre = it.Producto.descripcion,
+                    precioFactura = it.costoMoneda,
+                    tasaIva = it.Producto.tasaIva,
+                };
+                items.Add(item);
+            }
+            ficha.items = items;
+
+            var r01 = Sistema.MyData.Compra_Documento_Pendiente_Agregar(ficha);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            return true;
+        }
+
+        public void AbrirPendiente()
+        {
         }
 
     }

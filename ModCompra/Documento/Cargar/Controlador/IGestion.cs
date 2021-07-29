@@ -19,9 +19,9 @@ namespace ModCompra.Documento.Cargar.Controlador
         bool SalidaOk { get; }
         Controlador.GestionProductoBuscar.metodoBusqueda MetodoBusquedaProducto { get; }
         bool VisualizarColDevolucion { get; }
-
-
+        bool DejarPendienteIsOk { get; }
         string CadenaPrdBuscar { get; set; }
+        string CntPend { get; }
 
 
         IGestionDocumento GestionDoc { get; }
@@ -41,6 +41,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         void CargarItems();
         void Totalizar();
         void AdmDocumentos();
+        void DejarPendiente();
+        void AbrirPendiente();
 
     }
 

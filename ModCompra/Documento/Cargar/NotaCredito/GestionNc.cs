@@ -32,6 +32,7 @@ namespace ModCompra.Documento.Cargar.NotaCredito
 
         public string CadenaPrdBuscar { get { return gestionPrdBuscar.CadenaPrdBuscar; } set { gestionPrdBuscar.CadenaPrdBuscar = value; } }
         public bool SalidaOk { get; set; }
+        public bool DejarPendienteIsOk { get { return false; } }
 
 
         public string TituloDocumento { get { return "Entrada Documento: ( NOTA DE CREDITO )"; } }
@@ -599,6 +600,18 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             return;
         }
 
+        public void DejarPendiente()
+        {
+        }
+
+        public void AbrirPendiente()
+        {
+        }
+
+        public string CntPend
+        {
+            get { return ""; }
+        }
     }
 
 }

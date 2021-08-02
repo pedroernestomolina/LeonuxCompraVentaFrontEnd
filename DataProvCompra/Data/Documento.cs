@@ -981,6 +981,15 @@ namespace DataProvCompra.Data
                 entidadNombre = ficha.entidadNombre,
                 usuarioId = ficha.usuarioId,
                 usuarioNombre = ficha.usuarioNombre,
+                autoDeposito = ficha.autoDeposito,
+                autoSucursal = ficha.autoSucursal,
+                docDiasCredito = ficha.docDiasCredito,
+                docFechaEmision = ficha.docFechaEmision,
+                docNotas = ficha.docNotas,
+                docOrdenCompra = ficha.docOrdenCompra,
+                entidadAuto = ficha.entidadAuto,
+                entidadCodigo = ficha.entidadCodigo,
+                entidadDirFiscal = ficha.entidadDirFiscal,
                 items = ficha.items.Select(s =>
                 {
                     var rg = new DtoLibCompra.Documento.Pendiente.Agregar.FichaDetalle()
@@ -1038,6 +1047,137 @@ namespace DataProvCompra.Data
             result.Entidad = r01.Entidad;
 
             return result;
+        }
+
+        public OOB.ResultadoLista<OOB.LibCompra.Documento.Pendiente.Lista.Ficha> Compra_Documento_Pendiente_GetLista(OOB.LibCompra.Documento.Pendiente.Filtro.Ficha filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibCompra.Documento.Pendiente.Lista.Ficha>();
+
+            var filtroDTO = new DtoLibCompra.Documento.Pendiente.Filtro.Ficha()
+            {
+                docTipo = filtro.docTipo,
+                idUsuario = filtro.idUsuario,
+            };
+            var r01 = MyData.Compra_Documento_Pendiente_GetLista(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibCompra.Documento.Pendiente.Lista.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.LibCompra.Documento.Pendiente.Lista.Ficha()
+                        {
+                            docControl = s.docControl,
+                            docFactorCambio = s.docFactorCambio,
+                            docItemsNro = s.docItemsNro,
+                            docMonto = s.docMonto,
+                            docMontoDivisa = s.docMontoDivisa,
+                            docNombre = s.docNombre,
+                            docNumero = s.docNumero,
+                            docTipo = s.docTipo,
+                            entidadCiRif = s.entidadCiRif,
+                            entidadNombre = s.entidadNombre,
+                            id = s.id,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
+        public OOB.Resultado Compra_Documento_Pendiente_Eliminar(int idDoc)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Compra_Documento_Pendiente_Eliminar(idDoc);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibCompra.Documento.Pendiente.Abrir.Ficha> Compra_Documento_Pendiente_Abrir_GetById(int idDoc)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibCompra.Documento.Pendiente.Abrir.Ficha>();
+
+            var r01 = MyData.Compra_Documento_Pendiente_Abrir(idDoc);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var ent = r01.Entidad;
+            var doc = new OOB.LibCompra.Documento.Pendiente.Abrir.Ficha()
+            {
+                docControl = ent.docControl,
+                docDiasCredito = ent.docDiasCredito,
+                docFactorCambio = ent.docFactorCambio,
+                docNumero = ent.docNumero,
+                entidadAuto = ent.entidadAuto,
+                entidadCiRif = ent.entidadCiRif,
+                entidadCodigo = ent.entidadCodigo,
+                entidadDirFiscal = ent.entidadDirFiscal,
+                entidadNombre = ent.entidadNombre,
+                autoDeposito = ent.autoDeposito,
+                autoSucursal = ent.autoSucursal,
+                docFechaEmision = ent.docFechaEmision,
+                docNotas = ent.docNotas,
+                docOrdenCompra = ent.docOrdenCompra,
+            };
+            var items = new List<OOB.LibCompra.Documento.Pendiente.Abrir.FichaDetalle>();
+            if (ent.items != null)
+            {
+                if (ent.items.Count > 0) 
+                {
+                    items = ent.items.Select(s =>
+                    {
+                        var rg = new OOB.LibCompra.Documento.Pendiente.Abrir.FichaDetalle()
+                        {
+                            categoria = s.categoria,
+                            cntFactura = s.cntFactura,
+                            codRefProv = s.codRefProv,
+                            contenidoEmp = s.contenidoEmp,
+                            decimales = s.decimales,
+                            dscto1p = s.dscto1p,
+                            dscto2p = s.dscto2p,
+                            dscto3p = s.dscto3p,
+                            empaqueCompra = s.empaqueCompra,
+                            estatusUnidad = s.estatusUnidad,
+                            prdAuto = s.prdAuto,
+                            prdAutoDepartamento = s.prdAutoDepartamento,
+                            prdAutoGrupo = s.prdAutoGrupo,
+                            prdAutoSubGrupo = s.prdAutoSubGrupo,
+                            prdAutoTasaIva = s.prdAutoTasaIva,
+                            prdCodigo = s.prdCodigo,
+                            prdNombre = s.prdNombre,
+                            precioFactura = s.precioFactura,
+                            tasaIva = s.tasaIva,
+                        };
+                        return rg;
+                    }).ToList();
+                }
+            }
+            doc.items = items;
+            rt.Entidad = doc;
+
+            return rt;
         }
 
     }

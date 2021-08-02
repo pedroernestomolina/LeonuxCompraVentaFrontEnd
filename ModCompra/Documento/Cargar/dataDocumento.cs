@@ -25,8 +25,24 @@ namespace ModCompra.Documento.Cargar
         public string ordenCompra { get; set; }
         public decimal factorDivisa { get; set; }
         public string notas { get; set; }
-        public string IdSucursal { get; set; }
-        public string IdDeposito { get; set; }
+        public string IdSucursal
+        {
+            get
+            {
+                var rt = "";
+                if (Sucursal!= null) { rt = Sucursal.auto; }
+                return rt;
+            }
+        }
+        public string IdDeposito 
+        { 
+            get 
+            {
+                var rt = "";
+                if (Deposito != null) { rt = Deposito.auto; }
+                return rt; 
+            }
+        }
         public string mesRelacion { get { return fechaServidor.Month.ToString().Trim().PadLeft(2,'0'); } }
         public string anoRelacion { get { return fechaServidor.Year.ToString().Trim().PadLeft(4, '0'); } }
         public DateTime fechaVencimiento { get { return fechaEmision.AddDays(diasCredito); } }
@@ -131,17 +147,16 @@ namespace ModCompra.Documento.Cargar
                 Helpers.Msg.Alerta("Falta Por Ingresar Campo [Control Nro]");
                 return false;
             }
-            if (IdSucursal == "")
+            if (Sucursal == null)
             {
                 Helpers.Msg.Alerta("Falta Por Ingresar Campo [Sucursal]");
                 return false;
             }
-            if (IdDeposito == "")
+            if (Deposito == null)
             {
                 Helpers.Msg.Alerta("Falta Por Ingresar Campo [Depósito]");
                 return false;
             }
-
 
             return rt;
         }
@@ -163,8 +178,41 @@ namespace ModCompra.Documento.Cargar
             ordenCompra = "";
             factorDivisa = 0.0m;
             notas = "";
-            IdDeposito = "";
-            IdSucursal = "";
+        }
+
+        public void setDocumentoNro(string p)
+        {
+            documentoNro = p;
+        }
+
+        public  void setControlNro(string p)
+        {
+            controlNro = p;
+        }
+
+        public void setFechaEmision(DateTime p)
+        {
+            this.fechaEmision = p;
+        }
+
+        public void setDiasCredito(int p)
+        {
+            this.diasCredito = p;
+        }
+
+        public void setOrdenCompra(string p)
+        {
+            this.ordenCompra = p;
+        }
+
+        public void setSucursal(OOB.LibCompra.Sucursal.Data.Ficha ficha)
+        {
+            this.Sucursal = ficha;
+        }
+
+        public void setDeposito(OOB.LibCompra.Deposito.Data.Ficha ficha)
+        {
+            this.Deposito = ficha;
         }
 
     }

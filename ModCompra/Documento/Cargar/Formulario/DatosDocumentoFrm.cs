@@ -96,16 +96,16 @@ namespace ModCompra.Documento.Cargar.Formulario
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdSucursal = "";
-            if (CB_SUCURSAL.SelectedIndex!=-1)
-                _controlador.IdSucursal = (string)CB_SUCURSAL.SelectedValue;
+            _controlador.setSucursal("");
+            if (CB_SUCURSAL.SelectedIndex != -1)
+                _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdDeposito = "";
+            _controlador.setDeposito("");
             if (CB_DEPOSITO.SelectedIndex != -1)
-                _controlador.IdDeposito= (string)CB_DEPOSITO.SelectedValue;
+                _controlador.setDeposito(CB_DEPOSITO.SelectedValue.ToString());
         }
 
 

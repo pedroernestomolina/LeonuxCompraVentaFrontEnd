@@ -20,6 +20,7 @@ namespace ModCompra.Documento.Cargar.Factura
         private Controlador.IGestionProductoBuscar gestionPrdBuscar;
         private Controlador.IGestionTotalizar gestionTotalizar;
         private Administrador.Gestion _gestionAdmDoc;
+        private Pendiente.Gestion _gestionPend;
         private OOB.LibCompra.Empresa.Fiscal.Ficha tasasFiscal;
         private OOB.LibCompra.Concepto.Ficha conceptoCompra;
         private bool _dejarPendienteIsOk;
@@ -41,6 +42,7 @@ namespace ModCompra.Documento.Cargar.Factura
         public System.Drawing.Color ColorFondoDocumento { get { return System.Drawing.Color.Green; } }
         public bool DejarPendienteIsOk { get { return _dejarPendienteIsOk; } }
         public string CntPend { get { return "(" + _cntPend.ToString("n0") + ")"; } }
+        public bool AbrirPendienteIsOk { get { return _gestionPend.IsItemSeleccionadoOk; } }
         
 
         public GestionFac()
@@ -54,6 +56,7 @@ namespace ModCompra.Documento.Cargar.Factura
             gestionTotalizar = new GestionTotalizarFac();
             gestionItem.ActualizarItemHnd +=gestionItem_ActualizarItemHnd;
             _gestionAdmDoc = new Administrador.Gestion();
+            _gestionPend = new Pendiente.Gestion();
         }
 
         private void gestionItem_ActualizarItemHnd(object sender, EventArgs e)
@@ -707,7 +710,7 @@ namespace ModCompra.Documento.Cargar.Factura
                             return;
                         }
 
-                        gestionItem.AgregarListaItemImportar(rt.Lista, gestionDoc.IdProveedor, gestionDoc.FactorDivisa);
+                        gestionItem.AgregarListaItem(rt.Lista, gestionDoc.IdProveedor, gestionDoc.FactorDivisa);
                     }
                 }
             }
@@ -772,6 +775,15 @@ namespace ModCompra.Documento.Cargar.Factura
                 entidadNombre = gestionDoc.Proveedor.nombreRazonSocial,
                 usuarioId = Sistema.UsuarioP.autoUsu,
                 usuarioNombre = Sistema.UsuarioP.nombreUsu,
+                autoDeposito = gestionDoc.IdDeposito,
+                autoSucursal = gestionDoc.IdSucursal,
+                docDiasCredito = gestionDoc.DiasCredito,
+                docFechaEmision = gestionDoc.FechaEmision,
+                docNotas = gestionDoc.Notas,
+                docOrdenCompra = gestionDoc.OrdenCompraNro,
+                entidadAuto = gestionDoc.IdProveedor,
+                entidadCodigo = gestionDoc.Proveedor.codigo,
+                entidadDirFiscal = gestionDoc.DireccionProveedor,
             };
             var items = new List<OOB.LibCompra.Documento.Pendiente.Agregar.FichaDetalle>();
             foreach (dataItem it in gestionItem.Lista)
@@ -812,6 +824,76 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public void AbrirPendiente()
         {
+            if (gestionDoc.IsAceptarOk)
+            {
+                Helpers.Msg.Error("El Documento Debe Estar Totalmente Limpio");
+                return;
+            }
+            if (gestionItem.TotalMonto != 0.0m || gestionItem.TItems != 0)
+            {
+                Helpers.Msg.Error("Para Abrir Un Documento Pendiente, no deben haber Items Cargados");
+                return;
+            }
+
+            var filtro = new OOB.LibCompra.Documento.Pendiente.Filtro.Ficha()
+            {
+                docTipo = "01",
+                idUsuario = Sistema.UsuarioP.autoUsu,
+            };
+            var r01 = Sistema.MyData.Compra_Documento_Pendiente_GetLista(filtro);
+            if (r01.Result ==  OOB.Enumerados.EnumResult.isError )
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            if (r01.Lista.Count > 0) 
+            {
+                _gestionPend.Inicializa();
+                _gestionPend.setLista(r01.Lista);
+                _gestionPend.Inicia();
+                if (_gestionPend.IsItemSeleccionadoOk) 
+                {
+                    var itemPend = _gestionPend.ItemSeleccionado;
+                    var r02 = Sistema.MyData.Compra_Documento_Pendiente_Abrir_GetById(itemPend.id);
+                    if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r02.Mensaje);
+                        return;
+                    }
+                    var r03 = Sistema.MyData.Compra_Documento_Pendiente_Eliminar(itemPend.id);
+                    if (r03.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r03.Mensaje);
+                        return;
+                    }
+                    var r04 = Sistema.MyData.Compra_Documento_Pendiente_Cnt(filtro);
+                    if (r04.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r04.Mensaje);
+                        return;
+                    }
+                    _cntPend -= 1;
+
+                    var doc = r02.Entidad;
+                    var prv = new OOB.LibCompra.Proveedor.Data.Ficha(doc.entidadAuto, doc.entidadCiRif, doc.entidadNombre, doc.entidadDirFiscal , doc.entidadCodigo );
+                    gestionDoc.Inicializa();
+                    if (gestionDoc.CargarData())
+                    {
+                        gestionDoc.setProveedor(prv);
+                        gestionDoc.setDocumentoNro(doc.docNumero);
+                        gestionDoc.setControlNro(doc.docControl);
+                        gestionDoc.setFechaEmision(DateTime.Now.Date.AddDays(-3));
+                        gestionDoc.setDiasCredito(5);
+                        gestionDoc.setSucursal(doc.autoSucursal );
+                        gestionDoc.setDeposito(doc.autoDeposito );
+                        gestionDoc.setOrdenCompra(doc.docOrdenCompra);
+                        gestionDoc.setNotas(doc.docNotas);
+                        gestionDoc.setFactorCambio(doc.docFactorCambio);
+                        gestionDoc.AceptarData();
+                        gestionItem.AgregarListaItem(doc.items, gestionDoc.IdProveedor, gestionDoc.FactorDivisa);
+                    }
+                }
+            }
         }
 
     }

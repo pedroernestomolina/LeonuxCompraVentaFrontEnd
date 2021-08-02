@@ -26,6 +26,15 @@ namespace OOB.LibCompra.Proveedor.Data
             identidad = new Identificacion();
         }
 
+        public Ficha(String id, string cirif, string razonSocial, string dirFiscal, string codigo) :
+            this()
+        {
+            this.identidad.auto = id;
+            this.identidad.ciRif = cirif;
+            this.identidad.nombreRazonSocial = razonSocial;
+            this.identidad.dirFiscal = dirFiscal;
+            this.identidad.codigo = codigo;
+        }
 
     }
 

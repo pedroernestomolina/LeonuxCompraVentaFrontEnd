@@ -612,6 +612,13 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         {
             get { return ""; }
         }
+
+
+        public bool AbrirPendienteIsOk
+        {
+            get { return false; }
+        }
+
     }
 
 }

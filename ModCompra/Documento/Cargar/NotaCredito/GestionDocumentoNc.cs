@@ -59,24 +59,8 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         public OOB.LibCompra.Documento.GetData.Ficha RemisionFicha{ get { return _docRemision != null ? _docRemision : null; } }
         //
 
-        public string IdSucursal
-        {
-            get { return data.IdSucursal; }
-            set
-            {
-                data.IdSucursal = value;
-                data.Sucursal = lsucursal.FirstOrDefault(f => f.auto == value);
-            }
-        }
-        public string IdDeposito
-        {
-            get { return data.IdDeposito; }
-            set
-            {
-                data.IdDeposito = value;
-                data.Deposito = ldeposito.FirstOrDefault(f => f.auto == value);
-            }
-        }
+        public string IdSucursal { get { return data.IdSucursal; } }
+        public string IdDeposito { get { return data.IdDeposito; } }
         public string CondicionPago
         {
             get
@@ -296,6 +280,46 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         }
 
         public void setFactorCambio(decimal p)
+        {
+        }
+
+        public void setProveedor(OOB.LibCompra.Proveedor.Data.Ficha prv)
+        {
+        }
+
+        public void setDocumentoNro(string p)
+        {
+        }
+
+        public void setControlNro(string p)
+        {
+        }
+
+        public void setFechaEmision(DateTime dateTime)
+        {
+        }
+
+        public void setDiasCredito(int p)
+        {
+        }
+
+        public void setSucursal(string p)
+        {
+        }
+
+        public void setDeposito(string p)
+        {
+        }
+
+        public void setOrdenCompra(string p)
+        {
+        }
+
+        public void AceptarData()
+        {
+        }
+
+        public void Inicializa()
         {
         }
 

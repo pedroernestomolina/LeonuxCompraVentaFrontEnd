@@ -22,6 +22,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         bool DejarPendienteIsOk { get; }
         string CadenaPrdBuscar { get; set; }
         string CntPend { get; }
+        bool AbrirPendienteIsOk { get; }
 
 
         IGestionDocumento GestionDoc { get; }

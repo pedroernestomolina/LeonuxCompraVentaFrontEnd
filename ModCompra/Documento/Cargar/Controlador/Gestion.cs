@@ -58,6 +58,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         //
         public bool DejarPendienteIsOk { get { return _gestion.DejarPendienteIsOk; } }
         public string CntPend { get { return _gestion.CntPend; } }
+        public bool AbrirPendienteIsOk { get { return _gestion.AbrirPendienteIsOk; } }
 
 
         public Gestion()

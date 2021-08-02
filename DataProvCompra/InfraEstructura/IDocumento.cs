@@ -23,6 +23,9 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoLista<OOB.LibCompra.Documento.ListaItemImportar.Ficha> Compra_Documento_ItemImportar_GetLista(string autoDoc);
         OOB.Resultado Compra_Documento_Pendiente_Agregar(OOB.LibCompra.Documento.Pendiente.Agregar.Ficha ficha);
         OOB.ResultadoEntidad<int> Compra_Documento_Pendiente_Cnt (OOB.LibCompra.Documento.Pendiente.Filtro.Ficha filtro);
+        OOB.ResultadoLista<OOB.LibCompra.Documento.Pendiente.Lista.Ficha> Compra_Documento_Pendiente_GetLista(OOB.LibCompra.Documento.Pendiente.Filtro.Ficha filtro);
+        OOB.Resultado Compra_Documento_Pendiente_Eliminar(int idDoc);
+        OOB.ResultadoEntidad<OOB.LibCompra.Documento.Pendiente.Abrir.Ficha> Compra_Documento_Pendiente_Abrir_GetById(int idDoc);
 
     }
 

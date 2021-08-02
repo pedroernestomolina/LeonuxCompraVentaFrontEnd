@@ -43,6 +43,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.Formulario.TotalizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.NotaCredito.ItemFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Cargar.NotaCredito.Remision.RemisionFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Documento.Pendiente.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Form1.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Identificacion.IdentificacionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Maestros.Grupo.AgregarEditarFrm.resources

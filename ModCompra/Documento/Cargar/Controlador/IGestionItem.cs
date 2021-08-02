@@ -58,7 +58,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         void setDescuentoFinal(decimal p);
         void setCargoFinal(decimal p);
         void CargarItems(List<OOB.LibCompra.Documento.GetData.FichaDetalle> list, decimal factorCambio);
-        void AgregarListaItemImportar(List<OOB.LibCompra.Documento.ListaItemImportar.Ficha> list, string idPrv, decimal factorDivisa);
+        void AgregarListaItem(List<OOB.LibCompra.Documento.ListaItemImportar.Ficha> list, string idPrv, decimal factorDivisa);
+        void AgregarListaItem(List<OOB.LibCompra.Documento.Pendiente.Abrir.FichaDetalle> list, string idPrv , decimal factorDivisa);
 
     }
 

@@ -19,8 +19,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         decimal FactorDivisa { get; set; }
         DateTime FechaEmision { get; set; }
         string Notas { get; set; }
-        string IdSucursal { get; set; }
-        string IdDeposito { get; set; }
+        string IdSucursal { get; }
+        string IdDeposito { get; }
         string MesRelacion { get; }
         string AnoRelacion { get; }
         DateTime FechaVencimiento { get; }
@@ -58,6 +58,16 @@ namespace ModCompra.Documento.Cargar.Controlador
         void setNotas(string p);
         void setFormulario(Formulario.DatosDocumentoFrm frm);
         void setFactorCambio(decimal p);
+        void setProveedor(OOB.LibCompra.Proveedor.Data.Ficha prv);
+        void setDocumentoNro(string p);
+        void setControlNro(string p);
+        void setFechaEmision(DateTime dateTime);
+        void setDiasCredito(int p);
+        void setSucursal(string p);
+        void setDeposito(string p);
+        void setOrdenCompra(string p);
+        void AceptarData();
+        void Inicializa();
 
     }
 

@@ -485,6 +485,16 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void AbrirPendiente()
         {
             _controlador.AbrirPendiente();
+            if (_controlador.AbrirPendienteIsOk)
+            {
+                ActualizarDatosDocumento();
+                if (_controlador.DatosDocumentoIsOk)
+                {
+                    ActualizarDatosItem();
+                    ActualizarDatosTotales();
+                    IniciarBusqueda();
+                }
+            }
         }
 
     }

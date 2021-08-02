@@ -157,6 +157,14 @@
     <Compile Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.Designer.cs">
       <DependentUpon>RemisionFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Documento\Pendiente\data.cs" />
+    <Compile Include="Documento\Pendiente\Gestion.cs" />
+    <Compile Include="Documento\Pendiente\ListaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documento\Pendiente\ListaFrm.Designer.cs">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Filtros\data.cs" />
     <Compile Include="Filtros\Gestion.cs" />
     <Compile Include="Filtros\tipoDoc.cs" />
@@ -344,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documento\Cargar\NotaCredito\Remision\RemisionFrm.resx">
       <DependentUpon>RemisionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documento\Pendiente\ListaFrm.resx">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -58,24 +58,8 @@ namespace ModCompra.Documento.Cargar.Factura
         public OOB.LibCompra.Documento.GetData.Ficha RemisionFicha { get { return null; } }
         //
 
-        public string IdSucursal 
-        { 
-            get { return data.IdSucursal; } 
-            set
-            {
-                data.IdSucursal = value;
-                data.Sucursal = lsucursal.FirstOrDefault(f => f.auto == value);
-            } 
-        }
-        public string IdDeposito 
-        { 
-            get { return data.IdDeposito; } 
-            set 
-            { 
-                data.IdDeposito = value;
-                data.Deposito = ldeposito.FirstOrDefault(f => f.auto == value);
-            } 
-        }
+        public string IdSucursal { get { return data.IdSucursal; } }
+        public string IdDeposito { get { return data.IdDeposito; } }
         public string CondicionPago
         {
             get 
@@ -267,6 +251,59 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             _tasaCambio = p;
             data.setFactorDivisa(p);
+        }
+
+        public void setProveedor(OOB.LibCompra.Proveedor.Data.Ficha prv)
+        {
+            data.proveedor = prv;
+        }
+
+        public void setDocumentoNro(string p)
+        {
+            data.setDocumentoNro(p);
+        }
+
+        public void setControlNro(string p)
+        {
+            data.setControlNro(p);
+        }
+
+        public void setFechaEmision(DateTime fecha)
+        {
+            data.setFechaEmision(fecha);
+        }
+
+        public void setDiasCredito(int p)
+        {
+            data.setDiasCredito(p);
+        }
+
+        public void setSucursal(string p)
+        {
+            data.setSucursal(lsucursal.FirstOrDefault(f => f.auto == p));
+        }
+
+        public void setDeposito(string p)
+        {
+            data.setDeposito(ldeposito.FirstOrDefault(f => f.auto == p));
+        }
+
+        public void setOrdenCompra(string p)
+        {
+            data.setOrdenCompra(p);
+        }
+
+        public void AceptarData()
+        {
+            _dataIsOk = true;
+        }
+
+        public void Inicializa()
+        {
+            _dataIsOk = false;
+            ldeposito.Clear();
+            lsucursal.Clear();
+            data.Limpiar();
         }
 
     }

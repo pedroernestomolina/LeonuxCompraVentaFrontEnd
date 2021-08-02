@@ -13,8 +13,11 @@ namespace OOB.LibCompra.Documento.Pendiente.Agregar
 
         public string usuarioId { get; set; }
         public string usuarioNombre { get; set; }
+        public string entidadAuto { get; set; }
         public string entidadCiRif { get; set; }
         public string entidadNombre { get; set; }
+        public string entidadCodigo { get; set; }
+        public string entidadDirFiscal { get; set; }
         public string docTipo { get; set; }
         public string docNombre { get; set; }
         public decimal docMonto { get; set; }
@@ -23,6 +26,12 @@ namespace OOB.LibCompra.Documento.Pendiente.Agregar
         public int docItemsNro { get; set; }
         public string docNumero { get; set; }
         public string docControl { get; set; }
+        public string docNotas { get; set; }
+        public string docOrdenCompra { get; set; }
+        public DateTime docFechaEmision { get; set; }
+        public int docDiasCredito { get; set; }
+        public string autoDeposito { get; set; }
+        public string autoSucursal { get; set; }
         public List<FichaDetalle> items { get; set; }
 
 
@@ -30,16 +39,25 @@ namespace OOB.LibCompra.Documento.Pendiente.Agregar
         {
             usuarioId = "";
             usuarioNombre = "";
+            entidadAuto = "";
+            entidadCodigo = "";
             entidadCiRif = "";
             entidadNombre = "";
+            entidadDirFiscal = "";
             docTipo = "";
             docNombre = "";
             docMonto = 0.0m;
             docMontoDivisa = 0.0m;
             docFactorCambio = 0.0m;
             docItemsNro = 0;
-            docControl = "";
             docNumero = "";
+            docControl = "";
+            docDiasCredito = 0;
+            docFechaEmision = DateTime.Now.Date;
+            docNotas = "";
+            docOrdenCompra = "";
+            autoDeposito = "";
+            autoSucursal = "";
             items = new List<FichaDetalle>();
         }
 

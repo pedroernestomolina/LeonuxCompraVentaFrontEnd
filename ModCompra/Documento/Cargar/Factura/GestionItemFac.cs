@@ -339,11 +339,20 @@ namespace ModCompra.Documento.Cargar.Factura
         {
         }
 
-        public void AgregarListaItemImportar(List<OOB.LibCompra.Documento.ListaItemImportar.Ficha> list, string idPrv, decimal factorDivisa)
+        public void AgregarListaItem(List<OOB.LibCompra.Documento.ListaItemImportar.Ficha> list, string idPrv, decimal factorDivisa)
         {
-            foreach (var it in list) 
+            foreach (var it in list)
             {
-                var item = new dataItem(it,factorDivisa);
+                var item = new dataItem(it, factorDivisa);
+                InsertarItem(item);
+            }
+        }
+
+        public void AgregarListaItem(List<OOB.LibCompra.Documento.Pendiente.Abrir.FichaDetalle> list, string idPrv, decimal factorDivisa)
+        {
+            foreach (var it in list)
+            {
+                var item = new dataItem(it, factorDivisa);
                 InsertarItem(item);
             }
         }

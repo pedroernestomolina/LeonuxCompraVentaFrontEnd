@@ -153,6 +153,23 @@ namespace OOB.LibCompra.Producto.Data
             categoria = it.categoria;
         }
 
+        public Ficha(Documento.Pendiente.Abrir.FichaDetalle it):
+            this()
+        {
+            auto = it.prdAuto;
+            autoDepartamento = it.prdAutoDepartamento;
+            autoGrupo = it.prdAutoGrupo;
+            autoTasa = it.prdAutoTasaIva;
+            codigo = it.prdCodigo;
+            nombre = it.prdNombre;
+            descripcion = it.prdNombre;
+            contenidoCompra = it.contenidoEmp;
+            tasaIva = it.tasaIva;
+            empaqueCompra = it.empaqueCompra;
+            decimales = it.decimales;
+            categoria = it.categoria;
+        }
+
     }
 
 }

@@ -22,8 +22,8 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string OrdenCompraNro { get { return _gestion.OrdenCompraNro; } set { _gestion.OrdenCompraNro = value; } }
         public decimal FactorDivisa { get { return _gestion.FactorDivisa; } set { _gestion.FactorDivisa = value; } }
         public string Notas { get { return _gestion.Notas; } set { _gestion.Notas = value; } }
-        public string IdSucursal { get { return _gestion.IdSucursal; } set { _gestion.IdSucursal = value; } }
-        public string IdDeposito { get { return _gestion.IdDeposito; } set { _gestion.IdDeposito = value; } } 
+        public string IdSucursal { get { return _gestion.IdSucursal; } }
+        public string IdDeposito { get { return _gestion.IdDeposito; } } 
         public string MesRelacion { get { return _gestion.MesRelacion; } }
         public string AnoRelacion { get { return _gestion.AnoRelacion; } }
         public string IdProveedor { get { return _gestion.IdProveedor; } }
@@ -103,6 +103,16 @@ namespace ModCompra.Documento.Cargar.Controlador
         public void setNotas(string p)
         {
             _gestion.setNotas(p);
+        }
+
+        public void setDeposito(string id)
+        {
+            _gestion.setDeposito(id);
+        }
+
+        public void setSucursal(string id)
+        {
+            _gestion.setSucursal(id);
         }
 
     }

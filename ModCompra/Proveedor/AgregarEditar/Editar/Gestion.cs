@@ -255,9 +255,9 @@ namespace ModCompra.Proveedor.AgregarEditar.Editar
             _autoProved = "";
         }
 
-        public void setFichaEditar(OOB.LibCompra.Proveedor.Data.Ficha Item)
+        public void setFichaEditar(string id)
         {
-            _autoProvEditar = Item.autoId;
+            _autoProvEditar = id;
         }
 
     }

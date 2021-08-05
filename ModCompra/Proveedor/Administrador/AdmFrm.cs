@@ -57,7 +57,7 @@ namespace ModCompra.Proveedor.Administrador
             c2.DefaultCellStyle.Font = f1;
 
             var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "NombreRazonSocial";
+            c3.DataPropertyName = "Nombre";
             c3.HeaderText = "Nombre/Razón Social";
             c3.Visible = true;
             c3.MinimumWidth = 220;
@@ -214,6 +214,19 @@ namespace ModCompra.Proveedor.Administrador
         private void Documentos()
         {
             _controlador.Documentos();
+        }
+     
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1)
+            {
+                SeleccionarItem();
+            }
+        }
+
+        private void SeleccionarItem()
+        {
+            _controlador.SeleccionarItem();
         }
       
     }

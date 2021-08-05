@@ -602,10 +602,14 @@ namespace ModCompra.Documento.Cargar.NotaCredito
 
         public void DejarPendiente()
         {
+            Helpers.Msg.Alerta("FUNCION NO IMPLEMENTADA PARA ESTE TIPO DE DOCUMENTO");
+            return;
         }
 
         public void AbrirPendiente()
         {
+            Helpers.Msg.Alerta("FUNCION NO IMPLEMENTADA PARA ESTE TIPO DE DOCUMENTO");
+            return;
         }
 
         public string CntPend

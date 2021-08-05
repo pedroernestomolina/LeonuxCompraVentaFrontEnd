@@ -55,6 +55,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.ArticulosCompra.CompraArticulosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Documentos.DocumentosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Listar.ListaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Proveedor.Visualizar.VisualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.ReporteProveedor.Filtro.FiltroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Reportes.Filtros.FiltrosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.Reportes.ReporteFrm.resources

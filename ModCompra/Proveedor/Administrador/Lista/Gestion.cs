@@ -7,43 +7,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModCompra.Proveedor.Administrador
+namespace ModCompra.Proveedor.Administrador.Lista
 {
-
-    public class GestionLista
+    
+    public class Gestion
     {
-
+        
         public event EventHandler ItemChanged;
 
 
-        private List<OOB.LibCompra.Proveedor.Data.Ficha> _lst;
-        private BindingList<OOB.LibCompra.Proveedor.Data.Ficha> _bl;
+        private List<data> _lst;
+        private BindingList<data> _bl;
         private BindingSource _bs;
-        private OOB.LibCompra.Proveedor.Data.Ficha _item;
+        private data _item;
 
 
         public BindingSource Source { get { return _bs; } }
         public int Items { get { return _bs.Count; } }
-        public OOB.LibCompra.Proveedor.Data.Ficha Item { get { return _item; } }
+        public data Item { get { return _item; } }
         public string Proveedor 
-        { 
+        {
             get 
             {
-                var rt = "";
-                if (Item != null) 
-                {
-                    rt = Item.ciRif + Environment.NewLine + Item.nombreRazonSocial;
-                }
+                var rt="";
+                if (_item != null)
+                    rt = _item.Encabezado;
                 return rt;
-            } 
+            }
         }
 
 
-        public GestionLista()
+        public Gestion()
         {
             _item = null;
-            _lst = new List<OOB.LibCompra.Proveedor.Data.Ficha>();
-            _bl = new BindingList<OOB.LibCompra.Proveedor.Data.Ficha >(_lst);
+            _lst = new List<data>();
+            _bl = new BindingList<data>(_lst);
             _bs = new BindingSource();
             _bs.CurrentChanged +=_bs_CurrentChanged;   
             _bs.DataSource = _bl;
@@ -51,7 +49,7 @@ namespace ModCompra.Proveedor.Administrador
 
         private void _bs_CurrentChanged(object sender, EventArgs e)
         {
-            _item = (OOB.LibCompra.Proveedor.Data.Ficha)_bs.Current;
+            _item = (data)_bs.Current;
             if (_item != null)
             {
                 EventHandler hnd = ItemChanged;
@@ -64,10 +62,11 @@ namespace ModCompra.Proveedor.Administrador
 
         public void setLista(List<OOB.LibCompra.Proveedor.Data.Ficha> list)
         {
-            _item = null;
-            _lst.Clear();
-            _lst.AddRange(list.OrderBy(o => o.nombreRazonSocial).ToList());
-            _bs.CurrencyManager.Refresh();
+            Inicializa();
+            foreach (var rg in list.OrderBy(o=>o.nombreRazonSocial).ToList())
+            {
+                _bl.Add(new data(rg));
+            }
         }
 
         public void LimpiarLista()
@@ -79,18 +78,22 @@ namespace ModCompra.Proveedor.Administrador
 
         public void AgregarFicha(OOB.LibCompra.Proveedor.Data.Ficha ficha)
         {
-            _lst.Add(ficha);
-            _bs.CurrencyManager.Refresh();
+            _bl.Add(new data(ficha));
         }
 
         public void EliminarItem(string autoId)
         {
-            var it = _lst.FirstOrDefault(f => f.autoId == autoId);
+            var it = _bl.FirstOrDefault(f => f.id == autoId);
             if (it != null) 
             {
-                _lst.Remove(it);
-                _bs.CurrencyManager.Refresh();
+                _bl.Remove(it);
             }
+        }
+
+        public void Inicializa()
+        { 	
+            _item = null;
+            _bl.Clear();
         }
 
     }

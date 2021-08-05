@@ -853,6 +853,12 @@ namespace ModCompra.Documento.Cargar.Factura
                 _gestionPend.Inicia();
                 if (_gestionPend.IsItemSeleccionadoOk) 
                 {
+                    var msg = MessageBox.Show("Abrir Este Documento Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                    if (msg != DialogResult.Yes)
+                    {
+                        return;
+                    }
+
                     var itemPend = _gestionPend.ItemSeleccionado;
                     var r02 = Sistema.MyData.Compra_Documento_Pendiente_Abrir_GetById(itemPend.id);
                     if (r02.Result == OOB.Enumerados.EnumResult.isError)

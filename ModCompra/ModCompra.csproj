@@ -224,7 +224,8 @@
     <Compile Include="Proveedor\Administrador\dataFiltro.cs" />
     <Compile Include="Proveedor\Administrador\Enumerados.cs" />
     <Compile Include="Proveedor\Administrador\Gestion.cs" />
-    <Compile Include="Proveedor\Administrador\GestionLista.cs" />
+    <Compile Include="Proveedor\Administrador\Lista\data.cs" />
+    <Compile Include="Proveedor\Administrador\Lista\Gestion.cs" />
     <Compile Include="Proveedor\AgregarEditar\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +263,14 @@
     </Compile>
     <Compile Include="Proveedor\Listar\ListaFrm.Designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Visualizar\data.cs" />
+    <Compile Include="Proveedor\Visualizar\Gestion.cs" />
+    <Compile Include="Proveedor\Visualizar\VisualizarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Visualizar\VisualizarFrm.Designer.cs">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="ReporteProveedor\DS_PROV.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -395,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Visualizar\VisualizarFrm.resx">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteProveedor\Articulo.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

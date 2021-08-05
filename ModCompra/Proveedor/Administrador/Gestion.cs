@@ -15,28 +15,30 @@ namespace ModCompra.Proveedor.Administrador
 
         private dataFiltro _filtrar;
         private OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaBusquedaProveedor _configuracionMetodoBusqueda;
-        private GestionLista _gestionLista;
+        private Lista.Gestion _gestionLista;
         private AgregarEditar.Gestion _gestionAgregarEditar;
         private ArticulosCompra.Gestion _gestionCompraArticulos;
         private Documentos.Gestion _gestionDocumentos;
+        private Visualizar.Gestion _gestionVisualizar;
 
 
         public int cntItem { get { return _gestionLista.Items; } }
         public Enumerados.enumMetodoBusqueda MetodoBusqueda { get { return _filtrar.MetodoBusqueda; } }
         public BindingSource Source { get { return _gestionLista.Source; } }
         public string Proveedor { get { return _gestionLista.Proveedor; } }
-        public OOB.LibCompra.Proveedor.Data.Ficha Item { get { return _gestionLista.Item; } }
+        public Lista.data Item { get { return _gestionLista.Item; } }
 
 
         public Gestion()
         {
             _filtrar= new dataFiltro();
             _configuracionMetodoBusqueda = OOB.LibCompra.Configuracion.Enumerados.EnumPreferenciaBusquedaProveedor.SinDefinir;
-            _gestionLista = new GestionLista();
-            _gestionLista.ItemChanged +=_gestionLista_ItemChanged;
+            _gestionLista = new Lista.Gestion();
+            _gestionLista.ItemChanged += _gestionLista_ItemChanged;
             _gestionAgregarEditar= new AgregarEditar.Gestion();
             _gestionCompraArticulos = new ArticulosCompra.Gestion();
             _gestionDocumentos = new Documentos.Gestion();
+            _gestionVisualizar = new Visualizar.Gestion();
         }
 
 
@@ -107,14 +109,11 @@ namespace ModCompra.Proveedor.Administrador
             }
             _gestionLista.setLista(r01.Lista);
             _filtrar.Limpiar();
-
-            //_gestionFiltro.Limpiar();
-            //frm.ActualizarItem();
-            //Cadena = "";
         }
 
         public void Inicializar()
         {
+            _gestionLista.Inicializa();
             _filtrar.Limpiar();
             switch (_configuracionMetodoBusqueda)
             {
@@ -202,11 +201,11 @@ namespace ModCompra.Proveedor.Administrador
                 {
                     _gestionAgregarEditar.setGestion(new AgregarEditar.Editar.Gestion());
                     _gestionAgregarEditar.Inicializar();
-                    _gestionAgregarEditar.setFichaEditar(Item);
+                    _gestionAgregarEditar.setFichaEditar(Item.id);
                     _gestionAgregarEditar.Inicia();
                     if (_gestionAgregarEditar.EditarIsOk)
                     {
-                        var auto = Item.autoId;
+                        var auto = Item.id;
                         ActualizarFichaLista(auto);
                     }
                 }
@@ -224,7 +223,7 @@ namespace ModCompra.Proveedor.Administrador
             if (Item != null) 
             {
                 _gestionCompraArticulos.Inicializa();
-                _gestionCompraArticulos.setProveedor(Item);
+                _gestionCompraArticulos.setIdProveedor(Item.id);
                 _gestionCompraArticulos.Inicia();
             }
         }
@@ -234,9 +233,16 @@ namespace ModCompra.Proveedor.Administrador
             if (Item != null)
             {
                 _gestionDocumentos.Inicializa();
-                _gestionDocumentos.setProveedor(Item);
+                _gestionDocumentos.setIdProveedor(Item.id);
                 _gestionDocumentos.Inicia();
             }
+        }
+
+        public void SeleccionarItem()
+        {
+            _gestionVisualizar.Inicializa();
+            _gestionVisualizar.setIdProveedor(Item.id);
+            _gestionVisualizar.Inicia();
         }
 
     }

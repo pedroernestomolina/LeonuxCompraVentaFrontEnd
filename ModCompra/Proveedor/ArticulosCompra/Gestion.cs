@@ -45,11 +45,10 @@ namespace ModCompra.Proveedor.ArticulosCompra
             _filtro.Limpiar();
         }
 
-        public void setProveedor(OOB.LibCompra.Proveedor.Data.Ficha Item)
+        public void setIdProveedor(string id)
         {
-            _autoProv = Item.autoId;
+            _autoProv = id;
         }
-
 
         CompraArticulosFrm frm;
         public void Inicia()

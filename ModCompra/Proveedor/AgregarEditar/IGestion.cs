@@ -52,7 +52,7 @@ namespace ModCompra.Proveedor.AgregarEditar
         void Procesar();
         void Salir();
         void Inicializar();
-        void setFichaEditar(OOB.LibCompra.Proveedor.Data.Ficha Item);
+        void setFichaEditar(string id);
 
     }
 

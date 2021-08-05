@@ -57,8 +57,55 @@ namespace ModCompra.Documento.Pendiente
             c2.MinimumWidth = 280;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var c3 = new DataGridViewTextBoxColumn();
+            c3.DataPropertyName = "docNumero";
+            c3.HeaderText = "DOC/Nro";
+            c3.Visible = true;
+            c3.HeaderCell.Style.Font = f;
+            c3.DefaultCellStyle.Font = f1;
+            c3.Width = 110;
+
+            var c4 = new DataGridViewTextBoxColumn();
+            c4.DataPropertyName = "docControl";
+            c4.HeaderText = "DOC/Control";
+            c4.Visible = true;
+            c4.HeaderCell.Style.Font = f;
+            c4.DefaultCellStyle.Font = f1;
+            c4.Width = 110;
+
+            var c5 = new DataGridViewTextBoxColumn();
+            c5.DataPropertyName = "docFecha";
+            c5.HeaderText = "De Fecha";
+            c5.Visible = true;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+            c5.Width = 110;
+
+            var c6 = new DataGridViewTextBoxColumn();
+            c6.DataPropertyName = "docNombre";
+            c6.HeaderText = "DOC/TIPO";
+            c6.Visible = true;
+            c6.HeaderCell.Style.Font = f;
+            c6.DefaultCellStyle.Font = f1;
+            c6.Width = 110;
+
+            var c7 = new DataGridViewTextBoxColumn();
+            c7.DataPropertyName = "montoDivisa";
+            c7.HeaderText = "MONTO $";
+            c7.Visible = true;
+            c7.HeaderCell.Style.Font = f;
+            c7.DefaultCellStyle.Font = f1;
+            c7.DefaultCellStyle.Format="n2";
+            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c7.Width = 110;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c2);
+            DGV.Columns.Add(c6);
+            DGV.Columns.Add(c5);
+            DGV.Columns.Add(c3);
+            DGV.Columns.Add(c4);
+            DGV.Columns.Add(c7);
         }
         
         public void setControlador(Gestion ctr)

@@ -159,9 +159,9 @@ namespace ModCompra.Proveedor.AgregarEditar
                 frm.Cerrar();
         }
 
-        public void setFichaEditar(OOB.LibCompra.Proveedor.Data.Ficha Item)
+        public void setFichaEditar(string id)
         {
-            _gestion.setFichaEditar(Item);
+            _gestion.setFichaEditar(id);
         }
 
     }

@@ -240,7 +240,7 @@ namespace ModCompra.Proveedor.AgregarEditar.Agregar
             _autoProved = "";
         }
 
-        public void setFichaEditar(OOB.LibCompra.Proveedor.Data.Ficha Item)
+        public void setFichaEditar(string id)
         {
         }
 

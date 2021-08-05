@@ -649,6 +649,7 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(497, 343);
             this.DGV.TabIndex = 0;
+            this.DGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellDoubleClick);
             // 
             // panel6
             // 

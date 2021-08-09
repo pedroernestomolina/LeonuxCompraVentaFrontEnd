@@ -52,6 +52,9 @@ namespace DataProvCompra.Data
                             nombreGrupo = s.nombreGrupo,
                             nombreRazonSocial = s.nombreRazonSocial,
                             telefono = s.telefono,
+                            fechaAlta = s.fechaAlta,
+                            fechaUltCompra = s.fechaUltCompra,
+                            fechaBaja = s.fechaBaja,
                         };
                         nr.identidad = id;
                         return nr;
@@ -97,6 +100,9 @@ namespace DataProvCompra.Data
                 email = s.email,
                 retIva = s.retIva,
                 website = s.website,
+                fechaAlta = s.fechaAlta,
+                fechaUltCompra = s.fechaUltCompra,
+                fechaBaja = s.fechaBaja,
             };
             nr.identidad = id;
             rt.Entidad = nr;

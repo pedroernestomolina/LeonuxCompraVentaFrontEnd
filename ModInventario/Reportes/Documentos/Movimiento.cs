@@ -39,6 +39,7 @@ namespace ModInventario.Reportes.Documentos
             rt["concepto"] = _ficha.codigoConcepto + "/" + _ficha.concepto;
             rt["usuario"] = _ficha.usuarioCodigo + "/" + _ficha.usuario;
             rt["equipo"] = _ficha.estacion ;
+            rt["estatusActivo"] = _ficha.estatusActivo;
             ds.Tables["Movimiento"].Rows.Add(rt);
 
             foreach (var it in _ficha.detalles.ToList())

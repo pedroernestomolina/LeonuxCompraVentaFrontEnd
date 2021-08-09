@@ -623,6 +623,10 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             get { return false; }
         }
 
+        public void EditarDoc()
+        {
+        }
+
     }
 
 }

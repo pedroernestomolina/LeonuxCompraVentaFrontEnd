@@ -109,6 +109,7 @@ namespace ModCompra.Proveedor.Administrador
         {
             DGV.DataSource = _controlador.Source;
             ActualizarData();
+            ActualizarDataProveedor();
             L_PROVEEDOR.Text = _controlador.Proveedor;
         }
 
@@ -138,6 +139,10 @@ namespace ModCompra.Proveedor.Administrador
         public void ActualizarDataProveedor()
         {
             L_PROVEEDOR.Text = _controlador.Proveedor;
+            L_FECHA_ALTA.Text = _controlador.FechaAlta;
+            L_FECHA_ULT_MOVIMIENTO.Text = _controlador.FechaUltimoMov;
+            L_FECHA_BAJA.Text = _controlador.FechaBaja;
+            L_ESTATUS.Visible = !_controlador.EstatusActivo;
         }
 
         private void BT_LIMPIAR_Click(object sender, EventArgs e)

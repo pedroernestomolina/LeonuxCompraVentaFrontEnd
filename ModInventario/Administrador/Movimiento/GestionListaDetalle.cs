@@ -260,6 +260,7 @@ namespace ModInventario.Administrador.Movimiento
             ficha.estacion = xficha.estacion;
             ficha.usuario = xficha.usuario;
             ficha.usuarioCodigo = xficha.usuarioCodigo;
+            ficha.estatusActivo = xficha.estatusActivo;
 
             var det = new List<Reportes.Documentos.dataDetalle>();
             foreach (var it in xficha.detalles)
@@ -303,6 +304,7 @@ namespace ModInventario.Administrador.Movimiento
             ficha.estacion = xficha.estacion;
             ficha.usuario = xficha.usuario;
             ficha.usuarioCodigo = xficha.usuarioCodigo;
+            ficha.estatusActivo = xficha.estatusActivo;
 
             var det = new List<Reportes.Documentos.dataDetalle>();
             foreach (var it in xficha.detalles)

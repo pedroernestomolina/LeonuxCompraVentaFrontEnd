@@ -115,6 +115,11 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.setSucursal(id);
         }
 
+        public void IniciaEditar()
+        {
+            //frm.ShowDialog();
+        }
+
     }
 
 }

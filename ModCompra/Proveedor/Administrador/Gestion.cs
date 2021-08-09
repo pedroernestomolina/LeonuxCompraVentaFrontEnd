@@ -27,6 +27,54 @@ namespace ModCompra.Proveedor.Administrador
         public BindingSource Source { get { return _gestionLista.Source; } }
         public string Proveedor { get { return _gestionLista.Proveedor; } }
         public Lista.data Item { get { return _gestionLista.Item; } }
+        public string FechaAlta 
+        {
+            get 
+            {
+                var rt = "";
+                if (Item != null) 
+                {
+                    rt = Item.fechaAlta.ToShortDateString();
+                }
+                return rt;
+            }
+        }
+        public string FechaUltimoMov 
+        {
+            get
+            {
+                var rt = "";
+                if (Item != null)
+                {
+                    rt = Item.fechaUltMov;
+                }
+                return rt;
+            }
+        }
+        public string FechaBaja
+        {
+            get
+            {
+                var rt = "";
+                if (Item != null)
+                {
+                    rt = Item.fechaFueraDeServicio;
+                }
+                return rt;
+            }
+        }
+        public bool EstatusActivo 
+        {
+            get
+            {
+                var rt = true;
+                if (Item != null)
+                {
+                    rt = Item.IsActivo;
+                }
+                return rt;
+            }
+        }
 
 
         public Gestion()

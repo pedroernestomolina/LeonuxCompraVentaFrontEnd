@@ -19,6 +19,9 @@ namespace OOB.LibCompra.Proveedor.Data
         public string codigo { get { return identidad.codigo; } }
         public string RifNombrePrv { get { return ciRif + Environment.NewLine + nombreRazonSocial; } }
         public bool IsActivo { get { return identidad.estatus == Enumerados.EnumEstatus.Activo ? true : false; } }
+        public DateTime fechaAlta { get { return identidad.fechaAlta; } }
+        public DateTime fechaUltCompra { get { return identidad.fechaUltCompra; } }
+        public DateTime fechaBaja { get { return identidad.fechaBaja; } } 
 
 
         public Ficha()

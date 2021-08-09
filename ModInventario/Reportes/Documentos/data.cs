@@ -28,7 +28,14 @@ namespace ModInventario.Reportes.Documentos
         public decimal total { get; set; }
         public string usuario { get; set; }
         public string usuarioCodigo { get; set; }
+        public bool estatusActivo { get; set; }
         public List<dataDetalle> detalles { get; set; }
+
+
+        public data() 
+        {
+            estatusActivo = true;
+        }
 
     }
 

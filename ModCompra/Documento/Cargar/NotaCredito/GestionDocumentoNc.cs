@@ -323,6 +323,10 @@ namespace ModCompra.Documento.Cargar.NotaCredito
         {
         }
 
+        public void IniciaEditar()
+        {
+        }
+
     }
 
 }

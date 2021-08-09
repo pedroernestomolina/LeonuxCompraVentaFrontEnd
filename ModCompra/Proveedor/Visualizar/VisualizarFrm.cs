@@ -44,6 +44,9 @@ namespace ModCompra.Proveedor.Visualizar
             L_CONT_PERSONA.Text = _controlador.Persona;
             L_CONT_TELEFONO.Text = _controlador.Telefono;
             L_CONT_WEBSITE.Text = _controlador.WebSite;
+
+            L_DEN_FISCAL.Text = _controlador.DenominacionFiscal;
+            L_RET_IVA.Text = _controlador.RetencionIva;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)

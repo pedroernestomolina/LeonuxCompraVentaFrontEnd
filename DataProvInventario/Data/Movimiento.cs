@@ -207,6 +207,7 @@ namespace DataProvInventario.Data
                 usuario = s.usuario,
                 usuarioCodigo = s.usuarioCodigo,
                 nombreDocumento = s.nombreDocumento,
+                estatusAnulado=s.estatusAnulado,
                 docTipo=  (OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento) s.docTipo,
             };
             var det = s.detalles.Select(ss =>

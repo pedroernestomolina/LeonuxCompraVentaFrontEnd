@@ -27,6 +27,8 @@ namespace ModCompra.Proveedor.Visualizar
         public string Persona { get { return _ficha.Persona; } }
         public string WebSite { get { return _ficha.WebSite; } }
         public string Telefono { get { return _ficha.Telefono; } }
+        public string DenominacionFiscal { get { return _ficha.DenominacionFiscal; } }
+        public string RetencionIva { get { return _ficha.RetencionIva; } }
 
 
         public Gestion() 
@@ -73,7 +75,6 @@ namespace ModCompra.Proveedor.Visualizar
 
             return true;
         }
-
 
     }
 

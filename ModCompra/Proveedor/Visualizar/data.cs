@@ -23,6 +23,8 @@ namespace ModCompra.Proveedor.Visualizar
         public string Persona { get; set; }
         public string WebSite { get; set; }
         public string Telefono { get; set; }
+        public string DenominacionFiscal { get; set; }
+        public string RetencionIva { get; set; }
 
 
         public data() 
@@ -50,6 +52,8 @@ namespace ModCompra.Proveedor.Visualizar
             Email = "";
             WebSite = "";
             Telefono = "";
+            DenominacionFiscal = "";
+            RetencionIva = "";
         }
 
         public void setData(OOB.LibCompra.Proveedor.Data.Ficha ficha)
@@ -67,6 +71,8 @@ namespace ModCompra.Proveedor.Visualizar
             Telefono = ficha.identidad.telefono;
             Email = ficha.identidad.email;
             WebSite = ficha.identidad.website;
+            DenominacionFiscal = ficha.identidad.denominacionFiscal;
+            RetencionIva = ficha.identidad.retIva.ToString("n2") + "%";
         }
 
     }

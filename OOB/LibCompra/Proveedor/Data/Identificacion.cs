@@ -30,6 +30,9 @@ namespace OOB.LibCompra.Proveedor.Data
         public string codigoPostal { get; set; }
         public decimal retIva { get; set; }
         public string denominacionFiscal { get; set; }
+        public DateTime fechaAlta { get; set; }
+        public DateTime fechaUltCompra { get; set; }
+        public DateTime fechaBaja { get; set; }
         public Enumerados.EnumDenominacionFiscal modoDenominacionFiscal 
         {
             get 
@@ -65,6 +68,9 @@ namespace OOB.LibCompra.Proveedor.Data
             codigoPostal = "";
             retIva = 0.0m;
             denominacionFiscal = "";
+            fechaAlta = DateTime.Now.Date;
+            fechaUltCompra = new DateTime(2000, 01, 01).Date;
+            fechaBaja = new DateTime(2000, 01, 01).Date;
         }
 
     }

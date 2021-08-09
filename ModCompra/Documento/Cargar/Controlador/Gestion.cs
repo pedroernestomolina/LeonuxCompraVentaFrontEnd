@@ -175,10 +175,6 @@ namespace ModCompra.Documento.Cargar.Controlador
             _gestion.AdmDocumentos();
         }
 
-        public void EditarDoc()
-        {
-        }
-
         public void DejarPendiente()
         {
             _gestion.DejarPendiente();
@@ -187,6 +183,14 @@ namespace ModCompra.Documento.Cargar.Controlador
         public void AbrirPendiente()
         {
             _gestion.AbrirPendiente();
+        }
+
+        public void EditarDoc()
+        {
+            if (_gestionDoc.IsAceptarOk)
+            {
+                _gestionDoc.IniciaEditar();
+            }
         }
 
     }

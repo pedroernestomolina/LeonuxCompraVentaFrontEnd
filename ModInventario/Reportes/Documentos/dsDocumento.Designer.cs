@@ -336,6 +336,8 @@ namespace ModInventario.Reportes.Documentos {
             
             private global::System.Data.DataColumn columnnombreDocumento;
             
+            private global::System.Data.DataColumn columnestatusActivo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public MovimientoDataTable() {
@@ -459,6 +461,14 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn estatusActivoColumn {
+                get {
+                    return this.columnestatusActivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -494,7 +504,7 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public MovimientoRow AddMovimientoRow(string documentoNro, string autorizadoPor, string notas, string depOrigen, string depDestino, string tipoMovimiento, string concepto, System.DateTime fecha, string usuario, string equipo, string nombreDocumento) {
+            public MovimientoRow AddMovimientoRow(string documentoNro, string autorizadoPor, string notas, string depOrigen, string depDestino, string tipoMovimiento, string concepto, System.DateTime fecha, string usuario, string equipo, string nombreDocumento, bool estatusActivo) {
                 MovimientoRow rowMovimientoRow = ((MovimientoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         documentoNro,
@@ -507,7 +517,8 @@ namespace ModInventario.Reportes.Documentos {
                         fecha,
                         usuario,
                         equipo,
-                        nombreDocumento};
+                        nombreDocumento,
+                        estatusActivo};
                 rowMovimientoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMovimientoRow);
                 return rowMovimientoRow;
@@ -541,6 +552,7 @@ namespace ModInventario.Reportes.Documentos {
                 this.columnusuario = base.Columns["usuario"];
                 this.columnequipo = base.Columns["equipo"];
                 this.columnnombreDocumento = base.Columns["nombreDocumento"];
+                this.columnestatusActivo = base.Columns["estatusActivo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -568,6 +580,8 @@ namespace ModInventario.Reportes.Documentos {
                 base.Columns.Add(this.columnequipo);
                 this.columnnombreDocumento = new global::System.Data.DataColumn("nombreDocumento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombreDocumento);
+                this.columnestatusActivo = new global::System.Data.DataColumn("estatusActivo", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestatusActivo);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1231,6 +1245,22 @@ namespace ModInventario.Reportes.Documentos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool estatusActivo {
+                get {
+                    try {
+                        return ((bool)(this[this.tableMovimiento.estatusActivoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'estatusActivo\' in table \'Movimiento\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableMovimiento.estatusActivoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdocumentoNroNull() {
                 return this.IsNull(this.tableMovimiento.documentoNroColumn);
             }
@@ -1359,6 +1389,18 @@ namespace ModInventario.Reportes.Documentos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetnombreDocumentoNull() {
                 this[this.tableMovimiento.nombreDocumentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsestatusActivoNull() {
+                return this.IsNull(this.tableMovimiento.estatusActivoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetestatusActivoNull() {
+                this[this.tableMovimiento.estatusActivoColumn] = global::System.Convert.DBNull;
             }
         }
         

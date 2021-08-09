@@ -11,6 +11,9 @@ namespace ModCompra.Proveedor.Administrador.Lista
     public class data
     {
 
+        private DateTime _fechaUltCompra { get; set; }
+        private DateTime _fechaBaja { get; set; }
+
 
         public string id { get; set; }
         public string ciRif { get; set; }
@@ -18,6 +21,17 @@ namespace ModCompra.Proveedor.Administrador.Lista
         public string direccion { get; set; }
         public string codigo { get; set; } 
         public bool IsActivo { get; set; }
+        public DateTime fechaAlta { get; set; }
+        public string fechaUltMov 
+        { 
+            get 
+            {
+                var rt = "";
+                if (_fechaUltCompra != new DateTime(2000, 01, 01))
+                    rt = _fechaUltCompra.ToShortDateString();
+                return rt;
+            } 
+        }
         public string Encabezado
         {
             get
@@ -26,16 +40,29 @@ namespace ModCompra.Proveedor.Administrador.Lista
                 return rt;
             }
         }
+        public string fechaFueraDeServicio 
+        {
+            get
+            {
+                var rt = "";
+                if (_fechaBaja != new DateTime(2000, 01, 01))
+                    rt = _fechaBaja.ToShortDateString();
+                return rt;
+            } 
+        }
 
 
         public data() 
         {
+            _fechaUltCompra = new DateTime(2000, 01, 01);
+            _fechaBaja = new DateTime(2000, 01, 01);
             id = "";
             ciRif = "";
             nombre = "";
             direccion = "";
             codigo = "";
             IsActivo = true;
+            fechaAlta = DateTime.Now.Date;
         }
 
 
@@ -48,6 +75,9 @@ namespace ModCompra.Proveedor.Administrador.Lista
             direccion = rg.direccionFiscal;
             codigo = rg.codigo;
             IsActivo = rg.IsActivo;
+            fechaAlta = rg.fechaAlta;
+            _fechaUltCompra = rg.fechaUltCompra;
+            _fechaBaja = rg.fechaBaja;
         }
 
     }

@@ -97,6 +97,8 @@
             this.panel23 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.BT_ESTATUS = new System.Windows.Forms.Button();
             this.panel40 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -120,8 +122,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.BT_ESTATUS = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -167,6 +167,7 @@
             this.tableLayoutPanel10.SuspendLayout();
             this.panel22.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
+            this.panel35.SuspendLayout();
             this.panel40.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.panel21.SuspendLayout();
@@ -181,7 +182,6 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel35.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -1059,6 +1059,33 @@
             this.tableLayoutPanel12.Size = new System.Drawing.Size(95, 74);
             this.tableLayoutPanel12.TabIndex = 1;
             // 
+            // panel35
+            // 
+            this.panel35.Controls.Add(this.BT_ESTATUS);
+            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel35.Location = new System.Drawing.Point(1, 1);
+            this.panel35.Margin = new System.Windows.Forms.Padding(1);
+            this.panel35.Name = "panel35";
+            this.panel35.Padding = new System.Windows.Forms.Padding(2);
+            this.panel35.Size = new System.Drawing.Size(45, 72);
+            this.panel35.TabIndex = 0;
+            // 
+            // BT_ESTATUS
+            // 
+            this.BT_ESTATUS.BackgroundImage = global::ModCompra.Properties.Resources.bt_status;
+            this.BT_ESTATUS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ESTATUS.FlatAppearance.BorderSize = 0;
+            this.BT_ESTATUS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_ESTATUS.Location = new System.Drawing.Point(2, 2);
+            this.BT_ESTATUS.Name = "BT_ESTATUS";
+            this.BT_ESTATUS.Size = new System.Drawing.Size(41, 68);
+            this.BT_ESTATUS.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.BT_ESTATUS, "Cambiar Estatus");
+            this.BT_ESTATUS.UseVisualStyleBackColor = true;
+            this.BT_ESTATUS.Click += new System.EventHandler(this.BT_ESTATUS_Click);
+            // 
             // panel40
             // 
             this.panel40.Controls.Add(this.tableLayoutPanel11);
@@ -1351,32 +1378,6 @@
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.BT_SALIR.UseVisualStyleBackColor = true;
             // 
-            // panel35
-            // 
-            this.panel35.Controls.Add(this.BT_ESTATUS);
-            this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel35.Location = new System.Drawing.Point(1, 1);
-            this.panel35.Margin = new System.Windows.Forms.Padding(1);
-            this.panel35.Name = "panel35";
-            this.panel35.Padding = new System.Windows.Forms.Padding(2);
-            this.panel35.Size = new System.Drawing.Size(45, 72);
-            this.panel35.TabIndex = 0;
-            // 
-            // BT_ESTATUS
-            // 
-            this.BT_ESTATUS.BackgroundImage = global::ModCompra.Properties.Resources.bt_status;
-            this.BT_ESTATUS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_ESTATUS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ESTATUS.FlatAppearance.BorderSize = 0;
-            this.BT_ESTATUS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_ESTATUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_ESTATUS.Location = new System.Drawing.Point(2, 2);
-            this.BT_ESTATUS.Name = "BT_ESTATUS";
-            this.BT_ESTATUS.Size = new System.Drawing.Size(41, 68);
-            this.BT_ESTATUS.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.BT_ESTATUS, "Cambiar Estatus");
-            this.BT_ESTATUS.UseVisualStyleBackColor = true;
-            // 
             // AdmFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1436,6 +1437,7 @@
             this.tableLayoutPanel10.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
+            this.panel35.ResumeLayout(false);
             this.panel40.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
@@ -1450,7 +1452,6 @@
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            this.panel35.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

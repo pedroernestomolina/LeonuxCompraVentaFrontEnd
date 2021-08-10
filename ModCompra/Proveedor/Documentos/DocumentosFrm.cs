@@ -23,6 +23,9 @@ namespace ModCompra.Proveedor.Documentos
         {
             InitializeComponent();
             InicializarDGV();
+
+            CB_TIPO_DOCUMENTO.ValueMember= "id";
+            CB_TIPO_DOCUMENTO.DisplayMember = "descripcion";
         }
 
         private void InicializarDGV()
@@ -52,10 +55,9 @@ namespace ModCompra.Proveedor.Documentos
             c2.DataPropertyName = "Tipo";
             c2.HeaderText = "Tipo";
             c2.Visible = true;
-            c2.MinimumWidth = 90;
+            c2.Width= 110;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
-            c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Serie";
@@ -74,16 +76,33 @@ namespace ModCompra.Proveedor.Documentos
             c4.DefaultCellStyle.Font = f1;
             c4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+            var c5 = new DataGridViewTextBoxColumn();
+            c5.DataPropertyName = "ControlNro";
+            c5.HeaderText = "Control Nro";
+            c5.Visible = true;
+            c5.Width= 110;
+            c5.HeaderCell.Style.Font = f;
+            c5.DefaultCellStyle.Font = f1;
+
+            var c6 = new DataGridViewTextBoxColumn();
+            c6.DataPropertyName = "Importe";
+            c6.HeaderText = "Importe";
+            c6.Visible = true;
+            c6.Width = 120;
+            c6.HeaderCell.Style.Font = f;
+            c6.DefaultCellStyle.Font = f1;
+            c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c6.DefaultCellStyle.Format = "n2";
+
             var c9 = new DataGridViewTextBoxColumn();
             c9.DataPropertyName = "ImporteDivisa";
             c9.HeaderText = "Importe $";
             c9.Visible = true;
-            c9.MinimumWidth = 100;
+            c9.Width = 110;
             c9.HeaderCell.Style.Font = f;
             c9.DefaultCellStyle.Font = f1;
             c9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             c9.DefaultCellStyle.Format = "n2";
-            c9.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c0a = new DataGridViewTextBoxColumn();
             c0a.DataPropertyName = "Estatus";
@@ -99,6 +118,8 @@ namespace ModCompra.Proveedor.Documentos
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c4);
+            DGV.Columns.Add(c5);
+            DGV.Columns.Add(c6);
             DGV.Columns.Add(c9);
             DGV.Columns.Add(c0a);
         }
@@ -108,12 +129,18 @@ namespace ModCompra.Proveedor.Documentos
             _controlador = ctr;
         }
 
+        private bool _inicializa;
         private void CompraArticulosFrm_Load(object sender, EventArgs e)
         {
+            _inicializa = true;
+            CB_TIPO_DOCUMENTO.DataSource = _controlador.SourceTipoDocumento;
+            CB_TIPO_DOCUMENTO.SelectedIndex = -1;
+
             L_PROVEEDOR.Text = _controlador.Proveedor;
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
             DGV.DataSource = _controlador.Source;
+            _inicializa = false;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -168,6 +195,7 @@ namespace ModCompra.Proveedor.Documentos
             _controlador.Limpiar();
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
+            CB_TIPO_DOCUMENTO.SelectedValue = _controlador.IdTipoDocumento;
         }
 
         private void BT_IMPRIMIR_Click(object sender, EventArgs e)
@@ -178,6 +206,28 @@ namespace ModCompra.Proveedor.Documentos
         private void Imprimir()
         {
             _controlador.Imprimir();
+        }
+
+        private void CB_TIPO_DOCUMENTO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!_inicializa)
+            {
+                _controlador.setTipoDocumento("");
+                if (CB_TIPO_DOCUMENTO.SelectedIndex != -1)
+                {
+                    _controlador.setTipoDocumento(CB_TIPO_DOCUMENTO.SelectedValue.ToString());
+                }
+            }
+        }
+
+        private void L_TIPO_DOCUMENTO_Click(object sender, EventArgs e)
+        {
+            Limpiar_TipoDocumento(); ;
+        }
+
+        private void Limpiar_TipoDocumento()
+        {
+            CB_TIPO_DOCUMENTO.SelectedIndex = -1;
         }
 
     }

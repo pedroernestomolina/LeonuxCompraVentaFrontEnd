@@ -248,6 +248,7 @@
     <Compile Include="Proveedor\ArticulosCompra\Gestion.cs" />
     <Compile Include="Proveedor\Busqueda\Enumerados.cs" />
     <Compile Include="Proveedor\Documentos\data.cs" />
+    <Compile Include="Proveedor\Documentos\dataGeneral.cs" />
     <Compile Include="Proveedor\Documentos\DocumentosFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +257,13 @@
     </Compile>
     <Compile Include="Proveedor\Documentos\Filtro.cs" />
     <Compile Include="Proveedor\Documentos\Gestion.cs" />
+    <Compile Include="Proveedor\Estatus\EstatusFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\Estatus\EstatusFrm.Designer.cs">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\Estatus\Gestion.cs" />
     <Compile Include="Proveedor\Listar\data.cs" />
     <Compile Include="Proveedor\Listar\Gestion.cs" />
     <Compile Include="Proveedor\Listar\ListaFrm.cs">
@@ -401,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\Documentos\DocumentosFrm.resx">
       <DependentUpon>DocumentosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\Estatus\EstatusFrm.resx">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proveedor\Listar\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>

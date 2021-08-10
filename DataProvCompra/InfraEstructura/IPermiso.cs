@@ -15,6 +15,7 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMedio();
         OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo();
 
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Grupo(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_CrearGrupo(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_ModificarGrupo(string autoGrupoUsuario);
          
@@ -34,6 +35,7 @@ namespace DataProvCompra.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_Agregar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_Editar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_CambiarEstatus(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibCompra.Permiso.Ficha> Permiso_Proveedor_Reportes(string autoGrupoUsuario);
 
     }

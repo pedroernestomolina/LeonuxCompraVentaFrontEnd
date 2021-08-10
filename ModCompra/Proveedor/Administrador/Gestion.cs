@@ -20,6 +20,7 @@ namespace ModCompra.Proveedor.Administrador
         private ArticulosCompra.Gestion _gestionCompraArticulos;
         private Documentos.Gestion _gestionDocumentos;
         private Visualizar.Gestion _gestionVisualizar;
+        private Estatus.Gestion _gestionEstatus;
 
 
         public int cntItem { get { return _gestionLista.Items; } }
@@ -87,6 +88,7 @@ namespace ModCompra.Proveedor.Administrador
             _gestionCompraArticulos = new ArticulosCompra.Gestion();
             _gestionDocumentos = new Documentos.Gestion();
             _gestionVisualizar = new Visualizar.Gestion();
+            _gestionEstatus = new Estatus.Gestion();
         }
 
 
@@ -291,6 +293,36 @@ namespace ModCompra.Proveedor.Administrador
             _gestionVisualizar.Inicializa();
             _gestionVisualizar.setIdProveedor(Item.id);
             _gestionVisualizar.Inicia();
+        }
+
+        public void ActivarInactivarFicha()
+        {
+            if (Item != null)
+            {
+                var r00 = Sistema.MyData.Permiso_Proveedor_CambiarEstatus(Sistema.UsuarioP.autoGru);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestionEstatus.Inicializa();
+                    _gestionEstatus.setFicha(Item.id);
+                    _gestionEstatus.Inicia();
+                    if (_gestionEstatus.CambioEstatusIsOk)
+                    {
+                        var r01 = Sistema.MyData.Proveedor_GetFicha(Item.id);
+                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(r01.Mensaje);
+                            return;
+                        }
+                        _gestionLista.ActualizarItem(Item.id, r01.Entidad);
+                    }
+                }
+            }
         }
 
     }

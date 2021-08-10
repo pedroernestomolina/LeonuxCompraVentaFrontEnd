@@ -17,6 +17,8 @@ namespace DataProvCompra.InfraEstructura
         OOB.Resultado Proveedor_EditarFicha(OOB.LibCompra.Proveedor.Editar.Ficha ficha);
         OOB.ResultadoLista<OOB.LibCompra.Proveedor.Documentos.Ficha> Proveedor_Documentos_GetLista(OOB.LibCompra.Proveedor.Documentos.Filtro filtro);
         OOB.ResultadoLista<OOB.LibCompra.Proveedor.Articulos.Ficha> Proveedor_ArticulosComprados_GetLista(OOB.LibCompra.Proveedor.Articulos.Filtro filtro);
+        OOB.Resultado Proveedor_ActivarFicha(OOB.LibCompra.Proveedor.ActivarInactivar.Ficha ficha);
+        OOB.Resultado Proveedor_InactivarFicha(OOB.LibCompra.Proveedor.ActivarInactivar.Ficha ficha);
 
     }
 

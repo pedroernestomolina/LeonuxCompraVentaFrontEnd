@@ -96,6 +96,17 @@ namespace ModCompra.Proveedor.Administrador.Lista
             _bl.Clear();
         }
 
+        public void ActualizarItem(string id, OOB.LibCompra.Proveedor.Data.Ficha ficha)
+        {
+            var it = _bl.FirstOrDefault(f => f.id == id);
+            var idx = _bl.IndexOf(it);
+            if (it != null) 
+            {
+                _bl.Remove(it);
+            }
+            _bl.Insert(idx,new data(ficha));
+        }
+
     }
 
 }

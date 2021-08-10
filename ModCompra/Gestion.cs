@@ -194,8 +194,18 @@ namespace ModCompra
 
         public void MaestrosGrupos()
         {
-            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
-            _gestionMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_Grupo(Sistema.UsuarioP.autoGru);
+            if (r00.Result ==  OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
+                _gestionMaestro.Inicia();
+            }
         }
 
         public void MaestroProveedor()

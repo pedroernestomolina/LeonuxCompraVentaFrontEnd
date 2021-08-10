@@ -233,6 +233,17 @@ namespace ModCompra.Proveedor.Administrador
         {
             _controlador.SeleccionarItem();
         }
+
+        private void BT_ESTATUS_Click(object sender, EventArgs e)
+        {
+            ActivarInactivarFicha();
+        }
+
+        private void ActivarInactivarFicha()
+        {
+            _controlador.ActivarInactivarFicha();
+            ActualizarDataProveedor();
+        }
       
     }
 

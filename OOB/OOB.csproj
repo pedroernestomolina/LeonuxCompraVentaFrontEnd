@@ -133,6 +133,7 @@
     <Compile Include="LibCompra\Producto\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Producto\Utilidad\Ficha.cs" />
     <Compile Include="LibCompra\Producto\VerificarDepositoAsignado\Ficha.cs" />
+    <Compile Include="LibCompra\Proveedor\ActivarInactivar\Ficha.cs" />
     <Compile Include="LibCompra\Proveedor\Agregar\Ficha.cs" />
     <Compile Include="LibCompra\Proveedor\Articulos\Ficha.cs" />
     <Compile Include="LibCompra\Proveedor\Articulos\Filtro.cs" />

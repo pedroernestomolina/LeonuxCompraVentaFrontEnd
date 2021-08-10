@@ -18,23 +18,41 @@ namespace ModCompra.Proveedor.Documentos
         private string _autoProv;
         private OOB.LibCompra.Proveedor.Data.Ficha _proveedor;
         private BindingSource _bs;
+        private BindingSource _bsTipoDoc ;
         private Filtro _filtro;
         private List<data> _ldata;
+        private List<dataGeneral> _ltipoDoc;
 
 
         public string Proveedor { get { return _proveedor.RifNombrePrv; } }
         public BindingSource Source { get { return _bs; } }
         public DateTime Desde { get { return _filtro.desde; } }
         public DateTime Hasta { get { return _filtro.hasta; } }
+        public string IdTipoDocumento 
+        { 
+            get 
+            {
+                var id = "";
+                if (_filtro.TipoDocumento != null) 
+                {
+                    id = _filtro.TipoDocumento.id;
+                }
+                return id;
+            } 
+        }
+        public BindingSource SourceTipoDocumento { get { return _bsTipoDoc; } }
 
 
         public Gestion()
         {
             _autoProv = "";
             _filtro = new Filtro();
+            _ltipoDoc = new List<dataGeneral>();
             _ldata= new List<data>();
             _bs = new BindingSource();
             _bs.DataSource = _ldata;
+            _bsTipoDoc = new BindingSource();
+            _bsTipoDoc.DataSource = _ltipoDoc;
         }
 
 
@@ -77,6 +95,13 @@ namespace ModCompra.Proveedor.Documentos
             _proveedor = r01.Entidad;
             _filtro.setProveedor(r01.Entidad.autoId);
 
+            _ltipoDoc.Clear();
+            _ltipoDoc.Add(new dataGeneral("01", "FACTURA"));
+            _ltipoDoc.Add(new dataGeneral("02", "NOTA DEBITO"));
+            _ltipoDoc.Add(new dataGeneral("03", "NOTA CREDITO"));
+            _ltipoDoc.Add(new dataGeneral("04", "ORDEN COMPRA"));
+            _bsTipoDoc.CurrencyManager.Refresh();
+
             return rt;
         }
 
@@ -90,6 +115,11 @@ namespace ModCompra.Proveedor.Documentos
             _filtro.setHasta(fecha);
         }
 
+        public void setTipoDocumento(string id)
+        {
+            _filtro.setTipoDocumento(_ltipoDoc.FirstOrDefault(f=>f.id==id));
+        }
+
         public void Buscar()
         {
             if (_filtro.IsOk()) 
@@ -100,6 +130,25 @@ namespace ModCompra.Proveedor.Documentos
                     hasta = _filtro.hasta,
                     autoProv = _filtro.autoProveedor,
                 };
+                if (_filtro.TipoDocumento != null) 
+                {
+                    switch (_filtro.TipoDocumento.id) 
+                    {
+                        case "01":
+                            filtroOOB.tipoDoc = OOB.LibCompra.Proveedor.Documentos.Enumerados.enumTipoDoc.Factura;
+                            break;
+                        case "02":
+                            filtroOOB.tipoDoc = OOB.LibCompra.Proveedor.Documentos.Enumerados.enumTipoDoc.NotaDebito;
+                            break;
+                        case "03":
+                            filtroOOB.tipoDoc = OOB.LibCompra.Proveedor.Documentos.Enumerados.enumTipoDoc.NotaCRedito;
+                            break;
+                        case "04":
+                            filtroOOB.tipoDoc = OOB.LibCompra.Proveedor.Documentos.Enumerados.enumTipoDoc.OrdenCompra;
+                            break;
+                    }
+                }
+
                 var r01 = Sistema.MyData.Proveedor_Documentos_GetLista(filtroOOB);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 
                 {

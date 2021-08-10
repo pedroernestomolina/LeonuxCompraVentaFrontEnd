@@ -14,11 +14,13 @@ namespace ModCompra.Proveedor.Documentos
         private DateTime _desde;
         private DateTime _hasta;
         private string _autoProv;
+        private dataGeneral _tipoDoc;
 
 
         public DateTime desde { get { return _desde; } }
         public DateTime hasta { get { return _hasta; } }
         public string autoProveedor { get { return _autoProv; } }
+        public dataGeneral TipoDocumento { get { return _tipoDoc; } }
         
 
         public Filtro()
@@ -31,6 +33,7 @@ namespace ModCompra.Proveedor.Documentos
         {
             _desde = DateTime.Now.Date;
             _hasta = DateTime.Now.Date;
+            _tipoDoc = null;
             _autoProv = "";
         }
 
@@ -65,6 +68,11 @@ namespace ModCompra.Proveedor.Documentos
             }
 
             return rt;
+        }
+
+        public void setTipoDocumento(dataGeneral ficha)
+        {
+            _tipoDoc = ficha;
         }
 
     }

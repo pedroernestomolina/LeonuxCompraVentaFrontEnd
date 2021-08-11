@@ -22,6 +22,7 @@ namespace ModSistema
         private SucursalDeposito.Gestion _gestionSucDep;
         private Servicio.Gestion _gestionServicio;
         private TasaDivisa.Gestion _gestionTasaDivisa;
+        private Maestros.Gestion _gestionMaestro;
 
 
         public string Host 
@@ -64,6 +65,7 @@ namespace ModSistema
             _gestionSucDep = new SucursalDeposito.Gestion();
             _gestionServicio = new Servicio.Gestion();
             _gestionTasaDivisa = new TasaDivisa.Gestion();
+            _gestionMaestro = new Maestros.Gestion();
         }
 
 
@@ -241,6 +243,56 @@ namespace ModSistema
                 var gestion = new TasaDivisa.Sist.Gestion();
                 _gestionTasaDivisa.setGestion(gestion);
                 _gestionTasaDivisa.Inicia();
+            }
+        }
+
+        public void Vendedor()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlVendedor(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var _gestionVend = new Maestros.Vendedor.Gestion();
+                _gestionMaestro.setGestion(_gestionVend);
+                _gestionMaestro.Inicializa();
+                _gestionMaestro.Inicia();
+            }
+       }
+
+        public void Cobrador()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlCobrador(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                var _gestionCob = new Maestros.Cobrador.Gestion();
+                _gestionMaestro.setGestion(_gestionCob);
+                _gestionMaestro.Inicializa();
+                _gestionMaestro.Inicia();
+            }
+        }
+
+        public void SeriesFiscal()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlSerieFiscal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
             }
         }
 

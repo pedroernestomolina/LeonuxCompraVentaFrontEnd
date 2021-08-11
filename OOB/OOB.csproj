@@ -342,6 +342,8 @@
     <Compile Include="LibInventario\Visor\Precio\Filtro.cs" />
     <Compile Include="LibInventario\Visor\Traslado\Ficha.cs" />
     <Compile Include="LibInventario\Visor\Traslado\Filtro.cs" />
+    <Compile Include="LibSistema\Cobrador\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\Cobrador\Lista\Filtro.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\Ficha.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoCostoSinDivisa.cs" />
     <Compile Include="LibSistema\Configuracion\ActualizarTasaDivisa\ActualizarData\FichaProductoPrecioHistorico.cs" />
@@ -379,6 +381,8 @@
     <Compile Include="LibSistema\Usuario\Enumerados.cs" />
     <Compile Include="LibSistema\Usuario\Ficha.cs" />
     <Compile Include="LibSistema\Usuario\Inactivar.cs" />
+    <Compile Include="LibSistema\Vendedor\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\Vendedor\Lista\Filtro.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\Agregar.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\ExportarData\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\ExportarData\Filtro.cs" />

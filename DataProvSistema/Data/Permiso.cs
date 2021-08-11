@@ -27,7 +27,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMedio()
         {
             var rt = new OOB.ResultadoEntidad<string>();
@@ -43,7 +42,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo()
         {
             var rt = new OOB.ResultadoEntidad<string>();
@@ -82,7 +80,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_InicializarBD(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -105,7 +102,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_InicializarBD_Sucursal(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -128,7 +124,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_AjustarTasaDivisa(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -151,7 +146,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_AjustarTasaDivisaRecepcionPos(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -174,7 +168,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_EtiquetaParaPrecios(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -220,7 +213,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_AsignarDepositoSucursal_EliminarAsignacion(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -243,7 +235,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_AsignarDepositoSucursal_EditarAsignacion(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -289,7 +280,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSucursalGrupo_Agregar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -312,7 +302,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSucursalGrupo_Editar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -358,7 +347,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSucursal_Agregar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -381,7 +369,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSucursal_Editar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -427,7 +414,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlDeposito_Agregar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -450,7 +436,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlDeposito_Editar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -496,7 +481,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuarioGrupo_Agregar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -519,7 +503,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuarioGrupo_Editar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -565,7 +548,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuario_Agregar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -588,7 +570,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuario_Editar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
@@ -611,12 +592,212 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlUsuario_ActivarInactivar(string autoGrupoUsuario)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
 
             var r01 = MyData.Permiso_ControlUsuario_ActivarInactivar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlVendedor(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor_Agregar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlVendedor_Agregar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor_Editar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlVendedor_Editar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlCobrador(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador_Agregar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlCobrador_Agregar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador_Editar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlCobrador_Editar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlSerieFiscal(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Agregar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlSerieFiscal_Agregar(autoGrupoUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.LibSistema.Permiso.Ficha()
+            {
+                IsHabilitado = s.IsHabilitado,
+                NivelSeguridad = (OOB.LibSistema.Permiso.Enumerados.EnumNivelSeguridad)s.NivelSeguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha>();
+
+            var r01 = MyData.Permiso_ControlSerieFiscal_Editar(autoGrupoUsuario);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

@@ -9,8 +9,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ServiceSistema.dll
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLibSistema.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ILibSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ProvLibSistema.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibEntitySistema.dll
@@ -20,8 +20,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\EntityFramework.SqlServer.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ServiceSistema.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLib.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLibSistema.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DtoLib.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ILibSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ProvLibSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibEntitySistema.pdb
@@ -30,6 +30,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Form1.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Identificacion.IdentificacionFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Maestros.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Precio.ActualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Seguridad.SeguridadFrm.resources

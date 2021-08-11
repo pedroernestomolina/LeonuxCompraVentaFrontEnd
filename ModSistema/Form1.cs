@@ -174,6 +174,36 @@ namespace ModSistema
             _controlador.TasaDivisa();
         }
 
+        private void TSM_MAESTRO_VENDEDOR_Click(object sender, EventArgs e)
+        {
+            Vendedor();
+        }
+
+        private void Vendedor()
+        {
+            _controlador.Vendedor();
+        }
+
+        private void TSM_MAESTRO_COBRADOR_Click(object sender, EventArgs e)
+        {
+            Cobrador();
+        }
+
+        private void Cobrador()
+        {
+            _controlador.Cobrador();
+        }
+
+        private void TSM_MAESTRO_SERIES_FISCAL_Click(object sender, EventArgs e)
+        {
+            SeriesFiscal();
+        }
+
+        private void SeriesFiscal()
+        {
+            _controlador.SeriesFiscal();
+        }
+
     }
 
 }

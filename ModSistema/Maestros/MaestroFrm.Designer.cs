@@ -171,11 +171,11 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(515, 1);
+            this.panel5.Location = new System.Drawing.Point(514, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(112, 53);
+            this.panel5.Size = new System.Drawing.Size(113, 53);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -193,7 +193,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(110, 51);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(111, 51);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel6
@@ -231,7 +231,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(52, 47);
+            this.panel7.Size = new System.Drawing.Size(53, 47);
             this.panel7.TabIndex = 1;
             // 
             // BT_EDITAR
@@ -240,7 +240,7 @@
             this.BT_EDITAR.Location = new System.Drawing.Point(1, 1);
             this.BT_EDITAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_EDITAR.Name = "BT_EDITAR";
-            this.BT_EDITAR.Size = new System.Drawing.Size(50, 45);
+            this.BT_EDITAR.Size = new System.Drawing.Size(51, 45);
             this.BT_EDITAR.TabIndex = 1;
             this.BT_EDITAR.Text = "Editar";
             this.toolTip1.SetToolTip(this.BT_EDITAR, "Actualizar/Editar/Cambiar Item");

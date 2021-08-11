@@ -14,13 +14,11 @@ namespace OOB.LibSistema.Cobrador.Entidad
         public string id { get; set; }
         public string codigo { get; set; }
         public string nombre { get; set; }
-        public string ciRif { get; set; }
 
 
         public Ficha() 
         {
             id = "";
-            ciRif = "";
             codigo = "";
             nombre = "";
         }

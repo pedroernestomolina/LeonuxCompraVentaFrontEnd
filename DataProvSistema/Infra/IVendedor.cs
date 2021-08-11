@@ -12,6 +12,9 @@ namespace DataProvSistema.Infra
     {
 
         OOB.ResultadoLista<OOB.LibSistema.Vendedor.Entidad.Ficha> Vendedor_GetLista(OOB.LibSistema.Vendedor.Lista.Filtro filtro);
+        OOB.ResultadoEntidad<OOB.LibSistema.Vendedor.Entidad.Ficha> Vendedor_GetFicha_ById(string id);
+        OOB.ResultadoAuto Vendedor_AgregarFicha(OOB.LibSistema.Vendedor.Agregar.Ficha ficha);
+        OOB.Resultado Vendedor_EditarFicha(OOB.LibSistema.Vendedor.Editar.Ficha ficha);
 
     }
 

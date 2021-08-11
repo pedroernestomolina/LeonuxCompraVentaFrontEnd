@@ -12,6 +12,7 @@ namespace ModSistema.Maestros.Vendedor
     {
 
         private GestionLista _gestionLista;
+        private AgregarEditar _agregarEditar;
 
 
         public string MaestroTitulo { get { return "Maestro: VENDEDOR"; } }
@@ -19,6 +20,7 @@ namespace ModSistema.Maestros.Vendedor
 
         public Gestion() 
         {
+            _agregarEditar = new AgregarEditar();
         }
 
 
@@ -46,6 +48,42 @@ namespace ModSistema.Maestros.Vendedor
         {
             this._gestionLista = gestion;
         }
+
+        public void AgregarFicha()
+        {
+            _agregarEditar.setGestion(new Agregar.Gestion());
+            _agregarEditar.Inicializa();
+            _agregarEditar.Inicia();
+            if (_agregarEditar.ProcesarIsOk) 
+            {
+                var r01 = Sistema.MyData.Vendedor_GetFicha_ById(_agregarEditar.AutoFichaNueva);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _gestionLista.AgregarItem(r01.Entidad);
+            }
+        }
+
+        public void EditarFicha(dataLista ItemActual)
+        {
+            _agregarEditar.setGestion(new Editar.Gestion());
+            _agregarEditar.Inicializa();
+            _agregarEditar.setFichaEditar(ItemActual.id);
+            _agregarEditar.Inicia();
+            if (_agregarEditar.ProcesarIsOk)
+            {
+                var r01 = Sistema.MyData.Vendedor_GetFicha_ById(ItemActual.id);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _gestionLista.ActualizarItem(r01.Entidad);
+            }
+        }
+
     }
 
 }

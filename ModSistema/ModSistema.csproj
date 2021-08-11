@@ -107,7 +107,18 @@
     <Compile Include="Maestros\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros\Vendedor\AgregarEditar.cs" />
+    <Compile Include="Maestros\Vendedor\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Vendedor\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Vendedor\Agregar\Gestion.cs" />
+    <Compile Include="Maestros\Vendedor\dataAgregarEditar.cs" />
+    <Compile Include="Maestros\Vendedor\Editar\Gestion.cs" />
     <Compile Include="Maestros\Vendedor\Gestion.cs" />
+    <Compile Include="Maestros\Vendedor\IAgregarEditar.cs" />
     <Compile Include="Precio\ActualizarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Vendedor\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Precio\ActualizarFrm.resx">
       <DependentUpon>ActualizarFrm.cs</DependentUpon>

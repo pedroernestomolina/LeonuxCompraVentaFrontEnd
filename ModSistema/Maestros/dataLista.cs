@@ -31,7 +31,7 @@ namespace ModSistema.Maestros
             this.id = it.id;
             this.codigo = it.codigo;
             this.nombre = it.nombre;
-            this.ciRif = it.ciRif;
+            this.ciRif = "";
         }
 
     }

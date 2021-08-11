@@ -48,6 +48,11 @@ namespace ModSistema.Maestros
         private void MaestroFrm_Load(object sender, EventArgs e)
         {
             DGV.DataSource = _controlador.Source;
+            ActualizarData();
+        }
+
+        private void ActualizarData()
+        {
             L_TITULO.Text = _controlador.MaestroTitulo;
             L_ITEMS.Text = _controlador.CntItem.ToString("n0");
         }
@@ -99,24 +104,24 @@ namespace ModSistema.Maestros
 
         private void BT_AGREGAR_Click(object sender, EventArgs e)
         {
-            AgregarItem();
+            AgregarFicha();
         }
 
-        private void AgregarItem()
+        private void AgregarFicha()
         {
-            //_controlador.AgregarItem();
-            //L_ITEMS.Text = _controlador.Items.ToString("n0");
+            _controlador.AgregarFicha();
+            ActualizarData();
         }
 
         private void BT_EDITAR_Click(object sender, EventArgs e)
         {
-            EditarItem();
+            EditarFicha();
         }
 
-        private void EditarItem()
+        private void EditarFicha()
         {
-            //_controlador.EditarItem();
-            //L_ITEMS.Text = _controlador.Items.ToString("n0");
+            _controlador.EditarFicha();
+            ActualizarData();
         }
 
     }

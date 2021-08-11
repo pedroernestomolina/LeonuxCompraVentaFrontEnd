@@ -19,6 +19,7 @@ namespace ModSistema.Maestros
         public BindingSource Source { get { return _gestionLista.Source; } }
         public int CntItem { get { return _gestionLista.CntItem; } }
         public string MaestroTitulo { get { return _gestion.MaestroTitulo; } }
+        public dataLista ItemActual { get { return _gestionLista.ItemActual; } }
 
 
         public Gestion()
@@ -53,34 +54,37 @@ namespace ModSistema.Maestros
             }
         }
       
-        public void AgregarItem()
+        public void AgregarFicha()
         {
-            //var r00 = Sistema.MyData.Permiso_ControlSucursal_Agregar(Sistema.UsuarioP.autoGrupo);
-            //if (r00.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(r00.Mensaje);
-            //    return;
-            //}
+            var r00 = Sistema.MyData.Permiso_ControlVendedor_Agregar(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
 
-            //if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            //{
-            //    _gestionLista.AgregarItem();
-            //}
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestion.AgregarFicha();
+            }
         }
 
-        public void EditarItem()
+        public void EditarFicha()
         {
-            //var r00 = Sistema.MyData.Permiso_ControlSucursal_Editar(Sistema.UsuarioP.autoGrupo);
-            //if (r00.Result == OOB.Enumerados.EnumResult.isError)
-            //{
-            //    Helpers.Msg.Error(r00.Mensaje);
-            //    return;
-            //}
+            if (ItemActual != null)
+            {
+                var r00 = Sistema.MyData.Permiso_ControlVendedor_Editar(Sistema.UsuarioP.autoGrupo);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
 
-            //if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-            //{
-            //    _gestionLista.EditarItem();
-            //}
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _gestion.EditarFicha(ItemActual);
+                }
+            }
         }
 
     }

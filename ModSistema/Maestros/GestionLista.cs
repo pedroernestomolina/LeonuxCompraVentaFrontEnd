@@ -16,18 +16,28 @@ namespace ModSistema.Maestros
         private List<dataLista> _list;
         private BindingList<dataLista> _bl;
         private BindingSource _bs;
+        private dataLista _itemActual;
 
 
         public BindingSource Source { get { return _bs; } }
         public int CntItem { get { return _bs.Count; } }
+        public dataLista ItemActual { get { return _itemActual; } }
 
 
         public GestionLista()
         {
+            _itemActual = null;
             _list= new List<dataLista>();
             _bl= new BindingList<dataLista>(_list);
             _bs = new BindingSource();
+            _bs.CurrentChanged +=_bs_CurrentChanged;
             _bs.DataSource = _bl;
+        }
+
+        private void _bs_CurrentChanged(object sender, EventArgs e)
+        {
+            if (_bs.Current != null)
+                _itemActual = (dataLista)_bs.Current;
         }
 
 
@@ -49,32 +59,23 @@ namespace ModSistema.Maestros
             }
         }
 
-
-        public void AgregarItem()
-        {
-            //_gestionAgregarEditar.Agregar();
-            //if (_gestionAgregarEditar.IsAgregarEditarOk)
-            //{
-            //    CargarData();
-            //}
-        }
-
-        public void EditarItem()
-        {
-            //var it = (OOB.LibSistema.Sucursal.Ficha)bsLista.Current;
-            //if (it != null)
-            //{
-            //    _gestionAgregarEditar.Editar(it);
-            //    if (_gestionAgregarEditar.IsAgregarEditarOk)
-            //    {
-            //        CargarData();
-            //    }
-            //}
-        }
-
         public void Inicializa()
         {
+            _itemActual = null;
             _bl.Clear();
+        }
+
+        public void AgregarItem(OOB.LibSistema.Vendedor.Entidad.Ficha ficha)
+        {
+            _bl.Add(new dataLista(ficha));
+        }
+
+        public void ActualizarItem(OOB.LibSistema.Vendedor.Entidad.Ficha ficha)
+        {
+            var it = _bl.FirstOrDefault(f => f.id == ficha.id);
+            var idx = _bl.IndexOf(it);
+            _bl.Remove(it);
+            _bl.Insert(idx, it);
         }
 
     }

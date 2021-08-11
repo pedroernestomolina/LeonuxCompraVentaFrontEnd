@@ -17,6 +17,8 @@ namespace ModSistema.Maestros
         bool CargarData();
         void Inicializa();
         void setLista(GestionLista _gestionLista);
+        void AgregarFicha();
+        void EditarFicha(dataLista ItemActual);
 
     }
 

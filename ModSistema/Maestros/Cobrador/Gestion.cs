@@ -46,6 +46,15 @@ namespace ModSistema.Maestros.Cobrador
         {
             this._gestionLista = gestion;
         }
+
+        public void AgregarFicha()
+        {
+        }
+
+        public void EditarFicha(dataLista ItemActual)
+        {
+        }
+
     }
 
 }

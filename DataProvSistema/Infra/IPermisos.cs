@@ -49,6 +49,7 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor_Agregar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor_Editar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlVendedor_ActivarInactivar(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlCobrador_Agregar(string autoGrupoUsuario);
@@ -57,6 +58,7 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Agregar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_ActivarInactivar(string autoGrupoUsuario);
 
     }
 

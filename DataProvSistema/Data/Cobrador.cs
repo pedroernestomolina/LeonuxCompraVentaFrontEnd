@@ -70,7 +70,7 @@ namespace DataProvSistema.Data
             return rt;
         }
 
-        public OOB.ResultadoAuto Cobrador_AgregarFicha_ById(OOB.LibSistema.Cobrador.Agregar.Ficha ficha)
+        public OOB.ResultadoAuto Cobrador_AgregarFicha(OOB.LibSistema.Cobrador.Agregar.Ficha ficha)
         {
             var rt = new OOB.ResultadoAuto();
 

@@ -73,6 +73,32 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<OOB.Sucursal.Entidad.Ficha> Sucursal_GetFicha_ByCodigo(string codigo)
+        {
+            var result = new OOB.Resultado.FichaEntidad<OOB.Sucursal.Entidad.Ficha>();
+
+            var r01 = MyData.Sucursal_GetFicha_ByCodigo(codigo);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var ent = r01.Entidad;
+            var nr = new OOB.Sucursal.Entidad.Ficha()
+            {
+                codigo = ent.codigo,
+                id = ent.id,
+                idPrecioManejar = ent.precioManejar,
+                nombre = ent.nombre,
+                nombreGrupo = ent.nombreGrupo,
+            };
+            result.Entidad = nr;
+
+            return result;
+        }
+
     }
 
 }

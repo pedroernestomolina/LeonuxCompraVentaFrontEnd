@@ -195,6 +195,13 @@ namespace PosOnLine.Src.Item
             _it.id = id;
         }
 
+        public void setPrecioTarifa(decimal pneto, string tarifa, decimal pdivisa)
+        {
+            _it.pneto = pneto;
+            _it.tarifaPrecio = tarifa;
+            _it.pfullDivisa = pdivisa;
+        }
+
     }
 
 }

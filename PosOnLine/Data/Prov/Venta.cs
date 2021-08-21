@@ -267,6 +267,9 @@ namespace PosOnLine.Data.Prov
                 cantUndBloq = ficha.cantUndBloq,
                 cantidad = ficha.cantidad,
                 validarExistencia = ficha.validarExistencia,
+                precioNeto = ficha.precioNeto,
+                tarifaVenta = ficha.tarifaVenta,
+                precioDivisa = ficha.precioDivisa,
             };
             var r01 = MyData.Venta_Item_ActualizarCantidad_Aumentar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

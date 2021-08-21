@@ -14,17 +14,20 @@ namespace ModSistema.Maestros
 
         private GestionLista _gestionLista;
         private IGestion _gestion;
+        private Maestros.Estatus.Gestion _gestionEstatus;
 
 
         public BindingSource Source { get { return _gestionLista.Source; } }
         public int CntItem { get { return _gestionLista.CntItem; } }
         public string MaestroTitulo { get { return _gestion.MaestroTitulo; } }
+        public Enumerados.Maestro GridVisualizarIs { get { return _gestion.GridVisualizarIs; } }
         public dataLista ItemActual { get { return _gestionLista.ItemActual; } }
 
 
         public Gestion()
         {
             _gestionLista = new GestionLista();
+            _gestionEstatus = new Estatus.Gestion();
         }
 
 
@@ -82,8 +85,19 @@ namespace ModSistema.Maestros
 
                 if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
                 {
-                    _gestion.EditarFicha(ItemActual);
+                    if (ItemActual.IsActivo) 
+                    {
+                        _gestion.EditarFicha(ItemActual);
+                    }
                 }
+            }
+        }
+
+        public void CambiarEstatus()
+        {
+            if (ItemActual != null)
+            {
+                _gestion.CambiarEstatus(_gestionEstatus, ItemActual.id);
             }
         }
 

@@ -19,10 +19,16 @@ namespace PosOnLine.Src.Pago.Procesar
         private bool _isCredito;
         private LoteReferencia.Gestion _gestionLoteRef;
         private Descuento.Gestion _gestionDescuento;
+        private ValidarCambio.Gestion _gestionValidarCambio;
 
 
-        public List<PagoDetalle> Detalle { get { return _detalle; } }
-
+        public List<PagoDetalle> Detalle 
+        { 
+            get 
+            { 
+                return _detalle; 
+            }
+        }
 
         public decimal MontoRecibido
         {
@@ -193,6 +199,7 @@ namespace PosOnLine.Src.Pago.Procesar
             _tasaCambio = 0.0m;
             _dsctoPorct = 0.0m;
             _detalle = new List<PagoDetalle>();
+            _gestionValidarCambio = new ValidarCambio.Gestion();
         }
 
 
@@ -341,6 +348,15 @@ namespace PosOnLine.Src.Pago.Procesar
                 var msg = MessageBox.Show("Procesar Pago ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.Yes)
                 {
+
+                    if (MontoRecibido > MontoPagar)
+                    {
+                        _gestionValidarCambio.Inicializa();
+                        _gestionValidarCambio.setMontoValidar(MontoCambioDar_MonedaNacional);
+                        _gestionValidarCambio.Inicia();
+                        return _gestionValidarCambio.ValidarIsOk;
+                    }
+
                     return true;
                 }
             }

@@ -13,7 +13,7 @@ namespace DataProvSistema.Infra
 
         OOB.ResultadoLista<OOB.LibSistema.Cobrador.Entidad.Ficha> Cobrador_GetLista(OOB.LibSistema.Cobrador.Lista.Filtro filtro);
         OOB.ResultadoEntidad<OOB.LibSistema.Cobrador.Entidad.Ficha> Cobrador_GetFicha_ById(string id);
-        OOB.ResultadoAuto Cobrador_AgregarFicha_ById(OOB.LibSistema.Cobrador.Agregar.Ficha ficha);
+        OOB.ResultadoAuto Cobrador_AgregarFicha(OOB.LibSistema.Cobrador.Agregar.Ficha ficha);
         OOB.Resultado Cobrador_EditarFicha(OOB.LibSistema.Cobrador.Editar.Ficha ficha);
 
     }

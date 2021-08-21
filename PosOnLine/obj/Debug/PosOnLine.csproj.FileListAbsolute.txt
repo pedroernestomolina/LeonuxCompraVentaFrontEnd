@@ -23,6 +23,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ServicePos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\IPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\ProvPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibEntityPos.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Helpers.Imprimir.Grafico.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Lib.Controles.BalanzaSoloPeso.BalanzaManual.BalanzaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Properties.Resources.resources
@@ -46,6 +47,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pendie
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pos.PosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Principal.PrincipalFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Producto.Lista.ListaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.ValidarCambio.ValidarCambioFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\RdlCompile.compiled

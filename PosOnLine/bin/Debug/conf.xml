@@ -5,11 +5,13 @@
     <Catalogo>pita</Catalogo>
   </Servidor>
   <IdEquipo>1</IdEquipo>
-  <SerieFactura>1</SerieFactura>
-  <SerieNCredito>1D</SerieNCredito>
+  <CodigoSucursalActiva>08</CodigoSucursalActiva>
+  <codigoDepositoActiva>08</codigoDepositoActiva>
+  <SerieFactura>0801</SerieFactura>
+  <SerieNCredito>0801D</SerieNCredito>
   <SerieNEntrega>NEN</SerieNEntrega>
-  <ModoImpresionFactura>T80</ModoImpresionFactura>
-  <ModoImpresionNEntrega>T80</ModoImpresionNEntrega>
-  <ModoImpresionNCredito>T80</ModoImpresionNCredito>
-  <ModoImpresionCuadreCaja>T80</ModoImpresionCuadreCaja>
+  <ModoImpresionFactura>T58</ModoImpresionFactura>
+  <ModoImpresionNEntrega>T58</ModoImpresionNEntrega>
+  <ModoImpresionNCredito>T58</ModoImpresionNCredito>
+  <ModoImpresionCuadreCaja>T58</ModoImpresionCuadreCaja>
 </Configuracion>

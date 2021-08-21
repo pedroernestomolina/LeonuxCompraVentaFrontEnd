@@ -12,13 +12,14 @@ namespace ModSistema.Maestros
     {
 
         string MaestroTitulo { get; }
-
+        Enumerados.Maestro GridVisualizarIs { get; }
 
         bool CargarData();
         void Inicializa();
         void setLista(GestionLista _gestionLista);
         void AgregarFicha();
         void EditarFicha(dataLista ItemActual);
+        void CambiarEstatus(Maestros.Estatus.Gestion gestion, string idFicha);
 
     }
 

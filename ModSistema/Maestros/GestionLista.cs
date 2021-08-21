@@ -59,6 +59,15 @@ namespace ModSistema.Maestros
             }
         }
 
+        public void setLista(List<OOB.LibSistema.SerieFiscal.Entidad.Ficha> list)
+        {
+            _bl.Clear();
+            foreach (var it in list.OrderBy(o => o.serie).ToList())
+            {
+                _bl.Add(new dataLista(it));
+            }
+        }
+
         public void Inicializa()
         {
             _itemActual = null;
@@ -68,6 +77,7 @@ namespace ModSistema.Maestros
         public void AgregarItem(OOB.LibSistema.Vendedor.Entidad.Ficha ficha)
         {
             _bl.Add(new dataLista(ficha));
+            _bs.CurrencyManager.Refresh();
         }
 
         public void ActualizarItem(OOB.LibSistema.Vendedor.Entidad.Ficha ficha)
@@ -75,7 +85,38 @@ namespace ModSistema.Maestros
             var it = _bl.FirstOrDefault(f => f.id == ficha.id);
             var idx = _bl.IndexOf(it);
             _bl.Remove(it);
-            _bl.Insert(idx, it);
+            _bl.Insert(idx, new dataLista(ficha));
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void AgregarItem(OOB.LibSistema.Cobrador.Entidad.Ficha ficha)
+        {
+            _bl.Add(new dataLista(ficha));
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void ActualizarItem(OOB.LibSistema.Cobrador.Entidad.Ficha ficha)
+        {
+            var it = _bl.FirstOrDefault(f => f.id == ficha.id);
+            var idx = _bl.IndexOf(it);
+            _bl.Remove(it);
+            _bl.Insert(idx, new dataLista(ficha));
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void AgregarItem(OOB.LibSistema.SerieFiscal.Entidad.Ficha ficha)
+        {
+            _bl.Add(new dataLista(ficha));
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void ActualizarItem(OOB.LibSistema.SerieFiscal.Entidad.Ficha ficha)
+        {
+            var it = _bl.FirstOrDefault(f => f.id == ficha.id);
+            var idx = _bl.IndexOf(it);
+            _bl.Remove(it);
+            _bl.Insert(idx, new dataLista(ficha));
+            _bs.CurrencyManager.Refresh();
         }
 
     }

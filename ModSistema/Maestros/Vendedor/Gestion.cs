@@ -13,9 +13,11 @@ namespace ModSistema.Maestros.Vendedor
 
         private GestionLista _gestionLista;
         private AgregarEditar _agregarEditar;
+        private Maestros.Estatus.Gestion _gestionEstatus;
 
 
         public string MaestroTitulo { get { return "Maestro: VENDEDOR"; } }
+        public Enumerados.Maestro GridVisualizarIs { get { return Enumerados.Maestro.VENDEDOR; } }
 
 
         public Gestion() 
@@ -81,6 +83,34 @@ namespace ModSistema.Maestros.Vendedor
                     return;
                 }
                 _gestionLista.ActualizarItem(r01.Entidad);
+            }
+        }
+
+        public void CambiarEstatus(Maestros.Estatus.Gestion _gestion, string idFicha)
+        {
+            var r00 = Sistema.MyData.Permiso_ControlVendedor_ActivarInactivar(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestion.setGestion(new Maestros.Vendedor.Estatus.Gestion());
+                _gestion.Inicializa();
+                _gestion.setFicha(idFicha);
+                _gestion.Inicia();
+                if (_gestion.CambioEstatusIsOk)
+                {
+                    var r01 = Sistema.MyData.Vendedor_GetFicha_ById(idFicha);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _gestionLista.ActualizarItem(r01.Entidad);
+                }
             }
         }
 

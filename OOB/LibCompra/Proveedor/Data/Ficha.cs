@@ -21,7 +21,8 @@ namespace OOB.LibCompra.Proveedor.Data
         public bool IsActivo { get { return identidad.estatus == Enumerados.EnumEstatus.Activo ? true : false; } }
         public DateTime fechaAlta { get { return identidad.fechaAlta; } }
         public DateTime fechaUltCompra { get { return identidad.fechaUltCompra; } }
-        public DateTime fechaBaja { get { return identidad.fechaBaja; } } 
+        public DateTime fechaBaja { get { return identidad.fechaBaja; } }
+        public string estatus { get { return identidad.estatus == Enumerados.EnumEstatus.Activo ? "Activo" : "Inactivo"; } }
 
 
         public Ficha()

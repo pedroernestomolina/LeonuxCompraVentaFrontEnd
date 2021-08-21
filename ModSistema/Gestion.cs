@@ -293,7 +293,23 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
+                var _gestionSF= new Maestros.SerieFiscal.Gestion();
+                _gestionMaestro.setGestion(_gestionSF);
+                _gestionMaestro.Inicializa();
+                _gestionMaestro.Inicia();
             }
+        }
+
+        public void MaestroVendedor()
+        {
+        }
+
+        public void MaestroCobrador()
+        {
+        }
+
+        public void MaestroSeriesFiscal()
+        {
         }
 
     }

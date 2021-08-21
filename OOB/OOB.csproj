@@ -364,6 +364,11 @@
     <Compile Include="LibSistema\Precio\Etiquetar\Actualizar.cs" />
     <Compile Include="LibSistema\Precio\Etiquetar\Ficha.cs" />
     <Compile Include="LibSistema\Precio\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\ActivarInactivar\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Agregar\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Entidad\Ficha.cs" />
+    <Compile Include="LibSistema\SerieFiscal\Lista\Filtro.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Agregar.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Editar.cs" />
     <Compile Include="LibSistema\SucursalGrupo\Ficha.cs" />
@@ -383,6 +388,7 @@
     <Compile Include="LibSistema\Usuario\Enumerados.cs" />
     <Compile Include="LibSistema\Usuario\Ficha.cs" />
     <Compile Include="LibSistema\Usuario\Inactivar.cs" />
+    <Compile Include="LibSistema\Vendedor\ActivarInactivar\Ficha.cs" />
     <Compile Include="LibSistema\Vendedor\Agregar\Ficha.cs" />
     <Compile Include="LibSistema\Vendedor\Editar\Ficha.cs" />
     <Compile Include="LibSistema\Vendedor\Entidad\Ficha.cs" />

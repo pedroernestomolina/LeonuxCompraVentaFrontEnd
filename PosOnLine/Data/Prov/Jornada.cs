@@ -54,6 +54,7 @@ namespace PosOnLine.Data.Prov
                     estatus = ficha.operadorAbrir.estatus,
                     idEquipo = ficha.operadorAbrir.idEquipo,
                     idUsuario = ficha.operadorAbrir.idUsuario,
+                    codSucursal = ficha.codSucursal,
                 },
                 arqueoAbrir = new DtoLibPos.Pos.Abrir.Arqueo()
                 {
@@ -287,6 +288,35 @@ namespace PosOnLine.Data.Prov
                 result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
                 return result;
             }
+
+            return result;
+        }
+
+        public OOB.Resultado.FichaEntidad<OOB.Pos.EnUso.Ficha> Jornada_EnUso_GetBy_EquipoSucursal(string idEquipo, string codSucursal)
+        {
+            var result = new OOB.Resultado.FichaEntidad<OOB.Pos.EnUso.Ficha>();
+
+            var r01 = MyData.Jornada_EnUso_GetBy_EquipoSucursal(idEquipo, codSucursal);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var ent = r01.Entidad;
+            var nr = new OOB.Pos.EnUso.Ficha()
+            {
+                codUsuario = ent.codUsuario,
+                fechaApertura = ent.fechaApertura,
+                horaApertura = ent.horaApertura,
+                id = ent.id,
+                idUsuario = ent.idUsuario,
+                nomUsuario = ent.nomUsuario,
+                idAutoArqueoCierre = ent.idArqueoCierre,
+                idResumen = ent.idResumen,
+            };
+            result.Entidad = nr;
 
             return result;
         }

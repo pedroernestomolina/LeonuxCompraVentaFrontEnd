@@ -35,7 +35,6 @@ namespace PosOnLine
                 _gestionIdentifica.Inicia();
                 if (_gestionIdentifica.IsOk)
                 {
-
                     _gestionPrincipal.Inicializa();
                     _gestionPrincipal.Inicia();
                 }

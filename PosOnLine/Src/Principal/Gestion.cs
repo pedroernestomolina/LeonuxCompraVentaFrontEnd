@@ -102,8 +102,25 @@ namespace PosOnLine.Src.Principal
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Jornada_EnUso_GetByIdEquipo(Sistema.IdEquipo);
-            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError )
+            var t01 = Sistema.MyData.Sucursal_GetFicha_ByCodigo(Sistema.CodigoSucursalActivo);
+            if (t01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(t01.Mensaje);
+                return false;
+            }
+            Sistema.Sucursal = t01.Entidad;
+
+            var t02 = Sistema.MyData.Deposito_GetFicha_ByCodigo(Sistema.CodigoDepositoActivo);
+            if (t02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(t02.Mensaje);
+                return false;
+            }
+            Sistema.Deposito = t02.Entidad;
+
+            //var r01 = Sistema.MyData.Jornada_EnUso_GetByIdEquipo(Sistema.IdEquipo, Sistema.CodigoSucursalActivo);
+            var r01 = Sistema.MyData.Jornada_EnUso_GetBy_EquipoSucursal(Sistema.IdEquipo, Sistema.CodigoSucursalActivo);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
@@ -117,17 +134,19 @@ namespace PosOnLine.Src.Principal
                 return false;
             }
             Sistema.ConfiguracionActual = r02.Entidad;
+            Sistema.ConfiguracionActual.idDeposito = Sistema.Deposito.id;
+            Sistema.ConfiguracionActual.idSucursal = Sistema.Sucursal.id;
 
-            if (r02.Entidad.idSucursal != "")
-            {
-                var r03 = Sistema.MyData.Sucursal_GetFichaById(r02.Entidad.idSucursal);
-                if (r03.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r03.Mensaje);
-                    return false;
-                }
-                Sistema.Sucursal = r03.Entidad;
-            }
+            //if (r02.Entidad.idSucursal != "")
+            //{
+            //    var r03 = Sistema.MyData.Sucursal_GetFichaById(r02.Entidad.idSucursal);
+            //    if (r03.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            //    {
+            //        Helpers.Msg.Error(r03.Mensaje);
+            //        return false;
+            //    }
+            //    Sistema.Sucursal = r03.Entidad;
+            //}
 
             var r04 = Sistema.MyData.Sistema_Empresa_GetFicha();
             if (r04.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -137,16 +156,16 @@ namespace PosOnLine.Src.Principal
             }
             Sistema.DatosEmpresa = r04.Entidad;
 
-            if (r02.Entidad.idDeposito != "")
-            {
-                var r05 = Sistema.MyData.Deposito_GetFichaById(r02.Entidad.idDeposito);
-                if (r05.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r05.Mensaje);
-                    return false;
-                }
-                Sistema.Deposito = r05.Entidad;
-            }
+            //if (r02.Entidad.idDeposito != "")
+            //{
+            //    var r05 = Sistema.MyData.Deposito_GetFichaById(r02.Entidad.idDeposito);
+            //    if (r05.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            //    {
+            //        Helpers.Msg.Error(r05.Mensaje);
+            //        return false;
+            //    }
+            //    Sistema.Deposito = r05.Entidad;
+            //}
 
             return rt;
         }
@@ -222,6 +241,13 @@ namespace PosOnLine.Src.Principal
         {
             if (Sistema.PosEnUso.IsEnUso)
             {
+                if (Sistema.PosEnUso.idUsuario != Sistema.Usuario.id)
+                {
+                    Helpers.Msg.Error("USUARIO ACTUAL NO PUEDE CERRAR POS" + Environment.NewLine + "EXISTE UNA JORNADA ABIERTA DE OTRO OPERADOR");
+                    return;
+                }
+
+
                 _gestionCierre.Inicializa();
                 _gestionCierre.Inicia();
                 if (_gestionCierre.CierreIsOk)

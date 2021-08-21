@@ -63,6 +63,16 @@ namespace PosOnLine.Helpers
                                     _DataLocal = nv.InnerText.Trim();
                                 }
 
+                                if (nv.LocalName.ToUpper().Trim() == "CODIGOSUCURSALACTIVA")
+                                {
+                                    Sistema.CodigoSucursalActivo = nv.InnerText.Trim().ToUpper();
+                                }
+
+                                if (nv.LocalName.ToUpper().Trim() == "CODIGODEPOSITOACTIVA")
+                                {
+                                    Sistema.CodigoDepositoActivo= nv.InnerText.Trim().ToUpper();
+                                }
+
                                 if (nv.LocalName.ToUpper().Trim() == "SERIEFACTURA")
                                 {
                                     Sistema.SerieFactura = nv.InnerText.Trim().ToUpper();

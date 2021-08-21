@@ -235,7 +235,7 @@ namespace PosOnLine.Src.Pos
             L_TOTAL_KILOS.Text = _controlador.TotalPeso.ToString("n3");
             L_TOTAL_RENGLONES.Text = _controlador.CantRenglones.ToString("n0");
             L_IMPORTE.Text=_controlador.Importe.ToString("n2");
-            L_IMPORTE_DIVISA.Text = _controlador.ImporteDivisa.ToString("n2");
+            L_IMPORTE_DIVISA.Text = "$"+_controlador.ImporteDivisa.ToString("n2");
             ActualizarItem();
             DGV_DETALLE.Refresh();
         }

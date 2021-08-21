@@ -15,6 +15,8 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Vendedor.Entidad.Ficha> Vendedor_GetFicha_ById(string id);
         OOB.ResultadoAuto Vendedor_AgregarFicha(OOB.LibSistema.Vendedor.Agregar.Ficha ficha);
         OOB.Resultado Vendedor_EditarFicha(OOB.LibSistema.Vendedor.Editar.Ficha ficha);
+        OOB.Resultado Vendedor_Activar(OOB.LibSistema.Vendedor.ActivarInactivar.Ficha ficha);
+        OOB.Resultado Vendedor_Inactivar(OOB.LibSistema.Vendedor.ActivarInactivar.Ficha ficha);
 
     }
 

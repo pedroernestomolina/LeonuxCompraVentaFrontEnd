@@ -96,8 +96,35 @@
     <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LibControl\NumeroDec.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LibControl\NumeroEnt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Maestros\Cobrador\AgregarEditar.cs" />
+    <Compile Include="Maestros\Cobrador\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Cobrador\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Cobrador\Agregar\Gestion.cs" />
+    <Compile Include="Maestros\Cobrador\dataAgregarEditar.cs" />
+    <Compile Include="Maestros\Cobrador\Editar\Gestion.cs" />
     <Compile Include="Maestros\Cobrador\Gestion.cs" />
+    <Compile Include="Maestros\Cobrador\IAgregarEditar.cs" />
     <Compile Include="Maestros\dataLista.cs" />
+    <Compile Include="Maestros\Enumerados.cs" />
+    <Compile Include="Maestros\Estatus\Enumerados.cs" />
+    <Compile Include="Maestros\Estatus\EstatusFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\Estatus\EstatusFrm.designer.cs">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\Estatus\Gestion.cs" />
+    <Compile Include="Maestros\Estatus\IGestion.cs" />
     <Compile Include="Maestros\Gestion.cs" />
     <Compile Include="Maestros\GestionLista.cs" />
     <Compile Include="Maestros\IGestion.cs" />
@@ -107,6 +134,19 @@
     <Compile Include="Maestros\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros\SerieFiscal\AgregarEditar.cs" />
+    <Compile Include="Maestros\SerieFiscal\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\SerieFiscal\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\SerieFiscal\Agregar\Gestion.cs" />
+    <Compile Include="Maestros\SerieFiscal\dataAgregarEditar.cs" />
+    <Compile Include="Maestros\SerieFiscal\Editar\Gestion.cs" />
+    <Compile Include="Maestros\SerieFiscal\Estatus\Gestion.cs" />
+    <Compile Include="Maestros\SerieFiscal\Gestion.cs" />
+    <Compile Include="Maestros\SerieFiscal\IAgregarEditar.cs" />
     <Compile Include="Maestros\Vendedor\AgregarEditar.cs" />
     <Compile Include="Maestros\Vendedor\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
@@ -117,6 +157,7 @@
     <Compile Include="Maestros\Vendedor\Agregar\Gestion.cs" />
     <Compile Include="Maestros\Vendedor\dataAgregarEditar.cs" />
     <Compile Include="Maestros\Vendedor\Editar\Gestion.cs" />
+    <Compile Include="Maestros\Vendedor\Estatus\Gestion.cs" />
     <Compile Include="Maestros\Vendedor\Gestion.cs" />
     <Compile Include="Maestros\Vendedor\IAgregarEditar.cs" />
     <Compile Include="Precio\ActualizarFrm.cs">
@@ -243,8 +284,17 @@
     <EmbeddedResource Include="Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Cobrador\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\Estatus\EstatusFrm.resx">
+      <DependentUpon>EstatusFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Maestros\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\SerieFiscal\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\Vendedor\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>

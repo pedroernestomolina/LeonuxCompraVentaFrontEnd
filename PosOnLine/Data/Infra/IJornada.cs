@@ -12,6 +12,7 @@ namespace PosOnLine.Data.Infra
     {
 
         OOB.Resultado.FichaEntidad<OOB.Pos.EnUso.Ficha> Jornada_EnUso_GetByIdEquipo(string idEquipo);
+        OOB.Resultado.FichaEntidad<OOB.Pos.EnUso.Ficha> Jornada_EnUso_GetBy_EquipoSucursal(string idEquipo, string codSucursal);
         OOB.Resultado.FichaId Jornada_Abrir(OOB.Pos.Abrir.Ficha ficha);
         OOB.Resultado.FichaEntidad<OOB.Pos.EnUso.Ficha> Jornada_EnUso_GetById(int id);
         OOB.Resultado.FichaEntidad<OOB.Pos.Resumen.Ficha> Jornada_Resumen_GetByIdResumen(int id);

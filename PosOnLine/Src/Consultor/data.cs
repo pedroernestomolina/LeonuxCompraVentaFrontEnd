@@ -57,26 +57,32 @@ namespace PosOnLine.Src.Consultor
             _ficha = fichaPrd;
             _precio.Limpiar();
             _existencia.Limpiar();
+            var cont = 1;
 
             switch (_tarifaPrecio)
             {
                 case "1":
                     _precio.setData(_ficha.pneto_1 , _ficha.TasaImpuesto, _ficha.contenido_1, _ficha.empaque_1, _ficha.pdf_1);
-                    _existencia.setData(fichaEx, _ficha.contenido_1);
+                    cont = _ficha.contenido_1;
                     break;
                 case "2":
                     _precio.setData(_ficha.pneto_2, _ficha.TasaImpuesto, _ficha.contenido_2, _ficha.empaque_2, _ficha.pdf_2);
+                    cont = _ficha.contenido_2;
                     break;
                 case "3":
                     _precio.setData(_ficha.pneto_3, _ficha.TasaImpuesto, _ficha.contenido_3, _ficha.empaque_3, _ficha.pdf_3);
+                    cont = _ficha.contenido_3;
                     break;
                 case "4":
                     _precio.setData(_ficha.pneto_4, _ficha.TasaImpuesto, _ficha.contenido_4, _ficha.empaque_4, _ficha.pdf_4);
+                    cont = _ficha.contenido_4;
                     break;
                 case "5":
                     _precio.setData(_ficha.pneto_5, _ficha.TasaImpuesto, _ficha.contenido_5, _ficha.empaque_5, _ficha.pdf_5);
+                    cont = _ficha.contenido_5;
                     break;
             }
+            _existencia.setData(fichaEx, cont);
         }
 
     }

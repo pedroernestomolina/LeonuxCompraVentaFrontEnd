@@ -47,6 +47,37 @@ namespace ModSistema.Maestros
 
         private void MaestroFrm_Load(object sender, EventArgs e)
         {
+            if (_controlador.GridVisualizarIs == Enumerados.Maestro.SERIEFISCAL)
+            {
+                DGV.Columns["CODIGO"].Visible = false;
+                DGV.Columns["CIRIF"].Visible = false;
+                DGV.Columns["NOMBRE"].Visible = false;
+                DGV.Columns["SERIE"].Visible = true;
+                DGV.Columns["CONTROL"].Visible = true;
+                DGV.Columns["CORRELATIVO"].Visible = true;
+                DGV.Columns["ESTATUS"].Visible = true;
+            }
+            else if (_controlador.GridVisualizarIs== Enumerados.Maestro.VENDEDOR)
+            {
+                DGV.Columns["CODIGO"].Visible = true;
+                DGV.Columns["CIRIF"].Visible = true;
+                DGV.Columns["NOMBRE"].Visible = true;
+                DGV.Columns["SERIE"].Visible = false;
+                DGV.Columns["CONTROL"].Visible = false;
+                DGV.Columns["CORRELATIVO"].Visible = false;
+                DGV.Columns["ESTATUS"].Visible = true;
+            }
+            else
+            {
+                DGV.Columns["CODIGO"].Visible = true;
+                DGV.Columns["CIRIF"].Visible = true;
+                DGV.Columns["NOMBRE"].Visible = true;
+                DGV.Columns["SERIE"].Visible = false;
+                DGV.Columns["CONTROL"].Visible = false;
+                DGV.Columns["CORRELATIVO"].Visible = false;
+                DGV.Columns["ESTATUS"].Visible = true;
+            }
+
             DGV.DataSource = _controlador.Source;
             ActualizarData();
         }
@@ -73,33 +104,79 @@ namespace ModSistema.Maestros
             DGV.ReadOnly = true;
 
             var c1 = new DataGridViewTextBoxColumn();
-            c1.DataPropertyName = "Nombre";
-            c1.HeaderText = "Nombre";
+            c1.DataPropertyName = "Codigo";
+            c1.HeaderText = "Codigo";
             c1.Visible = true;
+            c1.Width = 120;
             c1.HeaderCell.Style.Font = f;
             c1.DefaultCellStyle.Font = f1;
-            c1.MinimumWidth = 180;
-            c1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c1.Name = "CODIGO";
 
             var c2 = new DataGridViewTextBoxColumn();
-            c2.DataPropertyName = "Codigo";
-            c2.HeaderText = "Codigo";
+            c2.DataPropertyName = "ciRif";
+            c2.HeaderText = "CI/RIF";
             c2.Visible = true;
             c2.Width = 120;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
+            c2.Name = "CIRIF";
 
             var c3 = new DataGridViewTextBoxColumn();
-            c3.DataPropertyName = "nombreGrupoSucursal";
-            c3.HeaderText = "Grupo";
+            c3.DataPropertyName = "Nombre";
+            c3.HeaderText = "Nombre";
             c3.Visible = true;
-            c3.Width = 140;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
+            c3.MinimumWidth = 180;
+            c3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c3.Name = "NOMBRE";
 
-            DGV.Columns.Add(c2);
+            var c11 = new DataGridViewTextBoxColumn();
+            c11.DataPropertyName = "Serie";
+            c11.HeaderText = "Serie";
+            c11.Visible = true;
+            c11.Width = 120;
+            c11.HeaderCell.Style.Font = f;
+            c11.DefaultCellStyle.Font = f1;
+            c11.Name = "SERIE";
+
+            var c22 = new DataGridViewTextBoxColumn();
+            c22.DataPropertyName = "Control";
+            c22.HeaderText = "Control";
+            c22.Visible = true;
+            c22.Width = 120;
+            c22.HeaderCell.Style.Font = f;
+            c22.DefaultCellStyle.Font = f1;
+            c22.Name = "CONTROL";
+
+            var c33 = new DataGridViewTextBoxColumn();
+            c33.DataPropertyName = "Correlativo";
+            c33.HeaderText = "Correlativo";
+            c33.Visible = true;
+            c33.HeaderCell.Style.Font = f;
+            c33.DefaultCellStyle.Font = f1;
+            c33.DefaultCellStyle.Alignment= DataGridViewContentAlignment.MiddleRight;
+            c33.Width = 100;
+            c33.Name = "CORRELATIVO";
+
+            var c44 = new DataGridViewTextBoxColumn();
+            c44.DataPropertyName = "Estatus";
+            c44.HeaderText = "Estatus";
+            c44.Visible = true;
+            c44.HeaderCell.Style.Font = f;
+            c44.DefaultCellStyle.Font = f1;
+            c44.MinimumWidth = 100;
+            c44.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            c44.Name = "ESTATUS";
+
             DGV.Columns.Add(c1);
+            DGV.Columns.Add(c2);
             DGV.Columns.Add(c3);
+
+            DGV.Columns.Add(c11);
+            DGV.Columns.Add(c22);
+            DGV.Columns.Add(c33);
+            DGV.Columns.Add(c44);
         }
 
         private void BT_AGREGAR_Click(object sender, EventArgs e)
@@ -122,6 +199,28 @@ namespace ModSistema.Maestros
         {
             _controlador.EditarFicha();
             ActualizarData();
+        }
+
+        private void BT_ESTATUS_Click(object sender, EventArgs e)
+        {
+            CambiarEstatus();
+        }
+
+        private void CambiarEstatus()
+        {
+            _controlador.CambiarEstatus();
+        }
+
+        private void DGV_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                if (row.Cells["Estatus"].Value.ToString() == "Inactivo")
+                {
+                    row.Cells["Estatus"].Style.BackColor = Color.Red;
+                    row.Cells["Estatus"].Style.ForeColor = Color.White;
+                }
+            }
         }
 
     }

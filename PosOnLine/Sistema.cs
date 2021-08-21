@@ -55,6 +55,10 @@ namespace PosOnLine
         //
         public static string CLAVE_ADMINISTRADOR = "71277128";
 
+        //
+        public static string CodigoSucursalActivo;
+        public static string CodigoDepositoActivo; 
+
     }
 
 }

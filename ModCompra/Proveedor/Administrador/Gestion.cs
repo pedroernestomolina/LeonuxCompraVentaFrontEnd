@@ -240,6 +240,9 @@ namespace ModCompra.Proveedor.Administrador
         {
             if (Item != null)
             {
+                if (!Item.IsActivo)
+                    return;
+
                 var r00 = Sistema.MyData.Permiso_Proveedor_Editar(Sistema.UsuarioP.autoGru);
                 if (r00.Result == OOB.Enumerados.EnumResult.isError)
                 {

@@ -421,6 +421,13 @@
     <Compile Include="Src\Producto\Lista\ListaFrm.designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\ValidarCambio\gestion.cs" />
+    <Compile Include="Src\ValidarCambio\ValidarCambioFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\ValidarCambio\ValidarCambioFrm.Designer.cs">
+      <DependentUpon>ValidarCambioFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Helpers\Imprimir\Grafico\Cuadre.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -502,6 +509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Producto\Lista\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\ValidarCambio\ValidarCambioFrm.resx">
+      <DependentUpon>ValidarCambioFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Helpers\Imprimir\Grafico\ds.xsc">
       <DependentUpon>ds.xsd</DependentUpon>

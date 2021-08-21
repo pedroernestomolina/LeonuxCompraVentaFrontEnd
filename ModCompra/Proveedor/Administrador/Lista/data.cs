@@ -22,6 +22,7 @@ namespace ModCompra.Proveedor.Administrador.Lista
         public string codigo { get; set; } 
         public bool IsActivo { get; set; }
         public DateTime fechaAlta { get; set; }
+        public string Estatus { get; set; }
         public string fechaUltMov 
         { 
             get 
@@ -63,6 +64,7 @@ namespace ModCompra.Proveedor.Administrador.Lista
             codigo = "";
             IsActivo = true;
             fechaAlta = DateTime.Now.Date;
+            Estatus = "";
         }
 
 
@@ -76,6 +78,7 @@ namespace ModCompra.Proveedor.Administrador.Lista
             codigo = rg.codigo;
             IsActivo = rg.IsActivo;
             fechaAlta = rg.fechaAlta;
+            Estatus = rg.estatus;
             _fechaUltCompra = rg.fechaUltCompra;
             _fechaBaja = rg.fechaBaja;
         }

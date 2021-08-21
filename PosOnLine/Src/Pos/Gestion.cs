@@ -380,6 +380,13 @@ namespace PosOnLine.Src.Pos
 
         public void AnularVenta()
         {
+            if (CantRenglones == 0)
+                return;
+
+            var msg = MessageBox.Show("Anular Venta ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == System.Windows.Forms.DialogResult.No)
+                return;
+
             if (PassWIsOk(Sistema.FuncionPosAnularVenta))
             {
                 _gestionItem.Inicializar();
@@ -438,6 +445,9 @@ namespace PosOnLine.Src.Pos
         {
             if (!IsNotaCredito)
             {
+                if (CantRenglones == 0)
+                    return;
+
                 if (_gestionCliente.Cliente == null)
                 {
                     Helpers.Msg.Error("DEBE SELECCIONAR UN CLIENTE ANTES DE DEJAR LA CUENTA PENDIENTE");
@@ -936,7 +946,7 @@ namespace PosOnLine.Src.Pos
                             autoMedioPago = _medioPagoDivisa.id;
                             codigoMedioPago = _medioPagoDivisa.codigo;
                             descMedioPago = _medioPagoDivisa.nombre;
-                            lote = it.Cantidad.ToString("n2");
+                            lote = it.Cantidad.ToString();
                             referencia = TasaCambioActual.ToString("n0").Replace(".","");
                             PMontoDivisa+= montoRecibe;
                             CntDivisa = (int)it.Cantidad;

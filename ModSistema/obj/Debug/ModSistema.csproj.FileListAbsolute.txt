@@ -30,7 +30,10 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Form1.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Identificacion.IdentificacionFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Maestros.Cobrador.AgregarEditarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Maestros.Estatus.EstatusFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Maestros.MaestroFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Maestros.SerieFiscal.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Maestros.Vendedor.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Precio.ActualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Properties.Resources.resources

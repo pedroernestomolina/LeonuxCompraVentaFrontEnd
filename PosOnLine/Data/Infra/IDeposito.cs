@@ -13,6 +13,7 @@ namespace PosOnLine.Data.Infra
 
         OOB.Resultado.Lista<OOB.Deposito.Entidad.Ficha> Deposito_GetLista(OOB.Deposito.Lista.Filtro filtro);
         OOB.Resultado.FichaEntidad <OOB.Deposito.Entidad.Ficha> Deposito_GetFichaById(string id);
+        OOB.Resultado.FichaEntidad<OOB.Deposito.Entidad.Ficha> Deposito_GetFicha_ByCodigo(string codigo);
 
     }
 

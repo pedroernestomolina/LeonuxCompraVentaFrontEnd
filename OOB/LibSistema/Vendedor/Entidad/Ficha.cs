@@ -25,6 +25,7 @@ namespace OOB.LibSistema.Vendedor.Entidad
         public string estatus { get; set; }
         public string advertencia { get; set; }
         public string memo { get; set; }
+        public bool IsActivo { get { return estatus.Trim().ToUpper() == "ACTIVO"; } }
 
 
         public Ficha()

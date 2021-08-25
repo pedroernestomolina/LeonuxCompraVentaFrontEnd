@@ -1027,6 +1027,7 @@
             // 
             this.CB_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPOSITO.Enabled = false;
             this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_DEPOSITO.FormattingEnabled = true;
             this.CB_DEPOSITO.Location = new System.Drawing.Point(2, 2);
@@ -1271,6 +1272,7 @@
             // 
             this.CB_SUCURSAL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CB_SUCURSAL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_SUCURSAL.Enabled = false;
             this.CB_SUCURSAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_SUCURSAL.FormattingEnabled = true;
             this.CB_SUCURSAL.Location = new System.Drawing.Point(2, 2);

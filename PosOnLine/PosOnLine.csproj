@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\cashRegister.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DtoLib">
       <HintPath>..\..\CompraVentaService\ServicePos\bin\Debug\DtoLib.dll</HintPath>
@@ -83,6 +86,7 @@
     <Compile Include="Data\Infra\IPendiente.cs" />
     <Compile Include="Data\Infra\IPermiso.cs" />
     <Compile Include="Data\Infra\IProducto.cs" />
+    <Compile Include="Data\Infra\IReportePos.cs" />
     <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
@@ -98,6 +102,7 @@
     <Compile Include="Data\Prov\Pendiente.cs" />
     <Compile Include="Data\Prov\Permiso.cs" />
     <Compile Include="Data\Prov\Producto.cs" />
+    <Compile Include="Data\Prov\ReportesPos.cs" />
     <Compile Include="Data\Prov\Sistema.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
@@ -223,6 +228,10 @@
     <Compile Include="OOB\Producto\Existencia\Entidad\Ficha.cs" />
     <Compile Include="OOB\Producto\Lista\Ficha.cs" />
     <Compile Include="OOB\Producto\Lista\Filtro.cs" />
+    <Compile Include="OOB\Reportes\Pos\Filtro.cs" />
+    <Compile Include="OOB\Reportes\Pos\PagoDetalle\Detalle.cs" />
+    <Compile Include="OOB\Reportes\Pos\PagoDetalle\Ficha.cs" />
+    <Compile Include="OOB\Reportes\Pos\PagoResumen\Ficha.cs" />
     <Compile Include="OOB\Resultado\Enumerados.cs" />
     <Compile Include="OOB\Resultado\Ficha.cs" />
     <Compile Include="OOB\Resultado\FichaAuto.cs" />
@@ -286,7 +295,6 @@
       <DependentUpon>AnularFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Anular\Gestion.cs" />
-    <Compile Include="Src\Cierre\data.cs" />
     <Compile Include="Src\Cierre\CierreFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +429,19 @@
     <Compile Include="Src\Producto\Lista\ListaFrm.designer.cs">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Reportes\Cierre\Detalle\Movimiento.cs" />
+    <Compile Include="Src\Reportes\Cierre\Resumen\Movimiento.cs" />
+    <Compile Include="Src\Reportes\DS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Reportes\ReporteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Reportes\ReporteFrm.designer.cs">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\ValidarCambio\gestion.cs" />
     <Compile Include="Src\ValidarCambio\ValidarCambioFrm.cs">
       <SubType>Form</SubType>
@@ -510,6 +531,15 @@
     <EmbeddedResource Include="Src\Producto\Lista\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\PagoDetalle.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\PagoResumen.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\ReporteFrm.resx">
+      <DependentUpon>ReporteFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\ValidarCambio\ValidarCambioFrm.resx">
       <DependentUpon>ValidarCambioFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -534,6 +564,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Src\Reportes\DS.xsc">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Src\Reportes\DS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Src\Reportes\DS.xss">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -544,6 +585,7 @@
     <None Include="Resources\error.wav" />
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Src\Imagenes\calc.png" />
     <None Include="Src\Imagenes\limpiar.png" />
@@ -552,9 +594,11 @@
     <None Include="Resources\bt_salida_2.png" />
     <None Include="Resources\bt_ok_3.png" />
     <None Include="Resources\bt_alerta.png" />
+    <None Include="Resources\cashRegister.ico" />
     <Content Include="Src\Imagenes\bt_alerta.png" />
     <Content Include="Src\Imagenes\bt_ok_3.png" />
     <Content Include="Src\Imagenes\bt_salida_2.png" />
+    <Content Include="Src\Imagenes\cashRegister.ico" />
     <Content Include="Src\Sonidos\alerta.wav" />
     <Content Include="Src\Sonidos\error.wav" />
     <Content Include="Src\Sonidos\paso.wav" />

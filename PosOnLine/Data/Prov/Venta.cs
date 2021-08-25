@@ -242,6 +242,9 @@ namespace PosOnLine.Data.Prov
                 autoDeposito = ficha.autoDeposito,
                 cantUndBloq = ficha.cantUndBloq,
                 cantidad=ficha.cantidad,
+                precioNeto = ficha.precioNeto,
+                tarifaVenta = ficha.tarifaVenta,
+                precioDivisa = ficha.precioDivisa,
             };
             var r01 = MyData.Venta_Item_ActualizarCantidad_Disminuir(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

@@ -216,6 +216,8 @@ namespace PosOnLine.Src.Configuracion
                 return rt;
             }
             _cnfActual = r01.Entidad;
+            _cnfActual.setSucursal(Sistema.Sucursal.id);
+            _cnfActual.setDeposito(Sistema.Deposito.id);
 
             var filtro = new OOB.Sistema.MedioPago.Lista.Filtro();
             var r02 = Sistema.MyData.Sistema_MedioPago_GetLista(filtro);
@@ -328,6 +330,10 @@ namespace PosOnLine.Src.Configuracion
             LTarifaPrecio.Add(new OOB.Sistema.TarifaPrecio.Ficha() { id = "3", nombre = "Precio 3" });
             LTarifaPrecio.Add(new OOB.Sistema.TarifaPrecio.Ficha() { id = "4", nombre = "Precio 4" });
             LTarifaPrecio.Add(new OOB.Sistema.TarifaPrecio.Ficha() { id = "5", nombre = "Precio 5" });
+
+            //
+            setSucursal(Sistema.Sucursal.id);
+            setDeposito(Sistema.Deposito.id);
             
             return true;
         }

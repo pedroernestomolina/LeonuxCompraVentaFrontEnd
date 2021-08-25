@@ -17,6 +17,7 @@ namespace PosOnLine.Data.Infra
         OOB.Resultado.Ficha Configuracion_Pos_CambioDepositoSucursalFrio();
         OOB.Resultado.Ficha Configuracion_Pos_CambioDepositoSucursalViveres();
         OOB.Resultado.Ficha Configuracion_Pos_CambioSucursalDeposito(OOB.Configuracion.CambioSucursalDeposito.Ficha ficha);
+        OOB.Resultado.FichaEntidad<bool> Configuracion_Habilitar_Precio5_VentaMayor();
 
     }
 

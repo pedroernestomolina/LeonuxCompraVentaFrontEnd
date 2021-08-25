@@ -6,9 +6,6 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.74601cm</Width>
-            </TablixColumn>
-            <TablixColumn>
               <Width>0.87239cm</Width>
             </TablixColumn>
             <TablixColumn>
@@ -18,10 +15,10 @@
               <Width>1.08903cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.79382cm</Width>
+              <Width>2.017cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.79382cm</Width>
+              <Width>2.0584cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.07423cm</Width>
@@ -36,7 +33,7 @@
               <Width>2.07423cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.07423cm</Width>
+              <Width>2.33248cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.79382cm</Width>
@@ -58,41 +55,6 @@
             <TablixRow>
               <Height>0.6cm</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox14">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Suc</Value>
-                              <Style>
-                                <FontSize>6pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox14</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox16">
@@ -625,38 +587,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Sucursal">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Sucursal.Value</Value>
-                              <Style>
-                                <FontSize>6pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Sucursal</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Equipo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1149,38 +1079,6 @@
             <TablixRow>
               <Height>0.6cm</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox30">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontSize>7pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox30</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox31">
@@ -1745,38 +1643,6 @@
             <TablixRow>
               <Height>0.6cm</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox45">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontSize>7pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox45</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox46">
@@ -2347,38 +2213,6 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox23">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontSize>6pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox23</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Textbox25">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -2484,7 +2318,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!efectivo.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>#,0.00;(#,0.00)</Format>
                               </Style>
@@ -2523,7 +2357,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!mefectivo.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2562,7 +2396,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!divisa.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2601,7 +2435,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!mdivisa.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2640,7 +2474,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!cntdivisa.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -2678,7 +2512,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!tarjeta.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2717,7 +2551,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!mtarjeta.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2756,7 +2590,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!otros.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -2794,7 +2628,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!motros.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -2832,7 +2666,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!firma.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2871,7 +2705,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!devolucion.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2910,7 +2744,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!diferencia.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>n2</Format>
                               </Style>
@@ -2944,7 +2778,6 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -3199,7 +3032,7 @@
                           <TextRun>
                             <Value>Total</Value>
                             <Style>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>7pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>

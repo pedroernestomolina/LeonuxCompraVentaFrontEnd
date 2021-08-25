@@ -133,6 +133,16 @@ namespace PosOnLine.OOB.Configuracion.Entidad
             modoPrecio = "";
         }
 
+        public void setSucursal(string p)
+        {
+            idSucursal = p;
+        }
+
+        public void setDeposito(string p)
+        {
+            idDeposito = p;
+        }
+
     }
 
 }

@@ -67,6 +67,14 @@ namespace PosOnLine.Src.Consultor
             }
         }
 
+        public int Contenido 
+        {
+            get
+            {
+                return _cont;
+            }
+        }
+
         public string EmpaqueContenidoDescripcion
         {
             get

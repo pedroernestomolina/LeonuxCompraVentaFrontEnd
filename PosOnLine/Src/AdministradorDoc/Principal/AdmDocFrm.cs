@@ -52,7 +52,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             c9.DataPropertyName = "Serie";
             c9.HeaderText = "Serie";
             c9.Visible = true;
-            c9.Width = 40;
+            c9.Width = 60;
             c9.HeaderCell.Style.Font = f;
             c9.DefaultCellStyle.Font = f1;
             c9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;

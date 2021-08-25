@@ -1,6 +1,8 @@
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Cuadre.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Documento.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Src\Reportes\PagoDetalle.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Src\Reportes\PagoResumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.pdb
@@ -47,6 +49,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pendie
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pos.PosFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Principal.PrincipalFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Producto.Lista.ListaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Reportes.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.ValidarCambio.ValidarCambioFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\RdlCompile.cache

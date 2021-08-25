@@ -13,6 +13,7 @@ namespace PosOnLine.Src.Consultor
 
         private OOB.Producto.Entidad.Ficha _ficha;
         private Precio _precio;
+        private Precio _pmayor;
         private Existencia _existencia;
 
 
@@ -29,6 +30,10 @@ namespace PosOnLine.Src.Consultor
         public string Referencia { get { return _ficha.Referencia; } }
         public Precio Precio { get { return _precio; } }
         public Existencia Existencia { get { return _existencia; } }
+        public int PrecioMayor_Contenido { get { return _pmayor.Contenido; } }
+        public decimal PrecioMayor_Neto { get { return _pmayor.Neto; } }
+        public decimal PrecioMayor_Full { get { return _pmayor.Full; } }
+        public decimal PrecioMayor_Divisa { get { return _pmayor.FullDivisa; } }
 
 
         public bool IsInactivo { get; set; } 
@@ -49,6 +54,7 @@ namespace PosOnLine.Src.Consultor
         public data() 
         {
             _precio = new Precio();
+            _pmayor = new Precio();
             _existencia = new Existencia();
         }
 
@@ -83,6 +89,8 @@ namespace PosOnLine.Src.Consultor
                     break;
             }
             _existencia.setData(fichaEx, cont);
+            _pmayor.Limpiar();
+            _pmayor.setData(_ficha.pneto_5, _ficha.TasaImpuesto, _ficha.contenido_5, _ficha.empaque_5, _ficha.pdf_5);
         }
 
     }

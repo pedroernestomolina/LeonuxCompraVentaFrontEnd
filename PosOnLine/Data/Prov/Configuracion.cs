@@ -185,6 +185,27 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<bool> Configuracion_Habilitar_Precio5_VentaMayor()
+        {
+            var result = new OOB.Resultado.FichaEntidad<bool>();
+
+            var r01 = MyData.Configuracion_Habilitar_Precio5_VentaMayor();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+            var rt = false;
+            if (r01.Entidad != null) 
+            {
+                rt=  r01.Entidad.Trim().ToUpper() == "SI" ? true : false;
+            }
+            result.Entidad = rt;
+
+            return result;
+        }
+
     }
 
 }

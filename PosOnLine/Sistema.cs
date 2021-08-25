@@ -40,6 +40,8 @@ namespace PosOnLine
         public static string FuncionAdmAnularDocumento      = "0816100000";
         public static string FuncionAdmNotaCredito          = "0816110000";
         public static string FuncionAdmReimprimirDocumento  = "0816120000";
+        public static string ConfigurarDepositoSucursal     = "0816140000";
+        public static string FuncionPosElaborarFacturaVenta = "0816150000";
 
         //METODOS DE IMPRESION DOCUMENTO
         public static Helpers.Imprimir.IDocumento ImprimirFactura;

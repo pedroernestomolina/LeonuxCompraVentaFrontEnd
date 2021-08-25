@@ -17,6 +17,10 @@ namespace PosOnLine.OOB.Venta.Item.ActualizarCantidad.Disminuir
         public string autoDeposito { get; set; }
         public decimal cantidad { get; set; }
         public decimal cantUndBloq { get; set; }
+        //
+        public decimal precioNeto { get; set; }
+        public string tarifaVenta { get; set; }
+        public decimal precioDivisa { get; set; }
 
 
         public Ficha()
@@ -27,6 +31,9 @@ namespace PosOnLine.OOB.Venta.Item.ActualizarCantidad.Disminuir
             autoDeposito = "";
             cantidad = 0.0m;
             cantUndBloq = 0.0m;
+            precioNeto = 0.0m;
+            tarifaVenta = "";
+            precioDivisa = 0.0m;
         }
 
     }

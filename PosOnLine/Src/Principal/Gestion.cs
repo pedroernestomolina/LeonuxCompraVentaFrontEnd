@@ -247,7 +247,6 @@ namespace PosOnLine.Src.Principal
                     return;
                 }
 
-
                 _gestionCierre.Inicializa();
                 _gestionCierre.Inicia();
                 if (_gestionCierre.CierreIsOk)
@@ -367,20 +366,23 @@ namespace PosOnLine.Src.Principal
 
         public void ConfigurarSucursalDeposito()
         {
-            if (Sistema.ConfiguracionActual.Estatus_Activa)
+            if (Helpers.PassWord.PassWIsOk(Sistema.ConfigurarDepositoSucursal))
             {
-                _gestionCnfSucDeposito.Inicializa();
-                _gestionCnfSucDeposito.Inicia();
-                if (_gestionCnfSucDeposito.ConfiguracionIsOk)
+                if (Sistema.ConfiguracionActual.Estatus_Activa)
                 {
-                    ActualizarDeposito();
-                    Helpers.Msg.EditarOk();
+                    _gestionCnfSucDeposito.Inicializa();
+                    _gestionCnfSucDeposito.Inicia();
+                    if (_gestionCnfSucDeposito.ConfiguracionIsOk)
+                    {
+                        ActualizarDeposito();
+                        Helpers.Msg.EditarOk();
+                    }
                 }
-            }
-            else
-            {
-                Helpers.Msg.Error("CONFIGURACION NO DEFNIDA");
-                return;
+                else
+                {
+                    Helpers.Msg.Error("CONFIGURACION NO DEFNIDA");
+                    return;
+                }
             }
         }
 

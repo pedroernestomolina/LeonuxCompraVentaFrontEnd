@@ -282,6 +282,13 @@ namespace PosOnLine.Src.Pos
                 return false;
             }
 
+            var r04 = Sistema.MyData.Configuracion_Habilitar_Precio5_VentaMayor();
+            if (r04.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r04.Mensaje);
+                return false;
+            }
+
             _permitirBusquedaPorDescripcion = Sistema.ConfiguracionActual.BusquedaPorDescripcion_Activa;
             _tasaCambioActual = r01.Entidad;
             _depositoAsignado = r02.Entidad;
@@ -307,7 +314,6 @@ namespace PosOnLine.Src.Pos
             _claveAcceso = r02_I.Entidad;
             _conceptoSalida = r02_J.Entidad;
 
-
             switch (Sistema.ConfiguracionActual.EnumModoPrecio) 
             {
                 case   OOB.Configuracion.Entidad.Enumerados.enumModoPrecio.PorTipoNegocio:
@@ -327,6 +333,7 @@ namespace PosOnLine.Src.Pos
             _gestionItem.setDepositoAsignado(_depositoAsignado);
             _gestionItem.setTarifaPrecio(_precioManejar);
             _gestionItem.setValidarExistencia(Sistema.ConfiguracionActual.ValidarExistencia_Activa);
+            _gestionItem.setHabilitarPrecio5VentaMayor(r04.Entidad);
             if (!IsNotaCredito)
             {
                 _gestionItem.setData(r03.ListaD, _tasaCambioActual);
@@ -352,8 +359,16 @@ namespace PosOnLine.Src.Pos
 
         public void Consultor()
         {
+            var r01 = Sistema.MyData.Configuracion_Habilitar_Precio5_VentaMayor();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return ;
+            }
+
             _gestionConsultor.Inicializa();
             _gestionConsultor.setFactorCambio(_tasaCambioActual);
+            _gestionConsultor.setHabilitar_Precio5_VentaMayor(r01.Entidad);
             _gestionConsultor.Inicia();
             _gestionItem.setItemActualInicializar();
         }
@@ -525,6 +540,11 @@ namespace PosOnLine.Src.Pos
 
                     if (_modoFuncion == EnumModoFuncion.Facturacion)
                     {
+                        if (!PassWIsOk(Sistema.FuncionPosElaborarFacturaVenta))
+                        {
+                            return;
+                        }
+
                         _gestionProcesarPago.Inicializar();
                         _gestionProcesarPago.setCliente(_gestionCliente.ClienteData);
                         _gestionProcesarPago.setImporte(_gestionItem.Importe);

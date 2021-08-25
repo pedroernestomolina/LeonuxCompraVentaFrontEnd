@@ -68,6 +68,7 @@ namespace PosOnLine.Src.Cierre
             L_MONTO_DEVOLUCION_2.Text=_controlador.montoNCredito.ToString("n2");
             L_MONTO_CREDITO_2.Text=_controlador.montoDocCredito.ToString("n2");
             L_MONTO_CAMBIO.Text = _controlador.montoCambio.ToString("n2");
+            L_MONTO_CAMBIO_2.Text = _controlador.montoCambio.ToString("n2");
 
             L_MONTO_DESGLOZE.Text = _controlador.montoDesgloze.ToString("n2");
             L_TOTAL_ENTRADA.Text = _controlador.montoEntrada.ToString("n2");
@@ -167,7 +168,7 @@ namespace PosOnLine.Src.Cierre
 
         private void ReporteDetalle()
         {
-           // _controlador.ReporteDetalle();
+           _controlador.ReporteDetalle();
         }
 
         private void BT_NC_DETALLE_Click(object sender, EventArgs e)
@@ -187,7 +188,7 @@ namespace PosOnLine.Src.Cierre
 
         private void PagoResumen()
         {
-           // _controlador.PagoResumen();
+           _controlador.PagoResumen();
         }
 
         private void TB_CNT_DIVISA_Leave(object sender, EventArgs e)

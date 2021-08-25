@@ -16,6 +16,7 @@ namespace PosOnLine.Src.Consultor
         private data _dataPrd;
         private bool _busquedaIsOk; 
         private Producto.Buscar.Gestion _gestionBuscar;
+        private bool _habilitar_Precio5_VentaMayor;
 
 
         public decimal FactorCambio { get { return _factorCambio; } }
@@ -33,10 +34,17 @@ namespace PosOnLine.Src.Consultor
         public string TasaIvaDescripcion { get { return _dataPrd.TasaIvaDescripcion;} }
         public Precio Precio { get { return _dataPrd.Precio; } }
         public Existencia Existencia { get { return _dataPrd.Existencia; } }
+        //
+        public bool Habilitar_Precio5_VentaMayor { get { return _habilitar_Precio5_VentaMayor; } }
+        public int PrecioMayor_Contenido { get { return _dataPrd.PrecioMayor_Contenido; } }
+        public decimal  PrecioMayor_Neto { get { return _dataPrd.PrecioMayor_Neto; } }
+        public decimal PrecioMayor_Full { get { return _dataPrd.PrecioMayor_Full; } }
+        public decimal PrecioMayor_Divisa { get { return _dataPrd.PrecioMayor_Divisa; } }
 
 
         public Gestion()
         {
+            _habilitar_Precio5_VentaMayor = false;
             _factorCambio = 0.0m;
             _tarifaPrecio = "";
             _busquedaIsOk = false;
@@ -113,6 +121,11 @@ namespace PosOnLine.Src.Consultor
         public void setGestionBuscar(Producto.Buscar.Gestion _ctrBuscar)
         {
             _gestionBuscar = _ctrBuscar;
+        }
+
+        public void setHabilitar_Precio5_VentaMayor(bool p)
+        {
+            _habilitar_Precio5_VentaMayor = p;
         }
 
     }

@@ -23,6 +23,7 @@ namespace ModPos
         private void Pos()
         {
             var _sistema = new Sistema_();
+            _sistema.setNuevoConoMonetario(Sistema.NuevoConoMonetario);
             if (_sistema.CargarData())
             {
                 _sistema.Arranca();

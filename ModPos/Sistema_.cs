@@ -23,6 +23,7 @@ namespace ModPos
         private string _bdRemota;
         private string _bdLocal;
         private ExportarData.Cliente.IExportar _gestionExportar;
+        private decimal _nuevoConoMonetario;
 
 
         public string IdSucursal { get { return Sistema.CodigoSucursal; } }
@@ -74,6 +75,7 @@ namespace ModPos
 
         public Sistema_()
         {
+            _nuevoConoMonetario = 0.0m;
             Sistema.MyBalanza = new Lib.BalanzaSoloPeso.BalanzaManual.Balanza();
             _seguridad = new ClaveSeguridad.Seguridad();
             _configuracion = new Configuracion.configurar();
@@ -241,6 +243,7 @@ namespace ModPos
                 {
                     if (Sistema.MyOperador.AutoUsuario == Sistema.Usuario.Auto)
                     {
+                        _venta.setNuevoConoMonetario(_nuevoConoMonetario);
                         _venta.ActivarPos();
                     }
                     else 
@@ -660,6 +663,11 @@ namespace ModPos
             _gestionExportar.setLista(r01.Lista);
             _gestionExportar.Inicia();
 
+        }
+
+        public void setNuevoConoMonetario(decimal p)
+        {
+            _nuevoConoMonetario = p;
         }
 
     }

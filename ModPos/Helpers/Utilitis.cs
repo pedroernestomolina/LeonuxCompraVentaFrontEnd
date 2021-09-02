@@ -79,6 +79,12 @@ namespace ModPos.Helpers
                                     }
 
                                 }
+
+                                if (nv.LocalName.ToUpper().Trim() == "NUEVOCONOMONETARIO")
+                                {
+                                    Sistema.NuevoConoMonetario= decimal.Parse(nv.InnerText.Trim());
+                                }
+
                             }
                         }
                     }

@@ -21,6 +21,7 @@ namespace ModPos.Facturacion
         private int _idDocumento;
         private  Ticket _ticketFactura;
         private bool _documentoProcesado;
+        private decimal _nuevoConoMonetario;
 
 
         private OOB.LibVenta.PosOffline.Usuario.Ficha _usuario;
@@ -127,6 +128,7 @@ namespace ModPos.Facturacion
 
         public Venta(ClaveSeguridad.Seguridad seguridad)
         {
+            _nuevoConoMonetario = 0.0m;
             _seguridad = seguridad;
             _ctrCliente = new CtrCliente();
             _pendiente = new AbrirPendiente.Pendiente(_seguridad);
@@ -1011,6 +1013,7 @@ namespace ModPos.Facturacion
         public void Consultor() 
         {
             _ctrConsultar.setFactorCambio(TasaCambio);
+            _ctrConsultar.setNuevoConoMonetario(_nuevoConoMonetario);
             _ctrConsultar.Consultor();
         }
 
@@ -1037,6 +1040,25 @@ namespace ModPos.Facturacion
                 _ticketFactura.Imrpimir();
             }
         }
+
+        public void setNuevoConoMonetario(decimal p)
+        {
+            _nuevoConoMonetario = p;
+        }
+
+        public decimal SubTotal_NUEVO_CONO_MONETARIO 
+        { 
+            get 
+            {
+                var rt = 0.0m;
+                if (_nuevoConoMonetario>0)
+                    if (_ctrItem != null)
+                        if (_ctrItem.SubTotal > 0)
+                            rt = _ctrItem.SubTotal / _nuevoConoMonetario;
+                return rt;
+            }
+        }
+
 
     }
 

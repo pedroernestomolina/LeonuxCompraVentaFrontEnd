@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Configuracion>
   <Servidor>
-    <Instancia>192.168.0.185</Instancia>
-    <Catalogo>00000001</Catalogo>
+    <Instancia>localhost</Instancia>
+    <Catalogo>pita</Catalogo>
   </Servidor>
   <IdEquipo>1</IdEquipo>
   <CodigoSucursalActiva>01</CodigoSucursalActiva>
@@ -10,8 +10,8 @@
   <SerieFactura>1</SerieFactura>
   <SerieNCredito>1D</SerieNCredito>
   <SerieNEntrega>NEN</SerieNEntrega>
-  <ModoImpresionFactura>T58</ModoImpresionFactura>
-  <ModoImpresionNEntrega>T58</ModoImpresionNEntrega>
-  <ModoImpresionNCredito>T58</ModoImpresionNCredito>
-  <ModoImpresionCuadreCaja>T58</ModoImpresionCuadreCaja>
+  <ModoImpresionFactura>G</ModoImpresionFactura>
+  <ModoImpresionNEntrega>G</ModoImpresionNEntrega>
+  <ModoImpresionNCredito>G</ModoImpresionNCredito>
+  <ModoImpresionCuadreCaja>G</ModoImpresionCuadreCaja>
 </Configuracion>

@@ -16,6 +16,7 @@ namespace ModPos.Facturacion
         private string _tarifaPrecio;
         private bool _etiquetarPrecioPorTipoNegocio;
         private decimal _factorCambio;
+        private decimal _nuevoConoMonetario;
         private bool _habilitar_precio5_ventaMayor;
 
         public Consultor.Consulta Ficha { get; set; }
@@ -24,6 +25,7 @@ namespace ModPos.Facturacion
         public bool EtiquetarPrecioPorTipoNegocio { get { return _etiquetarPrecioPorTipoNegocio; } }
 
         public decimal FactorCambio { get { return _factorCambio; } }
+        public decimal NuevoConoMonetario { get { return _nuevoConoMonetario; } }
 
         public bool Habilitar_precio5_ventaMayor { get { return _habilitar_precio5_ventaMayor; } }
 
@@ -31,6 +33,7 @@ namespace ModPos.Facturacion
 
         public CtrConsulta(CtrlBuscar buscar)
         {
+            _nuevoConoMonetario = 0.0m;
             _ctrBuscar=buscar;
             Ficha = new Consultor.Consulta();
         }
@@ -69,6 +72,11 @@ namespace ModPos.Facturacion
         public void setHabilitar_Precio5_VentaMayor(bool p)
         {
             _habilitar_precio5_ventaMayor = p;
+        }
+
+        public void setNuevoConoMonetario(decimal p)
+        {
+            _nuevoConoMonetario = p;
         }
 
     }

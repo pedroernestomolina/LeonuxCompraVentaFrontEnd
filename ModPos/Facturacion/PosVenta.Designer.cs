@@ -63,7 +63,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.L_IMPORTE = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -166,6 +165,11 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel50 = new System.Windows.Forms.Panel();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.L_IMPORTE = new System.Windows.Forms.Label();
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO = new System.Windows.Forms.Label();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel45.SuspendLayout();
             this.panel44.SuspendLayout();
@@ -243,6 +247,9 @@
             this.panel18.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.tableLayoutPanel23.SuspendLayout();
+            this.panel50.SuspendLayout();
+            this.panel53.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel6
@@ -273,12 +280,12 @@
             this.tableLayoutPanel6.SetColumnSpan(this.panel45, 2);
             this.panel45.Controls.Add(this.L_MODO_FUNCION);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel45.Location = new System.Drawing.Point(510, 1);
+            this.panel45.Location = new System.Drawing.Point(509, 1);
             this.panel45.Margin = new System.Windows.Forms.Padding(1);
             this.panel45.Name = "panel45";
             this.panel45.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel45, 2);
-            this.panel45.Size = new System.Drawing.Size(270, 54);
+            this.panel45.Size = new System.Drawing.Size(269, 54);
             this.panel45.TabIndex = 6;
             // 
             // L_MODO_FUNCION
@@ -288,7 +295,7 @@
             this.L_MODO_FUNCION.ForeColor = System.Drawing.Color.Yellow;
             this.L_MODO_FUNCION.Location = new System.Drawing.Point(2, 2);
             this.L_MODO_FUNCION.Name = "L_MODO_FUNCION";
-            this.L_MODO_FUNCION.Size = new System.Drawing.Size(266, 50);
+            this.L_MODO_FUNCION.Size = new System.Drawing.Size(265, 50);
             this.L_MODO_FUNCION.TabIndex = 0;
             this.L_MODO_FUNCION.Text = "Facturación :)";
             this.L_MODO_FUNCION.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -302,7 +309,7 @@
             this.panel44.Name = "panel44";
             this.panel44.Padding = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel6.SetRowSpan(this.panel44, 2);
-            this.panel44.Size = new System.Drawing.Size(262, 54);
+            this.panel44.Size = new System.Drawing.Size(261, 54);
             this.panel44.TabIndex = 5;
             // 
             // tableLayoutPanel20
@@ -319,7 +326,7 @@
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(258, 50);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(257, 50);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // panel52
@@ -330,7 +337,7 @@
             this.panel52.Margin = new System.Windows.Forms.Padding(1);
             this.panel52.Name = "panel52";
             this.panel52.Padding = new System.Windows.Forms.Padding(2);
-            this.panel52.Size = new System.Drawing.Size(186, 48);
+            this.panel52.Size = new System.Drawing.Size(185, 48);
             this.panel52.TabIndex = 2;
             // 
             // L_ESTACION
@@ -340,7 +347,7 @@
             this.L_ESTACION.ForeColor = System.Drawing.Color.Yellow;
             this.L_ESTACION.Location = new System.Drawing.Point(2, 2);
             this.L_ESTACION.Name = "L_ESTACION";
-            this.L_ESTACION.Size = new System.Drawing.Size(182, 44);
+            this.L_ESTACION.Size = new System.Drawing.Size(181, 44);
             this.L_ESTACION.TabIndex = 0;
             this.L_ESTACION.Text = "label12";
             this.L_ESTACION.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -372,11 +379,11 @@
             // 
             this.panel28.Controls.Add(this.tableLayoutPanel15);
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(782, 1);
+            this.panel28.Location = new System.Drawing.Point(780, 1);
             this.panel28.Margin = new System.Windows.Forms.Padding(1);
             this.panel28.Name = "panel28";
             this.tableLayoutPanel6.SetRowSpan(this.panel28, 2);
-            this.panel28.Size = new System.Drawing.Size(351, 54);
+            this.panel28.Size = new System.Drawing.Size(353, 54);
             this.panel28.TabIndex = 3;
             // 
             // tableLayoutPanel15
@@ -393,7 +400,7 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(351, 54);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(353, 54);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // pictureBox1
@@ -401,7 +408,7 @@
             this.pictureBox1.BackgroundImage = global::ModPos.Properties.Resources.carrito_compra;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(224, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(226, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(124, 48);
             this.pictureBox1.TabIndex = 4;
@@ -414,7 +421,7 @@
             this.panel29.Location = new System.Drawing.Point(1, 1);
             this.panel29.Margin = new System.Windows.Forms.Padding(1);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(219, 52);
+            this.panel29.Size = new System.Drawing.Size(221, 52);
             this.panel29.TabIndex = 0;
             // 
             // label7
@@ -424,7 +431,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(219, 52);
+            this.label7.Size = new System.Drawing.Size(221, 52);
             this.label7.TabIndex = 0;
             this.label7.Text = "Sistema Pos Off Line\r\nPara: Leonux, C.A";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -667,25 +674,13 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.L_IMPORTE);
+            this.panel4.Controls.Add(this.tableLayoutPanel23);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(1, 64);
             this.panel4.Margin = new System.Windows.Forms.Padding(1);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(2);
             this.panel4.Size = new System.Drawing.Size(726, 75);
             this.panel4.TabIndex = 1;
-            // 
-            // L_IMPORTE
-            // 
-            this.L_IMPORTE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_IMPORTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_IMPORTE.Location = new System.Drawing.Point(2, 2);
-            this.L_IMPORTE.Name = "L_IMPORTE";
-            this.L_IMPORTE.Size = new System.Drawing.Size(722, 71);
-            this.L_IMPORTE.TabIndex = 8;
-            this.L_IMPORTE.Text = "9,999,999,999.00";
-            this.L_IMPORTE.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tableLayoutPanel4
             // 
@@ -1970,6 +1965,66 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // tableLayoutPanel23
+            // 
+            this.tableLayoutPanel23.ColumnCount = 2;
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel23.Controls.Add(this.panel50, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.panel53, 1, 0);
+            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel23.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
+            this.tableLayoutPanel23.RowCount = 1;
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(726, 75);
+            this.tableLayoutPanel23.TabIndex = 0;
+            // 
+            // panel50
+            // 
+            this.panel50.Controls.Add(this.L_IMPORTE);
+            this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel50.Location = new System.Drawing.Point(0, 0);
+            this.panel50.Margin = new System.Windows.Forms.Padding(0);
+            this.panel50.Name = "panel50";
+            this.panel50.Padding = new System.Windows.Forms.Padding(2);
+            this.panel50.Size = new System.Drawing.Size(580, 75);
+            this.panel50.TabIndex = 0;
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.L_IMPORTE_NUEVO_CONO_MONETARIO);
+            this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel53.Location = new System.Drawing.Point(580, 0);
+            this.panel53.Margin = new System.Windows.Forms.Padding(0);
+            this.panel53.Name = "panel53";
+            this.panel53.Padding = new System.Windows.Forms.Padding(2);
+            this.panel53.Size = new System.Drawing.Size(146, 75);
+            this.panel53.TabIndex = 1;
+            // 
+            // L_IMPORTE
+            // 
+            this.L_IMPORTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_IMPORTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_IMPORTE.Location = new System.Drawing.Point(2, 2);
+            this.L_IMPORTE.Name = "L_IMPORTE";
+            this.L_IMPORTE.Size = new System.Drawing.Size(576, 71);
+            this.L_IMPORTE.TabIndex = 9;
+            this.L_IMPORTE.Text = "9,999,999,999.00";
+            this.L_IMPORTE.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // L_IMPORTE_NUEVO_CONO_MONETARIO
+            // 
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.Location = new System.Drawing.Point(2, 2);
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.Name = "L_IMPORTE_NUEVO_CONO_MONETARIO";
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.Size = new System.Drawing.Size(142, 71);
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.TabIndex = 10;
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.Text = "9,999.00";
+            this.L_IMPORTE_NUEVO_CONO_MONETARIO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // PosVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2070,6 +2125,9 @@
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             this.panel9.ResumeLayout(false);
+            this.tableLayoutPanel23.ResumeLayout(false);
+            this.panel50.ResumeLayout(false);
+            this.panel53.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2083,7 +2141,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label L_IMPORTE;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel6;
@@ -2212,5 +2269,10 @@
         private System.Windows.Forms.Label label21;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
+        private System.Windows.Forms.Panel panel50;
+        private System.Windows.Forms.Label L_IMPORTE;
+        private System.Windows.Forms.Panel panel53;
+        private System.Windows.Forms.Label L_IMPORTE_NUEVO_CONO_MONETARIO;
     }
 }

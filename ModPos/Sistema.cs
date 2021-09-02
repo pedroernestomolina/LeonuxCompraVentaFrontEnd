@@ -24,6 +24,9 @@ namespace ModPos
         static public DateTime? FechaUltimaActualizacion;
         public static string CodigoSucursal;
 
+
+        public static decimal NuevoConoMonetario;
+
     }
 
 }

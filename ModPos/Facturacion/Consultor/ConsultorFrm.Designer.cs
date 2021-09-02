@@ -77,7 +77,11 @@
             this.L_TASA = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel30 = new System.Windows.Forms.Panel();
             this.L_FULL_1 = new System.Windows.Forms.Label();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.L_FULL_NUEVO_CONO = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.L_NETO_1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -135,6 +139,9 @@
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel31.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel29.SuspendLayout();
             this.TL_PRECIOS_MAYOR.SuspendLayout();
@@ -733,25 +740,75 @@
             // panel9
             // 
             this.tableLayoutPanel7.SetColumnSpan(this.panel9, 4);
-            this.panel9.Controls.Add(this.L_FULL_1);
+            this.panel9.Controls.Add(this.tableLayoutPanel8);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(1, 52);
             this.panel9.Margin = new System.Windows.Forms.Padding(1);
             this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(2);
             this.panel9.Size = new System.Drawing.Size(595, 80);
             this.panel9.TabIndex = 0;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.78151F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.21849F));
+            this.tableLayoutPanel8.Controls.Add(this.panel30, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.panel31, 1, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(595, 80);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.L_FULL_1);
+            this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel30.Location = new System.Drawing.Point(1, 1);
+            this.panel30.Margin = new System.Windows.Forms.Padding(1);
+            this.panel30.Name = "panel30";
+            this.panel30.Padding = new System.Windows.Forms.Padding(2);
+            this.panel30.Size = new System.Drawing.Size(436, 78);
+            this.panel30.TabIndex = 0;
             // 
             // L_FULL_1
             // 
             this.L_FULL_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_FULL_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 51.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_FULL_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_FULL_1.Location = new System.Drawing.Point(2, 2);
             this.L_FULL_1.Name = "L_FULL_1";
-            this.L_FULL_1.Size = new System.Drawing.Size(591, 76);
-            this.L_FULL_1.TabIndex = 0;
+            this.L_FULL_1.Size = new System.Drawing.Size(432, 74);
+            this.L_FULL_1.TabIndex = 1;
             this.L_FULL_1.Text = "9,999,999,999.99";
             this.L_FULL_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel31
+            // 
+            this.panel31.BackColor = System.Drawing.Color.Orange;
+            this.panel31.Controls.Add(this.L_FULL_NUEVO_CONO);
+            this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel31.Location = new System.Drawing.Point(439, 1);
+            this.panel31.Margin = new System.Windows.Forms.Padding(1);
+            this.panel31.Name = "panel31";
+            this.panel31.Padding = new System.Windows.Forms.Padding(2);
+            this.panel31.Size = new System.Drawing.Size(155, 78);
+            this.panel31.TabIndex = 1;
+            // 
+            // L_FULL_NUEVO_CONO
+            // 
+            this.L_FULL_NUEVO_CONO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_FULL_NUEVO_CONO.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_FULL_NUEVO_CONO.Location = new System.Drawing.Point(2, 2);
+            this.L_FULL_NUEVO_CONO.Name = "L_FULL_NUEVO_CONO";
+            this.L_FULL_NUEVO_CONO.Size = new System.Drawing.Size(151, 74);
+            this.L_FULL_NUEVO_CONO.TabIndex = 2;
+            this.L_FULL_NUEVO_CONO.Text = "999.99";
+            this.L_FULL_NUEVO_CONO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel10
             // 
@@ -1244,6 +1301,9 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.panel31.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel29.ResumeLayout(false);
@@ -1304,7 +1364,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label L_FULL_1;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel10;
@@ -1358,5 +1417,10 @@
         private System.Windows.Forms.Label L_NETO_5;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label L_DIVISA;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Label L_FULL_1;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.Label L_FULL_NUEVO_CONO;
     }
 }

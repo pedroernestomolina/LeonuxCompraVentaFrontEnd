@@ -8,4 +8,5 @@
   <ImpresoraTicket>
     <TamanoRollo>P</TamanoRollo>
   </ImpresoraTicket>
+  <NuevoConoMonetario>1000000</NuevoConoMonetario>
 </Configuracion>

@@ -226,6 +226,7 @@ namespace ModPos.Facturacion
         private void ActualizarTotal()
         {
             L_IMPORTE.Text=_venta.Items.SubTotal.ToString("n2");
+            L_IMPORTE_NUEVO_CONO_MONETARIO.Text = _venta.SubTotal_NUEVO_CONO_MONETARIO.ToString("n2");
             L_TOTAL_ITEMS.Text = _venta.Items.CantItem.ToString("n0");
             L_TOTAL_KILOS.Text = _venta.Items.TotalPeso.ToString("n3");
             L_TOTAL_RENGLONES.Text = _venta.Items.Renglones.ToString("n0");

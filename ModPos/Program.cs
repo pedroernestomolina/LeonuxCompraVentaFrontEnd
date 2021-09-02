@@ -29,7 +29,6 @@ namespace ModPos
 
                 var _gestion = new Gestion();
                 _gestion.Inicia();
-
             }
             else 
             {

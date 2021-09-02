@@ -16,11 +16,13 @@ namespace ModPos.Facturacion.Consultor
     {
 
 
+        private decimal _conoMonetario;
         private CtrConsulta _controlador; 
 
 
         public ConsultorFrm() 
         {
+            _conoMonetario = 0.0m;
             InitializeComponent();
         }
 
@@ -64,6 +66,7 @@ namespace ModPos.Facturacion.Consultor
             L_CONT_3.Text = "";
             L_CONT_4.Text = "";
             L_CONT_5.Text = "";
+            L_FULL_NUEVO_CONO.Text = "0.00";
         }
 
         private void TB_BUSCAR_KeyDown(object sender, KeyEventArgs e)
@@ -145,6 +148,11 @@ namespace ModPos.Facturacion.Consultor
                 mdivisa=Math.Round(mdivisa,2, MidpointRounding.AwayFromZero);
                 L_NETO_1.Text = pn.ToString("n2");
                 L_FULL_1.Text = pf.ToString("n2");
+                if (_controlador.NuevoConoMonetario > 0) 
+                {
+                    L_FULL_NUEVO_CONO.Text = (pf / _controlador.NuevoConoMonetario).ToString("n2");
+                }
+
                 L_IVA_1.Text = iva.ToString("n2");
                 L_EMPAQUE_VENTA.Text = emp;
                 L_TASA.Text = _consulta.TasaDescripcion;

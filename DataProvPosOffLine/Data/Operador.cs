@@ -45,6 +45,7 @@ namespace DataProvPosOffLine.Data
 
             var agregarDTO = new DtoLibPosOffLine.Operador.Cerrar.Ficha()
             {
+                IdJornada=ficha.IdJornada,
                 IdOperador = ficha.IdOperador,
                 Fecha = ficha.Fecha.ToShortDateString(),
                 Hora = ficha.Hora,
@@ -78,7 +79,7 @@ namespace DataProvPosOffLine.Data
                 }
             };
 
-            var r01 = MyData.Operador_Cerrar(agregarDTO);
+            var r01 = MyData.Operador_Jornada_Cerrar(agregarDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

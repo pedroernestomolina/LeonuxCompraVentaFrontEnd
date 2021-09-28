@@ -79,7 +79,7 @@ namespace ModSistema.Sucursal
             c2.DataPropertyName = "Codigo";
             c2.HeaderText = "Codigo";
             c2.Visible = true;
-            c2.Width = 120;
+            c2.Width = 60;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 
@@ -91,9 +91,18 @@ namespace ModSistema.Sucursal
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
 
+            var c4 = new DataGridViewCheckBoxColumn();
+            c4.DataPropertyName = "HabilitaFactMayor";
+            c4.HeaderText = "Hab Fact Mayor";
+            c4.Visible = true;
+            c4.Width = 80;
+            c4.HeaderCell.Style.Font = f;
+            c4.DefaultCellStyle.Font = f1;
+
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
+            DGV.Columns.Add(c4);
         }
 
         private void BT_AGREGAR_Click(object sender, EventArgs e)

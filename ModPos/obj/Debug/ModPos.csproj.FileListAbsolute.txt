@@ -1,3 +1,5 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ProvSqLitePosOffLine.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\NcDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoDetalle.rdlc
@@ -40,7 +42,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\DtoLibPosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.ValueTuple.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.Memory.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\IPosOffLine.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\ProvSqLitePosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\LibEntitySqLitePosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.csprojResolveAssemblyReference.cache
@@ -73,5 +74,4 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Reportes.Reporte
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.csproj.GenerateResource.Cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\RdlCompile.compiled
-D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.pdb

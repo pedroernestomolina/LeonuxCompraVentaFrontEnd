@@ -103,6 +103,7 @@ namespace ModPos.Operador.Cierre
             {
                 var ficha = new OOB.LibVenta.PosOffline.Operador.Cerrar.Ficha()
                 {
+                    IdJornada = Sistema.MyJornada.Id,
                     IdOperador = Sistema.MyOperador.Id,
                     Estatus = "C",
                     Fecha = DateTime.Now,
@@ -205,7 +206,8 @@ namespace ModPos.Operador.Cierre
                     return false;
                 }
                 Sistema.MyOperador = null;
-                Helpers.Msg.Alerta("OPERADOR CERRRADO EXITOSAMENTE !!!!!");
+                Sistema.MyJornada  = null;
+                Helpers.Msg.Alerta("OPERADOR/JORNADA CERRRADO EXITOSAMENTE !!!!!");
                 IsOperadorCerrado = true;
                 rt=true;
             }

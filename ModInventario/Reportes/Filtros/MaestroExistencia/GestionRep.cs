@@ -83,8 +83,9 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
                 rt["ventaMonto"] = precio*it.exFisica;
                 rt["departamento"] = it.departamento;
                 rt["grupo"] = it.grupo;
-                if (it.exFisica != 0.0m)
-                    ds.Tables["MaestroExistencia"].Rows.Add(rt);
+                //if (it.exFisica != 0.0m)
+                //    ds.Tables["MaestroExistencia"].Rows.Add(rt);
+                ds.Tables["MaestroExistencia"].Rows.Add(rt);
             }
 
             var Rds = new List<ReportDataSource>();

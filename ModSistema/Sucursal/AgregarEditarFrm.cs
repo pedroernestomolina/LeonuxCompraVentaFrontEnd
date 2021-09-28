@@ -37,6 +37,7 @@ namespace ModSistema.Sucursal
 
             TB_CODIGO.Text = _controlador.Codigo;
             TB_NOMBRE.Text = _controlador.Sucursal;
+            CHK_MAYOR.Checked = _controlador.HabilitarFactMayor;
             TB_CODIGO.Focus();
             TB_CODIGO.Enabled = true;
             if (_controlador.Modo == GestionAgregarEditar.enumModo.Editar) 
@@ -98,6 +99,14 @@ namespace ModSistema.Sucursal
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+    
+        private void CHK_MAYOR_Leave(object sender, EventArgs e)
+        {
+            var estatus=false;
+            if (CHK_MAYOR.Checked)
+                estatus=true;
+            _controlador.setHabilitarFactMayor(estatus);
         }
      
     }

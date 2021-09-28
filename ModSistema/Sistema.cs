@@ -17,6 +17,7 @@ namespace ModSistema
 
         static public string _Instancia { get; set; }
         static public string _BaseDatos { get; set; }
+        public static string _Usuario { get; set; }
         static public string Host 
         {
             get 

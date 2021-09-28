@@ -20,6 +20,29 @@ namespace OOB.LibSistema.Sucursal
         public string autoGrupoSucursal { get; set; }
         public string nombreGrupoSucursal { get; set; }
         public string precioId { get; set; }
+        public string estatusFactMayor { get; set; }
+        public bool HabilitaFactMayor 
+        {
+            get 
+            {
+                return estatusFactMayor == "1" ? true : false;
+            }
+        }
+
+
+        public Ficha() 
+        {
+            auto = "";
+            codigo = "";
+            nombre = "";
+            autoDepositoPrincipal = "";
+            codigoDepositoPrincipal = "";
+            nombreDepositoPrincipal = "";
+            autoGrupoSucursal = "";
+            nombreGrupoSucursal = "";
+            precioId = "";
+            estatusFactMayor = "";
+        }
 
     }
 

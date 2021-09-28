@@ -18,6 +18,7 @@ namespace ModSistema.Sucursal
         private OOB.LibSistema.Sucursal.Ficha _ficha;
         private List<OOB.LibSistema.SucursalGrupo.Ficha> lGrupo;
         private BindingSource bsGrupo;
+        private bool _habilitarFactMayor { get; set; }
 
 
         public enumModo Modo { get; set; }
@@ -26,6 +27,13 @@ namespace ModSistema.Sucursal
         public string Sucursal { get; set; }
         public string Codigo { get; set; }
         public string AutoGrupo { get; set; }
+        public bool HabilitarFactMayor 
+        {
+            get 
+            {
+                return _habilitarFactMayor;
+            }
+        }
 
 
         public GestionAgregarEditar()
@@ -39,6 +47,7 @@ namespace ModSistema.Sucursal
             Sucursal= "";
             Codigo = "";
             AutoGrupo = "";
+            _habilitarFactMayor = false;
         }
 
         AgregarEditarFrm frm;
@@ -119,6 +128,7 @@ namespace ModSistema.Sucursal
                         nombre = Sucursal.Trim().ToUpper(),
                         codigo = Codigo.Trim().ToUpper(),
                         autoGrupo = AutoGrupo,
+                        estatusFactMayor= _habilitarFactMayor ? "1" :"0",
                     };
                     var r01 = Sistema.MyData.Sucursal_Agregar(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -140,6 +150,7 @@ namespace ModSistema.Sucursal
                         nombre = Sucursal.Trim().ToUpper(),
                         codigo = Codigo.Trim().ToUpper(),
                         autoGrupo = AutoGrupo,
+                        estatusFactMayor = _habilitarFactMayor ? "1" : "0",
                     };
                     var r01 = Sistema.MyData.Sucursal_Editar(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -169,6 +180,8 @@ namespace ModSistema.Sucursal
                 Codigo = _ficha.codigo;
                 Sucursal= _ficha.nombre;
                 AutoGrupo= _ficha.autoGrupoSucursal;
+                _habilitarFactMayor = _ficha.HabilitaFactMayor; 
+
                 IsAgregarEditarOk = false;
                 if (frm == null)
                 {
@@ -178,6 +191,11 @@ namespace ModSistema.Sucursal
                 frm.setTitulo("Editar Sucursal:");
                 frm.ShowDialog();
             }
+        }
+
+        public void setHabilitarFactMayor(bool estatus)
+        {
+            _habilitarFactMayor = estatus;
         }
 
     }

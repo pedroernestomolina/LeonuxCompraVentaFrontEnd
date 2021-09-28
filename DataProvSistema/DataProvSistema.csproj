@@ -55,6 +55,7 @@
     <Compile Include="Data\Funcion.cs" />
     <Compile Include="Data\Permiso.cs" />
     <Compile Include="Data\Precio.cs" />
+    <Compile Include="Data\ReconversionMonetaria.cs" />
     <Compile Include="Data\SerieFiscal.cs" />
     <Compile Include="Data\ServConf.cs" />
     <Compile Include="Data\Sucursal.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Infra\IFuncion.cs" />
     <Compile Include="Infra\IPermisos.cs" />
     <Compile Include="Infra\IPrecio.cs" />
+    <Compile Include="Infra\IReconversionMonetaria.cs" />
     <Compile Include="Infra\IServConf.cs" />
     <Compile Include="Infra\ISerieFiscal.cs" />
     <Compile Include="Infra\ISucursal.cs" />

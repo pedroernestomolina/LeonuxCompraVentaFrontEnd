@@ -42,6 +42,7 @@ namespace DataProvSistema.Data
                             codigoDepositoPrincipal = "",
                             nombreDepositoPrincipal = s.deposito,
                             nombreGrupoSucursal = s.grupo,
+                            estatusFactMayor = s.estatusFactMayor,
                         };
                     }).ToList();
                 }
@@ -75,6 +76,7 @@ namespace DataProvSistema.Data
                 nombreDepositoPrincipal = s.nombreDepositoPrincipal,
                 nombreGrupoSucursal = s.nombreGrupoSucursal,
                 precioId = s.precioId,
+                estatusFactMayor = s.estatusFacturarMayor,
             };
             rt.Entidad = nr;
 
@@ -87,9 +89,10 @@ namespace DataProvSistema.Data
 
             var fichaDTO = new DtoLibSistema.Sucursal.Agregar()
             {
-                autoGrupo=ficha.autoGrupo,
+                autoGrupo = ficha.autoGrupo,
                 nombre = ficha.nombre,
-                codigo=ficha.codigo, 
+                codigo = ficha.codigo,
+                estatusFactMayor = ficha.estatusFactMayor,
             };
             var r01 = MyData.Sucursal_Agregar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -114,6 +117,7 @@ namespace DataProvSistema.Data
                 autoGrupo = ficha.autoGrupo,
                 nombre = ficha.nombre,
                 codigo = ficha.codigo,
+                estatusFactMayor = ficha.estatusFactMayor,
             };
             var r01 = MyData.Sucursal_Editar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

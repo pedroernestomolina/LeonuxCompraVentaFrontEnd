@@ -572,10 +572,17 @@ namespace ModPos
 
             if (Sistema.MyOperador != null)
             {
+
+                if (Sistema.MyOperador.AutoUsuario != Sistema.Usuario.Auto)
+                {
+                    Helpers.Msg.Error("USUARIO INCORRECTO PARA CERRAR EL POS, VERIFIQUE POR FAVOR");
+                    return;
+                }
+
                 _cierreOperador.Cierre();
                 if (_cierreOperador.IsOperadorCerrado) 
                 {
-                    CierraJornada();
+                    //CierraJornada();
                     EnviarData();
                 }
             }

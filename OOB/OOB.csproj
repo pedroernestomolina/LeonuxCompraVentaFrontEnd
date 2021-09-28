@@ -364,6 +364,16 @@
     <Compile Include="LibSistema\Precio\Etiquetar\Actualizar.cs" />
     <Compile Include="LibSistema\Precio\Etiquetar\Ficha.cs" />
     <Compile Include="LibSistema\Precio\Ficha.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemHistCosto.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemHistPrecio.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemPrd.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemProv.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Actualizar\ItemSaldoPorPagar.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\Ficha.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\ItemPrd.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\ItemProv.cs" />
+    <Compile Include="LibSistema\ReconversionMonetaria\Data\ItemSaldoPorPagar.cs" />
     <Compile Include="LibSistema\SerieFiscal\ActivarInactivar\Ficha.cs" />
     <Compile Include="LibSistema\SerieFiscal\Agregar\Ficha.cs" />
     <Compile Include="LibSistema\SerieFiscal\Editar\Ficha.cs" />

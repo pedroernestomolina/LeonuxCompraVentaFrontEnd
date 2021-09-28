@@ -204,6 +204,16 @@ namespace ModSistema
             _controlador.SeriesFiscal();
         }
 
+        private void Menu_Ajuste_ReconversionMonetaria_Click(object sender, EventArgs e)
+        {
+            ReconversionMonetaria();
+        }
+
+        private void ReconversionMonetaria()
+        {
+            _controlador.ReconversionMonetaria();
+        }
+
     }
 
 }

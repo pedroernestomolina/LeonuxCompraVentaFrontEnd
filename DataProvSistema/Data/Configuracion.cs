@@ -1,6 +1,7 @@
 ﻿using DataProvSistema.Infra;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,16 @@ namespace DataProvSistema.Data
                 return rt;
             }
 
-            var s = r01.Entidad;
-            rt.Entidad = s;
+            var cnf = r01.Entidad;
+            var m1 = 0.0m;
+            if (cnf.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                Decimal.TryParse(cnf, style, culture, out m1);
+            }
+            rt.Entidad = m1;
 
             return rt;
         }
@@ -42,8 +51,16 @@ namespace DataProvSistema.Data
                 return rt;
             }
 
-            var s = r01.Entidad;
-            rt.Entidad = s;
+            var cnf = r01.Entidad;
+            var m1 = 0.0m;
+            if (cnf.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                Decimal.TryParse(cnf, style, culture, out m1);
+            }
+            rt.Entidad = m1;
 
             return rt;
         }

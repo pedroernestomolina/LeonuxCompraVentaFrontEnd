@@ -211,7 +211,7 @@ namespace ModPos
                 return;
             }
 
-            var dif = (Sistema.FechaUltimaActualizacion.Value.Date- DateTime.Now.Date).Days ;
+            var dif = (Sistema.FechaUltimaActualizacion.Value.Date - DateTime.Now.Date).Days ;
             if (dif != 0)
             {
                 Helpers.Msg.Alerta("POR FAVOR, DEBES IR A ACTUALIZAR DATA DEL SERVIDOR");

@@ -2,11 +2,12 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>bodega</Catalogo>
+    <Catalogo>pita</Catalogo>
   </Servidor>
   <DataLocal>C:\Modulos Leonux\POS\Data\LeonuxPosOffLine.db</DataLocal>
   <ImpresoraTicket>
     <TamanoRollo>P</TamanoRollo>
   </ImpresoraTicket>
   <NuevoConoMonetario>1000000</NuevoConoMonetario>
+  <NuevoConoMonetarioFechaFinUso>02/10/2021</NuevoConoMonetarioFechaFinUso>
 </Configuracion>

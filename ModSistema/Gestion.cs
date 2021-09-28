@@ -23,6 +23,7 @@ namespace ModSistema
         private Servicio.Gestion _gestionServicio;
         private TasaDivisa.Gestion _gestionTasaDivisa;
         private Maestros.Gestion _gestionMaestro;
+        private ReconversionMonetaria.Gestion _gestionRecMon;
 
 
         public string Host 
@@ -66,6 +67,7 @@ namespace ModSistema
             _gestionServicio = new Servicio.Gestion();
             _gestionTasaDivisa = new TasaDivisa.Gestion();
             _gestionMaestro = new Maestros.Gestion();
+            _gestionRecMon = new ReconversionMonetaria.Gestion();
         }
 
 
@@ -300,16 +302,25 @@ namespace ModSistema
             }
         }
 
-        public void MaestroVendedor()
+        public void ReconversionMonetaria()
         {
-        }
+            var r01 = Sistema.MyData.ReconversionMonetaria_GetCount();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
 
-        public void MaestroCobrador()
-        {
-        }
+            var cnt=r01.Entidad;
+            if ( cnt>= 1) 
+            {
+                Helpers.Msg.Error("PROCESO DE RECONVERSION MONETARIA YA REALIZADO"+Environment.NewLine+"VERIFIQUE POR FAVOR...");
+                return;
+            }
 
-        public void MaestroSeriesFiscal()
-        {
+            _gestionRecMon.Inicializa();
+            _gestionRecMon.setFactorReconversion(1000000);
+            _gestionRecMon.Inicia();
         }
 
     }

@@ -23,7 +23,14 @@ namespace ModPos
         private void Pos()
         {
             var _sistema = new Sistema_();
-            _sistema.setNuevoConoMonetario(Sistema.NuevoConoMonetario);
+
+            //MOSTRAR NUEVO CONO MONETARIO
+            var dif = (Sistema.NuevoConoMonetarioFechaFinUso.Date - DateTime.Now.Date).Days;
+            if (dif >= 0) 
+            {
+                _sistema.setNuevoConoMonetario(Sistema.NuevoConoMonetario);
+            }
+
             if (_sistema.CargarData())
             {
                 _sistema.Arranca();

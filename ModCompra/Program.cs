@@ -19,7 +19,14 @@ namespace ModCompra
             var r01 = Helpers.Utilitis.CargarXml();
             if (r01.Result != OOB.Enumerados.EnumResult.isError)
             {
-                Sistema.MyData = new DataProvCompra.Data.DataProv(Sistema._Instancia, Sistema._BaseDatos);
+                if (Sistema._Usuario == "") 
+                {
+                    Sistema.MyData = new DataProvCompra.Data.DataProv(Sistema._Instancia, Sistema._BaseDatos);
+                }
+                else 
+                {
+                    Sistema.MyData = new DataProvCompra.Data.DataProv(Sistema._Instancia, Sistema._BaseDatos, Sistema._Usuario);
+                }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 

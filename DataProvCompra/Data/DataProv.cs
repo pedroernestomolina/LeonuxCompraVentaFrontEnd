@@ -16,9 +16,9 @@ namespace DataProvCompra.Data
         public static IService MyData;
 
 
-        public DataProv(string instancia, string bd)
+        public DataProv(string instancia, string bd, string usu="root")
         {
-            MyData = new ServiceCompra.MyService.Service(instancia, bd);
+            MyData = new ServiceCompra.MyService.Service(instancia, bd, usu);
         }
 
 

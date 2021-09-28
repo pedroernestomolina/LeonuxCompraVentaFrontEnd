@@ -41,6 +41,10 @@ namespace ModCompra.Helpers
                                         {
                                             Sistema._BaseDatos = sv.InnerText.Trim();
                                         }
+                                        if (sv.LocalName.Trim().ToUpper() == "USUARIO")
+                                        {
+                                            Sistema._Usuario= sv.InnerText.Trim();
+                                        }
                                     }
                                 }
                             }

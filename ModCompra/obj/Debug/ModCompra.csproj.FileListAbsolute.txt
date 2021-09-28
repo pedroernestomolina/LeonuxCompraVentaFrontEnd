@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ReporteProveedor\Articulo.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ReporteProveedor\Documento.rdlc
@@ -66,3 +65,4 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.csproj.Gen
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.exe
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\obj\Debug\ModCompra.pdb

@@ -84,6 +84,10 @@ namespace ModPos.Helpers
                                 {
                                     Sistema.NuevoConoMonetario= decimal.Parse(nv.InnerText.Trim());
                                 }
+                                if (nv.LocalName.ToUpper().Trim() == "NUEVOCONOMONETARIOFECHAFINUSO")
+                                {
+                                    Sistema.NuevoConoMonetarioFechaFinUso = DateTime.Parse(nv.InnerText.Trim());
+                                }
 
                             }
                         }

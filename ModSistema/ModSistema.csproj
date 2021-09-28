@@ -169,6 +169,13 @@
     <Compile Include="Precio\Gestion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReconversionMonetaria\Gestion.cs" />
+    <Compile Include="ReconversionMonetaria\ReconversionMonFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReconversionMonetaria\ReconversionMonFrm.Designer.cs">
+      <DependentUpon>ReconversionMonFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\Enumerados.cs" />
     <Compile Include="Seguridad\Gestion.cs" />
     <Compile Include="Seguridad\SeguridadFrm.cs">
@@ -312,6 +319,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReconversionMonetaria\ReconversionMonFrm.resx">
+      <DependentUpon>ReconversionMonFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\SeguridadFrm.resx">
       <DependentUpon>SeguridadFrm.cs</DependentUpon>
     </EmbeddedResource>

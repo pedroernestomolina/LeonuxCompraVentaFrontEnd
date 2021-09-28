@@ -16,6 +16,7 @@ namespace ModInventario
         static public OOB.LibInventario.Empresa.Data.Ficha Negocio;
         static public string _Instancia { get; set; }
         static public string _BaseDatos { get; set; }
+        static public string _Usuario { get; set; }
 
     }
 

@@ -44,6 +44,12 @@ namespace ModInventario.Identificacion
                 return false;
             }
 
+            if (!r01.Entidad.isActivo)
+            {
+                Helpers.Msg.Error("USUARIO INACTIVO, VERIFIQUE POR FAVOR");
+                return false;
+            }
+
             var r02 = Sistema.MyData.Permiso_ToolInventario(r01.Entidad.autoGru);
             if (r02.Result == OOB.Enumerados.EnumResult.isError) 
             {

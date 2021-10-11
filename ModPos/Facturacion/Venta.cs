@@ -373,9 +373,9 @@ namespace ModPos.Facturacion
             _ticketFactura.Cliente.estacion = Environment.MachineName ;
             _ticketFactura.Cliente.usuario= Sistema.Usuario.Descripcion;
 
-            var tot = Math.Round(ficha.MontoTotal, 0, MidpointRounding.AwayFromZero);
-            var stot = Math.Round(ficha.MontoSubTotal, 0, MidpointRounding.AwayFromZero);
-            var sbtot = Math.Round(_ctrItem.SubTotal, 0, MidpointRounding.AwayFromZero);
+            var tot = Math.Round(ficha.MontoTotal, 2, MidpointRounding.AwayFromZero);
+            var stot = Math.Round(ficha.MontoSubTotal, 2, MidpointRounding.AwayFromZero);
+            var sbtot = Math.Round(_ctrItem.SubTotal, 2, MidpointRounding.AwayFromZero);
 
             _ticketFactura.Documento.Limpiar();
             _ticketFactura.Documento.nombre=_documentoNombre;
@@ -461,11 +461,11 @@ namespace ModPos.Facturacion
                 var it = new Ticket.DatosDocumento.Item()
                 {
                     cantidad = nr.Cantidad,
-                    precio = Math.Round(rg.PrecioFull,0 , MidpointRounding.AwayFromZero),
+                    precio = Math.Round(rg.PrecioFull,2 , MidpointRounding.AwayFromZero),
                     isExento =  rg.EsExento,
                     isPesado = nr.EsPesado ,
                     descripcion = nr.NombrePrd,
-                    importe = Math.Round(rg.Total,0, MidpointRounding.AwayFromZero) ,
+                    importe = Math.Round(rg.Total,2, MidpointRounding.AwayFromZero) ,
                 };
                _ticketFactura.Documento.Items.Add(it);
 

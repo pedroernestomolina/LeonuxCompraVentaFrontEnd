@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -184,7 +185,15 @@ namespace ModPos.Facturacion
                 }
 
 
-                public string simporte { get { return "Bs " + importe.ToString("n2"); } }
+                public string simporte 
+                { 
+                    get 
+                    { 
+                        var _simporte = "Bs " + importe.ToString("n2");
+                        return _simporte; 
+                    }
+                }
+
                 public string sdescripcion
                 {
                     get

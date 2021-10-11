@@ -2,7 +2,7 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>pita</Catalogo>
+    <Catalogo>bodega</Catalogo>
   </Servidor>
   <DataLocal>C:\Modulos Leonux\POS\Data\LeonuxPosOffLine.db</DataLocal>
   <ImpresoraTicket>

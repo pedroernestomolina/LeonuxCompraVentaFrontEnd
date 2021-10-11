@@ -147,7 +147,10 @@ namespace ModPos.Operador.Cierre
             {
                 _divisaPromedio = mov.montoDivisa / mov.cntDivisa;
             }
-            _divisaPromedio = factorCambio;
+            else
+            {
+                _divisaPromedio = factorCambio;
+            }
         }
 
 

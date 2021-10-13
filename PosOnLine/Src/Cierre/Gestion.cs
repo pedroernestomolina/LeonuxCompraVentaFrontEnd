@@ -154,8 +154,11 @@ namespace PosOnLine.Src.Cierre
             var msg = MessageBox.Show("Estas Seguro De Realizar El Cierre ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == System.Windows.Forms.DialogResult.Yes)
             {
+                int idPosUso = -1;
+                if (!Sistema.ModoAbrirDocPendOtrosUsuarios)
+                    idPosUso = Sistema.PosEnUso.id;
 
-                var r01 = Sistema.MyData.Pendiente_CtasPendientes(Sistema.PosEnUso.id);
+                var r01 = Sistema.MyData.Pendiente_CtasPendientes(idPosUso);
                 if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError )
                 {
                     Helpers.Msg.Error(r01.Mensaje);

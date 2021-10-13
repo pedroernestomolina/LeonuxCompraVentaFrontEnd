@@ -37,6 +37,7 @@ namespace ModCajaBanco
 
         public void ArqueoCajaPos()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -46,6 +47,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
+                _filtroGestion.setValidarPorSucursal(true);
             }
             _filtroGestion.setHabilitarPorFecha(true);
             _filtroGestion.setHabilitarPorNumeroCierre(false);
@@ -99,6 +101,7 @@ namespace ModCajaBanco
 
         public void ReporteResumenInventario()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -108,6 +111,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(false);
                 _filtroGestion.setHabilitarDeposito(true);
+                _filtroGestion.setValidarDeposito(true);
             }
 
             _filtroGestion.setHabilitarPorFecha(true);
@@ -161,6 +165,7 @@ namespace ModCajaBanco
 
         public void ReporteResumenVenta()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -170,6 +175,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
+                _filtroGestion.setValidarPorSucursal(true);
             }
 
             _filtroGestion.setHabilitarPorFecha(true);
@@ -228,6 +234,7 @@ namespace ModCajaBanco
 
         public void ReporteResumenVentaDetalle()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -237,6 +244,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
+                _filtroGestion.setValidarPorSucursal(true);
             }
 
             _filtroGestion.setHabilitarPorFecha(true);
@@ -264,6 +272,12 @@ namespace ModCajaBanco
                 }
                 else
                 {
+                    if (_filtroGestion.autoSucursal == "")
+                    {
+                        Helpers.Msg.Error("DEBES SELECCIONAR UNA SUCURSAL POR FAVOR...");
+                        return;
+                    }
+
                     var r00 = Sistema.MyData.Sucursal_GetFicha(_filtroGestion.autoSucursal);
                     if (r00.Result == OOB.Enumerados.EnumResult.isError)
                     {
@@ -290,6 +304,7 @@ namespace ModCajaBanco
 
         public void ReporteResumenVentaporProducto()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -470,6 +485,7 @@ namespace ModCajaBanco
 
         public void CobranzaDiaria()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -479,6 +495,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
+                _filtroGestion.setValidarPorSucursal(true);
             }
             _filtroGestion.setHabilitarPorNumeroCierre(false);
             _filtroGestion.setHabilitarPorFecha(true);
@@ -594,6 +611,7 @@ namespace ModCajaBanco
 
         public void CobranzaDiariaPorCierre()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -603,6 +621,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
+                _filtroGestion.setValidarPorSucursal(true);
             }
             _filtroGestion.setHabilitarPorFecha(false);
             _filtroGestion.setHabilitarPorNumeroCierre(true);
@@ -687,6 +706,8 @@ namespace ModCajaBanco
 
         public void ReporteResumenVentaSaltoFactura()
         {
+            _filtroGestion.Inicializa();
+
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);
@@ -696,6 +717,7 @@ namespace ModCajaBanco
             {
                 _filtroGestion.setHabilitarSucursal(true);
                 _filtroGestion.setHabilitarDeposito(false);
+                _filtroGestion.setValidarPorSucursal(true);
             }
 
             _filtroGestion.setHabilitarPorFecha(true);
@@ -792,6 +814,7 @@ namespace ModCajaBanco
 
         public void ReporteResumenVentaporCliente()
         {
+            _filtroGestion.Inicializa();
             if (Sistema._ActivarComoSucursal)
             {
                 _filtroGestion.setHabilitarSucursal(false);

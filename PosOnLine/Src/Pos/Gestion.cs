@@ -537,6 +537,12 @@ namespace PosOnLine.Src.Pos
                         Helpers.Msg.Error("DEBE SELECCIONAR UN CLIENTE PARA PROCESAR DOCUMENTO");
                         return;
                     }
+                    
+                    if (Sistema.ModoSoloDocPendiente)
+                    {
+                        Helpers.Msg.Error("OPCION NO PERMITIDA,"+Environment.NewLine+"SOLO PODRAS DEJAR EL DOCUMENTO EN PENDIENTE"+Environment.NewLine+"VERIFICA POR FAVOR...");
+                        return;
+                    }
 
                     if (_modoFuncion == EnumModoFuncion.Facturacion)
                     {

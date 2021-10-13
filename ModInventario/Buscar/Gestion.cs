@@ -232,6 +232,7 @@ namespace ModInventario.Buscar
             {
                 if (Item.identidad.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
                 {
+                    var idAuto = Item.AutoId;
                     var r00 = Sistema.MyData.Permiso_CambiarPrecios(Sistema.UsuarioP.autoGru);
                     if (r00.Result == OOB.Enumerados.EnumResult.isError) 
                     {
@@ -248,8 +249,8 @@ namespace ModInventario.Buscar
                             filtros.autoProducto = Item.identidad.auto;
                             ActualizarItemLista(filtros);
                         }
-
                     }
+                    _gestionLista.ListaPosicion(idAuto);
                 }
                 else
                     Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
@@ -289,6 +290,7 @@ namespace ModInventario.Buscar
             {
                 if (Item.identidad.estatus != OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
                 {
+                    var idAuto = Item.AutoId;
                     var r00 = Sistema.MyData.Permiso_CambiarCostos(Sistema.UsuarioP.autoGru);
                     if (r00.Result == OOB.Enumerados.EnumResult.isError)
                     {
@@ -306,6 +308,7 @@ namespace ModInventario.Buscar
                             ActualizarItemLista(filtros);
                         }
                     }
+                    _gestionLista.ListaPosicion(idAuto);
                 }
                 else
                     Helpers.Msg.Error("Producto En Estado Inactivo, Verifique Por Favor !!!");
@@ -441,6 +444,7 @@ namespace ModInventario.Buscar
         {
             if (Item != null)
             {
+                var idAuto = Item.AutoId;
                 var r00 = Sistema.MyData.Permiso_ActualizarEstatusDelProducto(Sistema.UsuarioP.autoGru);
                 if (r00.Result == OOB.Enumerados.EnumResult.isError) 
                 {
@@ -471,6 +475,7 @@ namespace ModInventario.Buscar
                         }
                     }
                 }
+                _gestionLista.ListaPosicion(idAuto);
             }
         }
 

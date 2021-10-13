@@ -59,7 +59,15 @@ namespace PosOnLine
 
         //
         public static string CodigoSucursalActivo;
-        public static string CodigoDepositoActivo; 
+        public static string CodigoDepositoActivo;
+
+        //
+        //ESTA OPCION PERMITE AL FACTURADOR DEJAR UNICAMENTE EL DOCUMENTO EN PENDIENTE, PARA SER FACTURADO POR OTRO EQUIPO
+        public static bool ModoSoloDocPendiente;
+
+        //
+        //ESTA OPCION PERMITE ABRIR DOCUMENTOS PENDIENTES DE OTROS USUARIOS, PARA PODER SER FACTURADOS
+        public static bool ModoAbrirDocPendOtrosUsuarios;
 
     }
 

@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ReporteProveedor\Articulo.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ReporteProveedor\Documento.rdlc
@@ -25,7 +26,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\LibEntityCompra.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DataProvCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\OOB.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\EntityFramework.SqlServer.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\ServiceCompra.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModCompra\bin\Debug\DtoLib.pdb

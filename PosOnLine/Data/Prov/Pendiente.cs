@@ -49,7 +49,11 @@ namespace PosOnLine.Data.Prov
         {
             var result = new OOB.Resultado.FichaEntidad<int>();
 
-            var r01 = MyData.Pendiente_CtasPendientes(idOperador);
+            var filtroDTO= new DtoLibPos.Pendiente.Cnt.Filtro();
+            if (idOperador != -1)
+                filtroDTO.idOperador = idOperador;
+                
+            var r01 = MyData.Pendiente_CtasPendientes(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 result.Mensaje = r01.Mensaje;
@@ -65,9 +69,10 @@ namespace PosOnLine.Data.Prov
         {
             var result = new OOB.Resultado.Lista<OOB.Pendiente.Lista.Ficha>();
 
-            var filtroDTO = new DtoLibPos.Pendiente.Lista.Filtro()
+            var filtroDTO = new DtoLibPos.Pendiente.Lista.Filtro();
+            if (filtro.idOperador !=-1)
             {
-                idOperador = filtro.idOperador,
+                filtroDTO.idOperador = filtro.idOperador;
             };
             var r01 = MyData.Pendiente_Lista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -104,11 +109,11 @@ namespace PosOnLine.Data.Prov
             return result;
         }
 
-        public OOB.Resultado.Ficha Pendiente_AbrirCta(int idCta)
+        public OOB.Resultado.Ficha Pendiente_AbrirCta(int idCta, int idOperador)
         {
             var result = new OOB.Resultado.Ficha();
 
-            var r01 = MyData.Pendiente_AbrirCta(idCta);
+            var r01 = MyData.Pendiente_AbrirCta(idCta, idOperador);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 result.Mensaje = r01.Mensaje;

@@ -157,6 +157,33 @@ namespace PosOnLine.Helpers
                                             break;
                                     }
                                 }
+
+                                //ESTA OPCION PERMITE AL FACTURADOR DEJAR UNICAMENTE EL DOCUMENTO EN PENDIENTE, PARA SER FACTURADO POR OTRO EQUIPO
+                                if (nv.LocalName.ToUpper().Trim() == "ACTIVARMODOSOLODOCPENDIENTE") 
+                                {
+                                    if (nv.InnerText.Trim().ToUpper() == "SI")
+                                    {
+                                        Sistema.ModoSoloDocPendiente = true;
+                                    }
+                                    else 
+                                    {
+                                        Sistema.ModoSoloDocPendiente = false;
+                                    }
+                                }
+
+                                //ESTA OPCION PERMITE PODER ABRIR DOCUMENTOS PENDEINTES DE CUALQUIER USUARIO PARA PODERLO FACTURAR 
+                                if (nv.LocalName.ToUpper().Trim() == "HABILITARABRIRDOCPENDOTROSUSUARIOS") 
+                                {
+                                    if (nv.InnerText.Trim().ToUpper() == "SI")
+                                    {
+                                        Sistema.ModoAbrirDocPendOtrosUsuarios= true;
+                                    }
+                                    else 
+                                    {
+                                        Sistema.ModoAbrirDocPendOtrosUsuarios = false;
+                                    }
+                                }
+
                             }
                         }
                     }

@@ -72,7 +72,7 @@ namespace OOB.LibCajaBanco.Reporte.Movimiento.CobranzaDiaria
                 var rt = 0.0m;
                 if (medioPagoCod == "02")
                 {
-                    rt = int.Parse(refNro);
+                    rt = decimal.Parse(refNro);
                 }
                 return rt;
             }

@@ -60,7 +60,11 @@ namespace PosOnLine.Src.Pendiente
         {
             var rt = true;
 
-            var filtro = new OOB.Pendiente.Lista.Filtro() { idOperador= Sistema.PosEnUso.id };
+            var filtro = new OOB.Pendiente.Lista.Filtro(); 
+            if (!Sistema.ModoAbrirDocPendOtrosUsuarios) 
+            {
+                filtro.idOperador = Sistema.PosEnUso.id; 
+            };
             var r01 = Sistema.MyData.Pendiente_Lista(filtro);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
             {
@@ -93,8 +97,12 @@ namespace PosOnLine.Src.Pendiente
         private int CtasPendientes()
         {
             var rt = 0;
+            int idPosUso = -1;
 
-            var r01 = Sistema.MyData.Pendiente_CtasPendientes(Sistema.PosEnUso.id);
+            if (!Sistema.ModoAbrirDocPendOtrosUsuarios)
+                idPosUso = Sistema.PosEnUso.id;
+
+            var r01 = Sistema.MyData.Pendiente_CtasPendientes(idPosUso);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -117,7 +125,7 @@ namespace PosOnLine.Src.Pendiente
                 var msg = MessageBox.Show("Abrir Cuenta Pendiente ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == System.Windows.Forms.DialogResult.Yes)
                 {
-                    var r01 = Sistema.MyData.Pendiente_AbrirCta(it.Ficha.id);
+                    var r01 = Sistema.MyData.Pendiente_AbrirCta(it.Ficha.id, Sistema.PosEnUso.id);
                     if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
                     {
                         Helpers.Msg.Error(r01.Mensaje);

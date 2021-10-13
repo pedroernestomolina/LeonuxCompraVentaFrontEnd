@@ -16,6 +16,8 @@ namespace ModCajaBanco.Reportes.Movimientos
         private BindingSource bs_Deposito;
         private List<OOB.LibCajaBanco.Sucursal.Ficha> lSucursal;
         private List<OOB.LibCajaBanco.Deposito.Ficha> lDeposito;
+        private bool _validarPorSucursal;
+        private bool _validarPorDeposito;
 
 
         public BindingSource _bsSucursal { get { return bs_Sucursal; } }
@@ -113,6 +115,26 @@ namespace ModCajaBanco.Reportes.Movimientos
                 return;
             }
 
+            if (_validarPorSucursal) 
+            {
+                if (autoSucursal == "") 
+                {
+                    Helpers.Msg.Error("Sucursal No Definida");
+                    IsFiltroOk = false;
+                    return;
+                }
+            }
+
+            if (_validarPorDeposito)
+            {
+                if (autoDeposito == "")
+                {
+                    Helpers.Msg.Error("Deposito No Definido");
+                    IsFiltroOk = false;
+                    return;
+                }
+            }
+
             IsFiltroOk = true;
         }
 
@@ -153,6 +175,22 @@ namespace ModCajaBanco.Reportes.Movimientos
         public void setHastaNumero(decimal p)
         {
             hastaNumero = (int)p;
+        }
+
+        public void setValidarPorSucursal(bool p)
+        {
+            _validarPorSucursal = p;
+        }
+
+        public void Inicializa()
+        {
+            _validarPorSucursal =false;
+            _validarPorDeposito = false;
+        }
+
+        public void setValidarDeposito(bool p)
+        {
+            _validarPorDeposito = p;
         }
 
     }

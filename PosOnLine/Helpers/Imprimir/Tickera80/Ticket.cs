@@ -51,7 +51,13 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                 Limpiar();
 
                 cirif = ficha.CiRif;
+                if (Sistema.DatosNegociTicket_Rif.Trim() != "")
+                    cirif = Sistema.DatosNegociTicket_Rif.Trim();
+
                 var n = ficha.Nombre.Trim();
+                if (Sistema.DatosNegociTicket_Nombre.Trim() != "")
+                    n= Sistema.DatosNegociTicket_Nombre.Trim();
+
                 var l = n.Length;
                 var ml = 50;
 
@@ -78,6 +84,9 @@ namespace PosOnLine.Helpers.Imprimir.Tickera80
                 }
 
                 var nd = ficha.Direccion.Trim();
+                if (Sistema.DatosNegociTicket_Direccion.Trim() != "")
+                    nd= Sistema.DatosNegociTicket_Direccion.Trim();
+
                 var ld = nd.Length;
                 if (nd.Length > (ml*4))
                 {

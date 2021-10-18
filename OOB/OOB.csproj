@@ -359,6 +359,8 @@
     <Compile Include="LibSistema\Deposito\Ficha.cs" />
     <Compile Include="LibSistema\Empresa\Data\Ficha.cs" />
     <Compile Include="LibSistema\Funcion\Ficha.cs" />
+    <Compile Include="LibSistema\Negocio\Editar\Ficha.cs" />
+    <Compile Include="LibSistema\Negocio\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Permiso\Enumerados.cs" />
     <Compile Include="LibSistema\Permiso\Ficha.cs" />
     <Compile Include="LibSistema\Precio\Etiquetar\Actualizar.cs" />

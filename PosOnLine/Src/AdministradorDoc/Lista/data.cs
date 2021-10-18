@@ -25,11 +25,12 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
         public string Renglones { get { return it.Renglones.ToString().Trim(); } }
         public string CiRif { get { return it.CiRif; } }
         public string NombreRazonSocial { get { return it.NombreRazonSocial; } }
-        public decimal Monto { get { return it.Monto; } }
-        public decimal MontoDivisa { get { return it.MontoDivisa; } }
+        public decimal Monto { get { return it.Monto * it.DocSigno; } }
+        public decimal MontoDivisa { get { return it.MontoDivisa * it.DocSigno; } }
         public bool IsAnulado { get { return !it.IsActivo; } }
         public string DocCodigo { get { return it.DocCodigo; } }
         public string EstatusDoc { get { return IsAnulado ? "ANULADO" : ""; } }
+        public int Signo { get { return it.DocSigno; } }
 
         public enumTipoDoc DocTipo 
         {

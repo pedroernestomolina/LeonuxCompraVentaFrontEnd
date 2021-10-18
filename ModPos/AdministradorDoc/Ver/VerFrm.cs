@@ -106,6 +106,8 @@ namespace ModPos.AdministradorDoc.Ver
             L_FECHA.Text = _controlador.Fecha;
             L_CLIENTE.Text = _controlador.DatosCliente;
             L_TOTAL.Text = _controlador.TotalDocumento.ToString("n2");
+            L_TIPO_DOCUMENTO.Text = _controlador.TipoDocumento;
+
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)

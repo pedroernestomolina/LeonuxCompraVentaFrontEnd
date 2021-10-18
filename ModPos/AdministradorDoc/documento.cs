@@ -51,6 +51,7 @@ namespace ModPos.AdministradorDoc
                 return desc;
             }
         }
+        public decimal MontoImporte { get { return Monto * Signo; } }
 
 
         public documento(OOB.LibVenta.PosOffline.VentaDocumento.Ficha ficha)

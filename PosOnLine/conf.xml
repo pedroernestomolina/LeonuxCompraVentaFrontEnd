@@ -10,10 +10,15 @@
   <SerieFactura>2</SerieFactura>
   <SerieNCredito>2D</SerieNCredito>
   <SerieNEntrega>N2</SerieNEntrega>
-  <ModoImpresionFactura>t80</ModoImpresionFactura>
-  <ModoImpresionNEntrega>t80</ModoImpresionNEntrega>
-  <ModoImpresionNCredito>t80</ModoImpresionNCredito>
-  <ModoImpresionCuadreCaja>t80</ModoImpresionCuadreCaja>
+  <ModoImpresionFactura>T80</ModoImpresionFactura>
+  <ModoImpresionNEntrega>T80</ModoImpresionNEntrega>
+  <ModoImpresionNCredito>T80</ModoImpresionNCredito>
+  <ModoImpresionCuadreCaja>T80</ModoImpresionCuadreCaja>
   <ActivarModoSoloDocPendiente>No</ActivarModoSoloDocPendiente>
   <HabilitarAbrirDocPendOtrosUsuarios>Si</HabilitarAbrirDocPendOtrosUsuarios>
+  <DatosNegocioTicket>
+    <Rif></Rif>
+    <Nombre></Nombre>
+    <Direccion></Direccion>
+  </DatosNegocioTicket>
 </Configuracion>

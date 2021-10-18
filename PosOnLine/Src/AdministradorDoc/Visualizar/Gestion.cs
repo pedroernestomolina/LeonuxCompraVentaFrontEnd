@@ -71,7 +71,7 @@ namespace PosOnLine.Src.AdministradorDoc.Visualizar
                 var xr = 0.0m;
                 if (_documento != null)
                 {
-                    xr = _documento.Total;
+                    xr = _documento.Total* _documento.Signo;
                 }
                 return xr;
             }

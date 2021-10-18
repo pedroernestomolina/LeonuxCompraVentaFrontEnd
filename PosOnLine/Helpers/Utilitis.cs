@@ -184,6 +184,25 @@ namespace PosOnLine.Helpers
                                     }
                                 }
 
+                                if (nv.LocalName.ToUpper().Trim() == "DATOSNEGOCIOTICKET")
+                                {
+                                    foreach (XmlNode mi in nv.ChildNodes)
+                                    {
+                                        if (mi.LocalName.Trim().ToUpper() == "RIF")
+                                        {
+                                            Sistema.DatosNegociTicket_Rif = mi.InnerText.Trim();
+                                        }
+                                        if (mi.LocalName.Trim().ToUpper() == "NOMBRE")
+                                        {
+                                            Sistema.DatosNegociTicket_Nombre = mi.InnerText.Trim();
+                                        }
+                                        if (mi.LocalName.Trim().ToUpper() == "DIRECCION")
+                                        {
+                                            Sistema.DatosNegociTicket_Direccion = mi.InnerText.Trim();
+                                        }
+                                    }
+                                }
+
                             }
                         }
                     }

@@ -43,9 +43,9 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
             _tick.Cliente.estacion = _ds.encabezado.EstacionEquipo;
             _tick.Cliente.usuario = _ds.encabezado.Usuario;
 
-            var tot = Math.Round(_ds.encabezado.Total, 0, MidpointRounding.AwayFromZero);
-            var stot = Math.Round(_ds.encabezado.SubTotalItemFull, 0, MidpointRounding.AwayFromZero);
-            var sbtot = Math.Round(_ds.encabezado.SubTotalItemFull, 0, MidpointRounding.AwayFromZero);
+            var tot = Math.Round(_ds.encabezado.Total, 2, MidpointRounding.AwayFromZero);
+            var stot = Math.Round(_ds.encabezado.SubTotalItemFull, 2, MidpointRounding.AwayFromZero);
+            var sbtot = Math.Round(_ds.encabezado.SubTotalItemFull, 2, MidpointRounding.AwayFromZero);
 
             _tick.Documento.Limpiar();
             _tick.Documento.nombre = _ds.encabezado.DocumentoNombre;
@@ -69,11 +69,11 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
                 var it = new Ticket.DatosDocumento.Item()
                 {
                     cantidad = r.Cantidad,
-                    precio = Math.Round(r.PrecioFull, 0, MidpointRounding.AwayFromZero),
+                    precio = Math.Round(r.PrecioFull, 2, MidpointRounding.AwayFromZero),
                     isExento = r.EsExento,
                     isPesado = false,
                     descripcion = r.NombrePrd,
-                    importe = Math.Round(r.ImporteFull, 0, MidpointRounding.AwayFromZero),
+                    importe = Math.Round(r.ImporteFull, 2, MidpointRounding.AwayFromZero),
                 };
                 _tick.Documento.Items.Add(it);
             }

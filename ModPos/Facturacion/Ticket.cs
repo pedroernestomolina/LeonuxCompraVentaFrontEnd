@@ -53,9 +53,14 @@ namespace ModPos.Facturacion
                 Limpiar();
 
                 cirif = ficha.CiRif;
-                var n = ficha.Nombre.Trim();
-                var l = n.Length;
+                if (Sistema.DatosNegociTicket_Rif.Trim() != "")
+                    cirif = Sistema.DatosNegociTicket_Rif.Trim();
 
+                var n= ficha.Nombre.Trim();
+                if (Sistema.DatosNegociTicket_Nombre.Trim() != "")
+                    n = Sistema.DatosNegociTicket_Nombre.Trim();
+
+                var l = n.Length;
                 if (n.Length > 120)
                 {
                     razonsocial_1 = n.Substring(0, 40);
@@ -79,6 +84,9 @@ namespace ModPos.Facturacion
                 }
 
                 var nd = ficha.DireccionFiscal.Trim();
+                if (Sistema.DatosNegociTicket_Direccion.Trim() != "")
+                    nd = Sistema.DatosNegociTicket_Direccion.Trim();
+
                 var ld = nd.Length;
                 if (nd.Length > 160)
                 {
@@ -317,8 +325,8 @@ namespace ModPos.Facturacion
             switch (modo) 
             {
                 case EnumModoTicket.Modo58mm:
-                    caracterPorLinea = 35;
-                    anchoPapel = 186;
+                    caracterPorLinea = 32;
+                    anchoPapel = 184;
                     break;
                 case EnumModoTicket.Modo80mm:
                     caracterPorLinea = 51;
@@ -330,10 +338,8 @@ namespace ModPos.Facturacion
 
         public void Imrpimir() 
         {
-
-            var fr = new Font("Arial", 7, FontStyle.Regular);
-            var fb = new Font("Arial", 8, FontStyle.Bold);
-
+            var fr = new Font("Arial", 6, FontStyle.Regular);
+            var fb = new Font("Arial", 7, FontStyle.Bold);
 
             var dn = this.Negocio;
             var df = this.Documento;
@@ -367,36 +373,38 @@ namespace ModPos.Facturacion
             sc.Add("ESTACION: " + dc.estacion);
             sc.Add("USUARIO: " + dc.usuario);
 
-            var l = 0;
+            float l = 0.0f;
             foreach (var s in st)
             {
                 if (s.Trim() != "")
                 {
-                    eg.Graphics.DrawString(s, fr, Brushes.Black, centrar(s), l);
-                    l += 10;
+                    var t = eg.Graphics.MeasureString(s, fr).Width;
+                    var c = (anchoPapel - t) / 2;
+                    eg.Graphics.DrawString(s, fr, Brushes.Black, c, l);
+                    l += 10f;
                 }
             }
-            l += 10;
+            l += 10f;
 
             foreach (var s in sc)
             {
                 if (s.Trim() != "")
                 {
                     eg.Graphics.DrawString(s, fr, Brushes.Black, 0, l);
-                    l += 10;
+                    l += 10f;
                 }
             }
 
-            l += 10;
+            l += 10f;
             eg.Graphics.DrawString(df.nombre, fb, Brushes.Black, centrar(df.nombre), l);
             l += 10;
-            eg.Graphics.DrawString(df.nombre+":", fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.numero, fr, Brushes.Black, dder(df.numero), l);
+            eg.Graphics.DrawString(df.nombre + ":", fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString(df.numero, fr, Brushes.Black, dder2(df.numero, fr), l);
             l += 10;
             eg.Graphics.DrawString("FECHA: " + df.fecha, fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString("HORA: " + df.hora, fr, Brushes.Black, dder("HORA: " + df.hora), l);
+            eg.Graphics.DrawString("HORA: " + df.hora, fr, Brushes.Black, dder2("HORA: " + df.hora, fr), l);
             l += 10;
-            eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString("-".PadRight(85, '-'), fb, Brushes.Black, 0, l);
             l += 10;
 
             foreach (var r in df.Items)
@@ -416,7 +424,7 @@ namespace ModPos.Facturacion
                     if (r.cantidad == 1.0m)
                     {
                         eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
-                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder(r.simporte), l);
+                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte, fr), l);
                         l += 10;
                     }
                     else
@@ -424,26 +432,26 @@ namespace ModPos.Facturacion
                         eg.Graphics.DrawString(r.scantidadPrecio, fr, Brushes.Black, 0, l);
                         l += 10;
                         eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
-                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder(r.simporte), l);
+                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte, fr), l);
                         l += 10;
                     }
                 }
             }
 
-            eg.Graphics.DrawString("-".PadRight(85, '-'), fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString("-".PadRight(85, '-'), fb, Brushes.Black, 0, l);
             l += 10;
             eg.Graphics.DrawString("SUBTOTAL", fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.subtotalNeto, fr, Brushes.Black, dder(df.subtotalNeto), l);
+            eg.Graphics.DrawString(df.subtotal, fr, Brushes.Black, dder2(df.subtotal, fr), l);
             l += 10;
-            eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
+            eg.Graphics.DrawString("-".PadRight(85, '-'), fb, Brushes.Black, 0, l);
             l += 10;
 
-            if (df.HayCargo || df.HayDescuento) 
+            if (df.HayCargo || df.HayDescuento)
             {
                 if (df.HayDescuento)
                 {
                     eg.Graphics.DrawString(df.descuento, fr, Brushes.Black, 0, l);
-                    eg.Graphics.DrawString(df.descuentoMonto, fr, Brushes.Black, dder(df.descuentoMonto), l);
+                    eg.Graphics.DrawString(df.descuentoMonto, fr, Brushes.Black, dder2(df.descuentoMonto, fr), l);
                     l += 10;
                     eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
                     l += 10;
@@ -451,58 +459,52 @@ namespace ModPos.Facturacion
                 if (df.HayCargo)
                 {
                     eg.Graphics.DrawString(df.cargo, fr, Brushes.Black, 0, l);
-                    eg.Graphics.DrawString(df.cargoMonto, fr, Brushes.Black, dder(df.cargoMonto), l);
+                    eg.Graphics.DrawString(df.cargoMonto, fr, Brushes.Black, dder2(df.cargoMonto, fr), l);
                     l += 10;
                     eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
                     l += 10;
                 }
-                eg.Graphics.DrawString("SUBTOTAL", fr, Brushes.Black, 0, l);
-                eg.Graphics.DrawString(df.subtotal, fr, Brushes.Black, dder(df.subtotal), l);
-                l += 10;
-                eg.Graphics.DrawString("-".PadRight(90, '-'), fr, Brushes.Black, 0, l);
-                l += 10;
             }
 
             eg.Graphics.DrawString("TOTAL", fb, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.total, fr, Brushes.Black, dder(df.total), l);
+            eg.Graphics.DrawString(df.total, fr, Brushes.Black, dder2(df.total, fr), l);
             l += 15;
 
             foreach (var mp in df.MediosPago)
             {
                 eg.Graphics.DrawString(mp.descripcion, fr, Brushes.Black, 0, l);
-                eg.Graphics.DrawString(mp.monto, fr, Brushes.Black, dder(mp.monto), l);
+                eg.Graphics.DrawString(mp.monto, fr, Brushes.Black, dder2(mp.monto, fr), l);
                 l += 10;
             }
             eg.Graphics.DrawString("CAMBIO", fr, Brushes.Black, 0, l);
-            eg.Graphics.DrawString(df.cambio, fr, Brushes.Black, dder(df.cambio), l);
+            eg.Graphics.DrawString(df.cambio, fr, Brushes.Black, dder2(df.cambio, fr), l);
             l += 10;
+
         }
 
         private float centrar(string t)
         {
             float r = 0.0f;
-            ////r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
-            //float tl = (275.0f / 51.0f);
-            //r = ((50.0f - t.Trim().Length) / 2.0f) * tl;
-            //return r;
-
-            float tl = (anchoPapel/ caracterPorLinea);
-            r = (( caracterPorLinea- t.Trim().Length) / 2.0f) * tl;
+            float tl = (anchoPapel / caracterPorLinea);
+            r = ((caracterPorLinea - t.Trim().Length) / 2.0f) * tl;
             return r;
         }
+
 
         private float dder(string t)
         {
             float r = 0.0f;
-            ////r=(275 /51 - ((70 / 49) * t.Trim().Length))/2;
-            //float tl = (285.0f / 51.0f);
-            //r = ((51.0f - t.Length)) * tl;
-            //return r;
-
             float tl = ((anchoPapel+0) / caracterPorLinea);
             r = (((caracterPorLinea+1) - t.Length)) * tl;
             return r;
         }
+
+        private float dder2(string texto, Font fuente)
+        {
+            var t = eg.Graphics.MeasureString(texto, fuente).Width;
+            return (anchoPapel - t);
+        }
+
 
         public void Reporte(List<string> lineas) 
         {

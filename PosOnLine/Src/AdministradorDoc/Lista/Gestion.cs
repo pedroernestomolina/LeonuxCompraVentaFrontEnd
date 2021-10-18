@@ -150,12 +150,22 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                     return;
                 }
 
+                var _cirif= Sistema.DatosEmpresa.CiRif;
+                if (Sistema.DatosNegociTicket_Rif.Trim() != "")
+                    _cirif = Sistema.DatosNegociTicket_Rif.Trim();
+                var _nombre = Sistema.DatosEmpresa.Nombre;
+                if (Sistema.DatosNegociTicket_Nombre.Trim() != "")
+                    _nombre= Sistema.DatosNegociTicket_Nombre.Trim();
+                var _direccion= Sistema.DatosEmpresa.Direccion;
+                if (Sistema.DatosNegociTicket_Direccion.Trim() != "")
+                    _direccion = Sistema.DatosNegociTicket_Direccion.Trim();
+
                 var xdata = new Helpers.Imprimir.data();
                 xdata.negocio = new Helpers.Imprimir.data.Negocio()
                 {
-                    Nombre = Sistema.DatosEmpresa.Nombre,
-                    CiRif = Sistema.DatosEmpresa.CiRif,
-                    Direccion = Sistema.DatosEmpresa.Direccion,
+                    CiRif = _cirif,
+                    Nombre = _nombre,
+                    Direccion = _direccion,
                     Telefonos = Sistema.DatosEmpresa.Telefono,
                 };
                 var docNombre = "";
@@ -230,7 +240,7 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
                 {
                     if (mp.cntDivisa > 1)
                     {
-                        var pag = new Helpers.Imprimir.data.MetodoPago() { descripcion = "Efectivo", monto = mp.montoRecibido };
+                        var pag = new Helpers.Imprimir.data.MetodoPago() { descripcion = "Efectivo($"+mp.cntDivisa.ToString()+")", monto = mp.montoRecibido };
                         xdata.metodoPago.Add(pag);
                     }
                     else

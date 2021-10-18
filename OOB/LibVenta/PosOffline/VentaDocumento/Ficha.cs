@@ -129,7 +129,6 @@ namespace OOB.LibVenta.PosOffline.VentaDocumento
             }
         }
 
-
     }
 
 }

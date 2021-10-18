@@ -1956,7 +1956,7 @@ namespace PosOnLine.Src.Pos
             {
                 if (mp.cntDivisa > 1)
                 {
-                    var pag = new Helpers.Imprimir.data.MetodoPago() { descripcion = "Efectivo", monto = mp.montoRecibido };
+                    var pag = new Helpers.Imprimir.data.MetodoPago() { descripcion = "Efectivo($" + mp.cntDivisa.ToString() + ")", monto = mp.montoRecibido };
                     xdata.metodoPago.Add(pag);
                 }
                 else

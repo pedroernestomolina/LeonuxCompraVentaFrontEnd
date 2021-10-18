@@ -203,7 +203,7 @@ namespace ModPos.AdministradorDoc
                                 var m = fmp.MontoRecibido * fmp.Tasa;
                                 var itP = new ModPos.Facturacion.Ticket.DatosDocumento.MedioPago()
                                 {
-                                    descripcion = "Efectivo",
+                                    descripcion = "Efectivo ($" + fmp.MontoRecibido.ToString("N0") + ")",
                                     monto = "Bs " + m.ToString("n2"),
                                 };
                                 _ticket.Documento.MediosPago.Add(itP);

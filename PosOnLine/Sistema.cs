@@ -69,6 +69,11 @@ namespace PosOnLine
         //ESTA OPCION PERMITE ABRIR DOCUMENTOS PENDIENTES DE OTROS USUARIOS, PARA PODER SER FACTURADOS
         public static bool ModoAbrirDocPendOtrosUsuarios;
 
+        //DATOS PARA EL TICKET
+        public static string DatosNegociTicket_Rif;
+        public static string DatosNegociTicket_Nombre;
+        public static string DatosNegociTicket_Direccion;
+
     }
 
 }

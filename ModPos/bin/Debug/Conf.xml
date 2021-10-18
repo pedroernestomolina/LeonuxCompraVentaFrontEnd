@@ -10,4 +10,9 @@
   </ImpresoraTicket>
   <NuevoConoMonetario>1000000</NuevoConoMonetario>
   <NuevoConoMonetarioFechaFinUso>02/10/2021</NuevoConoMonetarioFechaFinUso>
+  <DatosNegocioTicket>
+    <Rif></Rif>
+    <Nombre></Nombre>
+    <Direccion></Direccion>
+  </DatosNegocioTicket>
 </Configuracion>

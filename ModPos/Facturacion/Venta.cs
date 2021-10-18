@@ -288,11 +288,28 @@ namespace ModPos.Facturacion
 
             _ctrItem.setDescuentoGlobal(_dsctoGlobalPorct);
             _ctrItem.setCargoGlobal(_cargoGlobalPorct);
+            
+
+            var rt1 = Sistema.MyData2.Jornada_Activa();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return ;
+            }
+            var rt2 = Sistema.MyData2.Operador_Activo();
+            if (rt2.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt2.Mensaje);
+                return ;
+            }
+
             var ficha = new OOB.LibVenta.PosOffline.VentaDocumento.Agregar()
             {
-                IdJornada =Sistema.MyJornada.Id,
-                IdOperador=Sistema.MyOperador.Id,
+                //IdJornada =Sistema.MyJornada.Id,
+                //IdOperador=Sistema.MyOperador.Id,
 
+                IdJornada = rt1.Entidad,
+                IdOperador = rt2.Entidad,
                 Aplica = _aplica,
                 AutoUsuario = _usuario.Auto,
                 ClienteId = _ctrCliente.Ficha.Id,

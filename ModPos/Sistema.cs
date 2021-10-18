@@ -28,6 +28,12 @@ namespace ModPos
         public static decimal NuevoConoMonetario;
         public static DateTime NuevoConoMonetarioFechaFinUso;
 
+
+        //DATOS PARA EL TICKET
+        public static string DatosNegociTicket_Rif;
+        public static string DatosNegociTicket_Nombre; 
+        public static string DatosNegociTicket_Direccion;
+
     }
 
 }

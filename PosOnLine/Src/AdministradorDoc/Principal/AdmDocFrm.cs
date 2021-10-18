@@ -67,6 +67,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
 
             var c7 = new DataGridViewTextBoxColumn();
             c7.DataPropertyName = "DocNombre";
+            c7.Name = "DocNombre";
             c7.HeaderText = "Tipo";
             c7.Visible = true;
             c7.Width = 90;
@@ -131,6 +132,12 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             c8.HeaderCell.Style.Font = f;
             c8.DefaultCellStyle.Font = f1;
 
+            var cB = new DataGridViewTextBoxColumn();
+            cB.DataPropertyName = "Signo";
+            cB.Name = "Signo";
+            cB.HeaderText = "Signo";
+            cB.Visible = false;
+            cB.Width = 10;
 
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c9);
@@ -142,6 +149,7 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             DGV.Columns.Add(c5);
             DGV.Columns.Add(cA);
             DGV.Columns.Add(c8);
+            DGV.Columns.Add(cB);
         }
 
         private void ListartFrm_Load(object sender, EventArgs e)
@@ -236,6 +244,12 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
                 {
                     row.Cells["Estatus"].Style.BackColor = Color.Red ;
                     row.Cells["Estatus"].Style.ForeColor = Color.White;
+                }
+
+                if ((int)row.Cells["Signo"].Value ==-1)
+                {
+                    row.Cells["DocNombre"].Style.BackColor = Color.Red;
+                    row.Cells["DocNombre"].Style.ForeColor = Color.White;
                 }
             }
         }

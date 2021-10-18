@@ -66,6 +66,7 @@ namespace ModPos.AdministradorDoc.Listar
 
             var c7 = new DataGridViewTextBoxColumn();
             c7.DataPropertyName = "TipoDocumentoDesc";
+            c7.Name = "TipoDocumento";
             c7.HeaderText = "Tipo";
             c7.Visible = true;
             c7.Width = 90;
@@ -100,8 +101,9 @@ namespace ModPos.AdministradorDoc.Listar
             c4.DefaultCellStyle.Font = f1;
 
             var c5 = new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "Monto";
+            c5.DataPropertyName = "MontoImporte";
             c5.HeaderText = "Importe";
+            c5.Name = "MontoImporte";
             c5.Visible = true;
             c5.Width = 120;
             c5.HeaderCell.Style.Font = f;
@@ -115,6 +117,12 @@ namespace ModPos.AdministradorDoc.Listar
             c8.Visible = false;
             c8.Width = 10;
 
+            var cA = new DataGridViewTextBoxColumn();
+            cA.DataPropertyName = "Signo";
+            cA.Name = "Signo";
+            cA.Visible = false;
+            cA.Width = 10;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c9);
             DGV.Columns.Add(c2);
@@ -124,6 +132,7 @@ namespace ModPos.AdministradorDoc.Listar
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
             DGV.Columns.Add(c8);
+            DGV.Columns.Add(cA);
         }
 
         private void ListartFrm_Load(object sender, EventArgs e)
@@ -209,6 +218,11 @@ namespace ModPos.AdministradorDoc.Listar
             foreach (DataGridViewRow row in DGV.Rows)
             {
                 row.DefaultCellStyle.ForeColor = !(bool)row.Cells["IsActivo"].Value ? Color.Red : Color.Black;
+                if ((int)row.Cells["Signo"].Value == -1)
+                {
+                    row.Cells["TipoDocumento"].Style.BackColor = Color.Red;
+                    row.Cells["TipoDocumento"].Style.ForeColor = Color.White;
+                }
             }
         }
 

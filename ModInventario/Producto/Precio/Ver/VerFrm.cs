@@ -87,6 +87,22 @@ namespace ModInventario.Producto.Precio.Ver
             L_PN_5.Text = _controlador.Precio5.PN.ToString("n2");
             L_PF_5.Text = _controlador.Precio5.PF.ToString("n2");
 
+            //
+            L_ETQ_MAY_1.Text = _controlador.Mayor1.etiqueta;
+            L_EMP_MAY_1.Text = _controlador.Mayor1.empaque;
+            L_CONT_MAY_1.Text = _controlador.Mayor1.contenido.ToString("n0");
+            L_UT_MAY_1.Text = _controlador.Mayor1.utilidadPorc.ToString("n2").Trim() + "%";
+            L_PN_MAY_1.Text = _controlador.Mayor1.PN.ToString("n2");
+            L_PF_MAY_1.Text = _controlador.Mayor1.PF.ToString("n2");
+
+            L_ETQ_MAY_2.Text = _controlador.Mayor2.etiqueta;
+            L_EMP_MAY_2.Text = _controlador.Mayor2.empaque;
+            L_CONT_MAY_2.Text = _controlador.Mayor2.contenido.ToString("n0");
+            L_UT_MAY_2.Text = _controlador.Mayor2.utilidadPorc.ToString("n2").Trim() + "%";
+            L_PN_MAY_2.Text = _controlador.Mayor2.PN.ToString("n2");
+            L_PF_MAY_2.Text = _controlador.Mayor2.PF.ToString("n2");
+            //
+
             L_PREF_NETO.ForeColor = Color.Black;
             L_PREF_FULL.ForeColor = Color.Black;
             L_PREF_NETO.Font = new Font(L_PREF_NETO.Font.FontFamily, 10, FontStyle.Regular);
@@ -108,21 +124,32 @@ namespace ModInventario.Producto.Precio.Ver
             L_PN_3.BackColor = Color.AliceBlue;
             L_PN_4.BackColor = Color.AliceBlue;
             L_PN_5.BackColor = Color.AliceBlue;
+            L_PN_MAY_1.BackColor = Color.AliceBlue;
+            L_PN_MAY_2.BackColor = Color.AliceBlue;
+
             L_PN_1.ForeColor = Color.Black;
             L_PN_2.ForeColor = Color.Black;
             L_PN_3.ForeColor = Color.Black;
             L_PN_4.ForeColor = Color.Black;
             L_PN_5.ForeColor = Color.Black;
+            L_PN_MAY_1.ForeColor = Color.Black;
+            L_PN_MAY_2.ForeColor = Color.Black;
+
             L_PF_1.BackColor = Color.AliceBlue;
             L_PF_2.BackColor = Color.AliceBlue;
             L_PF_3.BackColor = Color.AliceBlue;
             L_PF_4.BackColor = Color.AliceBlue;
             L_PF_5.BackColor = Color.AliceBlue;
+            L_PF_MAY_1.BackColor = Color.AliceBlue;
+            L_PF_MAY_2.BackColor = Color.AliceBlue;
+
             L_PF_1.ForeColor = Color.Black;
             L_PF_2.ForeColor = Color.Black;
             L_PF_3.ForeColor = Color.Black;
             L_PF_4.ForeColor = Color.Black;
             L_PF_5.ForeColor = Color.Black;
+            L_PF_MAY_1.ForeColor = Color.Black;
+            L_PF_MAY_2.ForeColor = Color.Black;
 
             if (_controlador.ModoActual == data.enumModoPrecio.Divisa)
             {
@@ -131,22 +158,32 @@ namespace ModInventario.Producto.Precio.Ver
                 L_PN_3.BackColor = Color.Green;
                 L_PN_4.BackColor = Color.Green;
                 L_PN_5.BackColor = Color.Green;
+                L_PN_MAY_1.BackColor = Color.Green;
+                L_PN_MAY_2.BackColor = Color.Green;
+
                 L_PN_1.ForeColor = Color.White;
                 L_PN_2.ForeColor = Color.White;
                 L_PN_3.ForeColor = Color.White;
                 L_PN_4.ForeColor = Color.White;
                 L_PN_5.ForeColor = Color.White;
+                L_PN_MAY_1.ForeColor = Color.White;
+                L_PN_MAY_2.ForeColor = Color.White;
+
                 L_PF_1.BackColor = Color.Green;
                 L_PF_2.BackColor = Color.Green;
                 L_PF_3.BackColor = Color.Green;
                 L_PF_4.BackColor = Color.Green;
                 L_PF_5.BackColor = Color.Green;
+                L_PF_MAY_1.BackColor = Color.Green;
+                L_PF_MAY_2.BackColor = Color.Green;
+
                 L_PF_1.ForeColor = Color.White;
                 L_PF_2.ForeColor = Color.White;
                 L_PF_3.ForeColor = Color.White;
                 L_PF_4.ForeColor = Color.White;
                 L_PF_5.ForeColor = Color.White;
-
+                L_PF_MAY_1.ForeColor = Color.White;
+                L_PF_MAY_2.ForeColor = Color.White;
             }
         }
 
@@ -166,12 +203,42 @@ namespace ModInventario.Producto.Precio.Ver
             L_PN_2.Text = "";
             L_PF_2.Text = "";
 
+            L_ETQ_3.Text = "";
+            L_EMP_3.Text = "";
+            L_CONT_3.Text = "";
+            L_UT_3.Text = "";
+            L_PN_3.Text = "";
+            L_PF_3.Text = "";
+
             L_ETQ_4.Text = "";
             L_CONT_4.Text = "";
             L_EMP_4.Text = "";
             L_UT_4.Text = "";
             L_PN_4.Text = "";
             L_PF_4.Text = "";
+
+            L_ETQ_5.Text = "";
+            L_EMP_5.Text = "";
+            L_CONT_5.Text = "";
+            L_UT_5.Text = "";
+            L_PN_5.Text = "";
+            L_PF_5.Text = "";
+
+            //
+
+            L_ETQ_MAY_1.Text = "";
+            L_EMP_MAY_1.Text = "";
+            L_CONT_MAY_1.Text = "";
+            L_UT_MAY_1.Text = "";
+            L_PN_MAY_1.Text = "";
+            L_PF_MAY_1.Text = "";
+
+            L_ETQ_MAY_2.Text = "";
+            L_EMP_MAY_2.Text = "";
+            L_CONT_MAY_2.Text = "";
+            L_UT_MAY_2.Text = "";
+            L_PN_MAY_2.Text = "";
+            L_PF_MAY_2.Text = "";
         }
 
         private void BT_MODO_PRECIO_Click(object sender, EventArgs e)

@@ -85,7 +85,7 @@ namespace ModCajaBanco
                     sucursalNombre = r00.Entidad.nombre;
                 }
 
-                var r01 = Sistema.MyData.CajaBanco_ArqueoCajaPos (filtro);
+                var r01 = Sistema.MyData.CajaBanco_ArqueoCajaPos(filtro);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r01.Mensaje);

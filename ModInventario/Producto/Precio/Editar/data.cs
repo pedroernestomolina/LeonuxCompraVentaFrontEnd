@@ -11,6 +11,12 @@ namespace ModInventario.Producto.Precio.Editar
     public class data
     {
 
+        private decimal _costoUndDivisa;
+        private decimal _costoUnd;
+        private string _empaqueNombre;
+
+       
+        
         public enum enumModo { Financiero = 1, Lineal };
         public enum enumModoRedondeo { SinRedondeo = 1, Unidad, Decena };
         public enum enumPreferenciaPrecio { Neto = 1, Full };
@@ -25,6 +31,7 @@ namespace ModInventario.Producto.Precio.Editar
         private bool isDivisa;
 
         public string autoEmpaque { get; set; }
+        public string Empaque { get { return _empaqueNombre; } }
         public int contenido { get; set; }
         public string etiqueta { get; set; }
         public decimal utilidadVigente { get; set; }
@@ -34,7 +41,17 @@ namespace ModInventario.Producto.Precio.Editar
             get
             {
                 var rt = 0.0m;
-                rt = costoUnd;
+
+                if (isDivisa)
+                {
+                    rt = _costoUndDivisa * contenido;
+                }
+                else 
+                {
+                    rt = _costoUnd * contenido;
+                }
+
+                //rt = costoUnd * contenido;
                 return rt;
             }
         }
@@ -125,35 +142,31 @@ namespace ModInventario.Producto.Precio.Editar
             }
         }
 
-        private void CalculaUtilidad()
-        {
-            if (modoCalculoUtilidad == enumModo.Lineal)
-            {
-                _utilidad = 0.0m;
-                if (_neto > Costo)
-                {
-                    _utilidad = (((_neto / Costo) - 1) * 100);
-                }
-            }
-            if (modoCalculoUtilidad == enumModo.Financiero)
-            {
-                _utilidad = 0.0m;
-                if (_neto > Costo)
-                {
-                    _utilidad = ((1 - (Costo / _neto)) * 100);
-                }
-            }
-        }
+        //private void CalculaUtilidad()
+        //{
+        //    if (modoCalculoUtilidad == enumModo.Lineal)
+        //    {
+        //        _utilidad = 0.0m;
+        //        if (_neto > Costo)
+        //        {
+        //            _utilidad = (((_neto / Costo) - 1) * 100);
+        //        }
+        //    }
+        //    if (modoCalculoUtilidad == enumModo.Financiero)
+        //    {
+        //        _utilidad = 0.0m;
+        //        if (_neto > Costo)
+        //        {
+        //            _utilidad = ((1 - (Costo / _neto)) * 100);
+        //        }
+        //    }
+        //}
 
         private void CalculaUtilidad2()
         {
             if (modoCalculoUtilidad == enumModo.Lineal)
             {
                 _utilidad = 0.0m;
-                //if (_neto > Costo)
-                //{
-                //    _utilidad = (((_neto / Costo) - 1) * 100);
-                //}
                 if (Costo > 0)
                     if (_neto>0)
                         _utilidad = (((_neto / Costo) - 1) * 100);
@@ -161,12 +174,8 @@ namespace ModInventario.Producto.Precio.Editar
             if (modoCalculoUtilidad == enumModo.Financiero)
             {
                 _utilidad = 0.0m;
-                //if (_neto > Costo)
-                //{
-                //    _utilidad = ((1 - (Costo / _neto)) * 100);
-                //}
-                if (_neto > 0)
-                    _utilidad = ((1 - (Costo / _neto)) * 100);
+                if (_neto> 0)
+                    _utilidad = ((1 - (Costo/ _neto)) * 100);
             }
         }
 
@@ -221,12 +230,21 @@ namespace ModInventario.Producto.Precio.Editar
                 var rt = 0.0m;
                 if (isDivisa)
                 {
-                    rt = Costo * tasaCambioActual;
+                    rt = _costoUndDivisa * contenido;
                 }
                 else
                 {
-                    rt = Costo / tasaCambioActual;
+                    rt = _costoUnd * contenido;
                 }
+
+                //if (isDivisa)
+                //{
+                //    rt = Costo * tasaCambioActual;
+                //}
+                //else
+                //{
+                //    rt = Costo / tasaCambioActual;
+                //}
                 return rt;
             }
         }
@@ -236,7 +254,7 @@ namespace ModInventario.Producto.Precio.Editar
             get
             {
                 var rt = 0.0m;
-                if (isDivisa)
+                if (!isDivisa)
                 {
                     rt = neto * tasaCambioActual;
                 }
@@ -318,8 +336,11 @@ namespace ModInventario.Producto.Precio.Editar
             modoCalculoUtilidad = modo;
         }
 
-        public void setData(int cont, decimal costo, decimal iva, decimal ut, decimal precio, enumModo enumModo, string etq, string autoEmp, bool modoDivisa, decimal tasaCambio, enumModoRedondeo redondeo, enumPreferenciaPrecio prefPrec)
+        public void setData(int cont, decimal costo, decimal iva, decimal ut, decimal precio, enumModo enumModo, string etq, string autoEmp, bool modoDivisa, decimal tasaCambio, enumModoRedondeo redondeo, enumPreferenciaPrecio prefPrec, decimal costUndDivisa, decimal costUnd)
         {
+            _costoUndDivisa = costUndDivisa;
+            _costoUnd = costUnd;
+            //
             autoEmpaque = autoEmp;
             etiqueta = etq;
             contenido = cont;
@@ -370,12 +391,12 @@ namespace ModInventario.Producto.Precio.Editar
 
         public void sw()
         {
+            isDivisa = !isDivisa;
             costoUnd = costo2;
             neto = neto2;
             //CalculaUtilidad();
             CalculaUtilidad2();
             CalculaFull();
-            isDivisa = !isDivisa;
         }
 
         public void Limpiar() 
@@ -394,6 +415,7 @@ namespace ModInventario.Producto.Precio.Editar
             utilidadVigente = 0.0m;
             modoRedondeo = enumModoRedondeo.SinRedondeo;
             preferenciaPrecio = enumPreferenciaPrecio.Neto;
+            _empaqueNombre = "";
         }
 
         public bool IsOk() 
@@ -404,6 +426,37 @@ namespace ModInventario.Producto.Precio.Editar
                 return false;
 
             return rt;
+        }
+
+
+        public void setEmpaque(string auto)
+        {
+            autoEmpaque = auto;
+        }
+
+        public void setContenido(int p)
+        {
+            contenido = p;
+        }
+
+        public void setUtilidad(decimal p)
+        {
+            utilidad = p;
+        }
+
+        public void setNeto(decimal p)
+        {
+            neto = p;
+        }
+
+        public void setFull(decimal p)
+        {
+            full = p;
+        }
+
+        public void setNombreEmpaque(string n)
+        {
+            _empaqueNombre = n;
         }
 
     }

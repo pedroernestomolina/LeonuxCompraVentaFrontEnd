@@ -24,6 +24,7 @@ namespace ModSistema
         private TasaDivisa.Gestion _gestionTasaDivisa;
         private Maestros.Gestion _gestionMaestro;
         private ReconversionMonetaria.Gestion _gestionRecMon;
+        private DatosNegocio.Editar.Gestion _gestionDatosNegocio;
 
 
         public string Host 
@@ -68,6 +69,7 @@ namespace ModSistema
             _gestionTasaDivisa = new TasaDivisa.Gestion();
             _gestionMaestro = new Maestros.Gestion();
             _gestionRecMon = new ReconversionMonetaria.Gestion();
+            _gestionDatosNegocio = new DatosNegocio.Editar.Gestion();
         }
 
 
@@ -321,6 +323,22 @@ namespace ModSistema
             _gestionRecMon.Inicializa();
             _gestionRecMon.setFactorReconversion(1000000);
             _gestionRecMon.Inicia();
+        }
+
+        public void DatosDelNegocio()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlSerieFiscal(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionDatosNegocio.Inicializa();
+                _gestionDatosNegocio.Inicia();
+            }
         }
 
     }

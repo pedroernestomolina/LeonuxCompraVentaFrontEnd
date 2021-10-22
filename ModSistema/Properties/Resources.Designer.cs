@@ -543,6 +543,16 @@ namespace ModSistema.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_seguridad_bd {
+            get {
+                object obj = ResourceManager.GetObject("bt_seguridad_bd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_setup {
             get {
                 object obj = ResourceManager.GetObject("bt_setup", resourceCulture);
@@ -596,6 +606,16 @@ namespace ModSistema.Properties {
         internal static System.Drawing.Bitmap bt_usuario__2_ {
             get {
                 object obj = ResourceManager.GetObject("bt_usuario__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_usuario_bd {
+            get {
+                object obj = ResourceManager.GetObject("bt_usuario_bd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

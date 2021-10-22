@@ -99,7 +99,7 @@ namespace ModInventario.Producto.Precio.Historico
         {
             DGV.DataSource = _controlador.Source;
             L_PRODUCTO.Text = _controlador.Producto;
-            L_NOTA.Text = "";
+            L_NOTA.Text = _controlador.Nota;
         }
 
         public void ActualizarItem()

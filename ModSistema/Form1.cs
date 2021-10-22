@@ -214,6 +214,16 @@ namespace ModSistema
             _controlador.ReconversionMonetaria();
         }
 
+        private void TSM_AJUSTE_Datos_Negocio_Click(object sender, EventArgs e)
+        {
+            DatosDelNegocio();
+        }
+
+        private void DatosDelNegocio()
+        {
+            _controlador.DatosDelNegocio();
+        }
+
     }
 
 }

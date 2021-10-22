@@ -22,6 +22,8 @@ namespace ModInventario.Producto.Precio.Ver
         private data _precio3;
         private data _precio4;
         private data _precio5;
+        private data _mayor1;
+        private data _mayor2;
         private data.enumModoPrecio _modoActual;
         private bool _isPreferenciaBusquedaNeto;
 
@@ -39,6 +41,8 @@ namespace ModInventario.Producto.Precio.Ver
         public data Precio3 { get { return _precio3; } }
         public data Precio4 { get { return _precio4; } }
         public data Precio5 { get { return _precio5; } }
+        public data Mayor1 { get { return _mayor1; } }
+        public data Mayor2 { get { return _mayor2; } }
 
         public bool PreferenciaBusquedaEsNeto { get { return _isPreferenciaBusquedaNeto; } }
 
@@ -54,6 +58,8 @@ namespace ModInventario.Producto.Precio.Ver
             _precio3 = new data();
             _precio4 = new data();
             _precio5 = new data();
+            _mayor1 = new data();
+            _mayor2 = new data();
         }
 
 
@@ -142,11 +148,17 @@ namespace ModInventario.Producto.Precio.Ver
             var ut3 = s.utilidad3;
             var ut4 = s.utilidad4;
             var ut5 = s.utilidad5;
+            var utMay1 = s.utilidadMay1;
+            var utMay2 = s.utilidadMay2;
+
             _precio1.setData(s.contenido1, s.empaque1, s.precioNeto1, ut1, s.precioFullDivisa1, s.tasaIva, s.etiqueta1);
             _precio2.setData(s.contenido2, s.empaque2, s.precioNeto2, ut2 , s.precioFullDivisa2, s.tasaIva, s.etiqueta2);
             _precio3.setData(s.contenido3, s.empaque3, s.precioNeto3, ut3 , s.precioFullDivisa3, s.tasaIva, s.etiqueta3);
             _precio4.setData(s.contenido4, s.empaque4, s.precioNeto4, ut4 , s.precioFullDivisa4, s.tasaIva, s.etiqueta4);
             _precio5.setData(s.contenido5, s.empaque5, s.precioNeto5, ut5 , s.precioFullDivisa5, s.tasaIva, s.etiqueta5);
+            _mayor1.setData(s.contenidoMay1, s.empaqueMay1, s.precioNetoMay1, utMay1, s.precioFullDivisaMay1, s.tasaIva, s.etiquetaMay1);
+            _mayor2.setData(s.contenidoMay2, s.empaqueMay2, s.precioNetoMay2, utMay2, s.precioFullDivisaMay2, s.tasaIva, s.etiquetaMay2);
+
             _modoActual = data.enumModoPrecio.Bolivar;
             if (_admDivisa) 
             {
@@ -186,6 +198,8 @@ namespace ModInventario.Producto.Precio.Ver
             _precio3.Limpiar();
             _precio4.Limpiar();
             _precio5.Limpiar();
+            _mayor1.Limpiar();
+            _mayor2.Limpiar();
         }
 
         public void CambioModoPrecio()
@@ -208,6 +222,8 @@ namespace ModInventario.Producto.Precio.Ver
             _precio3.setModoPrecioActual(_modoActual);
             _precio4.setModoPrecioActual(_modoActual);
             _precio5.setModoPrecioActual(_modoActual);
+            _mayor1.setModoPrecioActual(_modoActual);
+            _mayor2.setModoPrecioActual(_modoActual);
         }
 
     }

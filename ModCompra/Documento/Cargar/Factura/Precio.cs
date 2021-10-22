@@ -115,6 +115,43 @@ namespace ModCompra.Documento.Cargar.Factura
                 return rt;
             }
         }
+        //
+        public decimal pDivisaFull_May_1
+        {
+            get
+            {
+                var rt = CalculoDivisaFull(ficha.utilidad_may_1, ficha.contenido_may_1, ficha.precio_may_1_habilitado);
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
+        public decimal pDivisaFull_May_2
+        {
+            get
+            {
+                var rt = CalculoDivisaFull(ficha.utilidad_may_2, ficha.contenido_may_2, ficha.precio_may_2_habilitado);
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
+        public decimal PrecioNeto_May_1
+        {
+            get
+            {
+                var rt = CalculoPNeto(ficha.utilidad_may_1, ficha.contenido_may_1, ficha.precio_may_1_habilitado);
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
+        public decimal PrecioNeto_May_2
+        {
+            get
+            {
+                var rt = CalculoPNeto(ficha.utilidad_may_2, ficha.contenido_may_2, ficha.precio_may_2_habilitado);
+                rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
 
 
         public Precio()
@@ -124,23 +161,25 @@ namespace ModCompra.Documento.Cargar.Factura
         }
 
 
-        private decimal CalculoUtilidad(decimal ut, bool habilitado=true) 
+        private decimal CalculoUtilidad(decimal ut, int contenido, bool habilitado=true) 
         {
             var rt = 0.0m;
+            var ct = 0.0m;
+            ct = costoDivisaUnd * contenido;
 
             if (ut == 0.0m)
                 if (habilitado)
-                    return costoDivisaUnd;
+                    return ct;
                 else
                     return 0.0m;
 
             if (modoCalculoUtilidad == enumModo.Lineal)
             {
-                rt = ((costoDivisaUnd * (ut / 100)) + costoDivisaUnd);
+                rt = ((ct * (ut / 100)) + ct);
             }
             if (modoCalculoUtilidad == enumModo.Financiero)
             {
-                rt = costoDivisaUnd;
+                rt = ct;
                 if (ut >= 0 && ut < 100)
                 {
                     rt = (rt / ((100 - ut) / 100));
@@ -153,7 +192,7 @@ namespace ModCompra.Documento.Cargar.Factura
         private decimal CalculoDivisaFull(decimal ut, int contenido, bool precio_habilitado=true)
         {
             var rt = 0.0m;
-            rt = CalculoUtilidad(ut, precio_habilitado);
+            rt = CalculoUtilidad(ut, contenido, precio_habilitado);
             //rt = CaculoIva(rt * contenido);
             rt = CaculoIva(rt);
             return rt;
@@ -162,7 +201,7 @@ namespace ModCompra.Documento.Cargar.Factura
         private decimal CalculoPNeto(decimal ut, int contenido, bool precio_habilitado=true)
         {
             var rt = 0.0m;
-            rt = CalculoUtilidad(ut, precio_habilitado);
+            rt = CalculoUtilidad(ut, contenido, precio_habilitado);
             //rt = CalculaPrecio(rt*contenido);
             rt = CalculaPrecio(rt);
             return rt;

@@ -78,6 +78,8 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.Menu_Ajuste_TasaDivisa = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Ajuste_TasaRecepciónDivisa_POS = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.Menu_Ajuste_ReconversionMonetaria = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_SERVICIO_INICIALIZA_BD = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_SERVICIO_INICIALIZA_BD_SUCURSAL = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,8 +98,8 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.Menu_Ajuste_ReconversionMonetaria = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_AJUSTE_Datos_Negocio = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -162,11 +164,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(651, 1);
+            this.panel2.Location = new System.Drawing.Point(650, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(172, 52);
+            this.panel2.Size = new System.Drawing.Size(173, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -177,7 +179,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(168, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(169, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -192,7 +194,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(334, 52);
+            this.panel7.Size = new System.Drawing.Size(333, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -211,7 +213,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(330, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(329, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -245,7 +247,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(250, 22);
+            this.panel14.Size = new System.Drawing.Size(249, 22);
             this.panel14.TabIndex = 3;
             // 
             // L_FECHA
@@ -255,7 +257,7 @@
             this.L_FECHA.ForeColor = System.Drawing.Color.Yellow;
             this.L_FECHA.Location = new System.Drawing.Point(2, 2);
             this.L_FECHA.Name = "L_FECHA";
-            this.L_FECHA.Size = new System.Drawing.Size(246, 18);
+            this.L_FECHA.Size = new System.Drawing.Size(245, 18);
             this.L_FECHA.TabIndex = 5;
             this.L_FECHA.Text = "Hoy";
             this.L_FECHA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,7 +293,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(250, 22);
+            this.panel16.Size = new System.Drawing.Size(249, 22);
             this.panel16.TabIndex = 4;
             // 
             // L_HOST
@@ -301,7 +303,7 @@
             this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
             this.L_HOST.Location = new System.Drawing.Point(2, 2);
             this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(246, 18);
+            this.L_HOST.Size = new System.Drawing.Size(245, 18);
             this.L_HOST.TabIndex = 4;
             this.L_HOST.Text = "label2";
             this.L_HOST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -310,7 +312,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(337, 1);
+            this.panel17.Location = new System.Drawing.Point(336, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -382,7 +384,7 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(539, 1);
+            this.panel20.Location = new System.Drawing.Point(538, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -454,7 +456,7 @@
             // 
             this.TSM_ARCHIVO_SALIR.Image = global::ModSistema.Properties.Resources.bt_salida_2;
             this.TSM_ARCHIVO_SALIR.Name = "TSM_ARCHIVO_SALIR";
-            this.TSM_ARCHIVO_SALIR.Size = new System.Drawing.Size(96, 22);
+            this.TSM_ARCHIVO_SALIR.Size = new System.Drawing.Size(152, 22);
             this.TSM_ARCHIVO_SALIR.Text = "Salir";
             this.TSM_ARCHIVO_SALIR.Click += new System.EventHandler(this.TSM_ARCHIVO_SALIR_Click);
             // 
@@ -479,7 +481,7 @@
             // 
             this.TSM_MAESTRO_VENDEDOR.Image = global::ModSistema.Properties.Resources.libro;
             this.TSM_MAESTRO_VENDEDOR.Name = "TSM_MAESTRO_VENDEDOR";
-            this.TSM_MAESTRO_VENDEDOR.Size = new System.Drawing.Size(136, 22);
+            this.TSM_MAESTRO_VENDEDOR.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_VENDEDOR.Text = "Vendedores";
             this.TSM_MAESTRO_VENDEDOR.Click += new System.EventHandler(this.TSM_MAESTRO_VENDEDOR_Click);
             // 
@@ -487,7 +489,7 @@
             // 
             this.TSM_MAESTRO_COBRADOR.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_COBRADOR.Image")));
             this.TSM_MAESTRO_COBRADOR.Name = "TSM_MAESTRO_COBRADOR";
-            this.TSM_MAESTRO_COBRADOR.Size = new System.Drawing.Size(136, 22);
+            this.TSM_MAESTRO_COBRADOR.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_COBRADOR.Text = "Cobradores";
             this.TSM_MAESTRO_COBRADOR.Click += new System.EventHandler(this.TSM_MAESTRO_COBRADOR_Click);
             // 
@@ -495,14 +497,14 @@
             // 
             this.TSM_MAESTRO_SERIES_FISCAL.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_SERIES_FISCAL.Image")));
             this.TSM_MAESTRO_SERIES_FISCAL.Name = "TSM_MAESTRO_SERIES_FISCAL";
-            this.TSM_MAESTRO_SERIES_FISCAL.Size = new System.Drawing.Size(136, 22);
+            this.TSM_MAESTRO_SERIES_FISCAL.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_SERIES_FISCAL.Text = "Series Fiscal";
             this.TSM_MAESTRO_SERIES_FISCAL.Click += new System.EventHandler(this.TSM_MAESTRO_SERIES_FISCAL_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(149, 6);
             // 
             // sucursalesToolStripMenuItem
             // 
@@ -512,7 +514,7 @@
             this.toolStripMenuItem3});
             this.sucursalesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sucursalesToolStripMenuItem.Image")));
             this.sucursalesToolStripMenuItem.Name = "sucursalesToolStripMenuItem";
-            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.sucursalesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sucursalesToolStripMenuItem.Text = "Sucursales";
             // 
             // TSM_MAESTRO_SucursalGrupo
@@ -537,20 +539,20 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // TSM_MAESTRO_Deposito
             // 
             this.TSM_MAESTRO_Deposito.Image = ((System.Drawing.Image)(resources.GetObject("TSM_MAESTRO_Deposito.Image")));
             this.TSM_MAESTRO_Deposito.Name = "TSM_MAESTRO_Deposito";
-            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(136, 22);
+            this.TSM_MAESTRO_Deposito.Size = new System.Drawing.Size(152, 22);
             this.TSM_MAESTRO_Deposito.Text = "Depositos";
             this.TSM_MAESTRO_Deposito.Click += new System.EventHandler(this.TSM_MAESTRO_Deposito_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -559,7 +561,7 @@
             this.TSM_MAESTROS_Usuario});
             this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // TSM_MAESTROS_UsuarioGrupo
@@ -579,11 +581,13 @@
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(133, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(149, 6);
             // 
             // ajustesToolStripMenuItem
             // 
             this.ajustesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSM_AJUSTE_Datos_Negocio,
+            this.toolStripMenuItem8,
             this.TSM_AJUSTE_EtiquetarPrecios,
             this.TSM_AJUSTES_AsignarDepositoSucursal,
             this.toolStripMenuItem4,
@@ -631,6 +635,18 @@
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Size = new System.Drawing.Size(271, 22);
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Text = "Tasa Recepción Divisa ( POS )";
             this.Menu_Ajuste_TasaRecepciónDivisa_POS.Click += new System.EventHandler(this.Menu_Ajuste_TasaRecepciónDivisa_POS_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(268, 6);
+            // 
+            // Menu_Ajuste_ReconversionMonetaria
+            // 
+            this.Menu_Ajuste_ReconversionMonetaria.Name = "Menu_Ajuste_ReconversionMonetaria";
+            this.Menu_Ajuste_ReconversionMonetaria.Size = new System.Drawing.Size(271, 22);
+            this.Menu_Ajuste_ReconversionMonetaria.Text = "Reconversión Monetaria";
+            this.Menu_Ajuste_ReconversionMonetaria.Click += new System.EventHandler(this.Menu_Ajuste_ReconversionMonetaria_Click);
             // 
             // serviciosToolStripMenuItem
             // 
@@ -852,17 +868,18 @@
             this.panel10.Size = new System.Drawing.Size(147, 360);
             this.panel10.TabIndex = 0;
             // 
-            // toolStripMenuItem7
+            // TSM_AJUSTE_Datos_Negocio
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(268, 6);
+            this.TSM_AJUSTE_Datos_Negocio.Image = global::ModSistema.Properties.Resources.icon_setup;
+            this.TSM_AJUSTE_Datos_Negocio.Name = "TSM_AJUSTE_Datos_Negocio";
+            this.TSM_AJUSTE_Datos_Negocio.Size = new System.Drawing.Size(271, 22);
+            this.TSM_AJUSTE_Datos_Negocio.Text = "Datos De La Empresa";
+            this.TSM_AJUSTE_Datos_Negocio.Click += new System.EventHandler(this.TSM_AJUSTE_Datos_Negocio_Click);
             // 
-            // Menu_Ajuste_ReconversionMonetaria
+            // toolStripMenuItem8
             // 
-            this.Menu_Ajuste_ReconversionMonetaria.Name = "Menu_Ajuste_ReconversionMonetaria";
-            this.Menu_Ajuste_ReconversionMonetaria.Size = new System.Drawing.Size(271, 22);
-            this.Menu_Ajuste_ReconversionMonetaria.Text = "Reconversión Monetaria";
-            this.Menu_Ajuste_ReconversionMonetaria.Click += new System.EventHandler(this.Menu_Ajuste_ReconversionMonetaria_Click);
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(268, 6);
             // 
             // Form1
             // 
@@ -981,6 +998,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem Menu_Ajuste_ReconversionMonetaria;
+        private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTE_Datos_Negocio;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
     }
 }
 

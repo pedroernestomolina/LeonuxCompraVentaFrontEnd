@@ -26,6 +26,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ILibSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ProvLibSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\LibEntitySistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.csprojResolveAssemblyReference.cache
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.DatosNegocio.Editar.EditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Deposito.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\obj\Debug\ModSistema.Form1.resources

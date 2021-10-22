@@ -17,6 +17,16 @@ namespace OOB.LibInventario.Precio.Editar
         public decimal precioNeto { get; set; }
         public decimal precio_divisa_Neto { get; set; }
 
+
+        public FichaPrecio() 
+        {
+            autoEmp = "";
+            contenido = 0;
+            utilidad = 0.0m;
+            precioNeto = 0.0m;
+            precio_divisa_Neto = 0.0m;
+        }
+
     }
 
 }

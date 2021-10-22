@@ -39,6 +39,10 @@ namespace ModInventario.Producto.Precio.Editar
             CB_EMPAQUE_4.ValueMember = "Auto";
             CB_EMPAQUE_5.DisplayMember = "Nombre";
             CB_EMPAQUE_5.ValueMember = "Auto";
+            CB_EMPAQUE_MAY_1.DisplayMember = "Nombre";
+            CB_EMPAQUE_MAY_1.ValueMember = "Auto";
+            CB_EMPAQUE_MAY_2.DisplayMember = "Nombre";
+            CB_EMPAQUE_MAY_2.ValueMember = "Auto";
         }
 
         public void setControlador(Gestion ctr)
@@ -49,11 +53,33 @@ namespace ModInventario.Producto.Precio.Editar
         private void EditarFrm_Load(object sender, EventArgs e)
         {
             modoInicializar = true;
+
+            errorProvider1.SetError(TB_NETO_1, "");
+            errorProvider1.SetError(TB_NETO_2, "");
+            errorProvider1.SetError(TB_NETO_3, "");
+            errorProvider1.SetError(TB_NETO_4, "");
+            errorProvider1.SetError(TB_NETO_5, "");
+            errorProvider1.SetError(TB_NETO_MAY_1, "");
+            errorProvider1.SetError(TB_NETO_MAY_2, "");
+
+            errorProvider1.SetError(TB_FULL_1, "");
+            errorProvider1.SetError(TB_FULL_2, "");
+            errorProvider1.SetError(TB_FULL_3, "");
+            errorProvider1.SetError(TB_FULL_4, "");
+            errorProvider1.SetError(TB_FULL_5, "");
+            errorProvider1.SetError(TB_FULL_MAY_1, "");
+            errorProvider1.SetError(TB_FULL_MAY_2, "");
+
+            L_COSTO_EMP_COMPRA.Text = _controlador.CostoEmpaqueCompra;
+            L_EMPAQUE_COMPRA.Text = _controlador.EmpaqueCompra;
+
             CB_EMPAQUE_1.DataSource = _controlador.SourceEmpaque1;
             CB_EMPAQUE_2.DataSource = _controlador.SourceEmpaque2;
             CB_EMPAQUE_3.DataSource = _controlador.SourceEmpaque3;
             CB_EMPAQUE_4.DataSource = _controlador.SourceEmpaque4;
             CB_EMPAQUE_5.DataSource = _controlador.SourceEmpaque5;
+            CB_EMPAQUE_MAY_1.DataSource = _controlador.SourceEmpaqueMay_1;
+            CB_EMPAQUE_MAY_2.DataSource = _controlador.SourceEmpaqueMay_2;
 
             L_PRODUCTO.Text = _controlador.Producto;
             L_METODO.Text = _controlador.MetodoCalculoUtilidad;
@@ -103,6 +129,22 @@ namespace ModInventario.Producto.Precio.Editar
             TB_FULL_5.Text = _controlador.Precio_5.full.ToString("N2").Replace(".", "");
             L_UT_VIGENTE_5.Text = _controlador.Precio_5.utilidadVigente.ToString("N2").Replace(".", "");
 
+            CB_EMPAQUE_MAY_1.SelectedValue = _controlador.May_1.autoEmpaque;
+            L_MAYOR_1.Text = _controlador.May_1.etiqueta;
+            TB_CONT_MAY_1.Text = _controlador.May_1.contenido.ToString("N0");
+            TB_UTILIDAD_MAY_1.Text = _controlador.May_1.utilidad.ToString("N2").Replace(".", "");
+            TB_NETO_MAY_1.Text = _controlador.May_1.neto.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_1.Text = _controlador.May_1.full.ToString("N2").Replace(".", "");
+            L_UT_VIGENTE_MAY_1.Text = _controlador.May_1.utilidadVigente.ToString("N2").Replace(".", "");
+
+            CB_EMPAQUE_MAY_2.SelectedValue = _controlador.May_2.autoEmpaque;
+            L_MAYOR_2.Text = _controlador.May_2.etiqueta;
+            TB_CONT_MAY_2.Text = _controlador.May_2.contenido.ToString("N0");
+            TB_UTILIDAD_MAY_2.Text = _controlador.May_2.utilidad.ToString("N2").Replace(".", "");
+            TB_NETO_MAY_2.Text = _controlador.May_2.neto.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_2.Text = _controlador.May_2.full.ToString("N2").Replace(".", "");
+            L_UT_VIGENTE_MAY_2.Text = _controlador.May_2.utilidadVigente.ToString("N2").Replace(".", "");
+
             CB_EMPAQUE_1.Enabled= _controlador.Habilitar_Empaque;
             CB_EMPAQUE_2.Enabled = _controlador.Habilitar_Empaque;
             CB_EMPAQUE_3.Enabled = _controlador.Habilitar_Empaque;
@@ -114,16 +156,28 @@ namespace ModInventario.Producto.Precio.Editar
             TB_CONT_4.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque;
             TB_CONT_5.ReadOnly = !_controlador.Habilitar_ContenidoEmpaque5;
 
-            TB_NETO_1.Enabled = true;
-            TB_NETO_2.Enabled = true;
-            TB_NETO_3.Enabled = true;
-            TB_NETO_4.Enabled = true;
-            TB_NETO_5.Enabled = true;
-            TB_FULL_1.Enabled = true;
-            TB_FULL_2.Enabled = true;
-            TB_FULL_3.Enabled = true;
-            TB_FULL_4.Enabled = true;
-            TB_FULL_5.Enabled = true;
+            TB_UTILIDAD_1.Enabled = false;
+            TB_UTILIDAD_2.Enabled = false;
+            TB_UTILIDAD_3.Enabled = false;
+            TB_UTILIDAD_4.Enabled = false;
+            TB_UTILIDAD_5.Enabled = false;
+            TB_NETO_1.Enabled = false;
+            TB_NETO_2.Enabled = false;
+            TB_NETO_3.Enabled = false;
+            TB_NETO_4.Enabled = false;
+            TB_NETO_5.Enabled = false;
+            TB_FULL_1.Enabled = false;
+            TB_FULL_2.Enabled = false;
+            TB_FULL_3.Enabled = false;
+            TB_FULL_4.Enabled = false;
+            TB_FULL_5.Enabled = false;
+            //
+            TB_UTILIDAD_MAY_1.Enabled = false;
+            TB_UTILIDAD_MAY_2.Enabled = false;
+            TB_NETO_MAY_1.Enabled = false;
+            TB_NETO_MAY_2.Enabled = false;
+            TB_FULL_MAY_1.Enabled = false;
+            TB_FULL_MAY_2.Enabled = false;
 
             if (_controlador.PrefRegistroPrecioIsNeto)
             {
@@ -132,27 +186,24 @@ namespace ModInventario.Producto.Precio.Editar
                 TB_NETO_3.Enabled = true;
                 TB_NETO_4.Enabled = true;
                 TB_NETO_5.Enabled = true;
-                TB_FULL_1.Enabled = false;
-                TB_FULL_2.Enabled = false;
-                TB_FULL_3.Enabled = false;
-                TB_FULL_4.Enabled = false;
-                TB_FULL_5.Enabled = false;
+                //
+                TB_NETO_MAY_1.Enabled = true;
+                TB_NETO_MAY_2.Enabled = true;
             }
             else 
             {
-                TB_NETO_1.Enabled = false;
-                TB_NETO_2.Enabled = false;
-                TB_NETO_3.Enabled = false;
-                TB_NETO_4.Enabled = false;
-                TB_NETO_5.Enabled = false;
                 TB_FULL_1.Enabled = true;
                 TB_FULL_2.Enabled = true;
                 TB_FULL_3.Enabled = true;
                 TB_FULL_4.Enabled = true;
                 TB_FULL_5.Enabled = true;
+                //
+                TB_FULL_MAY_1.Enabled = true;
+                TB_FULL_MAY_2.Enabled = true;
             }
 
             L_MODO_DIVISA.Visible = _controlador.IsModoDivisa;
+            L_MODO_DIVISA_MAYOR.Visible = _controlador.IsModoDivisa;
             modoInicializar = false;
         }
 
@@ -395,6 +446,7 @@ namespace ModInventario.Producto.Precio.Editar
             _controlador.ModoPrecioSw();
 
             L_MODO_DIVISA.Visible = _controlador.IsModoDivisa;
+            L_MODO_DIVISA_MAYOR.Visible = _controlador.IsModoDivisa;
             L_COSTO.Text = _controlador.CostoUnitario;
             TB_NETO_1.Text = _controlador.Precio_1.neto.ToString("N2").Replace(".", "");
             TB_FULL_1.Text = _controlador.Precio_1.full.ToString("N2").Replace(".", "");
@@ -406,6 +458,12 @@ namespace ModInventario.Producto.Precio.Editar
             TB_FULL_4.Text = _controlador.Precio_4.full.ToString("N2").Replace(".", "");
             TB_NETO_5.Text = _controlador.Precio_5.neto.ToString("N2").Replace(".", "");
             TB_FULL_5.Text = _controlador.Precio_5.full.ToString("N2").Replace(".", "");
+            //
+            TB_NETO_MAY_1.Text = _controlador.May_1.neto.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_1.Text = _controlador.May_1.full.ToString("N2").Replace(".", "");
+            TB_NETO_MAY_2.Text = _controlador.May_2.neto.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_2.Text = _controlador.May_2.full.ToString("N2").Replace(".", "");
+            //
             TB_CONT_1.Focus();
         }
 
@@ -653,6 +711,288 @@ namespace ModInventario.Producto.Precio.Editar
         private void Salir()
         {
             this.Close();
+        }
+
+
+        private void CB_EMPAQUE_MAY_1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modoInicializar == true) { return; }
+
+            _controlador.setEmpaqueMayor_1("");
+            if (CB_EMPAQUE_1.SelectedIndex != -1)
+            {
+                _controlador.setEmpaqueMayor_1(CB_EMPAQUE_MAY_1.SelectedValue.ToString());
+            }
+        }
+
+        private void TB_UTILIDAD_MAY_1_Leave(object sender, EventArgs e)
+        {
+            _controlador.setUtilidadMayor_1(decimal.Parse(TB_UTILIDAD_MAY_1.Text));
+            TB_NETO_MAY_1.Text = _controlador.May_1.neto.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_1.Text = _controlador.May_1.full.ToString("N2").Replace(".", "");
+        }
+
+        private void TB_CONT_MAY_1_Leave(object sender, EventArgs e)
+        {
+            _controlador.setContenidoMayor_1(int.Parse(TB_CONT_MAY_1.Text));
+        }
+
+        private void TB_NETO_MAY_1_Leave(object sender, EventArgs e)
+        {
+            _controlador.setNetoMayor_1(decimal.Parse(TB_NETO_MAY_1.Text));
+            TB_UTILIDAD_MAY_1.Text = _controlador.May_1.utilidad.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_1.Text = _controlador.May_1.full.ToString("N2").Replace(".", ""); 
+        }
+
+        private void TB_FULL_MAY_1_Leave(object sender, EventArgs e)
+        {
+            _controlador.setFullMayor_1(decimal.Parse(TB_FULL_MAY_1.Text));
+            TB_UTILIDAD_MAY_1.Text = _controlador.May_1.utilidad.ToString("N2").Replace(".", "");
+            TB_NETO_MAY_1.Text = _controlador.May_1.neto.ToString("N2").Replace(".", ""); 
+        }
+
+        private void CB_EMPAQUE_MAY_2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modoInicializar == true) { return; }
+
+            _controlador.setEmpaqueMayor_2("");
+            if (CB_EMPAQUE_2.SelectedIndex != -2)
+            {
+                _controlador.setEmpaqueMayor_2(CB_EMPAQUE_MAY_2.SelectedValue.ToString());
+            }
+        }
+
+        private void TB_UTILIDAD_MAY_2_Leave(object sender, EventArgs e)
+        {
+            _controlador.setUtilidadMayor_2(decimal.Parse(TB_UTILIDAD_MAY_2.Text));
+            TB_NETO_MAY_2.Text = _controlador.May_2.neto.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_2.Text = _controlador.May_2.full.ToString("N2").Replace(".", "");
+        }
+
+        private void TB_CONT_MAY_2_Leave(object sender, EventArgs e)
+        {
+            _controlador.setContenidoMayor_2(int.Parse(TB_CONT_MAY_2.Text));
+        }
+
+        private void TB_NETO_MAY_2_Leave(object sender, EventArgs e)
+        {
+            _controlador.setNetoMayor_2(decimal.Parse(TB_NETO_MAY_2.Text));
+            TB_UTILIDAD_MAY_2.Text = _controlador.May_2.utilidad.ToString("N2").Replace(".", "");
+            TB_FULL_MAY_2.Text = _controlador.May_2.full.ToString("N2").Replace(".", "");
+        }
+
+        private void TB_FULL_MAY_2_Leave(object sender, EventArgs e)
+        {
+            _controlador.setFullMayor_2(decimal.Parse(TB_FULL_MAY_2.Text));
+            TB_UTILIDAD_MAY_2.Text = _controlador.May_2.utilidad.ToString("N2").Replace(".", "");
+            TB_NETO_MAY_2.Text = _controlador.May_2.neto.ToString("N2").Replace(".", "");
+        }
+
+        private void ActivarMayorNeto()
+        {
+            TB_UTILIDAD_MAY_1.Enabled = false;
+            TB_UTILIDAD_MAY_2.Enabled = false;
+            TB_NETO_MAY_1.Enabled = true;
+            TB_NETO_MAY_2.Enabled = true;
+            TB_FULL_MAY_1.Enabled = false;
+            TB_FULL_MAY_2.Enabled = false;
+        }
+
+        private void ActivarMayorFull()
+        {
+            TB_UTILIDAD_MAY_1.Enabled = false;
+            TB_UTILIDAD_MAY_2.Enabled = false;
+            TB_NETO_MAY_1.Enabled = false;
+            TB_NETO_MAY_2.Enabled = false;
+            TB_FULL_MAY_1.Enabled = true;
+            TB_FULL_MAY_2.Enabled = true;
+        }
+
+        private void ActivarMayorUtilidad()
+        {
+            TB_UTILIDAD_MAY_1.Enabled = true;
+            TB_UTILIDAD_MAY_2.Enabled = true;
+            TB_NETO_MAY_1.Enabled = false;
+            TB_NETO_MAY_2.Enabled = false;
+            TB_FULL_MAY_1.Enabled = false;
+            TB_FULL_MAY_2.Enabled = false;
+        }
+
+        private void L_MAYOR_UTILIDAD_Click(object sender, EventArgs e)
+        {
+            ActivarMayorUtilidad();
+        }
+
+        private void L_MAYOR_NETO_Click(object sender, EventArgs e)
+        {
+            ActivarMayorNeto();
+        }
+
+        private void L_MAYOR_FULL_Click(object sender, EventArgs e)
+        {
+            ActivarMayorFull();
+        }
+
+        private void TB_NETO_MAY_1_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_NETO_MAY_1.Text);
+            if (valor != 0.0m)
+            {
+                if (valor < _controlador.May_1.Costo)
+                {
+                    errorProvider1.SetError(TB_NETO_MAY_1, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_NETO_MAY_1, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_NETO_MAY_1, "");
+            }
+
+            e.Cancel = !bStatus;  
+        }
+
+        private void TB_NETO_MAY_2_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_NETO_MAY_2.Text);
+            if (valor != 0.0m)
+            {
+                if (valor < _controlador.May_2.Costo)
+                {
+                    errorProvider1.SetError(TB_NETO_MAY_2, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_NETO_MAY_2, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_NETO_MAY_2, "");
+            }
+
+            e.Cancel = !bStatus;  
+        }
+
+        private void TB_FULL_MAY_1_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_FULL_MAY_1.Text);
+            if (valor != 0.0m)
+            {
+                valor = _controlador.Neto(valor);
+                if (valor < _controlador.May_1.Costo)
+                {
+                    errorProvider1.SetError(TB_FULL_MAY_1, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_FULL_MAY_1, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_FULL_MAY_1, "");
+            }
+
+            e.Cancel = !bStatus;  
+        }
+
+        private void TB_FULL_MAY_2_Validating(object sender, CancelEventArgs e)
+        {
+            bool bStatus = true;
+            var valor = decimal.Parse(TB_FULL_MAY_2.Text);
+            if (valor != 0.0m)
+            {
+                valor = _controlador.Neto(valor);
+                if (valor < _controlador.May_2.Costo)
+                {
+                    errorProvider1.SetError(TB_FULL_MAY_2, "Precio Por Debajo Del Costo, Verifique !!");
+                    bStatus = false;
+                }
+                else
+                    errorProvider1.SetError(TB_FULL_MAY_2, "");
+            }
+            else
+            {
+                errorProvider1.SetError(TB_FULL_MAY_2, "");
+            }
+
+            e.Cancel = !bStatus;
+        }
+
+        private void L_UTILIDAD_Click(object sender, EventArgs e)
+        {
+            ActivarUtilidad();
+        }
+
+        private void ActivarUtilidad()
+        {
+            TB_UTILIDAD_1.Enabled = true;
+            TB_UTILIDAD_2.Enabled = true;
+            TB_UTILIDAD_3.Enabled = true;
+            TB_UTILIDAD_4.Enabled = true;
+            TB_UTILIDAD_5.Enabled = true;
+            TB_NETO_1.Enabled = false;
+            TB_NETO_2.Enabled = false;
+            TB_NETO_3.Enabled = false;
+            TB_NETO_4.Enabled = false;
+            TB_NETO_5.Enabled = false;
+            TB_FULL_1.Enabled = false;
+            TB_FULL_2.Enabled = false;
+            TB_FULL_3.Enabled = false;
+            TB_FULL_4.Enabled = false;
+            TB_FULL_5.Enabled = false;
+        }
+
+        private void L_NETO_Click(object sender, EventArgs e)
+        {
+            ActivarNeto();
+        }
+
+        private void ActivarNeto()
+        {
+            TB_UTILIDAD_1.Enabled = false;
+            TB_UTILIDAD_2.Enabled = false;
+            TB_UTILIDAD_3.Enabled = false;
+            TB_UTILIDAD_4.Enabled = false;
+            TB_UTILIDAD_5.Enabled = false;
+            TB_NETO_1.Enabled = true;
+            TB_NETO_2.Enabled = true;
+            TB_NETO_3.Enabled = true;
+            TB_NETO_4.Enabled = true;
+            TB_NETO_5.Enabled = true;
+            TB_FULL_1.Enabled = false;
+            TB_FULL_2.Enabled = false;
+            TB_FULL_3.Enabled = false;
+            TB_FULL_4.Enabled = false;
+            TB_FULL_5.Enabled = false;
+        }
+
+        private void L_FULL_Click(object sender, EventArgs e)
+        {
+            ActivarFull();
+        }
+
+        private void ActivarFull()
+        {
+            TB_UTILIDAD_1.Enabled = false;
+            TB_UTILIDAD_2.Enabled = false;
+            TB_UTILIDAD_3.Enabled = false;
+            TB_UTILIDAD_4.Enabled = false;
+            TB_UTILIDAD_5.Enabled = false;
+            TB_NETO_1.Enabled = false;
+            TB_NETO_2.Enabled = false;
+            TB_NETO_3.Enabled = false;
+            TB_NETO_4.Enabled = false;
+            TB_NETO_5.Enabled = false;
+            TB_FULL_1.Enabled = true;
+            TB_FULL_2.Enabled = true;
+            TB_FULL_3.Enabled = true;
+            TB_FULL_4.Enabled = true;
+            TB_FULL_5.Enabled = true;
         }
 
     }

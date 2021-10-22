@@ -115,11 +115,15 @@ namespace DataProvSistema.Data
                             precioFullDivisa_3 = s.precioFullDivisa_3,
                             precioFullDivisa_4 = s.precioFullDivisa_4,
                             precioFullDivisa_5 = s.precioFullDivisa_5,
+                            precioFullDivisaMay_1 = s.precioFullDivisaMay_1,
+                            precioFullDivisaMay_2 = s.precioFullDivisaMay_2,
                             precioNetoMoneda_1 = s.precioNetoMoneda_1,
                             precioNetoMoneda_2 = s.precioNetoMoneda_2,
                             precioNetoMoneda_3 = s.precioNetoMoneda_3,
                             precioNetoMoneda_4 = s.precioNetoMoneda_4,
                             precioNetoMoneda_5 = s.precioNetoMoneda_5,
+                            precioNetoMonedaMay_1 = s.precioNetoMonedaMay_1,
+                            precioNetoMonedaMay_2 = s.precioNetoMonedaMay_2,
                             tasaIva = s.tasaIva,
                         };
                         return nr;
@@ -192,6 +196,8 @@ namespace DataProvSistema.Data
                     precioMonedaEnDivisaFull_3 = rg.precioMonedaEnDivisaFull_3,
                     precioMonedaEnDivisaFull_4 = rg.precioMonedaEnDivisaFull_4,
                     precioMonedaEnDivisaFull_5 = rg.precioMonedaEnDivisaFull_5,
+                    precioMonedaEnDivisaFull_May_1= rg.precioMonedaEnDivisaFull_May_1,
+                    precioMonedaEnDivisaFull_May_2= rg.precioMonedaEnDivisaFull_May_2,
                 };
                 lstProdCostoSinDivisa.Add(nr);
             }
@@ -219,6 +225,8 @@ namespace DataProvSistema.Data
                     precio_3 = rg.precio_3,
                     precio_4 = rg.precio_4,
                     precio_5 = rg.precio_5,
+                    precioMay_1 = rg.precioMay_1,
+                    precioMay_2 = rg.precioMay_2,
                     serie = rg.serie,
                 };
                 lstProdDivisaCostoPrecio.Add(nr);

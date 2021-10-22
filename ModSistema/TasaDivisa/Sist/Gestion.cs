@@ -126,6 +126,8 @@ namespace ModSistema.TasaDivisa.Sist
                     precioMonedaEnDivisaFull_3 = rg.precioFullMoneda_EnDivisa(3),
                     precioMonedaEnDivisaFull_4 = rg.precioFullMoneda_EnDivisa(4),
                     precioMonedaEnDivisaFull_5 = rg.precioFullMoneda_EnDivisa(5),
+                    precioMonedaEnDivisaFull_May_1 = rg.precioFullMoneda_EnDivisa(6),
+                    precioMonedaEnDivisaFull_May_2 = rg.precioFullMoneda_EnDivisa(7),
                 };
                 lst3.Add(nr);
             }
@@ -152,6 +154,8 @@ namespace ModSistema.TasaDivisa.Sist
                     precio_3 = rg.Precio_3,
                     precio_4 = rg.Precio_4,
                     precio_5 = rg.Precio_5,
+                    precioMay_1= rg.PrecioMay_1,
+                    precioMay_2 = rg.PrecioMay_2,
                     serie = "MAN",
                 };
                 lst.Add(nr);
@@ -215,6 +219,31 @@ namespace ModSistema.TasaDivisa.Sist
                     };
                     lst2.Add(ph5);
                 }
+
+                if (rg.PrecioMay_1 > 0)
+                {
+                    var phM1 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = rg.AutoPrd,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "MY1",
+                        precio = rg.PrecioMay_1,
+                    };
+                    lst2.Add(phM1);
+                }
+
+                if (rg.PrecioMay_2 > 0)
+                {
+                    var phM2 = new OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoPrecioHistorico()
+                    {
+                        autoPrd = rg.AutoPrd,
+                        nota = "CAMBIO MASIVO",
+                        idPrecio = "MY2",
+                        precio = rg.PrecioMay_2,
+                    };
+                    lst2.Add(phM2);
+                }
+
             }
             ficha.productosCostoPrecioDivisa = lst;
             ficha.productosPrecioHistorico = lst2;

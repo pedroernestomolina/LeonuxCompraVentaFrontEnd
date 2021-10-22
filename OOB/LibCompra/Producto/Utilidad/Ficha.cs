@@ -34,6 +34,15 @@ namespace OOB.LibCompra.Producto.Utilidad
         public bool precio_3_habilitado { get { return precio_3 > 0; } }
         public bool precio_4_habilitado { get { return precio_4 > 0; } }
         public bool precio_5_habilitado { get { return precio_5 > 0; } }
+        //
+        public int contenido_may_1 { get; set; }
+        public int contenido_may_2 { get; set; }
+        public decimal utilidad_may_1 { get; set; }
+        public decimal utilidad_may_2 { get; set; }
+        public decimal precio_may_1 { get; set; }
+        public decimal precio_may_2 { get; set; }
+        public bool precio_may_1_habilitado { get { return precio_may_1 > 0; } }
+        public bool precio_may_2_habilitado { get { return precio_may_2 > 0; } }
 
 
         public Ficha()
@@ -56,6 +65,13 @@ namespace OOB.LibCompra.Producto.Utilidad
             precio_3 = 0.0m;
             precio_4 = 0.0m;
             precio_5 = 0.0m;
+            //
+            contenido_may_1 = 0;
+            contenido_may_2 = 0;
+            utilidad_may_1 = 0.0m;
+            utilidad_may_2 = 0.0m;
+            precio_may_1 = 0.0m;
+            precio_may_2 = 0.0m;
         }
 
     }

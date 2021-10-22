@@ -380,31 +380,48 @@ namespace DataProvInventario.Data
                 nr.etiqueta3 = e.etiqueta3;
                 nr.etiqueta4 = e.etiqueta4;
                 nr.etiqueta5 = e.etiqueta5;
+                nr.etiquetaMay1 = e.etiquetaMay1;
+                nr.etiquetaMay2 = e.etiquetaMay2;
+
                 nr.contenido1 = e.contenido1;
                 nr.contenido2 = e.contenido2;
                 nr.contenido3 = e.contenido3;
                 nr.contenido4 = e.contenido4;
                 nr.contenido5 = e.contenido5;
+                nr.contenidoMay1 = e.contenidoMay1;
+                nr.contenidoMay2 = e.contenidoMay2;
+
                 nr.empaque1 = e.empaque1;
                 nr.empaque2 = e.empaque2;
                 nr.empaque3 = e.empaque3;
                 nr.empaque4 = e.empaque4;
                 nr.empaque5 = e.empaque5;
+                nr.empaqueMay1 = e.empaqueMay1;
+                nr.empaqueMay2 = e.empaqueMay2;
+
                 nr.precioNeto1 = e.precioNeto1;
                 nr.precioNeto2 = e.precioNeto2;
                 nr.precioNeto3 = e.precioNeto3;
                 nr.precioNeto4 = e.precioNeto4;
                 nr.precioNeto5 = e.precioNeto5;
+                nr.precioNetoMay1 = e.precioNetoMay1;
+                nr.precioNetoMay2 = e.precioNetoMay2;
+
                 nr.precioFullDivisa1 = e.precioFullDivisa1;
                 nr.precioFullDivisa2 = e.precioFullDivisa2;
                 nr.precioFullDivisa3 = e.precioFullDivisa3;
                 nr.precioFullDivisa4 = e.precioFullDivisa4;
                 nr.precioFullDivisa5 = e.precioFullDivisa5;
+                nr.precioFullDivisaMay1 = e.precioFullDivisaMay1;
+                nr.precioFullDivisaMay2 = e.precioFullDivisaMay2;
+
                 nr.utilidad1 = e.utilidad1;
                 nr.utilidad2 = e.utilidad2;
                 nr.utilidad3 = e.utilidad3;
                 nr.utilidad4 = e.utilidad4;
                 nr.utilidad5 = e.utilidad5;
+                nr.utilidadMay1 = e.utilidadMay1;
+                nr.utilidadMay2 = e.utilidadMay2;
 
                 nr.admDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)e.admDivisa;
                 nr.estatusOferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta) e.estatusOferta;
@@ -452,7 +469,7 @@ namespace DataProvInventario.Data
                 nr.costoUnd = e.costoUnd;
                 nr.costoVarioUnd = e.costoVarioUnd;
                 var fechaV="";
-                if (e.fechaUltCambio.HasValue) { fechaV = e.fechaUltCambio.Value.ToShortDateString(); }
+                if (e.fechaUltCambio.HasValue && e.fechaUltCambio.Value>new DateTime(200,01,01)) { fechaV = e.fechaUltCambio.Value.ToShortDateString(); }
                 nr.fechaUltCambio = fechaV;
                 nr.Edad = e.Edad;
             }

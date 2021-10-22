@@ -64,6 +64,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatosNegocio\Editar\data.cs" />
+    <Compile Include="DatosNegocio\Editar\EditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatosNegocio\Editar\EditarFrm.Designer.cs">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatosNegocio\Editar\Gestion.cs" />
     <Compile Include="Deposito\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +287,9 @@
     <Compile Include="Usuario\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DatosNegocio\Editar\EditarFrm.resx">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Deposito\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -441,12 +452,14 @@
     <Content Include="Imagenes\bt_qr.png" />
     <Content Include="Imagenes\bt_salida.png" />
     <Content Include="Imagenes\bt_salida_2.png" />
+    <Content Include="Imagenes\bt_seguridad_bd.png" />
     <Content Include="Imagenes\bt_setup.png" />
     <Content Include="Imagenes\bt_status.png" />
     <Content Include="Imagenes\bt_sumar.png" />
     <Content Include="Imagenes\bt_sumar_2.png" />
     <Content Include="Imagenes\bt_usuario %282%29.png" />
     <Content Include="Imagenes\bt_usuario.png" />
+    <Content Include="Imagenes\bt_usuario_bd.png" />
     <Content Include="Imagenes\bt_visor.png" />
     <Content Include="Imagenes\bt_warehouse.png" />
     <Content Include="Imagenes\carpeta.png" />
@@ -469,6 +482,8 @@
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\bt_usuario_bd.png" />
+    <None Include="Resources\bt_seguridad_bd.png" />
     <None Include="Resources\images.jpg" />
     <None Include="Resources\configuracionTool_4.jpg" />
     <None Include="Resources\bt_inicializar.png" />

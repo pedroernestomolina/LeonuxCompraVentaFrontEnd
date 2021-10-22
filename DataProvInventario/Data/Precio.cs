@@ -61,7 +61,7 @@ namespace DataProvInventario.Data
 
         public OOB.ResultadoEntidad<OOB.LibInventario.Precio.PrecioCosto.Ficha> PrecioCosto_GetFicha(string autoPrd)
         {
-            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Precio.PrecioCosto.Ficha >();
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Precio.PrecioCosto.Ficha>();
 
             var r01 = MyData.PrecioCosto_GetFicha(autoPrd);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -80,6 +80,13 @@ namespace DataProvInventario.Data
                 nr.descripcion = e.descripcion;
                 nr.nombreTasaIva = e.nombreTasaIva;
                 nr.tasaIva = e.tasaIva;
+
+                nr.admDivisaEstatus = e.admDivisa;
+                nr.fechaUltimaActCosto = e.fechaUltActualizacion;
+                nr.contempCompra = e.contempCompra;
+                nr.empCompra = e.empCompra;
+                nr.costoDivisa = e.costoDivisa;
+                nr.costo = e.costo;
 
                 nr.etiqueta1 = e.etiqueta1;
                 nr.etiqueta2 = e.etiqueta2;
@@ -111,17 +118,22 @@ namespace DataProvInventario.Data
                 nr.utilidad3 = e.utilidad3;
                 nr.utilidad4 = e.utilidad4;
                 nr.utilidad5 = e.utilidad5;
-
-                nr.admDivisa = OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.No ;
-                if (e.admDivisa=="1")
-                {
-                    nr.admDivisa= OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si;
-                }
-                nr.fechaUltimaActCosto = e.fechaUltActualizacion;
-                nr.contempCompra=e.contempCompra;
-                nr.empCompra=e.empCompra;
-                nr.costoUnd=e.costoUnd;
-                nr.costoUndDivisa=e.costoDivisa/e.contempCompra;
+                // MAYOR
+                nr.autoEmpMay1 = e.autoEmpMay1;
+                nr.autoEmpMay2 = e.autoEmpMay2;
+                nr.autoEmpMay3 = e.autoEmpMay3;
+                nr.contenidoMay1 = e.contenidoMay1;
+                nr.contenidoMay2 = e.contenidoMay2;
+                nr.contenidoMay3 = e.contenidoMay3;
+                nr.utilidadMay1 = e.utilidadMay1;
+                nr.utilidadMay2 = e.utilidadMay2;
+                nr.utilidadMay3 = e.utilidadMay3;
+                nr.precioNetoMay1 = e.precioNetoMay1;
+                nr.precioNetoMay2 = e.precioNetoMay2;
+                nr.precioNetoMay3 = e.precioNetoMay3;
+                nr.precioFullDivisaMay1 = e.precioFullDivisaMay1;
+                nr.precioFullDivisaMay2 = e.precioFullDivisaMay2;
+                nr.precioFullDivisaMay3 = e.precioFullDivisaMay3;
             }
             rt.Entidad = nr;
 
@@ -148,7 +160,9 @@ namespace DataProvInventario.Data
                 {
                     nota = it.nota,
                     precio = it.precio,
-                    precio_id = it.precio_id
+                    precio_id = it.precio_id,
+                    contenido = it.contenido,
+                    empaque = it.empaque,
                 };
                 historia.Add(nr);
             }
@@ -199,6 +213,26 @@ namespace DataProvInventario.Data
                 utilidad = ficha.precio_5.utilidad,
             };
             fichaDTO.precio_5 = precio_5;
+            //
+            var may_1= new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.may_1.autoEmp,
+                contenido = ficha.may_1.contenido,
+                precioNeto = ficha.may_1.precioNeto,
+                precio_divisa_Neto = ficha.may_1.precio_divisa_Neto,
+                utilidad = ficha.may_1.utilidad,
+            };
+            fichaDTO.may_1 = may_1;
+            //
+            var may_2 = new DtoLibInventario.Precio.Editar.FichaPrecio()
+            {
+                autoEmp = ficha.may_2.autoEmp,
+                contenido = ficha.may_2.contenido,
+                precioNeto = ficha.may_2.precioNeto,
+                precio_divisa_Neto = ficha.may_2.precio_divisa_Neto,
+                utilidad = ficha.may_2.utilidad,
+            };
+            fichaDTO.may_2 = may_2;
 
             var r01 = MyData.PrecioProducto_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

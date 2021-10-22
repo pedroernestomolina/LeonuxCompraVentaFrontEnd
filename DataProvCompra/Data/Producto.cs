@@ -171,6 +171,13 @@ namespace DataProvCompra.Data
                 precio_3 = s.precio_3,
                 precio_4 = s.precio_4,
                 precio_5 = s.precio_5,
+                //
+                contenido_may_1 = s.contenido_may_1,
+                contenido_may_2 = s.contenido_may_2,
+                utilidad_may_1 = s.utilidad_may_1,
+                utilidad_may_2 = s.utilidad_may_2,
+                precio_may_1 = s.precio_may_1,
+                precio_may_2 = s.precio_may_2,
             };
             rt.Entidad = nr;
 

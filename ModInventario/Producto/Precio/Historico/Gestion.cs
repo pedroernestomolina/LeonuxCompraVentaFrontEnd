@@ -22,6 +22,18 @@ namespace ModInventario.Producto.Precio.Historico
         public BindingSource Source { get { return bs; } }
         public data Item { get { return item; } }
         public string Producto { get; set; }
+        public string Nota 
+        { 
+            get 
+            {
+                var rt = "";
+                if (item != null)
+                {
+                    rt = item.nota;
+                }
+                return rt;
+            } 
+        }
 
 
         public Gestion()

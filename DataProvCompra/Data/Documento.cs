@@ -276,6 +276,11 @@ namespace DataProvCompra.Data
                     precioNeto_3 = it.precioNeto_3,
                     precioNeto_4 = it.precioNeto_4,
                     precioNeto_5 = it.precioNeto_5,
+                    //
+                    pDivisaFull_May_1 = it.pDivisaFull_may_1,
+                    pDivisaFull_May_2 = it.pDivisaFull_may_2,
+                    precioNeto_May_1 = it.precioNeto_may_1,
+                    precioNeto_May_2 = it.precioNeto_may_2,
                 };
                 prdPrecio.Add(nr);
             }

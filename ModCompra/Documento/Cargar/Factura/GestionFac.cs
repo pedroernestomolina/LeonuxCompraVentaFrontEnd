@@ -305,6 +305,11 @@ namespace ModCompra.Documento.Cargar.Factura
                     precioNeto_3 = xprecio.PrecioNeto_3,
                     precioNeto_4 = xprecio.PrecioNeto_4,
                     precioNeto_5 = xprecio.PrecioNeto_5,
+                    //
+                    pDivisaFull_may_1= xprecio.pDivisaFull_May_1,
+                    pDivisaFull_may_2 = xprecio.pDivisaFull_May_2,
+                    precioNeto_may_1 = xprecio.PrecioNeto_May_1,
+                    precioNeto_may_2 = xprecio.PrecioNeto_May_2,
                 };
                 fichaPrdPrecio.Add(nr);
 
@@ -359,7 +364,30 @@ namespace ModCompra.Documento.Cargar.Factura
                         autoPrd = it.Producto.auto,
                         nota = "FACTURA COMPRA",
                         precio = nr.precioNeto_5,
-                        precioId = "pto",
+                        precioId = "PTO",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
+                //
+                if (nr.precioNeto_may_1 > 0)
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_may_1,
+                        precioId = "MY1",
+                    };
+                    fichaPrdPrecioHistorico.Add(ph);
+                }
+                if (nr.precioNeto_may_2 > 0)
+                {
+                    var ph = new OOB.LibCompra.Documento.Cargar.Factura.FichaPrdPrecioHistorico()
+                    {
+                        autoPrd = it.Producto.auto,
+                        nota = "FACTURA COMPRA",
+                        precio = nr.precioNeto_may_2,
+                        precioId = "MY2",
                     };
                     fichaPrdPrecioHistorico.Add(ph);
                 }

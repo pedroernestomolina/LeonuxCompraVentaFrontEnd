@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Helpers\Imprimir\Grafico\Documento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\ReportesCliente\Documento.rdlc
@@ -11,7 +12,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Gener
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Resumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe
-D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\DtoLibPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\EntityFramework.dll

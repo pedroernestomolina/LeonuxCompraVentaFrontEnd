@@ -103,7 +103,7 @@ namespace ModPos.Facturacion
             c3.DataPropertyName = "Importe";
             c3.HeaderText = "Importe";
             c3.Visible = true;
-            c3.Width = 120;
+            c3.Width = 100;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -123,7 +123,7 @@ namespace ModPos.Facturacion
             c5.DataPropertyName = "Total";
             c5.HeaderText = "SubTotal";
             c5.Visible = true;
-            c5.Width = 120;
+            c5.Width = 100;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -145,13 +145,21 @@ namespace ModPos.Facturacion
             c7.DefaultCellStyle.Font = f1;
             c7.Width = 30;
 
+            var c8 = new DataGridViewTextBoxColumn(); 
+            c8.DataPropertyName = "EmpaqueCont";
+            c8.HeaderText = "Empaque";
+            c8.HeaderCell.Style.Font = f;
+            c8.DefaultCellStyle.Font = f1;
+            c8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            c8.Width = 100;
+
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
+            DGV_DETALLE.Columns.Add(c8);
             DGV_DETALLE.Columns.Add(c3);
             DGV_DETALLE.Columns.Add(c4);
             DGV_DETALLE.Columns.Add(c5);
             DGV_DETALLE.Columns.Add(c6);
-            DGV_DETALLE.Columns.Add(c7);
         }
     
         private void DGV_DETALLE_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

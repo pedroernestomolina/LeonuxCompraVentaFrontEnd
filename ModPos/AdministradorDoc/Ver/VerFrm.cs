@@ -84,9 +84,19 @@ namespace ModPos.AdministradorDoc.Ver
             c5.DefaultCellStyle.Alignment= DataGridViewContentAlignment.MiddleRight;
             c5.DefaultCellStyle.Format = "n2";
 
+            var c6 = new DataGridViewTextBoxColumn();
+            c6.DataPropertyName = "EmpaqueCont";
+            c6.HeaderText = "Empaque";
+            c6.Visible = true;
+            c6.Width = 120;
+            c6.HeaderCell.Style.Font = f;
+            c6.DefaultCellStyle.Font = f1;
+            c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c2);
+            DGV.Columns.Add(c6);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
         }

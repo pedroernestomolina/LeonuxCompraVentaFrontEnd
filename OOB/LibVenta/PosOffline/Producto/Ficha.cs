@@ -61,6 +61,18 @@ namespace OOB.LibVenta.PosOffline.Producto
         public OOB.LibVenta.PosOffline.Precio.Ficha Precio_3 { get; set; }
         public OOB.LibVenta.PosOffline.Precio.Ficha Precio_4 { get; set; }
         public OOB.LibVenta.PosOffline.Precio.Ficha Precio_5 { get; set; }
+        public OOB.LibVenta.PosOffline.Precio.Ficha PrecioMay_1 { get; set; }
+        public OOB.LibVenta.PosOffline.Precio.Ficha PrecioMay_2 { get; set; }
+        public bool PreciosMayorHabilitado 
+        { 
+            get 
+            {
+                var rt = false;
+                if (PrecioMay_1.Habilitado || PrecioMay_2.Habilitado)
+                    rt = true;
+                return rt;
+            }
+        }
 
 
         public bool IsOfertaActiva
@@ -186,6 +198,8 @@ namespace OOB.LibVenta.PosOffline.Producto
             Precio_3 = new Precio.Ficha();
             Precio_4 = new Precio.Ficha();
             Precio_5 = new Precio.Ficha();
+            PrecioMay_1 = new Precio.Ficha();
+            PrecioMay_2 = new Precio.Ficha();
         }
 
 
@@ -240,6 +254,8 @@ namespace OOB.LibVenta.PosOffline.Producto
             Precio_3.Limpiar();
             Precio_4.Limpiar();
             Precio_5.Limpiar();
+            PrecioMay_1.Limpiar();
+            PrecioMay_2.Limpiar();
         }
 
     }

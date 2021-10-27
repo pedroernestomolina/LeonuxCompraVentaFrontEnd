@@ -180,6 +180,8 @@ namespace ModPos.Facturacion
                 public bool isPesado { get; set; }
                 public decimal importe { get; set; }
                 public string descripcion { get; set; }
+                public string empaque { get; set; }
+                public int contenido { get; set; }
 
 
                 public Item()
@@ -190,6 +192,8 @@ namespace ModPos.Facturacion
                     isPesado = false;
                     importe = 0.0m;
                     descripcion = "";
+                    empaque = "";
+                    contenido = 1;
                 }
 
 
@@ -423,6 +427,12 @@ namespace ModPos.Facturacion
 
                     if (r.cantidad == 1.0m)
                     {
+                        if (r.contenido > 1)
+                        {
+                            var empaqueCont = r.empaque + "/" + r.contenido.ToString().Trim();
+                            eg.Graphics.DrawString(empaqueCont, fr, Brushes.Black, 0, l);
+                            l += 10;
+                        }
                         eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
                         eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte, fr), l);
                         l += 10;
@@ -431,6 +441,12 @@ namespace ModPos.Facturacion
                     {
                         eg.Graphics.DrawString(r.scantidadPrecio, fr, Brushes.Black, 0, l);
                         l += 10;
+                        if (r.contenido > 1)
+                        {
+                            var empaqueCont = r.empaque + "/" + r.contenido.ToString().Trim();
+                            eg.Graphics.DrawString(empaqueCont, fr, Brushes.Black, 0, l);
+                            l += 10;
+                        }
                         eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
                         eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte, fr), l);
                         l += 10;

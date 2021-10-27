@@ -147,6 +147,8 @@
     </Compile>
     <Compile Include="Facturacion\Enumerados.cs" />
     <Compile Include="Facturacion\FormatoPreEmPaque.cs" />
+    <Compile Include="Facturacion\PrecioMayor\data.cs" />
+    <Compile Include="Facturacion\PrecioMayor\Gestion.cs" />
     <Compile Include="Facturacion\Item.cs" />
     <Compile Include="Facturacion\MultiplicarFrm.cs">
       <SubType>Form</SubType>
@@ -188,6 +190,12 @@
     </Compile>
     <Compile Include="Facturacion\PosVenta.Designer.cs">
       <DependentUpon>PosVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\PrecioMayor\PrecioMayorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\PrecioMayor\PrecioMayorFrm.Designer.cs">
+      <DependentUpon>PrecioMayorFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\ProductoLista\ListaFrm.cs">
       <SubType>Form</SubType>
@@ -334,6 +342,9 @@
     <EmbeddedResource Include="Facturacion\PosVenta.resx">
       <DependentUpon>PosVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\PrecioMayor\PrecioMayorFrm.resx">
+      <DependentUpon>PrecioMayorFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\ProductoLista\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,6 +430,7 @@
   <ItemGroup>
     <Content Include="Conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Imagenes\acceso.png" />
     <Content Include="Imagenes\bt_documentos.png" />

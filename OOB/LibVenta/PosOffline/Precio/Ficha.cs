@@ -17,6 +17,7 @@ namespace OOB.LibVenta.PosOffline.Precio
         public int ContEmpVenta { get; set; }
         public string DescEmpVenta { get; set; }
         public string Decimales { get; set; }
+        public bool Habilitado { get { return PrecioNeto > 0.0m; } }
 
 
         public Ficha()

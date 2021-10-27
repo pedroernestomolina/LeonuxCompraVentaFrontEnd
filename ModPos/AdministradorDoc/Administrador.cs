@@ -192,6 +192,8 @@ namespace ModPos.AdministradorDoc
                                 isPesado = it.EsPesado,
                                 descripcion = it.NombreProducto,
                                 importe = Math.Round(it.Total, 2, MidpointRounding.AwayFromZero),
+                                contenido = it.EmpaqueContenido,
+                                empaque = it.EmpaqueDescripcion,
                             };
                             _ticket.Documento.Items.Add(rg);
                         }

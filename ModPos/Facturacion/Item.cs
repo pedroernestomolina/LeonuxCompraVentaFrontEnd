@@ -39,6 +39,16 @@ namespace ModPos.Facturacion
         public OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle DetalleItem { get; set; }
 
 
+        public string EmpaqueCont 
+        {
+            get 
+            {
+                var rt = "";
+                rt = EmpaqueDescripcion + "/" + EmpaqueContenido.ToString().Trim(); ;
+                return rt;
+            }
+        }
+
         public bool EsMayor
         {
             get 
@@ -268,10 +278,21 @@ namespace ModPos.Facturacion
             get 
             {
                 var rt = 0.0m;
-                rt = (CostoUnd * Cantidad);
+                rt = ((CostoUnd * EmpaqueContenido) * Cantidad);
                 return rt;
             }
         }
+
+        public decimal CantidadUnd 
+        { 
+            get 
+            {
+                var rt = 0.0m;
+                rt = (EmpaqueContenido * Cantidad);
+                return rt;
+            } 
+        }
+
 
         public decimal VentaNeta 
         {

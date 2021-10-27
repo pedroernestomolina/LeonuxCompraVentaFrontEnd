@@ -4,7 +4,7 @@
     <Instancia>localhost</Instancia>
     <Catalogo>bodega</Catalogo>
   </Servidor>
-  <DataLocal>C:\Modulos Leonux\POS\Data\LeonuxPosOffLine.db</DataLocal>
+  <DataLocal>D:\Proyectos FoxSystem\CompraVenta\LeonuxPosOffLine.db</DataLocal>
   <ImpresoraTicket>
     <TamanoRollo>P</TamanoRollo>
   </ImpresoraTicket>

@@ -17,10 +17,16 @@ namespace ModPos.Facturacion
         public decimal Precio { get; set; }
         private FormatoPreEmpaque _formato;
         private CtrlLista _listaPrd;
+        private PrecioMayor.Gestion _gestionPrecioMayor;
+        private string _tarifaSeleccionada;
+
+
+        public string TarifaSeleccionada { get { return _tarifaSeleccionada; } }
 
 
         public CtrlBuscar(CtrlLista listaPrd)
         {
+            _gestionPrecioMayor = new PrecioMayor.Gestion();
             _listaPrd = listaPrd;
             Producto = new OOB.LibVenta.PosOffline.Producto.Ficha();
             _formato = new FormatoPreEmpaque();
@@ -101,6 +107,7 @@ namespace ModPos.Facturacion
         public bool ActivarBusqueda(string buscar, bool activarBusquedaPorDescripcion = true)
         {
             var rt = false;
+            _tarifaSeleccionada = "";
             Producto = null;
             Peso = 0.0m;
             Precio = 0.0m;
@@ -125,14 +132,43 @@ namespace ModPos.Facturacion
                     _listaPrd.ListaFiltrada(buscar);
                     if (_listaPrd.IsProductoSelected )
                     {
-                        var r01 = Sistema.MyData2.Producto(_listaPrd.ProductoSelected.Auto);
-                        if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                        var rs1=Sistema.MyData2.Configuracion_Habilitar_VentaMayor();
+                        if (rs1.Result == OOB.Enumerados.EnumResult.isError)
                         {
-                            Helpers.Msg.Error(r01.Mensaje);
+                            Helpers.Msg.Error(rs1.Mensaje);
                             return false;
                         }
-                        Producto = r01.Entidad;
-                        return true;
+                        var rs2=Sistema.MyData2.Configuracion_TarifaPrecio();
+                        if (rs2.Result == OOB.Enumerados.EnumResult.isError)
+                        {
+                            Helpers.Msg.Error(rs2.Mensaje);
+                            return false;
+                        }
+
+                        if (rs1.Entidad)
+                        {
+                            _gestionPrecioMayor.setTarifaPrecio(rs2.Entidad);
+                            _gestionPrecioMayor.setAutoProducto(_listaPrd.ProductoSelected.Auto);
+                            _gestionPrecioMayor.Inicializa();
+                            _gestionPrecioMayor.Inicia();
+                            if (_gestionPrecioMayor.PrecioSeleccionadoIsOk)
+                            {
+                                Producto = _gestionPrecioMayor.Ficha;
+                                _tarifaSeleccionada = _gestionPrecioMayor.TarifaSeleccionada;
+                                return true;
+                            }
+                        }
+                        else
+                        {
+                            var r01 = Sistema.MyData2.Producto(_listaPrd.ProductoSelected.Auto);
+                            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                            {
+                                Helpers.Msg.Error(r01.Mensaje);
+                                return false;
+                            }
+                            Producto = r01.Entidad;
+                            return true;
+                        }
                     }
                 }
             }
@@ -144,7 +180,7 @@ namespace ModPos.Facturacion
         {
             _formato = formato;
         }
-    
-    }
+
+     }
 
 }

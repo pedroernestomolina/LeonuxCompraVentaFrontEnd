@@ -314,7 +314,7 @@ namespace OOB.LibVenta.PosOffline.Servidor.EnviarData
                                 AutoConcepto = d.AutoConceptoMov,
                                 AutoDeposito = d.DepositoAuto,
                                 AutoProducto = dt.AutoProducto,
-                                Cantidad = dt.CantidadUnd,
+                                Cantidad = dt.Cantidad,
                                 CantidadBono = 0,
                                 CantidadUnd = dt.CantidadUnd,
                                 Codigo = d.Codigo,

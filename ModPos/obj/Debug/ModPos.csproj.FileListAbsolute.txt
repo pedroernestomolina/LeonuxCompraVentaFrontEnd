@@ -59,6 +59,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.PagoFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Pago.ValidarCambio.ValidarCambioFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.PosVenta.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.PrecioMayor.PrecioMayorFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.ProductoLista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.ProductoLista.ListaOfertaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.ProductoLista.ListaPluFrm.resources

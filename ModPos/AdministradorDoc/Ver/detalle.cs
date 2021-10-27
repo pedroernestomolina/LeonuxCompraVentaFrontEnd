@@ -19,6 +19,7 @@ namespace ModPos.AdministradorDoc.Ver
         public decimal Cantidad { get { return it.CantidadUnd; } }
         public decimal Precio { get { return it.PrecioFull; } }
         public decimal Importe { get { return it.Total; } }
+        public string EmpaqueCont { get { return it.EmpaqueDescripcion+"/"+it.EmpaqueContenido.ToString().Trim(); } }
 
 
         public detalle(OOB.LibVenta.PosOffline.VentaDocumento.FichaDetalle it)

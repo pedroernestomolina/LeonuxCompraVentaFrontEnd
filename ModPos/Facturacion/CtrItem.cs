@@ -328,16 +328,15 @@ namespace ModPos.Facturacion
                 return;
             }
 
-
-            var ent=_items.FirstOrDefault(f => f.AutoId == _prd.Auto);
-            if (ent != null) 
-            {
-                if (!ent.EsPesado)
-                {
-                    IncrementarItem(ent, 1);
-                    return;
-                }
-            }
+            //var ent = _items.FirstOrDefault(f => f.AutoId == _prd.Auto && f.TarifaPrecio == _tarifaPrecio);
+            //if (ent != null) 
+            //{
+            //    if (!ent.EsPesado)
+            //    {
+            //        IncrementarItem(ent, 1);
+            //        return;
+            //    }
+            //}
 
             OOB.LibVenta.PosOffline.Precio.Ficha precio=null;
             if (_tarifaPrecio == "1")
@@ -404,6 +403,28 @@ namespace ModPos.Facturacion
                     }
                     precio = _prd.Precio_5;
                 }
+            }
+
+            if (_tarifaPrecio == "6")
+            {
+                if (_prd.PrecioMay_1.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.PrecioMay_1;
+            }
+
+            if (_tarifaPrecio == "7")
+            {
+                if (_prd.PrecioMay_2.PrecioNeto <= 0.0m)
+                {
+                    Helpers.Sonido.Error();
+                    Helpers.Msg.Error("PRODUCTO NO POSEE PRECIO DE VENTA, VERIFIQUE POR FAVOR... !!");
+                    return;
+                }
+                precio = _prd.PrecioMay_2;
             }
 
             if (_prd.IsPreEmpaque)

@@ -434,7 +434,7 @@ namespace ModPos.Facturacion
                     AutoSubGrupo = rg.AutoSubGrupo,
                     AutoTasa = rg.AutoTasa,
                     Cantidad = rg.Cantidad,
-                    CantidadUnd = rg.Cantidad,
+                    CantidadUnd = rg.CantidadUnd ,
                     Categoria = rg.Categoria,
                     CodigoPrd = rg.CodigoPrd,
                     CostoCompraUnd = rg.CostoUnd,
@@ -478,11 +478,13 @@ namespace ModPos.Facturacion
                 var it = new Ticket.DatosDocumento.Item()
                 {
                     cantidad = nr.Cantidad,
-                    precio = Math.Round(rg.PrecioFull,2 , MidpointRounding.AwayFromZero),
-                    isExento =  rg.EsExento,
-                    isPesado = nr.EsPesado ,
+                    precio = Math.Round(rg.PrecioFull, 2, MidpointRounding.AwayFromZero),
+                    isExento = rg.EsExento,
+                    isPesado = nr.EsPesado,
                     descripcion = nr.NombrePrd,
-                    importe = Math.Round(rg.Total,2, MidpointRounding.AwayFromZero) ,
+                    importe = Math.Round(rg.Total, 2, MidpointRounding.AwayFromZero),
+                    contenido = rg.EmpaqueContenido,
+                    empaque = rg.EmpaqueDescripcion,
                 };
                _ticketFactura.Documento.Items.Add(it);
 
@@ -1022,6 +1024,10 @@ namespace ModPos.Facturacion
                 var rt = BuscarItem.ActivarBusqueda(buscar, _permitirBusquedaPorDescripcion);
                 if (rt)
                 {
+                    if (BuscarItem.TarifaSeleccionada != "") 
+                    {
+                        Items.setTarifaPrecio(BuscarItem.TarifaSeleccionada);
+                    }
                     Items.RegistraItem(_ctrBuscar.Producto, _ctrBuscar.Peso);
                 }
             }

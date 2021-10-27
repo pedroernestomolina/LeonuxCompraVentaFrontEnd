@@ -442,6 +442,22 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.ResultadoEntidad<bool> Configuracion_Habilitar_VentaMayor()
+        {
+            var rt = new OOB.ResultadoEntidad<bool>();
+
+            var r01 = MyData.Configuracion_Habilitar_VentaMayor ();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad;
+
+            return rt;
+        }
+
     }
 
 }

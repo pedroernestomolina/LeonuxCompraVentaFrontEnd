@@ -25,6 +25,7 @@ namespace ModInventario.Buscar.Filtrar
         public string IdCatalogo { get; set; }
         public string IdOferta { get; set; }
         public string IdExistencia { get; set; }
+        public bool? PrecioMayorHabilitado { get; set; }
 
     }
 

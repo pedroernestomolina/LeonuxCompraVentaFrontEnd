@@ -18,7 +18,7 @@ namespace DataProvInventario.Data
 
             var filtroDto = new DtoLibInventario.Producto.Filtro()
             {
-                autoProducto=filtro.autoProducto,
+                autoProducto = filtro.autoProducto,
                 admPorDivisa = (DtoLibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)filtro.admPorDivisa,
                 autoDepartamento = filtro.autoDepartamento,
                 autoDeposito = filtro.autoDeposito,
@@ -33,8 +33,9 @@ namespace DataProvInventario.Data
                 oferta = (DtoLibInventario.Producto.Enumerados.EnumOferta)filtro.oferta,
                 origen = (DtoLibInventario.Producto.Enumerados.EnumOrigen)filtro.origen,
                 pesado = (DtoLibInventario.Producto.Enumerados.EnumPesado)filtro.pesado,
-                catalogo=  (DtoLibInventario.Producto.Enumerados.EnumCatalogo)filtro.catalogo,
-                existencia = (DtoLibInventario.Producto.Filtro.Existencia )filtro.existencia,
+                catalogo = (DtoLibInventario.Producto.Enumerados.EnumCatalogo)filtro.catalogo,
+                existencia = (DtoLibInventario.Producto.Filtro.Existencia)filtro.existencia,
+                precioMayorHabilitado = filtro.precioMayorHabilitado,
             };
             var r01 = MyData.Producto_GetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

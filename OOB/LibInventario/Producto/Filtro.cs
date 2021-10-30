@@ -31,6 +31,7 @@ namespace OOB.LibInventario.Producto
         public Enumerados.EnumCatalogo catalogo { get; set; }
         public Enumerados.EnumOferta oferta { get; set; }
         public Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
+        public bool? precioMayorHabilitado { get; set; }
 
 
         public Filtro()
@@ -57,6 +58,7 @@ namespace OOB.LibInventario.Producto
             oferta = Enumerados.EnumOferta.SnDefinir;
             MetodoBusqueda = Enumerados.EnumMetodoBusqueda.SnDefinir;
             existencia = Existencia.SinDefinir;
+            precioMayorHabilitado = null;
         }
 
         public bool BusquedaOk 

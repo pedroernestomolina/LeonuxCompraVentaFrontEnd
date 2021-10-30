@@ -29,6 +29,29 @@ namespace OOB.LibInventario.Producto.Data
             nombrePrd = "";
         }
 
+        public Existencia(Existencia ex)
+            : this()
+        {
+            decimales = ex.decimales;
+            empaque = ex.empaque;
+            empaqueContenido = ex.empaqueContenido;
+            codigoPrd = ex.codigoPrd;
+            nombrePrd = ex.nombrePrd;
+            depositos = ex.depositos.Select(s =>
+            {
+                var nr = new OOB.LibInventario.Producto.Data.Deposito()
+                {
+                    autoId = s.autoId,
+                    codigo = s.codigo,
+                    exDisponible = s.exDisponible,
+                    exFisica = s.exFisica,
+                    exReserva = s.exReserva,
+                    nombre = s.nombre,
+                };
+                return nr;
+            }).ToList();
+        }
+
     }
 
 }

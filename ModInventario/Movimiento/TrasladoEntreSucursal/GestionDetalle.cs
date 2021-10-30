@@ -112,13 +112,16 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             var it = (item)bs.Current;
             if (it != null)
             {
+                var idx= bs.IndexOf(it);
+                if (idx == 0)
+                    idx = -1;
                 _gestionEntrada.Editar(it, idDeposito);
                 if (_gestionEntrada.ProcesarOk)
                 {
                     detalle.Remover(it);
                     detalle.Agregar(it.FichaPrd, _gestionEntrada.Cantidad, _gestionEntrada.Costo,
                         _gestionEntrada.TipoEmpaqueSeleccionado, tasaCambio, _gestionEntrada.Importe,
-                        _gestionEntrada.ImporteMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada);
+                        _gestionEntrada.ImporteMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada,true,false,idx);
                     bs.CurrencyManager.Refresh();
                 }
             }
@@ -315,6 +318,79 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 var exDepCero = (exFisica <= 0);
 
                 detalle.Agregar(ficha, cntUndReponer, costo,
+                         enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
+                         importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible, exDepCero);
+                bs.CurrencyManager.Refresh();
+            }
+        }
+
+
+        public void AgregarItem(List<OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha> list, string p)
+        {
+            foreach (var rg in list.OrderBy(o => o.nombrePrd).ToList())
+            {
+                var importe = 0.0m;
+                var importeMonedaLocal = 0.0m;
+                var costo = rg.costoUnd;
+                importe = costo * rg.cntUndReponer;
+                importeMonedaLocal = importe;
+                if (rg.AdmDivisa)
+                {
+                    costo = rg.costoDivisaUnd;
+                    importe = costo * rg.cntUndReponer;
+                    importeMonedaLocal = importe * tasaCambio;
+                }
+
+                var exFisica = rg.exFisicaOrigen;
+                var disponible = (exFisica >= rg.cntUndReponer);
+                var exDepCero = (exFisica <= 0);
+
+                var ldep = new List<OOB.LibInventario.Producto.Data.Deposito>();
+                var dep = new OOB.LibInventario.Producto.Data.Deposito()
+                {
+                    autoId = rg.autoDepositoOrigen,
+                    codigo = rg.codigoDepositoOrigen,
+                    nombre = rg.nombreDepositoOrigen,
+                    exFisica = rg.exFisicaOrigen,
+                    exDisponible = rg.exDisponibleOrigen,
+                    exReserva = rg.exReservaOrigen,
+                };
+                ldep.Add(dep);
+                var fEx = new OOB.LibInventario.Producto.Data.Existencia()
+                {
+                    codigoPrd = rg.codigoPrd,
+                    decimales = rg.decimales,
+                    empaque = rg.empCompra,
+                    empaqueContenido = rg.empCompraCont,
+                    nombrePrd = rg.nombrePrd,
+                    depositos = ldep,
+                };
+                var fechaV="";
+                if (rg.fechaUltActualizacion!=new DateTime(2000,01,01).Date) 
+                { 
+                    fechaV = rg.fechaUltActualizacion.ToShortDateString(); 
+                }
+                var fCosto = new OOB.LibInventario.Producto.Data.Costo()
+                {
+                    codigo = rg.codigoPrd,
+                    nombre = rg.nombrePrd,
+                    descripcion = rg.nombrePrd,
+                    nombreTasaIva = rg.tasaIvaNombre,
+                    tasaIva = rg.tasaIva,
+                    empaqueCompra = rg.empCompra,
+                    contEmpaqueCompra = rg.empCompraCont,
+                    estatus = OOB.LibInventario.Producto.Enumerados.EnumEstatus.Activo,
+                    admDivisa = rg.estatusDivisa == "1" ? OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.Si : OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa.No,
+                    fechaUltCambio = fechaV,
+                    costoDivisaUnd = rg.costoDivisaUnd,
+                    costoImportacionUnd = 0.0m,
+                    costoPromedioUnd = 0.0m,
+                    costoProveedorUnd = 0.0m,
+                    costoUnd = rg.costoUnd,
+                    costoVarioUnd = 0.0m,
+                    Edad = 0,
+                };
+                detalle.Agregar(rg,fEx, fCosto, rg.cntUndReponer, costo,
                          enumerados.enumTipoEmpaque.PorUnidad, tasaCambio, importe,
                          importeMonedaLocal, enumerados.enumTipoMovimientoAjuste.PorEntrada, disponible, exDepCero);
                 bs.CurrencyManager.Refresh();

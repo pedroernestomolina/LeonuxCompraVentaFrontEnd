@@ -143,6 +143,7 @@ namespace ModInventario.Buscar
 
         private void CargarFiltros()
         {
+            _filtros.precioMayorHabilitado = _gestionFiltro.PrecioMayorHabilitado ? true :(bool?) null;
             _filtros.autoProveedor = _gestionFiltro.AutoProveedor;
             _filtros.autoDepartamento = _gestionFiltro.AutoDepartamento;
             _filtros.autoGrupo = _gestionFiltro.AutoGrupo;

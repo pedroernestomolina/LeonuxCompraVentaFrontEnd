@@ -35,6 +35,8 @@ namespace ModInventario.Buscar.Filtrar
         private BindingSource bsAdmDivisa;
         private BindingSource bsPesado;
         private BindingSource bsOferta;
+        private bool _precioMayorHabilitado;
+
 
         public BindingSource SourceDepart { get { return bsDepart; } }
         public BindingSource SourceGrupo { get { return bsGrupo; } }
@@ -63,6 +65,7 @@ namespace ModInventario.Buscar.Filtrar
         public string IdCatalogo { get; set; }
         public string IdOferta { get; set; }
         public string IdExistencia { get; set; }
+        public bool PrecioMayorHabilitado { get { return _precioMayorHabilitado; } }
 
         public bool IsFiltrarOk { get; set; }
         public bool IsLimpiarOK { get; set; }
@@ -139,6 +142,7 @@ namespace ModInventario.Buscar.Filtrar
             IdExistencia = "";
             IsFiltrarOk=true;
             ActivarBusqueda = false;
+            _precioMayorHabilitado = false; 
             _gestionProveedor.Limpiar();
         }
 
@@ -389,6 +393,7 @@ namespace ModInventario.Buscar.Filtrar
                     IdOferta = IdOferta,
                     IdOrigen = IdOrigen,
                     IdPesado = IdPesado,
+                    PrecioMayorHabilitado = _precioMayorHabilitado == true ? true : (bool?)null,
                 };
             } 
         }
@@ -415,6 +420,11 @@ namespace ModInventario.Buscar.Filtrar
                 lGrupo.AddRange(r01.Lista.OrderBy(o => o.nombre));
             }
             bsGrupo.CurrencyManager.Refresh();
+        }
+
+        public void setHabilitarPrecioMayor(bool p)
+        {
+            _precioMayorHabilitado = p;
         }
 
     }

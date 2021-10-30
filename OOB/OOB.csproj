@@ -237,6 +237,8 @@
     <Compile Include="LibInventario\Movimiento\enumerados.cs" />
     <Compile Include="LibInventario\Movimiento\Lista\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Lista\Filtro.cs" />
+    <Compile Include="LibInventario\Movimiento\Traslado\Capturar\ProductoPorDebajoNivelMinimo\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\Traslado\Capturar\ProductoPorDebajoNivelMinimo\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Consultar\ProductoPorDebajoNivelMinimo.cs" />
     <Compile Include="LibInventario\Movimiento\Traslado\Insertar\Ficha.cs" />

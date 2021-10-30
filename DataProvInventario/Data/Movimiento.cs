@@ -984,6 +984,73 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+//
+
+        public OOB.ResultadoLista<OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha> Capturar_ProductosPorDebajoNivelMinimo(OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Filtro();
+            filtroDto.autoDepositoVerificarNivel = filtro.autoDepositoVerificarNivel;
+            filtroDto.autoDepositoOrigen = filtro.autoDepositoOrigen;
+            filtroDto.autoDepartamento = filtro.autoDepartamento;
+            var r01 = MyData.Capturar_ProductosPorDebajoNivelMinimo(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha()
+                        {
+                            autoDepartamento = s.autoDepartamento,
+                            autoDeposito = s.autoDeposito,
+                            autoGrupo = s.autoGrupo,
+                            autoPrd = s.autoPrd,
+                            categoria = s.categoria,
+                            codigoDeposito = s.codigoDeposito,
+                            codigoPrd = s.codigoPrd,
+                            costoDivisa = s.costoDivisa,
+                            costoUnd = s.costoUnd,
+                            decimales = s.decimales,
+                            empCompra = s.empCompra,
+                            empCompraCont = s.empCompraCont,
+                            estatusDivisa = s.estatusDivisa,
+                            exDisponible = s.exDisponible,
+                            exFisica = s.exFisica,
+                            exReserva = s.exReserva,
+                            nivelMinimo = s.nivelMinimo,
+                            nivelOptimo = s.nivelOptimo,
+                            nombreDeposito = s.nombreDeposito,
+                            nombrePrd = s.nombrePrd,
+                            //
+                            autoDepositoOrigen = s.autoDepositoOrigen,
+                            codigoDepositoOrigen = s.codigoDepositoOrigen,
+                            nombreDepositoOrigen = s.nombreDepositoOrigen,
+                            exFisicaOrigen = s.exFisicaOrigen,
+                            exReservaOrigen = s.exReservaOrigen,
+                            exDisponibleOrigen = s.exDisponibleOrigen,
+                            //
+                            fechaUltActualizacion = s.fechaUltActualizacion.Date,
+                            tasaIva = s.tasaIva,
+                            tasaIvaNombre = s.tasaIvaNombre,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

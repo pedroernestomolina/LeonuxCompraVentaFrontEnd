@@ -113,6 +113,16 @@ namespace OOB.LibInventario.Producto.Data
             proveedores = new Proveedor.Ficha();
         }
 
+        public Ficha(Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha ficha,
+            OOB.LibInventario.Producto.Data.Existencia fEx, 
+            OOB.LibInventario.Producto.Data.Costo fCosto)
+            : this()
+        {
+            identidad = new Identificacion(ficha);
+            existencia = new Existencia(fEx);
+            costo = new Costo(fCosto);
+        }
+
     }
 
 }

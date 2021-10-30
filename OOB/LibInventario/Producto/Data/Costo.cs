@@ -52,6 +52,28 @@ namespace OOB.LibInventario.Producto.Data
             Edad = 0;
         }
 
+        public Costo(Costo ficha) 
+            : this()
+        {
+            codigo = ficha.codigo;
+            nombre = ficha.nombre;
+            descripcion = ficha.descripcion;
+            nombreTasaIva = ficha.nombreTasaIva;
+            tasaIva = ficha.tasaIva;
+            empaqueCompra = ficha.empaqueCompra;
+            contEmpaqueCompra = ficha.contEmpaqueCompra;
+            estatus = ficha.estatus;
+            admDivisa = ficha.admDivisa;
+            costoDivisaUnd = ficha.costoDivisaUnd;
+            costoImportacionUnd = ficha.costoImportacionUnd;
+            costoPromedioUnd = ficha.costoPromedioUnd;
+            costoProveedorUnd = ficha.costoProveedorUnd;
+            costoUnd = ficha.costoUnd;
+            costoVarioUnd = ficha.costoVarioUnd;
+            fechaUltCambio = ficha.fechaUltCambio;
+            Edad = ficha.Edad;
+        }
+
     }
 
 }

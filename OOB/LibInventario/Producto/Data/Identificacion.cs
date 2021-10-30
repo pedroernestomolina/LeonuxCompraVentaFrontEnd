@@ -117,6 +117,45 @@ namespace OOB.LibInventario.Producto.Data
             codAlterno = new List<CodAlterno>();
         }
 
+        public Identificacion(Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha ficha)
+            : this()
+        {
+            auto = ficha.autoPrd;
+            autoDepartamento = ficha.autoDepartamento;
+            autoGrupo = ficha.autoGrupo;
+            codigo = ficha.codigoPrd;
+            nombre = ficha.nombrePrd;
+            descripcion = ficha.nombrePrd;
+            contenidoCompra = ficha.empCompraCont;
+            empaqueCompra = ficha.empCompra;
+            Decimales = ficha.decimales;
+            fechaUltActualizacion=ficha.fechaUltActualizacion;
+            tasaIva=ficha.tasaIva;
+            nombreTasaIva=ficha.tasaIvaNombre;
+            switch (ficha.categoria.Trim().ToUpper())
+            {
+                case "PRODUCTO TERMINADO":
+                    categoria = Enumerados.EnumCategoria.ProductoTerminado; 
+                    break;
+                case "BIEN DE SERVICIO":
+                    categoria = Enumerados.EnumCategoria.BienServicio;
+                    break;
+                case "MATERIA PRIMA":
+                    categoria = Enumerados.EnumCategoria.MateriaPrima;
+                    break;
+                case "USO INTERNO":
+                    categoria = Enumerados.EnumCategoria.UsoInterno;
+                    break;
+                case "SUB PRODUCTO":
+                    categoria = Enumerados.EnumCategoria.SubProducto;
+                    break;
+            }
+            estatus = Enumerados.EnumEstatus.Activo;
+            AdmPorDivisa = ficha.AdmDivisa ? Enumerados.EnumAdministradorPorDivisa.Si : Enumerados.EnumAdministradorPorDivisa.No;
+            tasaIva = 0.0m;
+            nombreTasaIva = "";
+        }
+
 
         public string Empaque 
         {

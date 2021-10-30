@@ -249,6 +249,7 @@ namespace ModInventario.Buscar.Filtrar
                 CB_OFERTA.SelectedIndex = -1;
                 CB_EXISTENCIA.SelectedIndex = -1;
                 CB_CATALOGO.SelectedIndex = -1;
+                CHB_PRECIO_MAYOR.Checked = false;
             }
         }
 
@@ -328,6 +329,15 @@ namespace ModInventario.Buscar.Filtrar
             TB_PROVEEDOR.Text = _controlador.NombreProveedor;
         }
 
+        private void L_PRECIO_MAYOR_Click(object sender, EventArgs e)
+        {
+            CHB_PRECIO_MAYOR.Checked = false;
+        }
+
+        private void CHB_PRECIO_MAYOR_CheckedChanged(object sender, EventArgs e)
+        {
+            _controlador.setHabilitarPrecioMayor(CHB_PRECIO_MAYOR.Checked);
+        }
              
     }
 

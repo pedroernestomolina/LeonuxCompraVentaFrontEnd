@@ -414,10 +414,12 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 return;
             if (sucOrigen == null)
             {
+                Helpers.Msg.Error("FALTA POR SELECCIONAR [ Sucursal Origen ]");
                 return;
             }
             if (sucDestino== null)
             {
+                Helpers.Msg.Error("FALTA POR SELECCIONAR [ Sucursal Destino ]");
                 return;
             }
             if (IdDepOrigen=="")
@@ -444,20 +446,35 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 return;
             }
 
-            var filtro = new OOB.LibInventario.Movimiento.Traslado.Consultar.Filtro();
-            filtro.autoDeposito = sucDestino.autoDepositoPrincipal;
-            if (_departamento != null) 
+            //var filtro = new OOB.LibInventario.Movimiento.Traslado.Consultar.Filtro();
+            //filtro.autoDeposito = sucDestino.autoDepositoPrincipal;
+            //if (_departamento != null)
+            //{
+            //    filtro.autoDepartamento = _departamento.auto;
+            //}
+            //var rt3 = Sistema.MyData.Producto_Movimiento_Traslado_Consultar_ProductosPorDebajoNivelMinimo(filtro);
+            //if (rt3.Result == OOB.Enumerados.EnumResult.isError)
+            //{
+            //    Helpers.Msg.Error(rt3.Mensaje);
+            //    return;
+            //}
+            //_gestionDetalle.AgregarItem(rt3.Lista, sucOrigen.autoDepositoPrincipal);
+
+            var filtro = new OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Filtro();
+            filtro.autoDepositoVerificarNivel= sucDestino.autoDepositoPrincipal;
+            filtro.autoDepositoOrigen = sucOrigen.autoDepositoPrincipal;
+            if (_departamento != null)
             {
                 filtro.autoDepartamento = _departamento.auto;
             }
-
-            var rt3 = Sistema.MyData.Producto_Movimiento_Traslado_Consultar_ProductosPorDebajoNivelMinimo(filtro);
+            var rt3 = Sistema.MyData.Capturar_ProductosPorDebajoNivelMinimo(filtro);
             if (rt3.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(rt3.Mensaje);
                 return;
             }
             _gestionDetalle.AgregarItem(rt3.Lista, sucOrigen.autoDepositoPrincipal);
+
             CargarDetallesIsOk = true;
         }
 

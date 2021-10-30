@@ -29,11 +29,28 @@ namespace ModInventario.Movimiento
             lstItems.Clear();
         }
 
-        public void Agregar(OOB.LibInventario.Producto.Data.Ficha ficha, decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp,
-            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov, bool disponible=true, bool exDepCero=false)
+        public void Agregar(OOB.LibInventario.Producto.Data.Ficha ficha, 
+            decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp,
+            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov, 
+            bool disponible=true, bool exDepCero=false,int posicion=0)
         {
-            lstItems.Add(new item(ficha,cnt,costo, emp, tasaCambio, importe, importeMonedaLocal,tipoMov, disponible, exDepCero));
+            if (posicion == 0) // ITEM NUEVO, VA AL FINAL
+            {
+                lstItems.Add(new item(ficha, cnt, costo, emp, tasaCambio, importe, importeMonedaLocal, tipoMov, disponible, exDepCero));
+            }
+            else
+            {
+                if (posicion == -1) // ITEM ES EL PRIMERO DE LA LISTA
+                {
+                    lstItems.Insert(0, new item(ficha, cnt, costo, emp, tasaCambio, importe, importeMonedaLocal, tipoMov, disponible, exDepCero));
+                }
+                else 
+                {
+                    lstItems.Insert(posicion, new item(ficha, cnt, costo, emp, tasaCambio, importe, importeMonedaLocal, tipoMov, disponible, exDepCero));
+                }
+            }
         }
+
         public void Remover(item it)
         {
             lstItems.Remove(it);
@@ -59,6 +76,17 @@ namespace ModInventario.Movimiento
         {
             var it = lstItems.FirstOrDefault(f => f.FichaPrd.AutoId == autoPrd);
             return it != null;
+        }
+
+
+        public void Agregar(OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha rg,
+             OOB.LibInventario.Producto.Data.Existencia fEx,
+             OOB.LibInventario.Producto.Data.Costo fCosto,
+             decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp,decimal tasaCambio, 
+             decimal importe, decimal importeMonedaLocal, enumerados.enumTipoMovimientoAjuste tipoMov, 
+             bool disponible=true, bool exDepCero=false)
+        {
+            lstItems.Add(new item(rg, fEx, fCosto, cnt, costo, emp, tasaCambio, importe, importeMonedaLocal, tipoMov, disponible, exDepCero));
         }
 
     }

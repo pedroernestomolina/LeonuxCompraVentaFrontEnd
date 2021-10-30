@@ -143,6 +143,26 @@ namespace ModInventario.Movimiento
             _exDepCero = exDepCero;
         }
 
+
+        public item(OOB.LibInventario.Movimiento.Traslado.Capturar.ProductoPorDebajoNivelMinimo.Ficha ficha,
+            OOB.LibInventario.Producto.Data.Existencia fEx,
+            OOB.LibInventario.Producto.Data.Costo fCosto,
+            decimal cnt, decimal costo, enumerados.enumTipoEmpaque emp,
+            decimal tasaCambio, decimal importe, decimal importeMonedaLocal, 
+            enumerados.enumTipoMovimientoAjuste tipoMov, bool disponible, bool exDepCero)
+        {
+            this.ficha = new OOB.LibInventario.Producto.Data.Ficha(ficha, fEx, fCosto);
+            _cnt = cnt;
+            _costo = costo;
+            _empaque = emp;
+            _tasaCambio = tasaCambio;
+            _importe = importe;
+            _importeMonedaLocal = importeMonedaLocal;
+            _tipoMovimiento = tipoMov;
+            _disponible = disponible;
+            _exDepCero = exDepCero;
+        }
+
     }
 
 }

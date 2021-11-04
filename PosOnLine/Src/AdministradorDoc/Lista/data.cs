@@ -31,7 +31,6 @@ namespace PosOnLine.Src.AdministradorDoc.Lista
         public string DocCodigo { get { return it.DocCodigo; } }
         public string EstatusDoc { get { return IsAnulado ? "ANULADO" : ""; } }
         public int Signo { get { return it.DocSigno; } }
-
         public enumTipoDoc DocTipo 
         {
             get 

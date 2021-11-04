@@ -54,6 +54,7 @@ namespace PosOnLine.Src.Pos
         private PassWord.Gestion _gestionPassW;
         private bool _isTickeraOk;
         private Helpers.Imprimir.IDocumento _ImprimirDoc;
+        private PrecioMayor.Gestion _gestionMayor;
 
 
         public Decimal TasaCambioActual { get { return _tasaCambioActual; } }
@@ -95,9 +96,11 @@ namespace PosOnLine.Src.Pos
             _modoFuncion = EnumModoFuncion.Facturacion;
             _permitirBusquedaPorDescripcion = false;
 
+            _gestionMayor = new PrecioMayor.Gestion();
             _gestionListar = new Producto.Lista.Gestion();
             _gestionBuscar = new Producto.Buscar.Gestion();
             _gestionBuscar.setGestionLista(_gestionListar);
+            _gestionBuscar.setGestionPrecioMayor(_gestionMayor);
             _gestionCliente = new Cliente.Gestion();
             _gestionConsultor = new Consultor.Gestion();
             _gestionConsultor.setGestionBuscar(_gestionBuscar);
@@ -328,6 +331,7 @@ namespace PosOnLine.Src.Pos
             Helpers.PassWord.setClave(_claveAcceso);
             _gestionBuscar.setDepositoAsignado(_depositoAsignado);
             _gestionBuscar.setTarifaPrecio(_precioManejar);
+            _gestionBuscar.setHabilitarVentaMayor(Sistema.Sucursal.HabilitarVentaMayor);
             _gestionConsultor.setTarifaPrecio(_precioManejar);
             _gestionItem.Inicializar();
             _gestionItem.setDepositoAsignado(_depositoAsignado);
@@ -368,7 +372,7 @@ namespace PosOnLine.Src.Pos
 
             _gestionConsultor.Inicializa();
             _gestionConsultor.setFactorCambio(_tasaCambioActual);
-            _gestionConsultor.setHabilitar_Precio5_VentaMayor(r01.Entidad);
+            //_gestionConsultor.setHabilitar_Precio5_VentaMayor(r01.Entidad);
             _gestionConsultor.Inicia();
             _gestionItem.setItemActualInicializar();
         }
@@ -379,13 +383,15 @@ namespace PosOnLine.Src.Pos
 
             if (_modoFuncion != EnumModoFuncion.NotaCredito)
             {
+                _gestionBuscar.setHabilitarVentaMayor(Sistema.Sucursal.HabilitarVentaMayor);
                 _gestionBuscar.GestionListar.setCantidadVisible(true);
                 _gestionBuscar.GestionListar.setPrecioVisible(true);
+                _gestionBuscar.setTarifaPrecio(_precioManejar);
                 _gestionBuscar.ActivarBusqueda(cadena, _permitirBusquedaPorDescripcion);
                 if (_gestionBuscar.BusquedaIsOk)
                 {
                     _gestionItem.Inicializar();
-                    _gestionItem.RegistraItem(_gestionBuscar.AutoProducto);
+                    _gestionItem.RegistraItem(_gestionBuscar.AutoProducto, _gestionBuscar.TarifaPrecioSeleccionada);
                 }
                 else
                     _gestionItem.setItemActualInicializar();
@@ -784,7 +790,7 @@ namespace PosOnLine.Src.Pos
                     CostoPromedioUnd = s.Ficha.costoPromedioUnd,
                     CostoCompra = s.Ficha.costoCompra,
                     EstatusChecked = "1",
-                    Tarifa = _precioManejar,
+                    Tarifa = s.Ficha.tarifaPrecio,
                     TotalDescuento = 0.0m,
                     CodigoVendedor = _vendedorAsignado.codigo,
                     AutoVendedor = _vendedorAsignado.id,
@@ -1127,7 +1133,7 @@ namespace PosOnLine.Src.Pos
                 if (_gestionListar.ItemSeleccionIsOk)
                 {
                     _gestionItem.Inicializar();
-                    _gestionItem.RegistraItem(_gestionListar.ItemSeleccionado.Auto);
+                    _gestionItem.RegistraItem(_gestionListar.ItemSeleccionado.Auto, _precioManejar);
                 }
             }
         }

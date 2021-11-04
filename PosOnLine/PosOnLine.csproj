@@ -222,6 +222,7 @@
     <Compile Include="OOB\Pos\Cerrar\Ficha.cs" />
     <Compile Include="OOB\Pos\EnUso\Ficha.cs" />
     <Compile Include="OOB\Pos\Resumen\Ficha.cs" />
+    <Compile Include="Src\PrecioMayor\precio.cs" />
     <Compile Include="OOB\Producto\Entidad\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Bloquear\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Buscar\Ficha.cs" />
@@ -413,6 +414,14 @@
     <Compile Include="Src\Pos\PosFrm.Designer.cs">
       <DependentUpon>PosFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\PrecioMayor\data.cs" />
+    <Compile Include="Src\PrecioMayor\Gestion.cs" />
+    <Compile Include="Src\PrecioMayor\PrecioMayorFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\PrecioMayor\PrecioMayorFrm.Designer.cs">
+      <DependentUpon>PrecioMayorFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\Principal\Gestion.cs" />
     <Compile Include="Src\Principal\PrincipalFrm.cs">
       <SubType>Form</SubType>
@@ -524,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Pos\PosFrm.resx">
       <DependentUpon>PosFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\PrecioMayor\PrecioMayorFrm.resx">
+      <DependentUpon>PrecioMayorFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>

@@ -55,10 +55,15 @@ namespace PosOnLine.Src.Consultor
             L_EX_DISPONIBLE.Text = "";
             L_EX_CANTIDAD.Text = "";
             //
-            L_NETO_5.Text = "";
-            L_FULL_5.Text = "";
-            L_CONT_5.Text = "";
-            L_DIVISA_5.Text = "";
+            L_NETO_MAY_1.Text = "";
+            L_FULL_MAY_1.Text = "";
+            L_EMPAQUE_MAY_1.Text = "";
+            L_DIVISA_MAY_1.Text = "";
+            //
+            L_NETO_MAY_2.Text = "";
+            L_FULL_MAY_2.Text = "";
+            L_EMPAQUE_MAY_2.Text = "";
+            L_DIVISA_MAY_2.Text = "";
         }
 
         private void TB_BUSCAR_KeyDown(object sender, KeyEventArgs e)
@@ -96,17 +101,28 @@ namespace PosOnLine.Src.Consultor
             L_DIVISA.Text = _controlador.Precio.FullDivisa.ToString("n2")+ "$";
             L_EX_DISPONIBLE.Text = _controlador.Existencia.HayDisponibilidad?"SI":"NO";
             L_EX_CANTIDAD.Text = _controlador.Existencia.Cantidad.ToString("n1");
+            //
+            L_NETO_MAY_1.Text = _controlador.PrecioMayor_Neto_1.ToString("n2");
+            L_FULL_MAY_1.Text = _controlador.PrecioMayor_Full_1.ToString("n2");
+            L_EMPAQUE_MAY_1.Text = _controlador.PrecioMayor_Contenido_1.ToString();
+            L_DIVISA_MAY_1.Text = _controlador.PrecioMayor_Divisa_1.ToString("n2") + "$";
+            //
+            L_NETO_MAY_2.Text = _controlador.PrecioMayor_Neto_2.ToString("n2");
+            L_FULL_MAY_2.Text = _controlador.PrecioMayor_Full_2.ToString("n2");
+            L_EMPAQUE_MAY_2.Text = _controlador.PrecioMayor_Contenido_2.ToString();
+            L_DIVISA_MAY_2.Text = _controlador.PrecioMayor_Divisa_2.ToString("n2") + "$";
 
-            if (_controlador.Habilitar_Precio5_VentaMayor)
-            {
-                if (_controlador.PrecioMayor_Contenido > 1)
-                {
-                    L_NETO_5.Text = _controlador.PrecioMayor_Neto.ToString("n2");
-                    L_FULL_5.Text = _controlador.PrecioMayor_Full.ToString("n2");
-                    L_CONT_5.Text = _controlador.PrecioMayor_Contenido.ToString();
-                    L_DIVISA_5.Text = _controlador.PrecioMayor_Divisa.ToString("n2")+"$";
-                }
-            }
+
+            //if (_controlador.Habilitar_Precio5_VentaMayor)
+            //{
+            //    if (_controlador.PrecioMayor_Contenido > 1)
+            //    {
+            //        L_NETO_MAY_1.Text = _controlador.PrecioMayor_Neto.ToString("n2");
+            //        L_FULL_MAY_1.Text = _controlador.PrecioMayor_Full.ToString("n2");
+            //        L_EMPAQUE_MAY_1.Text = _controlador.PrecioMayor_Contenido.ToString();
+            //        L_DIVISA_MAY_1.Text = _controlador.PrecioMayor_Divisa.ToString("n2")+"$";
+            //    }
+            //}
         }
 
         private void Salida() 

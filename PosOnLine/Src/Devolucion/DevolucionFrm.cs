@@ -60,6 +60,15 @@ namespace PosOnLine.Src.Devolucion
             c2.DefaultCellStyle.Font = f1;
             c2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
+            var c4 = new DataGridViewTextBoxColumn();
+            c4.DataPropertyName = "EmpaqueCont";
+            c4.HeaderText = "Empaque";
+            c4.Visible = true;
+            c4.Width = 80;
+            c4.HeaderCell.Style.Font = f;
+            c4.DefaultCellStyle.Font = f1;
+            c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Importe";
             c3.HeaderText = "Importe";
@@ -90,6 +99,7 @@ namespace PosOnLine.Src.Devolucion
 
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
+            DGV_DETALLE.Columns.Add(c4);
             DGV_DETALLE.Columns.Add(c3);
             DGV_DETALLE.Columns.Add(c5);
             DGV_DETALLE.Columns.Add(c6);

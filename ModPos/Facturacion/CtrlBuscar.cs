@@ -112,6 +112,16 @@ namespace ModPos.Facturacion
             Peso = 0.0m;
             Precio = 0.0m;
 
+
+            var rt1 = Sistema.MyData2.Configuracion_TarifaPrecio();
+            if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(rt1.Mensaje);
+                return false;
+            }
+            _tarifaSeleccionada = rt1.Entidad;
+
+
             var codBuscar = buscar;
             var vr = VerificaPreEmpaque(buscar);
             if (vr.IsPreEmpaque)

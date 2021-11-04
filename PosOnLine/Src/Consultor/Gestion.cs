@@ -16,7 +16,7 @@ namespace PosOnLine.Src.Consultor
         private data _dataPrd;
         private bool _busquedaIsOk; 
         private Producto.Buscar.Gestion _gestionBuscar;
-        private bool _habilitar_Precio5_VentaMayor;
+        //private bool _habilitar_Precio5_VentaMayor;
 
 
         public decimal FactorCambio { get { return _factorCambio; } }
@@ -35,16 +35,21 @@ namespace PosOnLine.Src.Consultor
         public Precio Precio { get { return _dataPrd.Precio; } }
         public Existencia Existencia { get { return _dataPrd.Existencia; } }
         //
-        public bool Habilitar_Precio5_VentaMayor { get { return _habilitar_Precio5_VentaMayor; } }
-        public int PrecioMayor_Contenido { get { return _dataPrd.PrecioMayor_Contenido; } }
-        public decimal  PrecioMayor_Neto { get { return _dataPrd.PrecioMayor_Neto; } }
-        public decimal PrecioMayor_Full { get { return _dataPrd.PrecioMayor_Full; } }
-        public decimal PrecioMayor_Divisa { get { return _dataPrd.PrecioMayor_Divisa; } }
-
+        //public bool Habilitar_Precio5_VentaMayor { get { return _habilitar_Precio5_VentaMayor; } }
+        public string PrecioMayor_Contenido_1 { get { return _dataPrd.PrecioMayor_EmpaqueCont_1; } }
+        public decimal  PrecioMayor_Neto_1 { get { return _dataPrd.PrecioMayor_Neto_1; } }
+        public decimal PrecioMayor_Full_1 { get { return _dataPrd.PrecioMayor_Full_1; } }
+        public decimal PrecioMayor_Divisa_1 { get { return _dataPrd.PrecioMayor_Divisa_1; } }
+        //
+        public string PrecioMayor_Contenido_2 { get { return _dataPrd.PrecioMayor_EmpaqueCont_2; } }
+        public decimal PrecioMayor_Neto_2 { get { return _dataPrd.PrecioMayor_Neto_2; } }
+        public decimal PrecioMayor_Full_2 { get { return _dataPrd.PrecioMayor_Full_2; } }
+        public decimal PrecioMayor_Divisa_2 { get { return _dataPrd.PrecioMayor_Divisa_2; } }
+        
 
         public Gestion()
         {
-            _habilitar_Precio5_VentaMayor = false;
+            //_habilitar_Precio5_VentaMayor = false;
             _factorCambio = 0.0m;
             _tarifaPrecio = "";
             _busquedaIsOk = false;
@@ -55,6 +60,7 @@ namespace PosOnLine.Src.Consultor
         public void BuscarProducto(string buscar)
         {
             _busquedaIsOk = false;
+            _gestionBuscar.setHabilitarVentaMayor(false);
             _gestionBuscar.GestionListar.setCantidadVisible(false);
             _gestionBuscar.GestionListar.setPrecioVisible(false);
             _gestionBuscar.ActivarBusqueda(buscar);
@@ -123,10 +129,10 @@ namespace PosOnLine.Src.Consultor
             _gestionBuscar = _ctrBuscar;
         }
 
-        public void setHabilitar_Precio5_VentaMayor(bool p)
-        {
-            _habilitar_Precio5_VentaMayor = p;
-        }
+        //public void setHabilitar_Precio5_VentaMayor(bool p)
+        //{
+        //    _habilitar_Precio5_VentaMayor = p;
+        //}
 
     }
 

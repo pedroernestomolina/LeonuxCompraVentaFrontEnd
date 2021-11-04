@@ -82,6 +82,27 @@ namespace PosOnLine.OOB.Producto.Entidad
         public bool IsPesado { get { return EstatusPesado.Trim().ToUpper() == "1"; } }
         public bool IsOferta { get { return EstatusOferta.Trim().ToUpper() == "1"; } }
 
+        //
+        public string AutoMedidaEmpaqueMay_1 { get; set; }
+        public string AutoMedidaEmpaqueMay_2 { get; set; }
+        public decimal pnetoMay_1 { get; set; }
+        public decimal pnetoMay_2 { get; set; }
+        public decimal pdfMay_1 { get; set; }
+        public decimal pdfMay_2 { get; set; }
+        public int contenidoMay_1 { get; set; }
+        public int contenidoMay_2 { get; set; }
+        public string empaqueMay_1 { get; set; }
+        public string empaqueMay_2 { get; set; }
+        public string decimalesMay_1 { get; set; }
+        public string decimalesMay_2 { get; set; }
+        public bool PreciosMayorHabilitado 
+        { 
+            get 
+            {
+                return (pnetoMay_1 > 0.0m || pnetoMay_2 > 0.0m);
+            } 
+        }
+
 
         public Ficha()
         {
@@ -148,6 +169,21 @@ namespace PosOnLine.OOB.Producto.Entidad
             CostoPromedio = 0.0m;
             CostoPromedioUnidad = 0.0m;
             CostoUnidad = 0.0m;
+
+            //
+
+            AutoMedidaEmpaqueMay_1 = "";
+            AutoMedidaEmpaqueMay_2 = "";
+            pnetoMay_1 = 0.0m;
+            pnetoMay_2 = 0.0m;
+            pdfMay_1 = 0.0m;
+            pdfMay_2 = 0.0m;
+            contenidoMay_1 = 0;
+            contenidoMay_2 = 0;
+            empaqueMay_1 = "";
+            empaqueMay_2 = "";
+            decimalesMay_1 = "";
+            decimalesMay_2 = "";
         }
 
     }

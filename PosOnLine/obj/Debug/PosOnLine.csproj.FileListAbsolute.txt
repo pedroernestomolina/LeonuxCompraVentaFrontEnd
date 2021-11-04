@@ -47,6 +47,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pago.P
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.PassWord.PassWordFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pendiente.AbrirPendienteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Pos.PosFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.PrecioMayor.PrecioMayorFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Principal.PrincipalFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Producto.Lista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\obj\Debug\PosOnLine.Src.Reportes.ReporteFrm.resources

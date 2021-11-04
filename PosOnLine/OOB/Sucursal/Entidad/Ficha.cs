@@ -16,6 +16,8 @@ namespace PosOnLine.OOB.Sucursal.Entidad
         public string nombre { get; set; }
         public string nombreGrupo { get; set; }
         public string idPrecioManejar { get; set; }
+        public string estatusVentaMayor { get; set; }
+        public bool HabilitarVentaMayor { get { return estatusVentaMayor.Trim() == "1"; } }
 
 
         public Ficha()
@@ -25,6 +27,7 @@ namespace PosOnLine.OOB.Sucursal.Entidad
             codigo = "";
             nombre = "";
             nombreGrupo = "";
+            estatusVentaMayor = "";
         }
 
     }

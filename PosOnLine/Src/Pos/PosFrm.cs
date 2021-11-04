@@ -99,11 +99,20 @@ namespace PosOnLine.Src.Pos
             c2.DefaultCellStyle.Font = f1;
             c2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
+            var c9 = new DataGridViewTextBoxColumn();
+            c9.DataPropertyName = "EmpaqueCont";
+            c9.HeaderText = "Empaque";
+            c9.Visible = true;
+            c9.Width = 120;
+            c9.HeaderCell.Style.Font = f;
+            c9.DefaultCellStyle.Font = f1;
+            c9.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Importe";
             c3.HeaderText = "Importe";
             c3.Visible = true;
-            c3.Width = 120;
+            c3.Width = 100;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -132,7 +141,7 @@ namespace PosOnLine.Src.Pos
             c5.DataPropertyName = "TotalItem";
             c5.HeaderText = "SubTotal";
             c5.Visible = true;
-            c5.Width = 120;
+            c5.Width = 100;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
             c5.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -158,6 +167,7 @@ namespace PosOnLine.Src.Pos
 
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
+            DGV_DETALLE.Columns.Add(c9);
             DGV_DETALLE.Columns.Add(c3);
             DGV_DETALLE.Columns.Add(c7);
             DGV_DETALLE.Columns.Add(c4);

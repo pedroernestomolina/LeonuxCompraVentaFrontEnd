@@ -102,7 +102,6 @@ namespace PosOnLine.Src.AdministradorDoc.Principal
             {
                 if (Helpers.PassWord.PassWIsOk(Sistema.FuncionAdmAnularDocumento))
                 {
-
                     _gestionAnular.Inicializa();
                     _gestionAnular.Inicia();
                     if (_gestionAnular.IsAnularOK)

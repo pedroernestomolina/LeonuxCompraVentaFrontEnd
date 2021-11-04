@@ -243,6 +243,8 @@ namespace ModInventario.Buscar
                 PN_3.Text = _controlador.Item.PDivisaNeto_3.ToString("n2");
                 PN_4.Text = _controlador.Item.PDivisaNeto_4.ToString("n2");
                 PN_5.Text = _controlador.Item.PDivisaNeto_5.ToString("n2");
+                PN_MAY_1.Text = _controlador.Item.PDivisaNetoMay_1.ToString("n2");
+                PN_MAY_2.Text = _controlador.Item.PDivisaNetoMay_2.ToString("n2");
             }
             else
             {
@@ -252,7 +254,11 @@ namespace ModInventario.Buscar
                 PN_3.Text = _controlador.Item.PNeto_3.ToString("n2");
                 PN_4.Text = _controlador.Item.PNeto_4.ToString("n2");
                 PN_5.Text = _controlador.Item.PNeto_5.ToString("n2");
+                PN_MAY_1.Text = _controlador.Item.PNetoMay_1.ToString("n2");
+                PN_MAY_2.Text = _controlador.Item.PNetoMay_2.ToString("n2");
             }
+            L_CON_MAY_1.Text = _controlador.Item.ContenidoEmpMay_1.ToString();
+            L_CON_MAY_2.Text = _controlador.Item.ContenidoEmpMay_2.ToString();
         }
 
         private void LimpiarEtiquetas()
@@ -279,6 +285,10 @@ namespace ModInventario.Buscar
             PN_3.Text = "0";
             PN_4.Text = "0";
             PN_5.Text = "0";
+            PN_MAY_1.Text = "0";
+            PN_MAY_2.Text = "0";
+            L_CON_MAY_1.Text = "";
+            L_CON_MAY_2.Text = "";
         }
 
         private void BT_FILTRAR_Click(object sender, EventArgs e)

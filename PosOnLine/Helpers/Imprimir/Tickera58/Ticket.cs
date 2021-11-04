@@ -179,6 +179,8 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
                 public bool isPesado { get; set; }
                 public decimal importe { get; set; }
                 public string descripcion { get; set; }
+                public int empCont { get; set; }
+                public string empDesc { get; set; }
 
 
                 public Item()
@@ -189,6 +191,8 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
                     isPesado = false;
                     importe = 0.0m;
                     descripcion = "";
+                    empCont = 0;
+                    empDesc = "";
                 }
 
 
@@ -416,20 +420,20 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
                             xdes = xdes.Substring(0, 15);
                     }
 
-                    if (r.cantidad == 1.0m)
-                    {
-                        eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
-                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte,fr), l);
-                        l += 10;
-                    }
-                    else
+                    if (r.cantidad != 1.0m)
                     {
                         eg.Graphics.DrawString(r.scantidadPrecio, fr, Brushes.Black, 0, l);
                         l += 10;
-                        eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
-                        eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte,fr), l);
+                    }
+                    if (r.empCont > 1) 
+                    {
+                        var empCont = r.empDesc.Trim() + "/" + r.empCont.ToString().Trim();
+                        eg.Graphics.DrawString(empCont, fr, Brushes.Black, 0, l);
                         l += 10;
                     }
+                    eg.Graphics.DrawString(xdes, fr, Brushes.Black, 0, l);
+                    eg.Graphics.DrawString(r.simporte, fr, Brushes.Black, dder2(r.simporte, fr), l);
+                    l += 10;
                 }
             }
 

@@ -13,7 +13,8 @@ namespace PosOnLine.Src.Consultor
 
         private OOB.Producto.Entidad.Ficha _ficha;
         private Precio _precio;
-        private Precio _pmayor;
+        private Precio _pmayor1;
+        private Precio _pmayor2;
         private Existencia _existencia;
 
 
@@ -30,10 +31,16 @@ namespace PosOnLine.Src.Consultor
         public string Referencia { get { return _ficha.Referencia; } }
         public Precio Precio { get { return _precio; } }
         public Existencia Existencia { get { return _existencia; } }
-        public int PrecioMayor_Contenido { get { return _pmayor.Contenido; } }
-        public decimal PrecioMayor_Neto { get { return _pmayor.Neto; } }
-        public decimal PrecioMayor_Full { get { return _pmayor.Full; } }
-        public decimal PrecioMayor_Divisa { get { return _pmayor.FullDivisa; } }
+        //
+        public decimal PrecioMayor_Neto_1 { get { return _pmayor1.Neto; } }
+        public decimal PrecioMayor_Full_1 { get { return _pmayor1.Full; } }
+        public decimal PrecioMayor_Divisa_1 { get { return _pmayor1.FullDivisa; } }
+        public string PrecioMayor_EmpaqueCont_1 { get { return _pmayor1.EmpaqueContenidoDescripcion; } }
+        //
+        public decimal PrecioMayor_Neto_2 { get { return _pmayor2.Neto; } }
+        public decimal PrecioMayor_Full_2 { get { return _pmayor2.Full; } }
+        public decimal PrecioMayor_Divisa_2 { get { return _pmayor2.FullDivisa; } }
+        public string PrecioMayor_EmpaqueCont_2 { get { return _pmayor2.EmpaqueContenidoDescripcion; } }
 
 
         public bool IsInactivo { get; set; } 
@@ -54,7 +61,8 @@ namespace PosOnLine.Src.Consultor
         public data() 
         {
             _precio = new Precio();
-            _pmayor = new Precio();
+            _pmayor1 = new Precio();
+            _pmayor2 = new Precio();
             _existencia = new Existencia();
         }
 
@@ -89,8 +97,10 @@ namespace PosOnLine.Src.Consultor
                     break;
             }
             _existencia.setData(fichaEx, cont);
-            _pmayor.Limpiar();
-            _pmayor.setData(_ficha.pneto_5, _ficha.TasaImpuesto, _ficha.contenido_5, _ficha.empaque_5, _ficha.pdf_5);
+            _pmayor1.Limpiar();
+            _pmayor1.setData(_ficha.pnetoMay_1, _ficha.TasaImpuesto, _ficha.contenidoMay_1, _ficha.empaqueMay_1, _ficha.pdfMay_1);
+            _pmayor2.Limpiar();
+            _pmayor2.setData(_ficha.pnetoMay_2, _ficha.TasaImpuesto, _ficha.contenidoMay_2, _ficha.empaqueMay_2, _ficha.pdfMay_2);
         }
 
     }

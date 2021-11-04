@@ -14,13 +14,16 @@ namespace PosOnLine.Src.Producto.Buscar
         private string _autoPrd;
         private string _autoDepositoAsignado;
         private string _tarifaPrecio;
+        private bool _habilitarVentaMayor; 
         private Producto.Lista.Gestion _gestionListar;
+        private PrecioMayor.Gestion _gestionMayor;
 
 
         public bool BusquedaIsOk { get { return _autoPrd != ""; } }
         public string AutoProducto { get { return _autoPrd; } }
         public string AutoDeposito { get { return _autoDepositoAsignado; } }
         public Producto.Lista.Gestion GestionListar { get { return _gestionListar; } }
+        public string TarifaPrecioSeleccionada { get { return _tarifaPrecio; } }
 
 
         public Gestion()
@@ -28,6 +31,7 @@ namespace PosOnLine.Src.Producto.Buscar
             _autoPrd = "";
             _autoDepositoAsignado = "";
             _tarifaPrecio = "";
+            _habilitarVentaMayor = false;
         }
 
 
@@ -90,7 +94,22 @@ namespace PosOnLine.Src.Producto.Buscar
                             _gestionListar.Inicia();
                             if (_gestionListar.ItemSeleccionIsOk) 
                             {
-                                _autoPrd = _gestionListar.ItemSeleccionado.Auto;
+                                if (_habilitarVentaMayor)
+                                {
+                                    _gestionMayor.Inicializa();
+                                    _gestionMayor.setAutoProducto(_gestionListar.ItemSeleccionado.Auto);
+                                    _gestionMayor.setTarifaPrecio(_tarifaPrecio);
+                                    _gestionMayor.Inicia();
+                                    if (_gestionMayor.PrecioSeleccionadoIsOk)
+                                    {
+                                        _autoPrd = _gestionMayor.AutoProducto;
+                                        _tarifaPrecio = _gestionMayor.TarifaSeleccionada;
+                                    }
+                                }
+                                else 
+                                {
+                                    _autoPrd = _gestionListar.ItemSeleccionado.Auto;
+                                }
                             }
                         }
                     }
@@ -117,6 +136,16 @@ namespace PosOnLine.Src.Producto.Buscar
         public void setTarifaPrecio(string tarifa)
         {
             _tarifaPrecio = tarifa;
+        }
+
+        public void setHabilitarVentaMayor(bool p)
+        {
+            _habilitarVentaMayor = p;
+        }
+
+        public void setGestionPrecioMayor(PrecioMayor.Gestion ctrlPrecMay)
+        {
+            _gestionMayor = ctrlPrecMay;
         }
 
     }

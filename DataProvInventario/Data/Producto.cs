@@ -72,6 +72,13 @@ namespace DataProvInventario.Data
                         nr.PNeto_4 = s.pNeto4;
                         nr.PNeto_5 = s.pNeto5;
 
+                        nr.PDivisaFullMay_1 = s.pDivisaFullMay_1;
+                        nr.PDivisaFullMay_2 = s.pDivisaFullMay_2;
+                        nr.PNetoMay_1 = s.pNetoMay1;
+                        nr.PNetoMay_2 = s.pNetoMay2;
+                        nr.ContenidoEmpMay_1 = s.contMay1;
+                        nr.ContenidoEmpMay_2 = s.contMay2;
+
                         var id = nr.identidad;
                         id.auto = s.auto;
                         id.codigo = s.codigo;

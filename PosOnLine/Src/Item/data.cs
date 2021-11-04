@@ -28,6 +28,8 @@ namespace PosOnLine.Src.Item
         public decimal TotalItem { get { return MontoTotal(); } }
         public decimal TotalItemDivisa { get { return TotalItem /_tasaCambio ; } }
         public string IdTasaFiscal { get { return _it.autoTasa; } }
+        public int cantRenglones { get { return 1; } }
+        public string EmpaqueCont { get { return _it.empaqueDescripcion.Trim() + "/" + _it.empaqueContenido.ToString().Trim(); } }
         public string TasaIvaDescripcion  
         { 
             get 
@@ -40,8 +42,6 @@ namespace PosOnLine.Src.Item
                 return rt;
             }
         }
-        
-
         public int cantItem 
         { 
             get 
@@ -58,13 +58,6 @@ namespace PosOnLine.Src.Item
                 var x = 0.0m;
                 if (_it.IsPesado) { x = _it.cantidad; }                
                 return x; 
-            }
-        }
-        public int cantRenglones 
-        { 
-            get 
-            { 
-                return 1; 
             }
         }
 

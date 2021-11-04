@@ -74,6 +74,8 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
                     isPesado = false,
                     descripcion = r.NombrePrd,
                     importe = Math.Round(r.ImporteFull, 2, MidpointRounding.AwayFromZero),
+                    empCont=r.Contenido,
+                    empDesc=r.Empaque,
                 };
                 _tick.Documento.Items.Add(it);
             }

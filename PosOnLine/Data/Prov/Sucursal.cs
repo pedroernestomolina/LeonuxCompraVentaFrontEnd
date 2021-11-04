@@ -32,6 +32,7 @@ namespace PosOnLine.Data.Prov
                 idPrecioManejar=ent.precioManejar,
                 nombre = ent.nombre,
                 nombreGrupo=ent.nombreGrupo,
+                estatusVentaMayor=ent.estatusVentaMayor
             };
             result.Entidad = nr;
 
@@ -93,6 +94,7 @@ namespace PosOnLine.Data.Prov
                 idPrecioManejar = ent.precioManejar,
                 nombre = ent.nombre,
                 nombreGrupo = ent.nombreGrupo,
+                estatusVentaMayor = ent.estatusVentaMayor
             };
             result.Entidad = nr;
 

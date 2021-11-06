@@ -14,6 +14,7 @@ namespace ModInventario.Producto.Lista
         private OOB.LibInventario.Producto.Data.Ficha rg;
 
 
+        public string Auto { get { return rg.AutoId; } }
         public string Codigo { get { return rg.CodigoPrd; } }
         public string Producto { get { return rg.DescripcionPrd; } }
         public OOB.LibInventario.Producto.Enumerados.EnumEstatus Estatus { get { return rg.identidad.estatus ; } }

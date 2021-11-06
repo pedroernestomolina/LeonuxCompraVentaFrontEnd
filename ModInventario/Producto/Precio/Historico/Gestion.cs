@@ -17,6 +17,7 @@ namespace ModInventario.Producto.Precio.Historico
         private List<data> list;
         private data item;
         private BindingSource bs;
+        private OOB.LibInventario.Precio.Historico.Ficha _ficha;
 
 
         public BindingSource Source { get { return bs; } }
@@ -38,6 +39,7 @@ namespace ModInventario.Producto.Precio.Historico
 
         public Gestion()
         {
+            _ficha = null;
             autoPrd = "";
             Producto = "";
             list = new List<data>();
@@ -99,6 +101,7 @@ namespace ModInventario.Producto.Precio.Historico
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            _ficha = r01.Entidad;
 
             Producto = r01.Entidad.codigo + Environment.NewLine + r01.Entidad.descripcion;
             foreach (var it in r01.Entidad.data.OrderByDescending(o => o.fecha).ThenByDescending(o => o.hora).ToList()) 
@@ -109,6 +112,22 @@ namespace ModInventario.Producto.Precio.Historico
             bs.CurrencyManager.Refresh();
 
             return rt;
+        }
+
+        public void Imprimir()
+        {
+            ImprimirLista();
+        }
+
+        private void ImprimirLista()
+        {
+            if (list.Count > 0)
+            {
+                var rp = new Reportes.HistoricoPrecio.gestionRep();
+                rp.setLista(_ficha.data);
+                rp.setFiltros(_ficha.descripcion.Trim() + "(" + _ficha.codigo.Trim() + ")");
+                rp.Generar();
+            }
         }
 
     }

@@ -432,6 +432,16 @@ namespace ModInventario
             _controlador.VisorPrecios();
         }
 
+        private void TSM_REPORTE_KARDEX_RESUMEN_MOV_Click(object sender, EventArgs e)
+        {
+            Kardex_Resumen_Mov();
+        }
+
+        private void Kardex_Resumen_Mov()
+        {
+            _controlador.Kardex_Resumen_Mov();
+        }
+
     }
 
 }

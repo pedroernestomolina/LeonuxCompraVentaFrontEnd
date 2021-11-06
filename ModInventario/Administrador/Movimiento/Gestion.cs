@@ -130,6 +130,7 @@ namespace ModInventario.Administrador.Movimiento
 
             if (_gestionFiltros.FiltrosIsOk)
             {
+                filtro.IdProducto = _gestionFiltros.DataFiltrar.AutoProducto;
                 if (_gestionFiltros.DataFiltrar.depDestino != null)
                 {
                     filtro.IdDepDestino = _gestionFiltros.DataFiltrar.depDestino.auto;
@@ -145,7 +146,6 @@ namespace ModInventario.Administrador.Movimiento
                     filtro.IdConcepto = _gestionFiltros.DataFiltrar.concepto.auto;
                     xfiltros += ", Concepto: " + _gestionFiltros.DataFiltrar.concepto.nombre;
                 }
-
                 if (_gestionFiltros.DataFiltrar.estatus != null)
                 {
                     filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo;

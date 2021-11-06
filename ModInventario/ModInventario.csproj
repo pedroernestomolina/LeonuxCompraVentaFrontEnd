@@ -556,6 +556,7 @@
     </Compile>
     <Compile Include="Reportes\Filtros\Gestion.cs" />
     <Compile Include="Reportes\Filtros\IFiltros.cs" />
+    <Compile Include="Reportes\Filtros\KardexResumen\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\Kardex\Filtros.cs" />
     <Compile Include="Reportes\Filtros\Kardex\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\MaestroExistencia\Filtros.cs" />
@@ -578,6 +579,13 @@
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Graficas\Top20\GestionRep.cs" />
+    <Compile Include="Reportes\HistoricoPrecio\data.cs" />
+    <Compile Include="Reportes\HistoricoPrecio\DS_Precio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Precio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\HistoricoPrecio\gestionRep.cs" />
     <Compile Include="Reportes\Movimientos\data.cs" />
     <Compile Include="Reportes\Movimientos\DS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -844,6 +852,9 @@
     <EmbeddedResource Include="Reportes\Filtros\Kardex.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Filtros\KardexResumen.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\MaestroExistencia.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -866,6 +877,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Graficas\Top20.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\HistoricoPrecio\HistoricoPrecio.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Movimientos\Movimientos.rdlc">
@@ -1040,6 +1054,17 @@
     </None>
     <None Include="Reportes\Graficas\DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\HistoricoPrecio\DS_Precio.xsc">
+      <DependentUpon>DS_Precio.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\HistoricoPrecio\DS_Precio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Precio.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\HistoricoPrecio\DS_Precio.xss">
+      <DependentUpon>DS_Precio.xsd</DependentUpon>
     </None>
     <None Include="Reportes\Movimientos\DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>

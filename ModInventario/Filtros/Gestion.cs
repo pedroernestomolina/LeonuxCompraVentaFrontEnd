@@ -22,6 +22,9 @@ namespace ModInventario.Filtros
         private BindingSource bsEstatus;
         private BindingSource bsConcepto;
         private data dataFiltro;
+        private Producto.Lista.Gestion gestionListaPrd;
+        private string _productoBuscar;
+        private bool _productoSeleccioandoIsOk;
 
 
         public bool ActivarDepOrigen { get { return filtros.ActivarDepOrigen; } }
@@ -33,10 +36,14 @@ namespace ModInventario.Filtros
         public BindingSource SourceConcepto { get { return bsConcepto; } }
         public data DataFiltrar { get { return dataFiltro; } }
         public bool FiltrosIsOk { get; set; }
+        public bool ProductoSeleccioandoIsOk { get { return _productoSeleccioandoIsOk; } }
+        public string ProductoAFiltrar { get { return _productoBuscar; } }
 
 
         public Gestion()
         {
+            _productoBuscar = "";
+            _productoSeleccioandoIsOk = false;
             dataFiltro = new data();
             lDepOrigen = new List<OOB.LibInventario.Deposito.Ficha>();
             lDepDestino= new List<OOB.LibInventario.Deposito.Ficha>();
@@ -51,6 +58,7 @@ namespace ModInventario.Filtros
             bsEstatus.DataSource = lEstatus;
             bsConcepto.DataSource = lConcepto;
             FiltrosIsOk = false;
+            gestionListaPrd = new Producto.Lista.Gestion();
         }
 
 
@@ -104,6 +112,8 @@ namespace ModInventario.Filtros
 
         private void Limpiar()
         {
+            _productoBuscar = "";
+            _productoSeleccioandoIsOk = false;
             FiltrosIsOk = false;
             dataFiltro.Limpiar();
         }
@@ -141,6 +151,38 @@ namespace ModInventario.Filtros
         public void setConcepto(string autoId)
         {
             dataFiltro.concepto = lConcepto.FirstOrDefault(f => f.auto == autoId);
+        }
+
+        public void setProducto(string p)
+        {
+            _productoBuscar = p;
+        }
+
+        public void BuscarProducto()
+        {
+            if (_productoBuscar.Trim() != "")
+            {
+                var filtro = new OOB.LibInventario.Producto.Filtro();
+                filtro.cadena = _productoBuscar;
+                filtro.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
+                var r01 = Sistema.MyData.Producto_GetLista(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+
+                gestionListaPrd.Inicializa();
+                gestionListaPrd.ActivarSeleccion(true);
+                gestionListaPrd.setLista(r01.Lista);
+                gestionListaPrd.Inicia();
+                if (gestionListaPrd.ItemSeleccionadoIsOk)
+                {
+                    _productoSeleccioandoIsOk = true;
+                    _productoBuscar = gestionListaPrd.DescripcionItemSeleccionado;
+                    dataFiltro.setAutoProducto(gestionListaPrd.AutoItemSeleccionado);
+                }
+            }
         }
 
     }

@@ -51,7 +51,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.BT_BUSCAR = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.BT_IMPRIMIR = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -71,7 +70,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -345,7 +343,6 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.BT_BUSCAR);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
@@ -353,20 +350,6 @@
             this.panel11.Padding = new System.Windows.Forms.Padding(2);
             this.panel11.Size = new System.Drawing.Size(45, 33);
             this.panel11.TabIndex = 0;
-            // 
-            // BT_BUSCAR
-            // 
-            this.BT_BUSCAR.BackgroundImage = global::ModInventario.Properties.Resources.bt_buscar;
-            this.BT_BUSCAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_BUSCAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_BUSCAR.FlatAppearance.BorderSize = 0;
-            this.BT_BUSCAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_BUSCAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_BUSCAR.Name = "BT_BUSCAR";
-            this.BT_BUSCAR.Size = new System.Drawing.Size(41, 29);
-            this.BT_BUSCAR.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.BT_BUSCAR, "Ver Detalle Del Item");
-            this.BT_BUSCAR.UseVisualStyleBackColor = true;
             // 
             // panel12
             // 
@@ -392,6 +375,7 @@
             this.BT_IMPRIMIR.TabIndex = 2;
             this.toolTip1.SetToolTip(this.BT_IMPRIMIR, "Imprimir Lista");
             this.BT_IMPRIMIR.UseVisualStyleBackColor = true;
+            this.BT_IMPRIMIR.Click += new System.EventHandler(this.BT_IMPRIMIR_Click);
             // 
             // HistoricoPrecioFrm
             // 
@@ -422,7 +406,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -453,7 +436,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button BT_BUSCAR;
         private System.Windows.Forms.Button BT_IMPRIMIR;
         private System.Windows.Forms.ToolTip toolTip1;
     }

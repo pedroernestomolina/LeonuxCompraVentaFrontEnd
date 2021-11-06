@@ -108,6 +108,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             }
             else
             {
+                if (sucOrigen==null)
+                {
+                    Helpers.Msg.Error("DEPOSITO [ ORIGEN ] NO DEFINIDO");
+                    return;
+                }
                 _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, sucOrigen.autoDepositoPrincipal);
             }
         }

@@ -54,6 +54,11 @@ namespace ModInventario.Filtros
             _controlador = ctr;
         }
 
+        private void L_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            LimpiarProducto();
+        }
+
         private void L_DEP_ORIGEN_Click(object sender, EventArgs e)
         {
             LimpiarDepOrigen();
@@ -67,6 +72,12 @@ namespace ModInventario.Filtros
         private void L_ESTATUS_Click(object sender, EventArgs e)
         {
             LimpiarEstatus();
+        }
+
+        private void LimpiarProducto()
+        {
+            _controlador.setProducto("");
+            TB_PRODUCTO.Text = "";
         }
 
         private void LimpiarEstatus()
@@ -118,6 +129,7 @@ namespace ModInventario.Filtros
 
         private void LimpiarFiltros()
         {
+            LimpiarProducto();
             LimpiarDepOrigen();
             LimpiarDepDestino();
             LimpiarEstatus();
@@ -157,6 +169,37 @@ namespace ModInventario.Filtros
             {
                 _controlador.setConcepto(CB_CONCEPTO.SelectedValue.ToString());
             }
+        }
+
+        private void Ctr_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void BT_PRODUCTO_BUSCAR_Click(object sender, EventArgs e)
+        {
+            BuscarProducto();
+        }
+
+        private void BuscarProducto()
+        {
+            _controlador.BuscarProducto();
+            if (_controlador.ProductoSeleccioandoIsOk)
+            {
+                TB_PRODUCTO.Text = _controlador.ProductoAFiltrar;
+            }
+            else
+            {
+                TB_PRODUCTO.Text = "";
+            }
+        }
+
+        private void TB_PRODUCTO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setProducto(TB_PRODUCTO.Text.Trim().ToUpper());
         }
 
     }

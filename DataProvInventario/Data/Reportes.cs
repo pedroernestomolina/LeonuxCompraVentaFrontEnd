@@ -568,6 +568,46 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Reportes.KardexResumen.Ficha> Reportes_KardexResumen(OOB.LibInventario.Reportes.Kardex.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.KardexResumen.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Reportes.Kardex.Filtro()
+            {
+                autoDeposito = filtro.autoDeposito,
+                autoProducto = filtro.autoProducto,
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.Reportes_KardexResumen(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Reportes.KardexResumen.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.KardexResumen.Ficha()
+                        {
+                            cnt = s.cnt,
+                            concepto = s.concepto,
+                            exInicial = s.exInicial,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

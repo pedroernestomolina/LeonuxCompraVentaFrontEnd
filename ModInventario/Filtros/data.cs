@@ -11,6 +11,7 @@ namespace ModInventario.Filtros
     public class data
     {
 
+        public string AutoProducto { get; set; }
         public OOB.LibInventario.Deposito.Ficha depOrigen { get; set; }
         public OOB.LibInventario.Deposito.Ficha depDestino{ get; set; }
         public OOB.LibInventario.Concepto.Ficha concepto { get; set; }
@@ -25,10 +26,16 @@ namespace ModInventario.Filtros
 
         public void Limpiar()
         {
+            AutoProducto = "";
             depOrigen = null;
             depDestino = null;
             estatus = null;
             concepto = null;
+        }
+
+        public void setAutoProducto(string p)
+        {
+            AutoProducto = p;
         }
 
     }

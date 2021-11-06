@@ -504,6 +504,23 @@ namespace ModInventario
             _gestionVisorPrecio.Inicia();
         }
 
+        public void Kardex_Resumen_Mov()
+        {
+            _gestionReporteFiltros.setGestion(new Reportes.Filtros.Kardex.Filtros());
+            _gestionReporteFiltros.Inicia();
+            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            {
+                if (_gestionReporteFiltros.Hasta >= _gestionReporteFiltros.Desde)
+                {
+                    var rp = new Reportes.Filtros.KardexResumen.GestionRep();
+                    rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                    rp.Generar();
+                }
+                else
+                    Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+            }
+        }
+
     }
 
 }

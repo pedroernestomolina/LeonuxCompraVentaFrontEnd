@@ -128,6 +128,12 @@ namespace ModInventario.Producto.Lista
             _controlador.SeleccionarItem();
         }
 
+        
+        internal void Cerrar()
+        {
+            Salir();
+        }
+
     }
 
 }

@@ -2,6 +2,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Documentos\MovTraslado.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\DepositoResumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\Kardex.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\KardexResumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroExistencia.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroInventario.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\MaestroPrecio.rdlc
@@ -10,6 +11,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\RelacionCompraVenta.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\Valorizacion.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Graficas\Top20.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\HistoricoPrecio\HistoricoPrecio.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Movimientos\Movimientos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Visor\Existencia.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe.config

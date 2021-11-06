@@ -19,6 +19,7 @@ namespace OOB.LibInventario.Movimiento.Lista
         public string IdDepDestino { get; set; }
         public string IdConcepto { get; set; }
         public enumerados.EnumEstatus Estatus { get; set; }
+        public string IdProducto { get; set; }
 
 
         public Filtro()
@@ -31,6 +32,7 @@ namespace OOB.LibInventario.Movimiento.Lista
             IdDepOrigen = "";
             IdDepDestino = "";
             IdConcepto = "";
+            IdProducto = "";
         }
 
     }

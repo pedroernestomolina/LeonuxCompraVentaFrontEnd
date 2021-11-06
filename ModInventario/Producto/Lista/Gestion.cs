@@ -14,17 +14,30 @@ namespace ModInventario.Producto.Lista
 
         private List<data> lst;
         private BindingSource bs;
+        private bool _activarSeleccion;
+        private bool _itemSeleccionadoIsOk;
+        private data _itemSeleccionado;
+        private string _autoItemSeleccionado;
+        private string _descripcionItemSeleccionado;
 
 
         public string ItemsEncontrados { get { return string.Format("{0}", bs.Count); } }
         public BindingSource Source { get { return bs; } }
-        public data ItemSeleccionado { get; set; }
+        public data ItemSeleccionado { get { return _itemSeleccionado; } }
         public event EventHandler ItemSeleccionadoOk;
+        public bool ItemSeleccionadoIsOk { get { return _itemSeleccionadoIsOk; } }
+        public string AutoItemSeleccionado { get { return _autoItemSeleccionado; } }
+        public string DescripcionItemSeleccionado { get { return _descripcionItemSeleccionado; } }
 
 
         public Gestion()
         {
-            ItemSeleccionado = null;
+            _activarSeleccion = false;
+            _itemSeleccionadoIsOk = false;
+            _itemSeleccionado = null;
+            _autoItemSeleccionado = "";
+            _descripcionItemSeleccionado = "";
+
             lst = new List<data>();
             bs = new BindingSource();
             bs.DataSource = lst;
@@ -63,7 +76,7 @@ namespace ModInventario.Producto.Lista
 
         private void Limpiar()
         {
-            ItemSeleccionado = null;
+            _itemSeleccionado = null;
         }
 
         public void SeleccionarItem()
@@ -71,7 +84,16 @@ namespace ModInventario.Producto.Lista
             var it = (data)bs.Current;
             if (it != null)
             {
-                ItemSeleccionado = it;
+                if (_activarSeleccion) 
+                {
+                    _autoItemSeleccionado = it.Auto;
+                    _descripcionItemSeleccionado = it.Producto;
+                    _itemSeleccionadoIsOk = true;
+                    frm.Cerrar();
+                    return;
+                }
+
+                _itemSeleccionado = it;
                 if (ItemSeleccionadoOk != null) 
                 {
                     EventHandler hnd = ItemSeleccionadoOk;
@@ -83,6 +105,20 @@ namespace ModInventario.Producto.Lista
         public void Cerrar()
         {
             frm.Close();
+        }
+
+        public void Inicializa()
+        {
+            _activarSeleccion = false;
+            _itemSeleccionadoIsOk = false;
+            _itemSeleccionado = null;
+            _autoItemSeleccionado = "";
+            _descripcionItemSeleccionado = "";
+        }
+
+        public void ActivarSeleccion(bool p)
+        {
+            _activarSeleccion = p;
         }
 
     }

@@ -303,6 +303,7 @@
     <Compile Include="LibInventario\Reportes\CompraVentaAlmacen\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\DepositoResumen\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\enumerados.cs" />
+    <Compile Include="LibInventario\Reportes\KardexResumen\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroExistencia\Ficha.cs" />

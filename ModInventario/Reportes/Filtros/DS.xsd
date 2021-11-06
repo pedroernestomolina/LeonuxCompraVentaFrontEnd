@@ -172,6 +172,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="KardexResumen" msprop:Generator_TableClassName="KardexResumenDataTable" msprop:Generator_TableVarName="tableKardexResumen" msprop:Generator_RowChangedName="KardexResumenRowChanged" msprop:Generator_TablePropName="KardexResumen" msprop:Generator_RowDeletingName="KardexResumenRowDeleting" msprop:Generator_RowChangingName="KardexResumenRowChanging" msprop:Generator_RowEvHandlerName="KardexResumenRowChangeEventHandler" msprop:Generator_RowDeletedName="KardexResumenRowDeleted" msprop:Generator_RowClassName="KardexResumenRow" msprop:Generator_UserTableName="KardexResumen" msprop:Generator_RowEvArgName="KardexResumenRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cnt" msprop:Generator_ColumnVarNameInTable="columncnt" msprop:Generator_ColumnPropNameInRow="cnt" msprop:Generator_ColumnPropNameInTable="cntColumn" msprop:Generator_UserColumnName="cnt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="concepto" msprop:Generator_ColumnVarNameInTable="columnconcepto" msprop:Generator_ColumnPropNameInRow="concepto" msprop:Generator_ColumnPropNameInTable="conceptoColumn" msprop:Generator_UserColumnName="concepto" type="xs:string" minOccurs="0" />
+              <xs:element name="saldoI" msprop:Generator_ColumnVarNameInTable="columnsaldoI" msprop:Generator_ColumnPropNameInRow="saldoI" msprop:Generator_ColumnPropNameInTable="saldoIColumn" msprop:Generator_UserColumnName="saldoI" type="xs:decimal" minOccurs="0" />
+              <xs:element name="entrada" msprop:Generator_ColumnVarNameInTable="columnentrada" msprop:Generator_ColumnPropNameInRow="entrada" msprop:Generator_ColumnPropNameInTable="entradaColumn" msprop:Generator_UserColumnName="entrada" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salida" msprop:Generator_ColumnVarNameInTable="columnsalida" msprop:Generator_ColumnPropNameInRow="salida" msprop:Generator_ColumnPropNameInTable="salidaColumn" msprop:Generator_UserColumnName="salida" type="xs:decimal" minOccurs="0" />
+              <xs:element name="saldo" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

@@ -723,6 +723,7 @@ namespace DataProvInventario.Data
                 IdDepOrigen = filtro.IdDepOrigen,
                 IdConcepto=filtro.IdConcepto,
                 Estatus = (DtoLibInventario.Movimiento.enumerados.EnumEstatus)filtro.Estatus,
+                IdProducto=filtro.IdProducto,
             };
             var r01 = MyData.Producto_Movimiento_GetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

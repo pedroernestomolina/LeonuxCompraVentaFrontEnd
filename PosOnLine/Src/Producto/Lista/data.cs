@@ -20,6 +20,20 @@ namespace PosOnLine.Src.Producto.Lista
         public string nombre { get { return _item.Nombre; } }
         public decimal precio { get { return _item.PrecioFullDivisa; } }
         public string plu { get { return _item.PLU; } }
+        public decimal precioMay { get { return _item.PrecioFullDivisaMay; } }
+        public string empaqueMay 
+        { 
+            get 
+            {
+                var rt = "";
+                if (_item.PrecioFullDivisaMay > 0) 
+                {
+                    rt="MAY/" + _item.ContenidoMay.ToString(); 
+                }
+                return rt;
+            } 
+        }
+
         public decimal cantidadEx 
         { 
             get 

@@ -99,6 +99,37 @@ namespace ModSistema.UsuarioGrupo
             L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
 
+        private void BT_ELIMINAR_Click(object sender, EventArgs e)
+        {
+            EliminarItem();
+        }
+
+        private void EliminarItem()
+        {
+            _controlador.EliminarItem();
+            L_ITEMS.Text = _controlador.Items.ToString("n0");
+        }
+
+        private void BT_USUARIOS_Click(object sender, EventArgs e)
+        {
+            ListaUsuarios();
+        }
+
+        private void ListaUsuarios()
+        {
+            _controlador.ListaUsuarios();
+        }
+
+        private void BT_PERMISOS_Click(object sender, EventArgs e)
+        {
+            Permisos();
+        }
+
+        private void Permisos()
+        {
+            _controlador.Permisos();
+        }
+     
     }
 
 }

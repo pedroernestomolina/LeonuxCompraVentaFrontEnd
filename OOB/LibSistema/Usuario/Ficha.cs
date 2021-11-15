@@ -18,9 +18,9 @@ namespace OOB.LibSistema.Usuario
         public string apellido { get; set; }
         public string clave { get; set; }
         public Enumerados.EnumModo estatus { get; set; }
-        public DateTime? fechaAlta { get; set; }
-        public DateTime? fechaBaja { get; set; }
-        public DateTime? fechaUltSesion { get; set; }
+        public string fechaAlta { get; set; }
+        public string fechaBaja { get; set; }
+        public string fechaUltSesion { get; set; }
         public string grupo { get; set; }
 
 
@@ -39,9 +39,9 @@ namespace OOB.LibSistema.Usuario
             apellido = "";
             clave = "";
             estatus = Enumerados.EnumModo.SinDefinir;
-            fechaAlta = null;
-            fechaBaja = null;
-            fechaUltSesion = null;
+            fechaAlta = "";
+            fechaBaja = "";
+            fechaUltSesion = "";
             grupo = "";
         }
 

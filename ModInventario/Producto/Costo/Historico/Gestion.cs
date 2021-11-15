@@ -16,6 +16,7 @@ namespace ModInventario.Producto.Costo.Historico
         private List<data> list;
         private data item;
         private BindingSource bs;
+        private OOB.LibInventario.Costo.Historico.Ficha _ficha;
 
 
         public BindingSource Source { get { return bs; } }
@@ -88,6 +89,7 @@ namespace ModInventario.Producto.Costo.Historico
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
+            _ficha= r01.Entidad;
 
             Producto = r01.Entidad.codigo + Environment.NewLine + r01.Entidad.descripcion;
             foreach (var it in r01.Entidad.data.OrderByDescending(o => o.fecha).ThenByDescending(o => o.hora).ToList())
@@ -98,6 +100,22 @@ namespace ModInventario.Producto.Costo.Historico
             bs.CurrencyManager.Refresh();
 
             return rt;
+        }
+
+        public void ImprimirHistorico()
+        {
+            Imprimir();
+        }
+
+        private void Imprimir()
+        {
+            if (list.Count > 0)
+            {
+                var rp = new Reportes.HistoricoCosto.gestionRep();
+                rp.setLista(_ficha.data);
+                rp.setFiltros(_ficha.descripcion.Trim() + "(" + _ficha.codigo.Trim() + ")");
+                rp.Generar();
+            }
         }
 
     }

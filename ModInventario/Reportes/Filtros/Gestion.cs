@@ -74,7 +74,7 @@ namespace ModInventario.Reportes.Filtros
         public Gestion()
         {
             gestionListaPrd = new Producto.Lista.Gestion();
-            gestionListaPrd.ItemSeleccionadoOk +=gestionListaPrd_ItemSeleccionadoOk;
+            //gestionListaPrd.ItemSeleccionadoOk +=gestionListaPrd_ItemSeleccionadoOk;
             dataFiltro = new data();
 
             lDepart = new List<OOB.LibInventario.Departamento.Ficha>();
@@ -118,13 +118,13 @@ namespace ModInventario.Reportes.Filtros
             bsGrupo.DataSource = lGrupo;
         }
 
-        private void gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
-        {
-            ProductoIsOk = true;
-            ProductoBuscar = gestionListaPrd.ItemSeleccionado.Producto;
-            dataFiltro.AutoProducto = gestionListaPrd.ItemSeleccionado.FichaPrd.AutoId;
-            gestionListaPrd.Cerrar();
-        }
+        //private void gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
+        //{
+        //    ProductoIsOk = true;
+        //    ProductoBuscar = gestionListaPrd.ItemSeleccionado.Producto;
+        //    dataFiltro.AutoProducto = gestionListaPrd.ItemSeleccionado.FichaPrd.AutoId;
+        //    gestionListaPrd.Cerrar();
+        //}
 
 
         public void Inicia()
@@ -288,8 +288,16 @@ namespace ModInventario.Reportes.Filtros
                     return;
                 }
 
+                gestionListaPrd.Inicializa();
                 gestionListaPrd.setLista(r01.Lista);
+                gestionListaPrd.ActivarSeleccion(true);
                 gestionListaPrd.Inicia();
+                if (gestionListaPrd.ItemSeleccionadoIsOk) 
+                {
+                    ProductoIsOk = true;
+                    dataFiltro.setProducto(gestionListaPrd.ItemSeleccionado);
+                    ProductoBuscar = dataFiltro.NombreProducto;
+                }
             }
         }
 

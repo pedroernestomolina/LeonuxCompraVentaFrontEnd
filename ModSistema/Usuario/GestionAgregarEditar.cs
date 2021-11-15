@@ -18,6 +18,7 @@ namespace ModSistema.Usuario
         private List<OOB.LibSistema.UsuarioGrupo.Ficha> lGrupo;
         private BindingSource bsGrupo;
         private OOB.LibSistema.Usuario.Ficha _ficha;
+        private string _autoItemAgregado;
 
 
         public enumModo Modo { get; set; }
@@ -28,10 +29,13 @@ namespace ModSistema.Usuario
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Clave { get; set; }
+        public string AutoItemAgregado { get { return _autoItemAgregado; } }
 
 
         public GestionAgregarEditar()
         {
+            _autoItemAgregado = "";
+
             lGrupo = new List<OOB.LibSistema.UsuarioGrupo.Ficha>();
             bsGrupo = new BindingSource();
             bsGrupo.DataSource = lGrupo;
@@ -128,6 +132,7 @@ namespace ModSistema.Usuario
                         Helpers.Msg.Error(r01.Mensaje);
                         return;
                     }
+                    _autoItemAgregado = r01.Auto;
                     IsAgregarEditarOk = true;
                 }
             }
@@ -185,6 +190,12 @@ namespace ModSistema.Usuario
                 frm.setTitulo("Editar Usuario:");
                 frm.ShowDialog();
             }
+        }
+
+        public void Inicializa()
+        {
+            _autoItemAgregado = "";
+            IsAgregarEditarOk = false;
         }
 
     }

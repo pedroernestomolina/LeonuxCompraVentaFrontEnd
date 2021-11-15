@@ -510,6 +510,12 @@ namespace ModInventario
             _gestionReporteFiltros.Inicia();
             if (_gestionReporteFiltros.ActivarFiltros_IsOK)
             {
+                if (_gestionReporteFiltros.DataFiltros.AutoProducto=="")
+                {
+                    Helpers.Msg.Error("Parametro [ PRODUCTO ] Incorrectos, Verifique Por Favor");
+                    return;
+                }
+
                 if (_gestionReporteFiltros.Hasta >= _gestionReporteFiltros.Desde)
                 {
                     var rp = new Reportes.Filtros.KardexResumen.GestionRep();

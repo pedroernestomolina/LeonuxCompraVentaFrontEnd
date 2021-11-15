@@ -141,6 +141,16 @@ namespace ModInventario.Producto.Costo.Historico
             L_NOTA.Text = _controlador.Nota;
         }
 
+        private void BT_IMPRIMIR_Click(object sender, EventArgs e)
+        {
+            ImprimirHistorico();
+        }
+
+        private void ImprimirHistorico()
+        {
+            _controlador.ImprimirHistorico();
+        }
+
     }
 
 }

@@ -42,6 +42,8 @@
             this.BT_AGREGAR = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.BT_EDITAR = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.BT_ELIMINAR = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -53,9 +55,9 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BT_USUARIOS = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BT_PERMISOS = new System.Windows.Forms.Button();
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +72,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -179,29 +182,30 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(367, 1);
+            this.panel5.Location = new System.Drawing.Point(358, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(1);
-            this.panel5.Size = new System.Drawing.Size(107, 38);
+            this.panel5.Size = new System.Drawing.Size(116, 38);
             this.panel5.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel7, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel15, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(105, 36);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(114, 36);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel6
@@ -212,7 +216,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(1);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
-            this.panel6.Size = new System.Drawing.Size(49, 32);
+            this.panel6.Size = new System.Drawing.Size(35, 32);
             this.panel6.TabIndex = 0;
             // 
             // BT_AGREGAR
@@ -225,7 +229,7 @@
             this.BT_AGREGAR.Location = new System.Drawing.Point(2, 2);
             this.BT_AGREGAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_AGREGAR.Name = "BT_AGREGAR";
-            this.BT_AGREGAR.Size = new System.Drawing.Size(45, 28);
+            this.BT_AGREGAR.Size = new System.Drawing.Size(31, 28);
             this.BT_AGREGAR.TabIndex = 0;
             this.toolTip1.SetToolTip(this.BT_AGREGAR, "Agregar Item");
             this.BT_AGREGAR.UseVisualStyleBackColor = true;
@@ -235,25 +239,55 @@
             // 
             this.panel7.Controls.Add(this.BT_EDITAR);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(53, 2);
+            this.panel7.Location = new System.Drawing.Point(39, 2);
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(1);
-            this.panel7.Size = new System.Drawing.Size(50, 32);
+            this.panel7.Size = new System.Drawing.Size(35, 32);
             this.panel7.TabIndex = 1;
             // 
             // BT_EDITAR
             // 
+            this.BT_EDITAR.BackgroundImage = global::ModSistema.Properties.Resources.bt_editar_ficha;
+            this.BT_EDITAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BT_EDITAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_EDITAR.FlatAppearance.BorderSize = 0;
+            this.BT_EDITAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_EDITAR.Location = new System.Drawing.Point(1, 1);
             this.BT_EDITAR.Margin = new System.Windows.Forms.Padding(1);
             this.BT_EDITAR.Name = "BT_EDITAR";
-            this.BT_EDITAR.Size = new System.Drawing.Size(48, 30);
+            this.BT_EDITAR.Size = new System.Drawing.Size(33, 30);
             this.BT_EDITAR.TabIndex = 1;
-            this.BT_EDITAR.Text = "Editar";
-            this.toolTip1.SetToolTip(this.BT_EDITAR, "Actualizar/Editar/Cambiar Item");
+            this.toolTip1.SetToolTip(this.BT_EDITAR, "Editar Item");
             this.BT_EDITAR.UseVisualStyleBackColor = true;
             this.BT_EDITAR.Click += new System.EventHandler(this.BT_EDITAR_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.BT_ELIMINAR);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(76, 2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(1);
+            this.panel15.Name = "panel15";
+            this.panel15.Padding = new System.Windows.Forms.Padding(2);
+            this.panel15.Size = new System.Drawing.Size(36, 32);
+            this.panel15.TabIndex = 2;
+            // 
+            // BT_ELIMINAR
+            // 
+            this.BT_ELIMINAR.BackgroundImage = global::ModSistema.Properties.Resources.bt_eliminar;
+            this.BT_ELIMINAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ELIMINAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ELIMINAR.FlatAppearance.BorderSize = 0;
+            this.BT_ELIMINAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ELIMINAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_ELIMINAR.Margin = new System.Windows.Forms.Padding(1);
+            this.BT_ELIMINAR.Name = "BT_ELIMINAR";
+            this.BT_ELIMINAR.Size = new System.Drawing.Size(32, 28);
+            this.BT_ELIMINAR.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_ELIMINAR, "Eliminar Item");
+            this.BT_ELIMINAR.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR.Click += new System.EventHandler(this.BT_ELIMINAR_Click);
             // 
             // panel8
             // 
@@ -264,7 +298,7 @@
             this.panel8.Margin = new System.Windows.Forms.Padding(1);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(2);
-            this.panel8.Size = new System.Drawing.Size(190, 38);
+            this.panel8.Size = new System.Drawing.Size(185, 38);
             this.panel8.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -281,7 +315,7 @@
             this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(186, 34);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(181, 34);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // panel11
@@ -292,7 +326,7 @@
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(2);
-            this.panel11.Size = new System.Drawing.Size(125, 30);
+            this.panel11.Size = new System.Drawing.Size(120, 30);
             this.panel11.TabIndex = 1;
             // 
             // label2
@@ -301,7 +335,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(2, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 26);
+            this.label2.Size = new System.Drawing.Size(116, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Items Encontrados:";
             // 
@@ -309,7 +343,7 @@
             // 
             this.panel12.Controls.Add(this.L_ITEMS);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(129, 2);
+            this.panel12.Location = new System.Drawing.Point(124, 2);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
@@ -378,7 +412,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.button1);
+            this.panel13.Controls.Add(this.BT_USUARIOS);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(72, 1);
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
@@ -387,24 +421,25 @@
             this.panel13.Size = new System.Drawing.Size(45, 44);
             this.panel13.TabIndex = 0;
             // 
-            // button1
+            // BT_USUARIOS
             // 
-            this.button1.BackgroundImage = global::ModSistema.Properties.Resources.bt_usuario_bd;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 40);
-            this.button1.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button1, "USUARIOS DEL GRUPO");
-            this.button1.UseVisualStyleBackColor = true;
+            this.BT_USUARIOS.BackgroundImage = global::ModSistema.Properties.Resources.bt_usuario_bd;
+            this.BT_USUARIOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_USUARIOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_USUARIOS.FlatAppearance.BorderSize = 0;
+            this.BT_USUARIOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_USUARIOS.Location = new System.Drawing.Point(2, 2);
+            this.BT_USUARIOS.Margin = new System.Windows.Forms.Padding(1);
+            this.BT_USUARIOS.Name = "BT_USUARIOS";
+            this.BT_USUARIOS.Size = new System.Drawing.Size(41, 40);
+            this.BT_USUARIOS.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_USUARIOS, "USUARIOS DEL GRUPO");
+            this.BT_USUARIOS.UseVisualStyleBackColor = true;
+            this.BT_USUARIOS.Click += new System.EventHandler(this.BT_USUARIOS_Click);
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.button2);
+            this.panel14.Controls.Add(this.BT_PERMISOS);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(72, 47);
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
@@ -413,20 +448,21 @@
             this.panel14.Size = new System.Drawing.Size(45, 44);
             this.panel14.TabIndex = 1;
             // 
-            // button2
+            // BT_PERMISOS
             // 
-            this.button2.BackgroundImage = global::ModSistema.Properties.Resources.bt_seguridad_bd;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(2, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 40);
-            this.button2.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button2, "PERMISOS DEL GRUPO");
-            this.button2.UseVisualStyleBackColor = true;
+            this.BT_PERMISOS.BackgroundImage = global::ModSistema.Properties.Resources.bt_seguridad_bd;
+            this.BT_PERMISOS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_PERMISOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PERMISOS.FlatAppearance.BorderSize = 0;
+            this.BT_PERMISOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_PERMISOS.Location = new System.Drawing.Point(2, 2);
+            this.BT_PERMISOS.Margin = new System.Windows.Forms.Padding(1);
+            this.BT_PERMISOS.Name = "BT_PERMISOS";
+            this.BT_PERMISOS.Size = new System.Drawing.Size(41, 40);
+            this.BT_PERMISOS.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.BT_PERMISOS, "PERMISOS DEL GRUPO");
+            this.BT_PERMISOS.UseVisualStyleBackColor = true;
+            this.BT_PERMISOS.Click += new System.EventHandler(this.BT_PERMISOS_Click);
             // 
             // BT_SALIR
             // 
@@ -493,6 +529,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -524,7 +561,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button BT_AGREGAR;
-        private System.Windows.Forms.Button BT_EDITAR;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.DataGridView DGV;
@@ -541,8 +577,11 @@
         private System.Windows.Forms.Label L_ITEMS;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BT_USUARIOS;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BT_PERMISOS;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button BT_ELIMINAR;
+        private System.Windows.Forms.Button BT_EDITAR;
     }
 }

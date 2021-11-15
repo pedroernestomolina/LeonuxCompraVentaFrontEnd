@@ -56,9 +56,9 @@ namespace ModInventario.Reportes.HistoricoPrecio
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
-            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
-            //pmt.Add(new ReportParameter("Filtros", _filtros));
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("FILTROS", _filtros));
             Rds.Add(new ReportDataSource("PrecioHist", ds.Tables["PrecioHist"]));
 
             var frp = new ReporteFrm();

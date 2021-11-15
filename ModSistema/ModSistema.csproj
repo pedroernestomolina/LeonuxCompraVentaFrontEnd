@@ -64,6 +64,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAcceso\Cliente\Gestion.cs" />
+    <Compile Include="ControlAcceso\Cliente\item.cs" />
+    <Compile Include="ControlAcceso\Compra\Gestion.cs" />
+    <Compile Include="ControlAcceso\ControlAccesoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlAcceso\ControlAccesoFrm.Designer.cs">
+      <DependentUpon>ControlAccesoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlAcceso\Gestion.cs" />
+    <Compile Include="ControlAcceso\Inventario\Gestion.cs" />
+    <Compile Include="ControlAcceso\item.cs" />
+    <Compile Include="ControlAcceso\Proveedor\Gestion.cs" />
+    <Compile Include="ControlAcceso\Sist\Gestion.cs" />
+    <Compile Include="ControlAcceso\Venta\Gestion.cs" />
     <Compile Include="DatosNegocio\Editar\data.cs" />
     <Compile Include="DatosNegocio\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
@@ -287,6 +302,9 @@
     <Compile Include="Usuario\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlAcceso\ControlAccesoFrm.resx">
+      <DependentUpon>ControlAccesoFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DatosNegocio\Editar\EditarFrm.resx">
       <DependentUpon>EditarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,11 +495,15 @@
     <Content Include="Imagenes\inventario_2.jpg" />
     <Content Include="Imagenes\libro.png" />
     <Content Include="Imagenes\Machine-learning-1024x682.jpg" />
+    <Content Include="Imagenes\master.png" />
     <Content Include="Imagenes\mobile.ico" />
     <Content Include="Imagenes\sinImagen.png" />
+    <Content Include="Imagenes\sucursal.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\sucursal.png" />
+    <None Include="Resources\master.png" />
     <None Include="Resources\bt_usuario_bd.png" />
     <None Include="Resources\bt_seguridad_bd.png" />
     <None Include="Resources\images.jpg" />

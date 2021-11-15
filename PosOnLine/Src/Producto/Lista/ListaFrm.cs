@@ -29,6 +29,7 @@ namespace PosOnLine.Src.Producto.Lista
         {
             var f = new Font("Serif", 8, FontStyle.Bold);
             var f1 = new Font("Serif", 10, FontStyle.Regular);
+            var f2 = new Font("Serif", 6, FontStyle.Regular);
 
             DGV.AllowUserToAddRows = false;
             DGV.AutoGenerateColumns = false;
@@ -45,7 +46,7 @@ namespace PosOnLine.Src.Producto.Lista
             c1.Visible = true;
             c1.Width = 120;
             c1.HeaderCell.Style.Font = f;
-            c1.DefaultCellStyle.Font = f1;
+            c1.DefaultCellStyle.Font = f;
 
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Nombre";
@@ -59,14 +60,15 @@ namespace PosOnLine.Src.Producto.Lista
             c4.DataPropertyName = "CantidadEx";
             c4.HeaderText = "Cant";
             c4.Visible = true;
-            c4.Width = 100;
+            c4.Width = 90;
             c4.HeaderCell.Style.Font = f;
             c4.DefaultCellStyle.Font = f1;
             c4.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c4.DefaultCellStyle.Format ="n1";
 
             var c5 = new DataGridViewTextBoxColumn();
             c5.DataPropertyName = "Precio";
-            c5.HeaderText = "$";
+            c5.HeaderText = "P/Und $";
             c5.Visible = true;
             c5.Width = 100;
             c5.HeaderCell.Style.Font = f;
@@ -77,16 +79,36 @@ namespace PosOnLine.Src.Producto.Lista
             c6.DataPropertyName = "Plu";
             c6.HeaderText = "PLU";
             c6.Visible = true;
-            c6.Width = 80;
+            c6.Width = 50;
             c6.HeaderCell.Style.Font = f;
             c6.DefaultCellStyle.Font = f1;
             c6.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            var c7 = new DataGridViewTextBoxColumn();
+            c7.DataPropertyName = "precioMay";
+            c7.HeaderText = "P/Mayor $";
+            c7.Visible = true;
+            c7.Width = 100;
+            c7.HeaderCell.Style.Font = f;
+            c7.DefaultCellStyle.Font = f1;
+            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            var c8 = new DataGridViewTextBoxColumn();
+            c8.DataPropertyName = "EmpaqueMay";
+            c8.HeaderText = "E/Mayor";
+            c8.Visible = true;
+            c8.Width = 80;
+            c8.HeaderCell.Style.Font = f;
+            c8.DefaultCellStyle.Font = f1;
+            c8.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             DGV.Columns.Add(c1);
             DGV.Columns.Add(c3);
             DGV.Columns.Add(c6);
             DGV.Columns.Add(c4);
             DGV.Columns.Add(c5);
+            DGV.Columns.Add(c7);
+            DGV.Columns.Add(c8);
         }
 
         private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

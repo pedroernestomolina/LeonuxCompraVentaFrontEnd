@@ -64,21 +64,19 @@ namespace ModSistema.Usuario
 
         public void AgregarItem()
         {
+            _gestionAgregarEditar.Inicializa();
             _gestionAgregarEditar.Agregar();
             if (_gestionAgregarEditar.IsAgregarEditarOk)
             {
-                CargarData();
+                var id = _gestionAgregarEditar.AutoItemAgregado;
+                var r0 = Sistema.MyData.Usuario_GetFicha(id);
+                if (r0.Result== OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r0.Mensaje);
+                    return;
+                }
+                blLista.Add(r0.Entidad);
             }
-        }
-
-        private void CargarData()
-        {
-            var r01 = Sistema.MyData.Usuario_GetLista();
-            if (r01.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-            }
-            setLista(r01.Lista);
         }
 
         public void EditarItem()
@@ -91,10 +89,21 @@ namespace ModSistema.Usuario
                     Helpers.Msg.Alerta("USUARIO EN ESTATUS INACTIVO, VERIFIQUE POR FAVOR");
                     return;
                 }
+
+                var _id = it.auto;
+                var _ind = bsLista.CurrencyManager.Position;
                 _gestionAgregarEditar.Editar(it);
                 if (_gestionAgregarEditar.IsAgregarEditarOk)
                 {
-                    CargarData();
+                    var r0 = Sistema.MyData.Usuario_GetFicha(_id);
+                    if (r0.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r0.Mensaje);
+                        return;
+                    }
+                    blLista.Remove(it);
+                    blLista.Insert(_ind, r0.Entidad);
+                    bsLista.Position = _ind;
                 }
             }
         }
@@ -104,6 +113,8 @@ namespace ModSistema.Usuario
             var it = (OOB.LibSistema.Usuario.Ficha)bsLista.Current;
             if (it != null)
             {
+                var _id = it.auto;
+                var _ind = bsLista.CurrencyManager.Position;
                 if (it.estatus == OOB.LibSistema.Usuario.Enumerados.EnumModo.Activo)
                 {
                     var msg = MessageBox.Show("Inactivar Usuario ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -119,7 +130,6 @@ namespace ModSistema.Usuario
                             Helpers.Msg.Error(r01.Mensaje);
                             return;
                         }
-                        CargarData();
                     }
                 }
                 else
@@ -137,8 +147,49 @@ namespace ModSistema.Usuario
                             Helpers.Msg.Error(r01.Mensaje);
                             return;
                         }
-                        CargarData();
                     }
+                }
+                //ACTUALIZA LISTA
+                var r0 = Sistema.MyData.Usuario_GetFicha(_id);
+                if (r0.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r0.Mensaje);
+                    return;
+                }
+                blLista.Remove(it);
+                blLista.Insert(_ind, r0.Entidad);
+                bsLista.Position = _ind;
+            }
+        }
+
+        public void Inicializa()
+        {
+            blLista.Clear();
+            item.Limpiar();
+        }
+
+        public void EliminarItem()
+        {
+            var it = (OOB.LibSistema.Usuario.Ficha)bsLista.Current;
+            if (it != null)
+            {
+                if (Sistema.UsuarioP.auto == it.auto) 
+                {
+                    Helpers.Msg.Error("NO PUEDES ELIMINAR AL USUARIO ACTUAL");
+                    return;
+                }
+
+                var msg = "ESTAS SEGURO DE ELIMINAR ESTE USUARIO ?";
+                var res = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (res == DialogResult.Yes)
+                {
+                    var r01 = Sistema.MyData.Usuario_Eliminar(it.auto);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    bsLista.Remove(it);
                 }
             }
         }

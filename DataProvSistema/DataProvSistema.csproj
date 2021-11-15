@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Data\Cobrador.cs" />
     <Compile Include="Data\Configuracion.cs" />
+    <Compile Include="Data\ControlAcceso.cs" />
     <Compile Include="Data\DataProv.cs" />
     <Compile Include="Data\Deposito.cs" />
     <Compile Include="Data\Funcion.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Data\Vendedor.cs" />
     <Compile Include="Infra\ICobrador.cs" />
     <Compile Include="Infra\IConfiguracion.cs" />
+    <Compile Include="Infra\IControlAcceso.cs" />
     <Compile Include="Infra\IData.cs" />
     <Compile Include="Infra\IDeposito.cs" />
     <Compile Include="Infra\IFuncion.cs" />

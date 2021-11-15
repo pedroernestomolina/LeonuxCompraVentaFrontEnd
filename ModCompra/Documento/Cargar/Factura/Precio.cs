@@ -211,20 +211,32 @@ namespace ModCompra.Documento.Cargar.Factura
         {
             var rt = 0.0m;
             rt = p * tasaCambioActual;
-            if (modoPrecio == enumPreferenciaPrecio.Full)
-                rt = CaculoIva(rt);
-
-            switch (modoRedondeo)
+            if (modoPrecio == enumPreferenciaPrecio.Full) 
             {
-                case enumModoRedondeo.Unidad:
-                    rt = Helpers.MetodosExtension.RoundUnidad((int)rt);
-                    break;
-                case enumModoRedondeo.Decena:
-                    rt = Helpers.MetodosExtension.RoundDecena((int)rt);
-                    rt = CalculaNeto(rt);
-                    break;
+                rt = CaculoIva(rt);
+                switch (modoRedondeo)
+                {
+                    case enumModoRedondeo.Unidad:
+                        rt = Helpers.MetodosExtension.RoundUnidad((int)rt);
+                        break;
+                    case enumModoRedondeo.Decena:
+                        rt = Helpers.MetodosExtension.RoundDecena((int)rt);
+                        break;
+                }
+                rt = CalculaNeto(rt);
             }
-
+            else
+            {
+                switch (modoRedondeo)
+                {
+                    case enumModoRedondeo.Unidad:
+                        rt = Helpers.MetodosExtension.RoundUnidad((int)rt);
+                        break;
+                    case enumModoRedondeo.Decena:
+                        rt = Helpers.MetodosExtension.RoundDecena((int)rt);
+                        break;
+                }
+            }
             return rt;
         }
 

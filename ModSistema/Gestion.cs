@@ -167,6 +167,7 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
+                _gestionUsuarioGrupo.Inicializa();
                 _gestionUsuarioGrupo.Inicia();
             }
         }
@@ -182,6 +183,7 @@ namespace ModSistema
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
+                _gestionUsuario.Inicializa();
                 _gestionUsuario.Inicia();
             }
         }

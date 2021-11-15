@@ -89,6 +89,7 @@ namespace ModInventario.Producto.Lista
                     _autoItemSeleccionado = it.Auto;
                     _descripcionItemSeleccionado = it.Producto;
                     _itemSeleccionadoIsOk = true;
+                    _itemSeleccionado = it;
                     frm.Cerrar();
                     return;
                 }

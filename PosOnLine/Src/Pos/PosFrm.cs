@@ -110,7 +110,7 @@ namespace PosOnLine.Src.Pos
 
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Importe";
-            c3.HeaderText = "Importe";
+            c3.HeaderText = "Precio/Full";
             c3.Visible = true;
             c3.Width = 100;
             c3.HeaderCell.Style.Font = f;
@@ -139,7 +139,7 @@ namespace PosOnLine.Src.Pos
 
             var c5 = new DataGridViewTextBoxColumn();
             c5.DataPropertyName = "TotalItem";
-            c5.HeaderText = "SubTotal";
+            c5.HeaderText = "Importe";
             c5.Visible = true;
             c5.Width = 100;
             c5.HeaderCell.Style.Font = f;

@@ -26,6 +26,10 @@ namespace PosOnLine.OOB.Producto.Lista
         public int Contenido { get; set; }
         public string Decimales { get; set; }
         public string PLU { get; set; }
+        public decimal PrecioFullDivisaMay { get; set; }
+        public int ContenidoMay { get; set; }
+        public string DecimalesMay { get; set; }
+        public string EmpaqueMay { get; set; }
 
 
         public Ficha()
@@ -45,6 +49,10 @@ namespace PosOnLine.OOB.Producto.Lista
             Contenido = 0;
             Decimales = "";
             PLU = "";
+            PrecioFullDivisaMay = 0.0m;
+            ContenidoMay = 0;
+            DecimalesMay = "";
+            EmpaqueMay = "";
         }
 
     }

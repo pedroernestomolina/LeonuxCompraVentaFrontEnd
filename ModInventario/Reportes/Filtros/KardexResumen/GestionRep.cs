@@ -43,10 +43,12 @@ namespace ModInventario.Reportes.Filtros.KardexResumen
                 return;
             }
 
-            var filt = "DESDE: "+dataFiltros.Desde.ToShortDateString()+", HASTA: "+dataFiltros.Hasta.ToShortDateString();
-            if (dataFiltros.AutoDeposito!="")
-                filt += ", DEPOSITO: "+dataFiltros.NombreDeposito;
+            //var filt = "DESDE: "+dataFiltros.Desde.ToShortDateString()+", HASTA: "+dataFiltros.Hasta.ToShortDateString();
+            //if (dataFiltros.AutoDeposito!="")
+            //    filt += ", DEPOSITO: "+dataFiltros.NombreDeposito;
+            //filt += dataFiltros.TextoFiltro();
 
+            var filt = dataFiltros.TextoFiltro();
             Imprimir(r01.Lista,filt);
         }
 
@@ -77,9 +79,9 @@ namespace ModInventario.Reportes.Filtros.KardexResumen
 
             var Rds = new List<ReportDataSource>();
             var pmt = new List<ReportParameter>();
-            //pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
-            //pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
-            //pmt.Add(new ReportParameter("FILTROS", filt));
+            pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
+            pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("FILTROS", filt));
             Rds.Add(new ReportDataSource("KardexResumen", ds.Tables["KardexResumen"]));
 
             var frp = new ReporteFrm();

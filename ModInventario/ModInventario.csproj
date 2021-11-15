@@ -571,6 +571,7 @@
     <Compile Include="Reportes\Filtros\NivelMInimo\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\Filtros.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\GestionRep.cs" />
+    <Compile Include="Reportes\Filtros\tipo.cs" />
     <Compile Include="Reportes\Filtros\Valorizacion\Filtros.cs" />
     <Compile Include="Reportes\Filtros\Valorizacion\GestionRep.cs" />
     <Compile Include="Reportes\Graficas\DS.Designer.cs">
@@ -579,6 +580,13 @@
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Graficas\Top20\GestionRep.cs" />
+    <Compile Include="Reportes\HistoricoCosto\data.cs" />
+    <Compile Include="Reportes\HistoricoCosto\DS_COSTO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_COSTO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\HistoricoCosto\gestionRep.cs" />
     <Compile Include="Reportes\HistoricoPrecio\data.cs" />
     <Compile Include="Reportes\HistoricoPrecio\DS_Precio.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -879,6 +887,9 @@
     <EmbeddedResource Include="Reportes\Graficas\Top20.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\HistoricoCosto\HistoricoCosto.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\HistoricoPrecio\HistoricoPrecio.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -1054,6 +1065,17 @@
     </None>
     <None Include="Reportes\Graficas\DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\HistoricoCosto\DS_COSTO.xsc">
+      <DependentUpon>DS_COSTO.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\HistoricoCosto\DS_COSTO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_COSTO.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\HistoricoCosto\DS_COSTO.xss">
+      <DependentUpon>DS_COSTO.xsd</DependentUpon>
     </None>
     <None Include="Reportes\HistoricoPrecio\DS_Precio.xsc">
       <DependentUpon>DS_Precio.xsd</DependentUpon>

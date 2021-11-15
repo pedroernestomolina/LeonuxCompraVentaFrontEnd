@@ -84,7 +84,7 @@ namespace ModSistema.UsuarioGrupo
                 {
                     var ficha = new OOB.LibSistema.UsuarioGrupo.Agregar()
                     {
-                        nombre = Nombre,
+                        nombre = Nombre.ToUpper(),
                         permisos = _funciones.Select(s => 
                         {
                             var p = new OOB.LibSistema.UsuarioGrupo.PermisoAgregar()
@@ -113,7 +113,7 @@ namespace ModSistema.UsuarioGrupo
                     var ficha = new OOB.LibSistema.UsuarioGrupo.Editar()
                     {
                         auto = _ficha.auto,
-                        nombre = Nombre,
+                        nombre = Nombre.ToUpper(),
                     };
                     var r01 = Sistema.MyData.UsuarioGrupo_Editar(ficha);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)

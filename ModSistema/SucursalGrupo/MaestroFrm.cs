@@ -107,7 +107,7 @@ namespace ModSistema.SucursalGrupo
             _controlador.EditarItem();
             L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
-
+     
     }
 
 }

@@ -194,7 +194,11 @@ namespace PosOnLine.Data.Prov
                             PrecioFullDivisa = s.PrecioFullDivisa,
                             PrecioNeto = s.PrecioNeto,
                             TasaIva = s.TasaIva,
-                            PLU=s.PLU,
+                            PLU = s.PLU,
+                            ContenidoMay = s.contenidoMay,
+                            DecimalesMay = s.decimalesMay,
+                            EmpaqueMay = s.empaqueMay,
+                            PrecioFullDivisaMay = s.precioFullDivisaMay,
                         };
                         return nr;
                     }).ToList();

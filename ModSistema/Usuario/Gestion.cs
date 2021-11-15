@@ -13,6 +13,7 @@ namespace ModSistema.Usuario
     {
 
         private GestionLista _gestionLista;
+        private OOB.LibSistema.Usuario.Lista.Filtro _filtro;
 
 
         public BindingSource Source { get { return _gestionLista.Source; } }
@@ -22,6 +23,7 @@ namespace ModSistema.Usuario
 
         public Gestion()
         {
+            _filtro = new OOB.LibSistema.Usuario.Lista.Filtro();
             _gestionLista = new GestionLista();
             _gestionLista.CambioItemActual+=_gestionLista_CambioItemActual;
         }
@@ -54,7 +56,7 @@ namespace ModSistema.Usuario
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Usuario_GetLista();
+            var r01 = Sistema.MyData.Usuario_GetLista(_filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -107,6 +109,33 @@ namespace ModSistema.Usuario
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 _gestionLista.ActivarInactivar();
+            }
+        }
+
+
+        public void Inicializa()
+        {
+            _filtro.Limpiar();
+            _gestionLista.Inicializa();
+        }
+
+        public void setFiltroGrupo(string p)
+        {
+            _filtro.IdGrupo= p;
+        }
+
+        public void EliminarItem()
+        {
+            var r00 = Sistema.MyData.Permiso_ControlUsuario_Eliminar(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionLista.EliminarItem();
             }
         }
 

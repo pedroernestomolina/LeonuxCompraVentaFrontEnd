@@ -16,11 +16,19 @@ namespace ModSistema.Usuario
     {
 
         private GestionAgregarEditar _controlador;
+        private bool _modoEditar;
 
 
         public AgregarEditarFrm()
         {
             InitializeComponent();
+            InicializarControles();
+        }
+
+        private void InicializarControles()
+        {
+            CB_GRUPO.DisplayMember = "nombre";
+            CB_GRUPO.ValueMember = "auto";
         }
 
         public void setTitulo(string p)
@@ -30,16 +38,15 @@ namespace ModSistema.Usuario
 
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
-            CB_GRUPO.DisplayMember = "nombre";
-            CB_GRUPO.ValueMember = "auto";
+            _modoEditar = false;
             CB_GRUPO.DataSource = _controlador.Source;
             CB_GRUPO.SelectedValue = _controlador.AutoGrupo;
-
             TB_CODIGO.Text = _controlador.Codigo;
             TB_NOMBRE.Text = _controlador.Nombre;
             TB_APELLIDO.Text = _controlador.Apellido;
             TB_CLAVE .Text = _controlador.Clave;
             TB_CODIGO.Focus();
+            _modoEditar = true;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -78,9 +85,12 @@ namespace ModSistema.Usuario
 
         private void CB_GRUPO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CB_GRUPO.SelectedValue != null)
+            if (_modoEditar)
             {
-                _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
+                if (CB_GRUPO.SelectedValue != null)
+                {
+                    _controlador.AutoGrupo = CB_GRUPO.SelectedValue.ToString();
+                }
             }
         }
 

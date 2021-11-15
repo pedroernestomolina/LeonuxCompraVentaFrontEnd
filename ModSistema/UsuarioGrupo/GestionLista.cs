@@ -21,6 +21,7 @@ namespace ModSistema.UsuarioGrupo
 
         public BindingSource Source { get { return bsLista; } }
         public int Items { get { return blLista.Count; } }
+        public OOB.LibSistema.UsuarioGrupo.Ficha ItemActual { get { return (OOB.LibSistema.UsuarioGrupo.Ficha)bsLista.Current; } }
 
 
         public GestionLista()
@@ -72,6 +73,31 @@ namespace ModSistema.UsuarioGrupo
                     CargarData();
                 }
             }
+        }
+
+        public void EliminarItem()
+        {
+            var it = (OOB.LibSistema.UsuarioGrupo.Ficha)bsLista.Current;
+            if (it != null)
+            {
+                var msg = "ESTAS SEGURO DE ELIMINAR ESTE GRUPO ?";
+                var res = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (res == DialogResult.Yes)
+                {
+                    var r01 = Sistema.MyData.GrupoUsuario_ELiminar(it.auto);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    bsLista.Remove(it);
+                }
+            }
+        }
+
+        public void Inicializa()
+        {
+            blLista.Clear();
         }
 
     }

@@ -121,21 +121,14 @@ namespace ModSistema.Usuario
         public void setActualizarItem()
         {
             L_GRUPO.Text = _controlador.ItemActual.grupo;
-            L_FECHA_ALTA.Text = _controlador.ItemActual.fechaAlta.Value.ToShortDateString();
+            L_FECHA_ALTA.Text = _controlador.ItemActual.fechaAlta;
             L_FECHA_BAJA.Text = "";
             L_FECHA_SESION.Text = "";
             P_ESTATUS.BackColor = Color.Green;
             L_ESTATUS.Text = "ACTIVO";
             L_ESTATUS.ForeColor = Color.White;
-
-            if (_controlador.ItemActual.fechaBaja.HasValue) 
-            {
-                L_FECHA_BAJA.Text = _controlador.ItemActual.fechaBaja.Value.ToShortDateString();
-            }
-            if (_controlador.ItemActual.fechaUltSesion.HasValue)
-            {
-                L_FECHA_SESION.Text = _controlador.ItemActual.fechaUltSesion.Value.ToShortDateString();
-            }
+            L_FECHA_BAJA.Text = _controlador.ItemActual.fechaBaja;
+            L_FECHA_SESION.Text = _controlador.ItemActual.fechaUltSesion;
             if (_controlador.ItemActual.estatus == OOB.LibSistema.Usuario.Enumerados.EnumModo.Inactivo) 
             {
                 P_ESTATUS.BackColor = Color.Red;
@@ -152,6 +145,16 @@ namespace ModSistema.Usuario
         private void ActivarInactivar()
         {
             _controlador.ActivarInactivar();
+        }
+
+        private void BT_ELIMINAR_Click(object sender, EventArgs e)
+        {
+            EliminarItem();
+        }
+
+        private void EliminarItem()
+        {
+            _controlador.EliminarItem();
         }
 
     }

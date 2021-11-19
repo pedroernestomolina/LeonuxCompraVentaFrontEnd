@@ -16,11 +16,13 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\DtoLibPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\EntityFramework.SqlServer.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ServicePos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\IPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ProvPos.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\LibEntityPos.dll
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\DtoLib.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\DtoLibPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\EntityFramework.xml
@@ -40,6 +42,9 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cl
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Estatus.EstatusFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Lista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Visualizar.VisualizaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.BuscarCliente.BuscarClienteFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.DatosDocumento.DatosDocFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.DocGenerarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Identificacion.IdentificacionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.Grupo.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.MaestroFrm.resources

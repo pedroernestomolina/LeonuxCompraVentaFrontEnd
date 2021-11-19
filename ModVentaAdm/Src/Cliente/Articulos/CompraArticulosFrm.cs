@@ -150,6 +150,7 @@ namespace ModVentaAdm.Src.Cliente.Articulos
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
             DGV.DataSource = _controlador.Source;
+            L_ITEMS_CNT.Text = _controlador.ItemsCnt.ToString();
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -170,6 +171,7 @@ namespace ModVentaAdm.Src.Cliente.Articulos
         private void Buscar()
         {
             _controlador.Buscar();
+            L_ITEMS_CNT.Text = _controlador.ItemsCnt.ToString();
         }
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
@@ -202,6 +204,7 @@ namespace ModVentaAdm.Src.Cliente.Articulos
         private void Limpiar()
         {
             _controlador.Limpiar();
+            L_ITEMS_CNT.Text = _controlador.ItemsCnt.ToString();
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
         }

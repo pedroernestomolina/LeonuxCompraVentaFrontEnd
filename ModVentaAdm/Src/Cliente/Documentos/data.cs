@@ -15,6 +15,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         private OOB.Maestro.Cliente.Documento.Ficha it;
 
 
+        public string id { get { return it.id; } }
         public DateTime Fecha { get { return it.fecha; } }
         public string Tipo { get { return it.nombreTipoDoc; } }
         public string Serie { get { return it.serie; } }

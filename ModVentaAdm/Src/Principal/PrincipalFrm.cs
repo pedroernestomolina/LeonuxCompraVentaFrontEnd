@@ -194,6 +194,36 @@ namespace ModVentaAdm.Src.Principal
             _controlador.Reporte_Consolidado();
         }
 
+        private void MENU_DOCUMENTOS_PRESUPUESTO_Click(object sender, EventArgs e)
+        {
+            GenerarPresupuesto();
+        }
+
+        private void GenerarPresupuesto()
+        {
+            _controlador.GenerarPresupuesto();
+        }
+
+        private void MENU_DOCUMENTOS_FACTURA_Click(object sender, EventArgs e)
+        {
+            GenerarFactura();
+        }
+
+        private void GenerarFactura()
+        {
+            _controlador.GenerarFactura();
+        }
+
+        private void MENU_DOCUMENTOS_PEDIDO_Click(object sender, EventArgs e)
+        {
+            GenerarPedido();
+        }
+
+        private void GenerarPedido()
+        {
+            _controlador.GenerarPedido();
+        }
+
     }
 
 }

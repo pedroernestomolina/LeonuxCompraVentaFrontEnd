@@ -80,6 +80,7 @@ namespace ModVentaAdm.Data.Prov
                     {
                         var rg = new OOB.Maestro.Cliente.Documento.Ficha()
                         {
+                            id = s.id,
                             codTipoDoc = s.codTipoDoc,
                             documento = s.documento,
                             estatus = s.estatus,

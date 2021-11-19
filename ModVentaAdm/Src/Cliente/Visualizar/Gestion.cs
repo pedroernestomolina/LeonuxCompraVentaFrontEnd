@@ -97,13 +97,22 @@ namespace ModVentaAdm.Src.Cliente.Visualizar
             _autoId=id;
         }
 
+        public void setFicha(OOB.Maestro.Cliente.Entidad.Ficha ficha)
+        {
+            _autoId = "";
+            _cliente = ficha;
+        }
+
         VisualizaFrm frm;
         public void Inicia()
         {
             if (CargarData()) 
             {
-                frm = new VisualizaFrm();
-                frm.setControlador(this);
+                if (frm == null) 
+                {
+                    frm = new VisualizaFrm();
+                    frm.setControlador(this);
+                }
                 frm.ShowDialog();
             }
         }
@@ -112,13 +121,16 @@ namespace ModVentaAdm.Src.Cliente.Visualizar
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Cliente_GetFicha(_autoId);
-            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            if (_autoId != "") 
             {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
+                var r01 = Sistema.MyData.Cliente_GetFicha(_autoId);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return false;
+                }
+                _cliente = r01.Entidad;
             }
-            _cliente = r01.Entidad;
 
             return rt;
         }

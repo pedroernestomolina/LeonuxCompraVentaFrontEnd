@@ -50,6 +50,7 @@ namespace ModVentaAdm.OOB.Maestro.Cliente.Entidad
         public DateTime fechaAlta { get; set; }
         public DateTime fechaBaja { get; set; }
         public bool IsActivo { get { return estatus.Trim().ToUpper() == "ACTIVO" ? true : false; } }
+        public bool IsCreditoActivo { get { return estatusCredito.Trim().ToUpper() == "1"; } }
 
 
         public Ficha()

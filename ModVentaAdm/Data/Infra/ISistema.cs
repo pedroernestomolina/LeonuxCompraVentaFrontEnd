@@ -16,6 +16,8 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Sistema.Vendedor.Entidad.Ficha> Sistema_Vendedor_GetLista();
         OOB.Resultado.Lista<OOB.Sistema.Cobrador.Entidad.Ficha> Sistema_Cobrador_GetLista();
         OOB.Resultado.Lista<OOB.Sistema.Estado.Entidad.Ficha> Sistema_Estado_GetLista();
+        OOB.Resultado.Lista<OOB.Sistema.Deposito.Entidad.Ficha> Sistema_Deposito_GetLista();
+        OOB.Resultado.Lista<OOB.Sistema.Transporte.Entidad.Ficha> Sistema_Transporte_GetLista();
 
     }
 

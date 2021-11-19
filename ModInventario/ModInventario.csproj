@@ -975,6 +975,7 @@
     </Content>
     <Content Include="Imagenes\administrador.png" />
     <Content Include="Imagenes\automatizacion.jpg" />
+    <Content Include="Imagenes\bt_abrir_doc.png" />
     <Content Include="Imagenes\bt_alerta.png" />
     <Content Include="Imagenes\bt_anular.png" />
     <Content Include="Imagenes\bt_asignar.png" />
@@ -1134,6 +1135,7 @@
     <None Include="Resources\bt_anular.png" />
     <None Include="Resources\bt_eliminar_2.png" />
     <None Include="Resources\bt_eliminar_3.png" />
+    <None Include="Resources\bt_abrir_doc.png" />
     <Content Include="Resources\bt_setup.png" />
     <None Include="Resources\libro.png" />
     <None Include="Resources\carpeta.png" />

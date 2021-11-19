@@ -47,24 +47,31 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.L_CIRIF = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.L_CODIGO = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.L_RAZON_SOCIAL = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.L_DIR_FISCAL = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.L_NIVEL = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.L_GRUPO = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.L_CATEGORIA = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
@@ -74,42 +81,54 @@
             this.panel24 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.L_DIR_DESPACHO = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel27 = new System.Windows.Forms.Panel();
+            this.L_PAIS = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
+            this.L_ESTADO = new System.Windows.Forms.Label();
             this.panel30 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel31 = new System.Windows.Forms.Panel();
+            this.L_ZONA = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.L_COD_POSTAL = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel35 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.L_PERSONA = new System.Windows.Forms.Label();
             this.panel37 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.panel38 = new System.Windows.Forms.Panel();
+            this.L_TELEFONO_1 = new System.Windows.Forms.Label();
             this.panel39 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.panel40 = new System.Windows.Forms.Panel();
+            this.L_CELULAR = new System.Windows.Forms.Label();
             this.panel41 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.panel42 = new System.Windows.Forms.Panel();
+            this.L_TELEFONO_2 = new System.Windows.Forms.Label();
             this.panel43 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.panel44 = new System.Windows.Forms.Panel();
+            this.L_FAX = new System.Windows.Forms.Label();
             this.panel45 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.panel46 = new System.Windows.Forms.Panel();
+            this.L_EMAIL = new System.Windows.Forms.Label();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.panel48 = new System.Windows.Forms.Panel();
+            this.L_WEBSITE = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel49 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
@@ -119,21 +138,26 @@
             this.panel53 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.panel54 = new System.Windows.Forms.Panel();
+            this.L_VENDEDOR = new System.Windows.Forms.Label();
             this.panel55 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.panel56 = new System.Windows.Forms.Panel();
+            this.L_PRECIO = new System.Windows.Forms.Label();
             this.panel57 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.panel58 = new System.Windows.Forms.Panel();
+            this.L_DSCTO = new System.Windows.Forms.Label();
             this.panel59 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.panel60 = new System.Windows.Forms.Panel();
+            this.L_CARGO = new System.Windows.Forms.Label();
             this.panel51 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel61 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.panel62 = new System.Windows.Forms.Panel();
+            this.L_COBRADOR = new System.Windows.Forms.Label();
             this.panel52 = new System.Windows.Forms.Panel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -143,38 +167,14 @@
             this.panel65 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
             this.panel66 = new System.Windows.Forms.Panel();
+            this.L_DIAS_CREDITO = new System.Windows.Forms.Label();
             this.panel67 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.panel68 = new System.Windows.Forms.Panel();
+            this.L_LIMITE_CREDITO = new System.Windows.Forms.Label();
             this.panel69 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.panel70 = new System.Windows.Forms.Panel();
-            this.L_CIRIF = new System.Windows.Forms.Label();
-            this.L_CODIGO = new System.Windows.Forms.Label();
-            this.L_RAZON_SOCIAL = new System.Windows.Forms.Label();
-            this.L_DIR_FISCAL = new System.Windows.Forms.Label();
-            this.L_GRUPO = new System.Windows.Forms.Label();
-            this.L_CATEGORIA = new System.Windows.Forms.Label();
-            this.L_NIVEL = new System.Windows.Forms.Label();
-            this.L_DIR_DESPACHO = new System.Windows.Forms.Label();
-            this.L_PAIS = new System.Windows.Forms.Label();
-            this.L_ESTADO = new System.Windows.Forms.Label();
-            this.L_ZONA = new System.Windows.Forms.Label();
-            this.L_COD_POSTAL = new System.Windows.Forms.Label();
-            this.L_PERSONA = new System.Windows.Forms.Label();
-            this.L_TELEFONO_1 = new System.Windows.Forms.Label();
-            this.L_CELULAR = new System.Windows.Forms.Label();
-            this.L_TELEFONO_2 = new System.Windows.Forms.Label();
-            this.L_FAX = new System.Windows.Forms.Label();
-            this.L_EMAIL = new System.Windows.Forms.Label();
-            this.L_WEBSITE = new System.Windows.Forms.Label();
-            this.L_VENDEDOR = new System.Windows.Forms.Label();
-            this.L_PRECIO = new System.Windows.Forms.Label();
-            this.L_DSCTO = new System.Windows.Forms.Label();
-            this.L_CARGO = new System.Windows.Forms.Label();
-            this.L_COBRADOR = new System.Windows.Forms.Label();
-            this.L_DIAS_CREDITO = new System.Windows.Forms.Label();
-            this.L_LIMITE_CREDITO = new System.Windows.Forms.Label();
             this.L_LIMITE_DOC = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -527,6 +527,18 @@
             this.panel11.Size = new System.Drawing.Size(227, 28);
             this.panel11.TabIndex = 1;
             // 
+            // L_CIRIF
+            // 
+            this.L_CIRIF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_CIRIF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CIRIF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CIRIF.Location = new System.Drawing.Point(2, 2);
+            this.L_CIRIF.Name = "L_CIRIF";
+            this.L_CIRIF.Size = new System.Drawing.Size(223, 24);
+            this.L_CIRIF.TabIndex = 0;
+            this.L_CIRIF.Text = "label28";
+            this.L_CIRIF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel12
             // 
             this.panel12.Controls.Add(this.label2);
@@ -559,6 +571,18 @@
             this.panel13.Padding = new System.Windows.Forms.Padding(2);
             this.panel13.Size = new System.Drawing.Size(229, 28);
             this.panel13.TabIndex = 3;
+            // 
+            // L_CODIGO
+            // 
+            this.L_CODIGO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_CODIGO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CODIGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CODIGO.Location = new System.Drawing.Point(2, 2);
+            this.L_CODIGO.Name = "L_CODIGO";
+            this.L_CODIGO.Size = new System.Drawing.Size(225, 24);
+            this.L_CODIGO.TabIndex = 0;
+            this.L_CODIGO.Text = "label29";
+            this.L_CODIGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel14
             // 
@@ -594,6 +618,18 @@
             this.panel15.Size = new System.Drawing.Size(549, 45);
             this.panel15.TabIndex = 5;
             // 
+            // L_RAZON_SOCIAL
+            // 
+            this.L_RAZON_SOCIAL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_RAZON_SOCIAL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_RAZON_SOCIAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_RAZON_SOCIAL.Location = new System.Drawing.Point(2, 2);
+            this.L_RAZON_SOCIAL.Name = "L_RAZON_SOCIAL";
+            this.L_RAZON_SOCIAL.Size = new System.Drawing.Size(545, 41);
+            this.L_RAZON_SOCIAL.TabIndex = 0;
+            this.L_RAZON_SOCIAL.Text = "label30";
+            this.L_RAZON_SOCIAL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel16
             // 
             this.panel16.Controls.Add(this.label4);
@@ -627,6 +663,18 @@
             this.panel17.Padding = new System.Windows.Forms.Padding(2);
             this.panel17.Size = new System.Drawing.Size(549, 55);
             this.panel17.TabIndex = 7;
+            // 
+            // L_DIR_FISCAL
+            // 
+            this.L_DIR_FISCAL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_DIR_FISCAL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DIR_FISCAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DIR_FISCAL.Location = new System.Drawing.Point(2, 2);
+            this.L_DIR_FISCAL.Name = "L_DIR_FISCAL";
+            this.L_DIR_FISCAL.Size = new System.Drawing.Size(545, 51);
+            this.L_DIR_FISCAL.TabIndex = 0;
+            this.L_DIR_FISCAL.Text = "label31";
+            this.L_DIR_FISCAL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel8
             // 
@@ -676,6 +724,18 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(642, 59);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
+            // L_NIVEL
+            // 
+            this.L_NIVEL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_NIVEL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_NIVEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_NIVEL.Location = new System.Drawing.Point(94, 30);
+            this.L_NIVEL.Name = "L_NIVEL";
+            this.L_NIVEL.Size = new System.Drawing.Size(223, 30);
+            this.L_NIVEL.TabIndex = 6;
+            this.L_NIVEL.Text = "L_NIVEL";
+            this.L_NIVEL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel18
             // 
             this.panel18.Controls.Add(this.label5);
@@ -709,6 +769,18 @@
             this.panel19.Size = new System.Drawing.Size(227, 28);
             this.panel19.TabIndex = 1;
             // 
+            // L_GRUPO
+            // 
+            this.L_GRUPO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_GRUPO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_GRUPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_GRUPO.Location = new System.Drawing.Point(2, 2);
+            this.L_GRUPO.Name = "L_GRUPO";
+            this.L_GRUPO.Size = new System.Drawing.Size(223, 24);
+            this.L_GRUPO.TabIndex = 1;
+            this.L_GRUPO.Text = "L_GRUPO";
+            this.L_GRUPO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel20
             // 
             this.panel20.Controls.Add(this.label6);
@@ -741,6 +813,18 @@
             this.panel21.Padding = new System.Windows.Forms.Padding(2);
             this.panel21.Size = new System.Drawing.Size(229, 28);
             this.panel21.TabIndex = 3;
+            // 
+            // L_CATEGORIA
+            // 
+            this.L_CATEGORIA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_CATEGORIA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CATEGORIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CATEGORIA.Location = new System.Drawing.Point(2, 2);
+            this.L_CATEGORIA.Name = "L_CATEGORIA";
+            this.L_CATEGORIA.Size = new System.Drawing.Size(225, 24);
+            this.L_CATEGORIA.TabIndex = 1;
+            this.L_CATEGORIA.Text = "L_CATEGORIA";
+            this.L_CATEGORIA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel22
             // 
@@ -859,6 +943,18 @@
             this.panel25.Size = new System.Drawing.Size(549, 45);
             this.panel25.TabIndex = 1;
             // 
+            // L_DIR_DESPACHO
+            // 
+            this.L_DIR_DESPACHO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_DIR_DESPACHO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DIR_DESPACHO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DIR_DESPACHO.Location = new System.Drawing.Point(2, 2);
+            this.L_DIR_DESPACHO.Name = "L_DIR_DESPACHO";
+            this.L_DIR_DESPACHO.Size = new System.Drawing.Size(545, 41);
+            this.L_DIR_DESPACHO.TabIndex = 1;
+            this.L_DIR_DESPACHO.Text = "label31";
+            this.L_DIR_DESPACHO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel26
             // 
             this.panel26.Controls.Add(this.label9);
@@ -891,6 +987,18 @@
             this.panel27.Padding = new System.Windows.Forms.Padding(2);
             this.panel27.Size = new System.Drawing.Size(227, 28);
             this.panel27.TabIndex = 3;
+            // 
+            // L_PAIS
+            // 
+            this.L_PAIS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_PAIS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PAIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PAIS.Location = new System.Drawing.Point(2, 2);
+            this.L_PAIS.Name = "L_PAIS";
+            this.L_PAIS.Size = new System.Drawing.Size(223, 24);
+            this.L_PAIS.TabIndex = 7;
+            this.L_PAIS.Text = "L_NIVEL";
+            this.L_PAIS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel28
             // 
@@ -925,6 +1033,18 @@
             this.panel29.Size = new System.Drawing.Size(229, 28);
             this.panel29.TabIndex = 5;
             // 
+            // L_ESTADO
+            // 
+            this.L_ESTADO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_ESTADO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ESTADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ESTADO.Location = new System.Drawing.Point(2, 2);
+            this.L_ESTADO.Name = "L_ESTADO";
+            this.L_ESTADO.Size = new System.Drawing.Size(225, 24);
+            this.L_ESTADO.TabIndex = 7;
+            this.L_ESTADO.Text = "L_NIVEL";
+            this.L_ESTADO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel30
             // 
             this.panel30.Controls.Add(this.label11);
@@ -958,6 +1078,18 @@
             this.panel31.Size = new System.Drawing.Size(227, 28);
             this.panel31.TabIndex = 7;
             // 
+            // L_ZONA
+            // 
+            this.L_ZONA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_ZONA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_ZONA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_ZONA.Location = new System.Drawing.Point(2, 2);
+            this.L_ZONA.Name = "L_ZONA";
+            this.L_ZONA.Size = new System.Drawing.Size(223, 24);
+            this.L_ZONA.TabIndex = 7;
+            this.L_ZONA.Text = "L_NIVEL";
+            this.L_ZONA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel32
             // 
             this.panel32.Controls.Add(this.label12);
@@ -990,6 +1122,18 @@
             this.panel33.Padding = new System.Windows.Forms.Padding(2);
             this.panel33.Size = new System.Drawing.Size(229, 28);
             this.panel33.TabIndex = 9;
+            // 
+            // L_COD_POSTAL
+            // 
+            this.L_COD_POSTAL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_COD_POSTAL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_COD_POSTAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_COD_POSTAL.Location = new System.Drawing.Point(2, 2);
+            this.L_COD_POSTAL.Name = "L_COD_POSTAL";
+            this.L_COD_POSTAL.Size = new System.Drawing.Size(225, 24);
+            this.L_COD_POSTAL.TabIndex = 7;
+            this.L_COD_POSTAL.Text = "L_NIVEL";
+            this.L_COD_POSTAL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel34
             // 
@@ -1082,6 +1226,18 @@
             this.panel36.Size = new System.Drawing.Size(549, 28);
             this.panel36.TabIndex = 1;
             // 
+            // L_PERSONA
+            // 
+            this.L_PERSONA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_PERSONA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PERSONA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PERSONA.Location = new System.Drawing.Point(2, 2);
+            this.L_PERSONA.Name = "L_PERSONA";
+            this.L_PERSONA.Size = new System.Drawing.Size(545, 24);
+            this.L_PERSONA.TabIndex = 1;
+            this.L_PERSONA.Text = "label28";
+            this.L_PERSONA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel37
             // 
             this.panel37.Controls.Add(this.label14);
@@ -1114,6 +1270,18 @@
             this.panel38.Padding = new System.Windows.Forms.Padding(2);
             this.panel38.Size = new System.Drawing.Size(227, 28);
             this.panel38.TabIndex = 3;
+            // 
+            // L_TELEFONO_1
+            // 
+            this.L_TELEFONO_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_TELEFONO_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_TELEFONO_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_TELEFONO_1.Location = new System.Drawing.Point(2, 2);
+            this.L_TELEFONO_1.Name = "L_TELEFONO_1";
+            this.L_TELEFONO_1.Size = new System.Drawing.Size(223, 24);
+            this.L_TELEFONO_1.TabIndex = 1;
+            this.L_TELEFONO_1.Text = "label28";
+            this.L_TELEFONO_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel39
             // 
@@ -1148,6 +1316,18 @@
             this.panel40.Size = new System.Drawing.Size(229, 28);
             this.panel40.TabIndex = 5;
             // 
+            // L_CELULAR
+            // 
+            this.L_CELULAR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_CELULAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CELULAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CELULAR.Location = new System.Drawing.Point(2, 2);
+            this.L_CELULAR.Name = "L_CELULAR";
+            this.L_CELULAR.Size = new System.Drawing.Size(225, 24);
+            this.L_CELULAR.TabIndex = 1;
+            this.L_CELULAR.Text = "label28";
+            this.L_CELULAR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel41
             // 
             this.panel41.Controls.Add(this.label16);
@@ -1180,6 +1360,18 @@
             this.panel42.Padding = new System.Windows.Forms.Padding(2);
             this.panel42.Size = new System.Drawing.Size(227, 28);
             this.panel42.TabIndex = 7;
+            // 
+            // L_TELEFONO_2
+            // 
+            this.L_TELEFONO_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_TELEFONO_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_TELEFONO_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_TELEFONO_2.Location = new System.Drawing.Point(2, 2);
+            this.L_TELEFONO_2.Name = "L_TELEFONO_2";
+            this.L_TELEFONO_2.Size = new System.Drawing.Size(223, 24);
+            this.L_TELEFONO_2.TabIndex = 1;
+            this.L_TELEFONO_2.Text = "label28";
+            this.L_TELEFONO_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel43
             // 
@@ -1214,6 +1406,18 @@
             this.panel44.Size = new System.Drawing.Size(229, 28);
             this.panel44.TabIndex = 9;
             // 
+            // L_FAX
+            // 
+            this.L_FAX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_FAX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_FAX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_FAX.Location = new System.Drawing.Point(2, 2);
+            this.L_FAX.Name = "L_FAX";
+            this.L_FAX.Size = new System.Drawing.Size(225, 24);
+            this.L_FAX.TabIndex = 1;
+            this.L_FAX.Text = "label28";
+            this.L_FAX.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel45
             // 
             this.panel45.Controls.Add(this.label18);
@@ -1247,6 +1451,18 @@
             this.panel46.Size = new System.Drawing.Size(227, 32);
             this.panel46.TabIndex = 11;
             // 
+            // L_EMAIL
+            // 
+            this.L_EMAIL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_EMAIL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_EMAIL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_EMAIL.Location = new System.Drawing.Point(2, 2);
+            this.L_EMAIL.Name = "L_EMAIL";
+            this.L_EMAIL.Size = new System.Drawing.Size(223, 28);
+            this.L_EMAIL.TabIndex = 1;
+            this.L_EMAIL.Text = "label28";
+            this.L_EMAIL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel47
             // 
             this.panel47.Controls.Add(this.label19);
@@ -1279,6 +1495,18 @@
             this.panel48.Padding = new System.Windows.Forms.Padding(2);
             this.panel48.Size = new System.Drawing.Size(229, 32);
             this.panel48.TabIndex = 13;
+            // 
+            // L_WEBSITE
+            // 
+            this.L_WEBSITE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_WEBSITE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_WEBSITE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_WEBSITE.Location = new System.Drawing.Point(2, 2);
+            this.L_WEBSITE.Name = "L_WEBSITE";
+            this.L_WEBSITE.Size = new System.Drawing.Size(225, 28);
+            this.L_WEBSITE.TabIndex = 1;
+            this.L_WEBSITE.Text = "label28";
+            this.L_WEBSITE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPage2
             // 
@@ -1402,6 +1630,18 @@
             this.panel54.Size = new System.Drawing.Size(227, 28);
             this.panel54.TabIndex = 1;
             // 
+            // L_VENDEDOR
+            // 
+            this.L_VENDEDOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_VENDEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_VENDEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_VENDEDOR.Location = new System.Drawing.Point(2, 2);
+            this.L_VENDEDOR.Name = "L_VENDEDOR";
+            this.L_VENDEDOR.Size = new System.Drawing.Size(223, 24);
+            this.L_VENDEDOR.TabIndex = 1;
+            this.L_VENDEDOR.Text = "label28";
+            this.L_VENDEDOR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel55
             // 
             this.panel55.Controls.Add(this.label21);
@@ -1434,6 +1674,18 @@
             this.panel56.Padding = new System.Windows.Forms.Padding(2);
             this.panel56.Size = new System.Drawing.Size(229, 28);
             this.panel56.TabIndex = 3;
+            // 
+            // L_PRECIO
+            // 
+            this.L_PRECIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_PRECIO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_PRECIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_PRECIO.Location = new System.Drawing.Point(2, 2);
+            this.L_PRECIO.Name = "L_PRECIO";
+            this.L_PRECIO.Size = new System.Drawing.Size(225, 24);
+            this.L_PRECIO.TabIndex = 1;
+            this.L_PRECIO.Text = "label28";
+            this.L_PRECIO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel57
             // 
@@ -1468,6 +1720,18 @@
             this.panel58.Size = new System.Drawing.Size(227, 27);
             this.panel58.TabIndex = 5;
             // 
+            // L_DSCTO
+            // 
+            this.L_DSCTO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_DSCTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DSCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DSCTO.Location = new System.Drawing.Point(2, 2);
+            this.L_DSCTO.Name = "L_DSCTO";
+            this.L_DSCTO.Size = new System.Drawing.Size(223, 23);
+            this.L_DSCTO.TabIndex = 1;
+            this.L_DSCTO.Text = "label28";
+            this.L_DSCTO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel59
             // 
             this.panel59.Controls.Add(this.label23);
@@ -1500,6 +1764,18 @@
             this.panel60.Padding = new System.Windows.Forms.Padding(2);
             this.panel60.Size = new System.Drawing.Size(229, 27);
             this.panel60.TabIndex = 7;
+            // 
+            // L_CARGO
+            // 
+            this.L_CARGO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_CARGO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_CARGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_CARGO.Location = new System.Drawing.Point(2, 2);
+            this.L_CARGO.Name = "L_CARGO";
+            this.L_CARGO.Size = new System.Drawing.Size(225, 23);
+            this.L_CARGO.TabIndex = 1;
+            this.L_CARGO.Text = "label28";
+            this.L_CARGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel51
             // 
@@ -1575,6 +1851,18 @@
             this.panel62.Padding = new System.Windows.Forms.Padding(2);
             this.panel62.Size = new System.Drawing.Size(227, 28);
             this.panel62.TabIndex = 1;
+            // 
+            // L_COBRADOR
+            // 
+            this.L_COBRADOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_COBRADOR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_COBRADOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_COBRADOR.Location = new System.Drawing.Point(2, 2);
+            this.L_COBRADOR.Name = "L_COBRADOR";
+            this.L_COBRADOR.Size = new System.Drawing.Size(223, 24);
+            this.L_COBRADOR.TabIndex = 1;
+            this.L_COBRADOR.Text = "label28";
+            this.L_COBRADOR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel52
             // 
@@ -1691,6 +1979,18 @@
             this.panel66.Size = new System.Drawing.Size(227, 27);
             this.panel66.TabIndex = 3;
             // 
+            // L_DIAS_CREDITO
+            // 
+            this.L_DIAS_CREDITO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_DIAS_CREDITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DIAS_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DIAS_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.L_DIAS_CREDITO.Name = "L_DIAS_CREDITO";
+            this.L_DIAS_CREDITO.Size = new System.Drawing.Size(223, 23);
+            this.L_DIAS_CREDITO.TabIndex = 1;
+            this.L_DIAS_CREDITO.Text = "label28";
+            this.L_DIAS_CREDITO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel67
             // 
             this.panel67.Controls.Add(this.label26);
@@ -1723,6 +2023,18 @@
             this.panel68.Padding = new System.Windows.Forms.Padding(2);
             this.panel68.Size = new System.Drawing.Size(229, 27);
             this.panel68.TabIndex = 5;
+            // 
+            // L_LIMITE_CREDITO
+            // 
+            this.L_LIMITE_CREDITO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.L_LIMITE_CREDITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_LIMITE_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_LIMITE_CREDITO.Location = new System.Drawing.Point(2, 2);
+            this.L_LIMITE_CREDITO.Name = "L_LIMITE_CREDITO";
+            this.L_LIMITE_CREDITO.Size = new System.Drawing.Size(225, 23);
+            this.L_LIMITE_CREDITO.TabIndex = 1;
+            this.L_LIMITE_CREDITO.Text = "label28";
+            this.L_LIMITE_CREDITO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel69
             // 
@@ -1757,318 +2069,6 @@
             this.panel70.Size = new System.Drawing.Size(227, 27);
             this.panel70.TabIndex = 7;
             // 
-            // L_CIRIF
-            // 
-            this.L_CIRIF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_CIRIF.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CIRIF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CIRIF.Location = new System.Drawing.Point(2, 2);
-            this.L_CIRIF.Name = "L_CIRIF";
-            this.L_CIRIF.Size = new System.Drawing.Size(223, 24);
-            this.L_CIRIF.TabIndex = 0;
-            this.L_CIRIF.Text = "label28";
-            this.L_CIRIF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_CODIGO
-            // 
-            this.L_CODIGO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_CODIGO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CODIGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CODIGO.Location = new System.Drawing.Point(2, 2);
-            this.L_CODIGO.Name = "L_CODIGO";
-            this.L_CODIGO.Size = new System.Drawing.Size(225, 24);
-            this.L_CODIGO.TabIndex = 0;
-            this.L_CODIGO.Text = "label29";
-            this.L_CODIGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_RAZON_SOCIAL
-            // 
-            this.L_RAZON_SOCIAL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_RAZON_SOCIAL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_RAZON_SOCIAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_RAZON_SOCIAL.Location = new System.Drawing.Point(2, 2);
-            this.L_RAZON_SOCIAL.Name = "L_RAZON_SOCIAL";
-            this.L_RAZON_SOCIAL.Size = new System.Drawing.Size(545, 41);
-            this.L_RAZON_SOCIAL.TabIndex = 0;
-            this.L_RAZON_SOCIAL.Text = "label30";
-            this.L_RAZON_SOCIAL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_DIR_FISCAL
-            // 
-            this.L_DIR_FISCAL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_DIR_FISCAL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DIR_FISCAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DIR_FISCAL.Location = new System.Drawing.Point(2, 2);
-            this.L_DIR_FISCAL.Name = "L_DIR_FISCAL";
-            this.L_DIR_FISCAL.Size = new System.Drawing.Size(545, 51);
-            this.L_DIR_FISCAL.TabIndex = 0;
-            this.L_DIR_FISCAL.Text = "label31";
-            this.L_DIR_FISCAL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_GRUPO
-            // 
-            this.L_GRUPO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_GRUPO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_GRUPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_GRUPO.Location = new System.Drawing.Point(2, 2);
-            this.L_GRUPO.Name = "L_GRUPO";
-            this.L_GRUPO.Size = new System.Drawing.Size(223, 24);
-            this.L_GRUPO.TabIndex = 1;
-            this.L_GRUPO.Text = "L_GRUPO";
-            this.L_GRUPO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_CATEGORIA
-            // 
-            this.L_CATEGORIA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_CATEGORIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CATEGORIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CATEGORIA.Location = new System.Drawing.Point(2, 2);
-            this.L_CATEGORIA.Name = "L_CATEGORIA";
-            this.L_CATEGORIA.Size = new System.Drawing.Size(225, 24);
-            this.L_CATEGORIA.TabIndex = 1;
-            this.L_CATEGORIA.Text = "L_CATEGORIA";
-            this.L_CATEGORIA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_NIVEL
-            // 
-            this.L_NIVEL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_NIVEL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_NIVEL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_NIVEL.Location = new System.Drawing.Point(94, 30);
-            this.L_NIVEL.Name = "L_NIVEL";
-            this.L_NIVEL.Size = new System.Drawing.Size(223, 30);
-            this.L_NIVEL.TabIndex = 6;
-            this.L_NIVEL.Text = "L_NIVEL";
-            this.L_NIVEL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_DIR_DESPACHO
-            // 
-            this.L_DIR_DESPACHO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_DIR_DESPACHO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DIR_DESPACHO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DIR_DESPACHO.Location = new System.Drawing.Point(2, 2);
-            this.L_DIR_DESPACHO.Name = "L_DIR_DESPACHO";
-            this.L_DIR_DESPACHO.Size = new System.Drawing.Size(545, 41);
-            this.L_DIR_DESPACHO.TabIndex = 1;
-            this.L_DIR_DESPACHO.Text = "label31";
-            this.L_DIR_DESPACHO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_PAIS
-            // 
-            this.L_PAIS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_PAIS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_PAIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PAIS.Location = new System.Drawing.Point(2, 2);
-            this.L_PAIS.Name = "L_PAIS";
-            this.L_PAIS.Size = new System.Drawing.Size(223, 24);
-            this.L_PAIS.TabIndex = 7;
-            this.L_PAIS.Text = "L_NIVEL";
-            this.L_PAIS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_ESTADO
-            // 
-            this.L_ESTADO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_ESTADO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ESTADO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ESTADO.Location = new System.Drawing.Point(2, 2);
-            this.L_ESTADO.Name = "L_ESTADO";
-            this.L_ESTADO.Size = new System.Drawing.Size(225, 24);
-            this.L_ESTADO.TabIndex = 7;
-            this.L_ESTADO.Text = "L_NIVEL";
-            this.L_ESTADO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_ZONA
-            // 
-            this.L_ZONA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_ZONA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_ZONA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_ZONA.Location = new System.Drawing.Point(2, 2);
-            this.L_ZONA.Name = "L_ZONA";
-            this.L_ZONA.Size = new System.Drawing.Size(223, 24);
-            this.L_ZONA.TabIndex = 7;
-            this.L_ZONA.Text = "L_NIVEL";
-            this.L_ZONA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_COD_POSTAL
-            // 
-            this.L_COD_POSTAL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_COD_POSTAL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_COD_POSTAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_COD_POSTAL.Location = new System.Drawing.Point(2, 2);
-            this.L_COD_POSTAL.Name = "L_COD_POSTAL";
-            this.L_COD_POSTAL.Size = new System.Drawing.Size(225, 24);
-            this.L_COD_POSTAL.TabIndex = 7;
-            this.L_COD_POSTAL.Text = "L_NIVEL";
-            this.L_COD_POSTAL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_PERSONA
-            // 
-            this.L_PERSONA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_PERSONA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_PERSONA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PERSONA.Location = new System.Drawing.Point(2, 2);
-            this.L_PERSONA.Name = "L_PERSONA";
-            this.L_PERSONA.Size = new System.Drawing.Size(545, 24);
-            this.L_PERSONA.TabIndex = 1;
-            this.L_PERSONA.Text = "label28";
-            this.L_PERSONA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_TELEFONO_1
-            // 
-            this.L_TELEFONO_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_TELEFONO_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_TELEFONO_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_TELEFONO_1.Location = new System.Drawing.Point(2, 2);
-            this.L_TELEFONO_1.Name = "L_TELEFONO_1";
-            this.L_TELEFONO_1.Size = new System.Drawing.Size(223, 24);
-            this.L_TELEFONO_1.TabIndex = 1;
-            this.L_TELEFONO_1.Text = "label28";
-            this.L_TELEFONO_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_CELULAR
-            // 
-            this.L_CELULAR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_CELULAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CELULAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CELULAR.Location = new System.Drawing.Point(2, 2);
-            this.L_CELULAR.Name = "L_CELULAR";
-            this.L_CELULAR.Size = new System.Drawing.Size(225, 24);
-            this.L_CELULAR.TabIndex = 1;
-            this.L_CELULAR.Text = "label28";
-            this.L_CELULAR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_TELEFONO_2
-            // 
-            this.L_TELEFONO_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_TELEFONO_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_TELEFONO_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_TELEFONO_2.Location = new System.Drawing.Point(2, 2);
-            this.L_TELEFONO_2.Name = "L_TELEFONO_2";
-            this.L_TELEFONO_2.Size = new System.Drawing.Size(223, 24);
-            this.L_TELEFONO_2.TabIndex = 1;
-            this.L_TELEFONO_2.Text = "label28";
-            this.L_TELEFONO_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_FAX
-            // 
-            this.L_FAX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_FAX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_FAX.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_FAX.Location = new System.Drawing.Point(2, 2);
-            this.L_FAX.Name = "L_FAX";
-            this.L_FAX.Size = new System.Drawing.Size(225, 24);
-            this.L_FAX.TabIndex = 1;
-            this.L_FAX.Text = "label28";
-            this.L_FAX.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_EMAIL
-            // 
-            this.L_EMAIL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_EMAIL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_EMAIL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_EMAIL.Location = new System.Drawing.Point(2, 2);
-            this.L_EMAIL.Name = "L_EMAIL";
-            this.L_EMAIL.Size = new System.Drawing.Size(223, 28);
-            this.L_EMAIL.TabIndex = 1;
-            this.L_EMAIL.Text = "label28";
-            this.L_EMAIL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_WEBSITE
-            // 
-            this.L_WEBSITE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_WEBSITE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_WEBSITE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_WEBSITE.Location = new System.Drawing.Point(2, 2);
-            this.L_WEBSITE.Name = "L_WEBSITE";
-            this.L_WEBSITE.Size = new System.Drawing.Size(225, 28);
-            this.L_WEBSITE.TabIndex = 1;
-            this.L_WEBSITE.Text = "label28";
-            this.L_WEBSITE.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_VENDEDOR
-            // 
-            this.L_VENDEDOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_VENDEDOR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_VENDEDOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_VENDEDOR.Location = new System.Drawing.Point(2, 2);
-            this.L_VENDEDOR.Name = "L_VENDEDOR";
-            this.L_VENDEDOR.Size = new System.Drawing.Size(223, 24);
-            this.L_VENDEDOR.TabIndex = 1;
-            this.L_VENDEDOR.Text = "label28";
-            this.L_VENDEDOR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_PRECIO
-            // 
-            this.L_PRECIO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_PRECIO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_PRECIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PRECIO.Location = new System.Drawing.Point(2, 2);
-            this.L_PRECIO.Name = "L_PRECIO";
-            this.L_PRECIO.Size = new System.Drawing.Size(225, 24);
-            this.L_PRECIO.TabIndex = 1;
-            this.L_PRECIO.Text = "label28";
-            this.L_PRECIO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_DSCTO
-            // 
-            this.L_DSCTO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_DSCTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DSCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DSCTO.Location = new System.Drawing.Point(2, 2);
-            this.L_DSCTO.Name = "L_DSCTO";
-            this.L_DSCTO.Size = new System.Drawing.Size(223, 23);
-            this.L_DSCTO.TabIndex = 1;
-            this.L_DSCTO.Text = "label28";
-            this.L_DSCTO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_CARGO
-            // 
-            this.L_CARGO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_CARGO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_CARGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_CARGO.Location = new System.Drawing.Point(2, 2);
-            this.L_CARGO.Name = "L_CARGO";
-            this.L_CARGO.Size = new System.Drawing.Size(225, 23);
-            this.L_CARGO.TabIndex = 1;
-            this.L_CARGO.Text = "label28";
-            this.L_CARGO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_COBRADOR
-            // 
-            this.L_COBRADOR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_COBRADOR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_COBRADOR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_COBRADOR.Location = new System.Drawing.Point(2, 2);
-            this.L_COBRADOR.Name = "L_COBRADOR";
-            this.L_COBRADOR.Size = new System.Drawing.Size(223, 24);
-            this.L_COBRADOR.TabIndex = 1;
-            this.L_COBRADOR.Text = "label28";
-            this.L_COBRADOR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_DIAS_CREDITO
-            // 
-            this.L_DIAS_CREDITO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_DIAS_CREDITO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_DIAS_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_DIAS_CREDITO.Location = new System.Drawing.Point(2, 2);
-            this.L_DIAS_CREDITO.Name = "L_DIAS_CREDITO";
-            this.L_DIAS_CREDITO.Size = new System.Drawing.Size(223, 23);
-            this.L_DIAS_CREDITO.TabIndex = 1;
-            this.L_DIAS_CREDITO.Text = "label28";
-            this.L_DIAS_CREDITO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // L_LIMITE_CREDITO
-            // 
-            this.L_LIMITE_CREDITO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.L_LIMITE_CREDITO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.L_LIMITE_CREDITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_LIMITE_CREDITO.Location = new System.Drawing.Point(2, 2);
-            this.L_LIMITE_CREDITO.Name = "L_LIMITE_CREDITO";
-            this.L_LIMITE_CREDITO.Size = new System.Drawing.Size(225, 23);
-            this.L_LIMITE_CREDITO.TabIndex = 1;
-            this.L_LIMITE_CREDITO.Text = "label28";
-            this.L_LIMITE_CREDITO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // L_LIMITE_DOC
             // 
             this.L_LIMITE_DOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -2091,6 +2091,7 @@
             this.KeyPreview = true;
             this.Name = "VisualizaFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AgregarEditarFrm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

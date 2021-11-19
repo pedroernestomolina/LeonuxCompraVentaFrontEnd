@@ -21,6 +21,7 @@ namespace ModInventario.Configuracion.RedondeoPrecio
         public bool IsOk { get { return _isOk; } }
         public data Redondeo { get { return _redondeo; } }
         public BindingSource Source { get { return _bs; } }
+        public string OpcionRedondeo { get { return _redondeo.auto; } }
 
 
         public Gestion()
@@ -68,15 +69,15 @@ namespace ModInventario.Configuracion.RedondeoPrecio
             _ldata.Add(new data("2", "Unidad"));
             _ldata.Add(new data("3", "Decena"));
             
-            switch (r01.Entidad.ToString().ToUpper()) 
+            switch (r01.Entidad) 
             {
-                case "SIN REDONDEO":
+                case  OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.SinRedeondeo :
                     _redondeo = _ldata.FirstOrDefault(f => f.auto == "1");
                     break;
-                case "UNIDAD":
+                case OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Unidad :
                     _redondeo = _ldata.FirstOrDefault(f => f.auto == "2");
                     break;
-                case "DECENA":
+                case  OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta.Decena:
                     _redondeo = _ldata.FirstOrDefault(f => f.auto == "3");
                     break;
             }

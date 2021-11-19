@@ -114,6 +114,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
             DGV.DataSource = _controlador.Source;
+            L_ITEMS_CNT.Text = _controlador.ItemsCnt.ToString(); ;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -134,6 +135,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         private void Buscar()
         {
             _controlador.Buscar();
+            L_ITEMS_CNT.Text = _controlador.ItemsCnt.ToString(); ;
         }
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
@@ -168,6 +170,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             _controlador.Limpiar();
             DTP_DESDE.Value = _controlador.Desde;
             DTP_HASTA.Value = _controlador.Hasta;
+            L_ITEMS_CNT.Text = _controlador.ItemsCnt.ToString(); ;
         }
 
         private void BT_IMPRIMIR_Click(object sender, EventArgs e)
@@ -177,7 +180,24 @@ namespace ModVentaAdm.Src.Cliente.Documentos
 
         private void Imprimir()
         {
+            this.TopMost = false;
             _controlador.Imprimir();
+            this.TopMost = true;
+        }
+
+        private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1)
+            {
+                VisualizarDocumento();
+            }
+        }
+
+        private void VisualizarDocumento()
+        {
+            this.TopMost = false;
+            _controlador.VisualizarDocumento();
+            this.TopMost = true;
         }
 
     }

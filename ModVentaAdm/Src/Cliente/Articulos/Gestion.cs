@@ -25,6 +25,7 @@ namespace ModVentaAdm.Src.Cliente.Articulos
         public BindingSource Source { get { return _bs; } }
         public DateTime Desde { get { return _filtro.desde; } }
         public DateTime Hasta { get { return _filtro.hasta; } }
+        public int ItemsCnt { get { return _ldata.Count; } }
 
 
         public Gestion()
@@ -50,6 +51,12 @@ namespace ModVentaAdm.Src.Cliente.Articulos
             _autoCliente = Item.Id;
         }
 
+        public void setCliente(OOB.Maestro.Cliente.Entidad.Ficha ficha)
+        {
+            _autoCliente = "";
+            _cliente = ficha;
+            _filtro.setCliente(_cliente);
+        }
 
         CompraArticulosFrm frm;
         public void Inicia()
@@ -69,14 +76,17 @@ namespace ModVentaAdm.Src.Cliente.Articulos
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Cliente_GetFicha(_autoCliente);
-            if (r01.Result ==  OOB.Resultado.Enumerados.EnumResult.isError) 
+            if (_autoCliente != "")
             {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
+                var r01 = Sistema.MyData.Cliente_GetFicha(_autoCliente);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return false;
+                }
+                _cliente = r01.Entidad;
+                _filtro.setCliente(_cliente);
             }
-            _cliente= r01.Entidad;
-            _filtro.setCliente(r01.Entidad);
 
             return rt;
         }
@@ -107,14 +117,19 @@ namespace ModVentaAdm.Src.Cliente.Articulos
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
-                _ldata.Clear();
-                foreach(var it in r01.ListaD)
-                {
-                    var nr = new data(it);
-                    _ldata.Add(nr);
-                }
-                _bs.CurrencyManager.Refresh();
+                setLista(r01.ListaD);
             }
+        }
+
+        public void setLista(List<OOB.Maestro.Cliente.Articulos.Ficha> list)
+        {
+            _ldata.Clear();
+            foreach (var it in list)
+            {
+                var nr = new data(it);
+                _ldata.Add(nr);
+            }
+            _bs.CurrencyManager.Refresh();
         }
 
         public void Limpiar()

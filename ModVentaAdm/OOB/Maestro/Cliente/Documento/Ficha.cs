@@ -11,6 +11,7 @@ namespace ModVentaAdm.OOB.Maestro.Cliente.Documento
     public class Ficha
     {
 
+        public string id { get; set; }
         public DateTime fecha { get; set; }
         public string documento { get; set; }
         public decimal monto { get; set; }

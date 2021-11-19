@@ -31,7 +31,8 @@ namespace ModInventario.Configuracion.RedondeoPrecio
         {
             CB_OPCIONES.DataSource = _controlador.Source;
             isIniciar = true;
-            CB_OPCIONES.SelectedValue = _controlador.Redondeo.auto;
+            //CB_OPCIONES.SelectedValue = _controlador.Redondeo.auto;
+            CB_OPCIONES.SelectedValue = _controlador.OpcionRedondeo;
             isIniciar = false;
         }
 

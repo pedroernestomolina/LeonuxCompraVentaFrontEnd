@@ -102,6 +102,7 @@
     <Compile Include="Data\Prov\Usuario.cs" />
     <Compile Include="Gestion.cs" />
     <Compile Include="Helpers\Imprimir\data.cs" />
+    <Compile Include="Helpers\Imprimir\Documento.cs" />
     <Compile Include="Helpers\Imprimir\Grafico\Documento.cs" />
     <Compile Include="Helpers\Imprimir\Grafico\ds1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -175,9 +176,11 @@
     <Compile Include="OOB\Resultado\FichaId.cs" />
     <Compile Include="OOB\Resultado\Lista.cs" />
     <Compile Include="OOB\Sistema\Cobrador\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Deposito\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Empresa\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Estado\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Transporte\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Vendedor\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
@@ -235,6 +238,11 @@
     <Compile Include="Src\Cliente\Articulos\data.cs" />
     <Compile Include="Src\Cliente\Articulos\Filtro.cs" />
     <Compile Include="Src\Cliente\Articulos\Gestion.cs" />
+    <Compile Include="Src\Cliente\Buscar\Busqueda\dataFiltro.cs" />
+    <Compile Include="Src\Cliente\Buscar\Busqueda\Enumerados.cs" />
+    <Compile Include="Src\Cliente\Buscar\Busqueda\Gestion.cs" />
+    <Compile Include="Src\Cliente\Buscar\Items\data.cs" />
+    <Compile Include="Src\Cliente\Buscar\Items\Gestion.cs" />
     <Compile Include="Src\Cliente\Documentos\data.cs" />
     <Compile Include="Src\Cliente\Documentos\DocumentosFrm.cs">
       <SubType>Form</SubType>
@@ -266,6 +274,39 @@
     <Compile Include="Src\Cliente\Visualizar\VisualizaFrm.Designer.cs">
       <DependentUpon>VisualizaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Documentos\Generar\BuscarCliente\BuscarClienteFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\BuscarCliente\BuscarClienteFrm.Designer.cs">
+      <DependentUpon>BuscarClienteFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\BuscarCliente\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\DatosDocumento\data.cs" />
+    <Compile Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.Designer.cs">
+      <DependentUpon>DatosDocFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\DatosDocumento\ficha.cs" />
+    <Compile Include="Src\Documentos\Generar\DatosDocumento\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\DocGenerarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\DocGenerarFrm.Designer.cs">
+      <DependentUpon>DocGenerarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\Factura\datosDoc.cs" />
+    <Compile Include="Src\Documentos\Generar\Factura\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\IDatosDocumento.cs" />
+    <Compile Include="Src\Documentos\Generar\IDocGestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Items\data.cs" />
+    <Compile Include="Src\Documentos\Generar\Items\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Pedido\datosDoc.cs" />
+    <Compile Include="Src\Documentos\Generar\Pedido\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Presupuesto\datosDoc.cs" />
+    <Compile Include="Src\Documentos\Generar\Presupuesto\Gestion.cs" />
     <Compile Include="Src\Filtro\data.cs" />
     <Compile Include="Src\Filtro\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
@@ -411,6 +452,15 @@
     <EmbeddedResource Include="Src\Cliente\Visualizar\VisualizaFrm.resx">
       <DependentUpon>VisualizaFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\BuscarCliente\BuscarClienteFrm.resx">
+      <DependentUpon>BuscarClienteFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.resx">
+      <DependentUpon>DatosDocFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\DocGenerarFrm.resx">
+      <DependentUpon>DocGenerarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Identificacion\IdentificacionFrm.resx">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,6 +573,18 @@
     <None Include="Resources\images.jpg" />
     <None Include="Resources\images %281%29.jpg" />
     <None Include="Resources\bt_status.png" />
+    <None Include="Resources\bt_info.png" />
+    <None Include="Resources\bt_abrir_doc.png" />
+    <None Include="Resources\bt_new_doc.png" />
+    <None Include="Resources\bt_info_cliente.png" />
+    <None Include="Resources\bt_compra.png" />
+    <None Include="Resources\bt_doc_pend.png" />
+    <Content Include="Src\Imagenes\bt_abrir_doc.png" />
+    <Content Include="Src\Imagenes\bt_compra.png" />
+    <Content Include="Src\Imagenes\bt_doc_pend.png" />
+    <Content Include="Src\Imagenes\bt_info.png" />
+    <Content Include="Src\Imagenes\bt_info_cliente.png" />
+    <Content Include="Src\Imagenes\bt_new_doc.png" />
     <Content Include="Src\Imagenes\images %281%29.jpg" />
     <Content Include="Src\Imagenes\images.jpg" />
     <EmbeddedResource Include="Src\Imagenes\administracion-compras-logistica.jpg" />
@@ -599,6 +661,12 @@
     <EmbeddedResource Include="Src\Imagenes\TOOLS.ico" />
     <EmbeddedResource Include="Src\Imagenes\transferencia.png" />
     <EmbeddedResource Include="Src\Imagenes\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibControles\LibControles.csproj">
+      <Project>{1ED1D146-C74F-41D5-92FD-2F651C40698E}</Project>
+      <Name>LibControles</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

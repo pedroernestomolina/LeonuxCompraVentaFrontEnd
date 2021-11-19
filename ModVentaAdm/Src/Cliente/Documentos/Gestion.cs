@@ -20,12 +20,14 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         private BindingSource _bs;
         private Filtro _filtro;
         private List<data> _ldata;
+        private Helpers.Imprimir.IDocumento _gestionVisualizarDoc;
 
 
         public string Cliente { get { return _cliente.ciRif+Environment.NewLine+_cliente.razonSocial; } }
         public BindingSource Source { get { return _bs; } }
         public DateTime Desde { get { return _filtro.desde; } }
         public DateTime Hasta { get { return _filtro.hasta; } }
+        public int ItemsCnt { get { return _ldata.Count; } }
 
 
         public Gestion()
@@ -35,6 +37,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             _ldata= new List<data>();
             _bs = new BindingSource();
             _bs.DataSource = _ldata;
+            _gestionVisualizarDoc = new Helpers.Imprimir.Grafico.Documento();
         }
 
 
@@ -48,6 +51,12 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         public void setCliente(Administrador.data Item)
         {
             _autoCli = Item.Id;
+        }
+
+        public void setCliente(OOB.Maestro.Cliente.Entidad.Ficha ficha)
+        {
+            _cliente = ficha;
+            _autoCli = "";
         }
 
         DocumentosFrm frm;
@@ -68,13 +77,16 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         {
             var rt = true;
 
-            var r01 = Sistema.MyData.Cliente_GetFicha (_autoCli);
-            if (r01.Result ==  OOB.Resultado.Enumerados.EnumResult.isError)
+            if (_autoCli != "")
             {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
+                var r01 = Sistema.MyData.Cliente_GetFicha(_autoCli);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return false;
+                }
+                _cliente = r01.Entidad;
             }
-            _cliente = r01.Entidad;
             _filtro.setCliente(_cliente.id);
 
             return rt;
@@ -106,13 +118,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
-                _ldata.Clear();
-                foreach(var it in r01.ListaD)
-                {
-                    var nr = new data(it);
-                    _ldata.Add(nr);
-                }
-                _bs.CurrencyManager.Refresh();
+                setLista(r01.ListaD);
             }
         }
 
@@ -153,6 +159,31 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             frp.prmts = pmt;
             frp.Path = pt;
             frp.ShowDialog();
+        }
+
+        public void setLista(List<OOB.Maestro.Cliente.Documento.Ficha> list)
+        {
+            _ldata.Clear();
+            foreach (var it in list)
+            {
+                var nr = new data(it);
+                _ldata.Add(nr);
+            }
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void VisualizarDocumento()
+        {
+            if (_bs.Current != null) 
+            {
+                var it = (data)_bs.Current;
+                var r01 = Helpers.Imprimir.Documento.CargarDataDocumento(it.id);
+                if (r01 != null)
+                {
+                    _gestionVisualizarDoc.setData(r01);
+                    _gestionVisualizarDoc.ImprimirDoc();
+                }
+            }
         }
 
     }

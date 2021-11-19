@@ -18,6 +18,10 @@ namespace ModVentaAdm.Src.Principal
         private Maestros.Gestion _gestionMaestro;
         private Cliente.Administrador.Gestion _gestionAdmCliente;
         private ReportesCliente.Gestion _gestionRepCli;
+        private Documentos.Generar.Gestion _gestionGenDoc;
+        private Documentos.Generar.Presupuesto.Gestion _gestionPresup;
+        private Documentos.Generar.Factura.Gestion _gestionFact;
+        private Documentos.Generar.Pedido.Gestion _gestionPedido;
 
 
         public string BD_Ruta { get { return Sistema.Instancia; } }
@@ -34,6 +38,7 @@ namespace ModVentaAdm.Src.Principal
             _gestionMaestro = new Maestros.Gestion();
             _gestionAdmCliente = new Cliente.Administrador.Gestion();
             _gestionRepCli = new ReportesCliente.Gestion();
+            _gestionGenDoc = new Documentos.Generar.Gestion();
         }
 
 
@@ -197,6 +202,40 @@ namespace ModVentaAdm.Src.Principal
                 _gestionRepCli.Inicializa();
                 _gestionRepCli.Inicia();
             }
+        }
+
+        public void GenerarPresupuesto()
+        {
+            if (_gestionPresup == null)
+            {
+                _gestionPresup = new Documentos.Generar.Presupuesto.Gestion();
+            }
+            GenerarDoc(_gestionPresup);
+        }
+
+        public void GenerarFactura()
+        {
+            if (_gestionFact == null)
+            {
+                _gestionFact = new Documentos.Generar.Factura.Gestion();
+            }
+            GenerarDoc(_gestionFact);
+        }
+
+        private void GenerarDoc(Documentos.Generar.IDocGestion _doc)
+        {
+            _gestionGenDoc.setDocGestion(_doc);
+            _gestionGenDoc.Inicializa();
+            _gestionGenDoc.Inicia();
+        }
+
+        public void GenerarPedido()
+        {
+            if (_gestionPedido== null)
+            {
+                _gestionPedido= new Documentos.Generar.Pedido.Gestion();
+            }
+            GenerarDoc(_gestionPedido);
         }
 
     }

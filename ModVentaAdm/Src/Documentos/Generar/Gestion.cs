@@ -15,14 +15,19 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
         private IDocGestion _docGestion;
         private DatosDocumento.Gestion _datosDocGestion;
+        private BuscarProducto.Gestion _busqProducto;
         private Cliente.Visualizar.Gestion _visualCliente;
         private Cliente.Documentos.Gestion _visualClienteDoc;
         private Cliente.Articulos.Gestion _visualClienteArticulos;
+        private AgregarEditarItem.Gestion _agregarEditarItem;
         private Items.Gestion _items;
+        private enumerados.BusqPrd _prefBusqPrd;
 
 
         public string TipoDocumento { get { return _docGestion.TipoDocumento; } }
         public bool AbandonarDocIsOk { get { return _docGestion.AbandonarDocIsOk; } }
+        public string CntItem { get { return _items.CntItem.ToString(); } }
+        public decimal TasaDivisa { get { return _docGestion.TasaDivisa; } }
         public string Monto { get { return "Bs "+_items.MontoTotal.ToString("n2"); } }
         public string MontoDivisa { get { return "$ " + _items.MontoTotalDivisa.ToString("n2"); } }
         public string MontoNeto { get { return "Bs "+_items.MontoNeto.ToString("n2"); } }
@@ -31,39 +36,82 @@ namespace ModVentaAdm.Src.Documentos.Generar
         public string CodigoCliente { get { return _datosDocGestion.ClienteCodigo; } }
         public string Cliente { get { return _datosDocGestion.ClienteRazonSocialDireccion; } }
         public BindingSource ItemsSource { get { return _items.ItemsSource; } }
+        public enumerados.BusqPrd PrefBusqProducto { get { return _prefBusqPrd; } }
+        public string DatosDoc_Fecha { get { return _datosDocGestion.DataFecha;} }
+        public string DatosDoc_CondPago { get { return _datosDocGestion.DataCondPago; } }
+        public string DatosDoc_Deposito { get { return _datosDocGestion.DataDeposito ; } }
+        public string DatosDoc_FechaVence { get { return _datosDocGestion.DataFechaVence; } }
+        public string DatosDoc_OrdenCompra { get { return _datosDocGestion.DataOrdenCompra; } }
+        public string DatosDoc_Pedido { get { return _datosDocGestion.DataPedido; } }
+        public string DatosDoc_Serie { get { return ""; } }
+        public string DatosDoc_Sucursal { get { return _datosDocGestion.DataSucursal; } }
         
 
         public Gestion() 
         {
             _items = new Items.Gestion();
+            _prefBusqPrd = enumerados.BusqPrd.SnDefinir ;
             _datosDocGestion = new DatosDocumento.Gestion();
             _visualCliente = new Cliente.Visualizar.Gestion();
             _visualClienteDoc = new Cliente.Documentos.Gestion();
             _visualClienteArticulos = new Cliente.Articulos.Gestion();
+            _busqProducto = new BuscarProducto.Gestion();
+            _agregarEditarItem = new AgregarEditarItem.Gestion();
         }
 
 
         public void Inicializa() 
         {
+            _prefBusqPrd = enumerados.BusqPrd.SnDefinir;
             _datosDocGestion.Inicializa();
             _docGestion.Inicializa();
             _items.Inicializa();
+            _busqProducto.Inicializa();
         }
 
         private DocGenerarFrm _frm;
         public void Inicia() 
         {
-            if (_docGestion.CargarData()) 
+            if (CargarData())
             {
-                _items.setDivisa(_docGestion.TasaDivisa);
-
-                if (_frm == null) 
+                if (_docGestion.CargarData())
                 {
-                    _frm = new DocGenerarFrm();
-                    _frm.setControlador(this);
+                    _items.setDivisa(TasaDivisa);
+
+                    if (_frm == null)
+                    {
+                        _frm = new DocGenerarFrm();
+                        _frm.setControlador(this);
+                    }
+                    _frm.ShowDialog();
                 }
-                _frm.ShowDialog();
             }
+        }
+
+        private bool CargarData()
+        {
+            var r01 = Sistema.MyData.Configuracion_BusquedaPreferenciaProducto();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            _prefBusqPrd = (enumerados.BusqPrd)r01.Entidad;
+            switch (_prefBusqPrd)
+            {
+                case enumerados.BusqPrd.Codigo:
+                    ActivarBusPorCodigo();
+                    break;
+                case enumerados.BusqPrd.Nombre:
+                    ActivarBusPorDescripcion();
+                    break;
+                case enumerados.BusqPrd.Referencia:
+                    ActivarBusPorReferencia();
+                    break;
+            }
+
+            return true;
         }
 
         public void setDocGestion(IDocGestion doc)
@@ -191,6 +239,57 @@ namespace ModVentaAdm.Src.Documentos.Generar
         public void EliminarItem()
         {
             _items.EliminarItem();
+        }
+
+        public void setCadenaBusqProducto(string cad)
+        {
+            _busqProducto.setCadenaBusq(cad);
+        }
+
+        public void BusqProducto()
+        {
+            if (!_datosDocGestion.AceptarDatosIsOK)
+            {
+                Helpers.Msg.Alerta("DEBES PRIMERO HACER CLICK EN NUEVO DOCUMENTO");
+                return;
+            }
+            _busqProducto.setDepositoBuscar(_datosDocGestion.DataIdDeposito);
+            _busqProducto.setActivarSeleccionItem(true);
+            _busqProducto.setFactorCambio(TasaDivisa);
+            _busqProducto.Buscar();
+            if (_busqProducto.ItemSeleccionadoIsOk) 
+            {
+                CapturarDataItem(_busqProducto.ItemSeleccionado.Id);
+            }
+        }
+
+        private void CapturarDataItem(string id)
+        {
+            var r01 = Sistema.MyData.Producto_GetFichaById(id);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            
+            _agregarEditarItem.Inicializa();
+            _agregarEditarItem.setAgregar(r01.Entidad);
+            _agregarEditarItem.Inicia();
+        }
+
+        public void ActivarBusPorCodigo()
+        {
+            _busqProducto.ActivarBusPorCodigo();
+        }
+
+        public void ActivarBusPorDescripcion()
+        {
+            _busqProducto.ActivarBusPorDescripcion();
+        }
+
+        public void ActivarBusPorReferencia()
+        {
+            _busqProducto.ActivarBusPorReferencia();
         }
 
     }

@@ -49,9 +49,10 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.BT_BUSCAR = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.BT_LIMPIAR = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.BT_FILTRAR = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BT_LIMPIAR = new System.Windows.Forms.Button();
             this.P_DATA = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.P_DATA_CONTEO_ITEM = new System.Windows.Forms.Panel();
@@ -59,6 +60,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.P_DATA_CONTENIDO = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
+            this.BT_AGREGAR = new System.Windows.Forms.Button();
             this.P_PRINCIPAL.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.P_BUSQUEDA.SuspendLayout();
@@ -73,6 +75,7 @@
             this.panel17.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.P_DATA.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.P_DATA_CONTEO_ITEM.SuspendLayout();
@@ -294,12 +297,14 @@
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.Controls.Add(this.panel17, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.panel16, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel15, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(1);
@@ -312,7 +317,7 @@
             // 
             // panel17
             // 
-            this.tableLayoutPanel6.SetColumnSpan(this.panel17, 2);
+            this.tableLayoutPanel6.SetColumnSpan(this.panel17, 3);
             this.panel17.Controls.Add(this.BT_BUSCAR);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel17.Location = new System.Drawing.Point(1, 40);
@@ -336,29 +341,14 @@
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.BT_LIMPIAR);
+            this.panel16.Controls.Add(this.BT_AGREGAR);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(39, 1);
+            this.panel16.Location = new System.Drawing.Point(26, 1);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(36, 37);
+            this.panel16.Size = new System.Drawing.Size(23, 37);
             this.panel16.TabIndex = 1;
-            // 
-            // BT_LIMPIAR
-            // 
-            this.BT_LIMPIAR.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_limpiar_3;
-            this.BT_LIMPIAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_LIMPIAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_LIMPIAR.FlatAppearance.BorderSize = 0;
-            this.BT_LIMPIAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_LIMPIAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_LIMPIAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_LIMPIAR.Name = "BT_LIMPIAR";
-            this.BT_LIMPIAR.Size = new System.Drawing.Size(32, 33);
-            this.BT_LIMPIAR.TabIndex = 2;
-            this.BT_LIMPIAR.UseVisualStyleBackColor = true;
-            this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
             // 
             // panel15
             // 
@@ -368,7 +358,7 @@
             this.panel15.Margin = new System.Windows.Forms.Padding(1);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(2);
-            this.panel15.Size = new System.Drawing.Size(36, 37);
+            this.panel15.Size = new System.Drawing.Size(23, 37);
             this.panel15.TabIndex = 1;
             // 
             // BT_FILTRAR
@@ -381,9 +371,35 @@
             this.BT_FILTRAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_FILTRAR.Location = new System.Drawing.Point(2, 2);
             this.BT_FILTRAR.Name = "BT_FILTRAR";
-            this.BT_FILTRAR.Size = new System.Drawing.Size(32, 33);
+            this.BT_FILTRAR.Size = new System.Drawing.Size(19, 33);
             this.BT_FILTRAR.TabIndex = 1;
             this.BT_FILTRAR.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BT_LIMPIAR);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(51, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(1);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(2);
+            this.panel1.Size = new System.Drawing.Size(24, 37);
+            this.panel1.TabIndex = 2;
+            // 
+            // BT_LIMPIAR
+            // 
+            this.BT_LIMPIAR.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_limpiar_3;
+            this.BT_LIMPIAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_LIMPIAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LIMPIAR.FlatAppearance.BorderSize = 0;
+            this.BT_LIMPIAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_LIMPIAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_LIMPIAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_LIMPIAR.Name = "BT_LIMPIAR";
+            this.BT_LIMPIAR.Size = new System.Drawing.Size(20, 33);
+            this.BT_LIMPIAR.TabIndex = 3;
+            this.BT_LIMPIAR.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
             // 
             // P_DATA
             // 
@@ -469,6 +485,21 @@
             this.DGV.TabIndex = 0;
             this.DGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellDoubleClick);
             // 
+            // BT_AGREGAR
+            // 
+            this.BT_AGREGAR.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_new_doc;
+            this.BT_AGREGAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_AGREGAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_AGREGAR.FlatAppearance.BorderSize = 0;
+            this.BT_AGREGAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_AGREGAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_AGREGAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_AGREGAR.Name = "BT_AGREGAR";
+            this.BT_AGREGAR.Size = new System.Drawing.Size(19, 33);
+            this.BT_AGREGAR.TabIndex = 2;
+            this.BT_AGREGAR.UseVisualStyleBackColor = true;
+            this.BT_AGREGAR.Click += new System.EventHandler(this.BT_AGREGAR_Click);
+            // 
             // BuscarClienteFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,6 +527,7 @@
             this.panel17.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.P_DATA.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.P_DATA_CONTEO_ITEM.ResumeLayout(false);
@@ -528,7 +560,6 @@
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button BT_BUSCAR;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button BT_LIMPIAR;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button BT_FILTRAR;
         private System.Windows.Forms.Panel P_DATA;
@@ -538,5 +569,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel P_DATA_CONTENIDO;
         private System.Windows.Forms.DataGridView DGV;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button BT_LIMPIAR;
+        private System.Windows.Forms.Button BT_AGREGAR;
     }
 }

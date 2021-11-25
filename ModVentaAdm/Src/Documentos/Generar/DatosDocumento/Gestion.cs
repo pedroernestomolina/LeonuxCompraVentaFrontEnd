@@ -65,6 +65,9 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string ClienteCodigo { get { return _data.ClienteCodigo; } }
         public string ClienteRazonSocialDireccion { get { return _data.ClienteRazonSocialDireccion; } }
         public OOB.Maestro.Cliente.Entidad.Ficha EntidadCliente { get { return _data.EntidadCliente; } }
+        public string DataCondPago { get { return _data.CondicionPago; } }
+        public string DataDeposito { get { return _data.Deposito; } }
+        public string DataSucursal { get { return _data.Sucursal; } }
         
 
         public Gestion() 
@@ -136,7 +139,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _lSucursal.Clear();
             _lSucursal = r01.ListaD.OrderBy(o=>o.nombre).Select(s =>
             {
-                return new ficha(s.auto, s.nombre);
+                return new ficha(s.auto, s.nombre, s.codigo);
             }).ToList();
             _bsSucursal.DataSource = _lSucursal;
             _bsSucursal.CurrencyManager.Refresh();
@@ -183,24 +186,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _bsTransporte.DataSource = _lTransporte;
             _bsTransporte.CurrencyManager.Refresh();
             //
-            var r05 = Sistema.MyData.Sistema_Deposito_GetLista();
-            if (r05.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r05.Mensaje);
-                return false;
-            }
-            _lDeposito.Clear();
-            _lDeposito = r05.ListaD.OrderBy(o=>o.nombre).Select(s =>
-            {
-                return new ficha(s.id, s.nombre);
-            }).ToList();
-            _bsDeposito.DataSource = _lDeposito;
-            _bsDeposito.CurrencyManager.Refresh();
-            //
             var r06 = Sistema.MyData.FechaServidor ();
             if (r06.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
-                Helpers.Msg.Error(r05.Mensaje);
+                Helpers.Msg.Error(r06.Mensaje);
                 return false;
             }
             _data.setFecha(r06.Entidad);
@@ -235,7 +224,29 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public void setSucursal(string id)
         {
-            _data.setSucursal(_lSucursal.First(f => f.id == id));
+            var suc= _lSucursal.First(f => f.id == id);
+            _data.setSucursal(suc);
+            if (id != "")
+                CargarDepositosSucursal(suc.cod);
+        }
+
+        private void CargarDepositosSucursal(string p)
+        {
+            _lDeposito.Clear();
+            var filtro = new OOB.Sistema.Deposito.Lista.Filtro();
+            filtro.PorCodigoSuc = p;
+            var r01 = Sistema.MyData.Deposito_GetLista(filtro);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _lDeposito = r01.ListaD.OrderBy(o => o.nombre).Select(s =>
+            {
+                return new ficha(s.id, s.nombre);
+            }).ToList();
+            _bsDeposito.DataSource = _lDeposito;
+            _bsDeposito.CurrencyManager.Refresh();
         }
 
         public void setCobrador(string id)
@@ -255,6 +266,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public void setDeposito(string id)
         {
+            if (id == "")
+            {
+                _data.LimpiarDeposito();
+                return;
+            }
             _data.setDeposito(_lDeposito.First(f => f.id == id));
         }
 
@@ -328,7 +344,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         {
             _habilitarDeposito = p;
         }
-
 
     }
 

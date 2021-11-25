@@ -19,12 +19,13 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         private BindingSource _bs;
 
 
+        public int CntItem { get { return _bl.Count; } }
         public decimal MontoNeto { get { return _bl.Sum(s => s.PImporte); } }
         public decimal MontoIva { get { return _bl.Sum(s => s.MIva); } }
         public decimal MontoTotal { get { return _bl.Sum(s => s.mTotal); } }
         public decimal MontoTotalDivisa { get { return MontoTotal / _mDivisa; } }
         public BindingSource ItemsSource { get { return _bs; } }
-        public bool HayItemsEnBandeja { get { return _bl.Count > 0; } }
+        public bool HayItemsEnBandeja { get { return CntItem > 0; } }
 
 
         public Gestion() 

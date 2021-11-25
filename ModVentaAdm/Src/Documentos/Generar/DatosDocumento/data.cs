@@ -40,7 +40,9 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string IdCobrador { get { return _cobrador.id; } }
         public string IdVendedor{ get { return _vendedor.id; } }
         public string IdDeposito { get { return _deposito.id; } }
+        public string Deposito { get { return _deposito.desc; } }
         public string IdSucursal { get { return _sucursal.id; } }
+        public string Sucursal { get { return _sucursal.desc; } }
         public string IdTransporte { get { return _transporte.id; } }
         public string IdCondPago { get { return _condPago.id; } }
         public string IdCliente { get { return _cliente.id; } }
@@ -75,6 +77,18 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                 {
                     r += _entidadCliente.razonSocial.Trim().ToUpper() + Environment.NewLine + _entidadCliente.dirFiscal.Trim();
                 }
+                return r;
+            }
+        }
+
+        public string CondicionPago
+        {
+            get
+            {
+                var r = "CONTADO ";
+                if (CondicionPagoIsCredito) 
+                    r = "CREDITO ";
+                r += _diasCredito.ToString().Trim() + " Dias";
                 return r;
             }
         }
@@ -219,6 +233,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _cliente.id = ficha.id ;
             _cliente.desc = ficha.ciRif + Environment.NewLine + ficha.razonSocial;
             _entidadCliente = ficha;
+        }
+
+        public void LimpiarDeposito()
+        {
+            _deposito.Limpiar();
         }
 
     }

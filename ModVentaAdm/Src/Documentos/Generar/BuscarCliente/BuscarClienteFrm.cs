@@ -189,7 +189,17 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         {
             this.Close();
         }
-   
+
+        private void BT_AGREGAR_Click(object sender, EventArgs e)
+        {
+            AgregarCliente();
+        }
+
+        private void AgregarCliente()
+        {
+            _controlador.AgregarCliente();
+        }
+      
     }
 
 }

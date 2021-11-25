@@ -132,6 +132,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             if (_modoEditar)
             {
                 _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
+                CB_DEPOSITO.SelectedIndex = -1;
             }
         }
 
@@ -161,6 +162,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         {
             if (_modoEditar)
             {
+                if (CB_DEPOSITO.SelectedIndex == -1) 
+                {
+                    _controlador.setDeposito("");
+                    return;
+                }
                 _controlador.setDeposito(CB_DEPOSITO.SelectedValue.ToString());
             }
         }

@@ -136,10 +136,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
         private void DocGenerarFrm_Load(object sender, EventArgs e)
         {
+            IrFoco();
             DGV.DataSource = _controlador.ItemsSource;
             L_TIPO_DOCUMENTO.Text = _controlador.TipoDocumento;
             ActualizarVistaCliente();
             ActualizaVistaTotales();
+            ActualizaBusquedaProducto();
+            ActualizarDatosDoc();
 
             switch (_controlador.TipoDocumento) 
             {
@@ -149,7 +152,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
                     break;
 
                 case "PRESUPUESTO":
-                    P_DOCUMENTO.BackColor = Color.Yellow;
+                    P_DOCUMENTO.BackColor = Color.FromArgb(255, 255, 128);
                     L_TIPO_DOCUMENTO.ForeColor = Color.Black;
                     break;
 
@@ -160,8 +163,38 @@ namespace ModVentaAdm.Src.Documentos.Generar
             }
         }
 
+        private void ActualizarDatosDoc()
+        {
+            L_DATOS_DOC_FECHA.Text = _controlador.DatosDoc_Fecha;
+            L_DATOS_DOC_COND_PAGO.Text = _controlador.DatosDoc_CondPago;
+            L_DATOS_DOC_DEPOSITO.Text = _controlador.DatosDoc_Deposito;
+            L_DATOS_DOC_FECHA_VENCE.Text = _controlador.DatosDoc_FechaVence;
+            L_DATOS_DOC_ORD_COMPRA.Text = _controlador.DatosDoc_OrdenCompra;
+            L_DATOS_DOC_PEDIDO.Text = _controlador.DatosDoc_Pedido;
+            L_DATOS_DOC_SERIE.Text = _controlador.DatosDoc_Serie;
+            L_DATOS_DOC_SUCURSAL.Text = _controlador.DatosDoc_Sucursal;
+        }
+
+        private void ActualizaBusquedaProducto()
+        {
+            switch(_controlador.PrefBusqProducto)
+            {
+                case enumerados.BusqPrd.Codigo:
+                    R_CODIGO.Checked = true;
+                    break;
+                case enumerados.BusqPrd.Nombre:
+                    R_DESCRIPCION.Checked = true;
+                    break;
+                case enumerados.BusqPrd.Referencia:
+                    R_REFERENCIA.Checked = true;
+                    break;
+            }
+        }
+
         private void ActualizaVistaTotales()
         {
+            L_CNT_ITEM.Text = _controlador.CntItem;
+            L_TASA_DIVISA.Text = _controlador.TasaDivisa.ToString("n2");
             L_MONTO.Text = _controlador.Monto;
             L_MONTO_DIVISA.Text = _controlador.MontoDivisa;
             L_MONTO_NETO.Text = _controlador.MontoNeto;
@@ -175,6 +208,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
         private void Abandonar()
         {
+            IrFoco();
             _controlador.AbandonarDoc();
             if (_controlador.AbandonarDocIsOk) 
             {
@@ -205,6 +239,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             _controlador.NuevoDocumento();
             ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            IrFoco();
         }
 
         private void ActualizarVistaCliente()
@@ -223,6 +259,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             _controlador.EditarDatosDocumento();
             ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            IrFoco();
         }
 
         private void BT_DATOS_DOCUMENTO_LIMPIAR_Click(object sender, EventArgs e)
@@ -234,6 +272,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             _controlador.LimpiarDatosDocumento();
             ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            IrFoco();
         }
 
         private void BT_VISUALIZAR_CLIENTE_Click(object sender, EventArgs e)
@@ -244,6 +284,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void VisualizarCliente()
         {
             _controlador.VisualizarCliente();
+            IrFoco();
         }
 
         private void BT_VISUALIZAR_CLIENTE_DOC_Click(object sender, EventArgs e)
@@ -254,6 +295,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void VisualizarClenteDoc()
         {
             _controlador.VisualizarClenteDoc();
+            IrFoco();
         }
 
         private void BT_VISUALIZAR_CLIENTE_ARTICULOS_Click(object sender, EventArgs e)
@@ -264,12 +306,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void VisualizarClienteArticulos()
         {
             _controlador.VisualizarClienteArticulos();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            _controlador.AgregarItem();
-            ActualizaVistaTotales();
+            IrFoco();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -282,6 +319,70 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             _controlador.EliminarItem();
             ActualizaVistaTotales();
+        }
+
+        private void TB_CADENA_BUSQ_PRODUCTO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCadenaBusqProducto(TB_CADENA_BUSQ_PRODUCTO.Text.Trim());
+        }
+
+        private void BT_BUSQ_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            BusqProducto();
+        }
+
+        private void BusqProducto()
+        {
+            _controlador.BusqProducto();
+            ActualizaVistaTotales();
+            TB_CADENA_BUSQ_PRODUCTO.Text = "";
+            IrFoco();
+        }
+
+        private void R_CODIGO_CheckedChanged(object sender, EventArgs e)
+        {
+            ActivarBusPorCodigo();
+        }
+
+        private void ActivarBusPorCodigo()
+        {
+            _controlador.ActivarBusPorCodigo();
+            IrFoco();
+        }
+
+        private void IrFoco()
+        {
+            TB_CADENA_BUSQ_PRODUCTO.Focus();
+        }
+
+        private void R_DESCRIPCION_CheckedChanged(object sender, EventArgs e)
+        {
+            ActivarBusPorDescripcion();
+        }
+
+        private void ActivarBusPorDescripcion()
+        {
+            _controlador.ActivarBusPorDescripcion();
+            IrFoco();
+        }
+
+        private void R_REFERENCIA_CheckedChanged(object sender, EventArgs e)
+        {
+            ActivarBusPorReferencia();
+        }
+
+        private void ActivarBusPorReferencia()
+        {
+            _controlador.ActivarBusPorReferencia();
+            IrFoco();
+        }
+
+        private void TB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
         }
 
     }

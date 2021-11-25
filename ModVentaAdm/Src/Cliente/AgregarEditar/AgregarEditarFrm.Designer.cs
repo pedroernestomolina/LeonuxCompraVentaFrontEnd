@@ -2151,6 +2151,7 @@
             this.KeyPreview = true;
             this.Name = "AgregarEditarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgregarEditarFrm_FormClosing);
             this.Load += new System.EventHandler(this.AgregarEditarFrm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

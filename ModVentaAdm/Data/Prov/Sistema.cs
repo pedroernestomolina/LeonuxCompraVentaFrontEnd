@@ -138,41 +138,6 @@ namespace ModVentaAdm.Data.Prov
             return result;
         }
 
-        public OOB.Resultado.Lista<OOB.Sistema.Deposito.Entidad.Ficha> Sistema_Deposito_GetLista()
-        {
-            var result = new OOB.Resultado.Lista<OOB.Sistema.Deposito.Entidad.Ficha>();
-
-            var filtroDTO = new DtoLibPos.Deposito.Lista.Filtro();
-            var r01 = MyData.Deposito_GetLista(filtroDTO);
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                result.Mensaje = r01.Mensaje;
-                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
-                return result;
-            }
-
-            var lst = new List<OOB.Sistema.Deposito.Entidad.Ficha>();
-            if (r01.Lista != null)
-            {
-                if (r01.Lista.Count > 0)
-                {
-                    lst = r01.Lista.Select(s =>
-                    {
-                        var nr = new OOB.Sistema.Deposito.Entidad.Ficha()
-                        {
-                            id = s.id,
-                            codigo = s.codigo,
-                            nombre = s.nombre,
-                        };
-                        return nr;
-                    }).ToList();
-                }
-            }
-            result.ListaD = lst;
-
-            return result;
-        }
-
         public OOB.Resultado.Lista<OOB.Sistema.Transporte.Entidad.Ficha> Sistema_Transporte_GetLista()
         {
             var result = new OOB.Resultado.Lista<OOB.Sistema.Transporte.Entidad.Ficha>();
@@ -194,6 +159,42 @@ namespace ModVentaAdm.Data.Prov
                     lst = r01.Lista.Select(s =>
                     {
                         var nr = new OOB.Sistema.Transporte.Entidad.Ficha()
+                        {
+                            id = s.id,
+                            codigo = s.codigo,
+                            nombre = s.nombre,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            result.ListaD = lst;
+
+            return result;
+        }
+
+        public OOB.Resultado.Lista<OOB.Sistema.Deposito.Entidad.Ficha> Deposito_GetLista(OOB.Sistema.Deposito.Lista.Filtro filtro)
+        {
+            var result = new OOB.Resultado.Lista<OOB.Sistema.Deposito.Entidad.Ficha>();
+
+            var filtroDTO = new DtoLibPos.Deposito.Lista.Filtro();
+            filtroDTO.PorCodigoSuc = filtro.PorCodigoSuc;
+            var r01 = MyData.Deposito_GetLista(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var lst = new List<OOB.Sistema.Deposito.Entidad.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Sistema.Deposito.Entidad.Ficha()
                         {
                             id = s.id,
                             codigo = s.codigo,

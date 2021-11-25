@@ -313,6 +313,16 @@ namespace ModVentaAdm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_guardar_disco {
+            get {
+                object obj = ResourceManager.GetObject("bt_guardar_disco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_historico_32 {
             get {
                 object obj = ResourceManager.GetObject("bt_historico_32", resourceCulture);

@@ -13,18 +13,26 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public string id { get; set; }
         public string desc { get; set; }
+        public string cod { get; set; }
 
 
         public ficha() 
         {
-            id = "";
-            desc = "";
+            Limpiar();
         }
 
-        public ficha(string _id,  string _desc)
+        public ficha(string _id,  string _desc, string _cod="")
         {
             this.id = _id;
             this.desc = _desc;
+            this.cod = _cod;
+        }
+
+        public void Limpiar()
+        {
+            id = "";
+            desc = "";
+            cod = "";
         }
 
     }

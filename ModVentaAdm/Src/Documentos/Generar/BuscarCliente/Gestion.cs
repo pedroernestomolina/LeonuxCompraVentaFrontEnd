@@ -13,6 +13,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
     {
 
 
+        private Cliente.AgregarEditar.Gestion _gestionAgregarEditar;
         private Cliente.Buscar.Busqueda.Gestion _buscar;
         private Cliente.Buscar.Items.Gestion _items;
         private bool _seleccionatItemIsActivo;
@@ -30,6 +31,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         public Gestion()
         {
             _itemSeleccionado = null;
+            _gestionAgregarEditar = new Cliente.AgregarEditar.Gestion();
             _buscar = new Cliente.Buscar.Busqueda.Gestion();
             _items = new Cliente.Buscar.Items.Gestion();
             _seleccionatItemIsActivo = false;
@@ -126,6 +128,38 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         public void setActivarSeleccionItem(bool p)
         {
             _seleccionatItemIsActivo = p;
+        }
+
+        public void AgregarCliente()
+        {
+            var r00 = Sistema.MyData.Permiso_Cliente_Agregar(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionAgregarEditar.setGestion(new Cliente.AgregarEditar.Agregar.Gestion());
+                _gestionAgregarEditar.Inicializa();
+                _gestionAgregarEditar.Inicia();
+                if (_gestionAgregarEditar.ProcesarIsoK)
+                {
+                    InsertarFichaLista(_gestionAgregarEditar.AutoClienteAgregado);
+                }
+            }
+        }
+
+        private void InsertarFichaLista(string autoId)
+        {
+            var r01 = Sistema.MyData.Cliente_GetFicha(autoId);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _items.AgregarFicha(r01.Entidad);
         }
 
     }

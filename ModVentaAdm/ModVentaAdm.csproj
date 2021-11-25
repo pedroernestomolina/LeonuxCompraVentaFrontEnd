@@ -83,6 +83,7 @@
     <Compile Include="Data\Infra\IData.cs" />
     <Compile Include="Data\Infra\IDocumento.cs" />
     <Compile Include="Data\Infra\IPermiso.cs" />
+    <Compile Include="Data\Infra\IProducto.cs" />
     <Compile Include="Data\Infra\IReportes.cs" />
     <Compile Include="Data\Infra\IReportesCli.cs" />
     <Compile Include="Data\Infra\ISistema.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Data\Prov\DataPrv.cs" />
     <Compile Include="Data\Prov\Documento.cs" />
     <Compile Include="Data\Prov\Permiso.cs" />
+    <Compile Include="Data\Prov\Producto.cs" />
     <Compile Include="Data\Prov\Reportes.cs" />
     <Compile Include="Data\Prov\ReportesCli.cs" />
     <Compile Include="Data\Prov\Sistema.cs" />
@@ -126,6 +128,7 @@
     </Compile>
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Enumerado.cs" />
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Configuracion\BusquedaProducto\Enumerado.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
@@ -153,6 +156,10 @@
     <Compile Include="OOB\Maestro\Zona\Lista\Filtro.cs" />
     <Compile Include="OOB\Permiso\Entidad\Enumerados.cs" />
     <Compile Include="OOB\Permiso\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Producto\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Producto\Lista\Enumerados.cs" />
+    <Compile Include="OOB\Producto\Lista\Ficha.cs" />
+    <Compile Include="OOB\Producto\Lista\Filtro.cs" />
     <Compile Include="OOB\ReporteCli\Maestro\Ficha.cs" />
     <Compile Include="OOB\ReporteCli\Maestro\Filtro.cs" />
     <Compile Include="OOB\Reportes\Consolidado\Ficha.cs" />
@@ -177,6 +184,7 @@
     <Compile Include="OOB\Resultado\Lista.cs" />
     <Compile Include="OOB\Sistema\Cobrador\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Deposito\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Deposito\Lista\Filtro.cs" />
     <Compile Include="OOB\Sistema\Empresa\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Estado\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
@@ -274,6 +282,14 @@
     <Compile Include="Src\Cliente\Visualizar\VisualizaFrm.Designer.cs">
       <DependentUpon>VisualizaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Documentos\Generar\AgregarEditarItem\AgregarEditarItemFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\AgregarEditarItem\AgregarEditarItemFrm.Designer.cs">
+      <DependentUpon>AgregarEditarItemFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\AgregarEditarItem\data.cs" />
+    <Compile Include="Src\Documentos\Generar\AgregarEditarItem\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\BuscarCliente\BuscarClienteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +297,15 @@
       <DependentUpon>BuscarClienteFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Documentos\Generar\BuscarCliente\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\BuscarProducto\BuscarProductoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\BuscarProducto\BuscarProductoFrm.Designer.cs">
+      <DependentUpon>BuscarProductoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\BuscarProducto\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\BuscarProducto\Items\data.cs" />
+    <Compile Include="Src\Documentos\Generar\BuscarProducto\Items\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\DatosDocumento\data.cs" />
     <Compile Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.cs">
       <SubType>Form</SubType>
@@ -296,6 +321,7 @@
     <Compile Include="Src\Documentos\Generar\DocGenerarFrm.Designer.cs">
       <DependentUpon>DocGenerarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Documentos\Generar\enumerados.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\Gestion.cs" />
@@ -452,8 +478,14 @@
     <EmbeddedResource Include="Src\Cliente\Visualizar\VisualizaFrm.resx">
       <DependentUpon>VisualizaFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\AgregarEditarItem\AgregarEditarItemFrm.resx">
+      <DependentUpon>AgregarEditarItemFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\BuscarCliente\BuscarClienteFrm.resx">
       <DependentUpon>BuscarClienteFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\BuscarProducto\BuscarProductoFrm.resx">
+      <DependentUpon>BuscarProductoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.resx">
       <DependentUpon>DatosDocFrm.cs</DependentUpon>
@@ -579,9 +611,11 @@
     <None Include="Resources\bt_info_cliente.png" />
     <None Include="Resources\bt_compra.png" />
     <None Include="Resources\bt_doc_pend.png" />
+    <None Include="Resources\bt_guardar_disco.png" />
     <Content Include="Src\Imagenes\bt_abrir_doc.png" />
     <Content Include="Src\Imagenes\bt_compra.png" />
     <Content Include="Src\Imagenes\bt_doc_pend.png" />
+    <Content Include="Src\Imagenes\bt_guardar_disco.png" />
     <Content Include="Src\Imagenes\bt_info.png" />
     <Content Include="Src\Imagenes\bt_info_cliente.png" />
     <Content Include="Src\Imagenes\bt_new_doc.png" />

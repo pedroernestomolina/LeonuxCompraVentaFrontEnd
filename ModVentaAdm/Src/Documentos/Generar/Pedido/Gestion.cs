@@ -38,7 +38,14 @@ namespace ModVentaAdm.Src.Documentos.Generar.Pedido
 
         public bool CargarData()
         {
-            _tasaDivisa = 5m;
+            var r01 = Sistema.MyData.Configuracion_FactorDivisa();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+
+            _tasaDivisa = r01.Entidad;
             return true;
         }
 

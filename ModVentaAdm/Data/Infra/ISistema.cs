@@ -13,6 +13,8 @@ namespace ModVentaAdm.Data.Infra
 
         OOB.Resultado.FichaEntidad<OOB.Sistema.Empresa.Entidad.Ficha> Sistema_Empresa_GetFicha();
 
+        OOB.Resultado.FichaEntidad<OOB.Sistema.TipoDocumento.Entidad.Ficha> Sistema_TipoDocumento_GetFichaById(string id);
+
         OOB.Resultado.Lista<OOB.Sistema.Vendedor.Entidad.Ficha> Sistema_Vendedor_GetLista();
         OOB.Resultado.Lista<OOB.Sistema.Cobrador.Entidad.Ficha> Sistema_Cobrador_GetLista();
         OOB.Resultado.Lista<OOB.Sistema.Estado.Entidad.Ficha> Sistema_Estado_GetLista();

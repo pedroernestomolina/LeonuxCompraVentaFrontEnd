@@ -17,7 +17,7 @@ namespace ModVentaAdm.Data.Prov
         {
             var rt = new OOB.Resultado.FichaEntidad<OOB.Configuracion.BusquedaCliente.Entidad.Ficha>();
 
-            var r01 = MyData.Configuracion_BusquedaCliente();
+            var r01 = MyData.ConfiguracionAdm_BusquedaCliente();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;
@@ -63,7 +63,7 @@ namespace ModVentaAdm.Data.Prov
         {
             var rt = new OOB.Resultado.FichaEntidad<OOB.Configuracion.BusquedaProducto.Enumerado.EnumPreferenciaBusqueda>();
 
-            var r01 = MyData.Configuracion_PreferenciaBusquedaProducto();
+            var r01 = MyData.ConfiguracionAdm_PreferenciaBusquedaProducto();
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;
@@ -72,6 +72,22 @@ namespace ModVentaAdm.Data.Prov
             }
 
             rt.Entidad = (OOB.Configuracion.BusquedaProducto.Enumerado.EnumPreferenciaBusqueda)r01.Entidad;
+            return rt;
+        }
+
+        public OOB.Resultado.FichaEntidad<bool> Configuracion_RupturaPorExistencia()
+        {
+            var rt = new OOB.Resultado.FichaEntidad<bool>();
+
+            var r01 = MyData.ConfiguracionAdm_RupturaPorExistencia();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad == "SI";
+
             return rt;
         }
 

@@ -49,6 +49,7 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.BT_BUSCAR = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.BT_AGREGAR = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.BT_FILTRAR = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -60,7 +61,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.P_DATA_CONTENIDO = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.BT_AGREGAR = new System.Windows.Forms.Button();
             this.P_PRINCIPAL.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.P_BUSQUEDA.SuspendLayout();
@@ -350,6 +350,21 @@
             this.panel16.Size = new System.Drawing.Size(23, 37);
             this.panel16.TabIndex = 1;
             // 
+            // BT_AGREGAR
+            // 
+            this.BT_AGREGAR.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_new_doc;
+            this.BT_AGREGAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_AGREGAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_AGREGAR.FlatAppearance.BorderSize = 0;
+            this.BT_AGREGAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_AGREGAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_AGREGAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_AGREGAR.Name = "BT_AGREGAR";
+            this.BT_AGREGAR.Size = new System.Drawing.Size(19, 33);
+            this.BT_AGREGAR.TabIndex = 2;
+            this.BT_AGREGAR.UseVisualStyleBackColor = true;
+            this.BT_AGREGAR.Click += new System.EventHandler(this.BT_AGREGAR_Click);
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.BT_FILTRAR);
@@ -484,21 +499,7 @@
             this.DGV.Size = new System.Drawing.Size(584, 377);
             this.DGV.TabIndex = 0;
             this.DGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellDoubleClick);
-            // 
-            // BT_AGREGAR
-            // 
-            this.BT_AGREGAR.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_new_doc;
-            this.BT_AGREGAR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_AGREGAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_AGREGAR.FlatAppearance.BorderSize = 0;
-            this.BT_AGREGAR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_AGREGAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_AGREGAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_AGREGAR.Name = "BT_AGREGAR";
-            this.BT_AGREGAR.Size = new System.Drawing.Size(19, 33);
-            this.BT_AGREGAR.TabIndex = 2;
-            this.BT_AGREGAR.UseVisualStyleBackColor = true;
-            this.BT_AGREGAR.Click += new System.EventHandler(this.BT_AGREGAR_Click);
+            this.DGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DGV_KeyDown);
             // 
             // BuscarClienteFrm
             // 

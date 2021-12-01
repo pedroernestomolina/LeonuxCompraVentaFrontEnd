@@ -199,6 +199,20 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         {
             _controlador.AgregarCliente();
         }
+
+        private void DGV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (DGV.CurrentRow != null)
+                {
+                    if (DGV.CurrentRow.Index > -1)
+                    {
+                        SeleccionarItem();
+                    }
+                }
+            }
+        }
       
     }
 

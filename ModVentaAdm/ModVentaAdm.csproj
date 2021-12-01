@@ -89,6 +89,7 @@
     <Compile Include="Data\Infra\ISistema.cs" />
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
+    <Compile Include="Data\Infra\IVenta.cs" />
     <Compile Include="Data\Prov\Cliente.cs" />
     <Compile Include="Data\Prov\ClienteGrupo.cs" />
     <Compile Include="Data\Prov\ClienteZona.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Data\Prov\Sistema.cs" />
     <Compile Include="Data\Prov\Sucursal.cs" />
     <Compile Include="Data\Prov\Usuario.cs" />
+    <Compile Include="Data\Prov\Venta.cs" />
     <Compile Include="Gestion.cs" />
     <Compile Include="Helpers\Imprimir\data.cs" />
     <Compile Include="Helpers\Imprimir\Documento.cs" />
@@ -193,6 +195,24 @@
     <Compile Include="OOB\Sucursal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Entidad\Ficha.cs" />
     <Compile Include="OOB\Usuario\Identificar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Anular\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Anular\Item.cs" />
+    <Compile Include="OOB\Venta\Temporal\Anular\ItemActDeposito.cs" />
+    <Compile Include="OOB\Venta\Temporal\Encabezado\Editar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Encabezado\Registrar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Eliminar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Eliminar\ItemActDeposito.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Eliminar\ItemDetalle.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Eliminar\ItemEncabezado.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Limpiar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Limpiar\ItemActDeposito.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Limpiar\ItemDetalle.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Limpiar\ItemEncabezado.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Registrar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Registrar\ItemDetalle.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Registrar\ItemActDeposito.cs" />
+    <Compile Include="OOB\Venta\Temporal\Item\Registrar\ItemEncabezado.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -290,6 +310,8 @@
     </Compile>
     <Compile Include="Src\Documentos\Generar\AgregarEditarItem\data.cs" />
     <Compile Include="Src\Documentos\Generar\AgregarEditarItem\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\AgregarEditarItem\IGestion.cs" />
+    <Compile Include="Src\Documentos\Generar\AgregarEditarItem\precio.cs" />
     <Compile Include="Src\Documentos\Generar\BuscarCliente\BuscarClienteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +346,7 @@
     <Compile Include="Src\Documentos\Generar\enumerados.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Factura\GestionItem.cs" />
     <Compile Include="Src\Documentos\Generar\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\IDatosDocumento.cs" />
     <Compile Include="Src\Documentos\Generar\IDocGestion.cs" />
@@ -331,8 +354,10 @@
     <Compile Include="Src\Documentos\Generar\Items\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\Pedido\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Pedido\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Pedido\GestionItem.cs" />
     <Compile Include="Src\Documentos\Generar\Presupuesto\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Presupuesto\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Presupuesto\GestionItem.cs" />
     <Compile Include="Src\Filtro\data.cs" />
     <Compile Include="Src\Filtro\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />

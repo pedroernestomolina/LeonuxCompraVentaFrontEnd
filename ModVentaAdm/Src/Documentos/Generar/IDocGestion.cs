@@ -12,14 +12,14 @@ namespace ModVentaAdm.Src.Documentos.Generar
     {
 
         string TipoDocumento { get; }
-        bool AbandonarDocIsOk { get; }
         IDatosDocumento HabilitarDatosDoc { get; }
         decimal TasaDivisa { get; }
+        AgregarEditarItem.IGestion ItemGestion { get; }
+        OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get; }
 
 
         void Inicializa();
         bool CargarData();
-        void AbandonarDoc();
 
     }
 

@@ -22,10 +22,12 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private AgregarEditarItem.Gestion _agregarEditarItem;
         private Items.Gestion _items;
         private enumerados.BusqPrd _prefBusqPrd;
+        private int _idVentaTemporal;
+        private bool _abandonarDocIsOk;
+        private bool _rupturaPorExistencia;
 
 
         public string TipoDocumento { get { return _docGestion.TipoDocumento; } }
-        public bool AbandonarDocIsOk { get { return _docGestion.AbandonarDocIsOk; } }
         public string CntItem { get { return _items.CntItem.ToString(); } }
         public decimal TasaDivisa { get { return _docGestion.TasaDivisa; } }
         public string Monto { get { return "Bs "+_items.MontoTotal.ToString("n2"); } }
@@ -45,6 +47,9 @@ namespace ModVentaAdm.Src.Documentos.Generar
         public string DatosDoc_Pedido { get { return _datosDocGestion.DataPedido; } }
         public string DatosDoc_Serie { get { return ""; } }
         public string DatosDoc_Sucursal { get { return _datosDocGestion.DataSucursal; } }
+        public string DatosDoc_Notas { get { return _datosDocGestion.DataNotasDoc; } }
+        public OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get { return _docGestion.SistTipoDocumento; } }
+        public bool AbandonarDocIsOk { get { return _abandonarDocIsOk; } }
         
 
         public Gestion() 
@@ -57,6 +62,9 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _visualClienteArticulos = new Cliente.Articulos.Gestion();
             _busqProducto = new BuscarProducto.Gestion();
             _agregarEditarItem = new AgregarEditarItem.Gestion();
+            _idVentaTemporal = -1;
+            _abandonarDocIsOk = false;
+            _rupturaPorExistencia = false;
         }
 
 
@@ -67,6 +75,9 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _docGestion.Inicializa();
             _items.Inicializa();
             _busqProducto.Inicializa();
+            _idVentaTemporal = -1;
+            _abandonarDocIsOk = false;
+            _rupturaPorExistencia = false;
         }
 
         private DocGenerarFrm _frm;
@@ -97,6 +108,14 @@ namespace ModVentaAdm.Src.Documentos.Generar
                 return false;
             }
 
+            var r02 = Sistema.MyData.Configuracion_RupturaPorExistencia();
+            if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            _rupturaPorExistencia = r02.Entidad;
+
             _prefBusqPrd = (enumerados.BusqPrd)r01.Entidad;
             switch (_prefBusqPrd)
             {
@@ -119,11 +138,6 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _docGestion = doc;
         }
 
-        public void AbandonarDoc()
-        {
-            _docGestion.AbandonarDoc();
-        }
-
         public void NuevoDocumento()
         {
             if (_datosDocGestion.AceptarDatosIsOK)
@@ -131,9 +145,19 @@ namespace ModVentaAdm.Src.Documentos.Generar
                 return;
             }
             _datosDocGestion.Inicializa();
+            _datosDocGestion.setHabilitarSucursal(!_items.HayItemsEnBandeja);
             _datosDocGestion.setHabilitarDeposito(!_items.HayItemsEnBandeja);
+            _datosDocGestion.setHabilitarBusquedaCliente(!_items.HayItemsEnBandeja);
             _datosDocGestion.setHabilitarDatosDoc(_docGestion.HabilitarDatosDoc);
+            _datosDocGestion.setTipoDocumento(SistTipoDocumento);
+            _datosDocGestion.setIsModoRegistrar(true);
+            _datosDocGestion.setFactorDivisa(TasaDivisa);
+            _datosDocGestion.setIdEquipo("01");
             _datosDocGestion.Inicia();
+            if (_datosDocGestion.AceptarDatosIsOK)
+            {
+                _idVentaTemporal = _datosDocGestion.IdRegDocTemporal;
+            }
         }
 
         public void EditarDatosDocumento()
@@ -142,7 +166,10 @@ namespace ModVentaAdm.Src.Documentos.Generar
             {
                 return;
             }
+            _datosDocGestion.setHabilitarSucursal(!_items.HayItemsEnBandeja);
             _datosDocGestion.setHabilitarDeposito(!_items.HayItemsEnBandeja);
+            _datosDocGestion.setHabilitarBusquedaCliente(!_items.HayItemsEnBandeja);
+            _datosDocGestion.setIsModoRegistrar(false);
             _datosDocGestion.Inicia();
         }
 
@@ -158,6 +185,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
             var r = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (r== DialogResult.Yes)
             {
+                var r01 = Sistema.MyData.Venta_Temporal_Encabezado_Eliminar(_idVentaTemporal);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _idVentaTemporal = -1;
                 _datosDocGestion.Limpiar();
             }
         }
@@ -221,24 +255,45 @@ namespace ModVentaAdm.Src.Documentos.Generar
             }
         }
 
-        public void AgregarItem()
-        {
-            if (!_datosDocGestion.AceptarDatosIsOK) 
-            {
-                Helpers.Msg.Alerta("DEBES PRIMERO HACER CLICK EN NUEVO DOCUMENTO");
-                return;
-            }
-            _items.AgregarItem();
-        }
-
-        public void LimpiarItems()
-        {
-            _items.LimpiarItems();
-        }
-
         public void EliminarItem()
         {
-            _items.EliminarItem();
+            if (_items.ItemActual !=null)
+            {
+                var _itActual = _items.ItemActual;
+                var ficha = new OOB.Venta.Temporal.Item.Eliminar.Ficha()
+                {
+                    itemEncabezado = new OOB.Venta.Temporal.Item.Eliminar.ItemEncabezado()
+                    {
+                        id = _idVentaTemporal,
+                        monto = _itActual.mTotal,
+                        montoDivisa = _itActual.mTotalDivisa,
+                        renglones = 1,
+                    },
+                    itemDetalle = new OOB.Venta.Temporal.Item.Eliminar.ItemDetalle()
+                    {
+                        id = _itActual.Id,
+                    },
+                    itemActDeposito = null,
+                };
+                if (_itActual.MercanciaIsEnReserva) 
+                {
+                    var xficha = new OOB.Venta.Temporal.Item.Eliminar.ItemActDeposito()
+                    {
+                        autoDeposito = _datosDocGestion.DataIdDeposito,
+                        autoProducto = _itActual.IdProducto,
+                        cntActualizar = _itActual.CantUnd,
+                        prdDescripcion = _itActual.DescripcionPrd,
+                    };
+                    ficha.itemActDeposito=xficha;
+                }
+                var r01 = Sistema.MyData.Venta_Temporal_Item_Eliminar(ficha);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _items.EliminarItem(_itActual);
+            }
         }
 
         public void setCadenaBusqProducto(string cad)
@@ -259,11 +314,11 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _busqProducto.Buscar();
             if (_busqProducto.ItemSeleccionadoIsOk) 
             {
-                CapturarDataItem(_busqProducto.ItemSeleccionado.Id);
+                CapturarDataProducto(_busqProducto.ItemSeleccionado.Id);
             }
         }
 
-        private void CapturarDataItem(string id)
+        private void CapturarDataProducto(string id)
         {
             var r01 = Sistema.MyData.Producto_GetFichaById(id);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
@@ -271,10 +326,27 @@ namespace ModVentaAdm.Src.Documentos.Generar
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
+            var tarifaPrecioManejar = _datosDocGestion.EntidadCliente.tarifa;
             
             _agregarEditarItem.Inicializa();
-            _agregarEditarItem.setAgregar(r01.Entidad);
+            _agregarEditarItem.setItemDocGestion(_docGestion.ItemGestion);
+            _agregarEditarItem.setTarifaPrecio(tarifaPrecioManejar);
+            _agregarEditarItem.setTasaDivisa(TasaDivisa);
+            _agregarEditarItem.setIdDeposito(_datosDocGestion.DataIdDeposito);
+            _agregarEditarItem.setRupturaPorExistencia(_rupturaPorExistencia);
+            _agregarEditarItem.setAgregar(r01.Entidad, _idVentaTemporal);
             _agregarEditarItem.Inicia();
+            if (_agregarEditarItem.ProcesarItemIsOk)
+            {
+                var idItemAgregado = _agregarEditarItem.IdItemAgregado;
+                var r02 = Sistema.MyData.Venta_Temporal_Item_GetFichaById(idItemAgregado);
+                if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return;
+                }
+                _items.AgregarItem(r02.Entidad, TasaDivisa);
+            }
         }
 
         public void ActivarBusPorCodigo()
@@ -290,6 +362,124 @@ namespace ModVentaAdm.Src.Documentos.Generar
         public void ActivarBusPorReferencia()
         {
             _busqProducto.ActivarBusPorReferencia();
+        }
+
+        public void setNotasDoc(string p)
+        {
+            _datosDocGestion.setNotasDoc(p);
+        }
+
+        public void LimpiarItems()
+        {
+            if (_items.HayItemsEnBandeja )
+            {
+                var ficha = new OOB.Venta.Temporal.Item.Limpiar.Ficha()
+                {
+                    itemEncabezado = new OOB.Venta.Temporal.Item.Limpiar.ItemEncabezado()
+                    {
+                        id = _idVentaTemporal,
+                    },
+                    itemDetalle = _items.ListaItems.Select(s =>
+                    {
+                        var rg = new OOB.Venta.Temporal.Item.Limpiar.ItemDetalle()
+                        {
+                            id = s.Id,
+                        };
+                        return rg;
+                    }).ToList(),
+                    itemActDeposito = null,
+                };
+                ficha.itemActDeposito = _items.ListaItems.Where(w => w.MercanciaIsEnReserva).Select(s =>
+                {
+                    var rg= new OOB.Venta.Temporal.Item.Limpiar.ItemActDeposito()
+                    {
+                        autoDeposito = _datosDocGestion.DataIdDeposito,
+                        autoProducto = s.IdProducto,
+                        cntActualizar = s.CantUnd,
+                        prdDescripcion = s.DescripcionPrd,
+                    };
+                    return rg;
+                }).ToList();
+
+                var r01 = Sistema.MyData.Venta_Temporal_Item_Limpiar(ficha);
+                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _items.LimpiarItems();
+            }
+        }
+
+        public void AbandonarDoc()
+        {
+            _abandonarDocIsOk = false;
+            var msg = "Abandonar Documento En Cuestión ?";
+            var r = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (r == DialogResult.Yes)
+            {
+                if (_idVentaTemporal != -1)
+                {
+                    var ficha = new OOB.Venta.Temporal.Anular.Ficha()
+                    {
+                        IdEncabezado = _idVentaTemporal,
+                        Items = _items.ListaItems.Select(s =>
+                        {
+                            var rg = new OOB.Venta.Temporal.Anular.Item()
+                            {
+                                idItem = s.Id,
+                            };
+                            return rg;
+                        }).ToList(),
+                        ItemsActDeposito = _items.ListaItems.Where(w => w.MercanciaIsEnReserva).Select(s =>
+                        {
+                            var rg = new OOB.Venta.Temporal.Anular.ItemActDeposito()
+                            {
+                                autoDeposito = _datosDocGestion.DataIdDeposito,
+                                autoProducto = s.IdProducto,
+                                cntActualizar = s.CantUnd,
+                                prdDescripcion = s.DescripcionPrd,
+                            };
+                            return rg;
+                        }).ToList(),
+                    };
+                    var r01 = Sistema.MyData.Venta_Temporal_Anular(ficha);
+                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _abandonarDocIsOk = true;
+                }
+                else 
+                {
+                    _abandonarDocIsOk = true;
+                }
+            }
+        }
+
+        public void EditarItem()
+        {
+            if (_items.ItemActual != null)
+            {
+                var _itActual = _items.ItemActual;
+
+                _agregarEditarItem.Inicializa();
+                _agregarEditarItem.setEditar(_itActual, _idVentaTemporal);
+                _agregarEditarItem.Inicia();
+                if (_agregarEditarItem.ProcesarItemIsOk)
+                {
+                    //var idItemAgregado = _agregarEditarItem.IdItemAgregado;
+                    //var r02 = Sistema.MyData.Venta_Temporal_Item_GetFichaById(idItemAgregado);
+                    //if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    //{
+                    //    Helpers.Msg.Error(r02.Mensaje);
+                    //    return;
+                    //}
+                    //_items.AgregarItem(r02.Entidad, TasaDivisa);
+                }
+
+            }
         }
 
     }

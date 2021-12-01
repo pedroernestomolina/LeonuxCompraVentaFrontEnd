@@ -209,6 +209,32 @@ namespace ModVentaAdm.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaEntidad<OOB.Sistema.TipoDocumento.Entidad.Ficha> Sistema_TipoDocumento_GetFichaById(string id)
+        {
+            var result = new OOB.Resultado.FichaEntidad<OOB.Sistema.TipoDocumento.Entidad.Ficha>();
+
+            var r01 = MyData.Sistema_TipoDocumento_GetFichaById(id);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            var ent = r01.Entidad;
+            result.Entidad = new OOB.Sistema.TipoDocumento.Entidad.Ficha()
+            {
+                id = ent.autoId,
+                codigo = ent.codigo,
+                descripcion = ent.nombre,
+                siglas = ent.siglas,
+                signo = ent.signo,
+                tipo = ent.tipo,
+            };
+
+            return result;
+        }
+
     }
 
 }

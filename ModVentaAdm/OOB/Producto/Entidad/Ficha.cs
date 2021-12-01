@@ -14,6 +14,8 @@ namespace ModVentaAdm.OOB.Producto.Entidad
         public string Auto { get; set; }
         public string AutoDepartamento { get; set; }
         public string AutoGrupo { get; set; }
+        public string AutoSubGrupo { get; set; }
+        public string AutoTasaIva { get; set; }
         public string CodigoPrd { get; set; }
         public string NombrePrd { get; set; }
         public string Categoria { get; set; }
@@ -57,6 +59,29 @@ namespace ModVentaAdm.OOB.Producto.Entidad
         public string decimales_5 { get; set; }
         public string decimalesMay_1 { get; set; }
         public string decimalesMay_2 { get; set; }
+        public string TipoIva 
+        { 
+            get 
+            {
+                var xt = "";
+                switch (AutoTasaIva) 
+                {
+                    case "0000000001":
+                        xt= "1";
+                        break;
+                    case "0000000002":
+                        xt = "2";
+                        break;
+                    case "0000000003":
+                        xt = "3";
+                        break;
+                    case "0000000004":
+                        xt = "4";
+                        break;
+                }
+                return xt;
+            }
+        }
 
 
         public Ficha()
@@ -64,6 +89,8 @@ namespace ModVentaAdm.OOB.Producto.Entidad
             Auto = "";
             AutoDepartamento = "";
             AutoGrupo = "";
+            AutoSubGrupo = "";
+            AutoTasaIva = "";
             CodigoPrd = "";
             NombrePrd = "";
             Referencia = "";

@@ -55,6 +55,11 @@ namespace ModVentaAdm.OOB.Maestro.Cliente.Entidad
 
         public Ficha()
         {
+            Limpiar();
+        }
+
+        public void Limpiar()
+        {
             id = "";
             idGrupo = "";
             idEstado = "";

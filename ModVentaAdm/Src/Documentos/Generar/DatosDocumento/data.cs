@@ -26,6 +26,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         private ficha _cobrador;
         private ficha _transporte;
         private OOB.Maestro.Cliente.Entidad.Ficha _entidadCliente;
+        private string _notasDoc;
+        private decimal _factorDivisa;
+        private OOB.Sistema.TipoDocumento.Entidad.Ficha _sistTipoDoc;
+        private string _idEquipo;
 
 
         public string Cliente { get { return _cliente.desc; } }
@@ -37,6 +41,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string DirDespacho { get { return _dirDespacho; } }
         public int DiasValidez { get { return _diasValidez; } }
         public int DiasCredito { get { return _diasCredito; } }
+        public string NotasDoc { get { return _notasDoc; } }
         public string IdCobrador { get { return _cobrador.id; } }
         public string IdVendedor{ get { return _vendedor.id; } }
         public string IdDeposito { get { return _deposito.id; } }
@@ -48,6 +53,12 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string IdCliente { get { return _cliente.id; } }
         public bool CondicionPagoIsCredito { get { return _condPago.id == "02"; } }
         public OOB.Maestro.Cliente.Entidad.Ficha EntidadCliente { get { return _entidadCliente; } }
+        public decimal FactorDivisa { get { return _factorDivisa; } }
+        public string IdEquipo { get { return _idEquipo; } }
+        public string IdSistTipoDocumento { get { return _sistTipoDoc.id; } }
+        public string SistTipoDocumento { get { return _sistTipoDoc.descripcion; } }
+
+
         public string ClienteRif 
         { 
             get 
@@ -96,6 +107,15 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public data()
         {
+            _cliente = new ficha();
+            _condPago = new ficha();
+            _sucursal = new ficha();
+            _deposito = new ficha();
+            _vendedor = new ficha();
+            _cobrador = new ficha();
+            _transporte = new ficha();
+            _entidadCliente = new OOB.Maestro.Cliente.Entidad.Ficha();
+            _sistTipoDoc = new OOB.Sistema.TipoDocumento.Entidad.Ficha();
             Inicializa();
         }
 
@@ -109,14 +129,18 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _fechaPedido = "";
             _dirDespacho = "";
             _diasValidez = 0;
-            _cliente = new ficha();
-            _condPago = new ficha();
-            _sucursal = new ficha();
-            _deposito = new ficha();
-            _vendedor = new ficha();
-            _cobrador = new ficha();
-            _transporte = new ficha();
-            _entidadCliente = null;
+            _notasDoc = "";
+            _cliente.Limpiar();
+            _condPago.Limpiar();
+            _sucursal.Limpiar();
+            _deposito.Limpiar();
+            _vendedor.Limpiar();
+            _cobrador.Limpiar();
+            _transporte.Limpiar();
+            _entidadCliente.Limpiar();
+            _idEquipo = "";
+            _factorDivisa = 0m;
+            _sistTipoDoc.Limpiar();
         }
 
         public void setCondPago(ficha ficha)
@@ -238,6 +262,26 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public void LimpiarDeposito()
         {
             _deposito.Limpiar();
+        }
+
+        public void setNotasDoc(string p)
+        {
+            _notasDoc = p;
+        }
+
+        public void setFactorDivisa(decimal factor)
+        {
+            _factorDivisa = factor;
+        }
+
+        public void setTipoDocumento(OOB.Sistema.TipoDocumento.Entidad.Ficha ficha)
+        {
+            _sistTipoDoc.setFicha(ficha);
+        }
+
+        public void setIdEquipo(string p)
+        {
+            _idEquipo = p;
         }
 
     }

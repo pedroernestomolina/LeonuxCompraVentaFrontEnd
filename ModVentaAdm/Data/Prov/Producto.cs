@@ -104,6 +104,8 @@ namespace ModVentaAdm.Data.Prov
                 Auto = ent.Auto,
                 AutoDepartamento = ent.AutoDepartamento,
                 AutoGrupo = ent.AutoGrupo,
+                AutoSubGrupo=ent.AutoSubGrupo,
+                AutoTasaIva=ent.AutoTasaIva,
                 Categoria = ent.Categoria,
                 CodDepartamento = ent.CodDepartamento,
                 CodGrupo = ent.CodGrupo,

@@ -12,28 +12,32 @@ namespace ModVentaAdm.Src.Documentos.Generar.Factura
     public class Gestion: IDocGestion
     {
 
-        private bool _abandonarDocIsOk;
         private datosDoc _datosDoc;
         private decimal _tasaDivisa;
+        private AgregarEditarItem.IGestion _itemGestion;
+        private OOB.Sistema.TipoDocumento.Entidad.Ficha _sistTipoDoc;
 
 
-        public bool AbandonarDocIsOk { get { return _abandonarDocIsOk; } }
         public string TipoDocumento { get { return "FACTURA"; } }
         public IDatosDocumento HabilitarDatosDoc { get { return _datosDoc; } }
         public decimal TasaDivisa { get { return _tasaDivisa; ; } }
+        public AgregarEditarItem.IGestion ItemGestion { get { return _itemGestion; } }
+        public OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get { return _sistTipoDoc; } }
 
 
         public Gestion() 
         {
             _tasaDivisa = 0m;
             _datosDoc = new datosDoc();
+            _itemGestion = new GestionItem();
+            _sistTipoDoc = null;
         }
 
 
         public void Inicializa()
         {
             _tasaDivisa = 0m;
-            _abandonarDocIsOk = false;
+            _sistTipoDoc = null;
         }
 
         public bool CargarData()
@@ -44,20 +48,17 @@ namespace ModVentaAdm.Src.Documentos.Generar.Factura
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-
             _tasaDivisa = r01.Entidad;
-            return true;
-        }
 
-        public void AbandonarDoc()
-        {
-            _abandonarDocIsOk = false;
-            var msg = "Abandonar Documento En Cuestión ?";
-            var r = MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (r == DialogResult.Yes)
+            var r02 = Sistema.MyData.Sistema_TipoDocumento_GetFichaById("0000000001");
+            if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
-                _abandonarDocIsOk = true;
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
             }
+            _sistTipoDoc = r02.Entidad;
+
+            return true;
         }
 
     }

@@ -9,7 +9,7 @@ namespace ModVentaAdm.Data.Infra
 {
 
     public interface IData: IUsuario, ISucursal, IDocumento, ISistema, IPermiso, IReportes,
-        IClienteGrupo, IClienteZona, IConfiguracion, ICliente, IReportesCli, IProducto
+        IClienteGrupo, IClienteZona, IConfiguracion, ICliente, IReportesCli, IProducto, IVenta
     {
 
         OOB.Resultado.FichaEntidad<DateTime> FechaServidor();

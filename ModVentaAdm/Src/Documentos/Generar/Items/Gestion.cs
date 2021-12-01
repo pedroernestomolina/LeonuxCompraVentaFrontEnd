@@ -20,12 +20,14 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
 
 
         public int CntItem { get { return _bl.Count; } }
-        public decimal MontoNeto { get { return _bl.Sum(s => s.PImporte); } }
+        public decimal MontoNeto { get { return _bl.Sum(s => s.Importe); } }
         public decimal MontoIva { get { return _bl.Sum(s => s.MIva); } }
         public decimal MontoTotal { get { return _bl.Sum(s => s.mTotal); } }
         public decimal MontoTotalDivisa { get { return MontoTotal / _mDivisa; } }
         public BindingSource ItemsSource { get { return _bs; } }
         public bool HayItemsEnBandeja { get { return CntItem > 0; } }
+        public data ItemActual { get { return (data) _bs.Current; } }
+        public List<data> ListaItems { get { return _bl.ToList(); } } 
 
 
         public Gestion() 
@@ -44,19 +46,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _bs.CurrencyManager.Refresh();
         }
 
-        public void AgregarItem()
-        {
-            if (_bl.Count == 0)
-            {
-                _bl.Add(new data(1));
-            }
-            else
-            {
-                var id = _bl.Max(t => t.Id) + 1;
-                _bl.Add(new data(id));
-            }
-        }
-
         public void setDivisa(decimal mont) 
         {
             _mDivisa = mont;
@@ -68,14 +57,17 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _bs.CurrencyManager.Refresh();
         }
 
-        public void EliminarItem()
+        internal void EliminarItem(data it)
         {
-            if (_bs.Current!=null)
-            {
-                var data = (data)_bs.Current;
-                _bl.Remove(data);
-                _bs.CurrencyManager.Refresh();
-            }
+            _bl.Remove(it);
+            _bs.CurrencyManager.Refresh();
+        }
+
+        public void AgregarItem(OOB.Venta.Temporal.Item.Entidad.Ficha ficha, decimal TasaDivisa)
+        {
+            var rg = new data(ficha);
+            rg.setTasaDivisa(TasaDivisa);
+            _bl.Insert(0,rg);
         }
 
     }

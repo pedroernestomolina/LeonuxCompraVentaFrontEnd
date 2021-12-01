@@ -73,9 +73,11 @@ namespace ModVentaAdm.Src.Filtro
 
             _lTipoDoc.Clear();
             _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("1", "Factura", "01"));
-            _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("2", "Nota Dèbito","02"));
-            _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("3", "Nota Crèdito","03"));
+            _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("2", "Nota Debito","02"));
+            _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("3", "Nota Credito","03"));
             _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("4", "Nota Entrega","04"));
+            _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("5", "Presupuesto", "05"));
+            _lTipoDoc.Add(new OOB.Sistema.TipoDocumento.Entidad.Ficha("6", "Pedido", "06"));
             _bsTipoDoc.CurrencyManager.Refresh();
 
             return rt;

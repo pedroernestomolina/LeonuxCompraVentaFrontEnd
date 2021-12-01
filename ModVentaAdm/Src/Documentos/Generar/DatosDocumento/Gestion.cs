@@ -30,6 +30,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         private IDatosDocumento _habDatosDoc;
         private BuscarCliente.Gestion _buscarCliente;
         private bool _habilitarDeposito;
+        private bool _habilitarSucursal;
+        private bool _habilitarBusquedaCliente;
+        private bool _isModoRegistrar;
+        private int _idRegDocTemporal;
 
 
         public bool AceptarDatosIsOK { get { return _aceptarDatosIsOK; } }
@@ -55,11 +59,14 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string DataIdTransporte { get { return _data.IdTransporte; } }
         public string DataIdVendedor { get { return _data.IdVendedor; } }
         public string DataIdDeposito { get { return _data.IdDeposito; } }
+        public string DataNotasDoc { get { return _data.NotasDoc; } }
         public bool HabilitarDiasValidez { get { return _habDatosDoc.HabilitarDiasValidez; } }
         public bool HabilitarDirDespacho { get { return _habDatosDoc.HabilitarDirDespacho; } }
         public bool HabilitarOrdenCompra { get { return _habDatosDoc.HabilitarOrdenCompra; } }
         public bool HabilitarPedido { get { return _habDatosDoc.HabilitarPedido; } }
         public bool HabilitarDeposito { get { return _habilitarDeposito; } }
+        public bool HabilitarSucursal { get { return _habilitarSucursal; } }
+        public bool HabilitarBusquedaCliente { get { return _habilitarBusquedaCliente; } }
         public bool CondicionPagoIsCredito { get { return _data.CondicionPagoIsCredito; } }
         public string ClienteRif { get { return _data.ClienteRif; } }
         public string ClienteCodigo { get { return _data.ClienteCodigo; } }
@@ -68,10 +75,18 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string DataCondPago { get { return _data.CondicionPago; } }
         public string DataDeposito { get { return _data.Deposito; } }
         public string DataSucursal { get { return _data.Sucursal; } }
+        public string DataIdSistTipoDocumento { get { return _data.IdSistTipoDocumento; } }
+        public decimal DataFactorDivisa { get { return _data.FactorDivisa; } }
+        public string DataIdEquipo { get { return _data.IdEquipo; } }
+        public string DataSistTipoDocumento { get { return _data.SistTipoDocumento; } }
+        public int IdRegDocTemporal { get { return _idRegDocTemporal; } }
         
 
         public Gestion() 
         {
+            _idRegDocTemporal = -1;
+            _isModoRegistrar = false;
+
             _data = new data();
             _abandonarCambiosIsOk = false;
             _aceptarDatosIsOK = false;
@@ -106,6 +121,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public void Inicializa()
         {
+            _isModoRegistrar = false;
+            _idRegDocTemporal = -1;
             _abandonarCambiosIsOk = false;
             _aceptarDatosIsOK = false;
             _data.Inicializa();
@@ -306,7 +323,61 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public void AceptarDatos()
         {
-            _aceptarDatosIsOK = _data.ValidarDatos();
+            if (_data.ValidarDatos())
+            {
+                if (_isModoRegistrar)
+                {
+                    var ficha = new OOB.Venta.Temporal.Encabezado.Registrar.Ficha()
+                    {
+                        autoCliente = EntidadCliente.id,
+                        autoDeposito = DataIdDeposito,
+                        autoSistDocumento = DataIdSistTipoDocumento,
+                        autoSucursal = DataIdSucursal,
+                        autoUsuario = Sistema.Usuario.id,
+                        ciRifCliente = EntidadCliente.ciRif,
+                        estatusPendiente = "",
+                        factorDivisa = DataFactorDivisa,
+                        idEquipo = DataIdEquipo,
+                        monto = 0m,
+                        montoDivisa = 0m,
+                        nombreDeposito = DataDeposito,
+                        nombreSistDocumento = DataSistTipoDocumento,
+                        nombreSucursal = DataSucursal,
+                        nombreUsuario = Sistema.Usuario.nombre,
+                        razonSocialCliente = EntidadCliente.razonSocial,
+                        renglones = 0,
+                    };
+                    var r01 = Sistema.MyData.Venta_Temporal_Encabezado_Registrar(ficha);
+                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _idRegDocTemporal = r01.Id;
+                    _aceptarDatosIsOK = true;
+                }
+                else
+                {
+                    var ficha = new OOB.Venta.Temporal.Encabezado.Editar.Ficha()
+                    {
+                        id=_idRegDocTemporal,
+                        autoCliente = EntidadCliente.id,
+                        autoDeposito = DataIdDeposito,
+                        autoSucursal = DataIdSucursal,
+                        ciRifCliente = EntidadCliente.ciRif,
+                        nombreDeposito = DataDeposito,
+                        nombreSucursal = DataSucursal,
+                        razonSocialCliente = EntidadCliente.razonSocial,
+                    };
+                    var r01 = Sistema.MyData.Venta_Temporal_Encabezado_Editar(ficha);
+                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _aceptarDatosIsOK = true;
+                }
+            }
         }
 
         public void BuscarCliente()
@@ -340,9 +411,44 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _data.Inicializa();
         }
 
+        public void setNotasDoc(string p)
+        {
+            _data.setNotasDoc(p);
+        }
+
+        public void setFactorDivisa(decimal TasaDivisa)
+        {
+            _data.setFactorDivisa(TasaDivisa);
+        }
+
+        public void setTipoDocumento(OOB.Sistema.TipoDocumento.Entidad.Ficha ficha)
+        {
+            _data.setTipoDocumento(ficha);
+        }
+
+        public void setIdEquipo(string p)
+        {
+            _data.setIdEquipo(p);
+        }
+
+        public void setIsModoRegistrar(bool p)
+        {
+            _isModoRegistrar = p;
+        }
+
+        public void setHabilitarSucursal(bool p)
+        {
+            _habilitarSucursal= p;
+        }
+
         public void setHabilitarDeposito(bool p)
         {
             _habilitarDeposito = p;
+        }
+
+        public void setHabilitarBusquedaCliente(bool p)
+        {
+            _habilitarBusquedaCliente = p;
         }
 
     }

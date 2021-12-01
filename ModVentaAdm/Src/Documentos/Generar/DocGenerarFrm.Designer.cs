@@ -76,7 +76,7 @@
             this.panel46 = new System.Windows.Forms.Panel();
             this.P_NOTAS_DOC = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TB_NOTAS = new System.Windows.Forms.TextBox();
             this.P_DATOS = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -159,11 +159,11 @@
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
+            this.BT_EDITAR_ITEM = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BT_ELIMINAR_ITEM = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BT_LIMPIAR_ITEMS = new System.Windows.Forms.Button();
             this.P_ITEM_ITEMS_DATA = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.P_ITEM_TOTALES = new System.Windows.Forms.Panel();
@@ -910,7 +910,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.TB_NOTAS);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(1);
@@ -921,16 +921,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Notas Del Documento";
             // 
-            // textBox2
+            // TB_NOTAS
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Yellow;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(2, 15);
-            this.textBox2.MaxLength = 120;
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(361, 80);
-            this.textBox2.TabIndex = 0;
+            this.TB_NOTAS.BackColor = System.Drawing.Color.Yellow;
+            this.TB_NOTAS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_NOTAS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_NOTAS.Location = new System.Drawing.Point(2, 15);
+            this.TB_NOTAS.MaxLength = 200;
+            this.TB_NOTAS.Multiline = true;
+            this.TB_NOTAS.Name = "TB_NOTAS";
+            this.TB_NOTAS.Size = new System.Drawing.Size(361, 80);
+            this.TB_NOTAS.TabIndex = 0;
+            this.TB_NOTAS.Leave += new System.EventHandler(this.TB_NOTAS_Leave);
             // 
             // P_DATOS
             // 
@@ -1933,7 +1935,7 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.button6);
+            this.panel11.Controls.Add(this.BT_EDITAR_ITEM);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(27, 1);
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
@@ -1942,23 +1944,24 @@
             this.panel11.Size = new System.Drawing.Size(24, 32);
             this.panel11.TabIndex = 1;
             // 
-            // button6
+            // BT_EDITAR_ITEM
             // 
-            this.button6.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_editar_20;
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(2, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(20, 28);
-            this.button6.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.button6, "Editar Item");
-            this.button6.UseVisualStyleBackColor = true;
+            this.BT_EDITAR_ITEM.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_editar_20;
+            this.BT_EDITAR_ITEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_EDITAR_ITEM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_EDITAR_ITEM.FlatAppearance.BorderSize = 0;
+            this.BT_EDITAR_ITEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_EDITAR_ITEM.Location = new System.Drawing.Point(2, 2);
+            this.BT_EDITAR_ITEM.Name = "BT_EDITAR_ITEM";
+            this.BT_EDITAR_ITEM.Size = new System.Drawing.Size(20, 28);
+            this.BT_EDITAR_ITEM.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.BT_EDITAR_ITEM, "Editar Item");
+            this.BT_EDITAR_ITEM.UseVisualStyleBackColor = true;
+            this.BT_EDITAR_ITEM.Click += new System.EventHandler(this.BT_EDITAR_ITEM_Click);
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.button4);
+            this.panel12.Controls.Add(this.BT_ELIMINAR_ITEM);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(53, 1);
             this.panel12.Margin = new System.Windows.Forms.Padding(1);
@@ -1967,24 +1970,24 @@
             this.panel12.Size = new System.Drawing.Size(24, 32);
             this.panel12.TabIndex = 2;
             // 
-            // button4
+            // BT_ELIMINAR_ITEM
             // 
-            this.button4.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_eliminar;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(2, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 28);
-            this.button4.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button4, "Eliminar Item");
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.BT_ELIMINAR_ITEM.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_eliminar;
+            this.BT_ELIMINAR_ITEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ELIMINAR_ITEM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ELIMINAR_ITEM.FlatAppearance.BorderSize = 0;
+            this.BT_ELIMINAR_ITEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ELIMINAR_ITEM.Location = new System.Drawing.Point(2, 2);
+            this.BT_ELIMINAR_ITEM.Name = "BT_ELIMINAR_ITEM";
+            this.BT_ELIMINAR_ITEM.Size = new System.Drawing.Size(20, 28);
+            this.BT_ELIMINAR_ITEM.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_ELIMINAR_ITEM, "Eliminar Item");
+            this.BT_ELIMINAR_ITEM.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR_ITEM.Click += new System.EventHandler(this.BT_ELIMINAR_ITEM_Click);
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.button5);
+            this.panel13.Controls.Add(this.BT_LIMPIAR_ITEMS);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(79, 1);
             this.panel13.Margin = new System.Windows.Forms.Padding(1);
@@ -1993,20 +1996,20 @@
             this.panel13.Size = new System.Drawing.Size(24, 32);
             this.panel13.TabIndex = 3;
             // 
-            // button5
+            // BT_LIMPIAR_ITEMS
             // 
-            this.button5.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_limpiar_20;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(2, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(20, 28);
-            this.button5.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button5, "Limpiar Items");
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.BT_LIMPIAR_ITEMS.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_limpiar_20;
+            this.BT_LIMPIAR_ITEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_LIMPIAR_ITEMS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LIMPIAR_ITEMS.FlatAppearance.BorderSize = 0;
+            this.BT_LIMPIAR_ITEMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_LIMPIAR_ITEMS.Location = new System.Drawing.Point(2, 2);
+            this.BT_LIMPIAR_ITEMS.Name = "BT_LIMPIAR_ITEMS";
+            this.BT_LIMPIAR_ITEMS.Size = new System.Drawing.Size(20, 28);
+            this.BT_LIMPIAR_ITEMS.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.BT_LIMPIAR_ITEMS, "Limpiar Items");
+            this.BT_LIMPIAR_ITEMS.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_ITEMS.Click += new System.EventHandler(this.BT_LIMPIAR_ITEMS_Click);
             // 
             // P_ITEM_ITEMS_DATA
             // 
@@ -2788,8 +2791,8 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button BT_ELIMINAR_ITEM;
+        private System.Windows.Forms.Button BT_LIMPIAR_ITEMS;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.Panel P_ITEM_TOTALES_1;
         private System.Windows.Forms.Panel P_ITEM_TOTALES_2;
@@ -2816,7 +2819,7 @@
         private System.Windows.Forms.Label L_MONTO_NETO;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label L_MONTO_IVA;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button BT_EDITAR_ITEM;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Panel P_RADIO_BUTTON;
         private System.Windows.Forms.RadioButton R_REFERENCIA;
@@ -2870,7 +2873,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel P_NOTAS_DOC;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TB_NOTAS;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.Panel panel49;

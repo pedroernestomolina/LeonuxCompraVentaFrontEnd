@@ -105,7 +105,9 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             TB_DIR_DESPACHO.Enabled = _controlador.HabilitarDirDespacho;
             TB_ORDEN_COMPRA.Enabled = _controlador.HabilitarOrdenCompra;
             TB_PEDIDO.Enabled = _controlador.HabilitarPedido;
+            CB_SUCURSAL.Enabled = _controlador.HabilitarSucursal;
             CB_DEPOSITO.Enabled = _controlador.HabilitarDeposito;
+            BT_BUSCAR_CLIENTE.Enabled = _controlador.HabilitarBusquedaCliente;
             //
             if (CB_COND_PAGO.SelectedValue==null)
             {

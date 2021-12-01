@@ -80,7 +80,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
             var c5 = new DataGridViewTextBoxColumn();
             c5.DataPropertyName = "Dscto";
-            c5.HeaderText = "Dsctos";
+            c5.HeaderText = "Dscto(%)";
             c5.Visible = true;
             c5.HeaderCell.Style.Font = f;
             c5.DefaultCellStyle.Font = f1;
@@ -89,8 +89,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
             c5.Width = 90;
 
             var c6 = new DataGridViewTextBoxColumn();
-            c6.DataPropertyName = "PImporte";
-            c6.HeaderText = "P/Importe";
+            c6.DataPropertyName = "Importe";
+            c6.HeaderText = "Importe";
             c6.Visible = true;
             c6.Width = 90;
             c6.HeaderCell.Style.Font = f;
@@ -100,13 +100,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
             var c7 = new DataGridViewTextBoxColumn();
             c7.DataPropertyName = "TasaIvaDesc";
-            c7.HeaderText = "Iva%";
+            c7.HeaderText = "Iva(%)";
             c7.Visible = true;
             c7.Width = 60;
             c7.HeaderCell.Style.Font = f;
             c7.DefaultCellStyle.Font = f1;
             c7.DefaultCellStyle.Format = "n2";
-            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var c8 = new DataGridViewTextBoxColumn();
             c8.DataPropertyName = "Empaque";
@@ -173,6 +173,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
             L_DATOS_DOC_PEDIDO.Text = _controlador.DatosDoc_Pedido;
             L_DATOS_DOC_SERIE.Text = _controlador.DatosDoc_Serie;
             L_DATOS_DOC_SUCURSAL.Text = _controlador.DatosDoc_Sucursal;
+            TB_NOTAS.Text = _controlador.DatosDoc_Notas;
         }
 
         private void ActualizaBusquedaProducto()
@@ -309,18 +310,6 @@ namespace ModVentaAdm.Src.Documentos.Generar
             IrFoco();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            _controlador.LimpiarItems();
-            ActualizaVistaTotales();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            _controlador.EliminarItem();
-            ActualizaVistaTotales();
-        }
-
         private void TB_CADENA_BUSQ_PRODUCTO_Leave(object sender, EventArgs e)
         {
             _controlador.setCadenaBusqProducto(TB_CADENA_BUSQ_PRODUCTO.Text.Trim());
@@ -383,6 +372,47 @@ namespace ModVentaAdm.Src.Documentos.Generar
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void TB_NOTAS_Leave(object sender, EventArgs e)
+        {
+            _controlador.setNotasDoc(TB_NOTAS.Text);
+        }
+
+        private void BT_ELIMINAR_ITEM_Click(object sender, EventArgs e)
+        {
+            EliminarItem();
+        }
+
+        private void EliminarItem()
+        {
+            _controlador.EliminarItem();
+            ActualizaVistaTotales();
+            IrFoco();
+        }
+
+        private void BT_LIMPIAR_ITEMS_Click(object sender, EventArgs e)
+        {
+            LimpiarItems();
+        }
+
+        private void LimpiarItems()
+        {
+            _controlador.LimpiarItems();
+            ActualizaVistaTotales();
+            IrFoco();
+        }
+
+        private void BT_EDITAR_ITEM_Click(object sender, EventArgs e)
+        {
+            EditarItem();
+        }
+
+        private void EditarItem()
+        {
+            _controlador.EditarItem();
+            ActualizaVistaTotales();
+            IrFoco();
         }
 
     }

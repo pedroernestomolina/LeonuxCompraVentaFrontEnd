@@ -86,12 +86,16 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _pitem = _pneto;
             var xdscto = _pitem * _dscto / 100;
             _pitem -= xdscto;
+            _pitem = Math.Round(_pitem, 2, MidpointRounding.AwayFromZero);
 
             var m = _pneto*_cant;
             _mDscto = m * _dscto / 100;
             m -= _mDscto;
             _importe = m;
+            _importe = Math.Round(m, 2, MidpointRounding.AwayFromZero);
+
             _mIva = m * _tasaIva / 100;
+            _mIva = Math.Round(_mIva, 2, MidpointRounding.AwayFromZero);
         }
 
         public void setTasaDivisa(decimal tasa)

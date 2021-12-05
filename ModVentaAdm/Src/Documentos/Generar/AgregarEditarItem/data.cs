@@ -46,8 +46,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         public int GetEmpqCont { get { return _empaqueCont; } }
         public string GetDecimales { get { return _decimales; } }
         public decimal GetImporteFull { get { return CalculaFull(_importe); } }
+        public decimal GetIva { get { return CalculaIva(_importe); } }
         public string GetIdDeposito { get { return _idDeposito; } }
         public bool GetRupturaPorExistencia { get { return _rupturaPorExistencia; } }
+        public decimal GetCostoUnd { get { return _prd.CostoUnd; } }
+        public decimal GetCostoEmp { get { return _prd.CostoUnd*_empaqueCont; } }
         public decimal GetImporteDivisaFull 
         {
             get 
@@ -129,6 +132,12 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         {
             var rt = monto;
             rt += (monto * TasaIva / 100);
+            return rt;
+        }
+
+        private decimal CalculaIva(decimal monto)
+        {
+            var rt = (monto * TasaIva / 100);
             return rt;
         }
 

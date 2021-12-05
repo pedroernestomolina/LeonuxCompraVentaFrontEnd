@@ -15,7 +15,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
 
         bool AgregarItem(data _data, int _idTempVenta);
-    
+        bool EditarItem(data _data, int _idTempVenta, int _idItemEditar);
+
     }
 
 }

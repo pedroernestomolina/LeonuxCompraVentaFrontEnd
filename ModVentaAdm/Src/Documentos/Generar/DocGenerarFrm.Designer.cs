@@ -205,9 +205,17 @@
             this.P_PIE = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel65 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel66 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel67 = new System.Windows.Forms.Panel();
+            this.L_DOC_PENDIENTE = new System.Windows.Forms.Label();
             this.P_BOTONES = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.BT_RECUPERAR_DOC = new System.Windows.Forms.Button();
             this.P_BOT_PEND = new System.Windows.Forms.Panel();
             this.BT_DOC_PENDIENTE = new System.Windows.Forms.Button();
             this.P_BOT_PROCESAR = new System.Windows.Forms.Panel();
@@ -215,6 +223,12 @@
             this.P_BOT_SALIDA = new System.Windows.Forms.Panel();
             this.BT_SALIDA = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel68 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel69 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel70 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.P_TITULO.SuspendLayout();
@@ -322,11 +336,24 @@
             this.panel24.SuspendLayout();
             this.P_PIE.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
+            this.panel65.SuspendLayout();
+            this.tableLayoutPanel27.SuspendLayout();
+            this.panel66.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel67.SuspendLayout();
             this.P_BOTONES.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.P_BOT_PEND.SuspendLayout();
             this.P_BOT_PROCESAR.SuspendLayout();
             this.P_BOT_SALIDA.SuspendLayout();
+            this.panel68.SuspendLayout();
+            this.tableLayoutPanel28.SuspendLayout();
+            this.panel69.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel70.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -467,6 +494,7 @@
             this.BT_ABRIR_PEND.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.toolTip1.SetToolTip(this.BT_ABRIR_PEND, "Abrir Documento Pendiente");
             this.BT_ABRIR_PEND.UseVisualStyleBackColor = true;
+            this.BT_ABRIR_PEND.Click += new System.EventHandler(this.BT_ABRIR_PEND_Click);
             // 
             // panel7
             // 
@@ -2479,12 +2507,104 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.tableLayoutPanel26);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(533, 64);
             this.panel4.TabIndex = 0;
+            // 
+            // tableLayoutPanel26
+            // 
+            this.tableLayoutPanel26.ColumnCount = 4;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel26.Controls.Add(this.panel65, 0, 0);
+            this.tableLayoutPanel26.Controls.Add(this.panel68, 1, 0);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 2;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.125F));
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.875F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(533, 64);
+            this.tableLayoutPanel26.TabIndex = 0;
+            // 
+            // panel65
+            // 
+            this.panel65.Controls.Add(this.tableLayoutPanel27);
+            this.panel65.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel65.Location = new System.Drawing.Point(1, 1);
+            this.panel65.Margin = new System.Windows.Forms.Padding(1);
+            this.panel65.Name = "panel65";
+            this.panel65.Padding = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel26.SetRowSpan(this.panel65, 2);
+            this.panel65.Size = new System.Drawing.Size(157, 62);
+            this.panel65.TabIndex = 0;
+            // 
+            // tableLayoutPanel27
+            // 
+            this.tableLayoutPanel27.ColumnCount = 2;
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel27.Controls.Add(this.panel66, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.panel67, 1, 0);
+            this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel27.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel27.Name = "tableLayoutPanel27";
+            this.tableLayoutPanel27.RowCount = 1;
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(153, 58);
+            this.tableLayoutPanel27.TabIndex = 0;
+            // 
+            // panel66
+            // 
+            this.panel66.Controls.Add(this.pictureBox1);
+            this.panel66.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel66.Location = new System.Drawing.Point(1, 1);
+            this.panel66.Margin = new System.Windows.Forms.Padding(1);
+            this.panel66.Name = "panel66";
+            this.panel66.Padding = new System.Windows.Forms.Padding(2);
+            this.panel66.Size = new System.Drawing.Size(28, 56);
+            this.panel66.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ModVentaAdm.Properties.Resources.bt_bombillo;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 52);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel67
+            // 
+            this.panel67.Controls.Add(this.L_DOC_PENDIENTE);
+            this.panel67.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel67.Location = new System.Drawing.Point(31, 1);
+            this.panel67.Margin = new System.Windows.Forms.Padding(1);
+            this.panel67.Name = "panel67";
+            this.panel67.Padding = new System.Windows.Forms.Padding(2);
+            this.panel67.Size = new System.Drawing.Size(121, 56);
+            this.panel67.TabIndex = 1;
+            // 
+            // L_DOC_PENDIENTE
+            // 
+            this.L_DOC_PENDIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DOC_PENDIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DOC_PENDIENTE.ForeColor = System.Drawing.Color.DarkBlue;
+            this.L_DOC_PENDIENTE.Location = new System.Drawing.Point(2, 2);
+            this.L_DOC_PENDIENTE.Name = "L_DOC_PENDIENTE";
+            this.L_DOC_PENDIENTE.Size = new System.Drawing.Size(117, 52);
+            this.L_DOC_PENDIENTE.TabIndex = 0;
+            this.L_DOC_PENDIENTE.Text = "Cant/Doc Pendiente: 1000";
+            this.L_DOC_PENDIENTE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // P_BOTONES
             // 
@@ -2518,6 +2638,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.BT_RECUPERAR_DOC);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(1, 1);
             this.panel5.Margin = new System.Windows.Forms.Padding(1);
@@ -2525,6 +2646,22 @@
             this.panel5.Padding = new System.Windows.Forms.Padding(4);
             this.panel5.Size = new System.Drawing.Size(131, 62);
             this.panel5.TabIndex = 0;
+            // 
+            // BT_RECUPERAR_DOC
+            // 
+            this.BT_RECUPERAR_DOC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_RECUPERAR_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_RECUPERAR_DOC.Image = global::ModVentaAdm.Properties.Resources.bt_recueracion;
+            this.BT_RECUPERAR_DOC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_RECUPERAR_DOC.Location = new System.Drawing.Point(4, 4);
+            this.BT_RECUPERAR_DOC.Name = "BT_RECUPERAR_DOC";
+            this.BT_RECUPERAR_DOC.Size = new System.Drawing.Size(123, 54);
+            this.BT_RECUPERAR_DOC.TabIndex = 1;
+            this.BT_RECUPERAR_DOC.Text = "Recuperar Doc";
+            this.BT_RECUPERAR_DOC.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.BT_RECUPERAR_DOC, "Recuperar Documentos ");
+            this.BT_RECUPERAR_DOC.UseVisualStyleBackColor = true;
+            this.BT_RECUPERAR_DOC.Click += new System.EventHandler(this.BT_RECUPERAR_DOC_Click);
             // 
             // P_BOT_PEND
             // 
@@ -2540,8 +2677,8 @@
             // BT_DOC_PENDIENTE
             // 
             this.BT_DOC_PENDIENTE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_DOC_PENDIENTE.Enabled = false;
             this.BT_DOC_PENDIENTE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_DOC_PENDIENTE.Image = global::ModVentaAdm.Properties.Resources.bt_reposo;
             this.BT_DOC_PENDIENTE.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_DOC_PENDIENTE.Location = new System.Drawing.Point(4, 4);
             this.BT_DOC_PENDIENTE.Name = "BT_DOC_PENDIENTE";
@@ -2551,6 +2688,7 @@
             this.BT_DOC_PENDIENTE.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.toolTip1.SetToolTip(this.BT_DOC_PENDIENTE, "Dejar Documento En Pendiente");
             this.BT_DOC_PENDIENTE.UseVisualStyleBackColor = true;
+            this.BT_DOC_PENDIENTE.Click += new System.EventHandler(this.BT_DOC_PENDIENTE_Click);
             // 
             // P_BOT_PROCESAR
             // 
@@ -2606,6 +2744,77 @@
             this.toolTip1.SetToolTip(this.BT_SALIDA, "Abandonar Documento");
             this.BT_SALIDA.UseVisualStyleBackColor = true;
             this.BT_SALIDA.Click += new System.EventHandler(this.BT_SALIDA_Click);
+            // 
+            // panel68
+            // 
+            this.panel68.Controls.Add(this.tableLayoutPanel28);
+            this.panel68.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel68.Location = new System.Drawing.Point(160, 1);
+            this.panel68.Margin = new System.Windows.Forms.Padding(1);
+            this.panel68.Name = "panel68";
+            this.tableLayoutPanel26.SetRowSpan(this.panel68, 2);
+            this.panel68.Size = new System.Drawing.Size(157, 62);
+            this.panel68.TabIndex = 1;
+            // 
+            // tableLayoutPanel28
+            // 
+            this.tableLayoutPanel28.ColumnCount = 2;
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel28.Controls.Add(this.panel69, 0, 0);
+            this.tableLayoutPanel28.Controls.Add(this.panel70, 1, 0);
+            this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel28.Name = "tableLayoutPanel28";
+            this.tableLayoutPanel28.RowCount = 1;
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(157, 62);
+            this.tableLayoutPanel28.TabIndex = 1;
+            // 
+            // panel69
+            // 
+            this.panel69.Controls.Add(this.pictureBox2);
+            this.panel69.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel69.Location = new System.Drawing.Point(1, 1);
+            this.panel69.Margin = new System.Windows.Forms.Padding(1);
+            this.panel69.Name = "panel69";
+            this.panel69.Padding = new System.Windows.Forms.Padding(2);
+            this.panel69.Size = new System.Drawing.Size(29, 60);
+            this.panel69.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::ModVentaAdm.Properties.Resources.bt_bombillo;
+            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 56);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel70
+            // 
+            this.panel70.Controls.Add(this.label20);
+            this.panel70.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel70.Location = new System.Drawing.Point(32, 1);
+            this.panel70.Margin = new System.Windows.Forms.Padding(1);
+            this.panel70.Name = "panel70";
+            this.panel70.Padding = new System.Windows.Forms.Padding(2);
+            this.panel70.Size = new System.Drawing.Size(124, 60);
+            this.panel70.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Maroon;
+            this.label20.Location = new System.Drawing.Point(2, 2);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(120, 56);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Cant/Doc Recuperar: 1000";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DocGenerarFrm
             // 
@@ -2730,11 +2939,24 @@
             this.panel24.ResumeLayout(false);
             this.P_PIE.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel26.ResumeLayout(false);
+            this.panel65.ResumeLayout(false);
+            this.tableLayoutPanel27.ResumeLayout(false);
+            this.panel66.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel67.ResumeLayout(false);
             this.P_BOTONES.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.P_BOT_PEND.ResumeLayout(false);
             this.P_BOT_PROCESAR.ResumeLayout(false);
             this.P_BOT_SALIDA.ResumeLayout(false);
+            this.panel68.ResumeLayout(false);
+            this.tableLayoutPanel28.ResumeLayout(false);
+            this.panel69.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel70.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2927,5 +3149,19 @@
         private System.Windows.Forms.Label L_DATOS_DOC_SUCURSAL;
         private System.Windows.Forms.Label L_DATOS_DOC_DEPOSITO;
         private System.Windows.Forms.Label L_DATOS_DOC_SERIE;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
+        private System.Windows.Forms.Panel panel65;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
+        private System.Windows.Forms.Panel panel66;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel67;
+        private System.Windows.Forms.Label L_DOC_PENDIENTE;
+        private System.Windows.Forms.Button BT_RECUPERAR_DOC;
+        private System.Windows.Forms.Panel panel68;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
+        private System.Windows.Forms.Panel panel69;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel70;
+        private System.Windows.Forms.Label label20;
     }
 }

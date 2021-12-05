@@ -70,6 +70,30 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _bl.Insert(0,rg);
         }
 
+        public void EliminarLista(int id)
+        {
+            var it = _bl.FirstOrDefault(f => f.Id == id);
+            if (it != null)
+            {
+                _bl.Remove(it);
+            }
+        }
+
+        public void EliminarListaItems()
+        {
+            _bl.Clear();
+        }
+
+        public void AgregarLista(List<OOB.Venta.Temporal.Item.Entidad.Ficha> list, decimal factorDivisa)
+        {
+            foreach(var item in list)
+            {
+                var rg = new data(item);
+                rg.setTasaDivisa(factorDivisa);
+                _bl.Insert(0, rg);
+            }
+        }
+
     }
 
 }

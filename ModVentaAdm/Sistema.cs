@@ -18,6 +18,7 @@ namespace ModVentaAdm
         public static OOB.Usuario.Entidad.Ficha Usuario;
         public static OOB.Sistema.Empresa.Entidad.Ficha DatosEmpresa;
         public static string EquipoEstacion;
+        public static string IdEquipo;
 
     }
 

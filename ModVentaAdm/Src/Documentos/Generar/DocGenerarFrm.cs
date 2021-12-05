@@ -143,6 +143,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
             ActualizaVistaTotales();
             ActualizaBusquedaProducto();
             ActualizarDatosDoc();
+            ActualizaVistaPendiente();
 
             switch (_controlador.TipoDocumento) 
             {
@@ -412,6 +413,56 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             _controlador.EditarItem();
             ActualizaVistaTotales();
+            IrFoco();
+        }
+
+        private void BT_DOC_PENDIENTE_Click(object sender, EventArgs e)
+        {
+            DocPendiente();
+        }
+
+        private void DocPendiente()
+        {
+            _controlador.DocPendiente();
+            ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            ActualizaVistaTotales();
+            ActualizaVistaPendiente();
+            IrFoco();
+        }
+
+        private void ActualizaVistaPendiente()
+        {
+            L_DOC_PENDIENTE.Text = "Cant/Doc Pendientes: " + Environment.NewLine +_controlador.CantDocPend.ToString();
+        }
+
+        private void BT_RECUPERAR_DOC_Click(object sender, EventArgs e)
+        {
+            RecuperarDocumento();
+        }
+
+        private void RecuperarDocumento()
+        {
+            _controlador.RecuperarDocumento();
+            ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            ActualizaVistaTotales();
+            ActualizaVistaPendiente();
+            IrFoco();
+        }
+
+        private void BT_ABRIR_PEND_Click(object sender, EventArgs e)
+        {
+            AbrirDocPendiente();
+        }
+
+        private void AbrirDocPendiente()
+        {
+            _controlador.AbrirDocPendiente();
+            ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            ActualizaVistaTotales();
+            ActualizaVistaPendiente();
             IrFoco();
         }
 

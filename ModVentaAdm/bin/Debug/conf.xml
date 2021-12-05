@@ -4,5 +4,5 @@
     <Instancia>localhost</Instancia>
     <Catalogo>pita</Catalogo>
   </Servidor>
-  <IdEquipo>1</IdEquipo>
+  <IdEquipo>01</IdEquipo>
 </Configuracion>

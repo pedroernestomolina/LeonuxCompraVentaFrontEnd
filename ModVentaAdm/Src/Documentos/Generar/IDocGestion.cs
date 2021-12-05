@@ -16,6 +16,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         decimal TasaDivisa { get; }
         AgregarEditarItem.IGestion ItemGestion { get; }
         OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get; }
+        int CantDocPend { get; }
 
 
         void Inicializa();

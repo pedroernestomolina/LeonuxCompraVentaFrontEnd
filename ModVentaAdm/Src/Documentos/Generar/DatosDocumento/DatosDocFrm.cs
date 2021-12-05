@@ -92,8 +92,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             TB_PEDIDO.Text = _controlador.DataPedido;
             TB_FECHA_PEDIDO.Text = _controlador.DataFechaPedido;
             TB_DIR_DESPACHO.Text = _controlador.DataDirDespacho;
-            TB_DIAS_VALIDEZ.Text = _controlador.DataDiasValidez;
-            TB_DIAS_CREDITO.Text = _controlador.DataDiasCredito;
+            TB_DIAS_VALIDEZ.Text = _controlador.DataDiasValidez.ToString();
+            TB_DIAS_CREDITO.Text = _controlador.DataDiasCredito.ToString();
             CB_COBRADOR.SelectedValue = _controlador.DataIdCobrador;
             CB_COND_PAGO.SelectedValue = _controlador.DataIdCondPago;
             CB_DEPOSITO.SelectedValue = _controlador.DataIdDeposito;
@@ -239,7 +239,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             CB_COBRADOR.SelectedValue = _controlador.DataIdCobrador;
             CB_COND_PAGO.SelectedValue = _controlador.DataIdCondPago;
             TB_DIR_DESPACHO.Text = _controlador.DataDirDespacho;
-            TB_DIAS_CREDITO.Text = _controlador.DataDiasCredito;
+            TB_DIAS_CREDITO.Text = _controlador.DataDiasCredito.ToString();
             TB_DIAS_CREDITO.ReadOnly = true;
             if (_controlador.CondicionPagoIsCredito)
             {

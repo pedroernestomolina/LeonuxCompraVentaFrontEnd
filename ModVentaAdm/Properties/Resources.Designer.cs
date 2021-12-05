@@ -93,6 +93,16 @@ namespace ModVentaAdm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bt_bombillo {
+            get {
+                object obj = ResourceManager.GetObject("bt_bombillo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bt_borrar {
             get {
                 object obj = ResourceManager.GetObject("bt_borrar", resourceCulture);
@@ -556,6 +566,26 @@ namespace ModVentaAdm.Properties {
         internal static System.Drawing.Bitmap bt_qr {
             get {
                 object obj = ResourceManager.GetObject("bt_qr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_recueracion {
+            get {
+                object obj = ResourceManager.GetObject("bt_recueracion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bt_reposo {
+            get {
+                object obj = ResourceManager.GetObject("bt_reposo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

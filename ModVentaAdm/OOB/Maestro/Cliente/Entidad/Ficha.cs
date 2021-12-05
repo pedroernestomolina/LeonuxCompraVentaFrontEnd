@@ -58,6 +58,16 @@ namespace ModVentaAdm.OOB.Maestro.Cliente.Entidad
             Limpiar();
         }
 
+        public Ficha(Venta.Temporal.Encabezado.Entidad.Ficha ficha)
+            :this()
+        {
+            id = ficha.autoCliente;
+            ciRif = ficha.ciRifCliente;
+            razonSocial = ficha.razonSocialCliente;
+            dirFiscal = ficha.dirFiscalCliente;
+            codigo = ficha.codigoCliente;
+        }
+
         public void Limpiar()
         {
             id = "";

@@ -154,6 +154,28 @@ namespace ModVentaAdm.Data.Prov
             return rt;
         }
 
+        public OOB.Resultado.FichaEntidad<OOB.Producto.Existencia.Ficha> Producto_Existencia_GetFicha(string idPrd, string idDeposito)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Producto.Existencia.Ficha>();
+
+            var r01 = MyData.ProductoAdm_Existencia_GetFichaByDeposito(idPrd, idDeposito);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            
+            var ent= r01.Entidad;
+            rt.Entidad = new OOB.Producto.Existencia.Ficha()
+            {
+                disponible = ent.disponible,
+                real = ent.real,
+            };
+
+            return rt;
+        }
+
     }
 
 }

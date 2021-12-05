@@ -23,16 +23,23 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         private int _idTempVenta;
         private bool _isModoAgregar;
         private int _idItemAgregado;
+        private decimal _exReal;
+        private decimal _exDisponible;
+        private bool _visualizarCostoIsActivo;
+        private bool _visualizarExistenciaIsActivo;
+        private int _idItemEditar;
 
 
         public OOB.Producto.Entidad.Ficha _prd { get { return _data.Producto; } }
         public string ModoFicha { get { return _modoFicha; } }
-        public string Producto_Desc { get { return _prd.CodigoPrd + Environment.NewLine + _prd.NombrePrd; } }
+        public string Producto_Desc { get { return "(Código: " +_prd.CodigoPrd + ") " + _prd.NombrePrd; } }
         public BindingSource PreciosSource { get { return _preciosSource; } }
         public string Data_Empaque { get { return _data.Empaque; } }
         public decimal Data_Importe { get { return _data.Importe; } }
         public decimal Data_TasaIva { get { return _data.TasaIva; } }
         public decimal Data_Precio { get { return _data.PNeto; } }
+        public decimal Data_Total { get { return _data.GetImporteFull; } }
+        public decimal Data_Iva { get { return _data.GetIva; } }
         public bool AbandonarIsOk { get { return _abandonarIsOk; } }
         public bool ProcesarItemIsOk { get { return _procesarItemIsOk; } }
         public int IdItemAgregado { get { return _idItemAgregado; } }
@@ -40,6 +47,12 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         public string NDecimales { get { return _data.GetDecimales; } }
         public string Notas { get { return _data.GetNotas; } }
         public decimal Dscto { get { return _data.GetDsctoPorct; } }
+        public decimal Data_CostoUnd { get { return _data.GetCostoUnd; } }
+        public decimal Data_CostoEmp { get { return _data.GetCostoEmp; } }
+        public decimal Data_ExReal { get { return _exReal; } }
+        public decimal Data_ExDisponible { get { return _exDisponible; } }
+        public bool VisualizarCostoIsActivo { get { return _visualizarCostoIsActivo; } }
+        public bool VisualizarExistenciaIsActivo { get { return _visualizarExistenciaIsActivo; } }
 
 
         public Gestion() 
@@ -47,6 +60,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data = new data();
             _isModoAgregar = false;
             _idTempVenta = -1;
+            _idItemEditar = -1;
             _modoFicha = "";
             _abandonarIsOk = false;
             _procesarItemIsOk = false;
@@ -55,6 +69,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _preciosSource.CurrentChanged += _preciosSource_CurrentChanged;
             _preciosSource.DataSource = _precios;
             _idItemAgregado = -1;
+            _exReal = 0m;
+            _exDisponible = 0m;
+            _visualizarCostoIsActivo = false;
+            _visualizarExistenciaIsActivo = false;
         }
 
         private void _preciosSource_CurrentChanged(object sender, EventArgs e)
@@ -71,11 +89,16 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data.Limpiar();
             _isModoAgregar = false;
             _idTempVenta = -1;
+            _idItemEditar = -1;
             _precios.Clear();
             _modoFicha = "";
             _abandonarIsOk = false;
             _procesarItemIsOk = false;
             _idItemAgregado = -1;
+            _exReal = 0m;
+            _exDisponible = 0m;
+            _visualizarCostoIsActivo = false;
+            _visualizarExistenciaIsActivo = false;
         }
 
         AgregarEditarItemFrm _frm;
@@ -214,6 +237,14 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
                     _idItemAgregado = _gestionItem.IdItemAgregado;
                 }
             }
+            else
+            {
+                if (_gestionItem.EditarItem(_data, _idTempVenta, _idItemEditar))
+                {
+                    _procesarItemIsOk = true;
+                    _idItemAgregado = _gestionItem.IdItemAgregado;
+                }
+            }
         }
 
         public void setTasaDivisa(decimal TasaDivisa)
@@ -231,7 +262,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data.setRupturaPorExistencia(ruptura);
         }
 
-        public void setEditar(Items.data _itActual, int _idVentaTemporal)
+        public void setEditar(Items.data _itActual,int _idVentaTemporal,OOB.Producto.Entidad.Ficha _prd)
         {
             this._idTempVenta = _idVentaTemporal;
             _modoFicha = "Actualizar/Editar Item";
@@ -240,9 +271,28 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data.setDescuento(_itActual.Dscto);
             _data.setNotas(_itActual.Notas);
             _data.setPrecio(_itActual);
-            _data.setProducto(_itActual);
+            _data.setProducto(_prd);
+            _idItemEditar = _itActual.Id;
         }
 
+        public void VisualizarCosto()
+        {
+            _visualizarCostoIsActivo = true;
+        }
+
+        public void VisualizarExistencia()
+        {
+            var r01 = Sistema.MyData.Producto_Existencia_GetFicha(_data.Producto.Auto, _data.GetIdDeposito);
+            if (r01.Result== OOB.Resultado.Enumerados.EnumResult.isError)                
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _exReal = r01.Entidad.real;
+            _exDisponible = r01.Entidad.disponible;
+            _visualizarExistenciaIsActivo = true;
+        }
+    
     }
 
 }

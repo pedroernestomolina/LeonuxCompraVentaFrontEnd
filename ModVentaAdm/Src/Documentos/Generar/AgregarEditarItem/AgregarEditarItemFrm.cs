@@ -111,6 +111,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             TB_DSCTO.Text = _controlador.Dscto.ToString("n2");
             //
             ActualizarData();
+            P_COSTO.Visible = false;
+            P_EXISTENCIA.Visible = false;
         }
 
         private void _bs_CurrentChanged(object sender, EventArgs e)
@@ -124,6 +126,12 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             L_IMPORTE.Text = _controlador.Data_Importe.ToString("n2");
             L_TASA_IVA.Text = _controlador.Data_TasaIva.ToString("n2");
             L_PRECIO.Text = _controlador.Data_Precio.ToString("n2");
+            L_IVA.Text = _controlador.Data_Iva.ToString("n2");
+            L_TOTAL.Text = _controlador.Data_Total.ToString("n2");
+            L_COSTO_UND.Text = _controlador.Data_CostoUnd.ToString("n2");
+            L_COSTO_EMP.Text = _controlador.Data_CostoEmp.ToString("n2");
+            L_EX_REAL.Text = _controlador.Data_ExReal.ToString("n"+_controlador.NDecimales);
+            L_EX_DISPONIBLE.Text = _controlador.Data_ExDisponible.ToString("n" + _controlador.NDecimales);
         }
 
         private void BT_PROCESAR_Click(object sender, EventArgs e)
@@ -173,6 +181,36 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             if (_controlador.AbandonarIsOk || _controlador.ProcesarItemIsOk)
             {
                 e.Cancel = false;
+            }
+        }
+
+        private void BT_VER_COSTO_Click(object sender, EventArgs e)
+        {
+            VisualizarCosto();
+        }
+
+        private void VisualizarCosto()
+        {
+            _controlador.VisualizarCosto();
+            if (_controlador.VisualizarCostoIsActivo)
+            {
+                P_COSTO.Visible = true;
+                ActualizarData();
+            }
+        }
+
+        private void BT_VER_EXISTENCIA_Click(object sender, EventArgs e)
+        {
+            VisualizarExistencia();
+        }
+
+        private void VisualizarExistencia()
+        {
+            _controlador.VisualizarExistencia();
+            if (_controlador.VisualizarExistenciaIsActivo)
+            {
+                P_EXISTENCIA.Visible = true;
+                ActualizarData();
             }
         }
 

@@ -51,8 +51,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string DataPedido { get { return _data.Pedido; } }
         public string DataFechaPedido { get { return _data.FechaPedido; } }
         public string DataDirDespacho { get { return _data.DirDespacho; } }
-        public string DataDiasValidez { get { return _data.DiasValidez.ToString(); } }
-        public string DataDiasCredito { get { return _data.DiasCredito.ToString(); } }
+        public int DataDiasValidez { get { return _data.DiasValidez; } }
+        public int DataDiasCredito { get { return _data.DiasCredito; } }
         public string DataIdCobrador { get { return _data.IdCobrador; } }
         public string DataIdCondPago { get { return _data.IdCondPago; } }
         public string DataIdSucursal { get { return _data.IdSucursal; } }
@@ -60,6 +60,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string DataIdVendedor { get { return _data.IdVendedor; } }
         public string DataIdDeposito { get { return _data.IdDeposito; } }
         public string DataNotasDoc { get { return _data.NotasDoc; } }
+        public string DataCondPagoIsCredito { get { return _data.IdCondPago == "02" ? "1" : ""; } }
         public bool HabilitarDiasValidez { get { return _habDatosDoc.HabilitarDiasValidez; } }
         public bool HabilitarDirDespacho { get { return _habDatosDoc.HabilitarDirDespacho; } }
         public bool HabilitarOrdenCompra { get { return _habDatosDoc.HabilitarOrdenCompra; } }
@@ -346,6 +347,20 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                         nombreUsuario = Sistema.Usuario.nombre,
                         razonSocialCliente = EntidadCliente.razonSocial,
                         renglones = 0,
+                        autoCobrador = DataIdCobrador,
+                        autoRemision = "",
+                        autoTransporte = DataIdTransporte,
+                        autoVendedor = DataIdVendedor,
+                        codigoCliente = EntidadCliente.codigo,
+                        diasCredito = DataDiasCredito,
+                        diasValidez = DataDiasValidez,
+                        dirDespacho = DataDirDespacho,
+                        dirFiscalCliente = EntidadCliente.dirFiscal,
+                        documentoRemision = "",
+                        estatusCredito = DataCondPagoIsCredito,
+                        notasDoc = "",
+                        tarifaPrecioCliente = EntidadCliente.tarifa,
+                        tipoRemision = "",
                     };
                     var r01 = Sistema.MyData.Venta_Temporal_Encabezado_Registrar(ficha);
                     if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
@@ -368,6 +383,16 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                         nombreDeposito = DataDeposito,
                         nombreSucursal = DataSucursal,
                         razonSocialCliente = EntidadCliente.razonSocial,
+                        autoCobrador = DataIdCobrador,
+                        autoTransporte = DataIdTransporte,
+                        autoVendedor = DataIdVendedor,
+                        codigoCliente = EntidadCliente.codigo,
+                        diasCredito = DataDiasCredito,
+                        diasValidez = DataDiasValidez,
+                        dirDespacho = DataDirDespacho,
+                        dirFiscalCliente = EntidadCliente.dirFiscal,
+                        estatusCredito = DataCondPagoIsCredito,
+                        tarifaPrecioCliente = EntidadCliente.tarifa,
                     };
                     var r01 = Sistema.MyData.Venta_Temporal_Encabezado_Editar(ficha);
                     if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -449,6 +474,36 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public void setHabilitarBusquedaCliente(bool p)
         {
             _habilitarBusquedaCliente = p;
+        }
+
+        public void setCargarData(OOB.Venta.Temporal.Encabezado.Entidad.Ficha ficha)
+        {
+            if (CargarData())
+            {
+                _idRegDocTemporal = ficha.id;
+                setFactorDivisa(ficha.factorDivisa);
+                setSucursal(ficha.autoSucursal);
+                setDeposito(ficha.autoDeposito);
+                setCobrador(ficha.autoCobrador);
+                setVendedor(ficha.autoVendedor);
+                setTransporte(ficha.autoTransporte);
+                setDirDespacho(ficha.dirDespacho);
+                setDiasValidez(ficha.diasValidez);
+                setCondPago(ficha.isCredito ? "02" : "01");
+                setDiasCredito(ficha.diasCredito);
+                setCliente(new OOB.Maestro.Cliente.Entidad.Ficha(ficha));
+                _aceptarDatosIsOK = true;
+            }
+        }
+
+        public void setFecha(DateTime fecha)
+        {
+            _data.setFecha(fecha);
+        }
+
+        public void setCliente(OOB.Maestro.Cliente.Entidad.Ficha ficha) 
+        {
+            _data.setCliente(ficha);
         }
 
     }

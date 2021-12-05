@@ -23,6 +23,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
         public decimal TasaDivisa { get { return _tasaDivisa; } }
         public AgregarEditarItem.IGestion ItemGestion { get { return _itemGestion; } }
         public OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get { return _sistTipoDoc; } }
+        public int CantDocPend { get { return CantidadDocPendiente(); } }
 
 
         public Gestion()
@@ -59,6 +60,27 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
             _sistTipoDoc = r02.Entidad;
 
             return true;
+        }
+
+        private int CantidadDocPendiente()
+        {
+            var rt = 0;
+
+            var ficha = new OOB.Venta.Temporal.Pendiente.Cantidad.Ficha()
+            {
+                autoSistDocumento = _sistTipoDoc.id,
+                autoUsuario = Sistema.Usuario.id,
+                idEquipo = Sistema.IdEquipo,
+            };
+            var r01 = Sistema.MyData.VentaAdm_Temporal_Pendiente_GetCantidadDoc(ficha);
+            if (r01.Result== OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return rt;
+            }
+            rt = r01.Entidad;
+
+            return rt;
         }
 
     }

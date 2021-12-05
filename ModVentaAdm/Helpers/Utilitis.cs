@@ -54,6 +54,11 @@ namespace ModVentaAdm.Helpers
                                     }
                                 }
 
+                                if (nv.LocalName.ToUpper().Trim() == "IDEQUIPO")
+                                {
+                                    Sistema.IdEquipo= nv.InnerText.Trim();
+                                }
+
                                 if (nv.LocalName.ToUpper().Trim() == "DATALOCAL") 
                                 {
                                     _DataLocal = nv.InnerText.Trim();

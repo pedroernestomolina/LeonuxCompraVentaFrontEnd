@@ -16,13 +16,28 @@ namespace ModVentaAdm.Data.Prov
         {
             var result = new OOB.Resultado.Lista<OOB.Documento.Lista.Ficha>();
 
+            var xestatus = DtoLibPos.Documento.Lista.Filtro.enumEstatus.SinDefinir;
+            switch (filtro.estatus.Trim().ToUpper()) 
+            {
+                case "ACTIVO":
+                    xestatus = DtoLibPos.Documento.Lista.Filtro.enumEstatus.Activo;
+                    break;
+                case "ANULADO":
+                    xestatus = DtoLibPos.Documento.Lista.Filtro.enumEstatus.Anulado;
+                    break;
+                default:
+                    break;
+            }
+
             var filtroDTO = new DtoLibPos.Documento.Lista.Filtro()
             {
                 idArqueo = filtro.idArqueo,
-                idCliente=filtro.idCliente,
+                idCliente = filtro.idCliente,
+                idProducto = filtro.idProducto,
                 codSucursal = filtro.codSucursal,
                 codTipoDocumento = filtro.codTipoDocumento,
                 fecha = new DtoLibPos.Documento.Lista.Filtro.Fecha() { desde = filtro.desde, hasta = filtro.hasta },
+                estatus = xestatus,
             };
             var r01 = MyData.Documento_Get_Lista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

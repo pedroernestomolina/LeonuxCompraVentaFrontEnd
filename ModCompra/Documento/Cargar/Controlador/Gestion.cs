@@ -189,6 +189,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         {
             if (_gestionDoc.IsAceptarOk)
             {
+                _gestionDoc.setHayItemsCargados(Items > 0);
                 _gestionDoc.IniciaEditar();
             }
         }

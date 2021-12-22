@@ -491,6 +491,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                 setDiasValidez(ficha.diasValidez);
                 setCondPago(ficha.isCredito ? "02" : "01");
                 setDiasCredito(ficha.diasCredito);
+                setNotasDoc(ficha.notasDoc);
                 setCliente(new OOB.Maestro.Cliente.Entidad.Ficha(ficha));
                 _aceptarDatosIsOK = true;
             }

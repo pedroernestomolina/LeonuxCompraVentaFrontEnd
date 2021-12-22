@@ -33,18 +33,26 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BT_SALIR = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BT_TOTALIZAR = new System.Windows.Forms.Button();
             this.panel37 = new System.Windows.Forms.Panel();
+            this.BT_PENDIENTE_DEJAR = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.BT_EDITAR_DOC = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.BT_NUEVO = new System.Windows.Forms.Button();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.BT_IMPORTAR_DOC = new System.Windows.Forms.Button();
             this.panel36 = new System.Windows.Forms.Panel();
+            this.BT_PENDIENTE_ABRIR = new System.Windows.Forms.Button();
             this.panel38 = new System.Windows.Forms.Panel();
             this.panel39 = new System.Windows.Forms.Panel();
             this.panel40 = new System.Windows.Forms.Panel();
+            this.BT_LIMPIAR_DOCUMENTO = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -139,8 +147,11 @@
             this.panel45 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.panel46 = new System.Windows.Forms.Panel();
+            this.BT_EDITAR_ITEM = new System.Windows.Forms.Button();
             this.panel47 = new System.Windows.Forms.Panel();
+            this.BT_ELIMINAR_ITEM = new System.Windows.Forms.Button();
             this.panel48 = new System.Windows.Forms.Panel();
+            this.BT_LIMPIAR_ITEMS = new System.Windows.Forms.Button();
             this.panel59 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.panel60 = new System.Windows.Forms.Panel();
@@ -193,17 +204,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.panel88 = new System.Windows.Forms.Panel();
             this.L_ITEM_TOTAL = new System.Windows.Forms.Label();
-            this.BT_SALIR = new System.Windows.Forms.Button();
-            this.BT_EDITAR_DOC = new System.Windows.Forms.Button();
-            this.BT_NUEVO = new System.Windows.Forms.Button();
-            this.BT_IMPORTAR_DOC = new System.Windows.Forms.Button();
-            this.BT_PENDIENTE_ABRIR = new System.Windows.Forms.Button();
-            this.BT_LIMPIAR_DOCUMENTO = new System.Windows.Forms.Button();
-            this.BT_EDITAR_ITEM = new System.Windows.Forms.Button();
-            this.BT_ELIMINAR_ITEM = new System.Windows.Forms.Button();
-            this.BT_LIMPIAR_ITEMS = new System.Windows.Forms.Button();
-            this.BT_TOTALIZAR = new System.Windows.Forms.Button();
-            this.BT_PENDIENTE_DEJAR = new System.Windows.Forms.Button();
             this.PANEL_DOCUMENTO.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -379,6 +379,22 @@
             this.panel4.Size = new System.Drawing.Size(143, 49);
             this.panel4.TabIndex = 0;
             // 
+            // BT_SALIR
+            // 
+            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_SALIR.Image = global::ModCompra.Properties.Resources.bt_salida_2;
+            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_SALIR.Name = "BT_SALIR";
+            this.BT_SALIR.Size = new System.Drawing.Size(139, 45);
+            this.BT_SALIR.TabIndex = 4;
+            this.BT_SALIR.Text = "Salir";
+            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_SALIR.UseVisualStyleBackColor = true;
+            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.BT_TOTALIZAR);
@@ -390,6 +406,22 @@
             this.panel3.Size = new System.Drawing.Size(139, 49);
             this.panel3.TabIndex = 1;
             // 
+            // BT_TOTALIZAR
+            // 
+            this.BT_TOTALIZAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_TOTALIZAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_TOTALIZAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_TOTALIZAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
+            this.BT_TOTALIZAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_TOTALIZAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_TOTALIZAR.Name = "BT_TOTALIZAR";
+            this.BT_TOTALIZAR.Size = new System.Drawing.Size(135, 45);
+            this.BT_TOTALIZAR.TabIndex = 5;
+            this.BT_TOTALIZAR.Text = "Totalizar";
+            this.BT_TOTALIZAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_TOTALIZAR.UseVisualStyleBackColor = true;
+            this.BT_TOTALIZAR.Click += new System.EventHandler(this.BT_TOTALIZAR_Click);
+            // 
             // panel37
             // 
             this.panel37.Controls.Add(this.BT_PENDIENTE_DEJAR);
@@ -400,6 +432,22 @@
             this.panel37.Padding = new System.Windows.Forms.Padding(2);
             this.panel37.Size = new System.Drawing.Size(139, 49);
             this.panel37.TabIndex = 2;
+            // 
+            // BT_PENDIENTE_DEJAR
+            // 
+            this.BT_PENDIENTE_DEJAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BT_PENDIENTE_DEJAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PENDIENTE_DEJAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PENDIENTE_DEJAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
+            this.BT_PENDIENTE_DEJAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PENDIENTE_DEJAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_PENDIENTE_DEJAR.Name = "BT_PENDIENTE_DEJAR";
+            this.BT_PENDIENTE_DEJAR.Size = new System.Drawing.Size(135, 45);
+            this.BT_PENDIENTE_DEJAR.TabIndex = 6;
+            this.BT_PENDIENTE_DEJAR.Text = "Pendiente";
+            this.BT_PENDIENTE_DEJAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_PENDIENTE_DEJAR.UseVisualStyleBackColor = true;
+            this.BT_PENDIENTE_DEJAR.Click += new System.EventHandler(this.BT_PENDIENTE_DEJAR_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -467,6 +515,21 @@
             this.panel21.Size = new System.Drawing.Size(159, 36);
             this.panel21.TabIndex = 1;
             // 
+            // BT_EDITAR_DOC
+            // 
+            this.BT_EDITAR_DOC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_EDITAR_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_EDITAR_DOC.Image = global::ModCompra.Properties.Resources.bt_editar_20;
+            this.BT_EDITAR_DOC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_EDITAR_DOC.Location = new System.Drawing.Point(2, 2);
+            this.BT_EDITAR_DOC.Name = "BT_EDITAR_DOC";
+            this.BT_EDITAR_DOC.Size = new System.Drawing.Size(155, 32);
+            this.BT_EDITAR_DOC.TabIndex = 3;
+            this.BT_EDITAR_DOC.Text = "Editar Documento";
+            this.BT_EDITAR_DOC.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_EDITAR_DOC.UseVisualStyleBackColor = true;
+            this.BT_EDITAR_DOC.Click += new System.EventHandler(this.BT_EDITAR_DOC_Click);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.BT_NUEVO);
@@ -477,6 +540,21 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(2);
             this.panel6.Size = new System.Drawing.Size(159, 36);
             this.panel6.TabIndex = 0;
+            // 
+            // BT_NUEVO
+            // 
+            this.BT_NUEVO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_NUEVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_NUEVO.Image = global::ModCompra.Properties.Resources.bt_sumar_2;
+            this.BT_NUEVO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_NUEVO.Location = new System.Drawing.Point(2, 2);
+            this.BT_NUEVO.Name = "BT_NUEVO";
+            this.BT_NUEVO.Size = new System.Drawing.Size(155, 32);
+            this.BT_NUEVO.TabIndex = 2;
+            this.BT_NUEVO.Text = "Nuevo Documento";
+            this.BT_NUEVO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_NUEVO.UseVisualStyleBackColor = true;
+            this.BT_NUEVO.Click += new System.EventHandler(this.BT_NUEVO_Click);
             // 
             // panel23
             // 
@@ -489,6 +567,21 @@
             this.panel23.Size = new System.Drawing.Size(159, 36);
             this.panel23.TabIndex = 2;
             // 
+            // BT_IMPORTAR_DOC
+            // 
+            this.BT_IMPORTAR_DOC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_IMPORTAR_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_IMPORTAR_DOC.Image = global::ModCompra.Properties.Resources.bt_importar_archivo;
+            this.BT_IMPORTAR_DOC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_IMPORTAR_DOC.Location = new System.Drawing.Point(2, 2);
+            this.BT_IMPORTAR_DOC.Name = "BT_IMPORTAR_DOC";
+            this.BT_IMPORTAR_DOC.Size = new System.Drawing.Size(155, 32);
+            this.BT_IMPORTAR_DOC.TabIndex = 4;
+            this.BT_IMPORTAR_DOC.Text = "Importar Documento";
+            this.BT_IMPORTAR_DOC.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_IMPORTAR_DOC.UseVisualStyleBackColor = true;
+            this.BT_IMPORTAR_DOC.Click += new System.EventHandler(this.BT_IMPORTAR_DOC_Click);
+            // 
             // panel36
             // 
             this.panel36.Controls.Add(this.BT_PENDIENTE_ABRIR);
@@ -499,6 +592,21 @@
             this.panel36.Padding = new System.Windows.Forms.Padding(2);
             this.panel36.Size = new System.Drawing.Size(159, 36);
             this.panel36.TabIndex = 3;
+            // 
+            // BT_PENDIENTE_ABRIR
+            // 
+            this.BT_PENDIENTE_ABRIR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_PENDIENTE_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_PENDIENTE_ABRIR.Image = global::ModCompra.Properties.Resources.bt_importar_archivo;
+            this.BT_PENDIENTE_ABRIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_PENDIENTE_ABRIR.Location = new System.Drawing.Point(2, 2);
+            this.BT_PENDIENTE_ABRIR.Name = "BT_PENDIENTE_ABRIR";
+            this.BT_PENDIENTE_ABRIR.Size = new System.Drawing.Size(155, 32);
+            this.BT_PENDIENTE_ABRIR.TabIndex = 5;
+            this.BT_PENDIENTE_ABRIR.Text = "Abrir Pendiendte";
+            this.BT_PENDIENTE_ABRIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_PENDIENTE_ABRIR.UseVisualStyleBackColor = true;
+            this.BT_PENDIENTE_ABRIR.Click += new System.EventHandler(this.BT_PENDIENTE_ABRIR_Click);
             // 
             // panel38
             // 
@@ -530,6 +638,21 @@
             this.panel40.Padding = new System.Windows.Forms.Padding(2);
             this.panel40.Size = new System.Drawing.Size(162, 36);
             this.panel40.TabIndex = 7;
+            // 
+            // BT_LIMPIAR_DOCUMENTO
+            // 
+            this.BT_LIMPIAR_DOCUMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LIMPIAR_DOCUMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_LIMPIAR_DOCUMENTO.Image = global::ModCompra.Properties.Resources.bt_limpiar_20;
+            this.BT_LIMPIAR_DOCUMENTO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BT_LIMPIAR_DOCUMENTO.Location = new System.Drawing.Point(2, 2);
+            this.BT_LIMPIAR_DOCUMENTO.Name = "BT_LIMPIAR_DOCUMENTO";
+            this.BT_LIMPIAR_DOCUMENTO.Size = new System.Drawing.Size(158, 32);
+            this.BT_LIMPIAR_DOCUMENTO.TabIndex = 4;
+            this.BT_LIMPIAR_DOCUMENTO.Text = "Limpiar Todo";
+            this.BT_LIMPIAR_DOCUMENTO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.BT_LIMPIAR_DOCUMENTO.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_DOCUMENTO.Click += new System.EventHandler(this.BT_LIMPIAR_DOCUMENTO_Click);
             // 
             // panel7
             // 
@@ -1705,6 +1828,20 @@
             this.panel46.Size = new System.Drawing.Size(28, 58);
             this.panel46.TabIndex = 0;
             // 
+            // BT_EDITAR_ITEM
+            // 
+            this.BT_EDITAR_ITEM.BackgroundImage = global::ModCompra.Properties.Resources.bt_editar_32;
+            this.BT_EDITAR_ITEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_EDITAR_ITEM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_EDITAR_ITEM.FlatAppearance.BorderSize = 0;
+            this.BT_EDITAR_ITEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_EDITAR_ITEM.Location = new System.Drawing.Point(2, 2);
+            this.BT_EDITAR_ITEM.Name = "BT_EDITAR_ITEM";
+            this.BT_EDITAR_ITEM.Size = new System.Drawing.Size(24, 54);
+            this.BT_EDITAR_ITEM.TabIndex = 0;
+            this.BT_EDITAR_ITEM.UseVisualStyleBackColor = true;
+            this.BT_EDITAR_ITEM.Click += new System.EventHandler(this.BT_EDITAR_ITEM_Click);
+            // 
             // panel47
             // 
             this.panel47.Controls.Add(this.BT_ELIMINAR_ITEM);
@@ -1716,6 +1853,20 @@
             this.panel47.Size = new System.Drawing.Size(28, 58);
             this.panel47.TabIndex = 1;
             // 
+            // BT_ELIMINAR_ITEM
+            // 
+            this.BT_ELIMINAR_ITEM.BackgroundImage = global::ModCompra.Properties.Resources.bt_eliminar;
+            this.BT_ELIMINAR_ITEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ELIMINAR_ITEM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_ELIMINAR_ITEM.FlatAppearance.BorderSize = 0;
+            this.BT_ELIMINAR_ITEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ELIMINAR_ITEM.Location = new System.Drawing.Point(2, 2);
+            this.BT_ELIMINAR_ITEM.Name = "BT_ELIMINAR_ITEM";
+            this.BT_ELIMINAR_ITEM.Size = new System.Drawing.Size(24, 54);
+            this.BT_ELIMINAR_ITEM.TabIndex = 1;
+            this.BT_ELIMINAR_ITEM.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR_ITEM.Click += new System.EventHandler(this.BT_ELIMINAR_ITEM_Click);
+            // 
             // panel48
             // 
             this.panel48.Controls.Add(this.BT_LIMPIAR_ITEMS);
@@ -1726,6 +1877,20 @@
             this.panel48.Padding = new System.Windows.Forms.Padding(2);
             this.panel48.Size = new System.Drawing.Size(29, 58);
             this.panel48.TabIndex = 2;
+            // 
+            // BT_LIMPIAR_ITEMS
+            // 
+            this.BT_LIMPIAR_ITEMS.BackgroundImage = global::ModCompra.Properties.Resources.bt_limpiar_3;
+            this.BT_LIMPIAR_ITEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_LIMPIAR_ITEMS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_LIMPIAR_ITEMS.FlatAppearance.BorderSize = 0;
+            this.BT_LIMPIAR_ITEMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_LIMPIAR_ITEMS.Location = new System.Drawing.Point(2, 2);
+            this.BT_LIMPIAR_ITEMS.Name = "BT_LIMPIAR_ITEMS";
+            this.BT_LIMPIAR_ITEMS.Size = new System.Drawing.Size(25, 54);
+            this.BT_LIMPIAR_ITEMS.TabIndex = 1;
+            this.BT_LIMPIAR_ITEMS.UseVisualStyleBackColor = true;
+            this.BT_LIMPIAR_ITEMS.Click += new System.EventHandler(this.BT_LIMPIAR_ITEMS_Click);
             // 
             // panel59
             // 
@@ -2364,171 +2529,6 @@
             this.L_ITEM_TOTAL.TabIndex = 5;
             this.L_ITEM_TOTAL.Text = "999,999,999,99";
             this.L_ITEM_TOTAL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // BT_SALIR
-            // 
-            this.BT_SALIR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_SALIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_SALIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_SALIR.Image = global::ModCompra.Properties.Resources.bt_salida_2;
-            this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
-            this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(139, 45);
-            this.BT_SALIR.TabIndex = 4;
-            this.BT_SALIR.Text = "Salir";
-            this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_SALIR.UseVisualStyleBackColor = true;
-            this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
-            // 
-            // BT_EDITAR_DOC
-            // 
-            this.BT_EDITAR_DOC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_EDITAR_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_EDITAR_DOC.Image = global::ModCompra.Properties.Resources.bt_editar_20;
-            this.BT_EDITAR_DOC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_EDITAR_DOC.Location = new System.Drawing.Point(2, 2);
-            this.BT_EDITAR_DOC.Name = "BT_EDITAR_DOC";
-            this.BT_EDITAR_DOC.Size = new System.Drawing.Size(155, 32);
-            this.BT_EDITAR_DOC.TabIndex = 3;
-            this.BT_EDITAR_DOC.Text = "Editar Documento";
-            this.BT_EDITAR_DOC.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_EDITAR_DOC.UseVisualStyleBackColor = true;
-            this.BT_EDITAR_DOC.Click += new System.EventHandler(this.BT_EDITAR_DOC_Click);
-            // 
-            // BT_NUEVO
-            // 
-            this.BT_NUEVO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_NUEVO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_NUEVO.Image = global::ModCompra.Properties.Resources.bt_sumar_2;
-            this.BT_NUEVO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_NUEVO.Location = new System.Drawing.Point(2, 2);
-            this.BT_NUEVO.Name = "BT_NUEVO";
-            this.BT_NUEVO.Size = new System.Drawing.Size(155, 32);
-            this.BT_NUEVO.TabIndex = 2;
-            this.BT_NUEVO.Text = "Nuevo Documento";
-            this.BT_NUEVO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_NUEVO.UseVisualStyleBackColor = true;
-            this.BT_NUEVO.Click += new System.EventHandler(this.BT_NUEVO_Click);
-            // 
-            // BT_IMPORTAR_DOC
-            // 
-            this.BT_IMPORTAR_DOC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_IMPORTAR_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_IMPORTAR_DOC.Image = global::ModCompra.Properties.Resources.bt_importar_archivo;
-            this.BT_IMPORTAR_DOC.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_IMPORTAR_DOC.Location = new System.Drawing.Point(2, 2);
-            this.BT_IMPORTAR_DOC.Name = "BT_IMPORTAR_DOC";
-            this.BT_IMPORTAR_DOC.Size = new System.Drawing.Size(155, 32);
-            this.BT_IMPORTAR_DOC.TabIndex = 4;
-            this.BT_IMPORTAR_DOC.Text = "Importar Documento";
-            this.BT_IMPORTAR_DOC.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_IMPORTAR_DOC.UseVisualStyleBackColor = true;
-            this.BT_IMPORTAR_DOC.Click += new System.EventHandler(this.BT_IMPORTAR_DOC_Click);
-            // 
-            // BT_PENDIENTE_ABRIR
-            // 
-            this.BT_PENDIENTE_ABRIR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_PENDIENTE_ABRIR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_PENDIENTE_ABRIR.Image = global::ModCompra.Properties.Resources.bt_importar_archivo;
-            this.BT_PENDIENTE_ABRIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_PENDIENTE_ABRIR.Location = new System.Drawing.Point(2, 2);
-            this.BT_PENDIENTE_ABRIR.Name = "BT_PENDIENTE_ABRIR";
-            this.BT_PENDIENTE_ABRIR.Size = new System.Drawing.Size(155, 32);
-            this.BT_PENDIENTE_ABRIR.TabIndex = 5;
-            this.BT_PENDIENTE_ABRIR.Text = "Abrir Pendiendte";
-            this.BT_PENDIENTE_ABRIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_PENDIENTE_ABRIR.UseVisualStyleBackColor = true;
-            this.BT_PENDIENTE_ABRIR.Click += new System.EventHandler(this.BT_PENDIENTE_ABRIR_Click);
-            // 
-            // BT_LIMPIAR_DOCUMENTO
-            // 
-            this.BT_LIMPIAR_DOCUMENTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_LIMPIAR_DOCUMENTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_LIMPIAR_DOCUMENTO.Image = global::ModCompra.Properties.Resources.bt_limpiar_20;
-            this.BT_LIMPIAR_DOCUMENTO.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_LIMPIAR_DOCUMENTO.Location = new System.Drawing.Point(2, 2);
-            this.BT_LIMPIAR_DOCUMENTO.Name = "BT_LIMPIAR_DOCUMENTO";
-            this.BT_LIMPIAR_DOCUMENTO.Size = new System.Drawing.Size(158, 32);
-            this.BT_LIMPIAR_DOCUMENTO.TabIndex = 4;
-            this.BT_LIMPIAR_DOCUMENTO.Text = "Limpiar Todo";
-            this.BT_LIMPIAR_DOCUMENTO.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_LIMPIAR_DOCUMENTO.UseVisualStyleBackColor = true;
-            this.BT_LIMPIAR_DOCUMENTO.Click += new System.EventHandler(this.BT_LIMPIAR_DOCUMENTO_Click);
-            // 
-            // BT_EDITAR_ITEM
-            // 
-            this.BT_EDITAR_ITEM.BackgroundImage = global::ModCompra.Properties.Resources.bt_editar_32;
-            this.BT_EDITAR_ITEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_EDITAR_ITEM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_EDITAR_ITEM.FlatAppearance.BorderSize = 0;
-            this.BT_EDITAR_ITEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_EDITAR_ITEM.Location = new System.Drawing.Point(2, 2);
-            this.BT_EDITAR_ITEM.Name = "BT_EDITAR_ITEM";
-            this.BT_EDITAR_ITEM.Size = new System.Drawing.Size(24, 54);
-            this.BT_EDITAR_ITEM.TabIndex = 0;
-            this.BT_EDITAR_ITEM.UseVisualStyleBackColor = true;
-            this.BT_EDITAR_ITEM.Click += new System.EventHandler(this.BT_EDITAR_ITEM_Click);
-            // 
-            // BT_ELIMINAR_ITEM
-            // 
-            this.BT_ELIMINAR_ITEM.BackgroundImage = global::ModCompra.Properties.Resources.bt_eliminar;
-            this.BT_ELIMINAR_ITEM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_ELIMINAR_ITEM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_ELIMINAR_ITEM.FlatAppearance.BorderSize = 0;
-            this.BT_ELIMINAR_ITEM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_ELIMINAR_ITEM.Location = new System.Drawing.Point(2, 2);
-            this.BT_ELIMINAR_ITEM.Name = "BT_ELIMINAR_ITEM";
-            this.BT_ELIMINAR_ITEM.Size = new System.Drawing.Size(24, 54);
-            this.BT_ELIMINAR_ITEM.TabIndex = 1;
-            this.BT_ELIMINAR_ITEM.UseVisualStyleBackColor = true;
-            this.BT_ELIMINAR_ITEM.Click += new System.EventHandler(this.BT_ELIMINAR_ITEM_Click);
-            // 
-            // BT_LIMPIAR_ITEMS
-            // 
-            this.BT_LIMPIAR_ITEMS.BackgroundImage = global::ModCompra.Properties.Resources.bt_limpiar_3;
-            this.BT_LIMPIAR_ITEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_LIMPIAR_ITEMS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_LIMPIAR_ITEMS.FlatAppearance.BorderSize = 0;
-            this.BT_LIMPIAR_ITEMS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_LIMPIAR_ITEMS.Location = new System.Drawing.Point(2, 2);
-            this.BT_LIMPIAR_ITEMS.Name = "BT_LIMPIAR_ITEMS";
-            this.BT_LIMPIAR_ITEMS.Size = new System.Drawing.Size(25, 54);
-            this.BT_LIMPIAR_ITEMS.TabIndex = 1;
-            this.BT_LIMPIAR_ITEMS.UseVisualStyleBackColor = true;
-            this.BT_LIMPIAR_ITEMS.Click += new System.EventHandler(this.BT_LIMPIAR_ITEMS_Click);
-            // 
-            // BT_TOTALIZAR
-            // 
-            this.BT_TOTALIZAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_TOTALIZAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_TOTALIZAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_TOTALIZAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
-            this.BT_TOTALIZAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_TOTALIZAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_TOTALIZAR.Name = "BT_TOTALIZAR";
-            this.BT_TOTALIZAR.Size = new System.Drawing.Size(135, 45);
-            this.BT_TOTALIZAR.TabIndex = 5;
-            this.BT_TOTALIZAR.Text = "Totalizar";
-            this.BT_TOTALIZAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_TOTALIZAR.UseVisualStyleBackColor = true;
-            this.BT_TOTALIZAR.Click += new System.EventHandler(this.BT_TOTALIZAR_Click);
-            // 
-            // BT_PENDIENTE_DEJAR
-            // 
-            this.BT_PENDIENTE_DEJAR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BT_PENDIENTE_DEJAR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BT_PENDIENTE_DEJAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_PENDIENTE_DEJAR.Image = global::ModCompra.Properties.Resources.bt_ok_3;
-            this.BT_PENDIENTE_DEJAR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BT_PENDIENTE_DEJAR.Location = new System.Drawing.Point(2, 2);
-            this.BT_PENDIENTE_DEJAR.Name = "BT_PENDIENTE_DEJAR";
-            this.BT_PENDIENTE_DEJAR.Size = new System.Drawing.Size(135, 45);
-            this.BT_PENDIENTE_DEJAR.TabIndex = 6;
-            this.BT_PENDIENTE_DEJAR.Text = "Pendiente";
-            this.BT_PENDIENTE_DEJAR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.BT_PENDIENTE_DEJAR.UseVisualStyleBackColor = true;
-            this.BT_PENDIENTE_DEJAR.Click += new System.EventHandler(this.BT_PENDIENTE_DEJAR_Click);
             // 
             // DocumentoFrm
             // 

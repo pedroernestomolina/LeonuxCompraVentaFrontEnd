@@ -133,15 +133,15 @@ namespace ModCompra.Documento.Cargar.Factura
             }
             _tasaCambio = r01.Entidad;
 
-            var r02 = Sistema.MyData.Deposito_GetLista();
-            if (r02.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r02.Mensaje);
-                return false;
-            }
-            ldeposito.Clear();
-            ldeposito.AddRange(r02.Lista.OrderBy(o=>o.nombre).ToList());
-            bsDeposito.CurrencyManager.Refresh();
+            //var r02 = Sistema.MyData.Deposito_GetLista();
+            //if (r02.Result == OOB.Enumerados.EnumResult.isError)
+            //{
+            //    Helpers.Msg.Error(r02.Mensaje);
+            //    return false;
+            //}
+            //ldeposito.Clear();
+            //ldeposito.AddRange(r02.Lista.OrderBy(o=>o.nombre).ToList());
+            //bsDeposito.CurrencyManager.Refresh();
 
             var r03 = Sistema.MyData.Sucursal_GetLista ();
             if (r03.Result == OOB.Enumerados.EnumResult.isError)
@@ -280,7 +280,22 @@ namespace ModCompra.Documento.Cargar.Factura
 
         public void setSucursal(string p)
         {
-            data.setSucursal(lsucursal.FirstOrDefault(f => f.auto == p));
+            setDeposito("");
+            var suc= lsucursal.FirstOrDefault(f => f.auto == p);
+            data.setSucursal(suc);
+            if (suc==null)
+                return;
+
+            var filtro = new OOB.LibCompra.Deposito.Lista.Filtro() { PorCodigoSuc = suc.codigo };
+            var r01 = Sistema.MyData.Deposito_GetLista(filtro);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            ldeposito.Clear();
+            ldeposito.AddRange(r01.Lista.OrderBy(o => o.nombre).ToList());
+            bsDeposito.CurrencyManager.Refresh();
         }
 
         public void setDeposito(string p)

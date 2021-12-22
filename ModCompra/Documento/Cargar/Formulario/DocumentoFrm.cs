@@ -450,6 +450,7 @@ namespace ModCompra.Documento.Cargar.Formulario
         private void EditarDoc()
         {
             _controlador.EditarDoc();
+            ActualizarDatosDocumento();
         }
 
         private void DGV_KeyDown(object sender, KeyEventArgs e)

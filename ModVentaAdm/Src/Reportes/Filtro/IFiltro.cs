@@ -18,6 +18,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         bool ActivarCliente { get; }
         bool ActivarTipoDocumento { get; }
         bool ValidarTipoDocumento { get; }
+        bool ActivarProducto { get; }
 
     }
 

@@ -21,6 +21,10 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         private Filtro _filtro;
         private List<data> _ldata;
         private Helpers.Imprimir.IDocumento _gestionVisualizarDoc;
+        private bool _habilitarSeleccionarDocumento;
+        private bool _seleccionarDocumentoIsOk;
+        private string _idDocumentoSeleccionado;
+        private bool _habilitarVisualizarDocumento;
 
 
         public string Cliente { get { return _cliente.ciRif+Environment.NewLine+_cliente.razonSocial; } }
@@ -28,6 +32,8 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         public DateTime Desde { get { return _filtro.desde; } }
         public DateTime Hasta { get { return _filtro.hasta; } }
         public int ItemsCnt { get { return _ldata.Count; } }
+        public bool SeleccionarDocumentoIsOk { get { return _seleccionarDocumentoIsOk; } }
+        public string IdDocumentoSeleccionado { get { return _idDocumentoSeleccionado; } }
 
 
         public Gestion()
@@ -38,6 +44,10 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             _bs = new BindingSource();
             _bs.DataSource = _ldata;
             _gestionVisualizarDoc = new Helpers.Imprimir.Grafico.Documento();
+            _habilitarSeleccionarDocumento = false;
+            _seleccionarDocumentoIsOk = false;
+            _idDocumentoSeleccionado = "";
+            _habilitarVisualizarDocumento = false;
         }
 
 
@@ -46,6 +56,9 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             _autoCli = "";
             _filtro.Limpiar();
             _ldata.Clear();
+            _habilitarSeleccionarDocumento = false;
+            _seleccionarDocumentoIsOk = false;
+            _idDocumentoSeleccionado = "";
         }
 
         public void setCliente(Administrador.data Item)
@@ -172,16 +185,42 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             _bs.CurrencyManager.Refresh();
         }
 
+        public void setHabilitarVisualizarDocumento(bool modo)
+        {
+            _habilitarVisualizarDocumento = modo;
+        }
+
         public void VisualizarDocumento()
         {
-            if (_bs.Current != null) 
+            if (_habilitarVisualizarDocumento)
             {
-                var it = (data)_bs.Current;
-                var r01 = Helpers.Imprimir.Documento.CargarDataDocumento(it.id);
-                if (r01 != null)
+                if (_bs.Current != null)
                 {
-                    _gestionVisualizarDoc.setData(r01);
-                    _gestionVisualizarDoc.ImprimirDoc();
+                    var it = (data)_bs.Current;
+                    var r01 = Helpers.Imprimir.Documento.CargarDataDocumento(it.id);
+                    if (r01 != null)
+                    {
+                        _gestionVisualizarDoc.setData(r01);
+                        _gestionVisualizarDoc.ImprimirDoc();
+                    }
+                }
+            }
+        }
+
+        public void setHabilitarSeleccionarDocumento(bool modo) 
+        {
+            _habilitarSeleccionarDocumento = modo;
+        }
+
+        public void SeleccionarDocumento()
+        {
+            if (_habilitarSeleccionarDocumento) 
+            {
+                if (_bs.Current != null)
+                {
+                    var it = (data)_bs.Current;
+                    _idDocumentoSeleccionado = it.id;
+                    _seleccionarDocumentoIsOk = true;
                 }
             }
         }

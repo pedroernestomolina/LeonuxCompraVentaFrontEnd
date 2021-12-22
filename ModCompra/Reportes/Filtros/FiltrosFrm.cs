@@ -173,6 +173,11 @@ namespace ModCompra.Reportes.Filtros
         {
             _controlador.setMesAnoRelacion(TB_MES_RELACION.Value, TB_ANO_RELACION.Value);
         }
+
+        private void BT_PROVEEDOR_BUSCAR_Click(object sender, EventArgs e)
+        {
+
+        }
         
     }
 

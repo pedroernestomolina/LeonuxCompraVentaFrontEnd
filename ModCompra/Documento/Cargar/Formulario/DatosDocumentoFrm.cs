@@ -96,35 +96,52 @@ namespace ModCompra.Documento.Cargar.Formulario
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (_modoInicializar) 
+                return;
+
             _controlador.setSucursal("");
-            if (CB_SUCURSAL.SelectedIndex != -1)
+            if (CB_SUCURSAL.SelectedIndex != -1) 
+            {
                 _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
+            }
         }
 
         private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (_modoInicializar)
+                return;
+
             _controlador.setDeposito("");
             if (CB_DEPOSITO.SelectedIndex != -1)
                 _controlador.setDeposito(CB_DEPOSITO.SelectedValue.ToString());
         }
 
-
+        private bool _modoInicializar;
         private void DatosDocumentoFrm_Load(object sender, EventArgs e)
         {
             TB_BUSCAR.Focus();
             RefrescarData();
-            CB_SUCURSAL.DataSource = _controlador.SucursalSource;
-            CB_DEPOSITO.DataSource = _controlador.DepositoSource;
+            BT_BUSCAR_PROVEEDOR.Enabled = true;
 
             if (_controlador.IsAceptarOk)
             {
+                CB_SUCURSAL.DataSource = _controlador.SucursalSource;
+                CB_DEPOSITO.DataSource = _controlador.DepositoSource;
+                CB_SUCURSAL.Enabled = !_controlador.HayItemsCargados;
+                CB_DEPOSITO.Enabled = !_controlador.HayItemsCargados;
+                TB_FACTOR_DIVISA.Enabled = !_controlador.HayItemsCargados;
                 CB_SUCURSAL.SelectedValue  = _controlador.IdSucursal;
                 CB_DEPOSITO.SelectedValue = _controlador.IdDeposito;
+                BT_BUSCAR_PROVEEDOR.Enabled = !_controlador.HayItemsCargados;
             }
             else 
             {
+                _modoInicializar = true;
+                CB_SUCURSAL.DataSource = _controlador.SucursalSource;
+                CB_DEPOSITO.DataSource = _controlador.DepositoSource;
                 CB_SUCURSAL.SelectedIndex = -1;
                 CB_DEPOSITO.SelectedIndex = -1;
+                _modoInicializar = false;
             }
         }
 
@@ -279,6 +296,11 @@ namespace ModCompra.Documento.Cargar.Formulario
             TB_FACTOR_DIVISA.Enabled = false;
             CB_DEPOSITO.Enabled = false;
             CB_SUCURSAL.Enabled = false;
+
+            _modoInicializar = true;
+            CB_SUCURSAL.SelectedValue=_controlador.IdSucursal ;
+            CB_DEPOSITO.SelectedValue = _controlador.IdDeposito;
+            _modoInicializar=false;
         }
 
         public void setSucursal(string p)

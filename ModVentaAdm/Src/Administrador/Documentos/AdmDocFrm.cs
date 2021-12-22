@@ -33,10 +33,10 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         private void InicializarCombos()
         {
-            CB_SUCURSAL.DisplayMember = "Nombre";
-            CB_SUCURSAL.ValueMember = "Auto";
-            CB_TIPO_DOC.DisplayMember = "Descripcion";
-            CB_TIPO_DOC.ValueMember = "Id";
+            CB_SUCURSAL.DisplayMember = "descripcion";
+            CB_SUCURSAL.ValueMember = "auto";
+            CB_TIPO_DOC.DisplayMember = "descripcion";
+            CB_TIPO_DOC.ValueMember = "auto";
         }
 
         private void InicializarGrid()
@@ -206,23 +206,32 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             }
         }
 
+        private bool _modoInicializa;
         private void AdministradorFrm_Load(object sender, EventArgs e)
         {
             InicializarGrid();
 
+            _modoInicializa = true;
             CB_SUCURSAL.DataSource = _controlador.SucursalSource;
-            CB_SUCURSAL.SelectedIndex = -1;
             CB_TIPO_DOC.DataSource = _controlador.TipoDocSource;
-            CB_TIPO_DOC.SelectedIndex = -1;
-
-            Actualizar();
             DGV.DataSource = _controlador.ItemsSource;
             DGV.Refresh();
-
             DGV.Columns[0].Frozen = true;
             DGV.Columns[1].Frozen = true;
             DGV.Columns[2].Frozen = true;
             DGV.Columns[3].Frozen = true;
+            _modoInicializa = false;
+
+            Actualizar();
+            ActualizarControles();
+        }
+
+        private void ActualizarControles()
+        {
+            DTP_DESDE.Value = _controlador.GetDesde;
+            DTP_HASTA.Value = _controlador.GetHasta;
+            CB_SUCURSAL.SelectedValue = _controlador.GetIdSucursal;
+            CB_TIPO_DOC.SelectedValue = _controlador.GetIdTipoDoc;
         }
 
         private void Actualizar()
@@ -273,20 +282,24 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         private void CB_TIPO_DOC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.setTipoDoc("");
-            if (CB_TIPO_DOC.SelectedIndex!=-1)
-            {
-                _controlador.setTipoDoc(CB_TIPO_DOC.SelectedValue.ToString());
-            }
+            if (_modoInicializa)
+                return;
+
+            var id = "";
+            if (CB_TIPO_DOC.SelectedIndex != -1)
+                id = CB_TIPO_DOC.SelectedValue.ToString();
+            _controlador.setTipoDoc(id);
         }
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.setSucursal("");
+            if (_modoInicializa)
+                return;
+
+            var id = "";
             if (CB_SUCURSAL.SelectedIndex != -1)
-            {
-                _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
-            }
+                id = CB_SUCURSAL.SelectedValue.ToString();
+            _controlador.setSucursal(id);
         }
 
         private void L_TIPO_DOC_Click(object sender, EventArgs e)
@@ -357,6 +370,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         private void CorrectorDocumentos()
         {
+            _controlador.CorrectorDocumento();
         }
 
         private void DGV_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -376,6 +390,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         private void Filtros()
         {
             _controlador.Filtros();
+            ActualizarControles();
         }
 
     }

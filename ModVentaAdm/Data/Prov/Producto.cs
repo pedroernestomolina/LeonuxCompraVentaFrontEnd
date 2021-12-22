@@ -176,6 +176,46 @@ namespace ModVentaAdm.Data.Prov
             return rt;
         }
 
+        public OOB.Resultado.Lista<OOB.Producto.ListaResumen.Ficha> Producto_GetListaResumen(OOB.Producto.ListaResumen.Filtro filtro)
+        {
+            var rt = new OOB.Resultado.Lista<OOB.Producto.ListaResumen.Ficha>();
+
+            var filtroDto = new DtoLibPos.ProductoAdm.ListaResumen.Filtro()
+            {
+                Cadena = filtro.Cadena,
+                MetodoBusqueda = (DtoLibPos.ProductoAdm.ListaResumen.Enumerados.EnumMetodoBusqueda)filtro.MetodoBusqueda,
+            };
+            var r01 = MyData.ProductoAdm_GetListaResumen(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.Producto.ListaResumen.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Producto.ListaResumen.Ficha()
+                        {
+                            Codigo = s.Codigo,
+                            Estatus = s.Estatus,
+                            Id = s.Id,
+                            Nombre = s.Nombre,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.ListaD = list;
+
+            return rt;
+        }
+
     }
 
 }

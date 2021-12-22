@@ -78,7 +78,7 @@ namespace ModVentaAdm.Data.Prov
 
             var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.GeneralPorDepartamento.Filtro()
             {
-                codSucursal = filtro.idSucursal,
+                codSucursal = filtro.codigoSucursal,
                 desde = filtro.desde,
                 hasta = filtro.hasta,
             };
@@ -121,7 +121,7 @@ namespace ModVentaAdm.Data.Prov
 
             var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.GeneralPorGrupo.Filtro()
             {
-                codSucursal = filtro.idSucursal,
+                codSucursal = filtro.codigoSucursal,
                 desde = filtro.desde,
                 hasta = filtro.hasta,
             };
@@ -164,7 +164,7 @@ namespace ModVentaAdm.Data.Prov
 
             var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.Resumen.Filtro()
             {
-                codigoSucursal = filtro.idSucursal,
+                codigoSucursal = filtro.codigoSucursal,
                 desdeFecha = filtro.desde,
                 hastaFecha = filtro.hasta,
             };
@@ -208,7 +208,7 @@ namespace ModVentaAdm.Data.Prov
 
             var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.VentaPorProducto.Filtro()
             {
-                codigoSucursal = filtro.idSucursal,
+                codigoSucursal = filtro.codigoSucursal,
                 desdeFecha = filtro.desde,
                 hastaFecha = filtro.hasta,
             };

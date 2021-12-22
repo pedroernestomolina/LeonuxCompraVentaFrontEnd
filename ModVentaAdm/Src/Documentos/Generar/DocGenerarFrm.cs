@@ -23,6 +23,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             InitializeComponent();
             InicializaGridItems();
+            InicializaCombo();
+        }
+
+        private void InicializaCombo()
+        {
+            CB_REMISION.ValueMember = "id";
+            CB_REMISION.DisplayMember = "Descripcion";
         }
 
         private void InicializaGridItems()
@@ -138,6 +145,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             IrFoco();
             DGV.DataSource = _controlador.ItemsSource;
+            CB_REMISION.DataSource = _controlador.RemisionSource;
             L_TIPO_DOCUMENTO.Text = _controlador.TipoDocumento;
             ActualizarVistaCliente();
             ActualizaVistaTotales();
@@ -431,9 +439,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
             IrFoco();
         }
 
-        private void ActualizaVistaPendiente()
+        private void ActualizaVistaPendiente(bool actualizaRecuperados=true)
         {
             L_DOC_PENDIENTE.Text = "Cant/Doc Pendientes: " + Environment.NewLine +_controlador.CantDocPend.ToString();
+            if (actualizaRecuperados)
+            {
+                L_DOC_RECUPERAR.Text = "Cant/Doc Recuperar: " + Environment.NewLine + _controlador.CantDocRecuperar.ToString();
+            }
         }
 
         private void BT_RECUPERAR_DOC_Click(object sender, EventArgs e)
@@ -462,8 +474,18 @@ namespace ModVentaAdm.Src.Documentos.Generar
             ActualizarVistaCliente();
             ActualizarDatosDoc();
             ActualizaVistaTotales();
-            ActualizaVistaPendiente();
+            ActualizaVistaPendiente(false);
             IrFoco();
+        }
+
+        private void BT_REMISION_Click(object sender, EventArgs e)
+        {
+            RemisionDoc();
+        }
+
+        private void RemisionDoc()
+        {
+            _controlador.RemisionDoc();
         }
 
     }

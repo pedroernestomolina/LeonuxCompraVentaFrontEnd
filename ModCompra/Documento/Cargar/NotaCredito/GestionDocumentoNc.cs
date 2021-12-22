@@ -116,11 +116,19 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             ProveedorIsOk = true;
             data.proveedor = _proveedor;
             _gestionRemision.CerrarFrm();
-            _frm.setActualizarDataRemision();
             var suc = lsucursal.FirstOrDefault(f => f.codigo == _docRemision.codigoSucursal);
             if (suc!=null)
-                _frm.setSucursal(suc.auto);
-            _frm.setDeposito (_docRemision.autoDeposito);
+            {
+                data.setSucursal(suc);
+            }
+            var dep = ldeposito.FirstOrDefault(f => f.auto == _docRemision.autoDeposito);
+            if (dep!= null)
+            {
+                data.setDeposito(dep);
+            }
+            //_frm.setSucursal(suc.auto);
+            //_frm.setDeposito (_docRemision.autoDeposito);
+            _frm.setActualizarDataRemision();
         }
 
         private void _gestionListaPrv_ItemSeleccionadoOk(object sender, EventArgs e)
@@ -159,7 +167,8 @@ namespace ModCompra.Documento.Cargar.NotaCredito
             }
             _tasaCambio = r01.Entidad;
 
-            var r02 = Sistema.MyData.Deposito_GetLista();
+            var filtro = new OOB.LibCompra.Deposito.Lista.Filtro();
+            var r02 = Sistema.MyData.Deposito_GetLista(filtro);
             if (r02.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r02.Mensaje);

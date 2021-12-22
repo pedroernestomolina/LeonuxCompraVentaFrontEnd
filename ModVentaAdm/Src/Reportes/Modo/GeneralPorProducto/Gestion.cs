@@ -27,19 +27,12 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralPorProducto
 
         public void Generar(Reportes.Filtro.data data)
         {
-            var filtro = new OOB.Reportes.VentaPorProducto.Filtro();
-            if (data.Sucursal != null)
+            var filtro = new OOB.Reportes.VentaPorProducto.Filtro()
             {
-                filtro.idSucursal = data.Sucursal.codigo;
-            }
-            if (data.Desde.HasValue)
-            {
-                filtro.desde = data.Desde.Value;
-            }
-            if (data.Hasta.HasValue)
-            {
-                filtro.hasta = data.Hasta.Value;
-            }
+                codigoSucursal = data.GetCodigoSucursal,
+                desde = data.GetDesde,
+                hasta = data.GetHasta,
+            };
             var r01 = Sistema.MyData.Reportes_VentaPorProducto(filtro);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {

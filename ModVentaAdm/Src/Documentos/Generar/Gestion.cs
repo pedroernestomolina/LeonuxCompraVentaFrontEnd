@@ -26,6 +26,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private int _idVentaTemporal;
         private bool _abandonarDocIsOk;
         private bool _rupturaPorExistencia;
+        private List<tipoDocRemitir> _ltipoDocRemitir;
+        private BindingSource _bsTipoDocRemitir;
 
 
         public string TipoDocumento { get { return _docGestion.TipoDocumento; } }
@@ -52,10 +54,16 @@ namespace ModVentaAdm.Src.Documentos.Generar
         public OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get { return _docGestion.SistTipoDocumento; } }
         public bool AbandonarDocIsOk { get { return _abandonarDocIsOk; } }
         public int CantDocPend { get { return _docGestion.CantDocPend; } }
+        public int CantDocRecuperar { get { return _docGestion.CantDocRecuperar; } }
+        public BindingSource RemisionSource { get { return _bsTipoDocRemitir; } }
         
 
         public Gestion() 
         {
+            _ltipoDocRemitir = new List<tipoDocRemitir>();
+            _bsTipoDocRemitir = new BindingSource();
+            _bsTipoDocRemitir.DataSource = _ltipoDocRemitir;
+
             _items = new Items.Gestion();
             _prefBusqPrd = enumerados.BusqPrd.SnDefinir ;
             _datosDocGestion = new DatosDocumento.Gestion();
@@ -90,6 +98,15 @@ namespace ModVentaAdm.Src.Documentos.Generar
             {
                 if (_docGestion.CargarData())
                 {
+                    _ltipoDocRemitir.Clear();
+                    _ltipoDocRemitir = _docGestion.TipoDocRemitir.Select(s =>
+                    {
+                        var nr2 = new tipoDocRemitir(s.id, s.descripcion);
+                        return nr2;
+                    }).ToList(); ;
+                    _bsTipoDocRemitir.DataSource = _ltipoDocRemitir;
+                    _bsTipoDocRemitir.CurrencyManager.Refresh();
+
                     _items.setDivisa(TasaDivisa);
 
                     if (_frm == null)
@@ -639,6 +656,81 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _datosDocGestion.setCargarData(r01.Entidad.Encabezado);
             _items.AgregarLista(r01.Entidad.Items, r01.Entidad.Encabezado.factorDivisa);
             _idVentaTemporal = r01.Entidad.Encabezado.id;
+        }
+
+        public void RemisionDoc()
+        {
+            if (!_datosDocGestion.AceptarDatosIsOK)
+            {
+                return;
+            }
+
+            if (_items.HayItemsEnBandeja)
+            {
+                Helpers.Msg.Alerta("OPCION NO PERMITIDA CUANDO EXISTEN ITEMS EN PROCESO");
+                return;
+            }
+
+            var filtroOOB = new OOB.Maestro.Cliente.Documento.Filtro()
+            {
+                desde = null,
+                hasta = null,
+                autoCliente = _datosDocGestion.EntidadCliente.id,
+                tipoDoc = OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.SinDefinir,
+            };
+            var tipoDoc = (tipoDocRemitir)_bsTipoDocRemitir.Current;
+            switch (tipoDoc.id)
+            {
+                case "01":
+                    filtroOOB.tipoDoc = OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.Factura;
+                    break;
+                case "04":
+                    filtroOOB.tipoDoc = OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.NotaEntrega;
+                    break;
+                case "05":
+                    filtroOOB.tipoDoc = OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.Presupuesto;
+                    break;
+                case "06":
+                    filtroOOB.tipoDoc = OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.Pedido;
+                    break;
+            }
+            var r01 = Sistema.MyData.Cliente_Documentos_GetLista(filtroOOB);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            _visualClienteDoc.Inicializa();
+            _visualClienteDoc.setHabilitarSeleccionarDocumento(true);
+            _visualClienteDoc.setHabilitarVisualizarDocumento(false);
+            _visualClienteDoc.setCliente(_datosDocGestion.EntidadCliente);
+            _visualClienteDoc.setLista(r01.ListaD);
+            _visualClienteDoc.Inicia();
+            if (_visualClienteDoc.SeleccionarDocumentoIsOk)
+            {
+                CargarDocumentoRemision(_visualClienteDoc.IdDocumentoSeleccionado);
+            }
+        }
+
+        private void CargarDocumentoRemision(string autoDoc)
+        {
+            var r01 = Sistema.MyData.Documento_GetById(autoDoc);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            var ficha = _docGestion.CargaRemision(r01.Entidad, _idVentaTemporal);
+            if (ficha != null) 
+            {
+                var r02 = Sistema.MyData.VentaAdm_Temporal_Remision_Registrar(ficha);
+                if (r02.Result== OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return;
+                }
+            }
         }
 
     }

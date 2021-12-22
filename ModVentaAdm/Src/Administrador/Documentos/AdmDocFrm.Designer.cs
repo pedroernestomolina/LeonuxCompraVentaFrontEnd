@@ -229,7 +229,7 @@
             // panel48
             // 
             this.panel48.BackgroundImage = global::ModVentaAdm.Properties.Resources.administrador;
-            this.panel48.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel48.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel48.Location = new System.Drawing.Point(55, 1);
             this.panel48.Margin = new System.Windows.Forms.Padding(1);

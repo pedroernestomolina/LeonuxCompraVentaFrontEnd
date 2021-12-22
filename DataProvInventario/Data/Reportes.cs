@@ -598,7 +598,7 @@ namespace DataProvInventario.Data
                         {
                             cnt = s.cnt,
                             concepto = s.concepto,
-                            exInicial = s.exInicial,
+                            exInicial = s.exInicial.HasValue ? s.exInicial.Value : 0m,
                         };
                     }).ToList();
                 }

@@ -232,6 +232,8 @@ namespace ModVentaAdm.Src.Cliente.Administrador
             if (Item != null)
             {
                 _gestionDocumentos.Inicializa();
+                _gestionDocumentos.setHabilitarSeleccionarDocumento(false);
+                _gestionDocumentos.setHabilitarVisualizarDocumento(true);
                 _gestionDocumentos.setCliente(Item);
                 _gestionDocumentos.Inicia();
             }

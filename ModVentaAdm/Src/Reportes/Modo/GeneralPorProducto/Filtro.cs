@@ -19,6 +19,7 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralPorProducto
         public bool ActivarCliente { get { return false; } }
         public bool ActivarTipoDocumento { get { return false; } }
         public bool ValidarTipoDocumento { get { return false; } }
+        public bool ActivarProducto { get { return false; } }
 
     }
 

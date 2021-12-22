@@ -56,12 +56,35 @@ namespace ModVentaAdm.Data.Prov
         public OOB.Resultado.Lista<OOB.Maestro.Cliente.Documento.Ficha> Cliente_Documentos_GetLista(OOB.Maestro.Cliente.Documento.Filtro filtro)
         {
             var rt = new OOB.Resultado.Lista<OOB.Maestro.Cliente.Documento.Ficha>();
+            var xtipo = "";
+            switch(filtro.tipoDoc)
+            {
+                case OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.Factura:
+                    xtipo = "01";
+                    break;
+                case OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.NotaDebito:
+                    xtipo = "02";
+                    break;
+                case OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.NotaCredito:
+                    xtipo = "03";
+                    break;
+                case OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.NotaEntrega:
+                    xtipo = "04";
+                    break;
+                case OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.Presupuesto:
+                    xtipo = "05";
+                    break;
+                case OOB.Maestro.Cliente.Documento.Enumerados.enumTipoDoc.Pedido:
+                    xtipo = "06";
+                    break;
+            }
 
             var filtroDto = new DtoLibPos.Cliente.Documento.Filtro()
             {
                 autoCliente = filtro.autoCliente,
                 desde = filtro.desde,
                 hasta = filtro.hasta,
+                tipoDoc = xtipo,
             };
             var r01 = MyData.Cliente_Documento_GetLista(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

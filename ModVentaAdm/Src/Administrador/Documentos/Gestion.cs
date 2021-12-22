@@ -13,27 +13,38 @@ namespace ModVentaAdm.Src.Administrador.Documentos
     {
 
 
-        private IGestionListaDetalle _gestionLista;
-        private Filtro.Gestion _gestionFiltro;
-        private Reportes.Filtro.Gestion _gestionFiltro2;
+        private Reportes.Filtro.IFiltro _filtrarPor;
+        private IGestionListaDetalle _gLista;
+        private Reportes.Filtro.Gestion _gFiltro;
+        private Reportes.Modo.ListaDocumento.Gestion _gRepDoc;
+        private Helpers.Imprimir.IDocumento _gVisualizarDoc;
 
 
-        public BindingSource ItemsSource { get { return _gestionLista.ItemsSource; } }
-        public string ItemsEncontrados { get { return _gestionLista.ItemsEncontrados; } }
-        public BindingSource SucursalSource { get { return _gestionFiltro.SucursalSource; } }
-        public BindingSource TipoDocSource { get { return _gestionFiltro.TipoDocSource; } }
+        public BindingSource ItemsSource { get { return _gLista.ItemsSource; } }
+        public string ItemsEncontrados { get { return _gLista.ItemsEncontrados; } }
+        public BindingSource SucursalSource { get { return _gFiltro.SourceSucursal ; } }
+        public BindingSource TipoDocSource { get { return _gFiltro.SourceTipoDoc; } }
+        public data GetItemActual { get { return _gLista.GetItemActual; } }
+        public DateTime GetDesde { get { return _gFiltro.GetDesde; } }
+        public DateTime GetHasta { get { return _gFiltro.GetHasta; } }
+        public string GetIdSucursal { get { return _gFiltro.GetIdSucursal ; } }
+        public string GetIdTipoDoc { get { return _gFiltro.GetIdTipoDoc; } }
 
 
         public Gestion()
         {
-            _gestionLista = new GestionLista();
-            _gestionFiltro = new Filtro.Gestion();
-            _gestionFiltro2 = new Reportes.Filtro.Gestion();
+            _filtrarPor = new filtro();
+            _gLista = new GestionLista();
+            _gFiltro= new Reportes.Filtro.Gestion();
+            _gRepDoc = new Reportes.Modo.ListaDocumento.Gestion();
+            _gVisualizarDoc = new Helpers.Imprimir.Grafico.Documento();
         }
 
 
         public void Inicializa()
         {
+            _gFiltro.Inicializa();
+            _gLista.Inicializa();
         }
 
         AdmDocFrm frm;
@@ -50,109 +61,100 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         public void Buscar()
         {
             GenerarBusqueda();
-            _gestionFiltro2.Inicializa();
-            _gestionFiltro2.LimpiarCliente();
         }
 
         private void GenerarBusqueda()
         {
-            var r01= _gestionFiltro.Filtro();
-            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            var filtro = new OOB.Documento.Lista.Filtro()
             {
-                Helpers.Msg.Error(r01.Mensaje);
-                return;
-            }
-            if (_gestionFiltro2.ClienteSeleccionadoIsOK)
-            {
-                r01.Entidad.idCliente = _gestionFiltro2.IdCliente;
-            }
-
-            var rt1 = Sistema.MyData.Documento_Get_Lista(r01.Entidad);
-            if (rt1.Result == OOB.Resultado.Enumerados.EnumResult.isError )
+                codSucursal = _gFiltro.GetCodigoSucursal,
+                codTipoDocumento= _gFiltro.GetCodigoTipoDoc,
+                desde = _gFiltro.GetDesde,
+                hasta = _gFiltro.GetHasta,
+                idCliente = _gFiltro.GetIdCliente,
+                idProducto = _gFiltro.GetIdProducto,
+                estatus = _gFiltro.GetEstatus,
+            };
+            var rt1 = Sistema.MyData.Documento_Get_Lista(filtro);
+            if (rt1.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(rt1.Mensaje);
                 return;
             }
-            _gestionLista.setLista(rt1.ListaD);
+            _gLista.setLista(rt1.ListaD);
         }
-
 
         public void AnularItem()
         {
+            var msg = "OPCION NO ACTIVADA";
+            MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
         }
 
         public void LimpiarFiltros()
         {
-            _gestionFiltro.LimpiarFiltros();
-            _gestionFiltro2.Inicializa();
-            _gestionFiltro2.LimpiarCliente();
+            _gFiltro.LimpiarFiltros();
         }
 
         public void LimpiarData()
         {
-            _gestionLista.LimpiarData();
+            _gLista.LimpiarData();
         }
 
         public void VisualizarDocumento()
         {
-            _gestionLista.VisualizarDocumento();
+            if (GetItemActual != null)
+            {
+                var r01 = Helpers.Imprimir.Documento.CargarDataDocumento(GetItemActual.idDocumento);
+                if (r01 != null)
+                {
+                    _gVisualizarDoc.setData(r01);
+                    _gVisualizarDoc.ImprimirDoc();
+                }
+            }
         }
 
         public void Imprimir()
         {
-        }
-
-        public void Limpiar()
-        {
+            _gRepDoc.setFiltros(_gFiltro.GetFiltros());
+            _gRepDoc.setListaDoc(_gLista.GetListaDoc);
+            _gRepDoc.Generar();
         }
 
         private bool CargarData()
         {
-            return _gestionFiltro.CargarData();
+            return _gFiltro.CargarData();
         }
 
-        private DateTime _fechaDesde=DateTime.Now.Date;
         public void setFechaDesde(DateTime fecha)
         {
-            _gestionFiltro.setFechaDesde(fecha);
-            _fechaDesde = fecha;
+            _gFiltro.setFechaDesde(fecha);
         }
 
-        private DateTime _fechaHasta=DateTime.Now.Date;
         public void setFechaHasta(DateTime fecha)
         {
-            _gestionFiltro.setFechaHasta(fecha);
-            _fechaHasta = fecha;
+            _gFiltro.setFechaHasta(fecha);
         }
 
-        private string _idSucursal;
         public void setSucursal(string autoId)
         {
-            _gestionFiltro.setSucursal(autoId);
-            _idSucursal = autoId;
+            _gFiltro.setSucursal(autoId);
         }
 
         public void setTipoDoc(string id)
         {
-            _gestionFiltro.setTipoDoc(id);
+            _gFiltro.setTipoDoc(id);
         }
 
         public void CorrectorDocumento()
         {
+            var msg = "OPCION NO ACTIVADA";
+            MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
         }
 
         public void Filtros()
         {
-            var filt = new filtro();
-            _gestionFiltro2.Inicializa();
-            _gestionFiltro2.setFiltros(filt);
-            if (_gestionFiltro2.CargarData()) 
-            {
-                _gestionFiltro2.setFechaDesde(_fechaDesde);
-                _gestionFiltro2.setFechaHasta(_fechaHasta);
-                _gestionFiltro2.setSucursal(_idSucursal);
-                _gestionFiltro2.Inicia();
-            }
+            _gFiltro.setFiltros(_filtrarPor);
+            _gFiltro.Inicia();
         }
 
     }

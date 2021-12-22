@@ -115,11 +115,117 @@ namespace ModVentaAdm.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.Ficha Venta_Temporal_Encabezado_Notas(OOB.Venta.Temporal.Encabezado.Notas.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Encabezado.Notas.Ficha()
+            {
+                id = ficha.id,
+                notas = ficha.notas,
+            };
+            var r01 = MyData.VentaAdm_Temporal_Encabezado_Notas(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        //
+
+        public OOB.Resultado.Ficha Venta_Temporal_Anular(OOB.Venta.Temporal.Anular.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Anular.Ficha()
+            {
+                IdEncabezado = ficha.IdEncabezado,
+                Items = ficha.Items.Select(s =>
+                {
+                    var rg = new DtoLibPos.VentaAdm.Temporal.Anular.Item()
+                    {
+                        idItem = s.idItem,
+                    };
+                    return rg;
+                }).ToList(),
+                ItemsActDeposito = ficha.ItemsActDeposito.Select(s =>
+                {
+                    var rg = new DtoLibPos.VentaAdm.Temporal.Anular.ItemActDeposito()
+                    {
+                        prdDescripcion = s.prdDescripcion,
+                        autoDeposito = s.autoDeposito,
+                        autoProducto = s.autoProducto,
+                        cntActualizar = s.cntActualizar,
+                    };
+                    return rg;
+                }).ToList(),
+            };
+            var r01 = MyData.VentaAdm_Temporal_Anular(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        public OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar(OOB.Venta.Temporal.Recuperar.Ficha ficha)
+        {
+            var result = new OOB.Resultado.FichaEntidad<int>();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Recuperar.Ficha()
+            {
+                autoSistDocumento = ficha.autoSistDocumento,
+                autoUsuario = ficha.autoUsuario,
+                idEquipo = ficha.idEquipo,
+            };
+            var r01 = MyData.VentaAdm_Temporal_Recuperar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+            result.Entidad = r01.Entidad;
+
+            return result;
+        }
+
+        public OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar_GetCantidadDoc(OOB.Venta.Temporal.Recuperar.Ficha ficha)
+        {
+            var result = new OOB.Resultado.FichaEntidad<int>();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Recuperar.Ficha()
+            {
+                autoSistDocumento = ficha.autoSistDocumento,
+                autoUsuario = ficha.autoUsuario,
+                idEquipo = ficha.idEquipo,
+            };
+            var r01 = MyData.VentaAdm_Temporal_Recuperar_GetCantidaDoc(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+            result.Entidad = r01.Entidad;
+
+            return result;
+        }
+
+        //
+
         public OOB.Resultado.FichaId Venta_Temporal_Item_Registrar(OOB.Venta.Temporal.Item.Registrar.Ficha ficha)
         {
             var result = new OOB.Resultado.FichaId();
 
-            var xenc=ficha.itemEncabezado;
+            var xenc = ficha.itemEncabezado;
             var xit = ficha.itemDetalle;
             var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Item.Registrar.Ficha()
             {
@@ -164,11 +270,12 @@ namespace ModVentaAdm.Data.Prov
                     cantidadUnd = xit.cantidadUnd,
                     total = xit.total,
                     totalDivisa = xit.totalDivisa,
+                    estatusRemision = xit.estatusRemision,
                 },
             };
-            if (ficha.itemActDeposito !=null)
+            if (ficha.itemActDeposito != null)
             {
-                var xdep=ficha.itemActDeposito;
+                var xdep = ficha.itemActDeposito;
                 fichaDTO.itemActDeposito = new DtoLibPos.VentaAdm.Temporal.Item.Registrar.ItemActDeposito()
                 {
                     autoDeposito = xdep.autoDeposito,
@@ -186,44 +293,6 @@ namespace ModVentaAdm.Data.Prov
             }
 
             result.Id = r01.Id;
-            return result;
-        }
-
-        public OOB.Resultado.Ficha Venta_Temporal_Anular(OOB.Venta.Temporal.Anular.Ficha ficha)
-        {
-            var result = new OOB.Resultado.Ficha();
-
-            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Anular.Ficha()
-            {
-                IdEncabezado = ficha.IdEncabezado,
-                Items = ficha.Items.Select(s =>
-                {
-                    var rg = new DtoLibPos.VentaAdm.Temporal.Anular.Item()
-                    {
-                        idItem = s.idItem,
-                    };
-                    return rg;
-                }).ToList(),
-                ItemsActDeposito = ficha.ItemsActDeposito.Select(s =>
-                {
-                    var rg = new DtoLibPos.VentaAdm.Temporal.Anular.ItemActDeposito()
-                    {
-                        prdDescripcion = s.prdDescripcion,
-                        autoDeposito = s.autoDeposito,
-                        autoProducto = s.autoProducto,
-                        cntActualizar = s.cntActualizar,
-                    };
-                    return rg;
-                }).ToList(),
-            };
-            var r01 = MyData.VentaAdm_Temporal_Anular(fichaDTO);
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                result.Mensaje = r01.Mensaje;
-                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
-                return result;
-            }
-
             return result;
         }
 
@@ -272,6 +341,7 @@ namespace ModVentaAdm.Data.Prov
                 cantidadUnd = xit.cantidadUnd,
                 total = xit.total,
                 totalDivisa = xit.totalDivisa,
+                estatusRemision= xit.estatusRemision,
             };
             return result;
         }
@@ -444,6 +514,7 @@ namespace ModVentaAdm.Data.Prov
                     cantidadUnd = xitAgregar.cantidadUnd,
                     total = xitAgregar.total,
                     totalDivisa = xitAgregar.totalDivisa,
+                    estatusRemision= xitAgregar.estatusRemision,
                 },
             };
             if (ficha.itemRegistrar.itemActDeposito != null)
@@ -474,6 +545,8 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
+
+        //
 
         public OOB.Resultado.Ficha VentaAdm_Temporal_Pendiente_Dejar(OOB.Venta.Temporal.Pendiente.Dejar.Ficha ficha)
         {
@@ -506,28 +579,6 @@ namespace ModVentaAdm.Data.Prov
                 idEquipo = ficha.idEquipo,
             };
             var r01 = MyData.VentaAdm_Temporal_Pendiente_GetCantidaDoc(fichaDTO);
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                result.Mensaje = r01.Mensaje;
-                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
-                return result;
-            }
-            result.Entidad = r01.Entidad;
-
-            return result;
-        }
-
-        public OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar(OOB.Venta.Temporal.Recuperar.Ficha ficha)
-        {
-            var result = new OOB.Resultado.FichaEntidad<int>();
-
-            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Recuperar.Ficha()
-            {
-                autoSistDocumento = ficha.autoSistDocumento,
-                autoUsuario = ficha.autoUsuario,
-                idEquipo = ficha.idEquipo,
-            };
-            var r01 = MyData.VentaAdm_Temporal_Recuperar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 result.Mensaje = r01.Mensaje;
@@ -680,6 +731,72 @@ namespace ModVentaAdm.Data.Prov
             };
 
             return rt;
+        }
+
+        //
+
+        public OOB.Resultado.Ficha VentaAdm_Temporal_Remision_Registrar(OOB.Venta.Temporal.Remision.Registrar.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Remision.Registrar.Ficha()
+            {
+                idTemporal = ficha.idTemporal,
+                autoRemision = ficha.autoRemision,
+                documentoRemision = ficha.documentoRemision,
+                tipoRemision = ficha.tipoRemision,
+                monto = ficha.monto,
+                montoDivisa = ficha.montoDivisa,
+                renglones = ficha.renglones,
+                item = ficha.items.Select(s =>
+                {
+                    var it = new DtoLibPos.VentaAdm.Temporal.Item.Registrar.ItemDetalle()
+                    {
+                        autoDepartamento = s.autoDepartamento,
+                        autoGrupo = s.autoGrupo,
+                        autoProducto = s.autoProducto,
+                        autoSubGrupo = s.autoSubGrupo,
+                        autoTasaIva = s.autoTasaIva,
+                        cantidad = s.cantidad,
+                        categroiaProducto = s.categroiaProducto,
+                        codigoProducto = s.codigoProducto,
+                        costo = s.costo,
+                        costoPromd = s.costoPromd,
+                        costoPromdUnd = s.costoPromdUnd,
+                        costoUnd = s.costoUnd,
+                        decimalesProducto = s.decimalesProducto,
+                        dsctoPorct = s.dsctoPorct,
+                        empaqueCont = s.empaqueCont,
+                        empaqueDesc = s.empaqueDesc,
+                        estatusPesadoProducto = s.estatusPesadoProducto,
+                        estatusReservaMerc = s.estatusReservaMerc,
+                        idVenta = s.idVenta,
+                        nombreProducto = s.nombreProducto,
+                        notas = s.notas,
+                        precioNeto = s.precioNeto,
+                        precioNetoDivisa = s.precioNetoDivisa,
+                        tarifaPrecio = s.tarifaPrecio,
+                        tasaIva = s.tasaIva,
+                        tipoIva = s.tipoIva,
+                        autoDeposito = s.autoDeposito,
+                        cantidadUnd = s.cantidadUnd,
+                        total = s.total,
+                        totalDivisa = s.totalDivisa,
+                        estatusRemision = s.estatusRemision,
+                    };
+                    return it;
+                }).ToList(),
+            };
+
+            var r01 = MyData.VentaAdm_Temporal_Remision_Registrar (fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
         }
 
     }

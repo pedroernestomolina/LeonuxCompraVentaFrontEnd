@@ -28,35 +28,16 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralDocumento
 
         public void Generar(Reportes.Filtro.data data)
         {
-            var filtro = new OOB.Reportes.GeneralDocumento.Filtro();
-            if (data.Sucursal!=null)
+            var filtro = new OOB.Reportes.GeneralDocumento.Filtro()
             {
-                filtro.idSucursal = data.Sucursal.codigo;
-            }
-            if (data.Desde.HasValue)
-            {
-                filtro.desde = data.Desde.Value;
-            }
-            if (data.Hasta.HasValue)
-            {
-                filtro.hasta = data.Hasta.Value;
-            }
-            if (data.TipoDocFactura.HasValue)
-            {
-                filtro.tipoDocFactura = data.TipoDocFactura.Value;
-            }
-            if (data.TipoDocNtDebito.HasValue)
-            {
-                filtro.tipoDocNtDebito = data.TipoDocNtDebito.Value;
-            }
-            if (data.TipoDocNtCredito.HasValue)
-            {
-                filtro.tipoDocNtCredito = data.TipoDocNtCredito.Value;
-            }
-            if (data.TipoDocNtEntrega.HasValue)
-            {
-                filtro.tipoDocNtEntrega = data.TipoDocNtEntrega.Value;
-            }
+                desde = data.GetDesde,
+                hasta = data.GetHasta,
+                idSucursal = data.GetCodigoSucursal,
+                tipoDocFactura = data.GetTipoDocFactura,
+                tipoDocNtCredito = data.GetTipoDocNtCredito,
+                tipoDocNtDebito = data.GetTipoDocNtDebito,
+                tipoDocNtEntrega = data.GetTipoDocNtEntrega,
+            };
             var r01 = Sistema.MyData.Reportes_GeneralDocumento(filtro);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
             {

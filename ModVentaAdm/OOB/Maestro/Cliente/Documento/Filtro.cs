@@ -12,8 +12,8 @@ namespace ModVentaAdm.OOB.Maestro.Cliente.Documento
     {
 
         public string autoCliente { get; set; }
-        public DateTime desde { get; set; }
-        public DateTime hasta { get; set; }
+        public DateTime? desde { get; set; }
+        public DateTime? hasta { get; set; }
         public Enumerados.enumTipoDoc tipoDoc { get; set; }
 
 

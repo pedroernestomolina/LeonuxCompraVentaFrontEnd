@@ -12,37 +12,30 @@ namespace ModVentaAdm.Src.Reportes.Filtro
     public class data
     {
 
-        private OOB.Sucursal.Entidad.Ficha _sucursal;
+        private general _sucursal;
         private general _cliente;
-        private Gestion.Estatus _estatus;
-        private DateTime? _desde;
-        private DateTime? _hasta;
+        private general _producto;
+        private general _estatus;
+        private general _tipoDoc;
+        private DateTime _desde;
+        private DateTime _hasta;
         private int? _mesRelacion;
         private int? _anoRelacion;
-        private bool? _tipoDocFactura;
-        private bool? _tipoDocNtDebito;
-        private bool? _tipoDocNtCredito;
-        private bool? _tipoDocNtEntrega;
+        private bool _tipoDocFactura;
+        private bool _tipoDocNtDebito;
+        private bool _tipoDocNtCredito;
+        private bool _tipoDocNtEntrega;
         private bool _validarTipoDocumento;
 
 
-        public string IdSucursal 
-        { 
-            get 
-            {
-                var rt = "";
-                if (Sucursal != null) { rt = Sucursal.auto; }
-                return rt;
-            } 
-        }
-        public OOB.Sucursal.Entidad.Ficha Sucursal { get { return _sucursal; } }
         public general Cliente { get { return _cliente; } }
-        public DateTime? Desde { get { return _desde; } }
-        public DateTime? Hasta { get { return _hasta; } }
-        public bool? TipoDocFactura { get { return _tipoDocFactura; } }
-        public bool? TipoDocNtDebito { get { return _tipoDocNtDebito; } }
-        public bool? TipoDocNtCredito { get { return _tipoDocNtCredito; } }
-        public bool? TipoDocNtEntrega { get { return _tipoDocNtEntrega; } }
+        public general Producto { get { return _producto; } }
+        public DateTime GetDesde { get { return _desde; } }
+        public DateTime GetHasta { get { return _hasta; } }
+        public bool GetTipoDocFactura { get { return _tipoDocFactura; } }
+        public bool GetTipoDocNtDebito { get { return _tipoDocNtDebito; } }
+        public bool GetTipoDocNtCredito { get { return _tipoDocNtCredito; } }
+        public bool GetTipoDocNtEntrega { get { return _tipoDocNtEntrega; } }
         public string ClienteNombre 
         {
             get 
@@ -61,6 +54,78 @@ namespace ModVentaAdm.Src.Reportes.Filtro
                 return rt;
             }
         }
+        public string GetIdSucursal
+        {
+            get
+            {
+                var rt = "";
+                if (_sucursal != null) { rt = _sucursal.auto; }
+                return rt;
+            }
+        }
+        public string GetCodigoSucursal
+        {
+            get
+            {
+                var rt = "";
+                if (_sucursal != null) { rt = _sucursal.codigo; }
+                return rt;
+            }
+        }
+        public string GetNombreProducto 
+        {
+            get 
+            {
+                var rt = "";
+                if (_producto!= null) { rt = _producto.descripcion; }
+                return rt;
+            }
+        }
+        public string GetIdProducto
+        {
+            get
+            {
+                var rt = "";
+                if (_producto != null) { rt = _producto.auto; }
+                return rt;
+            }
+        }
+        public string GetCodigoTipoDoc
+        {
+            get
+            {
+                var rt = "";
+                if (_tipoDoc != null) { rt = _tipoDoc.codigo; }
+                return rt;
+            }
+        }
+        public string GetIdTipoDoc 
+        {
+            get
+            {
+                var rt = "";
+                if (_tipoDoc != null) { rt = _tipoDoc.auto; }
+                return rt;
+            }
+        }
+        public string GetEstatus 
+        {
+            get
+            {
+                var rt = "";
+                if (_estatus != null) { rt = _estatus.descripcion; }
+                return rt;
+            }
+        }
+        public string  GetIdEstatus 
+        {
+            get
+            {
+                var rt = "";
+                if (_estatus != null) { rt = _estatus.auto; }
+                return rt;
+            }
+        }
 
 
         public data()
@@ -73,24 +138,26 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         {
             _sucursal = null;
             _estatus = null;
+            _cliente = null;
+            _producto = null;
+            _tipoDoc = null;
             _desde = DateTime.Now.Date;
             _hasta = DateTime.Now.Date;
             _mesRelacion = null;
             _anoRelacion = null;
-            _tipoDocFactura = null;
-            _tipoDocNtDebito = null;
-            _tipoDocNtCredito = null;
-            _tipoDocNtEntrega = null;
+            _tipoDocFactura = false;
+            _tipoDocNtDebito = false;
+            _tipoDocNtCredito = false;
+            _tipoDocNtEntrega = false;
             _validarTipoDocumento = false;
-            _cliente = null;
         }
 
-        public void setSucursal(OOB.Sucursal.Entidad.Ficha ficha)
+        public void setSucursal(general ficha)
         {
             _sucursal = ficha;
         }
 
-        public void setEstatus(Gestion.Estatus ficha)
+        public void setEstatus(general ficha)
         {
             _estatus = ficha;
         }
@@ -124,22 +191,11 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         {
             var rt = true;
 
-            var xdesde = DateTime.Now.Date;
-            var xhasta = DateTime.Now.Date;
-            if (_desde.HasValue) 
-            {
-                xdesde = _desde.Value.Date;
-            }
-            if (_hasta.HasValue)
-            {
-                xhasta= _hasta.Value.Date;
-            }
-            if (xdesde > xhasta)
+            if (_desde > _hasta)
             {
                 Helpers.Msg.Error("PROBLEMAS CON FECHAS INCORRECTAS");
                 return false;
             }
-
             if (_validarTipoDocumento) 
             {
                 if (_tipoDocFactura == null && _tipoDocNtDebito == null && _tipoDocNtCredito == null && _tipoDocNtEntrega == null)
@@ -191,6 +247,46 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         public void LimpiarCliente()
         {
             _cliente = null;
+        }
+
+        public void LimpiarProducto()
+        {
+            _producto = null;
+        }
+
+        public void setProducto(string id, string desc)
+        {
+            if (_producto== null)
+                _producto= new general(id, desc);
+            else
+            {
+                _producto.limpiar();
+            }
+            _producto.setficha(id, desc);
+        }
+
+        public string GetFiltros()
+        {
+            var xt = "Filtrado Por: ";
+            xt += "Desde: " + _desde.ToShortDateString();
+            xt += ", Hasta: " + _hasta.ToShortDateString();
+            if (_tipoDoc != null)
+                xt += ", Tipo Documento: " + _tipoDoc.descripcion.Trim();
+            if (_cliente!=null)
+                xt += ", Cliente: " + _cliente.descripcion.Trim();
+            if (_producto != null)
+                xt += ", Producto: " + _producto.descripcion.Trim();
+            if (_sucursal != null)
+                xt += ", Sucursal: " + _sucursal.descripcion.Trim();
+            if (_estatus != null)
+                xt += ", Estatus: " + _estatus.descripcion.Trim();
+
+            return xt;
+        }
+
+        public void setTipoDoc(general ficha)
+        {
+            _tipoDoc = ficha;
         }
 
     }

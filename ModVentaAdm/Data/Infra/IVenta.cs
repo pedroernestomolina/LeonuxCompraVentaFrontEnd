@@ -13,6 +13,7 @@ namespace ModVentaAdm.Data.Infra
 
         OOB.Resultado.FichaId  Venta_Temporal_Encabezado_Registrar(OOB.Venta.Temporal.Encabezado.Registrar.Ficha ficha);
         OOB.Resultado.Ficha Venta_Temporal_Encabezado_Editar(OOB.Venta.Temporal.Encabezado.Editar.Ficha ficha);
+        OOB.Resultado.Ficha Venta_Temporal_Encabezado_Notas(OOB.Venta.Temporal.Encabezado.Notas.Ficha ficha);
         OOB.Resultado.Ficha Venta_Temporal_Encabezado_Eliminar(int idEncabezado);
 
         //
@@ -25,12 +26,17 @@ namespace ModVentaAdm.Data.Infra
         //
         OOB.Resultado.Ficha Venta_Temporal_Anular(OOB.Venta.Temporal.Anular.Ficha ficha);
         OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar(OOB.Venta.Temporal.Recuperar.Ficha ficha);
-        //
+        OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar_GetCantidadDoc(OOB.Venta.Temporal.Recuperar.Ficha ficha);
 
+        //
         OOB.Resultado.FichaEntidad<OOB.Venta.Temporal.Pendiente.Entidad.Ficha> VentaAdm_Temporal_Pendiente_Abrir(int idTemp);
         OOB.Resultado.Ficha VentaAdm_Temporal_Pendiente_Dejar(OOB.Venta.Temporal.Pendiente.Dejar.Ficha ficha);
         OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Pendiente_GetCantidadDoc(OOB.Venta.Temporal.Pendiente.Cantidad.Ficha ficha);
         OOB.Resultado.Lista<OOB.Venta.Temporal.Pendiente.Lista.Ficha> VentaAdm_Temporal_Pendiente_GetLista(OOB.Venta.Temporal.Pendiente.Lista.Filtro filtro);
+
+        //
+
+        OOB.Resultado.Ficha VentaAdm_Temporal_Remision_Registrar(OOB.Venta.Temporal.Remision.Registrar.Ficha ficha);
 
     }
 

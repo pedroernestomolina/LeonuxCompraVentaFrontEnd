@@ -16,6 +16,10 @@ namespace ModVentaAdm.Src.Administrador
         string ItemsEncontrados { get; }
         BindingSource SucursalSource { get; }
         BindingSource TipoDocSource { get; }
+        DateTime GetDesde { get; }
+        DateTime GetHasta { get; }
+        string GetIdSucursal { get; }
+        string GetIdTipoDoc { get; }
 
 
         void Inicializa();
@@ -26,7 +30,6 @@ namespace ModVentaAdm.Src.Administrador
         void LimpiarData();
         void VisualizarDocumento();
         void Imprimir();
-        void Limpiar();
         void setFechaDesde(DateTime fecha);
         void setFechaHasta(DateTime fecha);
         void setSucursal(string autoId);

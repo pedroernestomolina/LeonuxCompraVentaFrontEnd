@@ -33,10 +33,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void InicializaControles()
         {
-            CB_SUCURSAL.DisplayMember = "Nombre";
-            CB_SUCURSAL.ValueMember = "Auto";
-            CB_ESTATUS.DisplayMember = "Descripcion";
-            CB_ESTATUS.ValueMember = "Id";
+            CB_SUCURSAL.DisplayMember = "descripcion";
+            CB_SUCURSAL.ValueMember = "auto";
+            CB_ESTATUS.DisplayMember = "descripcion";
+            CB_ESTATUS.ValueMember = "auto";
         }
 
         private bool modoInicializar; 
@@ -70,12 +70,15 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             CHB_NT_CREDITO.Enabled = _controlador.ActivarTipoDocumento;
             CHB_NT_ENTREGA.Enabled = _controlador.ActivarTipoDocumento;
 
-            LimpiarFiltros();
+            L_PRODUCTO.Enabled = _controlador.ActivarProducto;
+            TB_PRODUCTO.Enabled = _controlador.ActivarProducto;
+            BT_PRODUCTO_BUSCAR.Enabled = _controlador.ActivarProducto;
             modoInicializar = false;
 
-            DTP_DESDE.Value = _controlador.FechaDesde;
-            DTP_HASTA.Value = _controlador.FechaHasta;
-            CB_SUCURSAL.SelectedValue = _controlador.IdSucursal;
+            DTP_DESDE.Value = _controlador.GetDesde;
+            DTP_HASTA.Value = _controlador.GetHasta;
+            CB_SUCURSAL.SelectedValue = _controlador.GetIdSucursal;
+            CB_ESTATUS.SelectedValue = _controlador.GetIdEstatus;
         }
 
         private void BT_LIMPIAR_Click(object sender, EventArgs e)
@@ -85,13 +88,17 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void LimpiarFiltros()
         {
-            LImpiarEstatus();
+            _controlador.LimpiarFiltros();
+            modoInicializar = true;
+            LimpiarEstatus();
             LimpiarFechaDesde();
             LimpiarFechaHasta();
             LimpiarSucursal();
             LimpiarMesAnoRelacion();
             LimpiarTipoDocumento();
             LimpiarCliente();
+            LimpiarProducto();
+            modoInicializar = false;
         }
 
         private void L_SUCURSAL_Click(object sender, EventArgs e)
@@ -106,10 +113,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
 
         private void L_ESTATUS_Click(object sender, EventArgs e)
         {
-            LImpiarEstatus();
+            LimpiarEstatus();
         }
 
-        private void LImpiarEstatus()
+        private void LimpiarEstatus()
         {
             CB_ESTATUS.SelectedIndex = -1;
         }
@@ -159,11 +166,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             if (modoInicializar)
                 return;
 
-            _controlador.setSucursal("");
+            var id = "";
             if (CB_SUCURSAL.SelectedIndex != -1)
-            {
-                _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
-            }
+                id = CB_SUCURSAL.SelectedValue.ToString();
+            _controlador.setSucursal(id);
         }
 
         private void CB_ESTATUS_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,11 +177,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             if (modoInicializar)
                 return;
 
-            _controlador.setEstatus("");
+            var id = "";
             if (CB_ESTATUS.SelectedIndex != -1)
-            {
-                _controlador.setEstatus(CB_ESTATUS.SelectedValue.ToString());
-            }
+                id = CB_ESTATUS.SelectedValue.ToString();
+            _controlador.setEstatus(id);
         }
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
@@ -240,7 +245,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             _controlador.BuscarCliente();
             if (_controlador.ClienteSeleccionadoIsOK)
             {
-                TB_CLIENTE.Text = _controlador.NombreCliente;
+                TB_CLIENTE.Text = _controlador.GetNombreCliente;
             }
             else 
             {
@@ -318,6 +323,48 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         {
             _controlador.LimpiarCliente();
             TB_CLIENTE.Text = "";
+        }
+
+        private void L_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            LimpiarProducto();
+        }
+
+        private void LimpiarProducto()
+        {
+            _controlador.LimpiarProducto();
+            TB_PRODUCTO.Text = "";
+        }
+
+        private void TB_PRODUCTO_Leave(object sender, EventArgs e)
+        {
+            _controlador.setProducto(TB_PRODUCTO.Text);
+        }
+
+        private void BT_PRODUCTO_BUSCAR_Click(object sender, EventArgs e)
+        {
+            BuscarProducto();
+        }
+
+        private void BuscarProducto()
+        {
+            _controlador.BuscarProducto();
+            if (_controlador.ProductoSeleccionadoIsOK)
+            {
+                TB_PRODUCTO.Text = _controlador.GetNombreProducto;
+            }
+            else
+            {
+                TB_PRODUCTO.Text  = "";
+            }
+        }
+
+        private void CTR_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
+            }
         }
 
     }

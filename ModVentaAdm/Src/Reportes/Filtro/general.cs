@@ -12,6 +12,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
     {
 
         public string auto { get; set; }
+        public string codigo { get; set; }
         public string descripcion { get; set; }
 
 
@@ -20,22 +21,24 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             limpiar();
         }
 
-        public general(string id, string desc)
+        public general(string id, string desc, string cod="")
             :this()
         {
-            setficha(id, desc);
+            setficha(id, desc, cod);
         }
 
         public void limpiar()
         {
             this.auto = "";
             this.descripcion = "";
+            this.codigo = "";
         }
 
-        public  void setficha(string id, string desc)
+        public  void setficha(string id, string desc, string cod="")
         {
             this.auto = id;
             this.descripcion = desc;
+            this.codigo = cod;
         }
 
     }

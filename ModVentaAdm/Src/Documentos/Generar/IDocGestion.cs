@@ -17,10 +17,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
         AgregarEditarItem.IGestion ItemGestion { get; }
         OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get; }
         int CantDocPend { get; }
+        int CantDocRecuperar { get; }
+        List<tipoDocRemitir> TipoDocRemitir { get; }
 
 
         void Inicializa();
         bool CargarData();
+        OOB.Venta.Temporal.Remision.Registrar.Ficha CargaRemision(OOB.Documento.Entidad.Ficha ficha, int _idVentaTemporal);
 
     }
 

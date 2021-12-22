@@ -64,6 +64,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Factura
                     cantidadUnd = data.GetCantidadUnd,
                     total = data.GetImporteFull,
                     totalDivisa = data.GetImporteDivisaFull,
+                    estatusRemision="",
                 },
                 itemActDeposito = new OOB.Venta.Temporal.Item.Registrar.ItemActDeposito()
                 {
@@ -167,6 +168,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Factura
                     cantidadUnd = data.GetCantidadUnd,
                     total = data.GetImporteFull,
                     totalDivisa = data.GetImporteDivisaFull,
+                    estatusRemision = it.estatusRemision,
                 },
                 itemActDeposito = new OOB.Venta.Temporal.Item.Registrar.ItemActDeposito()
                 {

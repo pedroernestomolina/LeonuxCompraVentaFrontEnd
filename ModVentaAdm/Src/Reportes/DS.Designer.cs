@@ -515,6 +515,12 @@ namespace ModVentaAdm.Src.Reportes {
             
             private global::System.Data.DataColumn columnEstacion;
             
+            private global::System.Data.DataColumn columnNombreDoc;
+            
+            private global::System.Data.DataColumn columnDocAplica;
+            
+            private global::System.Data.DataColumn columnEstatusDoc;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GeneralDocumentoDataTable() {
@@ -654,6 +660,30 @@ namespace ModVentaAdm.Src.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreDocColumn {
+                get {
+                    return this.columnNombreDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DocAplicaColumn {
+                get {
+                    return this.columnDocAplica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EstatusDocColumn {
+                get {
+                    return this.columnEstatusDoc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -689,7 +719,23 @@ namespace ModVentaAdm.Src.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GeneralDocumentoRow AddGeneralDocumentoRow(string FechaHora, string Documento, string Control, string Serie, string Cliente, decimal Monto, decimal MontoDivisa, string DocNombre, int Renglones, decimal Dscto, decimal Cargo, string Sucursal, string Estacion) {
+            public GeneralDocumentoRow AddGeneralDocumentoRow(
+                        string FechaHora, 
+                        string Documento, 
+                        string Control, 
+                        string Serie, 
+                        string Cliente, 
+                        decimal Monto, 
+                        decimal MontoDivisa, 
+                        string DocNombre, 
+                        int Renglones, 
+                        decimal Dscto, 
+                        decimal Cargo, 
+                        string Sucursal, 
+                        string Estacion, 
+                        string NombreDoc, 
+                        string DocAplica, 
+                        string EstatusDoc) {
                 GeneralDocumentoRow rowGeneralDocumentoRow = ((GeneralDocumentoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FechaHora,
@@ -704,7 +750,10 @@ namespace ModVentaAdm.Src.Reportes {
                         Dscto,
                         Cargo,
                         Sucursal,
-                        Estacion};
+                        Estacion,
+                        NombreDoc,
+                        DocAplica,
+                        EstatusDoc};
                 rowGeneralDocumentoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGeneralDocumentoRow);
                 return rowGeneralDocumentoRow;
@@ -740,6 +789,9 @@ namespace ModVentaAdm.Src.Reportes {
                 this.columnCargo = base.Columns["Cargo"];
                 this.columnSucursal = base.Columns["Sucursal"];
                 this.columnEstacion = base.Columns["Estacion"];
+                this.columnNombreDoc = base.Columns["NombreDoc"];
+                this.columnDocAplica = base.Columns["DocAplica"];
+                this.columnEstatusDoc = base.Columns["EstatusDoc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -771,6 +823,12 @@ namespace ModVentaAdm.Src.Reportes {
                 base.Columns.Add(this.columnSucursal);
                 this.columnEstacion = new global::System.Data.DataColumn("Estacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstacion);
+                this.columnNombreDoc = new global::System.Data.DataColumn("NombreDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreDoc);
+                this.columnDocAplica = new global::System.Data.DataColumn("DocAplica", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDocAplica);
+                this.columnEstatusDoc = new global::System.Data.DataColumn("EstatusDoc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstatusDoc);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3177,6 +3235,54 @@ namespace ModVentaAdm.Src.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NombreDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableGeneralDocumento.NombreDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreDoc\' in table \'GeneralDocumento\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGeneralDocumento.NombreDocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DocAplica {
+                get {
+                    try {
+                        return ((string)(this[this.tableGeneralDocumento.DocAplicaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DocAplica\' in table \'GeneralDocumento\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGeneralDocumento.DocAplicaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string EstatusDoc {
+                get {
+                    try {
+                        return ((string)(this[this.tableGeneralDocumento.EstatusDocColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EstatusDoc\' in table \'GeneralDocumento\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGeneralDocumento.EstatusDocColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFechaHoraNull() {
                 return this.IsNull(this.tableGeneralDocumento.FechaHoraColumn);
             }
@@ -3329,6 +3435,42 @@ namespace ModVentaAdm.Src.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEstacionNull() {
                 this[this.tableGeneralDocumento.EstacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreDocNull() {
+                return this.IsNull(this.tableGeneralDocumento.NombreDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreDocNull() {
+                this[this.tableGeneralDocumento.NombreDocColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDocAplicaNull() {
+                return this.IsNull(this.tableGeneralDocumento.DocAplicaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDocAplicaNull() {
+                this[this.tableGeneralDocumento.DocAplicaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEstatusDocNull() {
+                return this.IsNull(this.tableGeneralDocumento.EstatusDocColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEstatusDocNull() {
+                this[this.tableGeneralDocumento.EstatusDocColumn] = global::System.Convert.DBNull;
             }
         }
         

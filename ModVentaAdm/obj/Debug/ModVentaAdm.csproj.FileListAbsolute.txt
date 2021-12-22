@@ -8,6 +8,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Gener
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorDepartamento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorGrupo.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorProducto.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\ListaDoc.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Resumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe
@@ -53,6 +54,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Ma
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.Zona.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Principal.PrincipalFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Producto.Lista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.ReportesCliente.Filtro.FiltroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Reportes.Filtro.FiltroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Reportes.ReporteFrm.resources

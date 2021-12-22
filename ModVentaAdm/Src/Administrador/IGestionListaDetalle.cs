@@ -16,13 +16,11 @@ namespace ModVentaAdm.Src.Administrador
         string ItemsEncontrados { get; }
 
 
-        void AnularItem();
+        void Inicializa();
         void LimpiarData();
-        //void setGestionAnular(Anular.Gestion _gestionAnular);
-        void VisualizarDocumento();
-        void Imprimir();
-        void CorrectorDocumento();
         void setLista(List<OOB.Documento.Lista.Ficha> list);
+        List<data> GetListaDoc { get; }
+        data GetItemActual { get; }
 
     }
 

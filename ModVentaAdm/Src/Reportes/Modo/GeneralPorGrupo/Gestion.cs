@@ -28,19 +28,12 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralPorGrupo
 
         public void Generar(Reportes.Filtro.data data)
         {
-            var filtro = new OOB.Reportes.GeneralPorGrupo.Filtro();
-            if (data.Sucursal != null)
+            var filtro = new OOB.Reportes.GeneralPorGrupo.Filtro()
             {
-                filtro.idSucursal = data.Sucursal.codigo;
-            }
-            if (data.Desde.HasValue)
-            {
-                filtro.desde = data.Desde.Value;
-            }
-            if (data.Hasta.HasValue)
-            {
-                filtro.hasta = data.Hasta.Value;
-            }
+                desde = data.GetDesde,
+                hasta = data.GetHasta,
+                codigoSucursal = data.GetCodigoSucursal,
+            };
             var r01 = Sistema.MyData.Reportes_GeneralPorGrupo(filtro);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {

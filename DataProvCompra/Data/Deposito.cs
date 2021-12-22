@@ -12,11 +12,12 @@ namespace DataProvCompra.Data
     public partial class DataProv: IData
     {
 
-        public OOB.ResultadoLista<OOB.LibCompra.Deposito.Data.Ficha> Deposito_GetLista()
+        public OOB.ResultadoLista<OOB.LibCompra.Deposito.Data.Ficha> Deposito_GetLista(OOB.LibCompra.Deposito.Lista.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibCompra.Deposito.Data.Ficha>();
 
-            var r01 = MyData.Deposito_GetLista();
+            var filtroDTO = new DtoLibCompra.Deposito.Lista.Filtro() { PorCodigoSuc = filtro.PorCodigoSuc };
+            var r01 = MyData.Deposito_GetLista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;
@@ -33,9 +34,10 @@ namespace DataProvCompra.Data
                     {
                         return new OOB.LibCompra.Deposito.Data.Ficha()
                         {
-                            auto = s.auto,
+                            auto = s.id,
                             codigo = s.codigo,
                             nombre = s.nombre,
+                            codigoSucursal = s.codigoSuc,
                         };
                     }).ToList();
                 }

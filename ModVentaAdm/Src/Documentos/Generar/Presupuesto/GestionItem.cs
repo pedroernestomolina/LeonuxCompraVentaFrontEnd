@@ -65,6 +65,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
                     cantidadUnd = data.GetCantidadUnd,
                     total = data.GetImporteFull,
                     totalDivisa = data.GetImporteDivisaFull,
+                    estatusRemision = "",
                 },
             };
             var r01 = Sistema.MyData.Venta_Temporal_Item_Registrar(ficha);
@@ -161,6 +162,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
                     cantidadUnd = data.GetCantidadUnd,
                     total = data.GetImporteFull,
                     totalDivisa = data.GetImporteDivisaFull,
+                    estatusRemision = it.estatusRemision,
                 },
             };
 

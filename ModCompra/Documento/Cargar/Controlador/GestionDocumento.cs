@@ -13,6 +13,7 @@ namespace ModCompra.Documento.Cargar.Controlador
     {
 
         private IGestionDocumento _gestion;
+        private bool _hayItemsCargados;
 
 
         public string DocumentoNro { get { return _gestion.DocumentoNro; } set { _gestion.DocumentoNro = value; } }
@@ -47,6 +48,7 @@ namespace ModCompra.Documento.Cargar.Controlador
         public string Remision_Control { get { return _gestion.Remision_Control; } }
         public string Remision_Documento { get { return _gestion.Remision_Documento; } }
         public OOB.LibCompra.Documento.GetData.Ficha RemisionFicha { get { return _gestion.RemisionFicha ; } }
+        public bool HayItemsCargados { get { return _hayItemsCargados; } }
 
 
         public string Proveedor 
@@ -117,7 +119,12 @@ namespace ModCompra.Documento.Cargar.Controlador
 
         public void IniciaEditar()
         {
-            //frm.ShowDialog();
+            frm.ShowDialog();
+        }
+
+        public void setHayItemsCargados(bool p)
+        {
+            _hayItemsCargados = p;
         }
 
     }

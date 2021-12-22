@@ -11,14 +11,14 @@ namespace ModVentaAdm.OOB.Reportes.Resumen
     public class Filtro
     {
 
-        public string idSucursal { get; set; }
+        public string codigoSucursal { get; set; }
         public DateTime desde { get; set; }
         public DateTime hasta { get; set; }
 
 
         public Filtro()
         {
-            idSucursal = "";
+            codigoSucursal = "";
             desde = DateTime.Now.Date;
             hasta = DateTime.Now.Date;
         }

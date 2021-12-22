@@ -18,6 +18,7 @@ namespace ModVentaAdm.Src.Reportes.Modo.Consolidado
         public bool ActivarCliente { get { return false; } }
         public bool ActivarTipoDocumento { get { return false; } }
         public bool ValidarTipoDocumento { get { return false; } }
+        public bool ActivarProducto { get { return false; } }
 
     }
 

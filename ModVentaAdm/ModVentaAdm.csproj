@@ -160,6 +160,9 @@
     <Compile Include="OOB\Permiso\Entidad\Ficha.cs" />
     <Compile Include="OOB\Producto\Entidad\Ficha.cs" />
     <Compile Include="OOB\Producto\Existencia\Ficha.cs" />
+    <Compile Include="OOB\Producto\ListaResumen\Enumerados.cs" />
+    <Compile Include="OOB\Producto\ListaResumen\Ficha.cs" />
+    <Compile Include="OOB\Producto\ListaResumen\Filtro.cs" />
     <Compile Include="OOB\Producto\Lista\Enumerados.cs" />
     <Compile Include="OOB\Producto\Lista\Ficha.cs" />
     <Compile Include="OOB\Producto\Lista\Filtro.cs" />
@@ -201,6 +204,7 @@
     <Compile Include="OOB\Venta\Temporal\Anular\ItemActDeposito.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Editar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Encabezado\Notas\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Registrar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Item\Actualizar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Item\Eliminar\Ficha.cs" />
@@ -222,6 +226,7 @@
     <Compile Include="OOB\Venta\Temporal\Pendiente\Lista\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Pendiente\Lista\Filtro.cs" />
     <Compile Include="OOB\Venta\Temporal\Recuperar\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Remision\Registrar\Ficha.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -356,6 +361,8 @@
     <Compile Include="Src\Documentos\Generar\Factura\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\GestionItem.cs" />
+    <Compile Include="Src\Documentos\Generar\remision.cs" />
+    <Compile Include="Src\Documentos\Generar\tipoDocRemitir.cs" />
     <Compile Include="Src\Documentos\Generar\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\IDatosDocumento.cs" />
     <Compile Include="Src\Documentos\Generar\IDocGestion.cs" />
@@ -375,8 +382,6 @@
     <Compile Include="Src\Documentos\Generar\Presupuesto\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Presupuesto\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\Presupuesto\GestionItem.cs" />
-    <Compile Include="Src\Filtro\data.cs" />
-    <Compile Include="Src\Filtro\Gestion.cs" />
     <Compile Include="Src\Identificacion\Gestion.cs" />
     <Compile Include="Src\Identificacion\IdentificacionFrm.cs">
       <SubType>Form</SubType>
@@ -419,6 +424,14 @@
     </Compile>
     <Compile Include="Src\Principal\PrincipalFrm.Designer.cs">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Producto\Lista\data.cs" />
+    <Compile Include="Src\Producto\Lista\Gestion.cs" />
+    <Compile Include="Src\Producto\Lista\ListaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Producto\Lista\ListaFrm.designer.cs">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\ReportesCliente\DS_CLI.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -469,6 +482,8 @@
     <Compile Include="Src\Reportes\Modo\GeneralPorGrupo\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralPorProducto\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralPorProducto\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\ListaDocumento\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\ListaDocumento\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\Resumen\Filtro.cs" />
     <Compile Include="Src\Reportes\Modo\Resumen\Gestion.cs" />
     <Compile Include="Src\Reportes\ReporteFrm.cs">
@@ -553,6 +568,9 @@
     <EmbeddedResource Include="Src\Principal\PrincipalFrm.resx">
       <DependentUpon>PrincipalFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Src\Producto\Lista\ListaFrm.resx">
+      <DependentUpon>ListaFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Src\ReportesCliente\Articulo.rdlc" />
     <EmbeddedResource Include="Src\ReportesCliente\Documento.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -582,6 +600,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\GeneralPorProducto.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\ListaDoc.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\ReporteFrm.resx">
@@ -640,9 +661,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="conf.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

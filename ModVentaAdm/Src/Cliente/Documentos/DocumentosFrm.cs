@@ -190,6 +190,16 @@ namespace ModVentaAdm.Src.Cliente.Documentos
             if (e.ColumnIndex != -1 && e.RowIndex != -1)
             {
                 VisualizarDocumento();
+                SeleccionarDocumento();
+            }
+        }
+
+        private void SeleccionarDocumento()
+        {
+            _controlador.SeleccionarDocumento();
+            if (_controlador.SeleccionarDocumentoIsOk) 
+            {
+                Salir();
             }
         }
 

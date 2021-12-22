@@ -81,6 +81,7 @@
     <Compile Include="LibCompra\Concepto\Ficha.cs" />
     <Compile Include="LibCompra\Configuracion\Enumerados.cs" />
     <Compile Include="LibCompra\Deposito\Data\Ficha.cs" />
+    <Compile Include="LibCompra\Deposito\Lista\Filtro.cs" />
     <Compile Include="LibCompra\Documento\Agregar\NotaCredito\Ficha.cs" />
     <Compile Include="LibCompra\Documento\Agregar\NotaCredito\FichaCxP.cs" />
     <Compile Include="LibCompra\Documento\Agregar\NotaCredito\FichaDetalle.cs" />

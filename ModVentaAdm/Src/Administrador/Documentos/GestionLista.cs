@@ -17,11 +17,12 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         private List<data> _list;
         private BindingList<data> _bl;
         private BindingSource _bs;
-        private Helpers.Imprimir.IDocumento _gestionVisualizarDoc;
 
 
         public BindingSource ItemsSource { get { return _bs; } }
         public string ItemsEncontrados { get { return "Items Encontrados: "+_bl.Count.ToString("n0").Trim(); } }
+        public List<data> GetListaDoc { get { return _bl.ToList(); } }
+        public data GetItemActual { get { return (data)_bs.Current; } }
 
 
         public GestionLista()
@@ -30,12 +31,13 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             _bl = new BindingList<data>(_list);
             _bs = new BindingSource();
             _bs.DataSource = _bl;
-            _gestionVisualizarDoc = new Helpers.Imprimir.Grafico.Documento();
         }
 
-
-        public void AnularItem()
+        public void Inicializa()
         {
+            _bl.Clear();
+            _bs.CurrencyManager.Refresh();
+
         }
 
         public void LimpiarData()
@@ -49,28 +51,6 @@ namespace ModVentaAdm.Src.Administrador.Documentos
                     _bs.CurrencyManager.Refresh();
                 }
             }
-        }
-
-        public void VisualizarDocumento()
-        {
-            if (_bs.Current != null)
-            {
-                var it = (data)_bs.Current;
-                var r01 = Helpers.Imprimir.Documento.CargarDataDocumento(it.idDocumento);
-                if (r01 != null) 
-                {
-                    _gestionVisualizarDoc.setData(r01);
-                    _gestionVisualizarDoc.ImprimirDoc();
-                }
-            }
-        }
-
-        public void Imprimir()
-        {
-        }
-
-        public void CorrectorDocumento()
-        {
         }
 
         public void setLista(List<OOB.Documento.Lista.Ficha> list)

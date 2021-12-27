@@ -53,7 +53,7 @@ namespace ModVentaAdm.Src.Reportes.Modo.Consolidado
                     fecha = g.Key.fecha,
                     codigoSuc = g.Key.codigoSuc,
                     nombreSuc = g.Key.nombreSuc,
-                    caja=g.Key.caja,
+                    caja = g.Key.caja,
                     tipo = g.Key.tipo,
                     aplica = g.Key.aplica,
                     docNombre = g.Key.docNombre,
@@ -68,13 +68,13 @@ namespace ModVentaAdm.Src.Reportes.Modo.Consolidado
                 DataRow rt = ds.Tables["Consolidado"].NewRow();
                 rt["fecha"] = it.fecha.Date;
                 rt["sucursal"] = it.nombreSuc+Environment.NewLine+it.codigoSuc;
-                rt["caja"] = it.caja.ToString();
-                rt["docNombre"] = it.docNombre;
+                rt["caja"] = it.caja.ToString().Trim().PadLeft(2,'0');
+                rt["docNombre"] = it.docNombre.Trim();
                 rt["inicio"] = it.inicio;
                 rt["fin"] = it.fin;
                 rt["total"] = it.total;
                 rt["totalDivisa"] = it.totalDivisa;
-                rt["aplica"] = it.aplica;
+                rt["aplica"] = it.aplica.Trim();
                 ds.Tables["Consolidado"].Rows.Add(rt);
             }
 

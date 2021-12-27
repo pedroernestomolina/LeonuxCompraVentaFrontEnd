@@ -224,6 +224,26 @@ namespace ModVentaAdm.Src.Principal
             _controlador.GenerarPedido();
         }
 
+        private void MENU_REPORTES_UTILIDAD_POR_VENTAS_Click(object sender, EventArgs e)
+        {
+            UtilidadPorVentas();
+        }
+
+        private void UtilidadPorVentas()
+        {
+            _controlador.UtilidadPorVentas();
+        }
+
+        private void MENU_REPORTES_UTILIDAD_POR_UTILIDAD_Click(object sender, EventArgs e)
+        {
+            UtilidadPorProducto();
+        }
+
+        private void UtilidadPorProducto()
+        {
+            _controlador.UtilidadPorProducto();
+        }
+
     }
 
 }

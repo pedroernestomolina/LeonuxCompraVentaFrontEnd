@@ -18,6 +18,8 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Reportes.VentaPorProducto.Ficha> Reportes_VentaPorProducto(OOB.Reportes.VentaPorProducto.Filtro filtro);
         OOB.Resultado.Lista<OOB.Reportes.GeneralDocumentoDetalle.Ficha> Reportes_GeneralDocumentoDetalle(OOB.Reportes.GeneralDocumentoDetalle.Filtro filtro);
         OOB.Resultado.Lista<OOB.Reportes.Consolidado.Ficha> Reportes_Consolidado(OOB.Reportes.Consolidado.Filtro filtro);
+        OOB.Resultado.Lista<OOB.Reportes.Utilidad.Venta.Ficha> Reportes_UtilidadVenta (OOB.Reportes.Utilidad.Filtro filtro);
+        OOB.Resultado.Lista<OOB.Reportes.Utilidad.Producto.Ficha> Reportes_UtilidadProducto(OOB.Reportes.Utilidad.Filtro filtro);
 
     }
 

@@ -260,7 +260,7 @@ namespace ModVentaAdm.Data.Prov
                 tipoDocNtCredito = filtro.tipoDocNtCredito,
                 tipoDocNtEntrega = filtro.tipoDocNtEntrega,
             };
-            var r01 = MyData.Reporte_GenrealDocumentoDetalle(filtroDTO);
+            var r01 = MyData.ReportesAdm_GeneralDocumentoDetalle(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;
@@ -314,7 +314,7 @@ namespace ModVentaAdm.Data.Prov
                 desde= filtro.desde,
                 hasta= filtro.hasta,
             };
-            var r01 = MyData.Reporte_Consolidado(filtroDTO);
+            var r01 = MyData.ReportesAdm_Consolidado(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;
@@ -343,6 +343,103 @@ namespace ModVentaAdm.Data.Prov
                             total = s.total,
                             totalDivisa=s.totalDivisa,
                             caja=s.caja,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.ListaD = list;
+
+            return rt;
+        }
+
+        public OOB.Resultado.Lista<OOB.Reportes.Utilidad.Venta.Ficha> Reportes_UtilidadVenta(OOB.Reportes.Utilidad.Filtro filtro)
+        {
+            var rt = new OOB.Resultado.Lista<OOB.Reportes.Utilidad.Venta.Ficha>();
+
+            var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.Utilidad.Filtro()
+            {
+                codSucursal = filtro.codSucursal,
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.ReportesAdm_Utilidad_Venta(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.Reportes.Utilidad.Venta.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Reportes.Utilidad.Venta.Ficha()
+                        {
+                            clienteCiRif = s.clienteCiRif,
+                            clienteNombre = s.clienteNombre,
+                            costoNeto = s.costoNeto,
+                            documento = s.documento,
+                            estacion = s.estacion,
+                            factorDoc = s.factorDoc,
+                            fecha = s.fecha,
+                            nombreDoc = s.nombreDoc,
+                            serie = s.serie,
+                            signoDoc = s.signoDoc,
+                            sucCodigo = s.sucCodigo,
+                            sucNombre = s.sucNombre,
+                            tipoDoc = s.tipoDoc,
+                            utilidad = s.utilidad,
+                            utilidadp = s.utilidadp,
+                            ventaNeta = s.ventaNeta,
+                        };
+                        return nr;
+                    }).ToList();
+                }
+            }
+            rt.ListaD = list;
+
+            return rt;
+        }
+
+        public OOB.Resultado.Lista<OOB.Reportes.Utilidad.Producto.Ficha> Reportes_UtilidadProducto(OOB.Reportes.Utilidad.Filtro filtro)
+        {
+            var rt = new OOB.Resultado.Lista<OOB.Reportes.Utilidad.Producto.Ficha>();
+
+            var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.Utilidad.Filtro()
+            {
+                codSucursal = filtro.codSucursal,
+                desde = filtro.desde,
+                hasta = filtro.hasta,
+            };
+            var r01 = MyData.ReportesAdm_Utilidad_Producto(filtroDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.Reportes.Utilidad.Producto.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        var nr = new OOB.Reportes.Utilidad.Producto.Ficha()
+                        {
+                            cantUnd = s.cantUnd,
+                            costo = s.costo,
+                            costoDivisa = s.costoDivisa,
+                            prdCodigo = s.prdCodigo,
+                            prdNombre = s.prdNombre,
+                            venta = s.venta,
+                            ventaDivisa = s.ventaDivisa,
                         };
                         return nr;
                     }).ToList();

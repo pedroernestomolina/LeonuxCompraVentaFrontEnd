@@ -23,7 +23,6 @@ namespace ModVentaAdm.OOB.Reportes.Consolidado
             hasta = DateTime.Now.Date;
         }
 
-
     }
 
 }

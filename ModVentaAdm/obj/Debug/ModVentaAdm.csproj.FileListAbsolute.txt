@@ -10,6 +10,8 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Gener
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorProducto.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\ListaDoc.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Resumen.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\UtilidadProducto.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\UtilidadVenta.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.pdb

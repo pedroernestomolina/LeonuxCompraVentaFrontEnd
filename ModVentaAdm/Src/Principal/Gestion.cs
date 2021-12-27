@@ -238,6 +238,16 @@ namespace ModVentaAdm.Src.Principal
             GenerarDoc(_gestionPedido);
         }
 
+        public void UtilidadPorVentas()
+        {
+            Reporte(new Reportes.Modo.Utilidad.Ventas.Gestion());
+        }
+
+        public void UtilidadPorProducto()
+        {
+            Reporte(new Reportes.Modo.Utilidad.Producto.Gestion());
+        }
+
     }
 
 }

@@ -180,6 +180,9 @@
     <Compile Include="OOB\Reportes\GeneralPorGrupo\Filtro.cs" />
     <Compile Include="OOB\Reportes\Resumen\Ficha.cs" />
     <Compile Include="OOB\Reportes\Resumen\Filtro.cs" />
+    <Compile Include="OOB\Reportes\Utilidad\Filtro.cs" />
+    <Compile Include="OOB\Reportes\Utilidad\Producto\Ficha.cs" />
+    <Compile Include="OOB\Reportes\Utilidad\Venta\Ficha.cs" />
     <Compile Include="OOB\Reportes\VentaPorProducto\Ficha.cs" />
     <Compile Include="OOB\Reportes\VentaPorProducto\Filtro.cs" />
     <Compile Include="OOB\Resultado\Enumerados.cs" />
@@ -486,6 +489,10 @@
     <Compile Include="Src\Reportes\Modo\ListaDocumento\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\Resumen\Filtro.cs" />
     <Compile Include="Src\Reportes\Modo\Resumen\Gestion.cs" />
+    <Compile Include="Src\Reportes\Modo\Utilidad\Producto\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\Utilidad\Producto\Gestion.cs" />
+    <Compile Include="Src\Reportes\Modo\Utilidad\Ventas\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\Utilidad\Ventas\Gestion.cs" />
     <Compile Include="Src\Reportes\ReporteFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -609,6 +616,12 @@
       <DependentUpon>ReporteFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\Resumen.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\UtilidadProducto.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\UtilidadVenta.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Seguridad\SeguridadFrm.resx">

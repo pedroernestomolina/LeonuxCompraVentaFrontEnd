@@ -78,6 +78,8 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.L_DEPOSITO = new System.Windows.Forms.Label();
+            this.CB_DEPOSITO = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -102,6 +104,8 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -495,9 +499,9 @@
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 3;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(396, 56);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
@@ -505,7 +509,7 @@
             // 
             this.panel15.Controls.Add(this.L_DEPARTAMENTO);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(1, 15);
+            this.panel15.Location = new System.Drawing.Point(1, 1);
             this.panel15.Margin = new System.Windows.Forms.Padding(1);
             this.panel15.Name = "panel15";
             this.panel15.Padding = new System.Windows.Forms.Padding(2);
@@ -530,7 +534,7 @@
             // 
             this.panel16.Controls.Add(this.CB_DEPART);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel16.Location = new System.Drawing.Point(135, 15);
+            this.panel16.Location = new System.Drawing.Point(135, 1);
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
@@ -552,22 +556,24 @@
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.L_DEPOSITO);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(1, 43);
+            this.panel17.Location = new System.Drawing.Point(1, 29);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(2);
-            this.panel17.Size = new System.Drawing.Size(132, 12);
+            this.panel17.Size = new System.Drawing.Size(132, 26);
             this.panel17.TabIndex = 2;
             // 
             // panel18
             // 
+            this.panel18.Controls.Add(this.CB_DEPOSITO);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel18.Location = new System.Drawing.Point(135, 43);
+            this.panel18.Location = new System.Drawing.Point(135, 29);
             this.panel18.Margin = new System.Windows.Forms.Padding(1);
             this.panel18.Name = "panel18";
             this.panel18.Padding = new System.Windows.Forms.Padding(2);
-            this.panel18.Size = new System.Drawing.Size(260, 12);
+            this.panel18.Size = new System.Drawing.Size(260, 26);
             this.panel18.TabIndex = 3;
             // 
             // panel10
@@ -729,6 +735,32 @@
             this.DGV.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_ColumnHeaderMouseClick);
             this.DGV.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DataBindingComplete);
             // 
+            // L_DEPOSITO
+            // 
+            this.L_DEPOSITO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.L_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L_DEPOSITO.ForeColor = System.Drawing.Color.Blue;
+            this.L_DEPOSITO.Location = new System.Drawing.Point(2, 2);
+            this.L_DEPOSITO.Name = "L_DEPOSITO";
+            this.L_DEPOSITO.Size = new System.Drawing.Size(128, 22);
+            this.L_DEPOSITO.TabIndex = 1;
+            this.L_DEPOSITO.Text = "Depósito:";
+            this.L_DEPOSITO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.L_DEPOSITO.Click += new System.EventHandler(this.L_DEPOSITO_Click);
+            // 
+            // CB_DEPOSITO
+            // 
+            this.CB_DEPOSITO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CB_DEPOSITO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_DEPOSITO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_DEPOSITO.FormattingEnabled = true;
+            this.CB_DEPOSITO.Location = new System.Drawing.Point(2, 2);
+            this.CB_DEPOSITO.Name = "CB_DEPOSITO";
+            this.CB_DEPOSITO.Size = new System.Drawing.Size(256, 24);
+            this.CB_DEPOSITO.TabIndex = 1;
+            this.CB_DEPOSITO.SelectedIndexChanged += new System.EventHandler(this.CB_DEPOSITO_SelectedIndexChanged);
+            // 
             // CostoEdadFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -767,6 +799,8 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
@@ -831,5 +865,7 @@
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Label L_DEPOSITO;
+        private System.Windows.Forms.ComboBox CB_DEPOSITO;
     }
 }

@@ -86,8 +86,18 @@ namespace ModVentaAdm.Src.Administrador.Documentos
 
         public void AnularItem()
         {
-            var msg = "OPCION NO ACTIVADA";
-            MessageBox.Show(msg, "*** ALERTA ***", MessageBoxButtons.OK, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button1);
+            if (GetItemActual != null)
+            {
+                var r00 = Sistema.MyData.Permiso_Adm_AnularDocumento(Sistema.Usuario.idGrupo);
+                if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                }
+            }
         }
 
         public void LimpiarFiltros()

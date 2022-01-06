@@ -11,6 +11,12 @@ namespace ModInventario.Movimiento
     public class data
     {
 
+        private ficha _sucursal;
+        private ficha _depositoOrigen;
+        private ficha _depositoDestino;
+        private ficha _concepto;
+
+
         public string IdSucursal { get; set; }
         public string IdConcepto { get; set; }
         public string IdDepOrigen { get; set; }
@@ -19,6 +25,11 @@ namespace ModInventario.Movimiento
         public string Motivo { get; set; }
         public DateTime Fecha { get; set; }
         public dataDetalle detalle { get; set; }
+        //
+        public ficha GetSucursal { get { return _sucursal; } }
+        public ficha GetDepositoOrigen { get { return _depositoOrigen; } }
+        public ficha GetDepositoDestino { get { return _depositoDestino; } }
+        public ficha GetConcepto { get { return _concepto; } }
 
 
         public data() 
@@ -36,6 +47,11 @@ namespace ModInventario.Movimiento
             AutorizadoPor = "";
             Motivo = "";
             Fecha = DateTime.Now.Date;
+            //
+            _sucursal = null;
+            _depositoOrigen = null;
+            _concepto = null;
+            _depositoDestino = null;
         }
 
         public bool Verificar()
@@ -53,13 +69,7 @@ namespace ModInventario.Movimiento
                 Helpers.Msg.Error("Campo [ Motivo ] Falta Por LLenar");
                 return false;
             }
-
-            if (IdConcepto == "")
-            {
-                Helpers.Msg.Error("[ Concepto ] No Seleccionada");
-                return false;
-            }
-
+           
             if (detalle.ListaItems.Count == 0) 
             {
                 Helpers.Msg.Error("No Hay Items En El Documento ");
@@ -73,6 +83,26 @@ namespace ModInventario.Movimiento
             }
 
             return rt;
+        }
+
+        public void setSucursal(ficha ficha)
+        {
+            _sucursal = ficha;
+        }
+
+        public void setDepositoOrigen(ficha ficha)
+        {
+            _depositoOrigen= ficha;
+        }
+
+        public void setDepositoDestino(ficha ficha)
+        {
+            _depositoDestino = ficha;
+        }
+
+        public void setConcepto(ficha ficha)
+        {
+            _concepto= ficha;
         }
 
     }

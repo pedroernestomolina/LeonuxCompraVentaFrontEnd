@@ -166,9 +166,18 @@ namespace ModInventario.Movimiento
             this.Close();
         }
 
+        private bool _modoInicio;
         private void MvFrm_Load(object sender, EventArgs e)
         {
             Inicializar();
+
+            _modoInicio = true;
+            CB_CONCEPTO.DataSource = _controlador.ConceptoSource;
+            CB_SUCURSAL.DataSource = _controlador.SucursalSource;
+            CB_DEP_ORIGEN.DataSource = _controlador.DepOrigenSource;
+            CB_DEP_DESTINO.DataSource = _controlador.DepDestinoSource;
+            Limpiar();
+            _modoInicio = false;
 
             switch (_controlador.EnumTipoMovimiento)
             {
@@ -183,7 +192,6 @@ namespace ModInventario.Movimiento
                     P_TIPO_MOVIMIENTO.BackColor = Color.Orange;
                     break;
             }
-
 
             DTP_FECHA.Focus();
             L_TIPO_MOVIMIENTO.Text = _controlador.TipoMovimiento;
@@ -203,21 +211,15 @@ namespace ModInventario.Movimiento
         {
             CB_CONCEPTO.DisplayMember = "Nombre";
             CB_CONCEPTO.ValueMember = "Auto";
-            CB_CONCEPTO.DataSource = _controlador.ConceptoSource;
             
             CB_SUCURSAL.DisplayMember = "Nombre";
             CB_SUCURSAL.ValueMember = "Auto";
-            CB_SUCURSAL.DataSource = _controlador.SucursalSource;
 
             CB_DEP_ORIGEN.DisplayMember = "Nombre";
             CB_DEP_ORIGEN.ValueMember= "Auto";
-            CB_DEP_ORIGEN.DataSource = _controlador.DepOrigenSource;
 
             CB_DEP_DESTINO.DisplayMember = "Nombre";
             CB_DEP_DESTINO.ValueMember = "Auto";
-            CB_DEP_DESTINO.DataSource = _controlador.DepDestinoSource;
-
-            Limpiar();
         }
 
         private void Limpiar()
@@ -270,39 +272,79 @@ namespace ModInventario.Movimiento
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdSucursal = "";
-            if (CB_SUCURSAL.SelectedIndex != -1) 
+            if (_modoInicio)
+                return;
+
+            if (_controlador.HabilitarCambioSucursal)
             {
-                _controlador.IdSucursal = CB_SUCURSAL.SelectedValue.ToString();
+                _controlador.setSucursal("");
+                if (CB_SUCURSAL.SelectedIndex != -1)
+                {
+                    _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
+                    _modoInicio = true;
+                    CB_DEP_ORIGEN.SelectedIndex = -1;
+                    _modoInicio = false;
+                }
+            }
+            else 
+            {
+                _modoInicio = true;
+                CB_SUCURSAL.SelectedValue = _controlador.GetIdSucursal;
+                _modoInicio = false;
             }
         }
 
         private void CB_CONCEPTO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdConcepto = "";
+            if (_modoInicio)
+                return;
+
+            _controlador.setConcepto("");
             if (CB_CONCEPTO.SelectedIndex != -1)
             {
-                _controlador.IdConcepto = CB_CONCEPTO.SelectedValue.ToString();
+                _controlador.setConcepto(CB_CONCEPTO.SelectedValue.ToString());
             }
         }
 
         private void CB_DEP_ORIGEN_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdDepOrigen= "";
-            if (CB_DEP_ORIGEN.SelectedIndex != -1)
+            if (_modoInicio)
+                return;
+
+            if (_controlador.HabilitarCambioDepositoOrigen)
             {
-                _controlador.IdDepOrigen = CB_DEP_ORIGEN.SelectedValue.ToString();
-                CB_DEP_ORIGEN.SelectedValue = _controlador.IdDepOrigen;
+                _controlador.setDepositoOrigen("");
+                if (CB_DEP_ORIGEN.SelectedIndex != -1)
+                {
+                    _controlador.setDepositoOrigen(CB_DEP_ORIGEN.SelectedValue.ToString());
+                }
+            }
+            else 
+            {
+                _modoInicio = true;
+                CB_DEP_ORIGEN.SelectedValue = _controlador.GetIdDepositoOrigen;
+                _modoInicio = false;
             }
         }
 
         private void CB_DEP_DESTINO_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.IdDepDestino= "";
-            if (CB_DEP_DESTINO.SelectedIndex != -1)
+            if (_modoInicio)
+                return;
+
+            if (_controlador.HabilitarCambioDepositoDestino)
             {
-                _controlador.IdDepDestino = CB_DEP_DESTINO.SelectedValue.ToString();
-                CB_DEP_DESTINO.SelectedValue = _controlador.IdDepDestino;
+                _controlador.setDepositoDestino("");
+                if (CB_DEP_DESTINO.SelectedIndex != -1)
+                {
+                    _controlador.setDepositoDestino(CB_DEP_DESTINO.SelectedValue.ToString());
+                }
+            }
+            else 
+            {
+                _modoInicio = true;
+                CB_DEP_DESTINO.SelectedValue = _controlador.GetIdDepositoDestino;
+                _modoInicio = false;
             }
         }
 
@@ -454,6 +496,11 @@ namespace ModInventario.Movimiento
         private void MaestroConcepto()
         {
             _controlador.MaestroConcepto();
+        }
+
+        private void BT_PENDIENTE_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

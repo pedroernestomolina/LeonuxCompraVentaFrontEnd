@@ -382,6 +382,7 @@
             this.BT_PENDIENTE.TabIndex = 1;
             this.toolTip1.SetToolTip(this.BT_PENDIENTE, "Guardar Cambios ");
             this.BT_PENDIENTE.UseVisualStyleBackColor = true;
+            this.BT_PENDIENTE.Click += new System.EventHandler(this.BT_PENDIENTE_Click);
             // 
             // panel35
             // 

@@ -72,6 +72,39 @@ namespace DataProvInventario.Data
             return rt;
         }
 
+        public OOB.ResultadoLista<OOB.LibInventario.Deposito.Ficha> Deposito_GetListaBySucursal(string codSuc)
+        {
+            var rt = new OOB.ResultadoLista<OOB.LibInventario.Deposito.Ficha>();
+
+            var r01 = MyData.Deposito_GetListaBySucursal(codSuc);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var list = new List<OOB.LibInventario.Deposito.Ficha>();
+            if (r01.Lista != null)
+            {
+                if (r01.Lista.Count > 0)
+                {
+                    list = r01.Lista.Select(s =>
+                    {
+                        return new OOB.LibInventario.Deposito.Ficha()
+                        {
+                            auto = s.auto,
+                            codigo = s.codigo,
+                            nombre = s.nombre,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Lista = list;
+
+            return rt;
+        }
+
     }
 
 }

@@ -614,6 +614,54 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
             _departamento = null;
         }
 
+        public void setSucursal(string id)
+        {
+        }
+
+        public void setDepositoOrigen(string id)
+        {
+        }
+
+        public void setConcepto(string id)
+        {
+        }
+
+        public bool HabilitarCambioSucursal
+        {
+            get { return false; }
+        }
+
+        public string GetIdSucursal
+        {
+            get { return ""; }
+        }
+
+        public bool HabilitarCambioDepositoOrigen
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string GetIdDepositoOrigen
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+
+
+        public bool HabilitarCambioDepositoDestino
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public string GetIdDepositoDestino
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public void setDepositoDestino(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

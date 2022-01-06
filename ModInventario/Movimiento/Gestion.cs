@@ -40,6 +40,12 @@ namespace ModInventario.Movimiento
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return miGestion.MetodoBusqueda; } set { miGestion.MetodoBusqueda = value; } }
         public string CadenaBusqueda { get { return miGestion.CadenaBusqueda; } set { miGestion.CadenaBusqueda = value; } }
         public bool HabilitarConcepto { get { return miGestion.HabilitarConcepto; } }
+        public bool HabilitarCambioSucursal { get { return miGestion.HabilitarCambioSucursal; } }
+        public string GetIdSucursal { get { return miGestion.GetIdSucursal; } }
+        public bool HabilitarCambioDepositoOrigen { get { return miGestion.HabilitarCambioDepositoOrigen; } }
+        public string GetIdDepositoOrigen { get { return miGestion.GetIdDepositoOrigen; } }
+        public bool HabilitarCambioDepositoDestino { get { return miGestion.HabilitarCambioDepositoDestino; } }
+        public string GetIdDepositoDestino { get { return miGestion.GetIdDepositoDestino; } }
 
 
         public Gestion()
@@ -139,6 +145,26 @@ namespace ModInventario.Movimiento
         public void Inicializa()
         {
             miGestion.Inicializa();
+        }
+
+        public void setSucursal(string id)
+        {
+            miGestion.setSucursal(id);
+        }
+
+        public void setDepositoOrigen(string id)
+        {
+            miGestion.setDepositoOrigen(id);
+        }
+
+        public void setConcepto(string id)
+        {
+            miGestion.setConcepto(id);
+        }
+
+        public void setDepositoDestino(string id)
+        {
+            miGestion.setDepositoDestino(id);
         }
 
     }

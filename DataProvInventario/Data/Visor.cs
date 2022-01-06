@@ -75,6 +75,7 @@ namespace DataProvInventario.Data
 
             var filtroDto = new DtoLibInventario.Visor.CostoEddad.Filtro();
             filtroDto.autoDepartamento = filtro.autoDepartamento;
+            filtroDto.autoDeposito = filtro.autoDeposito;
 
             var r01 = MyData.Visor_CostoEdad(filtroDto);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

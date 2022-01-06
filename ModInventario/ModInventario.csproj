@@ -324,6 +324,7 @@
     <Compile Include="Movimiento\Descargo\Gestion.cs" />
     <Compile Include="Movimiento\Descargo\GestionDetalle.cs" />
     <Compile Include="Movimiento\enumerados.cs" />
+    <Compile Include="Movimiento\ficha.cs" />
     <Compile Include="Movimiento\Gestion.cs" />
     <Compile Include="Movimiento\IGestion.cs" />
     <Compile Include="Movimiento\item.cs" />

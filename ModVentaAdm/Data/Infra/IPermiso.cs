@@ -38,6 +38,10 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente_Reportes(string idGrupoUsu);
         OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente_ActivarInactivar(string idGrupoUsu);
 
+        //
+
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Adm_AnularDocumento(string idGrupoUsu);
+
     }
 
 }

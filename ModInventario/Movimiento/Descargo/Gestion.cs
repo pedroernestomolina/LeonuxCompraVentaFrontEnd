@@ -68,6 +68,31 @@ namespace ModInventario.Movimiento.Descargo
         public DateTime FechaMov { get { return miData.Fecha; } set { miData.Fecha = value; } }
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return _gestionBusquedaPrd.Metodo; } set { _gestionBusquedaPrd.Metodo = value; } }
         public string CadenaBusqueda { get { return _gestionBusquedaPrd.CadenaBusqueda; } set { _gestionBusquedaPrd.CadenaBusqueda = value; } }
+        public ficha Sucursal { get { return miData.GetSucursal; } }
+        public ficha DepositoOrigen { get { return miData.GetDepositoOrigen; } }
+        public ficha Concepto { get { return miData.GetConcepto; } }
+        public bool HabilitarCambioSucursal { get { return _gestionDetalle.TotalItems == 0; } }
+        public bool HabilitarCambioDepositoOrigen { get { return _gestionDetalle.TotalItems == 0; } }
+        public string GetIdSucursal
+        {
+            get
+            {
+                var id = "";
+                if (Sucursal != null)
+                    id = Sucursal.id;
+                return id;
+            }
+        }
+        public string GetIdDepositoOrigen
+        {
+            get
+            {
+                var id = "";
+                if (DepositoOrigen != null)
+                    id = DepositoOrigen.id;
+                return id;
+            }
+        }
         
 
         public Gestion()
@@ -102,7 +127,12 @@ namespace ModInventario.Movimiento.Descargo
             }
             else 
             {
-                _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, miData.IdDepOrigen);
+                if (DepositoOrigen == null)
+                {
+                    Helpers.Msg.Error("CAMPO [ DEPOSITO ORIGEN ] NO SELECCIONADO");
+                    return;
+                }
+                _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, DepositoOrigen.id);
             }
 
         }
@@ -128,13 +158,6 @@ namespace ModInventario.Movimiento.Descargo
                 Helpers.Msg.Error(rt2.Mensaje);
                 return false;
             }
-            var rt3 = Sistema.MyData.Deposito_GetLista ();
-            if (rt3.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(rt3.Mensaje);
-                return false;
-            }
-
             var rt4 = Sistema.MyData.Configuracion_TasaCambioActual();
             if (rt4.Result == OOB.Enumerados.EnumResult.isError)
             {
@@ -152,14 +175,6 @@ namespace ModInventario.Movimiento.Descargo
             lSucursal.AddRange(rt1.Lista.OrderBy(o => o.nombre).ToList());
             bsSucursal.CurrencyManager.Refresh();
 
-            lDepOrigen.Clear();
-            lDepOrigen.AddRange(rt3.Lista.OrderBy(o => o.nombre).ToList());
-            bsDepOrigen.CurrencyManager.Refresh();
-
-            lDepDestino.Clear();
-            lDepDestino.AddRange(rt3.Lista.OrderBy(o => o.nombre).ToList());
-            bsDepDestino.CurrencyManager.Refresh();
-
             return rt;
         }
 
@@ -167,6 +182,8 @@ namespace ModInventario.Movimiento.Descargo
         {
             isCerrarOk = false;
             miData.Limpiar();
+            lDepOrigen.Clear();
+            bsDepOrigen.CurrencyManager.Refresh();
             _gestionDetalle.Limpiar();
         }
 
@@ -199,7 +216,7 @@ namespace ModInventario.Movimiento.Descargo
 
         public void EditarItem()
         {
-            _gestionDetalle.EditarItem(IdDepOrigen);
+            _gestionDetalle.EditarItem(DepositoOrigen.id);
         }
 
         public void Procesar()
@@ -207,16 +224,22 @@ namespace ModInventario.Movimiento.Descargo
             miData.detalle = _gestionDetalle.Detalle;
             if (miData.Verificar())
             {
-                if (IdSucursal == "")
+                if (Sucursal == null)
                 {
                     Helpers.Msg.Error("Campo [ Sucursal ] No Seleccionada");
                     return;
                 }
-                if (IdDepOrigen == "")
+                if (Concepto == null)
                 {
-                    Helpers.Msg.Error("[ Depósito Origen ] No Seleccionada");
+                    Helpers.Msg.Error("Campo [ Concepto Movimiento ] No Seleccionada");
                     return;
                 }
+                if (DepositoOrigen == null)
+                {
+                    Helpers.Msg.Error("Campo [ Deposito Origen ] No Seleccionada");
+                    return;
+                }
+
                 var msg = MessageBox.Show("Procesar Documento ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.No) 
                 {
@@ -235,27 +258,23 @@ namespace ModInventario.Movimiento.Descargo
 
         private bool RegistrarDocumento()
         {
-            var concepto = lConcepto.FirstOrDefault(m => m.auto == miData.IdConcepto);
-            var depOrigen = lDepOrigen.FirstOrDefault(m => m.auto == miData.IdDepOrigen);
-            var sucursal = lSucursal.FirstOrDefault(m => m.auto == miData.IdSucursal);
-
             var ficha = new OOB.LibInventario.Movimiento.DesCargo.Insertar.Ficha()
             {
-                autoConcepto = miData.IdConcepto,
-                autoDepositoDestino = miData.IdDepOrigen,
-                autoDepositoOrigen = miData.IdDepOrigen,
+                autoConcepto = Concepto.id,
+                autoDepositoDestino = DepositoOrigen.id,
+                autoDepositoOrigen = DepositoOrigen.id,
                 autoRemision = "",
                 autorizado = miData.AutorizadoPor,
                 autoUsuario = Sistema.UsuarioP.autoUsu,
                 cierreFtp = "",
-                codConcepto = concepto.codigo,
-                codDepositoDestino = depOrigen.codigo,
-                codDepositoOrigen = depOrigen.codigo,
-                codigoSucursal = sucursal.codigo,
+                codConcepto = Concepto.codigo,
+                codDepositoDestino = DepositoOrigen.codigo,
+                codDepositoOrigen = DepositoOrigen.codigo,
+                codigoSucursal = Sucursal.codigo,
                 codUsuario = Sistema.UsuarioP.codigoUsu,
-                desConcepto = concepto.nombre,
-                desDepositoDestino = depOrigen.nombre,
-                desDepositoOrigen = depOrigen.nombre,
+                desConcepto = Concepto.descripcion,
+                desDepositoDestino = DepositoOrigen.descripcion,
+                desDepositoOrigen = DepositoOrigen.descripcion,
                 documentoNombre = "DESCARGOS",
                 estacion = Environment.MachineName,
                 estatusAnulado = "0",
@@ -302,7 +321,7 @@ namespace ModInventario.Movimiento.Descargo
             {
                 var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaPrdDeposito()
                 {
-                    autoDeposito = miData.IdDepOrigen,
+                    autoDeposito = DepositoOrigen.id,
                     autoProducto = s.FichaPrd.AutoId,
                     nombreProducto = s.DescripcionPrd,
                     cantidadUnd = s.CantidadUnd,
@@ -315,22 +334,22 @@ namespace ModInventario.Movimiento.Descargo
             {
                 var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaKardex()
                 {
-                    autoConcepto = concepto.auto,
-                    autoDeposito = depOrigen.auto,
+                    autoConcepto = Concepto.id,
+                    autoDeposito = DepositoOrigen.id,
                     autoProducto = s.FichaPrd.AutoId,
                     cantidad = s.Cantidad,
                     cantidadBono = 0.0m,
                     cantidadUnd = s.CantidadUnd,
                     codigoMov = "02",
-                    codigoConcepto = concepto.codigo,
-                    codigoDeposito = depOrigen.codigo,
-                    codigoSucursal = sucursal.codigo,
+                    codigoConcepto = Concepto.codigo,
+                    codigoDeposito = DepositoOrigen.codigo,
+                    codigoSucursal = Sucursal.codigo,
                     costoUnd = s.CostoUndMonedaLocal,
                     entidad = "",
                     estatusAnulado = "0",
                     modulo = "Inventario",
-                    nombreConcepto = concepto.nombre,
-                    nombreDeposito = depOrigen.nombre,
+                    nombreConcepto = Concepto.descripcion,
+                    nombreDeposito = DepositoOrigen.descripcion,
                     nota = "",
                     precioUnd = 0.0m,
                     siglasMov = "DES",
@@ -394,6 +413,65 @@ namespace ModInventario.Movimiento.Descargo
         public void Inicializa()
         {
         }
+
+        public void setSucursal(string id)
+        {
+            var suc = lSucursal.FirstOrDefault(f => f.auto == id);
+            if (suc != null)
+            {
+                var r01 = Sistema.MyData.Sucursal_GetFicha(id);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                var r02 = Sistema.MyData.Deposito_GetListaBySucursal(r01.Entidad.codigo);
+                if (r02.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return;
+                }
+                lDepOrigen.Clear();
+                lDepOrigen.AddRange(r02.Lista.OrderBy(o => o.nombre).ToList());
+                bsDepOrigen.CurrencyManager.Refresh();
+                miData.setSucursal(new ficha(suc.auto, suc.nombre, suc.codigo));
+                miData.setDepositoOrigen(null);
+            }
+            else
+            {
+                miData.setSucursal(null);
+                miData.setDepositoOrigen(null);
+            }
+        }
+
+        public void setDepositoOrigen(string id)
+        {
+            miData.setDepositoOrigen(null);
+            var dep = lDepOrigen.FirstOrDefault(f => f.auto == id);
+            if (dep != null)
+            {
+                miData.setDepositoOrigen(new ficha(dep.auto, dep.nombre, dep.codigo));
+            }
+        }
+
+        public void setConcepto(string id)
+        {
+            miData.setConcepto(null);
+            var ent = lConcepto.FirstOrDefault(f => f.auto == id);
+            if (ent != null)
+            {
+                miData.setConcepto(new ficha(ent.auto, ent.nombre, ent.codigo));
+            }
+        }
+
+
+        //NO IMPLEMENTAR
+        public bool HabilitarCambioDepositoDestino { get { return false; } }
+        public string GetIdDepositoDestino { get { return ""; } }
+        public void setDepositoDestino(string id)
+        {
+        }
+
 
     }
 

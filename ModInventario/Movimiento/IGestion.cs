@@ -34,6 +34,12 @@ namespace ModInventario.Movimiento
         string CadenaBusqueda { get; set; }
         enumerados.enumTipoMovimiento EnumTipoMovimiento { get; }
         bool HabilitarConcepto { get; }
+        bool HabilitarCambioSucursal { get; }
+        string GetIdSucursal { get; }
+        bool HabilitarCambioDepositoOrigen { get; }
+        string GetIdDepositoOrigen { get; }
+        bool HabilitarCambioDepositoDestino { get; }
+        string GetIdDepositoDestino { get; }
 
 
         void Inicia();
@@ -49,6 +55,10 @@ namespace ModInventario.Movimiento
         void ActualizarConceptos();
         void setHabilitarConcepto(bool p);
         void Inicializa();
+        void setSucursal(string id);
+        void setDepositoOrigen(string id);
+        void setConcepto(string id);
+        void setDepositoDestino(string id);
 
     }
 

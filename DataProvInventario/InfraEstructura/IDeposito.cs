@@ -12,6 +12,7 @@ namespace DataProvInventario.InfraEstructura
     {
 
         OOB.ResultadoLista<OOB.LibInventario.Deposito.Ficha> Deposito_GetLista();
+        OOB.ResultadoLista<OOB.LibInventario.Deposito.Ficha> Deposito_GetListaBySucursal(string codSuc);
         OOB.ResultadoEntidad<OOB.LibInventario.Deposito.Ficha> Deposito_GetFicha(string autoDep);
 
     }

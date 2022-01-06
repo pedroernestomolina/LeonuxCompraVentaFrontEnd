@@ -14,31 +14,39 @@ namespace ModInventario.Visor.CostoEdad
 
         private List<data> lista;
         private List<OOB.LibInventario.Departamento.Ficha> lDepart;
+        private List<OOB.LibInventario.Deposito.Ficha> lDeposito;
         private List<OOB.LibInventario.Visor.CostoEdad.FichaDetalle> detalles;
         private DateTime fechaServidor;
         private BindingSource bs;
         private BindingSource bsDepart;
+        private BindingSource bsDeposito;
+        private string _idDeposito;
+        private string _idDepartamento;
 
 
         public string Items { get { return bs.Count.ToString("n0"); } }
         public BindingSource Source { get { return bs; } }
         public BindingSource SourceDepartamento { get { return bsDepart; } }
-        public string Departamento { get; set; }
+        public BindingSource SourceDeposito { get { return bsDeposito; } }
         public int EdadFiltrar { get; set; }
         public string CadenaBuscar { get; set; }
 
 
         public Gestion()
         {
+            _idDeposito = "";
+            _idDepartamento = "";
             EdadFiltrar = 0;
             CadenaBuscar = "";
-            Departamento = "";
             lista = new List<data>();
             lDepart = new List<OOB.LibInventario.Departamento.Ficha>();
+            lDeposito = new List<OOB.LibInventario.Deposito.Ficha>();
             bs = new BindingSource();
             bs.DataSource = lista;
             bsDepart = new BindingSource();
             bsDepart.DataSource = lDepart;
+            bsDeposito = new BindingSource();
+            bsDeposito.DataSource = lDeposito;
         }
 
 
@@ -58,14 +66,25 @@ namespace ModInventario.Visor.CostoEdad
         {
             var rt = true;
 
+            var r01 = Sistema.MyData.Deposito_GetLista();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
             var r02 = Sistema.MyData.Departamento_GetLista();
             if (r02.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r02.Mensaje);
                 return false;
             }
+
+            lDeposito.Clear();
+            lDeposito.AddRange(r01.Lista.OrderBy(o=>o.nombre).ToList());
+            bsDeposito.CurrencyManager.Refresh();
+
             lDepart.Clear();
-            lDepart.AddRange(r02.Lista);
+            lDepart.AddRange(r02.Lista.OrderBy(o=>o.nombre).ToList());
             bsDepart.CurrencyManager.Refresh();
 
             return rt;
@@ -73,17 +92,20 @@ namespace ModInventario.Visor.CostoEdad
 
         private void Limpiar()
         {
+            _idDeposito = "";
+            _idDepartamento = "";
             EdadFiltrar = 0;
             CadenaBuscar = "";
-            Departamento = "";
             lista.Clear();
             lDepart.Clear();
+            lDeposito.Clear();
         }
 
         public void Buscar()
         {
             var filtro = new OOB.LibInventario.Visor.CostoEdad.Filtro();
-            filtro.autoDepartamento = Departamento;
+            filtro.autoDepartamento = _idDepartamento;
+            filtro.autoDeposito = _idDeposito;
             var r01 = Sistema.MyData.Visor_CostoEdad(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
@@ -151,6 +173,15 @@ namespace ModInventario.Visor.CostoEdad
             bs.CurrencyManager.Refresh();
         }
 
+        public void setDeposito(string id)
+        {
+            _idDeposito = id;
+        }
+
+        public void setDepartamento(string id)
+        {
+            _idDepartamento = id;
+        }
     }
 
 }

@@ -11,6 +11,7 @@ namespace OOB.LibInventario.Visor.CostoEdad
     public class Filtro
     {
 
+        public string autoDeposito { get; set; }
         public string autoDepartamento { get; set; }
         public string cadena { get; set; }
         public int dias { get; set; }
@@ -18,6 +19,7 @@ namespace OOB.LibInventario.Visor.CostoEdad
 
         public Filtro()
         {
+            autoDeposito= "";
             autoDepartamento = "";
             cadena = "";
             dias = 0;

@@ -29,6 +29,9 @@ namespace ModInventario.Visor.CostoEdad
         {
             CB_DEPART.DisplayMember = "Nombre";
             CB_DEPART.ValueMember = "Auto";
+
+            CB_DEPOSITO.DisplayMember = "Nombre";
+            CB_DEPOSITO.ValueMember = "Auto";
         }
 
         private void InicializaGrid()
@@ -61,7 +64,7 @@ namespace ModInventario.Visor.CostoEdad
             c2.Visible = true;
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
-            c2.MinimumWidth = 120;
+            c2.MinimumWidth = 220;
             c2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             var c3 = new DataGridViewTextBoxColumn();
@@ -203,12 +206,19 @@ namespace ModInventario.Visor.CostoEdad
             _controlador = ctr;
         }
 
+        private bool _modoInicio;
         private void ExistenciaFrm_Load(object sender, EventArgs e)
         {
             L_FILTRO.Text = "VISOR COSTO EDAD PRODUCTOS";
             DGV.DataSource = _controlador.Source;
+
+            _modoInicio = true;
             CB_DEPART.DataSource = _controlador.SourceDepartamento;
             CB_DEPART.SelectedIndex = -1;
+            CB_DEPOSITO.DataSource = _controlador.SourceDeposito;
+            CB_DEPOSITO.SelectedIndex = -1;
+            _modoInicio = false;
+
             ActualizarTotales();
             TB_CADENA.Focus();
         }
@@ -234,16 +244,18 @@ namespace ModInventario.Visor.CostoEdad
 
         private void CB_DEPART_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.Departamento = "";
+            if (_modoInicio)
+                return;
+
+            _controlador.setDepartamento("");
             if (CB_DEPART.SelectedIndex != -1)
             {
-                _controlador.Departamento = CB_DEPART.SelectedValue.ToString();
+                _controlador.setDepartamento(CB_DEPART.SelectedValue.ToString());
             }
         }
 
         private void L_DEPARTAMENTO_Click(object sender, EventArgs e)
         {
-            _controlador.Departamento = "";
             CB_DEPART.SelectedIndex = -1;
         }
 
@@ -328,6 +340,23 @@ namespace ModInventario.Visor.CostoEdad
                     row.Cells["CntFisica"].Style.BackColor = Color.Red;
                     row.Cells["CntFisica"].Style.ForeColor = Color.White;
                 }
+            }
+        }
+
+        private void L_DEPOSITO_Click(object sender, EventArgs e)
+        {
+            CB_DEPOSITO.SelectedIndex = -1;
+        }
+
+        private void CB_DEPOSITO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_modoInicio)
+                return;
+
+            _controlador.setDeposito("");
+            if (CB_DEPOSITO.SelectedIndex!=-1)
+            {
+                _controlador.setDeposito(CB_DEPOSITO.SelectedValue.ToString());
             }
         }
 

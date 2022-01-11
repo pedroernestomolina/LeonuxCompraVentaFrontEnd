@@ -75,6 +75,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         public void ActivarBusqueda()
         {
             var filtroOOB = _buscar.GenerarFiltro();
+            if (filtroOOB == null) { return; }
             var r01 = Sistema.MyData.Cliente_GetLista(filtroOOB);
             if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
@@ -82,9 +83,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
                 return;
             }
             _items.setLista(r01.ListaD);
-
-            //_filtrar.Limpiar();
-            //asignaMetodoBusqueda(_metodoBusqPred);
         }
 
         public void setMetodoPorCodigo()

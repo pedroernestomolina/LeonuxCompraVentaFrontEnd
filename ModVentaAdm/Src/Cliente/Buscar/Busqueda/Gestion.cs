@@ -78,6 +78,7 @@ namespace ModVentaAdm.Src.Cliente.Buscar.Busqueda
 
         public OOB.Maestro.Cliente.Lista.Filtro GenerarFiltro()
         {
+            if (_filtrar.cadena.Trim() == "") { return null; }
             return new OOB.Maestro.Cliente.Lista.Filtro()
             {
                 cadena = _filtrar.cadena,

@@ -207,6 +207,17 @@ namespace ModPos.Facturacion.Cliente
             }
         }
 
+        private void BT_EDITAR_Click(object sender, EventArgs e)
+        {
+            EditarCliente();
+        }
+
+        private void EditarCliente()
+        {
+            _buscar.EditarCliente();
+            MostrarCargar();
+        }
+
     }
 
 }

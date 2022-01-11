@@ -34,7 +34,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ServicePos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\IPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ProvPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\LibEntityPos.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Helpers.Imprimir.Grafico.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Administrador.Documentos.AdmDocFrm.resources

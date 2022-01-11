@@ -201,7 +201,7 @@ namespace ModVentaAdm.Src.Principal
 
         private void GenerarPresupuesto()
         {
-            //_controlador.GenerarPresupuesto();
+            _controlador.GenerarPresupuesto();
         }
 
         private void MENU_DOCUMENTOS_FACTURA_Click(object sender, EventArgs e)

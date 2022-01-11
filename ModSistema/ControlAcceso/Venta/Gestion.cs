@@ -32,7 +32,7 @@ namespace ModSistema.ControlAcceso.Venta
 
         public void setLista(List<OOB.LibSistema.ControlAcceso.Data.Ficha> list)
         {
-            foreach(var it in list)
+            foreach(var it in list.OrderBy(o=>o.fCodigo).ToList())
             {
                 var nr = new item()
                 {

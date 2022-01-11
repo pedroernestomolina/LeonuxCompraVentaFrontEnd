@@ -131,6 +131,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         {
             _controlador.ActivarBusqueda();
             ActualizarData();
+            GoInicio();
         }
 
         private void RB_BUSCAR_POR_CODIGO_CheckedChanged(object sender, EventArgs e)
@@ -198,6 +199,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
         private void AgregarCliente()
         {
             _controlador.AgregarCliente();
+            GoInicio();
         }
 
         private void DGV_KeyDown(object sender, KeyEventArgs e)
@@ -212,6 +214,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarCliente
                     }
                 }
             }
+        }
+
+        private void BT_FILTRAR_Click(object sender, EventArgs e)
+        {
+            GoInicio();
         }
       
     }

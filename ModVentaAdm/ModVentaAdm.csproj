@@ -205,9 +205,10 @@
     <Compile Include="OOB\Venta\Temporal\Anular\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Anular\Item.cs" />
     <Compile Include="OOB\Venta\Temporal\Anular\ItemActDeposito.cs" />
+    <Compile Include="OOB\Venta\Temporal\Cambios\Notas\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Cambios\TasaDivisa\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Editar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Entidad\Ficha.cs" />
-    <Compile Include="OOB\Venta\Temporal\Encabezado\Notas\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Registrar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Item\Actualizar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Item\Eliminar\Ficha.cs" />

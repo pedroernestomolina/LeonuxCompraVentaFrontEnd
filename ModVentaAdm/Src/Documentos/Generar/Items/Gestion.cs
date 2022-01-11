@@ -94,6 +94,15 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             }
         }
 
+        public void setCambioTasaDivisa(decimal tasa)
+        {
+            _mDivisa = tasa;
+            foreach (var it in _ldata)
+            {
+                it.setTasaDivisa(tasa);
+            }
+        }
+
     }
 
 }

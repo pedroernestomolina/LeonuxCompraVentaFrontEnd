@@ -57,7 +57,6 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
-
         //
 
         public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Reportes(string autoGrupoUsuario)
@@ -82,7 +81,6 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
-
         //
 
         public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_ClienteGrupo(string idGrupoUsu)
@@ -151,7 +149,6 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
-
         //
 
         public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_ClienteZona(string idGrupoUsu)
@@ -220,7 +217,6 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
-
         //
 
         public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Cliente(string idGrupoUsu)
@@ -333,7 +329,6 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
-
         //
 
         public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Adm_AnularDocumento(string idGrupoUsu)
@@ -341,6 +336,96 @@ namespace ModVentaAdm.Data.Prov
             var rt = new OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha>();
 
             var r01 = MyData.Permiso_VentaAdm_AnularDocumento(idGrupoUsu);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.Permiso.Entidad.Ficha()
+            {
+                estatus = s.estatus,
+                seguridad = s.seguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        //
+
+        public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_GenerarDoc_AnularItem(string idGrupoUsu)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha>();
+
+            var r01 = MyData.Permiso_VentaAdm_AnularItem(idGrupoUsu);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.Permiso.Entidad.Ficha()
+            {
+                estatus = s.estatus,
+                seguridad = s.seguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_GenerarDoc_DarDsctoItem(string idGrupoUsu)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha>();
+
+            var r01 = MyData.Permiso_VentaAdm_DarDsctoItem(idGrupoUsu);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.Permiso.Entidad.Ficha()
+            {
+                estatus = s.estatus,
+                seguridad = s.seguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_GenerarDoc_VisualizarCosto(string idGrupoUsu)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha>();
+
+            var r01 = MyData.Permiso_VentaAdm_VisualizarCosto(idGrupoUsu);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.Permiso.Entidad.Ficha()
+            {
+                estatus = s.estatus,
+                seguridad = s.seguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
+        public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_GenerarDoc_PrecioLibre(string idGrupoUsu)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha>();
+
+            var r01 = MyData.Permiso_VentaAdm_PrecioLibre(idGrupoUsu);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

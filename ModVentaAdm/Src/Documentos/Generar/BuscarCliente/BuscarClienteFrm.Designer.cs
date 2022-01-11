@@ -389,6 +389,7 @@
             this.BT_FILTRAR.Size = new System.Drawing.Size(19, 33);
             this.BT_FILTRAR.TabIndex = 1;
             this.BT_FILTRAR.UseVisualStyleBackColor = true;
+            this.BT_FILTRAR.Click += new System.EventHandler(this.BT_FILTRAR_Click);
             // 
             // panel1
             // 

@@ -156,6 +156,28 @@ namespace DataProvPosOffLine.Data
             return rt;
         }
 
+        public OOB.Resultado Cliente_Editar(OOB.LibVenta.PosOffline.Cliente.Editar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibPosOffLine.Cliente.Editar.Ficha()
+            {
+                Id = ficha.Id,
+                NombreRazaonSocial = ficha.NombreRazonSocial,
+                DirFiscal = ficha.DirFiscal,
+                Telefono = ficha.Telefono,
+            };
+            var r01 = MyData.Cliente_Editar(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
     }
 
 }

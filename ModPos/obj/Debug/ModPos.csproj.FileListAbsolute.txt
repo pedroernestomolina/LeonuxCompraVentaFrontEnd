@@ -50,6 +50,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.ClaveSeguridad.S
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Configuracion.ConfigurarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.AbrirPendiente.AbrirPendienteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Cliente.BuscarAgregarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Cliente.Editar.EditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Cliente.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Consultor.ConsultorFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\obj\Debug\ModPos.Facturacion.Devolucion.DevolucionFrm.resources

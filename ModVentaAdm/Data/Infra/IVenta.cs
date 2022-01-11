@@ -13,7 +13,6 @@ namespace ModVentaAdm.Data.Infra
 
         OOB.Resultado.FichaId  Venta_Temporal_Encabezado_Registrar(OOB.Venta.Temporal.Encabezado.Registrar.Ficha ficha);
         OOB.Resultado.Ficha Venta_Temporal_Encabezado_Editar(OOB.Venta.Temporal.Encabezado.Editar.Ficha ficha);
-        OOB.Resultado.Ficha Venta_Temporal_Encabezado_Notas(OOB.Venta.Temporal.Encabezado.Notas.Ficha ficha);
         OOB.Resultado.Ficha Venta_Temporal_Encabezado_Eliminar(int idEncabezado);
 
         //
@@ -35,8 +34,11 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Venta.Temporal.Pendiente.Lista.Ficha> VentaAdm_Temporal_Pendiente_GetLista(OOB.Venta.Temporal.Pendiente.Lista.Filtro filtro);
 
         //
-
         OOB.Resultado.Ficha VentaAdm_Temporal_Remision_Registrar(OOB.Venta.Temporal.Remision.Registrar.Ficha ficha);
+
+        //
+        OOB.Resultado.Ficha Venta_Temporal_SetNotas(OOB.Venta.Temporal.Cambios.Notas.Ficha ficha);
+        OOB.Resultado.Ficha Venta_Temporal_SetTasaDivisa(OOB.Venta.Temporal.Cambios.TasaDivisa.Ficha ficha);
 
     }
 

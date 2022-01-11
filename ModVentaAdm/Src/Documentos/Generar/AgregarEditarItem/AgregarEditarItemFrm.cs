@@ -109,10 +109,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             TB_CANT.Text = _controlador.Cantidad.ToString("n"+_controlador.NDecimales);
             TB_NOTAS.Text = _controlador.Notas;
             TB_DSCTO.Text = _controlador.Dscto.ToString("n2");
+            _controlador.PrecioIniciar();
             //
             ActualizarData();
             P_COSTO.Visible = false;
-            P_EXISTENCIA.Visible = false;
         }
 
         private void _bs_CurrentChanged(object sender, EventArgs e)
@@ -167,6 +167,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         {
             var dsct = decimal.Parse(TB_DSCTO.Text);
             _controlador.setDescuento(dsct);
+            TB_DSCTO.Text = _controlador.Data_Dscto.ToString("n2");
             ActualizarData();
         }
 
@@ -199,19 +200,16 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             }
         }
 
-        private void BT_VER_EXISTENCIA_Click(object sender, EventArgs e)
+        private void BT_ELIMINAR_DSCTO_Click(object sender, EventArgs e)
         {
-            VisualizarExistencia();
+            EliminarDscto();
         }
 
-        private void VisualizarExistencia()
+        private void EliminarDscto()
         {
-            _controlador.VisualizarExistencia();
-            if (_controlador.VisualizarExistenciaIsActivo)
-            {
-                P_EXISTENCIA.Visible = true;
-                ActualizarData();
-            }
+            _controlador.EliminarDscto();
+            TB_DSCTO.Text = _controlador.Data_Dscto.ToString("n2");
+            ActualizarData();
         }
 
     }

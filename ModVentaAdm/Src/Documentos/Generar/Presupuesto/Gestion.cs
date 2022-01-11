@@ -177,6 +177,22 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
             return fichaOOB;
         }
 
+        public void setCambioTasaDivisa(decimal tasa)
+        {
+            _tasaDivisa = tasa;
+        }
+
+        public void ActualizarTasaDivisaSistema()
+        {
+            var r01 = Sistema.MyData.Configuracion_FactorDivisa();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+            _tasaDivisa = r01.Entidad;
+        }
+
     }
 
 }

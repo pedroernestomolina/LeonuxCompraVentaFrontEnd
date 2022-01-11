@@ -119,6 +119,17 @@ namespace ModVentaAdm.Src.Documentos.Generar.Factura
         {
             throw new NotImplementedException();
         }
+
+        public void setCambioTasaDivisa(decimal tasa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ActualizarTasaDivisaSistema()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 
 }

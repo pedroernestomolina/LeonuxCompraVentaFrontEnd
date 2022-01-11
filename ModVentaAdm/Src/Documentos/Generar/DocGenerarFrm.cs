@@ -205,8 +205,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         {
             L_CNT_ITEM.Text = _controlador.CntItem;
             L_TASA_DIVISA.Text = _controlador.TasaDivisa.ToString("n2");
-            L_MONTO.Text = _controlador.Monto;
-            L_MONTO_DIVISA.Text = _controlador.MontoDivisa;
+            L_MONTO.Text = "Bs " + _controlador.Monto.ToString("n2"); 
+            L_MONTO_DIVISA.Text = "$ " + _controlador.MontoDivisa.ToString("n2");
             L_MONTO_NETO.Text = _controlador.MontoNeto;
             L_MONTO_IVA.Text = _controlador.MontoIva;
         }
@@ -386,6 +386,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void TB_NOTAS_Leave(object sender, EventArgs e)
         {
             _controlador.setNotasDoc(TB_NOTAS.Text);
+            TB_NOTAS.Text = _controlador.DatosDoc_Notas;
+            IrFoco();
         }
 
         private void BT_ELIMINAR_ITEM_Click(object sender, EventArgs e)
@@ -486,6 +488,36 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void RemisionDoc()
         {
             _controlador.RemisionDoc();
+        }
+
+        private void MENU_ARCHIVO_SALIR_Click(object sender, EventArgs e)
+        {
+            Abandonar();
+        }
+
+        private void MENU_CONFIGURACION_CAMBIO_TASA_Click(object sender, EventArgs e)
+        {
+            CambioTasaDivisa();
+        }
+
+        private void CambioTasaDivisa()
+        {
+            _controlador.CambioTasaDivisa();
+            ActualizaVistaTotales();
+        }
+
+        private void MENU_ARCHIVO_LIMPIEZA_Click(object sender, EventArgs e)
+        {
+            LimpiezaGeneral();
+        }
+
+        private void LimpiezaGeneral()
+        {
+            _controlador.LimpiezaGeneral();
+            ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            ActualizaVistaTotales();
+            IrFoco();
         }
 
     }

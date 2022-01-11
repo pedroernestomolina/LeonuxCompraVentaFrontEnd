@@ -415,6 +415,7 @@
     <Compile Include="LibSistema\Vendedor\Entidad\Ficha.cs" />
     <Compile Include="LibSistema\Vendedor\Lista\Filtro.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\Agregar.cs" />
+    <Compile Include="LibVenta\PosOffline\Cliente\Editar\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\ExportarData\Ficha.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\ExportarData\Filtro.cs" />
     <Compile Include="LibVenta\PosOffline\Cliente\Ficha.cs" />

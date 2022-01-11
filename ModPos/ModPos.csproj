@@ -117,6 +117,14 @@
       <DependentUpon>BuscarAgregarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Facturacion\Cliente\cliente.cs" />
+    <Compile Include="Facturacion\Cliente\Editar\data.cs" />
+    <Compile Include="Facturacion\Cliente\Editar\EditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\Cliente\Editar\EditarFrm.Designer.cs">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\Cliente\Editar\Gestion.cs" />
     <Compile Include="Facturacion\Cliente\ListaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cliente\BuscarAgregarFrm.resx">
       <DependentUpon>BuscarAgregarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\Cliente\Editar\EditarFrm.resx">
+      <DependentUpon>EditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Cliente\ListaFrm.resx">
       <DependentUpon>ListaFrm.cs</DependentUpon>

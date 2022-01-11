@@ -11,12 +11,15 @@ namespace ModPos.Facturacion.Cliente
     public class Buscar
     {
 
+        private Editar.Gestion _gEditar;
+
 
         public Cliente.Ficha FichaCliente {get;set;}
 
 
         public Buscar()
         {
+            _gEditar = new Editar.Gestion();
             FichaCliente = new Ficha();
         }
 
@@ -145,6 +148,26 @@ namespace ModPos.Facturacion.Cliente
             FichaCliente.CiRif = cirif;
             FichaCliente.DirFiscal = dirfiscal;
             FichaCliente.Telefono = telefono;
+        }
+
+        public void EditarCliente()
+        {
+            if (FichaCliente.Id != -1) 
+            {
+                _gEditar.setCliente(FichaCliente);
+                _gEditar.Inicializa();
+                _gEditar.Inicia();
+                if (_gEditar.IsEditarOk) 
+                {
+                    var r01 = Sistema.MyData2.Cliente(FichaCliente.Id);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return ;
+                    }
+                    FichaCliente.setEntidad(r01.Entidad);
+                }
+            }
         }
 
     }

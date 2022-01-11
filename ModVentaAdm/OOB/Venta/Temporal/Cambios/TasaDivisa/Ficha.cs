@@ -5,20 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModVentaAdm.OOB.Venta.Temporal.Encabezado.Notas
+namespace ModVentaAdm.OOB.Venta.Temporal.Cambios.TasaDivisa
 {
     
     public class Ficha
     {
 
         public int id { get; set; }
-        public string notas { get; set; }
+        public decimal tasaDivisa { get; set; }
+        public decimal montoDivisa { get; set; }
 
 
         public Ficha()
         {
             id = -1;
-            notas = "";
+            tasaDivisa = 0m;
+            montoDivisa=0m;
         }
 
     }

@@ -296,11 +296,35 @@ namespace ModPos.Facturacion
                 Helpers.Msg.Error(rt1.Mensaje);
                 return ;
             }
+            if (rt1.Entidad == -1)
+            {
+                var msg = "PROBLEMA AL GRABAR FACTURA" +
+                    Environment.NewLine +
+                    "DEJA LA FACTURA EN PENDIENTE" +
+                    Environment.NewLine +
+                    "SAL DEL SISTEMA (POS) Y VUELVE A INTENTAR" +
+                    Environment.NewLine +
+                    "AL PARECER HABIA OTRA INSTANCIA DEL SISTEMA ABIERTA";
+                Helpers.Msg.Error(msg);
+                return;
+            }
             var rt2 = Sistema.MyData2.Operador_Activo();
             if (rt2.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(rt2.Mensaje);
                 return ;
+            }
+            if (rt1.Entidad == -1)
+            {
+                var msg = "PROBLEMA AL GRABAR FACTURA" + 
+                    Environment.NewLine + 
+                    "DEJA LA FACTURA EN PENDIENTE"+
+                    Environment.NewLine +
+                    "SAL DEL SISTEMA (POS) Y VUELVE A INTENTAR" +
+                    Environment.NewLine +
+                    "AL PARECER HABIA OTRA INSTANCIA DEL SISTEMA ABIERTA";
+                Helpers.Msg.Error(msg);
+                return;
             }
 
             var ficha = new OOB.LibVenta.PosOffline.VentaDocumento.Agregar()

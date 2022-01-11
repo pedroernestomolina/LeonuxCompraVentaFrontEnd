@@ -65,6 +65,7 @@
             this.RB_NOMBRE = new System.Windows.Forms.RadioButton();
             this.RB_CI = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.BT_EDITAR = new System.Windows.Forms.Button();
             this.panel9.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -79,6 +80,7 @@
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -358,6 +360,7 @@
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.BT_EDITAR);
             this.panel11.Location = new System.Drawing.Point(253, 1);
             this.panel11.Margin = new System.Windows.Forms.Padding(1);
             this.panel11.Name = "panel11";
@@ -535,6 +538,18 @@
             this.label7.Text = "Buscar Por:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BT_EDITAR
+            // 
+            this.BT_EDITAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BT_EDITAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_EDITAR.Location = new System.Drawing.Point(2, 2);
+            this.BT_EDITAR.Name = "BT_EDITAR";
+            this.BT_EDITAR.Size = new System.Drawing.Size(79, 30);
+            this.BT_EDITAR.TabIndex = 13;
+            this.BT_EDITAR.Text = "Editar";
+            this.BT_EDITAR.UseVisualStyleBackColor = true;
+            this.BT_EDITAR.Click += new System.EventHandler(this.BT_EDITAR_Click);
+            // 
             // BuscarAgregarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +579,7 @@
             this.panel8.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -612,5 +628,6 @@
         private System.Windows.Forms.RadioButton RB_CI;
         private System.Windows.Forms.TextBox TB_BUSCAR;
         private System.Windows.Forms.Button BT_SALIR;
+        private System.Windows.Forms.Button BT_EDITAR;
     }
 }

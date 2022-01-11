@@ -26,8 +26,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         private decimal _exReal;
         private decimal _exDisponible;
         private bool _visualizarCostoIsActivo;
-        private bool _visualizarExistenciaIsActivo;
         private int _idItemEditar;
+        private int _posActual;
 
 
         public OOB.Producto.Entidad.Ficha _prd { get { return _data.Producto; } }
@@ -52,7 +52,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         public decimal Data_ExReal { get { return _exReal; } }
         public decimal Data_ExDisponible { get { return _exDisponible; } }
         public bool VisualizarCostoIsActivo { get { return _visualizarCostoIsActivo; } }
-        public bool VisualizarExistenciaIsActivo { get { return _visualizarExistenciaIsActivo; } }
+        public decimal Data_Dscto { get { return _data.GetDsctoPorct; } }
 
 
         public Gestion() 
@@ -72,7 +72,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _exReal = 0m;
             _exDisponible = 0m;
             _visualizarCostoIsActivo = false;
-            _visualizarExistenciaIsActivo = false;
+            _posActual = 0;
         }
 
         private void _preciosSource_CurrentChanged(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _exReal = 0m;
             _exDisponible = 0m;
             _visualizarCostoIsActivo = false;
-            _visualizarExistenciaIsActivo = false;
+            _posActual = 0;
         }
 
         AgregarEditarItemFrm _frm;
@@ -117,6 +117,15 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
         private bool CargarData()
         {
+            var r01 = Sistema.MyData.Producto_Existencia_GetFicha(_data.Producto.Auto, _data.GetIdDeposito);
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            _exReal = r01.Entidad.real;
+            _exDisponible = r01.Entidad.disponible;
+
             switch (_tarifaPrecioManejar)
             {
                 case "1":
@@ -186,7 +195,19 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
         public void setDescuento(decimal dsct)
         {
-            _data.setDescuento(dsct);
+            if (dsct > 0)
+            {
+                var r00 = Sistema.MyData.Permiso_GenerarDoc_DarDsctoItem(Sistema.Usuario.idGrupo);
+                if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    _data.setDescuento(dsct);
+                }
+            }
         }
 
         public void setNotas(string p)
@@ -273,26 +294,60 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data.setPrecio(_itActual);
             _data.setProducto(_prd);
             _idItemEditar = _itActual.Id;
+            var pos = 0;
+            switch (_itActual.DataItem.tarifaPrecio)
+            { 
+                case "1":
+                    pos = 0;
+                    break;
+                case "2":
+                    pos = 1;
+                    break;
+                case "3":
+                    pos = 2;
+                    break;
+                case "4":
+                    pos = 3;
+                    break;
+                case "5":
+                    pos = 4;
+                    break;
+                case "6":
+                    pos = 5;
+                    break;
+                case "7":
+                    pos = 6;
+                    break;
+            }
+            _posActual = pos;
         }
 
         public void VisualizarCosto()
         {
-            _visualizarCostoIsActivo = true;
-        }
-
-        public void VisualizarExistencia()
-        {
-            var r01 = Sistema.MyData.Producto_Existencia_GetFicha(_data.Producto.Auto, _data.GetIdDeposito);
-            if (r01.Result== OOB.Resultado.Enumerados.EnumResult.isError)                
+            var r00 = Sistema.MyData.Permiso_GenerarDoc_VisualizarCosto(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
-                Helpers.Msg.Error(r01.Mensaje);
+                Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-            _exReal = r01.Entidad.real;
-            _exDisponible = r01.Entidad.disponible;
-            _visualizarExistenciaIsActivo = true;
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _visualizarCostoIsActivo = true;
+            }
         }
-    
+
+        public void PrecioIniciar()
+        {
+            _preciosSource.CurrencyManager.Position = _posActual;
+            _preciosSource.CurrencyManager.Refresh();
+        }
+
+        public void EliminarDscto()
+        {
+            _data.setDescuento(0m);
+        }
+
     }
 
 }

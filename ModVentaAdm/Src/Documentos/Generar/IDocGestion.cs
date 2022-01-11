@@ -24,6 +24,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
         void Inicializa();
         bool CargarData();
         OOB.Venta.Temporal.Remision.Registrar.Ficha CargaRemision(OOB.Documento.Entidad.Ficha ficha, int _idVentaTemporal);
+        void setCambioTasaDivisa(decimal tasa);
+        void ActualizarTasaDivisaSistema();
 
     }
 

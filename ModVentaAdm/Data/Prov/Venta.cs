@@ -62,7 +62,6 @@ namespace ModVentaAdm.Data.Prov
             result.Id = r01.Id;
             return result;
         }
-
         public OOB.Resultado.Ficha Venta_Temporal_Encabezado_Eliminar(int idEncabezado)
         {
             var result = new OOB.Resultado.Ficha();
@@ -77,7 +76,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.Ficha Venta_Temporal_Encabezado_Editar(OOB.Venta.Temporal.Encabezado.Editar.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -115,28 +113,7 @@ namespace ModVentaAdm.Data.Prov
             return result;
         }
 
-        public OOB.Resultado.Ficha Venta_Temporal_Encabezado_Notas(OOB.Venta.Temporal.Encabezado.Notas.Ficha ficha)
-        {
-            var result = new OOB.Resultado.Ficha();
-
-            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Encabezado.Notas.Ficha()
-            {
-                id = ficha.id,
-                notas = ficha.notas,
-            };
-            var r01 = MyData.VentaAdm_Temporal_Encabezado_Notas(fichaDTO);
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                result.Mensaje = r01.Mensaje;
-                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
-                return result;
-            }
-
-            return result;
-        }
-
         //
-
         public OOB.Resultado.Ficha Venta_Temporal_Anular(OOB.Venta.Temporal.Anular.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -174,7 +151,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar(OOB.Venta.Temporal.Recuperar.Ficha ficha)
         {
             var result = new OOB.Resultado.FichaEntidad<int>();
@@ -196,7 +172,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Recuperar_GetCantidadDoc(OOB.Venta.Temporal.Recuperar.Ficha ficha)
         {
             var result = new OOB.Resultado.FichaEntidad<int>();
@@ -220,7 +195,6 @@ namespace ModVentaAdm.Data.Prov
         }
 
         //
-
         public OOB.Resultado.FichaId Venta_Temporal_Item_Registrar(OOB.Venta.Temporal.Item.Registrar.Ficha ficha)
         {
             var result = new OOB.Resultado.FichaId();
@@ -295,7 +269,6 @@ namespace ModVentaAdm.Data.Prov
             result.Id = r01.Id;
             return result;
         }
-
         public OOB.Resultado.FichaEntidad<OOB.Venta.Temporal.Item.Entidad.Ficha> Venta_Temporal_Item_GetFichaById(int idItem)
         {
             var result = new OOB.Resultado.FichaEntidad<OOB.Venta.Temporal.Item.Entidad.Ficha>();
@@ -345,7 +318,6 @@ namespace ModVentaAdm.Data.Prov
             };
             return result;
         }
-
         public OOB.Resultado.Ficha Venta_Temporal_Item_Eliminar(OOB.Venta.Temporal.Item.Eliminar.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -388,7 +360,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.Ficha Venta_Temporal_Item_Limpiar(OOB.Venta.Temporal.Item.Limpiar.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -434,7 +405,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.FichaId Venta_Temporal_Item_Actualizar(OOB.Venta.Temporal.Item.Actualizar.Ficha ficha)
         {
             var result = new OOB.Resultado.FichaId();
@@ -547,7 +517,6 @@ namespace ModVentaAdm.Data.Prov
         }
 
         //
-
         public OOB.Resultado.Ficha VentaAdm_Temporal_Pendiente_Dejar(OOB.Venta.Temporal.Pendiente.Dejar.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -567,7 +536,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.FichaEntidad<int> VentaAdm_Temporal_Pendiente_GetCantidadDoc(OOB.Venta.Temporal.Pendiente.Cantidad.Ficha ficha)
         {
             var result = new OOB.Resultado.FichaEntidad<int>();
@@ -589,7 +557,6 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.Lista<OOB.Venta.Temporal.Pendiente.Lista.Ficha> VentaAdm_Temporal_Pendiente_GetLista(OOB.Venta.Temporal.Pendiente.Lista.Filtro filtro)
         {
             var rt = new OOB.Resultado.Lista<OOB.Venta.Temporal.Pendiente.Lista.Ficha>();
@@ -636,7 +603,6 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
-
         public OOB.Resultado.FichaEntidad<OOB.Venta.Temporal.Pendiente.Entidad.Ficha> VentaAdm_Temporal_Pendiente_Abrir(int idTemp)
         {
             var rt = new OOB.Resultado.FichaEntidad<OOB.Venta.Temporal.Pendiente.Entidad.Ficha>();
@@ -734,7 +700,6 @@ namespace ModVentaAdm.Data.Prov
         }
 
         //
-
         public OOB.Resultado.Ficha VentaAdm_Temporal_Remision_Registrar(OOB.Venta.Temporal.Remision.Registrar.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -789,6 +754,47 @@ namespace ModVentaAdm.Data.Prov
             };
 
             var r01 = MyData.VentaAdm_Temporal_Remision_Registrar (fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+
+        //
+        public OOB.Resultado.Ficha Venta_Temporal_SetNotas(OOB.Venta.Temporal.Cambios.Notas.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Cambiar.Notas.Ficha()
+            {
+                id = ficha.id,
+                notas = ficha.notas,
+            };
+            var r01 = MyData.VentaAdm_Temporal_SetNotas(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+
+            return result;
+        }
+        public OOB.Resultado.Ficha Venta_Temporal_SetTasaDivisa(OOB.Venta.Temporal.Cambios.TasaDivisa.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Cambiar.TasaDivisa.Ficha()
+            {
+                id = ficha.id,
+                montoDivisa = ficha.montoDivisa,
+                tasaDivisa = ficha.tasaDivisa,
+            };
+            var r01 = MyData.VentaAdm_Temporal_SetTasaDivisa(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 result.Mensaje = r01.Mensaje;

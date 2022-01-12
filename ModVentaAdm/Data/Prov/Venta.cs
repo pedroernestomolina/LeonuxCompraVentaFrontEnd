@@ -793,6 +793,16 @@ namespace ModVentaAdm.Data.Prov
                 id = ficha.id,
                 montoDivisa = ficha.montoDivisa,
                 tasaDivisa = ficha.tasaDivisa,
+                items = ficha.items.Select(s => 
+                {
+                    var nr = new DtoLibPos.VentaAdm.Temporal.Cambiar.TasaDivisa.Item()
+                    {
+                        id = s.id,
+                        descProducto = s.descProducto,
+                        totalDivisa = s.totalDivisa,
+                    };
+                    return nr;
+                }).ToList(),
             };
             var r01 = MyData.VentaAdm_Temporal_SetTasaDivisa(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

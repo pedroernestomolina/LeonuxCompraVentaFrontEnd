@@ -21,6 +21,7 @@ namespace OOB.LibInventario.Producto.Data
         public Decimal CostoDivisa { get; set; }
         public Decimal CostoDivisaUnd { get { return CostoDivisa / identidad.contenidoCompra; } }
         public Decimal ExistenciaTotal { get; set; }
+        public string ExistenciaTotalDesc { get { return ExistenciaTotal.ToString("n" + Decimales); } }
         public Decimal PDivisaFull_1 { get; set; }
         public Decimal PDivisaFull_2 { get; set; }
         public Decimal PDivisaFull_3 { get; set; }

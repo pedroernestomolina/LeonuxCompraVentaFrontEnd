@@ -14,6 +14,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Cambios.TasaDivisa
         public int id { get; set; }
         public decimal tasaDivisa { get; set; }
         public decimal montoDivisa { get; set; }
+        public List<Item> items { get; set; }
 
 
         public Ficha()
@@ -21,6 +22,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Cambios.TasaDivisa
             id = -1;
             tasaDivisa = 0m;
             montoDivisa=0m;
+            items = new List<Item>();
         }
 
     }

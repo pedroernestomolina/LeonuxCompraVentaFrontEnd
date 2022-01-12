@@ -520,6 +520,16 @@ namespace ModVentaAdm.Src.Documentos.Generar
             IrFoco();
         }
 
+        private void BT_PROCESAR_DOC_Click(object sender, EventArgs e)
+        {
+            ProcesarDoc();
+        }
+
+        private void ProcesarDoc()
+        {
+            _controlador.ProcesarDoc();
+        }
+
     }
 
 }

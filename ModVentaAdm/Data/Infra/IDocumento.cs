@@ -13,6 +13,7 @@ namespace ModVentaAdm.Data.Infra
 
         OOB.Resultado.Lista<OOB.Documento.Lista.Ficha> Documento_Get_Lista(OOB.Documento.Lista.Filtro filtro);
         OOB.Resultado.FichaEntidad<OOB.Documento.Entidad.Ficha> Documento_GetById(string idAuto);
+        OOB.Resultado.FichaAuto Documento_Agregar_Presupuesto(OOB.Documento.Agregar.Presupuesto.Ficha ficha);
 
     }
 

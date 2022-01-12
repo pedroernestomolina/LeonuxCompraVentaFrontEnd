@@ -131,6 +131,12 @@
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Enumerado.cs" />
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Ficha.cs" />
     <Compile Include="OOB\Configuracion\BusquedaProducto\Enumerado.cs" />
+    <Compile Include="OOB\Documento\Agregar\BaseFicha.cs" />
+    <Compile Include="OOB\Documento\Agregar\BaseFichaDetalle.cs" />
+    <Compile Include="OOB\Documento\Agregar\BaseFichaTemporalVenta.cs" />
+    <Compile Include="OOB\Documento\Agregar\Presupuesto\Ficha.cs" />
+    <Compile Include="OOB\Documento\Agregar\Presupuesto\FichaDetalle.cs" />
+    <Compile Include="OOB\Documento\Agregar\Presupuesto\FichaTemporalVenta.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
@@ -196,6 +202,7 @@
     <Compile Include="OOB\Sistema\Deposito\Lista\Filtro.cs" />
     <Compile Include="OOB\Sistema\Empresa\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Estado\Entidad\Ficha.cs" />
+    <Compile Include="OOB\Sistema\Fiscal\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\TipoDocumento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Transporte\Entidad\Ficha.cs" />
     <Compile Include="OOB\Sistema\Vendedor\Entidad\Ficha.cs" />
@@ -207,6 +214,7 @@
     <Compile Include="OOB\Venta\Temporal\Anular\ItemActDeposito.cs" />
     <Compile Include="OOB\Venta\Temporal\Cambios\Notas\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Cambios\TasaDivisa\Ficha.cs" />
+    <Compile Include="OOB\Venta\Temporal\Cambios\TasaDivisa\Item.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Editar\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Entidad\Ficha.cs" />
     <Compile Include="OOB\Venta\Temporal\Encabezado\Registrar\Ficha.cs" />
@@ -353,6 +361,13 @@
     <Compile Include="Src\Documentos\Generar\BuscarProducto\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\BuscarProducto\Items\data.cs" />
     <Compile Include="Src\Documentos\Generar\BuscarProducto\Items\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\CambioTasa\CambioTasaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\CambioTasa\CambioTasaFrm.Designer.cs">
+      <DependentUpon>CambioTasaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\CambioTasa\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\DatosDocumento\data.cs" />
     <Compile Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.cs">
       <SubType>Form</SubType>
@@ -561,6 +576,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\BuscarProducto\BuscarProductoFrm.resx">
       <DependentUpon>BuscarProductoFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\CambioTasa\CambioTasaFrm.resx">
+      <DependentUpon>CambioTasaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\DatosDocumento\DatosDocFrm.resx">
       <DependentUpon>DatosDocFrm.cs</DependentUpon>

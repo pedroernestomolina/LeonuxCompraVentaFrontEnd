@@ -103,6 +103,14 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             }
         }
 
+        public void setDsctoFinal(decimal dsctoFinal)
+        {
+            foreach (var it in _ldata)
+            {
+                it.setDsctoFinal(dsctoFinal);
+            }
+        }
+
     }
 
 }

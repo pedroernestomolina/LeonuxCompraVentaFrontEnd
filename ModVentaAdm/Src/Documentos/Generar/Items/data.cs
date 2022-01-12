@@ -21,6 +21,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         private decimal _mIva;
         private decimal _tasaDivisa;
         private OOB.Venta.Temporal.Item.Entidad.Ficha _ficha;
+        private decimal _dsctoFinal;
+        private decimal _pFinal;
 
 
         public OOB.Venta.Temporal.Item.Entidad.Ficha DataItem { get { return _ficha; } }
@@ -40,6 +42,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         public decimal MIva { get { return _mIva; } }
         public string Empaque { get { return _ficha.empaqueDesc.Trim() + "/" + _ficha.empaqueCont.ToString(); } }
         public decimal mTotal { get { return _importe + MIva; } }
+        public string idTasaIva { get { return _ficha.autoTasaIva; } }
         public string TasaIvaDesc 
         {
             get 
@@ -101,6 +104,63 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         public void setTasaDivisa(decimal tasa)
         {
             _tasaDivisa = tasa;
+        }
+
+
+        public decimal MontoExento 
+        { 
+            get 
+            {
+                if (_tasaIva == 0m)
+                {
+                    var rt = Importe;
+                    _mDscto = Importe * _dsctoFinal / 100;
+                    rt -= _mDscto;
+                    rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                    return rt;
+                }
+                else { return 0m; }
+            }
+        }
+        public decimal MontoBase
+        {
+            get
+            {
+                if (_tasaIva > 0m)
+                {
+                    var rt = Importe;
+                    _mDscto = Importe * _dsctoFinal / 100;
+                    rt -= _mDscto;
+                    rt = Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                    return rt;
+                }
+                else { return 0m; }
+            }
+        }
+
+        public decimal MontoImpuesto
+        {
+            get
+            {
+                var rt = 0m;
+                rt = MontoBase * _tasaIva /100 ;
+                rt= Math.Round(rt, 2, MidpointRounding.AwayFromZero);
+                return rt;
+            }
+        }
+
+        public void setDsctoFinal(decimal dsctoFinal)
+        {
+            _dsctoFinal = dsctoFinal;
+            Calcula2();
+        }
+
+        private void Calcula2()
+        {
+            _pFinal= _pitem;
+            var xdscto = _pFinal* _dsctoFinal / 100;
+            _pFinal-= xdscto;
+            _pFinal= Math.Round(_pFinal, 2, MidpointRounding.AwayFromZero);
         }
 
     }

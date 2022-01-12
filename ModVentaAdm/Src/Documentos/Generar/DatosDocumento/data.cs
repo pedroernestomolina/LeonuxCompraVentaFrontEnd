@@ -57,6 +57,12 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string IdEquipo { get { return _idEquipo; } }
         public string IdSistTipoDocumento { get { return _sistTipoDoc.id; } }
         public string SistTipoDocumento { get { return _sistTipoDoc.descripcion; } }
+        public string SistCodigoTipoDocumento { get { return _sistTipoDoc.codigo; } }
+        //
+        public OOB.Sistema.TipoDocumento.Entidad.Ficha EntidadTipoDoc { get { return _sistTipoDoc; } }
+        public ficha EntidadVendedor { get { return _vendedor; } }
+        public ficha EntidadTransporte { get { return _transporte; } }
+        public ficha EntidadSucursal { get { return _sucursal; } }
 
 
         public string ClienteRif 

@@ -28,6 +28,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private bool _rupturaPorExistencia;
         private List<tipoDocRemitir> _ltipoDocRemitir;
         private BindingSource _bsTipoDocRemitir;
+        private CambioTasa.Gestion _gCambioTasa;
 
 
         public string TipoDocumento { get { return _docGestion.TipoDocumento; } }
@@ -58,6 +59,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         public BindingSource RemisionSource { get { return _bsTipoDocRemitir; } }
 
 
+
         public Gestion()
         {
             _ltipoDocRemitir = new List<tipoDocRemitir>();
@@ -76,6 +78,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _idVentaTemporal = -1;
             _abandonarDocIsOk = false;
             _rupturaPorExistencia = false;
+            _gCambioTasa = new CambioTasa.Gestion();
         }
 
 
@@ -223,7 +226,6 @@ namespace ModVentaAdm.Src.Documentos.Generar
             {
                 _visualCliente.Inicializa();
                 _visualCliente.setFicha(_datosDocGestion.EntidadCliente.id);
-                //_visualCliente.setFicha(_datosDocGestion.EntidadCliente);
                 _visualCliente.Inicia();
             }
         }
@@ -767,23 +769,39 @@ namespace ModVentaAdm.Src.Documentos.Generar
             {
                 var _tasaAnterior = TasaDivisa;
 
-                var _tasa = 5m;
-                _docGestion.setCambioTasaDivisa(_tasa);
-                _items.setCambioTasaDivisa(_tasa);
-                var ficha = new OOB.Venta.Temporal.Cambios.TasaDivisa.Ficha()
+                _gCambioTasa.setTasa(TasaDivisa);
+                _gCambioTasa.Inicializa();
+                _gCambioTasa.Inicia();
+                if (_gCambioTasa.CambioTasaIsOk) 
                 {
-                    id = _idVentaTemporal,
-                    tasaDivisa = _tasa,
-                    montoDivisa = MontoDivisa,
-                };
-                var r01 = Sistema.MyData.Venta_Temporal_SetTasaDivisa(ficha);
-                if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
-                {
-                    _docGestion.setCambioTasaDivisa(_tasaAnterior);
-                    _items.setCambioTasaDivisa(_tasaAnterior);
+                    var _tasa = _gCambioTasa.TasaCambiar;
+                    _docGestion.setCambioTasaDivisa(_tasa);
+                    _items.setCambioTasaDivisa(_tasa);
+                    var ficha = new OOB.Venta.Temporal.Cambios.TasaDivisa.Ficha()
+                    {
+                        id = _idVentaTemporal,
+                        tasaDivisa = _tasa,
+                        montoDivisa = MontoDivisa,
+                        items = _items.ListaItems.Select(s =>
+                        {
+                            var nr = new OOB.Venta.Temporal.Cambios.TasaDivisa.Item()
+                            {
+                                id = s.Id,
+                                descProducto = s.DescripcionPrd,
+                                totalDivisa = s.mTotalDivisa,
+                            };
+                            return nr;
+                        }).ToList(),
+                    };
+                    var r01 = Sistema.MyData.Venta_Temporal_SetTasaDivisa(ficha);
+                    if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    {
+                        _docGestion.setCambioTasaDivisa(_tasaAnterior);
+                        _items.setCambioTasaDivisa(_tasaAnterior);
 
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
                 }
             }
         }
@@ -837,6 +855,235 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _datosDocGestion.Limpiar();
             _items.LimpiarItems();
             ActualizarTasaDivisa();
+        }
+
+        public void ProcesarDoc()
+        {
+            switch(_datosDocGestion.DataSistCodigoTipoDocumento)
+            {
+                case "05":
+                    ProcesarPresupuesto();
+                    break;
+            }
+        }
+
+        private void ProcesarPresupuesto()
+        {
+            var r01 = Sistema.MyData.Sistema_TasaFiscal_GetLista();
+            if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return ;
+            }
+            var _tf1 = r01.ListaD.FirstOrDefault(f => f.codigo == "01");
+            var _tf2 = r01.ListaD.FirstOrDefault(f => f.codigo == "02");
+            var _tf3 = r01.ListaD.FirstOrDefault(f => f.codigo == "03");
+
+
+            var dsctoFinal = 0m;
+            _items.setDsctoFinal(dsctoFinal);
+            var montoRecibido = 0m;
+            var montoCambio = 0m;
+            var BaseExenta = _items.ListaItems.Sum(s => s.MontoExento);
+            var MontoBase = _items.ListaItems.Sum(s => s.MontoBase);
+            var MontoImpuesto = _items.ListaItems.Sum(s => s.MontoImpuesto);
+            var MontoBase1 = _items.ListaItems.Where(w => w.idTasaIva == _tf1.id).Sum(s => s.MontoBase);
+            var MontoBase2 = _items.ListaItems.Where(w => w.idTasaIva == _tf2.id).Sum(s => s.MontoBase);
+            var MontoBase3 = _items.ListaItems.Where(w => w.idTasaIva == _tf3.id).Sum(s => s.MontoBase);
+            var MontoImpuesto1 = _items.ListaItems.Where(w => w.idTasaIva == _tf1.id).Sum(s => s.MontoImpuesto);
+            var MontoImpuesto2 = _items.ListaItems.Where(w => w.idTasaIva == _tf2.id).Sum(s => s.MontoImpuesto);
+            var MontoImpuesto3 = _items.ListaItems.Where(w => w.idTasaIva == _tf3.id).Sum(s => s.MontoImpuesto);
+
+            var dsctoMonto = 0m; //_gestionItem.Importe * dsctoFinal / 100;
+            var utilidadMonto = 0m;// _gestionItem.Items.Sum(s => s.Utilidad);
+            var costoMonto = 0m;// _gestionItem.Items.Sum(s => s.CostoVenta);
+            var subTotalNeto = 0m;// _gestionItem.Items.Sum(s => s.TotalNeto);
+            var subTotal = 0m;//_gestionItem.Importe - dsctoMonto;
+            var netoMonto = 0m;//_gestionItem.Items.Sum(s => s.VentaNeta);
+
+            var importeDocumento = 0m;// _gestionProcesarPago.MontoPagar;
+            var importeDocumentoDivisa = 0m;// _gestionProcesarPago.MontoPagarDivisa;
+            var factorCambio = TasaDivisa;
+            var saldoPendiente = 0.0m;
+
+            var fichaOOB = new OOB.Documento.Agregar.Presupuesto.Ficha()
+            {
+                DocumentoNro = "",
+                RazonSocial = _datosDocGestion.EntidadCliente.razonSocial,
+                DirFiscal = _datosDocGestion.EntidadCliente.dirFiscal ,
+                CiRif = _datosDocGestion.EntidadCliente.ciRif,
+                CodigoTipoDoc = _datosDocGestion.EntidadTipoDoc.codigo,
+                Exento = BaseExenta,
+                Base1 = MontoBase1,
+                Base2 = MontoBase2,
+                Base3 = MontoBase3,
+                Impuesto1 = MontoImpuesto1,
+                Impuesto2 = MontoImpuesto2,
+                Impuesto3 = MontoImpuesto3,
+                MBase = MontoBase,
+                Impuesto = MontoImpuesto,
+                Total = importeDocumento,
+                Tasa1 = _tf1.tasa ,
+                Tasa2 = _tf2.tasa ,
+                Tasa3 = _tf3.tasa ,
+                Nota = _datosDocGestion.DataNotasDoc,
+                TasaRetencionIva = 0.0m,
+                TasaRetencionIslr = 0.0m,
+                RetencionIva = 0.0m,
+                RetencionIslr = 0.0m,
+                AutoCliente = _datosDocGestion.EntidadCliente.id,
+                CodigoCliente = _datosDocGestion.EntidadCliente.codigo,
+                Control = "",
+                OrdenCompra = "",
+                Dias = 0,
+                Descuento1 = dsctoMonto,
+                Descuento2 = 0.0m,
+                Cargos = 0.0m,
+                Descuento1p = dsctoFinal,
+                Descuento2p = 0.0m,
+                Cargosp = 0.0m,
+                Columna = "1",
+                EstatusAnulado = "0",
+                Aplica = "",
+                ComprobanteRetencion = "",
+                SubTotalNeto = subTotalNeto,
+                Telefono = _datosDocGestion.EntidadCliente.telefono1,
+                FactorCambio = factorCambio,
+                CodigoVendedor = _datosDocGestion.EntidadVendedor.cod ,
+                Vendedor = _datosDocGestion.EntidadVendedor.desc ,
+                AutoVendedor = _datosDocGestion.EntidadVendedor.id ,
+                FechaPedido = DateTime.Now.Date,
+                Pedido = "",
+                CondicionPago = "", //isCredito ? "CREDITO" : "CONTADO",
+                Usuario = Sistema.Usuario.nombre,
+                CodigoUsuario = Sistema.Usuario.codigo,
+                CodigoSucursal = _datosDocGestion.EntidadSucursal.cod,
+                Transporte = _datosDocGestion.EntidadTransporte.desc ,
+                CodigoTransporte = _datosDocGestion.EntidadTransporte.cod,
+                MontoDivisa = importeDocumentoDivisa,
+                Despachado = "",
+                DirDespacho = "",
+                Estacion = Sistema.EquipoEstacion,
+                Renglones = _items.ListaItems.Count(),
+                SaldoPendiente = saldoPendiente,
+                ComprobanteRetencionIslr = "",
+                DiasValidez = 0,
+                AutoUsuario = Sistema.Usuario.id,
+                AutoTransporte = _datosDocGestion.EntidadTransporte.id,
+                Situacion = "Procesado",
+                SignoTipoDoc = _datosDocGestion.EntidadTipoDoc.signo ,
+                SiglasTipoDoc = _datosDocGestion.EntidadTipoDoc.siglas,
+                Tarifa = _datosDocGestion.EntidadCliente.tarifa,
+                TipoRemision = "",
+                DocumentoRemision = "",
+                AutoRemision = "",
+                NombreTipoDoc = _datosDocGestion.EntidadTipoDoc.descripcion,
+                SubTotalImpuesto = MontoImpuesto,
+                SubTotal = subTotal,
+                TipoCliente = "",
+                Planilla = "",
+                Expendiente = "",
+                AnticipoIva = 0.0m,
+                TercerosIva = 0.0m,
+                Neto = netoMonto,
+                Costo = costoMonto,
+                Utilidad = utilidadMonto,
+                Utilidadp = 0, //100 - (costoMonto / netoMonto * 100),
+                DocumentoTipo =_datosDocGestion.EntidadTipoDoc.tipo,
+                CiTitular = "",
+                NombreTitular = "",
+                CiBeneficiario = "",
+                NombreBeneficiario = "",
+                Clave = "",
+                DenominacionFiscal = "No Contribuyente",
+                Cambio = montoCambio,
+                EstatusValidado = "0",
+                Cierre = "",
+                EstatusCierreContable = "0",
+                CierreFtp = "",
+                Prefijo = _datosDocGestion.EntidadSucursal.cod,
+            };
+
+            //var detalles = _items.ListaItems.Select(s =>
+            //{
+            //    var nr = new OOB.Documento.Agregar.Presupuesto.FichaDetalle()
+            //    {
+            //        AutoProducto = s.DataItem.autoProducto,
+            //        Codigo = s.DataItem.codigoProducto,
+            //        Nombre = s.DataItem.nombreProducto,
+            //        AutoDepartamento = s.DataItem.autoDepartamento,
+            //        AutoGrupo = s.DataItem.autoGrupo,
+            //        AutoSubGrupo = s.DataItem.autoSubGrupo,
+            //        AutoDeposito = s.DataItem.autoDeposito,
+            //        Cantidad = s.DataItem.cantidad,
+            //        Empaque = s.DataItem.empaqueDesc ,
+            //        PrecioNeto = s.DataItem.precioNeto,
+            //        Descuento1p = 0.0m,
+            //        Descuento2p = 0.0m,
+            //        Descuento3p = 0.0m,
+            //        Descuento1 = 0.0m,
+            //        Descuento2 = 0.0m,
+            //        Descuento3 = 0.0m,
+            //        CostoVenta = s.CostoVenta,
+            //        TotalNeto = s.TotalNeto,
+            //        Tasa = s.Ficha.tasaIva,
+            //        Impuesto = s.Impuesto,
+            //        Total = s.Total,
+            //        EstatusAnulado = "0",
+            //        Tipo = _tipoDocumentoVenta.codigo,
+            //        Deposito = _depositoAsignado.nombre,
+            //        Signo = _tipoDocumentoVenta.signo,
+            //        PrecioFinal = s.PrecioFinal,
+            //        AutoCliente = _gestionCliente.Cliente.Id,
+            //        Decimales = s.Ficha.decimales,
+            //        ContenidoEmpaque = s.Ficha.empaqueContenido,
+            //        CantidadUnd = s.TotalUnd,
+            //        PrecioUnd = s.PrecioUnd,
+            //        CostoUnd = s.Ficha.costoUnd,
+            //        Utilidad = s.Utilidad,
+            //        Utilidadp = s.UtilidadP,
+            //        PrecioItem = s.PrecioItem,
+            //        EstatusGarantia = "0",
+            //        EstatusSerial = "0",
+            //        CodigoDeposito = _depositoAsignado.codigo,
+            //        DiasGarantia = 0,
+            //        Detalle = "",
+            //        PrecioSugerido = 0.0m,
+            //        AutoTasa = s.Ficha.autoTasa,
+            //        EstatusCorte = "0",
+            //        X = 1,
+            //        Y = 1,
+            //        Z = 1,
+            //        Corte = "",
+            //        Categoria = s.Ficha.categoria,
+            //        Cobranzap = 0.0m,
+            //        Ventasp = 0.0m,
+            //        CobranzapVendedor = 0.0m,
+            //        VentaspVendedor = 0.0m,
+            //        Cobranza = 0.0m,
+            //        Ventas = 0.0m,
+            //        CobranzaVendedor = 0.0m,
+            //        VentasVendedor = 0.0m,
+            //        CostoPromedioUnd = s.Ficha.costoPromedioUnd,
+            //        CostoCompra = s.Ficha.costoCompra,
+            //        EstatusChecked = "1",
+            //        Tarifa = s.Ficha.tarifaPrecio,
+            //        TotalDescuento = 0.0m,
+            //        CodigoVendedor = _vendedorAsignado.codigo,
+            //        AutoVendedor = _vendedorAsignado.id,
+            //        CierreFtp = "",
+            //    };
+            //    return nr;
+            //}).ToList();
+            //fichaOOB.Detalles = detalles;
+            fichaOOB.VentaTemporal = new OOB.Documento.Agregar.Presupuesto.FichaTemporalVenta() { id = _idVentaTemporal };
+
+            var r02 = Sistema.MyData.Documento_Agregar_Presupuesto(fichaOOB);
+            if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r02.Mensaje);
+                return;
+            }
         }
 
     }

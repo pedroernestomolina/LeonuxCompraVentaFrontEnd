@@ -86,6 +86,7 @@ namespace DataProvInventario.Data
                         id.descripcion = s.descripcion;
                         id.empaqueCompra =s.empaque;
                         id.contenidoCompra =s.contenido;
+                        id.Decimales = s.decimales;
                         id.departamento=s.departamento;
                         id.grupo = s.grupo;
                         id.marca = s.marca;

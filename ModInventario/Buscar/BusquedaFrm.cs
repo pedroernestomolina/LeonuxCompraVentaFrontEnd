@@ -83,7 +83,7 @@ namespace ModInventario.Buscar
             c4.Width = 0;
 
             var c5= new DataGridViewTextBoxColumn();
-            c5.DataPropertyName = "ExistenciaTotal";
+            c5.DataPropertyName = "ExistenciaTotalDesc";
             c5.HeaderText = "Exist/Und";
             c5.Visible = true;
             c5.Width = 80;

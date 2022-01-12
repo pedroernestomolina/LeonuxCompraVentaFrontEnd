@@ -425,6 +425,9 @@ namespace ModInventario.Producto.Precio.Editar
             if (utilidad < 0)
                 return false;
 
+            if (contenido <= 0)
+                return false;
+
             return rt;
         }
 

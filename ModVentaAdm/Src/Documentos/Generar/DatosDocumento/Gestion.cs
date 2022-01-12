@@ -80,7 +80,13 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public decimal DataFactorDivisa { get { return _data.FactorDivisa; } }
         public string DataIdEquipo { get { return _data.IdEquipo; } }
         public string DataSistTipoDocumento { get { return _data.SistTipoDocumento; } }
+        public string DataSistCodigoTipoDocumento { get { return _data.SistCodigoTipoDocumento; } }
         public int IdRegDocTemporal { get { return _idRegDocTemporal; } }
+        //
+        public OOB.Sistema.TipoDocumento.Entidad.Ficha EntidadTipoDoc { get { return _data.EntidadTipoDoc; } }
+        public ficha EntidadVendedor{ get { return _data.EntidadVendedor; } }
+        public ficha EntidadTransporte { get { return _data.EntidadTransporte; } }
+        public ficha EntidadSucursal { get { return _data.EntidadSucursal; } }
         
 
         public Gestion() 

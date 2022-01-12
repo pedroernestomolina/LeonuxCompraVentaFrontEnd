@@ -405,38 +405,38 @@ namespace ModInventario.Producto.Precio.Editar.ModoSucursal
 
             if (!precio_1.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 1 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO VENTA ( 1 ) INCORRECTO");
                 return false;
             }
             if (!precio_2.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 2 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO VENTA ( 2 ) INCORRECTO");
                 return false;
             }
             if (!precio_3.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 3 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO VENTA ( 3 ) INCORRECTO");
                 return false;
             }
             if (!precio_4.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 4 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO VENTA ( 4 ) INCORRECTO");
                 return false;
             }
             if (!precio_5.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO VENTA ( 5 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO VENTA ( 5 ) INCORRECTO");
                 return false;
             }
             //
             if (!May_1.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO MAYOR ( 1 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO MAYOR ( 1 ) INCORRECTO");
                 return false;
             }
             if (!May_2.IsOk())
             {
-                Helpers.Msg.Error("UTILIDAD PRECIO MAYOR ( 2 ) INCORRECTO");
+                Helpers.Msg.Error("[ UTILIDAD/CONTENIDO EMPAQUE ] PRECIO MAYOR ( 2 ) INCORRECTO");
                 return false;
             }
 

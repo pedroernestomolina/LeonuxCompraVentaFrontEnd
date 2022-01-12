@@ -21,6 +21,8 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Sistema.Transporte.Entidad.Ficha> Sistema_Transporte_GetLista();
         OOB.Resultado.Lista<OOB.Sistema.Deposito.Entidad.Ficha> Deposito_GetLista(OOB.Sistema.Deposito.Lista.Filtro filtro);
 
+        OOB.Resultado.Lista<OOB.Sistema.Fiscal.Entidad.Ficha> Sistema_TasaFiscal_GetLista();
+
     }
 
 }

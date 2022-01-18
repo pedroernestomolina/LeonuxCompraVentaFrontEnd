@@ -87,6 +87,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public ficha EntidadVendedor{ get { return _data.EntidadVendedor; } }
         public ficha EntidadTransporte { get { return _data.EntidadTransporte; } }
         public ficha EntidadSucursal { get { return _data.EntidadSucursal; } }
+        public ficha EntidadDeposito { get { return _data.EntidadDeposito; } }
         
 
         public Gestion() 
@@ -177,7 +178,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _lVendedor.Clear();
             _lVendedor = r02.ListaD.OrderBy(o=>o.nombre).Select(s =>
             {
-                return new ficha(s.id, s.nombre);
+                return new ficha(s.id, s.nombre, s.codigo);
             }).ToList();
             _bsVendedor.DataSource = _lVendedor;
             _bsVendedor.CurrencyManager.Refresh();
@@ -205,7 +206,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             _lTransporte.Clear();
             _lTransporte = r04.ListaD.OrderBy(o=>o.nombre).Select(s =>
             {
-                return new ficha(s.id, s.nombre);
+                return new ficha(s.id, s.nombre, s.codigo);
             }).ToList();
             _bsTransporte.DataSource = _lTransporte;
             _bsTransporte.CurrencyManager.Refresh();
@@ -267,7 +268,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             }
             _lDeposito = r01.ListaD.OrderBy(o => o.nombre).Select(s =>
             {
-                return new ficha(s.id, s.nombre);
+                return new ficha(s.id, s.nombre, s.codigo);
             }).ToList();
             _bsDeposito.DataSource = _lDeposito;
             _bsDeposito.CurrencyManager.Refresh();

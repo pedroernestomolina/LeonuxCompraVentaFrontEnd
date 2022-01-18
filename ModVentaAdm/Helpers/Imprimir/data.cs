@@ -50,6 +50,14 @@ namespace ModVentaAdm.Helpers.Imprimir
             public decimal Total { get; set; }
             public decimal TotalDivisa { get; set; }
 
+            public decimal MontoIva { get; set; }
+            public decimal MontoBase { get; set; }
+            public decimal MontoExento { get; set; }
+            public string Notas { get; set; }
+            public decimal SubTotal2 { get { return MontoBase + MontoExento; } }
+            public decimal DescuentoNeto { get { return SubTotal - SubTotal2; } }
+            public decimal Descuento1p { get; set; }
+
 
             public Encabezado()
             {
@@ -73,7 +81,13 @@ namespace ModVentaAdm.Helpers.Imprimir
                 Descuento = 0.0m;
                 Total = 0.0m;
                 TotalDivisa = 0.0m;
+                MontoBase = 0m;
+                MontoExento = 0m;
+                MontoIva = 0m;
+                Notas = "";
+                Descuento1p=0m;
             }
+
         }
 
         public class Item

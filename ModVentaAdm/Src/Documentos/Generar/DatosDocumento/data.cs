@@ -63,6 +63,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public ficha EntidadVendedor { get { return _vendedor; } }
         public ficha EntidadTransporte { get { return _transporte; } }
         public ficha EntidadSucursal { get { return _sucursal; } }
+        public ficha EntidadDeposito { get { return _deposito; } }
 
 
         public string ClienteRif 

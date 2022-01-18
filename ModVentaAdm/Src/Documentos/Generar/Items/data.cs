@@ -38,11 +38,18 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         public decimal PItem{ get { return _pitem; } }
         public decimal Dscto { get { return _dscto; } }
         public decimal Importe { get { return _importe; } }
+        public decimal Total { get { return Cant * PNeto; } }
         public decimal TasaIva { get { return _ficha.tasaIva; } }
         public decimal MIva { get { return _mIva; } }
         public string Empaque { get { return _ficha.empaqueDesc.Trim() + "/" + _ficha.empaqueCont.ToString(); } }
         public decimal mTotal { get { return _importe + MIva; } }
         public string idTasaIva { get { return _ficha.autoTasaIva; } }
+        public decimal PrecioItem { get { return _pitem; } }
+        public decimal PrecioFinal { get { return _pFinal; } }
+        public decimal Utilidad { get { return (PrecioFinal - DataItem.costoUnd) * CantUnd; } }
+        public decimal UtilidadP { get { return (1-(DataItem.costoUnd/ PrecioFinal)) * 100; } } 
+
+
         public string TasaIvaDesc 
         {
             get 
@@ -80,6 +87,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _pneto = ficha.precioNeto;
             _dscto = ficha.dsctoPorct;
             _tasaIva = ficha.tasaIva;
+            //
+            _pFinal = 0m;
             //
             Calcula();
        }
@@ -161,6 +170,42 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             var xdscto = _pFinal* _dsctoFinal / 100;
             _pFinal-= xdscto;
             _pFinal= Math.Round(_pFinal, 2, MidpointRounding.AwayFromZero);
+        }
+
+        public decimal CostoVenta
+        {
+            get
+            {
+                var rt = (_ficha.costoUnd * CantUnd);
+                return rt;
+            }
+        }
+
+        public decimal NetoVenta
+        {
+            get
+            {
+                var rt = _pFinal * Cant;
+                return rt;
+            }
+        }
+
+        public decimal DsctoMonto 
+        {
+            get
+            {
+                var rt = (_pneto * _dscto)/100 ;
+                return rt;
+            }
+        }
+
+        public decimal DsctoMontoTotal
+        {
+            get
+            {
+                var rt = DsctoMonto* Cant;
+                return rt;
+            }
         }
 
     }

@@ -14,9 +14,9 @@ namespace ModVentaAdm.OOB.Documento.Agregar.Presupuesto
         public List<FichaDetalle> Detalles { get; set; }
         public FichaTemporalVenta VentaTemporal { get; set; }
 
+
         public Ficha()
         {
-            DocumentoNro = "";
             RazonSocial = "";
             DirFiscal = "";
             CiRif = "";
@@ -98,7 +98,7 @@ namespace ModVentaAdm.OOB.Documento.Agregar.Presupuesto
             Costo = 0.0m;
             Utilidad = 0.0m;
             Utilidadp = 0.0m;
-            DocumentoTipo = "";
+            TipoTipoDoc = "";
             CiTitular = "";
             NombreTitular = "";
             CiBeneficiario = "";

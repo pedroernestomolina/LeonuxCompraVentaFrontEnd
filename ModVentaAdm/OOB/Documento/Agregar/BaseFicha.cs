@@ -11,7 +11,6 @@ namespace ModVentaAdm.OOB.Documento.Agregar
     public abstract class  BaseFicha
     {
 
-        public string DocumentoNro { get; set; }
         public string RazonSocial { get; set; }
         public string DirFiscal { get; set; }
         public string CiRif { get; set; }
@@ -94,7 +93,7 @@ namespace ModVentaAdm.OOB.Documento.Agregar
         public decimal Costo { get; set; }
         public decimal Utilidad { get; set; }
         public decimal Utilidadp { get; set; }
-        public string DocumentoTipo { get; set; }
+        public string TipoTipoDoc { get; set; }
         public string CiTitular { get; set; }
         public string NombreTitular { get; set; }
         public string CiBeneficiario { get; set; }

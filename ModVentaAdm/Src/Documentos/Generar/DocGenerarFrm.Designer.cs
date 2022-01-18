@@ -1843,7 +1843,7 @@
             this.tableLayoutPanel29.ColumnCount = 3;
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.66038F));
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.33962F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanel29.Controls.Add(this.panel71, 0, 0);
             this.tableLayoutPanel29.Controls.Add(this.panel72, 1, 0);
             this.tableLayoutPanel29.Controls.Add(this.panel73, 2, 0);
@@ -1865,7 +1865,7 @@
             this.panel71.Margin = new System.Windows.Forms.Padding(1);
             this.panel71.Name = "panel71";
             this.panel71.Padding = new System.Windows.Forms.Padding(2);
-            this.panel71.Size = new System.Drawing.Size(54, 29);
+            this.panel71.Size = new System.Drawing.Size(53, 29);
             this.panel71.TabIndex = 0;
             // 
             // label20
@@ -1874,7 +1874,7 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(2, 2);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(50, 25);
+            this.label20.Size = new System.Drawing.Size(49, 25);
             this.label20.TabIndex = 0;
             this.label20.Text = "Tipo Documt:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1883,11 +1883,11 @@
             // 
             this.panel72.Controls.Add(this.CB_REMISION);
             this.panel72.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel72.Location = new System.Drawing.Point(57, 1);
+            this.panel72.Location = new System.Drawing.Point(56, 1);
             this.panel72.Margin = new System.Windows.Forms.Padding(1);
             this.panel72.Name = "panel72";
             this.panel72.Padding = new System.Windows.Forms.Padding(2);
-            this.panel72.Size = new System.Drawing.Size(125, 29);
+            this.panel72.Size = new System.Drawing.Size(124, 29);
             this.panel72.TabIndex = 1;
             // 
             // CB_REMISION
@@ -1898,18 +1898,18 @@
             this.CB_REMISION.FormattingEnabled = true;
             this.CB_REMISION.Location = new System.Drawing.Point(2, 2);
             this.CB_REMISION.Name = "CB_REMISION";
-            this.CB_REMISION.Size = new System.Drawing.Size(121, 24);
+            this.CB_REMISION.Size = new System.Drawing.Size(120, 24);
             this.CB_REMISION.TabIndex = 0;
             // 
             // panel73
             // 
             this.panel73.Controls.Add(this.BT_REMISION);
             this.panel73.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel73.Location = new System.Drawing.Point(184, 1);
+            this.panel73.Location = new System.Drawing.Point(182, 1);
             this.panel73.Margin = new System.Windows.Forms.Padding(1);
             this.panel73.Name = "panel73";
             this.panel73.Padding = new System.Windows.Forms.Padding(2);
-            this.panel73.Size = new System.Drawing.Size(54, 29);
+            this.panel73.Size = new System.Drawing.Size(56, 29);
             this.panel73.TabIndex = 2;
             // 
             // BT_REMISION
@@ -1921,7 +1921,7 @@
             this.BT_REMISION.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_REMISION.Location = new System.Drawing.Point(2, 2);
             this.BT_REMISION.Name = "BT_REMISION";
-            this.BT_REMISION.Size = new System.Drawing.Size(50, 25);
+            this.BT_REMISION.Size = new System.Drawing.Size(52, 25);
             this.BT_REMISION.TabIndex = 6;
             this.BT_REMISION.UseVisualStyleBackColor = true;
             // 

@@ -43,6 +43,9 @@ namespace ModVentaAdm.Helpers.Imprimir
                 case "04":
                     docNombre = "NOTA DE ENTREGA";
                     break;
+                case "05":
+                    docNombre = "PRESUPUESTO";
+                    break;
             }
             xdata.encabezado = new Helpers.Imprimir.data.Encabezado()
             {
@@ -63,6 +66,12 @@ namespace ModVentaAdm.Helpers.Imprimir
                 Descuento = xr1.Entidad.Descuento,
                 Total = xr1.Entidad.Total,
                 TotalDivisa = xr1.Entidad.MontoDivisa,
+                MontoBase = xr1.Entidad.MBase,
+                MontoExento = xr1.Entidad.Exento,
+                MontoIva = xr1.Entidad.Impuesto,
+                Notas = xr1.Entidad.Nota,
+                CodigoCli = xr1.Entidad.CodigoCliente,
+                Descuento1p=xr1.Entidad.Descuento1p,
             };
             xdata.item = new List<Helpers.Imprimir.data.Item>();
             foreach (var rg in xr1.Entidad.items)

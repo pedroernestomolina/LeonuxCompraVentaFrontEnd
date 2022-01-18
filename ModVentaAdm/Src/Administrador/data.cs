@@ -11,7 +11,7 @@ namespace ModVentaAdm.Src.Administrador
     public class data
     {
 
-        public enum enumTipoDoc { SinDefinir = -1, Factura = 1, NotaDebito, NotaCredito, NotaEntrega };
+        public enum enumTipoDoc { SinDefinir = -1, Factura = 1, NotaDebito, NotaCredito, NotaEntrega, Presupuesto };
 
 
         private OOB.Documento.Lista.Ficha doc;
@@ -53,6 +53,9 @@ namespace ModVentaAdm.Src.Administrador
                     case "04":
                         _docNombre = "NOTA ENTREGA";
                         break;
+                    case "05":
+                        _docNombre = "PRESUPUESTO";
+                        break;
                 }
                 return _docNombre;
             }
@@ -76,6 +79,9 @@ namespace ModVentaAdm.Src.Administrador
                     case "04":
                         tp = enumTipoDoc.NotaEntrega;
                         break;
+                    case "05":
+                        tp = enumTipoDoc.Presupuesto;
+                        break;
                 }
                 return tp;
             }
@@ -89,6 +95,11 @@ namespace ModVentaAdm.Src.Administrador
         public data(OOB.Documento.Lista.Ficha doc)
         {
             this.doc = doc;
+        }
+
+        public void SetAnulado()
+        {
+            this.doc.Estatus = "1";
         }
 
     }

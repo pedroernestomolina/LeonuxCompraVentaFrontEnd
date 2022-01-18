@@ -55,7 +55,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
             }
             _tasaDivisa = r01.Entidad;
 
-            var r02 = Sistema.MyData.Sistema_TipoDocumento_GetFichaById("0000000005");
+            var r02 = Sistema.MyData.Sistema_TipoDocumento_GetFichaById(Sistema.Id_SistDocumento_Presupuesto);
             if (r02.Result == OOB.Resultado.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);

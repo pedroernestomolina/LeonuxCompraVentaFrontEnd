@@ -207,8 +207,8 @@ namespace ModVentaAdm.Src.Documentos.Generar
             L_TASA_DIVISA.Text = _controlador.TasaDivisa.ToString("n2");
             L_MONTO.Text = "Bs " + _controlador.Monto.ToString("n2"); 
             L_MONTO_DIVISA.Text = "$ " + _controlador.MontoDivisa.ToString("n2");
-            L_MONTO_NETO.Text = _controlador.MontoNeto;
-            L_MONTO_IVA.Text = _controlador.MontoIva;
+            L_MONTO_NETO.Text = "Bs " + _controlador.MontoNeto.ToString("n2");
+            L_MONTO_IVA.Text = "Bs " + _controlador.MontoIva.ToString("n2");
         }
 
         private void BT_SALIDA_Click(object sender, EventArgs e)
@@ -528,6 +528,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void ProcesarDoc()
         {
             _controlador.ProcesarDoc();
+            if (_controlador.DocumentoProcesadoIsOk)
+            {
+                ActualizarVistaCliente();
+                ActualizarDatosDoc();
+                ActualizaVistaTotales();
+                IrFoco();
+            }
         }
 
     }

@@ -53,10 +53,10 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.L_PRECIO = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.BT_ELIMINAR_DSCTO = new System.Windows.Forms.Button();
             this.TB_DSCTO = new LibControles.NumeroDecimal();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -118,7 +118,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.BT_SALIR = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.BT_ELIMINAR_DSCTO = new System.Windows.Forms.Button();
+            this.TB_PRECIO = new LibControles.NumeroDecimal();
             this.P_PRINCIPAL.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -358,7 +358,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.58776F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.41224F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Controls.Add(this.panel6, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.panel19, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.panel20, 3, 1);
@@ -495,7 +495,7 @@
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.L_PRECIO);
+            this.panel10.Controls.Add(this.TB_PRECIO);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(91, 57);
             this.panel10.Margin = new System.Windows.Forms.Padding(1);
@@ -503,18 +503,6 @@
             this.panel10.Padding = new System.Windows.Forms.Padding(2);
             this.panel10.Size = new System.Drawing.Size(126, 26);
             this.panel10.TabIndex = 3;
-            // 
-            // L_PRECIO
-            // 
-            this.L_PRECIO.BackColor = System.Drawing.Color.Yellow;
-            this.L_PRECIO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.L_PRECIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.L_PRECIO.Location = new System.Drawing.Point(2, 2);
-            this.L_PRECIO.Name = "L_PRECIO";
-            this.L_PRECIO.Size = new System.Drawing.Size(101, 22);
-            this.L_PRECIO.TabIndex = 0;
-            this.L_PRECIO.Text = "label6";
-            this.L_PRECIO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel11
             // 
@@ -549,6 +537,21 @@
             this.panel12.Padding = new System.Windows.Forms.Padding(2);
             this.panel12.Size = new System.Drawing.Size(126, 26);
             this.panel12.TabIndex = 5;
+            // 
+            // BT_ELIMINAR_DSCTO
+            // 
+            this.BT_ELIMINAR_DSCTO.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_eliminar;
+            this.BT_ELIMINAR_DSCTO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BT_ELIMINAR_DSCTO.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BT_ELIMINAR_DSCTO.FlatAppearance.BorderSize = 0;
+            this.BT_ELIMINAR_DSCTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_ELIMINAR_DSCTO.Location = new System.Drawing.Point(55, 2);
+            this.BT_ELIMINAR_DSCTO.Name = "BT_ELIMINAR_DSCTO";
+            this.BT_ELIMINAR_DSCTO.Size = new System.Drawing.Size(15, 22);
+            this.BT_ELIMINAR_DSCTO.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.BT_ELIMINAR_DSCTO, "Visualizar Costo");
+            this.BT_ELIMINAR_DSCTO.UseVisualStyleBackColor = true;
+            this.BT_ELIMINAR_DSCTO.Click += new System.EventHandler(this.BT_ELIMINAR_DSCTO_Click);
             // 
             // TB_DSCTO
             // 
@@ -798,7 +801,7 @@
             this.panel19.Margin = new System.Windows.Forms.Padding(1);
             this.panel19.Name = "panel19";
             this.panel19.Padding = new System.Windows.Forms.Padding(1);
-            this.panel19.Size = new System.Drawing.Size(394, 227);
+            this.panel19.Size = new System.Drawing.Size(393, 227);
             this.panel19.TabIndex = 1;
             // 
             // groupBox2
@@ -808,7 +811,7 @@
             this.groupBox2.Location = new System.Drawing.Point(1, 1);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(392, 225);
+            this.groupBox2.Size = new System.Drawing.Size(391, 225);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Precios:";
@@ -819,14 +822,14 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(2, 15);
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(388, 208);
+            this.DGV.Size = new System.Drawing.Size(387, 208);
             this.DGV.TabIndex = 0;
             // 
             // panel20
             // 
             this.panel20.Controls.Add(this.groupBox1);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(625, 56);
+            this.panel20.Location = new System.Drawing.Point(624, 56);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -861,10 +864,10 @@
             // panel22
             // 
             this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel22.Location = new System.Drawing.Point(812, 1);
+            this.panel22.Location = new System.Drawing.Point(811, 1);
             this.panel22.Margin = new System.Windows.Forms.Padding(1);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(18, 53);
+            this.panel22.Size = new System.Drawing.Size(19, 53);
             this.panel22.TabIndex = 4;
             // 
             // panel21
@@ -875,7 +878,7 @@
             this.panel21.Location = new System.Drawing.Point(11, 1);
             this.panel21.Margin = new System.Windows.Forms.Padding(1);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(799, 53);
+            this.panel21.Size = new System.Drawing.Size(798, 53);
             this.panel21.TabIndex = 5;
             // 
             // tableLayoutPanel5
@@ -893,7 +896,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(799, 53);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(798, 53);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // panel27
@@ -904,7 +907,7 @@
             this.panel27.Margin = new System.Windows.Forms.Padding(0);
             this.panel27.Name = "panel27";
             this.panel27.Padding = new System.Windows.Forms.Padding(2);
-            this.panel27.Size = new System.Drawing.Size(479, 53);
+            this.panel27.Size = new System.Drawing.Size(478, 53);
             this.panel27.TabIndex = 0;
             // 
             // panel28
@@ -916,7 +919,7 @@
             this.panel28.Margin = new System.Windows.Forms.Padding(1);
             this.panel28.Name = "panel28";
             this.panel28.Padding = new System.Windows.Forms.Padding(1);
-            this.panel28.Size = new System.Drawing.Size(475, 49);
+            this.panel28.Size = new System.Drawing.Size(474, 49);
             this.panel28.TabIndex = 4;
             // 
             // groupBox3
@@ -927,7 +930,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(473, 47);
+            this.groupBox3.Size = new System.Drawing.Size(472, 47);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Producto:";
@@ -938,7 +941,7 @@
             this.L_PRODUCTO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.L_PRODUCTO.Location = new System.Drawing.Point(2, 15);
             this.L_PRODUCTO.Name = "L_PRODUCTO";
-            this.L_PRODUCTO.Size = new System.Drawing.Size(469, 30);
+            this.L_PRODUCTO.Size = new System.Drawing.Size(468, 30);
             this.L_PRODUCTO.TabIndex = 1;
             this.L_PRODUCTO.Text = "label11";
             this.L_PRODUCTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -947,7 +950,7 @@
             // 
             this.P_COSTO.Controls.Add(this.tableLayoutPanel6);
             this.P_COSTO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.P_COSTO.Location = new System.Drawing.Point(479, 0);
+            this.P_COSTO.Location = new System.Drawing.Point(478, 0);
             this.P_COSTO.Margin = new System.Windows.Forms.Padding(0);
             this.P_COSTO.Name = "P_COSTO";
             this.P_COSTO.Size = new System.Drawing.Size(159, 53);
@@ -1066,7 +1069,7 @@
             // 
             this.P_EXISTENCIA.Controls.Add(this.tableLayoutPanel7);
             this.P_EXISTENCIA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.P_EXISTENCIA.Location = new System.Drawing.Point(638, 0);
+            this.P_EXISTENCIA.Location = new System.Drawing.Point(637, 0);
             this.P_EXISTENCIA.Margin = new System.Windows.Forms.Padding(0);
             this.P_EXISTENCIA.Name = "P_EXISTENCIA";
             this.P_EXISTENCIA.Size = new System.Drawing.Size(161, 53);
@@ -1263,20 +1266,20 @@
             this.BT_SALIR.UseVisualStyleBackColor = true;
             this.BT_SALIR.Click += new System.EventHandler(this.BT_SALIR_Click);
             // 
-            // BT_ELIMINAR_DSCTO
+            // TB_PRECIO
             // 
-            this.BT_ELIMINAR_DSCTO.BackgroundImage = global::ModVentaAdm.Properties.Resources.bt_eliminar;
-            this.BT_ELIMINAR_DSCTO.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BT_ELIMINAR_DSCTO.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BT_ELIMINAR_DSCTO.FlatAppearance.BorderSize = 0;
-            this.BT_ELIMINAR_DSCTO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_ELIMINAR_DSCTO.Location = new System.Drawing.Point(55, 2);
-            this.BT_ELIMINAR_DSCTO.Name = "BT_ELIMINAR_DSCTO";
-            this.BT_ELIMINAR_DSCTO.Size = new System.Drawing.Size(15, 22);
-            this.BT_ELIMINAR_DSCTO.TabIndex = 6;
-            this.toolTip1.SetToolTip(this.BT_ELIMINAR_DSCTO, "Visualizar Costo");
-            this.BT_ELIMINAR_DSCTO.UseVisualStyleBackColor = true;
-            this.BT_ELIMINAR_DSCTO.Click += new System.EventHandler(this.BT_ELIMINAR_DSCTO_Click);
+            this.TB_PRECIO.BackColor = System.Drawing.Color.Yellow;
+            this.TB_PRECIO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TB_PRECIO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_PRECIO.Location = new System.Drawing.Point(2, 2);
+            this.TB_PRECIO.MaxLength = 5;
+            this.TB_PRECIO.Name = "TB_PRECIO";
+            this.TB_PRECIO.Size = new System.Drawing.Size(122, 22);
+            this.TB_PRECIO.TabIndex = 2;
+            this.TB_PRECIO.Text = "0";
+            this.TB_PRECIO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TB_PRECIO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_PRECIO.Leave += new System.EventHandler(this.TB_PRECIO_Leave);
             // 
             // AgregarEditarItemFrm
             // 
@@ -1308,6 +1311,7 @@
             this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
@@ -1383,7 +1387,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private LibControles.NumeroDecimal TB_CANT;
-        private System.Windows.Forms.Label L_PRECIO;
         private LibControles.NumeroDecimal TB_DSCTO;
         private System.Windows.Forms.Label L_TASA_IVA;
         private System.Windows.Forms.Label L_IMPORTE;
@@ -1444,5 +1447,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button BT_VER_COSTO;
         private System.Windows.Forms.Button BT_ELIMINAR_DSCTO;
+        private LibControles.NumeroDecimal TB_PRECIO;
     }
 }

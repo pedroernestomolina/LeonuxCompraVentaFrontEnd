@@ -12,6 +12,9 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Lista
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Resumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\UtilidadProducto.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\UtilidadVenta.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Helpers\Imprimir\Grafico\ReporteFrm.resx
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Helpers\Imprimir\Grafico\ReporteFrm.cs
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Helpers\Imprimir\Grafico\ReporteFrm.Designer.cs
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ModVentaAdm.pdb
@@ -34,11 +37,11 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ServicePos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\IPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ProvPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\LibEntityPos.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Helpers.Imprimir.Grafico.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Administrador.Documentos.AdmDocFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Anular.AnularFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Auditoria.Visualizar.VisualizarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Administrador.AdmFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.AgregarEditar.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Articulos.CompraArticulosFrm.resources
@@ -68,3 +71,4 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.csprojResolveAssemblyReference.cache

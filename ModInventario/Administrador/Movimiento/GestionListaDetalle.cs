@@ -410,7 +410,6 @@ namespace ModInventario.Administrador.Movimiento
                     _gestionAuditoria.Inicializa();
                     _gestionAuditoria.setData(r02.Entidad);
                     _gestionAuditoria.Inicia();
-
                 }
             }
         }

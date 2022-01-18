@@ -1280,7 +1280,6 @@ namespace PosOnLine.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.Ficha Documento_Anular_NotaCredito(OOB.Documento.Anular.NotaCredito.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -1327,7 +1326,6 @@ namespace PosOnLine.Data.Prov
 
             return result;
         }
-
         public OOB.Resultado.Ficha Documento_Anular_Factura(OOB.Documento.Anular.Factura.Ficha ficha)
         {
             var result = new OOB.Resultado.Ficha();
@@ -1389,7 +1387,6 @@ namespace PosOnLine.Data.Prov
 
             return result;
         }
-
 
         /// <summary>
         /// 

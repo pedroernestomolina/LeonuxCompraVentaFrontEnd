@@ -179,8 +179,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             Calcula();
         }
 
-        public void setProducto(Items.data ficha)
+        public void setPrecioNeto(decimal precio)
         {
+            _pneto = precio;
+            Calcula();
         }
 
     }

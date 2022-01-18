@@ -58,6 +58,13 @@ namespace ModVentaAdm.Helpers.Imprimir.Grafico
             E["Descuento"] = _ds.encabezado.Descuento;
             E["Total"] = _ds.encabezado.Total;
             E["TotalDivisa"] = _ds.encabezado.TotalDivisa;
+            E["Iva"] = _ds.encabezado.MontoIva;
+            E["Base"] = _ds.encabezado.MontoBase;
+            E["Exento"] = _ds.encabezado.MontoExento;
+            E["Notas"] = _ds.encabezado.Notas;
+            E["SubTotal2"] = _ds.encabezado.SubTotal2;
+            E["DescuentoNeto"] = _ds.encabezado.DescuentoNeto;
+            E["TextoDescuento"] = "Descuento ("+_ds.encabezado.Descuento1p.ToString("n2")+"%)";
             ds.Tables["Encabezado"].Rows.Add(E);
 
             //ITEMS

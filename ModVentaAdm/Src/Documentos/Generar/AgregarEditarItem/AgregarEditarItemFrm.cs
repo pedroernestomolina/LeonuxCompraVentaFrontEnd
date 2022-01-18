@@ -79,6 +79,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
         private void Abandonar()
         {
+            IrFoco();
             _controlador.Abandonar();
             if (_controlador.AbandonarIsOk) 
             {
@@ -96,7 +97,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _controlador = ctr;
         }
 
-
         private BindingSource _bs;
         private void AgregarEditarItemFrm_Load(object sender, EventArgs e)
         {
@@ -107,12 +107,26 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             L_MODO.Text = _controlador.ModoFicha;
             L_PRODUCTO.Text = _controlador.Producto_Desc;
             TB_CANT.Text = _controlador.Cantidad.ToString("n"+_controlador.NDecimales);
+            TB_PRECIO.Text = _controlador.Data_Precio.ToString("n2");
             TB_NOTAS.Text = _controlador.Notas;
             TB_DSCTO.Text = _controlador.Dscto.ToString("n2");
             _controlador.PrecioIniciar();
             //
+            ActualizarPrecioNeto();
             ActualizarData();
             P_COSTO.Visible = false;
+            //
+            IrFoco();
+        }
+
+        private void IrFoco()
+        {
+            TB_CANT.Focus();
+        }
+
+        private void ActualizarPrecioNeto()
+        {
+            _controlador.ActualizarPrecioNeto();
         }
 
         private void _bs_CurrentChanged(object sender, EventArgs e)
@@ -125,13 +139,13 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             L_EMPAQUE.Text = _controlador.Data_Empaque;
             L_IMPORTE.Text = _controlador.Data_Importe.ToString("n2");
             L_TASA_IVA.Text = _controlador.Data_TasaIva.ToString("n2");
-            L_PRECIO.Text = _controlador.Data_Precio.ToString("n2");
             L_IVA.Text = _controlador.Data_Iva.ToString("n2");
             L_TOTAL.Text = _controlador.Data_Total.ToString("n2");
             L_COSTO_UND.Text = _controlador.Data_CostoUnd.ToString("n2");
             L_COSTO_EMP.Text = _controlador.Data_CostoEmp.ToString("n2");
             L_EX_REAL.Text = _controlador.Data_ExReal.ToString("n"+_controlador.NDecimales);
             L_EX_DISPONIBLE.Text = _controlador.Data_ExDisponible.ToString("n" + _controlador.NDecimales);
+            TB_PRECIO.Text = _controlador.Data_Precio.ToString("n2");
         }
 
         private void BT_PROCESAR_Click(object sender, EventArgs e)
@@ -141,6 +155,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
         private void ProcesarItem()
         {
+            IrFoco();
             _controlador.ProcesarItem();
             if (_controlador.ProcesarItemIsOk)
             {
@@ -192,6 +207,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
         private void VisualizarCosto()
         {
+            IrFoco();
             _controlador.VisualizarCosto();
             if (_controlador.VisualizarCostoIsActivo)
             {
@@ -209,6 +225,14 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         {
             _controlador.EliminarDscto();
             TB_DSCTO.Text = _controlador.Data_Dscto.ToString("n2");
+            ActualizarData();
+        }
+
+        private void TB_PRECIO_Leave(object sender, EventArgs e)
+        {
+            var precio= decimal.Parse(TB_PRECIO.Text);
+            _controlador.setPrecio(precio);
+            TB_PRECIO.Text = _controlador.Data_Precio.ToString("n2");
             ActualizarData();
         }
 

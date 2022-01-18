@@ -99,6 +99,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _exDisponible = 0m;
             _visualizarCostoIsActivo = false;
             _posActual = 0;
+            _precioNetoCargar = 0m;
         }
 
         AgregarEditarItemFrm _frm;
@@ -129,41 +130,41 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             switch (_tarifaPrecioManejar)
             {
                 case "1":
-                    var p1 = new precio("1", "P1", _prd.empaque_1, _prd.contenido_1, _prd.pneto_1, _prd.decimales_1);
+                    var p1 = new precio("1", "P1", _prd.empaque_1, _prd.contenido_1, _prd.pneto_1, _prd.decimales);
                     _precios.Add(p1);
                     break;
                 case "2":
-                    var p2 = new precio("2", "P2", _prd.empaque_2, _prd.contenido_2, _prd.pneto_2, _prd.decimales_2);
+                    var p2 = new precio("2", "P2", _prd.empaque_2, _prd.contenido_2, _prd.pneto_2, _prd.decimales);
                     _precios.Add(p2);
                     break;
                 case "3":
-                    var p3 = new precio("3", "P3", _prd.empaque_3, _prd.contenido_3, _prd.pneto_3, _prd.decimales_3);
+                    var p3 = new precio("3", "P3", _prd.empaque_3, _prd.contenido_3, _prd.pneto_3, _prd.decimales);
                     _precios.Add(p3);
                     break;
                 case "4":
-                    var p4 = new precio("4", "P4", _prd.empaque_4, _prd.contenido_4, _prd.pneto_4, _prd.decimales_4);
+                    var p4 = new precio("4", "P4", _prd.empaque_4, _prd.contenido_4, _prd.pneto_4, _prd.decimales);
                     _precios.Add(p4);
                     break;
                 case "5":
-                    var p5 = new precio("5", "P5", _prd.empaque_5, _prd.contenido_5, _prd.pneto_5, _prd.decimales_5);
+                    var p5 = new precio("5", "P5", _prd.empaque_5, _prd.contenido_5, _prd.pneto_5, _prd.decimales);
                     _precios.Add(p5);
                     break;
                 default:
-                    var xp1 = new precio("1", "P1", _prd.empaque_1, _prd.contenido_1, _prd.pneto_1, _prd.decimales_1);
+                    var xp1 = new precio("1", "P1", _prd.empaque_1, _prd.contenido_1, _prd.pneto_1, _prd.decimales);
                     _precios.Add(xp1);
-                    var xp2 = new precio("2", "P2", _prd.empaque_2, _prd.contenido_2, _prd.pneto_2, _prd.decimales_2);
+                    var xp2 = new precio("2", "P2", _prd.empaque_2, _prd.contenido_2, _prd.pneto_2, _prd.decimales);
                     _precios.Add(xp2);
-                    var xp3 = new precio("3", "P3", _prd.empaque_3, _prd.contenido_3, _prd.pneto_3, _prd.decimales_3);
+                    var xp3 = new precio("3", "P3", _prd.empaque_3, _prd.contenido_3, _prd.pneto_3, _prd.decimales);
                     _precios.Add(xp3);
-                    var xp4 = new precio("4", "P4", _prd.empaque_4, _prd.contenido_4, _prd.pneto_4, _prd.decimales_4);
+                    var xp4 = new precio("4", "P4", _prd.empaque_4, _prd.contenido_4, _prd.pneto_4, _prd.decimales);
                     _precios.Add(xp4);
-                    var xp5 = new precio("5", "P5", _prd.empaque_5, _prd.contenido_5, _prd.pneto_5, _prd.decimales_5);
+                    var xp5 = new precio("5", "P5", _prd.empaque_5, _prd.contenido_5, _prd.pneto_5, _prd.decimales);
                     _precios.Add(xp5);
                     break;
             }
-            var pM1 = new precio("6", "PM1", _prd.empaqueMay_1, _prd.contenidoMay_1, _prd.pnetoMay_1, _prd.decimalesMay_1);
+            var pM1 = new precio("6", "PM1", _prd.empaqueMay_1, _prd.contenidoMay_1, _prd.pnetoMay_1, _prd.decimales);
             _precios.Add(pM1);
-            var pM2 = new precio("7", "PM2", _prd.empaqueMay_2, _prd.contenidoMay_2, _prd.pnetoMay_2, _prd.decimalesMay_2 );
+            var pM2 = new precio("7", "PM2", _prd.empaqueMay_2, _prd.contenidoMay_2, _prd.pnetoMay_2, _prd.decimales);
             _precios.Add(pM2);
 
             _preciosSource.CurrencyManager.Refresh();
@@ -195,7 +196,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
 
         public void setDescuento(decimal dsct)
         {
-            if (dsct > 0)
+            if (dsct > 0m)
             {
                 var r00 = Sistema.MyData.Permiso_GenerarDoc_DarDsctoItem(Sistema.Usuario.idGrupo);
                 if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
@@ -292,6 +293,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data.setDescuento(_itActual.Dscto);
             _data.setNotas(_itActual.Notas);
             _data.setPrecio(_itActual);
+            _data.setPrecioNeto(_itActual.PNeto);
             _data.setProducto(_prd);
             _idItemEditar = _itActual.Id;
             var pos = 0;
@@ -346,6 +348,38 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         public void EliminarDscto()
         {
             _data.setDescuento(0m);
+        }
+
+        public void setPrecio(decimal precio)
+        {
+            if (precio > 0m)
+            {
+                if (precio != _data.GetPrecioNeto)
+                {
+                    var r00 = Sistema.MyData.Permiso_GenerarDoc_PrecioLibre(Sistema.Usuario.idGrupo);
+                    if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r00.Mensaje);
+                        return;
+                    }
+                    if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                    {
+                        _data.setPrecioNeto(precio);
+                    }
+                }
+            }
+        }
+
+        private decimal _precioNetoCargar=0m;
+        public void setCargarPrecioNeto(decimal p)
+        {
+            _precioNetoCargar = p;
+        }
+
+        public void ActualizarPrecioNeto()
+        {
+            if (_precioNetoCargar == 0m) { return; }
+            _data.setPrecioNeto(_precioNetoCargar);
         }
 
     }

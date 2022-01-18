@@ -170,6 +170,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
             c8A.Width = 80;
             c8A.HeaderCell.Style.Font = f;
             c8A.DefaultCellStyle.Font = f1;
+            c8A.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var cX = new DataGridViewTextBoxColumn();
             cX.DataPropertyName = "SucursalDesc";
@@ -268,6 +269,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         private void AnularItem()
         {
             _controlador.AnularItem();
+            DGV.Refresh();
         }
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
@@ -391,6 +393,22 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         {
             _controlador.Filtros();
             ActualizarControles();
+        }
+
+        private void DGV_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                if (e.ColumnIndex >= 0)
+                {
+                    VerAnulacion();
+                }
+            }
+        }
+
+        private void VerAnulacion()
+        {
+            _controlador.VerAnulacion();
         }
 
     }

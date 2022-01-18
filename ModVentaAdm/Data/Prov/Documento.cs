@@ -285,7 +285,6 @@ namespace ModVentaAdm.Data.Prov
 
             var fichaDTO = new DtoLibPos.DocumentoAdm.Agregar.Presupuesto.Ficha()
             {
-                DocumentoNro = ficha.DocumentoNro,
                 RazonSocial = ficha.RazonSocial,
                 DirFiscal = ficha.DirFiscal,
                 CiRif = ficha.CiRif,
@@ -365,7 +364,7 @@ namespace ModVentaAdm.Data.Prov
                 Costo = ficha.Costo,
                 Utilidad = ficha.Utilidad,
                 Utilidadp = ficha.Utilidadp,
-                DocumentoTipo = ficha.DocumentoTipo,
+                DocumentoTipo = ficha.TipoTipoDoc,
                 CiTitular = ficha.CiTitular,
                 NombreTitular = ficha.NombreTitular,
                 CiBeneficiario = ficha.CiBeneficiario,
@@ -461,6 +460,33 @@ namespace ModVentaAdm.Data.Prov
                 return result;
             }
             result.Auto = r01.Auto;
+
+            return result;
+        }
+        public OOB.Resultado.Ficha Documento_Anular_Presupuesto(OOB.Documento.Anular.Presupuesto.Ficha ficha)
+        {
+            var result = new OOB.Resultado.Ficha();
+
+            var fichaDTO = new DtoLibPos.DocumentoAdm.Anular.Prersupuesto.Ficha()
+            {
+                autoDocumento = ficha.autoDocumento,
+                auditoria = new DtoLibPos.DocumentoAdm.Anular.Prersupuesto.FichaAuditoria()
+                {
+                    autoSistemaDocumento = ficha.auditoria.autoSistemaDocumento,
+                    autoUsuario = ficha.auditoria.autoUsuario,
+                    codigo = ficha.auditoria.codigo,
+                    estacion = ficha.auditoria.estacion,
+                    motivo = ficha.auditoria.motivo,
+                    usuario = ficha.auditoria.usuario,
+                },
+            };
+            var r01 = MyData.DocumentoAdm_Anular_Presupuesto(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
 
             return result;
         }

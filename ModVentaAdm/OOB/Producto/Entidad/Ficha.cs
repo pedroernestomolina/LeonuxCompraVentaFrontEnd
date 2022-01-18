@@ -52,6 +52,7 @@ namespace ModVentaAdm.OOB.Producto.Entidad
         public string empaque_5 { get; set; }
         public string empaqueMay_1 { get; set; }
         public string empaqueMay_2 { get; set; }
+        public string decimales { get; set; }
         public string decimales_1 { get; set; }
         public string decimales_2 { get; set; }
         public string decimales_3 { get; set; }
@@ -127,6 +128,7 @@ namespace ModVentaAdm.OOB.Producto.Entidad
             empaque_5 = "";
             empaqueMay_1 = "";
             empaqueMay_2 = "";
+            decimales = "";
             decimales_1 = "";
             decimales_2 = "";
             decimales_3 = "";

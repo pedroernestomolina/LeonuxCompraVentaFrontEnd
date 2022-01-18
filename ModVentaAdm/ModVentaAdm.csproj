@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Infra\IAuditoria.cs" />
     <Compile Include="Data\Infra\ICliente.cs" />
     <Compile Include="Data\Infra\IClienteGrupo.cs" />
     <Compile Include="Data\Infra\IClienteZona.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Data\Infra\ISucursal.cs" />
     <Compile Include="Data\Infra\IUsuario.cs" />
     <Compile Include="Data\Infra\IVenta.cs" />
+    <Compile Include="Data\Prov\Auditoria.cs" />
     <Compile Include="Data\Prov\Cliente.cs" />
     <Compile Include="Data\Prov\ClienteGrupo.cs" />
     <Compile Include="Data\Prov\ClienteZona.cs" />
@@ -115,9 +117,11 @@
     </Compile>
     <Compile Include="Helpers\Imprimir\Grafico\ReporteFrm.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Helpers\Imprimir\Grafico\ReporteFrm.Designer.cs">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Helpers\Imprimir\IDocumento.cs" />
     <Compile Include="Helpers\Msg.cs" />
@@ -128,6 +132,8 @@
     <Compile Include="LibControl\NumeroEnt.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="OOB\Auditoria\Buscar\Ficha.cs" />
+    <Compile Include="OOB\Auditoria\Entidad\Ficha.cs" />
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Enumerado.cs" />
     <Compile Include="OOB\Configuracion\BusquedaCliente\Entidad\Ficha.cs" />
     <Compile Include="OOB\Configuracion\BusquedaProducto\Enumerado.cs" />
@@ -137,6 +143,10 @@
     <Compile Include="OOB\Documento\Agregar\Presupuesto\Ficha.cs" />
     <Compile Include="OOB\Documento\Agregar\Presupuesto\FichaDetalle.cs" />
     <Compile Include="OOB\Documento\Agregar\Presupuesto\FichaTemporalVenta.cs" />
+    <Compile Include="OOB\Documento\Anular\BaseAuditoria.cs" />
+    <Compile Include="OOB\Documento\Anular\BaseFicha.cs" />
+    <Compile Include="OOB\Documento\Anular\Presupuesto\Ficha.cs" />
+    <Compile Include="OOB\Documento\Anular\Presupuesto\FichaAuditoria.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
@@ -267,6 +277,13 @@
       <DependentUpon>AnularFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Anular\Gestion.cs" />
+    <Compile Include="Src\Auditoria\Visualizar\Gestion.cs" />
+    <Compile Include="Src\Auditoria\Visualizar\VisualizarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Auditoria\Visualizar\VisualizarFrm.Designer.cs">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Src\Cliente\Administrador\AdmFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -535,6 +552,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Helpers\Imprimir\Grafico\ReporteFrm.resx">
       <DependentUpon>ReporteFrm.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -546,6 +564,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Anular\AnularFrm.resx">
       <DependentUpon>AnularFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Auditoria\Visualizar\VisualizarFrm.resx">
+      <DependentUpon>VisualizarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Cliente\Administrador\AdmFrm.resx">
       <DependentUpon>AdmFrm.cs</DependentUpon>

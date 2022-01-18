@@ -121,6 +121,7 @@ namespace ModVentaAdm.Data.Prov
                 CostoProm = ent.CostoProm,
                 CostoPromUnd = ent.CostoPromUnd,
                 CostoUnd = ent.CostoUnd,
+                decimales=ent.decimales,
                 decimales_1 = ent.decimales_1,
                 decimales_2 = ent.decimales_2,
                 decimales_3 = ent.decimales_3,

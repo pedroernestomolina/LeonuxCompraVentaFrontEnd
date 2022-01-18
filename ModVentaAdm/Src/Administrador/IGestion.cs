@@ -36,6 +36,7 @@ namespace ModVentaAdm.Src.Administrador
         void setTipoDoc(string id);
         void CorrectorDocumento();
         void Filtros();
+        void VerAnulacion();
 
     }
 

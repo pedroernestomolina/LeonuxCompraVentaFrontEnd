@@ -64,7 +64,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.Pedido
                     cantidadUnd = data.GetCantidadUnd,
                     total = data.GetImporteFull,
                     totalDivisa = data.GetImporteDivisaFull,
-                    estatusRemision="",
+                    estatusRemision = "",
+                    nombreDeposito = data.GetDescDeposito,
                 },
                 itemActDeposito = new OOB.Venta.Temporal.Item.Registrar.ItemActDeposito()
                 {
@@ -169,6 +170,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Pedido
                     total = data.GetImporteFull,
                     totalDivisa = data.GetImporteDivisaFull,
                     estatusRemision = it.estatusRemision,
+                    nombreDeposito = data.GetDescDeposito,
                 },
                 itemActDeposito = new OOB.Venta.Temporal.Item.Registrar.ItemActDeposito()
                 {

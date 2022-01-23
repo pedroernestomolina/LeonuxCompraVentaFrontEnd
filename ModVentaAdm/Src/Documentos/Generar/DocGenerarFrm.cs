@@ -174,10 +174,13 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
         private void ActualizarDatosDoc()
         {
-            L_DATOS_DOC_FECHA.Text = _controlador.DatosDoc_Fecha;
+            L_FECHA_DOC_REMISION.Text = _controlador.DatosDoc_FechaDocRemision;
+            L_NUMERO_DOC_REMISION.Text = _controlador.DatosDoc_NumeroDocRemision;
+            L_NOMBRE_DOC_REMISION.Text = _controlador.DatosDoc_NombreDocRemision;
+            L_DATOS_DOC_FECHA.Text = _controlador.DatosDoc_Fecha.ToShortDateString();
             L_DATOS_DOC_COND_PAGO.Text = _controlador.DatosDoc_CondPago;
             L_DATOS_DOC_DEPOSITO.Text = _controlador.DatosDoc_Deposito;
-            L_DATOS_DOC_FECHA_VENCE.Text = _controlador.DatosDoc_FechaVence;
+            L_DATOS_DOC_FECHA_VENCE.Text = _controlador.DatosDoc_FechaVence.ToShortDateString();
             L_DATOS_DOC_ORD_COMPRA.Text = _controlador.DatosDoc_OrdenCompra;
             L_DATOS_DOC_PEDIDO.Text = _controlador.DatosDoc_Pedido;
             L_DATOS_DOC_SERIE.Text = _controlador.DatosDoc_Serie;
@@ -434,10 +437,11 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void DocPendiente()
         {
             _controlador.DocPendiente();
-            ActualizarVistaCliente();
-            ActualizarDatosDoc();
-            ActualizaVistaTotales();
-            ActualizaVistaPendiente();
+            if (_controlador.DocPendienteIsOk)
+            {
+                Actualizar();
+                ActualizaVistaPendiente();
+            }
             IrFoco();
         }
 
@@ -458,10 +462,11 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void RecuperarDocumento()
         {
             _controlador.RecuperarDocumento();
-            ActualizarVistaCliente();
-            ActualizarDatosDoc();
-            ActualizaVistaTotales();
-            ActualizaVistaPendiente();
+            if (_controlador.RecuperarDocumentoIsOk)
+            {
+                Actualizar();
+                ActualizaVistaPendiente();
+            }
             IrFoco();
         }
 
@@ -473,10 +478,11 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void AbrirDocPendiente()
         {
             _controlador.AbrirDocPendiente();
-            ActualizarVistaCliente();
-            ActualizarDatosDoc();
-            ActualizaVistaTotales();
-            ActualizaVistaPendiente(false);
+            if (_controlador.AbrirDocPendienteIsOk)
+            {
+                Actualizar();
+                ActualizaVistaPendiente(false);
+            }
             IrFoco();
         }
 
@@ -488,6 +494,12 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void RemisionDoc()
         {
             _controlador.RemisionDoc();
+            if (_controlador.RemisionIsOk)
+            {
+                Actualizar();
+                ActualizaVistaPendiente(false);
+            }
+            IrFoco();
         }
 
         private void MENU_ARCHIVO_SALIR_Click(object sender, EventArgs e)
@@ -503,7 +515,10 @@ namespace ModVentaAdm.Src.Documentos.Generar
         private void CambioTasaDivisa()
         {
             _controlador.CambioTasaDivisa();
-            ActualizaVistaTotales();
+            if (_controlador.CambioTasaDivisaIsOk)
+            {
+                ActualizaVistaTotales();
+            }
         }
 
         private void MENU_ARCHIVO_LIMPIEZA_Click(object sender, EventArgs e)
@@ -530,11 +545,16 @@ namespace ModVentaAdm.Src.Documentos.Generar
             _controlador.ProcesarDoc();
             if (_controlador.DocumentoProcesadoIsOk)
             {
-                ActualizarVistaCliente();
-                ActualizarDatosDoc();
-                ActualizaVistaTotales();
-                IrFoco();
+                Actualizar();
             }
+            IrFoco();
+        }
+
+        private void Actualizar()
+        {
+            ActualizarVistaCliente();
+            ActualizarDatosDoc();
+            ActualizaVistaTotales();
         }
 
     }

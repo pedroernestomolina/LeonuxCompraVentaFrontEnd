@@ -16,7 +16,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
         private decimal _tasaDivisa;
         private AgregarEditarItem.IGestion _itemGestion;
         private OOB.Sistema.TipoDocumento.Entidad.Ficha _sistTipoDoc;
-        private List<tipoDocRemitir> _lTipoDocRemitir;
+        private List<Remision.tipoDoc> _lstDocRemision;
 
 
         public string TipoDocumento { get { return "PRESUPUESTO"; } }
@@ -26,7 +26,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
         public OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get { return _sistTipoDoc; } }
         public int CantDocPend { get { return CantidadDocPendiente(); } }
         public int CantDocRecuperar { get { return CantidadDocRecuperar(); } }
-        public List<tipoDocRemitir> TipoDocRemitir { get { return _lTipoDocRemitir; } }
+        public List<Remision.tipoDoc> TipoDocRemision { get { return _lstDocRemision; } }
 
 
         public Gestion()
@@ -35,7 +35,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
             _datosDoc = new datosDoc();
             _itemGestion = new GestionItem();
             _sistTipoDoc = null;
-            _lTipoDocRemitir = new List<tipoDocRemitir>();
+            _lstDocRemision = new List<Remision.tipoDoc>();
         }
 
 
@@ -63,12 +63,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
             }
             _sistTipoDoc = r02.Entidad;
 
-            _lTipoDocRemitir.Clear();
-            _lTipoDocRemitir.Add(new tipoDocRemitir("", ""));
-            _lTipoDocRemitir.Add(new tipoDocRemitir("01", "FACTURA"));
-            _lTipoDocRemitir.Add(new tipoDocRemitir("04", "NOTA ENTREGA"));
-            _lTipoDocRemitir.Add(new tipoDocRemitir("05", "PRESUPUESTO"));
-            _lTipoDocRemitir.Add(new tipoDocRemitir("06", "PEDIDO"));
+            _lstDocRemision.Clear();
+            _lstDocRemision.Add(new Remision.tipoDoc("01", "FACTURA"));
+            _lstDocRemision.Add(new Remision.tipoDoc("04", "NOTA ENTREGA"));
+            _lstDocRemision.Add(new Remision.tipoDoc("05", "PRESUPUESTO"));
+            _lstDocRemision.Add(new Remision.tipoDoc("06", "PEDIDO"));
 
             return true;
         }
@@ -127,9 +126,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.Presupuesto
 
             var fichaOOB = new OOB.Venta.Temporal.Remision.Registrar.Ficha()
             {
-                autoRemision = ficha.Auto,
-                documentoRemision = ficha.DocumentoNro,
-                tipoRemision = ficha.Tipo,
+                autoDoc= ficha.Auto,
+                numeroDoc= ficha.DocumentoNro,
+                codigoDoc= ficha.Tipo,
+                fechaDoc=ficha.Fecha,
+                nombreDoc=ficha.DocumentoNombre,
                 idTemporal = _idVentaTemporal,
                 renglones = ficha.items.Count,
                 monto = t,

@@ -45,8 +45,11 @@ namespace ModVentaAdm.Helpers.Imprimir
             public string CodigoCli { get; set; }
 
             public decimal FactorCambio { get; set; }
-            public decimal SubTotal { get; set; }
+            public decimal SubTotalNeto { get; set; }
+            public decimal DescuentoPorct { get; set; }
             public decimal Descuento { get; set; }
+            public decimal CargoPorct { get; set; }
+            public decimal Cargo { get; set; }
             public decimal Total { get; set; }
             public decimal TotalDivisa { get; set; }
 
@@ -54,9 +57,19 @@ namespace ModVentaAdm.Helpers.Imprimir
             public decimal MontoBase { get; set; }
             public decimal MontoExento { get; set; }
             public string Notas { get; set; }
-            public decimal SubTotal2 { get { return MontoBase + MontoExento; } }
-            public decimal DescuentoNeto { get { return SubTotal - SubTotal2; } }
-            public decimal Descuento1p { get; set; }
+            public decimal DescuentoNeto { get; set; }
+            public decimal CargoNeto { get;set;}
+            public decimal SubTotal { get; set; }
+
+            public decimal MontoBase1 { get; set; }
+            public decimal MontoBase2 { get; set; }
+            public decimal MontoBase3 { get; set; }
+            public decimal MontoIva1 { get; set; }
+            public decimal MontoIva2 { get; set; }
+            public decimal MontoIva3 { get; set; }
+            public decimal Tasa1 { get; set; }
+            public decimal Tasa2 { get; set; }
+            public decimal Tasa3 { get; set; }
 
 
             public Encabezado()
@@ -77,15 +90,30 @@ namespace ModVentaAdm.Helpers.Imprimir
                 DocumentoSerie = "";
 
                 FactorCambio = 0.0m;
-                SubTotal = 0.0m;
+                SubTotalNeto = 0.0m;
+                DescuentoPorct=0m;
                 Descuento = 0.0m;
+                DescuentoNeto = 0m;
+                CargoPorct=0m;
+                Cargo=0m;
+                CargoNeto = 0m;
+                SubTotal = 0m;
                 Total = 0.0m;
                 TotalDivisa = 0.0m;
                 MontoBase = 0m;
                 MontoExento = 0m;
                 MontoIva = 0m;
                 Notas = "";
-                Descuento1p=0m;
+
+                MontoBase1 = 0m;
+                MontoBase2 = 0m;
+                MontoBase3 = 0m;
+                MontoIva1 = 0m;
+                MontoIva2 = 0m;
+                MontoIva3 = 0m;
+                Tasa1 = 0m;
+                Tasa2 = 0m;
+                Tasa3 = 0m;
             }
 
         }

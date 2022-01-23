@@ -43,9 +43,13 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Encabezado.Entidad
         public int diasValidez { get; set; }
         public string dirDespacho { get; set; }
         public string notasDoc { get; set; }
-        public string tipoRemision { get; set; }
-        public string documentoRemision { get; set; }
-        public string autoRemision { get; set; }
+        //
+        public string autoDocRemision { get; set; }
+        public string codigoDocRemision { get; set; }
+        public string numeroDocRemision { get; set; }
+        public string nombreDocRemision { get; set; }
+        public DateTime? fechaDocRemision { get; set; }
+        //
         public bool isCredito { get { return estatusCredito == "1" ; } }
 
 
@@ -82,9 +86,12 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Encabezado.Entidad
             diasValidez = 0;
             dirDespacho = "";
             notasDoc = "";
-            tipoRemision = "";
-            documentoRemision = "";
-            autoRemision = "";
+            //
+            autoDocRemision = "";
+            codigoDocRemision = "";
+            numeroDocRemision = "";
+            fechaDocRemision = null;
+            nombreDocRemision = "";
         }
 
     }

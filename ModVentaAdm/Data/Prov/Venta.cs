@@ -50,6 +50,7 @@ namespace ModVentaAdm.Data.Prov
                 notasDoc = ficha.notasDoc,
                 tarifaPrecioCliente = ficha.tarifaPrecioCliente,
                 tipoRemision = ficha.tipoRemision,
+                nombreTipoDocRemision = ficha.nombreTipoDocRemision,
             };
             var r01 = MyData.VentaAdm_Temporal_Encabezado_Registrar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -245,6 +246,7 @@ namespace ModVentaAdm.Data.Prov
                     total = xit.total,
                     totalDivisa = xit.totalDivisa,
                     estatusRemision = xit.estatusRemision,
+                    nombreDeposito=xit.nombreDeposito,
                 },
             };
             if (ficha.itemActDeposito != null)
@@ -484,7 +486,8 @@ namespace ModVentaAdm.Data.Prov
                     cantidadUnd = xitAgregar.cantidadUnd,
                     total = xitAgregar.total,
                     totalDivisa = xitAgregar.totalDivisa,
-                    estatusRemision= xitAgregar.estatusRemision,
+                    estatusRemision = xitAgregar.estatusRemision,
+                    nombreDeposito = xitAgregar.nombreDeposito,
                 },
             };
             if (ficha.itemRegistrar.itemActDeposito != null)
@@ -515,6 +518,68 @@ namespace ModVentaAdm.Data.Prov
 
             return result;
         }
+        public OOB.Resultado.Lista<OOB.Venta.Temporal.Item.Entidad.Ficha> Venta_Temporal_Item_GetLista(int idItemporal)
+        {
+            var rt = new OOB.Resultado.Lista<OOB.Venta.Temporal.Item.Entidad.Ficha>();
+
+            var r01 = MyData.VentaAdm_Temporal_Item_GetLista(idItemporal);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var lst = new List<OOB.Venta.Temporal.Item.Entidad.Ficha>();
+            if (r01.Lista != null) 
+            {
+                if (r01.Lista.Count > 0) 
+                {
+                    lst = r01.Lista.Select(s =>
+                    {
+                        var det = new OOB.Venta.Temporal.Item.Entidad.Ficha()
+                        {
+                            id = s.id,
+                            autoDepartamento = s.autoDepartamento,
+                            autoGrupo = s.autoGrupo,
+                            autoProducto = s.autoProducto,
+                            autoSubGrupo = s.autoSubGrupo,
+                            autoTasaIva = s.autoTasaIva,
+                            cantidad = s.cantidad,
+                            categroiaProducto = s.categroiaProducto,
+                            codigoProducto = s.codigoProducto,
+                            costo = s.costo,
+                            costoPromd = s.costoPromd,
+                            costoPromdUnd = s.costoPromdUnd,
+                            costoUnd = s.costoUnd,
+                            decimalesProducto = s.decimalesProducto,
+                            dsctoPorct = s.dsctoPorct,
+                            empaqueCont = s.empaqueCont,
+                            empaqueDesc = s.empaqueDesc,
+                            estatusPesadoProducto = s.estatusPesadoProducto,
+                            estatusReservaMerc = s.estatusReservaMerc,
+                            nombreProducto = s.nombreProducto,
+                            notas = s.notas,
+                            precioNeto = s.precioNeto,
+                            precioNetoDivisa = s.precioNetoDivisa,
+                            tarifaPrecio = s.tarifaPrecio,
+                            tasaIva = s.tasaIva,
+                            tipoIva = s.tipoIva,
+                            autoDeposito = s.autoDeposito,
+                            cantidadUnd = s.cantidadUnd,
+                            total = s.total,
+                            totalDivisa = s.totalDivisa,
+                            estatusRemision = s.estatusRemision,
+                            nombreDeposito= s.nombreDeposito,
+                        };
+                        return det;
+                    }).ToList();
+                }
+            }
+            rt.ListaD = lst;
+
+            return rt;
+        }
 
         //
         public OOB.Resultado.Ficha VentaAdm_Temporal_Pendiente_Dejar(OOB.Venta.Temporal.Pendiente.Dejar.Ficha ficha)
@@ -524,7 +589,6 @@ namespace ModVentaAdm.Data.Prov
             var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Pendiente.Dejar.Ficha()
             {
                 idTemporal = ficha.idTemporal,
-                notas = ficha.notas,
             };
             var r01 = MyData.VentaAdm_Temporal_Pendiente_Dejar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
@@ -616,12 +680,14 @@ namespace ModVentaAdm.Data.Prov
             }
 
             var xe = r01.Entidad.encabezado;
+            DateTime? fechaRemision = null;
+            if (xe.fechaRemision != new DateTime(2000, 1, 1))
+                fechaRemision = xe.fechaRemision;
             var enc = new OOB.Venta.Temporal.Encabezado.Entidad.Ficha()
             {
-                autoCliente = xe.autoCliente ,
+                autoCliente = xe.autoCliente,
                 autoCobrador = xe.autoCobrador,
-                autoDeposito = xe.autoDeposito ,
-                autoRemision = xe.autoRemision,
+                autoDeposito = xe.autoDeposito,
                 autoSistDocumento = xe.autoSistDocumento,
                 autoSucursal = xe.autoSucursal,
                 autoTransporte = xe.autoTransporte,
@@ -633,7 +699,6 @@ namespace ModVentaAdm.Data.Prov
                 diasValidez = xe.diasValidez,
                 dirDespacho = xe.dirDespacho,
                 dirFiscalCliente = xe.dirFiscalCliente,
-                documentoRemision = xe.documentoRemision,
                 estatusCredito = xe.estatusCredito,
                 estatusPendiente = xe.estatusPendiente,
                 factorDivisa = xe.factorDivisa,
@@ -651,7 +716,12 @@ namespace ModVentaAdm.Data.Prov
                 razonSocialCliente = xe.razonSocialCliente,
                 renglones = xe.renglones,
                 tarifaPrecioCliente = xe.tarifaPrecioCliente,
-                tipoRemision = xe.tipoRemision,
+                //
+                autoDocRemision = xe.autoRemision,
+                numeroDocRemision = xe.documentoRemision,
+                codigoDocRemision = xe.tipoRemision,
+                nombreDocRemision = xe.nombreTipoDocRemision,
+                fechaDocRemision = fechaRemision, 
             };
             var lst = r01.Entidad.items.Select(s =>
             {
@@ -687,6 +757,8 @@ namespace ModVentaAdm.Data.Prov
                     cantidadUnd = s.cantidadUnd,
                     total = s.total,
                     totalDivisa = s.totalDivisa,
+                    estatusRemision = s.estatusRemision,
+                    nombreDeposito=s.nombreDeposito,
                 };
                 return det;
             }).ToList();
@@ -707,9 +779,11 @@ namespace ModVentaAdm.Data.Prov
             var fichaDTO = new DtoLibPos.VentaAdm.Temporal.Remision.Registrar.Ficha()
             {
                 idTemporal = ficha.idTemporal,
-                autoRemision = ficha.autoRemision,
-                documentoRemision = ficha.documentoRemision,
-                tipoRemision = ficha.tipoRemision,
+                autoDoc = ficha.autoDoc,
+                codigoDoc = ficha.codigoDoc,
+                fechaDoc = ficha.fechaDoc,
+                nombreDoc = ficha.nombreDoc,
+                numeroDoc = ficha.numeroDoc,
                 monto = ficha.monto,
                 montoDivisa = ficha.montoDivisa,
                 renglones = ficha.renglones,
@@ -748,6 +822,7 @@ namespace ModVentaAdm.Data.Prov
                         total = s.total,
                         totalDivisa = s.totalDivisa,
                         estatusRemision = s.estatusRemision,
+                        nombreDeposito = s.nombreDeposito,
                     };
                     return it;
                 }).ToList(),

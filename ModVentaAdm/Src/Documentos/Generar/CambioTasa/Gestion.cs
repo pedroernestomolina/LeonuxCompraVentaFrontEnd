@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace ModVentaAdm.Src.Documentos.Generar.CambioTasa
 {
     
-    public class Gestion
+    public class Gestion:ICambioTasa
     {
 
         private bool _cambioTasaIsOk;

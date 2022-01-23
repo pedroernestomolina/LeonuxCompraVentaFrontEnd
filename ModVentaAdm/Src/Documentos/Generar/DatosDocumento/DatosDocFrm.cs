@@ -86,8 +86,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             CB_TRANSPORTE.DataSource = _controlador.SourceTransporte;
             CB_VENDEDOR.DataSource = _controlador.SourceVendedor;
             L_CLIENTE.Text = _controlador.DataCliente;
-            TB_FECHA.Text = _controlador.DataFecha;
-            TB_FECHA_VENCE.Text = _controlador.DataFechaVence;
+            TB_FECHA.Text = _controlador.GetData.Fecha.ToShortDateString();
+            TB_FECHA_VENCE.Text = _controlador.GetData.FechaVence.ToShortDateString();
             TB_ORDEN_COMPRA.Text = _controlador.DataOrdenCompra;
             TB_PEDIDO.Text = _controlador.DataPedido;
             TB_FECHA_PEDIDO.Text = _controlador.DataFechaPedido;
@@ -109,10 +109,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             CB_DEPOSITO.Enabled = _controlador.HabilitarDeposito;
             BT_BUSCAR_CLIENTE.Enabled = _controlador.HabilitarBusquedaCliente;
             //
-            if (CB_COND_PAGO.SelectedValue==null)
-            {
-                TB_DIAS_CREDITO.ReadOnly = true;
-            }
             _modoEditar = true;
         }
 
@@ -121,11 +117,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             if (_modoEditar)
             {
                 _controlador.setCondPago(CB_COND_PAGO.SelectedValue.ToString());
-                TB_DIAS_CREDITO.ReadOnly = true;
-                if (_controlador.CondicionPagoIsCredito)
-                {
-                    TB_DIAS_CREDITO.ReadOnly = false;
-                }
+                TB_DIAS_CREDITO.Text = _controlador.DataDiasCredito.ToString();
+                TB_FECHA_VENCE.Text = _controlador.GetData.FechaVence.ToShortDateString(); ;
             }
         }
 
@@ -141,7 +134,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         private void TB_DIAS_CREDITO_Leave(object sender, EventArgs e)
         {
             _controlador.setDiasCredito(int.Parse(TB_DIAS_CREDITO.Text));
-            TB_FECHA_VENCE.Text = _controlador.DataFechaVence;
+            TB_FECHA_VENCE.Text = _controlador.GetData.FechaVence.ToShortDateString();
         }
 
         private void CB_VENDEDOR_SelectedIndexChanged(object sender, EventArgs e)
@@ -240,15 +233,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
             CB_COND_PAGO.SelectedValue = _controlador.DataIdCondPago;
             TB_DIR_DESPACHO.Text = _controlador.DataDirDespacho;
             TB_DIAS_CREDITO.Text = _controlador.DataDiasCredito.ToString();
-            TB_DIAS_CREDITO.ReadOnly = true;
-            if (_controlador.CondicionPagoIsCredito)
-            {
-                TB_DIAS_CREDITO.ReadOnly = false;
-            }
             _modoEditar = true;
             //
         }
-
+      
     }
 
 }

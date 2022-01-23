@@ -10,6 +10,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Item.Entidad
     
     public class Ficha
     {
+
         
         public int id { get; set; }
         public string autoProducto { get; set; }
@@ -42,6 +43,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Item.Entidad
         public decimal cantidadUnd { get; set; }
         public string autoDeposito { get; set; }
         public string estatusRemision { get; set; }
+        public string nombreDeposito { get; set; }
 
 
         public Ficha()
@@ -77,6 +79,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Item.Entidad
             totalDivisa = 0m;
             cantidadUnd = 0m;
             estatusRemision = "";
+            nombreDeposito = "";
         }
 
     }

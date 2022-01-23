@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace ModVentaAdm.Src.Documentos.Generar.Items
 {
     
-    public class Gestion
+    public class Gestion: IItems
     {
 
         private decimal _mDivisa;
@@ -27,7 +27,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         public BindingSource ItemsSource { get { return _bs; } }
         public bool HayItemsEnBandeja { get { return CntItem > 0; } }
         public data ItemActual { get { return (data) _bs.Current; } }
-        public List<data> ListaItems { get { return _bl.ToList(); } } 
+        public List<data> ListaItems { get { return _bl.ToList(); } }
 
 
         public Gestion() 
@@ -57,7 +57,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _bs.CurrencyManager.Refresh();
         }
 
-        internal void EliminarItem(data it)
+        public void EliminarItem(data it)
         {
             _bl.Remove(it);
             _bs.CurrencyManager.Refresh();
@@ -100,14 +100,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             foreach (var it in _ldata)
             {
                 it.setTasaDivisa(tasa);
-            }
-        }
-
-        public void setDsctoFinal(decimal dsctoFinal)
-        {
-            foreach (var it in _ldata)
-            {
-                it.setDsctoFinal(dsctoFinal);
             }
         }
 

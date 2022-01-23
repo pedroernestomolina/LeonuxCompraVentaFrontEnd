@@ -24,6 +24,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         private decimal _tasaDivisa;
         private decimal _pItem;
         private string _idDeposito;
+        private string _descDeposito;
         private bool _rupturaPorExistencia;
 
 
@@ -48,6 +49,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         public decimal GetImporteFull { get { return CalculaFull(_importe); } }
         public decimal GetIva { get { return CalculaIva(_importe); } }
         public string GetIdDeposito { get { return _idDeposito; } }
+        public string GetDescDeposito { get { return _descDeposito; } }
         public bool GetRupturaPorExistencia { get { return _rupturaPorExistencia; } }
         public decimal GetCostoUnd { get { return _prd.CostoUnd; } }
         public decimal GetCostoEmp { get { return _prd.CostoUnd*_empaqueCont; } }
@@ -156,6 +158,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _tasaDivisa = 0m;
             _pItem = 0m;
             _idDeposito = "";
+            _descDeposito = "";
             _rupturaPorExistencia = false;
         }
 
@@ -183,6 +186,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
         {
             _pneto = precio;
             Calcula();
+        }
+
+        public void setNombreDeposito(string p)
+        {
+            _descDeposito = p;
         }
 
     }

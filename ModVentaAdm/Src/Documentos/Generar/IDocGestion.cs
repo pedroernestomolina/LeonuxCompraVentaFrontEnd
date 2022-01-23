@@ -18,7 +18,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
         OOB.Sistema.TipoDocumento.Entidad.Ficha SistTipoDocumento { get; }
         int CantDocPend { get; }
         int CantDocRecuperar { get; }
-        List<tipoDocRemitir> TipoDocRemitir { get; }
+        List<Remision.tipoDoc> TipoDocRemision { get; }
 
 
         void Inicializa();

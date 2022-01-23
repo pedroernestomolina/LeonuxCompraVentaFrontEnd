@@ -107,6 +107,27 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto
             L_INFO_PNETO_2.Text = _controlador.Inf_PNeto_2.ToString("n2");
             L_INFO_PFULL_2.Text = _controlador.Inf_PFull_2.ToString("n2");
             L_INFO_PDIVISA_2.Text = _controlador.Inf_PDivisa_2.ToString("n2");
+            //
+            L_INFO_EMP_3.Text = _controlador.Inf_EmpqCont_3;
+            L_INFO_PNETO_3.Text = _controlador.Inf_PNeto_3.ToString("n2");
+            L_INFO_PFULL_3.Text = _controlador.Inf_PFull_3.ToString("n2");
+            L_INFO_PDIVISA_3.Text = _controlador.Inf_PDivisa_3.ToString("n2");
+            //
+            L_INFO_EMP_4.Text = _controlador.Inf_EmpqCont_4;
+            L_INFO_PNETO_4.Text = _controlador.Inf_PNeto_4.ToString("n2");
+            L_INFO_PFULL_4.Text = _controlador.Inf_PFull_4.ToString("n2");
+            L_INFO_PDIVISA_4.Text = _controlador.Inf_PDivisa_4.ToString("n2");
+            //
+            L_INFO_EMP_5.Text = _controlador.Inf_EmpqCont_5;
+            L_INFO_PNETO_5.Text = _controlador.Inf_PNeto_5.ToString("n2");
+            L_INFO_PFULL_5.Text = _controlador.Inf_PFull_5.ToString("n2");
+            L_INFO_PDIVISA_5.Text = _controlador.Inf_PDivisa_5.ToString("n2");
+            //
+            L_INFO_EMP_6.Text = _controlador.Inf_EmpqCont_6;
+            L_INFO_PNETO_6.Text = _controlador.Inf_PNeto_6.ToString("n2");
+            L_INFO_PFULL_6.Text = _controlador.Inf_PFull_6.ToString("n2");
+            L_INFO_PDIVISA_6.Text = _controlador.Inf_PDivisa_6.ToString("n2");
+            //
         }
 
         private void DGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

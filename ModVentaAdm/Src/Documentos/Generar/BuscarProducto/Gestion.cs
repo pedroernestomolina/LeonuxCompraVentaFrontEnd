@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto
 {
 
-    public class Gestion
+    public class Gestion: IBuscarProducto
     {
 
 
@@ -25,7 +25,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto
         
         public int CntItem { get { return _items.Cnt; } }
         public BindingSource ItemsSource { get { return _items.ItemSource; } }
-        public Items.data ItemSeleccionado { get { return _itemSeleccionado; } }
+        public string IdItemSeleccionado { get { return _itemSeleccionado.Id; } }
+
         public bool ItemSeleccionadoIsOk { get { return _itemSeleccionadoIsOk; } }
         public string Inf_Producto { get { return _items.Inf_Producto; } }
         public decimal Inf_ExistenciaActual { get { return _items.Inf_ExistenciaActual; } }
@@ -40,6 +41,26 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto
         public decimal Inf_PNeto_2 { get { return _items.Inf_PNeto_2; } }
         public decimal Inf_PFull_2 { get { return _items.Inf_PFull_2; } }
         public decimal Inf_PDivisa_2 { get { return calculaPrecioDivisa(Inf_PFull_2); } }
+        //        
+        public string Inf_EmpqCont_3 { get { return _items.Inf_EmpqCont_3; } }
+        public decimal Inf_PNeto_3 { get { return _items.Inf_PNeto_3; } }
+        public decimal Inf_PFull_3 { get { return _items.Inf_PFull_3; } }
+        public decimal Inf_PDivisa_3 { get { return calculaPrecioDivisa(Inf_PFull_3); } }
+        //        
+        public string Inf_EmpqCont_4 { get { return _items.Inf_EmpqCont_4; } }
+        public decimal Inf_PNeto_4 { get { return _items.Inf_PNeto_4; } }
+        public decimal Inf_PFull_4 { get { return _items.Inf_PFull_4; } }
+        public decimal Inf_PDivisa_4 { get { return calculaPrecioDivisa(Inf_PFull_4); } }
+        //        
+        public string Inf_EmpqCont_5 { get { return _items.Inf_EmpqCont_5; } }
+        public decimal Inf_PNeto_5 { get { return _items.Inf_PNeto_5; } }
+        public decimal Inf_PFull_5 { get { return _items.Inf_PFull_5; } }
+        public decimal Inf_PDivisa_5 { get { return calculaPrecioDivisa(Inf_PFull_5); } }
+        //        
+        public string Inf_EmpqCont_6 { get { return _items.Inf_EmpqCont_6; } }
+        public decimal Inf_PNeto_6 { get { return _items.Inf_PNeto_6; } }
+        public decimal Inf_PFull_6 { get { return _items.Inf_PFull_6; } }
+        public decimal Inf_PDivisa_6 { get { return calculaPrecioDivisa(Inf_PFull_6); } }
 
 
         public Gestion()
@@ -142,17 +163,17 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto
             Inicia();
         }
 
-        public void ActivarBusPorCodigo()
+        public void setActivarBusPorCodigo()
         {
             _metodoBusq = "01";
         }
 
-        public void ActivarBusPorDescripcion()
+        public void setActivarBusPorDescripcion()
         {
             _metodoBusq = "02";
         }
 
-        public void ActivarBusPorReferencia()
+        public void setActivarBusPorReferencia()
         {
             _metodoBusq = "03";
         }

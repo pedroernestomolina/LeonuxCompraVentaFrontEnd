@@ -115,6 +115,24 @@ namespace ModVentaAdm.OOB.Documento.Entidad
         public string AutoReciboCxC { get; set; }
         public decimal Descuento { get { return Descuento1 + Descuento2; } }
         public List<FichaItem> items;
+        public decimal DescuentoNeto 
+        {
+            get 
+            {
+                var rt = 0m;
+                rt = (SubTotalNeto * Descuento1p / 100);
+                return rt;
+            } 
+        }
+        public decimal CargoNeto
+        {
+            get
+            {
+                var rt = (SubTotalNeto - DescuentoNeto);
+                rt = rt * (Cargosp / 100);
+                return rt;
+            }
+        }
 
 
         public Ficha()

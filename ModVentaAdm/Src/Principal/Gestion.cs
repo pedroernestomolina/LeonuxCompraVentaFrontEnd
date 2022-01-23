@@ -18,7 +18,7 @@ namespace ModVentaAdm.Src.Principal
         private Maestros.Gestion _gestionMaestro;
         private Cliente.Administrador.Gestion _gestionAdmCliente;
         private ReportesCliente.Gestion _gestionRepCli;
-        private Documentos.Generar.Gestion _gestionGenDoc;
+        private Documentos.Generar.Gestion _gGenDoc;
         private Documentos.Generar.Presupuesto.Gestion _gestionPresup;
         private Documentos.Generar.Factura.Gestion _gestionFact;
         private Documentos.Generar.Pedido.Gestion _gestionPedido;
@@ -38,7 +38,14 @@ namespace ModVentaAdm.Src.Principal
             _gestionMaestro = new Maestros.Gestion();
             _gestionAdmCliente = new Cliente.Administrador.Gestion();
             _gestionRepCli = new ReportesCliente.Gestion();
-            _gestionGenDoc = new Documentos.Generar.Gestion();
+            _gGenDoc = new Documentos.Generar.Gestion();
+            _gGenDoc.setGestionDsctoCargoFinal(new Documentos.Generar.DsctoCargoFinal.Gestion());
+            _gGenDoc.setGestionRemision(new Documentos.Generar.Remision.Gestion());
+            _gGenDoc.setGestionPendiente(new Documentos.Generar.Pendiente.Gestion());
+            _gGenDoc.setGestionCambioTasa(new Documentos.Generar.CambioTasa.Gestion());
+            _gGenDoc.setGestionDatosDoc(new Documentos.Generar.DatosDocumento.Gestion());
+            _gGenDoc.setGestionBuscarProducto(new Documentos.Generar.BuscarProducto.Gestion());
+            _gGenDoc.setGestionItems(new Documentos.Generar.Items.Gestion());
         }
 
 
@@ -224,9 +231,9 @@ namespace ModVentaAdm.Src.Principal
 
         private void GenerarDoc(Documentos.Generar.IDocGestion _doc)
         {
-            _gestionGenDoc.setDocGestion(_doc);
-            _gestionGenDoc.Inicializa();
-            _gestionGenDoc.Inicia();
+            _gGenDoc.setDocGestion(_doc);
+            _gGenDoc.Inicializa();
+            _gGenDoc.Inicia();
         }
 
         public void GenerarPedido()

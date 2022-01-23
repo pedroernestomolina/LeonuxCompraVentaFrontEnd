@@ -221,7 +221,7 @@ namespace ModVentaAdm.Src.Principal
 
         private void GenerarPedido()
         {
-            //_controlador.GenerarPedido();
+            _controlador.GenerarPedido();
         }
 
         private void MENU_REPORTES_UTILIDAD_POR_VENTAS_Click(object sender, EventArgs e)

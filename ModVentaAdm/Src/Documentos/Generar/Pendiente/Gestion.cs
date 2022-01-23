@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace ModVentaAdm.Src.Documentos.Generar.Pendiente
 {
     
-    public class Gestion
+    public class Gestion: IPendiente
     {
 
         private List<data> _list;

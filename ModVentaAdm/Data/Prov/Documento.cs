@@ -491,6 +491,208 @@ namespace ModVentaAdm.Data.Prov
             return result;
         }
 
+        public OOB.Resultado.FichaAuto Documento_Agregar_Pedido(OOB.Documento.Agregar.Pedido.Ficha ficha)
+        {
+            var result = new OOB.Resultado.FichaAuto();
+
+            var fichaDTO = new DtoLibPos.DocumentoAdm.Agregar.Pedido.Ficha();
+            var fichaEnc = ficha.Encabezado;
+            var Encabezado= new DtoLibPos.DocumentoAdm.Agregar.Pedido.FichaEncabezado()
+            {
+                RazonSocial = fichaEnc.RazonSocial,
+                DirFiscal = fichaEnc.DirFiscal,
+                CiRif = fichaEnc.CiRif,
+                Tipo = fichaEnc.CodigoTipoDoc,
+                Exento = fichaEnc.Exento,
+                Base1 = fichaEnc.Base1,
+                Base2 = fichaEnc.Base2,
+                Base3 = fichaEnc.Base3,
+                Impuesto1 = fichaEnc.Impuesto1,
+                Impuesto2 = fichaEnc.Impuesto2,
+                Impuesto3 = fichaEnc.Impuesto3,
+                MBase = fichaEnc.MBase,
+                Impuesto = fichaEnc.Impuesto,
+                Total = fichaEnc.Total,
+                Tasa1 = fichaEnc.Tasa1,
+                Tasa2 = fichaEnc.Tasa2,
+                Tasa3 = fichaEnc.Tasa3,
+                Nota = fichaEnc.Nota,
+                TasaRetencionIva = fichaEnc.TasaRetencionIva,
+                TasaRetencionIslr = fichaEnc.TasaRetencionIslr,
+                RetencionIva = fichaEnc.TasaRetencionIva,
+                RetencionIslr = fichaEnc.RetencionIslr,
+                AutoCliente = fichaEnc.AutoCliente,
+                CodigoCliente = fichaEnc.CodigoCliente,
+                Control = fichaEnc.Control,
+                OrdenCompra = fichaEnc.OrdenCompra,
+                Dias = fichaEnc.Dias,
+                Descuento1 = fichaEnc.Descuento1,
+                Descuento2 = fichaEnc.Descuento2,
+                Cargos = fichaEnc.Cargos,
+                Descuento1p = fichaEnc.Descuento1p,
+                Descuento2p = fichaEnc.Descuento2p,
+                Cargosp = fichaEnc.Cargosp,
+                Columna = fichaEnc.Columna,
+                EstatusAnulado = fichaEnc.EstatusAnulado,
+                Aplica = fichaEnc.Aplica,
+                ComprobanteRetencion = fichaEnc.ComprobanteRetencion,
+                SubTotalNeto = fichaEnc.SubTotalNeto,
+                Telefono = fichaEnc.Telefono,
+                FactorCambio = fichaEnc.FactorCambio,
+                CodigoVendedor = fichaEnc.CodigoVendedor,
+                Vendedor = fichaEnc.Vendedor,
+                AutoVendedor = fichaEnc.AutoVendedor,
+                Pedido = fichaEnc.Pedido,
+                CondicionPago = fichaEnc.CondicionPago,
+                Usuario = fichaEnc.Usuario,
+                CodigoUsuario = fichaEnc.CodigoUsuario,
+                CodigoSucursal = fichaEnc.CodigoSucursal,
+                Transporte = fichaEnc.Transporte,
+                CodigoTransporte = fichaEnc.CodigoTransporte,
+                MontoDivisa = fichaEnc.MontoDivisa,
+                Despachado = fichaEnc.Despachado,
+                DirDespacho = fichaEnc.DirDespacho,
+                Estacion = fichaEnc.Estacion,
+                Renglones = fichaEnc.Renglones,
+                SaldoPendiente = fichaEnc.SaldoPendiente,
+                ComprobanteRetencionIslr = fichaEnc.ComprobanteRetencionIslr,
+                DiasValidez = fichaEnc.DiasValidez,
+                AutoUsuario = fichaEnc.AutoUsuario,
+                AutoTransporte = fichaEnc.AutoTransporte,
+                Situacion = fichaEnc.Situacion,
+                Signo = fichaEnc.SignoTipoDoc,
+                Serie = fichaEnc.SiglasTipoDoc,
+                Tarifa = fichaEnc.Tarifa,
+                TipoRemision = fichaEnc.TipoRemision,
+                DocumentoRemision = fichaEnc.DocumentoRemision,
+                AutoRemision = fichaEnc.AutoRemision,
+                DocumentoNombre = fichaEnc.NombreTipoDoc,
+                SubTotalImpuesto = fichaEnc.SubTotalImpuesto,
+                SubTotal = fichaEnc.SubTotal,
+                TipoCliente = fichaEnc.TipoCliente,
+                Planilla = fichaEnc.Planilla,
+                Expendiente = fichaEnc.Expendiente,
+                AnticipoIva = fichaEnc.AnticipoIva,
+                TercerosIva = fichaEnc.TercerosIva,
+                Neto = fichaEnc.Neto,
+                Costo = fichaEnc.Costo,
+                Utilidad = fichaEnc.Utilidad,
+                Utilidadp = fichaEnc.Utilidadp,
+                DocumentoTipo = fichaEnc.TipoTipoDoc,
+                CiTitular = fichaEnc.CiTitular,
+                NombreTitular = fichaEnc.NombreTitular,
+                CiBeneficiario = fichaEnc.CiBeneficiario,
+                NombreBeneficiario = fichaEnc.NombreBeneficiario,
+                Clave = fichaEnc.Clave,
+                DenominacionFiscal = fichaEnc.DenominacionFiscal,
+                Cambio = fichaEnc.Cambio,
+                Cierre = fichaEnc.Cierre,
+                CierreFtp = fichaEnc.CierreFtp,
+                EstatusCierreContable = fichaEnc.EstatusCierreContable,
+                EstatusValidado = fichaEnc.EstatusValidado,
+                FechaPedido = fichaEnc.FechaPedido,
+                Prefijo = fichaEnc.Prefijo,
+            };
+            fichaDTO.Encabezado = Encabezado;
+            var detalles = ficha.Detalles.Select(s =>
+            {
+                var nr = new DtoLibPos.DocumentoAdm.Agregar.Pedido.FichaDetalle()
+                {
+                    AutoProducto = s.AutoProducto,
+                    Codigo = s.Codigo,
+                    Nombre = s.Nombre,
+                    AutoDepartamento = s.AutoDepartamento,
+                    AutoGrupo = s.AutoGrupo,
+                    AutoSubGrupo = s.AutoSubGrupo,
+                    AutoDeposito = s.AutoDeposito,
+                    Cantidad = s.Cantidad,
+                    Empaque = s.Empaque,
+                    PrecioNeto = s.PrecioNeto,
+                    Descuento1p = s.Descuento1p,
+                    Descuento2p = s.Descuento2p,
+                    Descuento3p = s.Descuento3p,
+                    Descuento1 = s.Descuento1,
+                    Descuento2 = s.Descuento2,
+                    Descuento3 = s.Descuento3,
+                    CostoVenta = s.CostoVenta,
+                    TotalNeto = s.TotalNeto,
+                    Tasa = s.Tasa,
+                    Impuesto = s.Impuesto,
+                    Total = s.Total,
+                    EstatusAnulado = s.EstatusAnulado,
+                    Tipo = s.Tipo,
+                    Deposito = s.Deposito,
+                    Signo = s.Signo,
+                    PrecioFinal = s.PrecioFinal,
+                    AutoCliente = s.AutoCliente,
+                    Decimales = s.Decimales,
+                    ContenidoEmpaque = s.ContenidoEmpaque,
+                    CantidadUnd = s.CantidadUnd,
+                    PrecioUnd = s.PrecioUnd,
+                    CostoUnd = s.CostoUnd,
+                    Utilidad = s.Utilidad,
+                    Utilidadp = s.Utilidadp,
+                    PrecioItem = s.PrecioItem,
+                    EstatusGarantia = s.EstatusGarantia,
+                    EstatusSerial = s.EstatusSerial,
+                    CodigoDeposito = s.CodigoDeposito,
+                    DiasGarantia = s.DiasGarantia,
+                    Detalle = s.Detalle,
+                    PrecioSugerido = s.PrecioSugerido,
+                    AutoTasa = s.AutoTasa,
+                    EstatusCorte = s.EstatusCorte,
+                    X = s.X,
+                    Y = s.Y,
+                    Z = s.Z,
+                    Corte = s.Corte,
+                    Categoria = s.Categoria,
+                    Cobranzap = s.Cobranzap,
+                    Ventasp = s.Ventasp,
+                    CobranzapVendedor = s.CobranzapVendedor,
+                    VentaspVendedor = s.VentaspVendedor,
+                    Cobranza = s.Cobranza,
+                    Ventas = s.Ventas,
+                    CobranzaVendedor = s.CobranzaVendedor,
+                    VentasVendedor = s.VentasVendedor,
+                    CostoPromedioUnd = s.CostoPromedioUnd,
+                    CostoCompra = s.CostoCompra,
+                    EstatusChecked = s.EstatusChecked,
+                    Tarifa = s.Tarifa,
+                    TotalDescuento = s.TotalDescuento,
+                    CodigoVendedor = s.CodigoVendedor,
+                    AutoVendedor = s.AutoVendedor,
+                };
+                return nr;
+            }).ToList();
+            fichaDTO.Detalles = detalles;
+            var itemsBLoquear = ficha.ItemDepositoBloquear.Select(s =>
+                {
+                    var nr = new DtoLibPos.DocumentoAdm.Agregar.Pedido.FichaItemDepositoBloquear()
+                    {
+                        autoDeposito = s.autoDeposito,
+                        autoProducto = s.autoProducto,
+                        cntUnd = s.cntUnd,
+                        depDescripcion = s.depDescripcion,
+                        prdDescripcion = s.prdDescripcion,
+                    };
+                    return nr;
+                }).ToList();
+            fichaDTO.ItemDepositoBloquear = itemsBLoquear;
+            fichaDTO.VentaTemporal = new DtoLibPos.DocumentoAdm.Agregar.Pedido.FichaTemporalVenta() { id = ficha.VentaTemporal.id, };
+            fichaDTO.ValidarRupturaPorExistencia = ficha.ValidarRupturaPorExistencia;
+
+            var r01 = MyData.DocumentoAdm_Agregar_Pedido(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                result.Mensaje = r01.Mensaje;
+                result.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return result;
+            }
+            result.Auto = r01.Auto;
+
+            return result;
+        }
+
     }
 
 }

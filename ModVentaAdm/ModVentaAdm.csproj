@@ -139,7 +139,13 @@
     <Compile Include="OOB\Configuracion\BusquedaProducto\Enumerado.cs" />
     <Compile Include="OOB\Documento\Agregar\BaseFicha.cs" />
     <Compile Include="OOB\Documento\Agregar\BaseFichaDetalle.cs" />
+    <Compile Include="OOB\Documento\Agregar\BaseFichaItemDepositoBloquear.cs" />
     <Compile Include="OOB\Documento\Agregar\BaseFichaTemporalVenta.cs" />
+    <Compile Include="OOB\Documento\Agregar\Pedido\Ficha.cs" />
+    <Compile Include="OOB\Documento\Agregar\Pedido\FichaEncabdezado.cs" />
+    <Compile Include="OOB\Documento\Agregar\Pedido\FichaDetalle.cs" />
+    <Compile Include="OOB\Documento\Agregar\Pedido\FichaItemDepositoBloquear.cs" />
+    <Compile Include="OOB\Documento\Agregar\Pedido\FichaTemporalVenta.cs" />
     <Compile Include="OOB\Documento\Agregar\Presupuesto\Ficha.cs" />
     <Compile Include="OOB\Documento\Agregar\Presupuesto\FichaDetalle.cs" />
     <Compile Include="OOB\Documento\Agregar\Presupuesto\FichaTemporalVenta.cs" />
@@ -149,7 +155,6 @@
     <Compile Include="OOB\Documento\Anular\Presupuesto\FichaAuditoria.cs" />
     <Compile Include="OOB\Documento\Entidad\Ficha.cs" />
     <Compile Include="OOB\Documento\Entidad\FichaItem.cs" />
-    <Compile Include="OOB\Documento\Entidad\FichaMetodoPago.cs" />
     <Compile Include="OOB\Documento\Lista\Ficha.cs" />
     <Compile Include="OOB\Documento\Lista\Filtro.cs" />
     <Compile Include="OOB\Maestro\Cliente\Agregar\Ficha.cs" />
@@ -400,12 +405,27 @@
     <Compile Include="Src\Documentos\Generar\DocGenerarFrm.Designer.cs">
       <DependentUpon>DocGenerarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Documentos\Generar\DsctoCargoFinal\DsctoCargoFinalFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\DsctoCargoFinal\DsctoCargoFinalFrm.Designer.cs">
+      <DependentUpon>DsctoCargoFinalFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Documentos\Generar\DsctoCargoFinal\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\enumerados.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\datosDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\Factura\GestionItem.cs" />
+    <Compile Include="Src\Documentos\Generar\IBuscarProducto.cs" />
+    <Compile Include="Src\Documentos\Generar\ICambioTasa.cs" />
+    <Compile Include="Src\Documentos\Generar\IDatosDoc.cs" />
+    <Compile Include="Src\Documentos\Generar\IDsctoCargoFinal.cs" />
+    <Compile Include="Src\Documentos\Generar\IItems.cs" />
+    <Compile Include="Src\Documentos\Generar\IPendiente.cs" />
+    <Compile Include="Src\Documentos\Generar\IRemision.cs" />
     <Compile Include="Src\Documentos\Generar\remision.cs" />
-    <Compile Include="Src\Documentos\Generar\tipoDocRemitir.cs" />
+    <Compile Include="Src\Documentos\Generar\Remision\Gestion.cs" />
+    <Compile Include="Src\Documentos\Generar\Remision\tipoDoc.cs" />
     <Compile Include="Src\Documentos\Generar\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\IDatosDocumento.cs" />
     <Compile Include="Src\Documentos\Generar\IDocGestion.cs" />
@@ -606,6 +626,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\DocGenerarFrm.resx">
       <DependentUpon>DocGenerarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Documentos\Generar\DsctoCargoFinal\DsctoCargoFinalFrm.resx">
+      <DependentUpon>DsctoCargoFinalFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\Pendiente\PendienteFrm.resx">
       <DependentUpon>PendienteFrm.cs</DependentUpon>

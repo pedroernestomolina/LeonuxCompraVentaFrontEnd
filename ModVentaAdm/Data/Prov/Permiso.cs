@@ -443,6 +443,28 @@ namespace ModVentaAdm.Data.Prov
 
             return rt;
         }
+        public OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_GenerarDoc_DsctoGlobal(string idGrupoUsu)
+        {
+            var rt = new OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha>();
+
+            var r01 = MyData.Permiso_VentaAdm_DsctoGlobal(idGrupoUsu);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Resultado.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            var nr = new OOB.Permiso.Entidad.Ficha()
+            {
+                estatus = s.estatus,
+                seguridad = s.seguridad,
+            };
+            rt.Entidad = nr;
+
+            return rt;
+        }
 
     }
 

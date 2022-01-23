@@ -274,9 +274,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem
             _data.setTasaDivisa(TasaDivisa);
         }
 
-        public void setIdDeposito(string id)
+        public void setEntidadDeposito(DatosDocumento.ficha ficha)
         {
-            _data.setIdDeposito(id);
+            _data.setIdDeposito(ficha.id);
+            _data.setNombreDeposito(ficha.desc);
         }
 
         public void setRupturaPorExistencia(bool ruptura)

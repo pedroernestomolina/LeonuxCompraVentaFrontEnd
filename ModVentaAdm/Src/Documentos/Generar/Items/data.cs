@@ -20,9 +20,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         private decimal _mDscto;
         private decimal _mIva;
         private decimal _tasaDivisa;
-        private OOB.Venta.Temporal.Item.Entidad.Ficha _ficha;
         private decimal _dsctoFinal;
+        private decimal _cargoFinal;
         private decimal _pFinal;
+        private OOB.Venta.Temporal.Item.Entidad.Ficha _ficha;
 
 
         public OOB.Venta.Temporal.Item.Entidad.Ficha DataItem { get { return _ficha; } }
@@ -48,6 +49,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
         public decimal PrecioFinal { get { return _pFinal; } }
         public decimal Utilidad { get { return (PrecioFinal - DataItem.costoUnd) * CantUnd; } }
         public decimal UtilidadP { get { return (1-(DataItem.costoUnd/ PrecioFinal)) * 100; } } 
+
 
 
         public string TasaIvaDesc 
@@ -91,7 +93,8 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             _pFinal = 0m;
             //
             Calcula();
-       }
+        }
+
 
         private void Calcula()
         {
@@ -99,6 +102,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             var xdscto = _pitem * _dscto / 100;
             _pitem -= xdscto;
             _pitem = Math.Round(_pitem, 2, MidpointRounding.AwayFromZero);
+            _pFinal = _pitem;
 
             var m = _pneto*_cant;
             _mDscto = m * _dscto / 100;
@@ -158,19 +162,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.Items
             }
         }
 
-        public void setDsctoFinal(decimal dsctoFinal)
-        {
-            _dsctoFinal = dsctoFinal;
-            Calcula2();
-        }
-
-        private void Calcula2()
-        {
-            _pFinal= _pitem;
-            var xdscto = _pFinal* _dsctoFinal / 100;
-            _pFinal-= xdscto;
-            _pFinal= Math.Round(_pFinal, 2, MidpointRounding.AwayFromZero);
-        }
 
         public decimal CostoVenta
         {

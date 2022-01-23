@@ -37,6 +37,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ServicePos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\IPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\ProvPos.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\LibEntityPos.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Helpers.Imprimir.Grafico.ReporteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Administrador.Documentos.AdmDocFrm.resources
@@ -55,6 +56,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Do
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.CambioTasa.CambioTasaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.DatosDocumento.DatosDocFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.DocGenerarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.DsctoCargoFinal.DsctoCargoFinalFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.Pendiente.PendienteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Identificacion.IdentificacionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Maestros.Grupo.AgregarEditarFrm.resources
@@ -71,4 +73,3 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\RdlCompile.cache
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\RdlCompile.compiled
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.pdb
-D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.csprojResolveAssemblyReference.cache

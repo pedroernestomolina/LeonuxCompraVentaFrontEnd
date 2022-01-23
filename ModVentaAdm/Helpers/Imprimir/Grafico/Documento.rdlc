@@ -1516,7 +1516,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>5.00062cm</Height>
+      <Height>5.9002cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1531,39 +1531,6 @@
             </Border>
           </Style>
         </Line>
-        <Textbox Name="SubTotal">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Sum(Fields!SubTotal.Value, "Encabezado")</Value>
-                  <Style>
-                    <FontWeight>Bold</FontWeight>
-                    <Format>n2</Format>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>SubTotal</rd:DefaultName>
-          <Top>0.35278cm</Top>
-          <Left>17.5428cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.97625cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Total">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1582,11 +1549,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Total</rd:DefaultName>
-          <Top>3.24667cm</Top>
+          <Top>3.95249cm</Top>
           <Left>17.50752cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.01153cm</Width>
-          <ZIndex>2</ZIndex>
+          <Width>2.97625cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1618,7 +1585,7 @@
           <Left>14.86641cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1649,11 +1616,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox52</rd:DefaultName>
-          <Top>3.24667cm</Top>
+          <Top>3.95249cm</Top>
           <Left>14.86641cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1683,11 +1650,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TotalDivisa</rd:DefaultName>
-          <Top>3.95251cm</Top>
+          <Top>4.65833cm</Top>
           <Left>17.50752cm</Left>
           <Height>0.6cm</Height>
-          <Width>3.01153cm</Width>
-          <ZIndex>5</ZIndex>
+          <Width>2.97625cm</Width>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1718,11 +1685,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox52</rd:DefaultName>
-          <Top>3.95251cm</Top>
+          <Top>4.65833cm</Top>
           <Left>14.86641cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1752,11 +1719,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Iva</rd:DefaultName>
-          <Top>2.54084cm</Top>
-          <Left>17.5428cm</Left>
+          <Top>3.24667cm</Top>
+          <Left>17.50752cm</Left>
           <Height>0.6cm</Height>
           <Width>2.97625cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1789,7 +1756,7 @@
           <Left>11.25996cm</Left>
           <Height>0.6cm</Height>
           <Width>2.21197cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1823,7 +1790,7 @@
           <Left>11.25996cm</Left>
           <Height>0.6cm</Height>
           <Width>2.21197cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1856,7 +1823,7 @@
           <Left>1.71218cm</Left>
           <Height>1.37639cm</Height>
           <Width>6.75478cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1885,11 +1852,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox52</rd:DefaultName>
-          <Top>2.54084cm</Top>
+          <Top>3.24667cm</Top>
           <Left>14.86641cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>11</ZIndex>
+          <ZIndex>10</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1924,7 +1891,7 @@
           <Left>8.8716cm</Left>
           <Height>0.6cm</Height>
           <Width>2.24726cm</Width>
-          <ZIndex>12</ZIndex>
+          <ZIndex>11</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1959,7 +1926,7 @@
           <Left>0.49953cm</Left>
           <Height>0.50616cm</Height>
           <Width>1.07154cm</Width>
-          <ZIndex>13</ZIndex>
+          <ZIndex>12</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1987,80 +1954,16 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox52</rd:DefaultName>
-          <Top>1.79972cm</Top>
+          <Top>2.54084cm</Top>
           <Left>14.86641cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
-          <ZIndex>14</ZIndex>
+          <ZIndex>13</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
             <VerticalAlign>Middle</VerticalAlign>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="subTotal2">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Sum(Fields!subTotal2.Value, "Encabezado")</Value>
-                  <Style>
-                    <Format>n2</Format>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>subTotal2</rd:DefaultName>
-          <Top>1.79972cm</Top>
-          <Left>17.5428cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.97625cm</Width>
-          <ZIndex>15</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="descuentoNeto">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Sum(Fields!descuentoNeto.Value, "Encabezado")</Value>
-                  <Style>
-                    <Format>n2</Format>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>descuentoNeto</rd:DefaultName>
-          <Top>1.05861cm</Top>
-          <Left>17.5428cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.97625cm</Width>
-          <ZIndex>16</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -2090,7 +1993,7 @@
           <Left>8.8716cm</Left>
           <Height>0.6cm</Height>
           <Width>2.24726cm</Width>
-          <ZIndex>17</ZIndex>
+          <ZIndex>14</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2123,7 +2026,235 @@
           <Left>14.15204cm</Left>
           <Height>0.6cm</Height>
           <Width>3.21437cm</Width>
+          <ZIndex>15</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="subTotalNeto">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!subTotalNeto.Value, "Encabezado")</Value>
+                  <Style>
+                    <Format>n2</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>subTotalNeto</rd:DefaultName>
+          <Top>0.3175cm</Top>
+          <Left>17.50752cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.97625cm</Width>
+          <ZIndex>16</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="descuentoNeto1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!descuentoNeto.Value, "Encabezado")</Value>
+                  <Style>
+                    <Format>n2</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>descuentoNeto1</rd:DefaultName>
+          <Top>1.05861cm</Top>
+          <Left>17.50752cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.97625cm</Width>
+          <ZIndex>17</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="textoCargo">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!textoCargo.Value, "Encabezado")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textoCargo</rd:DefaultName>
+          <Top>1.79972cm</Top>
+          <Left>14.15204cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.21437cm</Width>
           <ZIndex>18</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="cargoNeto">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!cargoNeto.Value, "Encabezado")</Value>
+                  <Style>
+                    <Format>n2</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>cargoNeto</rd:DefaultName>
+          <Top>1.79972cm</Top>
+          <Left>17.50752cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.97625cm</Width>
+          <ZIndex>19</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="subTotalNeto2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!subTotalNeto2.Value, "Encabezado")</Value>
+                  <Style>
+                    <Format>n2</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>subTotalNeto2</rd:DefaultName>
+          <Top>2.54084cm</Top>
+          <Left>17.50752cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.97625cm</Width>
+          <ZIndex>20</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox63">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Tasa Cambio:</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox52</rd:DefaultName>
+          <Top>1.96412cm</Top>
+          <Left>8.8716cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.24726cm</Width>
+          <ZIndex>21</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="factorCambio">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(Fields!factorCambio.Value, "Encabezado")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>n2</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>factorCambio</rd:DefaultName>
+          <Top>1.96412cm</Top>
+          <Left>11.25997cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.21196cm</Width>
+          <ZIndex>22</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2199,14 +2330,6 @@
           <DataField>Docontrol</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="SubTotal">
-          <DataField>SubTotal</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Descuento">
-          <DataField>Descuento</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -2231,16 +2354,104 @@
           <DataField>Notas</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="subTotal2">
-          <DataField>subTotal2</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
         <Field Name="descuentoNeto">
           <DataField>descuentoNeto</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="TextoDescuento">
           <DataField>TextoDescuento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="descuento">
+          <DataField>descuento</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="cargo">
+          <DataField>cargo</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="cargoNeto">
+          <DataField>cargoNeto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="cargoPorct">
+          <DataField>cargoPorct</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="descuentoPorct">
+          <DataField>descuentoPorct</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="textoCargo">
+          <DataField>textoCargo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="subTotalNeto">
+          <DataField>subTotalNeto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="subTotal">
+          <DataField>subTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="subTotal2">
+          <DataField>subTotal2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="subTotalNeto2">
+          <DataField>subTotalNeto2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="factorCambio">
+          <DataField>factorCambio</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="montoBase1">
+          <DataField>montoBase1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="montoBase2">
+          <DataField>montoBase2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="montoBase3">
+          <DataField>montoBase3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="montoIva1">
+          <DataField>montoIva1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="montoIva2">
+          <DataField>montoIva2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="montoIva3">
+          <DataField>montoIva3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="tasa1">
+          <DataField>tasa1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="tasa2">
+          <DataField>tasa2</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="tasa3">
+          <DataField>tasa3</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="textoBase1">
+          <DataField>textoBase1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="textoBase2">
+          <DataField>textoBase2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="textoBase3">
+          <DataField>textoBase3</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -30,6 +30,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         private decimal _factorDivisa;
         private OOB.Sistema.TipoDocumento.Entidad.Ficha _sistTipoDoc;
         private string _idEquipo;
+        private string _autoDocRemision;
+        private string _numDocRemision;
+        private string _codTipoDocRemision;
+        private DateTime? _fechaDocRemision;
+        private string _nombreDocRemision;
 
 
         public string Cliente { get { return _cliente.desc; } }
@@ -64,8 +69,13 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public ficha EntidadTransporte { get { return _transporte; } }
         public ficha EntidadSucursal { get { return _sucursal; } }
         public ficha EntidadDeposito { get { return _deposito; } }
-
-
+        //
+        public bool RemisionIsOk { get { return _autoDocRemision.Trim() != ""; } }
+        public string RemisionAutoDoc { get { return _autoDocRemision; } }
+        public string RemisionNumDoc { get { return _numDocRemision; } }
+        public string RemisionCodTipoDoc { get { return _codTipoDocRemision; } }
+        public string RemisionNombreDoc { get { return _nombreDocRemision; } }
+        public DateTime? RemisionFechaDoc { get { return _fechaDocRemision; } }
         public string ClienteRif 
         { 
             get 
@@ -98,7 +108,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                 return r;
             }
         }
-
         public string CondicionPago
         {
             get
@@ -129,6 +138,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 
         public void Inicializa()
         {
+            _autoDocRemision = "";
+            _numDocRemision = "";
+            _codTipoDocRemision = "";
+            _fechaDocRemision = null;
+            _nombreDocRemision = "";
             _fecha = DateTime.Now.Date;
             _diasCredito = 0;
             _ordenCompra = "";
@@ -289,6 +303,31 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public void setIdEquipo(string p)
         {
             _idEquipo = p;
+        }
+
+        public void setAutoDocRemision(string autoDoc)
+        {
+            _autoDocRemision = autoDoc;
+        }
+
+        public void setNumeroDocRemision(string numDoc)
+        {
+            _numDocRemision = numDoc;
+        }
+
+        public void setCodigoDocRemision(string codDoc)
+        {
+            _codTipoDocRemision = codDoc;
+        }
+
+        public void setNombreDocRemision(string nombre)
+        {
+            _nombreDocRemision = nombre;
+        }
+
+        public void setFechaDocRemision(DateTime? fecha)
+        {
+            _fechaDocRemision = fecha;
         }
 
     }

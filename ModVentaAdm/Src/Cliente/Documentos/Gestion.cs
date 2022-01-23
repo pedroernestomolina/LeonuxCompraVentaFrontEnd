@@ -177,7 +177,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         public void setLista(List<OOB.Maestro.Cliente.Documento.Ficha> list)
         {
             _ldata.Clear();
-            foreach (var it in list)
+            foreach (var it in list.OrderByDescending(o=>o.id).ToList())
             {
                 var nr = new data(it);
                 _ldata.Add(nr);
@@ -223,6 +223,11 @@ namespace ModVentaAdm.Src.Cliente.Documentos
                     _seleccionarDocumentoIsOk = true;
                 }
             }
+        }
+
+        public void setCliente(string _idCliente)
+        {
+            _autoCli = _idCliente;
         }
 
     }

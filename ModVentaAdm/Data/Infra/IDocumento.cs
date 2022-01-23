@@ -15,6 +15,7 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.FichaEntidad<OOB.Documento.Entidad.Ficha> Documento_GetById(string idAuto);
         OOB.Resultado.FichaAuto Documento_Agregar_Presupuesto(OOB.Documento.Agregar.Presupuesto.Ficha ficha);
         OOB.Resultado.Ficha Documento_Anular_Presupuesto(OOB.Documento.Anular.Presupuesto.Ficha ficha);
+        OOB.Resultado.FichaAuto Documento_Agregar_Pedido(OOB.Documento.Agregar.Pedido.Ficha ficha);
 
     }
 

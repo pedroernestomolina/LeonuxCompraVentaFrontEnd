@@ -62,8 +62,9 @@ namespace ModVentaAdm.Helpers.Imprimir
                 DocumentoAplica = xr1.Entidad.Aplica,
                 NombreCli = xr1.Entidad.RazonSocial,
                 FactorCambio = xr1.Entidad.FactorCambio,
-                SubTotal = xr1.Entidad.SubTotalNeto,
+                SubTotalNeto = xr1.Entidad.SubTotalNeto,
                 Descuento = xr1.Entidad.Descuento,
+                Cargo=xr1.Entidad.Cargos,
                 Total = xr1.Entidad.Total,
                 TotalDivisa = xr1.Entidad.MontoDivisa,
                 MontoBase = xr1.Entidad.MBase,
@@ -71,7 +72,11 @@ namespace ModVentaAdm.Helpers.Imprimir
                 MontoIva = xr1.Entidad.Impuesto,
                 Notas = xr1.Entidad.Nota,
                 CodigoCli = xr1.Entidad.CodigoCliente,
-                Descuento1p=xr1.Entidad.Descuento1p,
+                DescuentoPorct=xr1.Entidad.Descuento1p,
+                CargoPorct=xr1.Entidad.Cargosp,
+                DescuentoNeto=xr1.Entidad.DescuentoNeto,
+                CargoNeto = xr1.Entidad.CargoNeto,
+                SubTotal=(xr1.Entidad.SubTotal-xr1.Entidad.SubTotalImpuesto),
             };
             xdata.item = new List<Helpers.Imprimir.data.Item>();
             foreach (var rg in xr1.Entidad.items)

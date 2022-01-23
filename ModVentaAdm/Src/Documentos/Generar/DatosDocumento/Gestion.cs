@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
 {
     
-    public class Gestion
+    public class Gestion: IDatosDoc 
     {
 
         private data _data;
@@ -45,8 +45,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public BindingSource SourceVendedor { get { return _bsVendedor; } }
         public BindingSource SourceSucursal { get { return _bsSucursal; } }
         public string DataCliente { get { return _data.Cliente; } }
-        public string DataFecha { get { return _data.Fecha.ToShortDateString(); } }
-        public string DataFechaVence { get { return _data.FechaVence.ToShortDateString(); } }
         public string DataOrdenCompra { get { return _data.OrdenCompra; } }
         public string DataPedido { get { return _data.Pedido; } }
         public string DataFechaPedido { get { return _data.FechaPedido; } }
@@ -59,7 +57,6 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public string DataIdTransporte { get { return _data.IdTransporte; } }
         public string DataIdVendedor { get { return _data.IdVendedor; } }
         public string DataIdDeposito { get { return _data.IdDeposito; } }
-        public string DataNotasDoc { get { return _data.NotasDoc; } }
         public string DataCondPagoIsCredito { get { return _data.IdCondPago == "02" ? "1" : ""; } }
         public bool HabilitarDiasValidez { get { return _habDatosDoc.HabilitarDiasValidez; } }
         public bool HabilitarDirDespacho { get { return _habDatosDoc.HabilitarDirDespacho; } }
@@ -68,19 +65,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public bool HabilitarDeposito { get { return _habilitarDeposito; } }
         public bool HabilitarSucursal { get { return _habilitarSucursal; } }
         public bool HabilitarBusquedaCliente { get { return _habilitarBusquedaCliente; } }
-        public bool CondicionPagoIsCredito { get { return _data.CondicionPagoIsCredito; } }
-        public string ClienteRif { get { return _data.ClienteRif; } }
-        public string ClienteCodigo { get { return _data.ClienteCodigo; } }
-        public string ClienteRazonSocialDireccion { get { return _data.ClienteRazonSocialDireccion; } }
-        public OOB.Maestro.Cliente.Entidad.Ficha EntidadCliente { get { return _data.EntidadCliente; } }
-        public string DataCondPago { get { return _data.CondicionPago; } }
-        public string DataDeposito { get { return _data.Deposito; } }
-        public string DataSucursal { get { return _data.Sucursal; } }
         public string DataIdSistTipoDocumento { get { return _data.IdSistTipoDocumento; } }
         public decimal DataFactorDivisa { get { return _data.FactorDivisa; } }
         public string DataIdEquipo { get { return _data.IdEquipo; } }
         public string DataSistTipoDocumento { get { return _data.SistTipoDocumento; } }
-        public string DataSistCodigoTipoDocumento { get { return _data.SistCodigoTipoDocumento; } }
         public int IdRegDocTemporal { get { return _idRegDocTemporal; } }
         //
         public OOB.Sistema.TipoDocumento.Entidad.Ficha EntidadTipoDoc { get { return _data.EntidadTipoDoc; } }
@@ -88,6 +76,19 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public ficha EntidadTransporte { get { return _data.EntidadTransporte; } }
         public ficha EntidadSucursal { get { return _data.EntidadSucursal; } }
         public ficha EntidadDeposito { get { return _data.EntidadDeposito; } }
+        public OOB.Maestro.Cliente.Entidad.Ficha EntidadCliente { get { return _data.EntidadCliente; } }
+        //
+        public string FechaDocRemision 
+        { 
+            get 
+            {
+                var r = "";
+                if (_data.RemisionFechaDoc.HasValue)
+                    r = _data.RemisionFechaDoc.Value.ToShortDateString();
+                return r;
+            }
+        }
+        public data GetData { get { return _data; } }
         
 
         public Gestion() 
@@ -245,6 +246,10 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public void setCondPago(string id)
         {
             _data.setCondPago(_lCondPago.First(f=>f.id==id));
+            if (id == "01")
+            {
+                _data.setDiasCredito(0);
+            }
         }
 
         public void setSucursal(string id)
@@ -338,7 +343,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                     var ficha = new OOB.Venta.Temporal.Encabezado.Registrar.Ficha()
                     {
                         autoCliente = EntidadCliente.id,
-                        autoDeposito = DataIdDeposito,
+                        autoDeposito = EntidadDeposito.id ,
                         autoSistDocumento = DataIdSistTipoDocumento,
                         autoSucursal = DataIdSucursal,
                         autoUsuario = Sistema.Usuario.id,
@@ -348,9 +353,9 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                         idEquipo = DataIdEquipo,
                         monto = 0m,
                         montoDivisa = 0m,
-                        nombreDeposito = DataDeposito,
+                        nombreDeposito = EntidadDeposito.desc ,
                         nombreSistDocumento = DataSistTipoDocumento,
-                        nombreSucursal = DataSucursal,
+                        nombreSucursal = EntidadSucursal.desc,
                         nombreUsuario = Sistema.Usuario.nombre,
                         razonSocialCliente = EntidadCliente.razonSocial,
                         renglones = 0,
@@ -368,6 +373,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                         notasDoc = "",
                         tarifaPrecioCliente = EntidadCliente.tarifa,
                         tipoRemision = "",
+                        nombreTipoDocRemision = "",
                     };
                     var r01 = Sistema.MyData.Venta_Temporal_Encabezado_Registrar(ficha);
                     if (r01.Result == OOB.Resultado.Enumerados.EnumResult.isError) 
@@ -384,11 +390,11 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                     {
                         id=_idRegDocTemporal,
                         autoCliente = EntidadCliente.id,
-                        autoDeposito = DataIdDeposito,
+                        autoDeposito = EntidadDeposito.id,
                         autoSucursal = DataIdSucursal,
                         ciRifCliente = EntidadCliente.ciRif,
-                        nombreDeposito = DataDeposito,
-                        nombreSucursal = DataSucursal,
+                        nombreDeposito = EntidadDeposito.desc,
+                        nombreSucursal = EntidadSucursal.desc,
                         razonSocialCliente = EntidadCliente.razonSocial,
                         autoCobrador = DataIdCobrador,
                         autoTransporte = DataIdTransporte,
@@ -500,8 +506,38 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
                 setDiasCredito(ficha.diasCredito);
                 setNotasDoc(ficha.notasDoc);
                 setCliente(new OOB.Maestro.Cliente.Entidad.Ficha(ficha));
+                setRemisionAutoDoc(ficha.autoDocRemision);
+                setRemisionNumeroDoc(ficha.numeroDocRemision);
+                setRemisionCodigoDoc(ficha.codigoDocRemision);
+                setRemisionNombreDoc(ficha.nombreDocRemision);
+                setRemisionFechaDoc(ficha.fechaDocRemision);
                 _aceptarDatosIsOK = true;
             }
+        }
+
+        private void setRemisionFechaDoc(DateTime? fecha)
+        {
+            _data.setFechaDocRemision(fecha);
+        }
+
+        private void setRemisionNombreDoc(string nombre)
+        {
+            _data.setNombreDocRemision(nombre);
+        }
+
+        private void setRemisionCodigoDoc(string cod)
+        {
+            _data.setCodigoDocRemision(cod);
+        }
+
+        private void setRemisionNumeroDoc(string numDoc)
+        {
+            _data.setNumeroDocRemision(numDoc);
+        }
+
+        private void setRemisionAutoDoc(string auto)
+        {
+            _data.setAutoDocRemision(auto);
         }
 
         public void setFecha(DateTime fecha)
@@ -512,6 +548,15 @@ namespace ModVentaAdm.Src.Documentos.Generar.DatosDocumento
         public void setCliente(OOB.Maestro.Cliente.Entidad.Ficha ficha) 
         {
             _data.setCliente(ficha);
+        }
+
+        public void setRemision(OOB.Documento.Entidad.Ficha ficha)
+        {
+            _data.setAutoDocRemision(ficha.Auto );
+            _data.setNumeroDocRemision(ficha.DocumentoNro);
+            _data.setCodigoDocRemision(ficha.Tipo);
+            _data.setFechaDocRemision(ficha.Fecha);
+            _data.setNombreDocRemision(ficha.DocumentoNombre);
         }
 
     }

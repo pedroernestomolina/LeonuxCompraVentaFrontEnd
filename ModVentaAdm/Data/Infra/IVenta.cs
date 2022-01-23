@@ -21,6 +21,7 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Ficha Venta_Temporal_Item_Eliminar(OOB.Venta.Temporal.Item.Eliminar.Ficha ficha);
         OOB.Resultado.Ficha Venta_Temporal_Item_Limpiar(OOB.Venta.Temporal.Item.Limpiar.Ficha ficha);
         OOB.Resultado.FichaEntidad<OOB.Venta.Temporal.Item.Entidad.Ficha> Venta_Temporal_Item_GetFichaById(int idItem);
+        OOB.Resultado.Lista<OOB.Venta.Temporal.Item.Entidad.Ficha> Venta_Temporal_Item_GetLista(int idItemporal);
         
         //
         OOB.Resultado.Ficha Venta_Temporal_Anular(OOB.Venta.Temporal.Anular.Ficha ficha);

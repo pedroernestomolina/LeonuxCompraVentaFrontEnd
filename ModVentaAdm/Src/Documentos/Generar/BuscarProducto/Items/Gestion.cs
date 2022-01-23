@@ -35,6 +35,7 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto.Items
         public string Inf_Producto { get { return Item.Codigo + Environment.NewLine + Item.Descripcion; } }
         public decimal Inf_ExistenciaActual { get { return Item.ExActual; } }
         public decimal Inf_ExistenciaDisponible { get { return Item.ExDisponible; } }
+        //
         public string Inf_EmpqCont_1 { get { return Item.EmpqCont_1; } }
         public decimal Inf_PNeto_1 { get { return Item.PNeto_1; } }
         public decimal Inf_PFull_1 { get { return Item.PFull_1; } }
@@ -42,6 +43,22 @@ namespace ModVentaAdm.Src.Documentos.Generar.BuscarProducto.Items
         public string Inf_EmpqCont_2 { get { return Item.EmpqCont_2; } }
         public decimal Inf_PNeto_2 { get { return Item.PNeto_2; } }
         public decimal Inf_PFull_2 { get { return Item.PFull_2; } }
+        //
+        public string Inf_EmpqCont_3 { get { return Item.EmpqCont_3; } }
+        public decimal Inf_PNeto_3 { get { return Item.PNeto_3; } }
+        public decimal Inf_PFull_3 { get { return Item.PFull_3; } }
+        //
+        public string Inf_EmpqCont_4 { get { return Item.EmpqCont_4; } }
+        public decimal Inf_PNeto_4 { get { return Item.PNeto_4; } }
+        public decimal Inf_PFull_4 { get { return Item.PFull_4; } }
+        //
+        public string Inf_EmpqCont_5 { get { return Item.EmpqCont_5; } }
+        public decimal Inf_PNeto_5 { get { return Item.PNeto_5; } }
+        public decimal Inf_PFull_5 { get { return Item.PFull_5; } }
+        //
+        public string Inf_EmpqCont_6 { get { return Item.EmpqCont_6; } }
+        public decimal Inf_PNeto_6 { get { return Item.PNeto_6; } }
+        public decimal Inf_PFull_6 { get { return Item.PFull_6; } }
 
 
         public Gestion()

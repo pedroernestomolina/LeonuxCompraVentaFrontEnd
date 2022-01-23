@@ -42,6 +42,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Item.Registrar
         public decimal cantidadUnd { get; set; }
         public string autoDeposito { get; set; }
         public string estatusRemision { get; set; }
+        public string nombreDeposito { get; set; }
 
 
         public ItemDetalle()
@@ -82,6 +83,7 @@ namespace ModVentaAdm.OOB.Venta.Temporal.Item.Registrar
             total = 0m;
             totalDivisa = 0m;
             estatusRemision = "";
+            nombreDeposito = "";
         }
 
     }

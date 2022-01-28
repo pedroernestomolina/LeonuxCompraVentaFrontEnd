@@ -42,6 +42,12 @@
             this.DGV = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
             this.L_PRODUCTO = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.CHB_MARCAR = new System.Windows.Forms.CheckBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.CHB_PRE_DETERMINADA = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,6 +58,10 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.panel9.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -181,6 +191,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.01555F));
             this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel9, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -237,6 +248,83 @@
             this.L_PRODUCTO.Text = "label9";
             this.L_PRODUCTO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tableLayoutPanel3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(408, 1);
+            this.panel6.Margin = new System.Windows.Forms.Padding(1);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(173, 77);
+            this.panel6.TabIndex = 2;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel13, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(173, 77);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.panel8, 4);
+            this.panel8.Controls.Add(this.CHB_MARCAR);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(1, 1);
+            this.panel8.Margin = new System.Windows.Forms.Padding(1);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(2);
+            this.panel8.Size = new System.Drawing.Size(171, 36);
+            this.panel8.TabIndex = 0;
+            // 
+            // CHB_MARCAR
+            // 
+            this.CHB_MARCAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CHB_MARCAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_MARCAR.Location = new System.Drawing.Point(2, 2);
+            this.CHB_MARCAR.Name = "CHB_MARCAR";
+            this.CHB_MARCAR.Size = new System.Drawing.Size(167, 32);
+            this.CHB_MARCAR.TabIndex = 2;
+            this.CHB_MARCAR.Text = "Todas";
+            this.CHB_MARCAR.UseVisualStyleBackColor = true;
+            this.CHB_MARCAR.CheckedChanged += new System.EventHandler(this.CHB_MARCAR_CheckedChanged);
+            // 
+            // panel13
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.panel13, 4);
+            this.panel13.Controls.Add(this.CHB_PRE_DETERMINADA);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(1, 39);
+            this.panel13.Margin = new System.Windows.Forms.Padding(1);
+            this.panel13.Name = "panel13";
+            this.panel13.Padding = new System.Windows.Forms.Padding(2);
+            this.panel13.Size = new System.Drawing.Size(171, 37);
+            this.panel13.TabIndex = 4;
+            // 
+            // CHB_PRE_DETERMINADA
+            // 
+            this.CHB_PRE_DETERMINADA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CHB_PRE_DETERMINADA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHB_PRE_DETERMINADA.Location = new System.Drawing.Point(2, 2);
+            this.CHB_PRE_DETERMINADA.Name = "CHB_PRE_DETERMINADA";
+            this.CHB_PRE_DETERMINADA.Size = new System.Drawing.Size(167, 33);
+            this.CHB_PRE_DETERMINADA.TabIndex = 3;
+            this.CHB_PRE_DETERMINADA.Text = "Pre Determinadas";
+            this.CHB_PRE_DETERMINADA.UseVisualStyleBackColor = true;
+            this.CHB_PRE_DETERMINADA.CheckedChanged += new System.EventHandler(this.CHB_PRE_DETERMINADA_CheckedChanged);
+            // 
             // AsignarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,6 +349,10 @@
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.panel9.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -281,5 +373,11 @@
         private System.Windows.Forms.DataGridView DGV;
         private System.Windows.Forms.Button BT_SALIR;
         private System.Windows.Forms.Button BT_PROCESAR;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.CheckBox CHB_MARCAR;
+        private System.Windows.Forms.CheckBox CHB_PRE_DETERMINADA;
     }
 }

@@ -19,8 +19,8 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         private general _tipoDoc;
         private DateTime _desde;
         private DateTime _hasta;
-        private int? _mesRelacion;
-        private int? _anoRelacion;
+        private int _mesRelacion;
+        private int _anoRelacion;
         private bool _tipoDocFactura;
         private bool _tipoDocNtDebito;
         private bool _tipoDocNtCredito;
@@ -36,6 +36,8 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         public bool GetTipoDocNtDebito { get { return _tipoDocNtDebito; } }
         public bool GetTipoDocNtCredito { get { return _tipoDocNtCredito; } }
         public bool GetTipoDocNtEntrega { get { return _tipoDocNtEntrega; } }
+        public int GetMesRelacion { get { return _mesRelacion; } }
+        public int GetAnoRelacion { get { return _anoRelacion; } }
         public string ClienteNombre 
         {
             get 
@@ -143,8 +145,8 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             _tipoDoc = null;
             _desde = DateTime.Now.Date;
             _hasta = DateTime.Now.Date;
-            _mesRelacion = null;
-            _anoRelacion = null;
+            _mesRelacion = DateTime.Now.Date.Month;
+            _anoRelacion = DateTime.Now.Date.Year;
             _tipoDocFactura = false;
             _tipoDocNtDebito = false;
             _tipoDocNtCredito = false;

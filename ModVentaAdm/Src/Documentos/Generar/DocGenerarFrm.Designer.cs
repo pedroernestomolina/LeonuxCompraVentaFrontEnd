@@ -1885,7 +1885,7 @@
             this.tableLayoutPanel29.ColumnCount = 3;
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.66038F));
             this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.33962F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.tableLayoutPanel29.Controls.Add(this.panel71, 0, 0);
             this.tableLayoutPanel29.Controls.Add(this.panel72, 1, 0);
             this.tableLayoutPanel29.Controls.Add(this.panel73, 2, 0);
@@ -1929,7 +1929,7 @@
             this.panel72.Margin = new System.Windows.Forms.Padding(1);
             this.panel72.Name = "panel72";
             this.panel72.Padding = new System.Windows.Forms.Padding(2);
-            this.panel72.Size = new System.Drawing.Size(115, 29);
+            this.panel72.Size = new System.Drawing.Size(114, 29);
             this.panel72.TabIndex = 1;
             // 
             // CB_REMISION
@@ -1940,18 +1940,18 @@
             this.CB_REMISION.FormattingEnabled = true;
             this.CB_REMISION.Location = new System.Drawing.Point(2, 2);
             this.CB_REMISION.Name = "CB_REMISION";
-            this.CB_REMISION.Size = new System.Drawing.Size(111, 24);
+            this.CB_REMISION.Size = new System.Drawing.Size(110, 24);
             this.CB_REMISION.TabIndex = 0;
             // 
             // panel73
             // 
             this.panel73.Controls.Add(this.BT_REMISION);
             this.panel73.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel73.Location = new System.Drawing.Point(169, 1);
+            this.panel73.Location = new System.Drawing.Point(168, 1);
             this.panel73.Margin = new System.Windows.Forms.Padding(1);
             this.panel73.Name = "panel73";
             this.panel73.Padding = new System.Windows.Forms.Padding(2);
-            this.panel73.Size = new System.Drawing.Size(69, 29);
+            this.panel73.Size = new System.Drawing.Size(70, 29);
             this.panel73.TabIndex = 2;
             // 
             // BT_REMISION
@@ -1963,7 +1963,7 @@
             this.BT_REMISION.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_REMISION.Location = new System.Drawing.Point(2, 2);
             this.BT_REMISION.Name = "BT_REMISION";
-            this.BT_REMISION.Size = new System.Drawing.Size(65, 25);
+            this.BT_REMISION.Size = new System.Drawing.Size(66, 25);
             this.BT_REMISION.TabIndex = 6;
             this.BT_REMISION.UseVisualStyleBackColor = true;
             this.BT_REMISION.Click += new System.EventHandler(this.BT_REMISION_Click);

@@ -246,6 +246,10 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
             if (rt == DialogResult.Yes)
             {
                 _isCerrarHabilitado = Guardar();
+                if (_isCerrarHabilitado )
+                {
+                    Helpers.Msg.AgregarOk();
+                }
             }
             else
             {
@@ -316,8 +320,6 @@ namespace ModInventario.Producto.AgregarEditar.Agregar
 
             _isAgregarEditarOk = true;
             _autoProductoAgregado = r01.Auto;
-
-            Helpers.Msg.AgregarOk();
             return rt;
         }
 

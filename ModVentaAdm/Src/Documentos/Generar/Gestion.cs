@@ -239,6 +239,7 @@ namespace ModVentaAdm.Src.Documentos.Generar
 
         public void LimpiarDatosDocumento()
         {
+            if (_idVentaTemporal == -1) { return; }
             if (_gItems.HayItemsEnBandeja)
             {
                 Helpers.Msg.Error("DATOS DEL DOCUMENTO EN CUESTION NO PUEDEN SER LIMPIADOS");

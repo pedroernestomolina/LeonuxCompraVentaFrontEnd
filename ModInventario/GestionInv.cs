@@ -29,6 +29,7 @@ namespace ModInventario
         private Configuracion.BusquedaPredeterminada.Gestion _gestionConfBusquedaPred;
         private Configuracion.MetodoCalculoUtilidad.Gestion _gestionConfMetodoCalUtilidad;
         private Auditoria.Visualizar.Gestion _gestionAuditoria;
+        private Configuracion.DepositoPreDeterminado.Gestion _gConfDepPredeterminado;
 
 
         public string Version 
@@ -77,6 +78,7 @@ namespace ModInventario
             _gestionConfBusquedaPred = new Configuracion.BusquedaPredeterminada.Gestion();
             _gestionConfMetodoCalUtilidad = new Configuracion.MetodoCalculoUtilidad.Gestion();
             _gestionAuditoria = new Auditoria.Visualizar.Gestion();
+            _gConfDepPredeterminado = new Configuracion.DepositoPreDeterminado.Gestion();
         }
 
 
@@ -524,6 +526,22 @@ namespace ModInventario
                 }
                 else
                     Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+            }
+        }
+
+        public void Conf_DepositosPreDeterminadosRegistrar()
+        {
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gConfDepPredeterminado.Inicializa();
+                _gConfDepPredeterminado.Inicia();
             }
         }
 

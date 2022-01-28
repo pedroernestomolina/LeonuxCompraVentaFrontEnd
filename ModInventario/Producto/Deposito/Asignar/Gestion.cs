@@ -20,6 +20,8 @@ namespace ModInventario.Producto.Deposito.Asignar
         private bool _isCerrarHabilitado;
         private string producto;
         private OOB.LibInventario.Producto.Depositos.Lista.Ficha prdDep;
+        private bool _marcarTodas;
+        private bool _preDeterminiadas;
 
 
         public bool IsCerrarHabilitado { get { return _isCerrarHabilitado; } }
@@ -35,6 +37,8 @@ namespace ModInventario.Producto.Deposito.Asignar
             bldepositos = new BindingList<data>(depositos);
             bs = new BindingSource();
             bs.DataSource = bldepositos;
+            _marcarTodas = false;
+            _preDeterminiadas = false;
         }
 
 
@@ -60,6 +64,8 @@ namespace ModInventario.Producto.Deposito.Asignar
 
         private void Limpiar()
         {
+            _marcarTodas = false;
+            _preDeterminiadas = false;
             producto = "";
             depositos.Clear();
         }
@@ -188,6 +194,18 @@ namespace ModInventario.Producto.Deposito.Asignar
                 it.remover = false;
             }
         }
+        private void MarcarDeposito(data it)
+        {
+            if (it != null)
+            {
+                if (!it.asignado)
+                {
+                    it.asignar = true;
+                    it.remover = false;
+                }
+                it.remover = false;
+            }
+        }
 
         public void DesMarcarV()
         {
@@ -213,7 +231,51 @@ namespace ModInventario.Producto.Deposito.Asignar
                 }
             }
         }
+        private void DesMarcarDeposito(data it)
+        {
+            if (it != null)
+            {
+                if (!it.asignado)
+                {
+                    it.remover = true;
+                    it.asignar = false;
+                }
+            }
+        }
 
+        public void SeleccionarTodas()
+        {
+            _marcarTodas = !_marcarTodas;
+            foreach (var dep in bldepositos) 
+            {
+                if (_marcarTodas )
+                {
+                    MarcarDeposito(dep);
+                }
+                else
+                {
+                    DesMarcarDeposito(dep);
+                }
+            }
+            bs.CurrencyManager.Refresh();
+        }
+
+        public void SeleccionarPreDeterminada()
+        {
+            _preDeterminiadas = !_preDeterminiadas;
+            foreach (var dep in bldepositos.Where(w => w.Deposito.IsPerDeterminado))
+            {
+                if (_preDeterminiadas)
+                {
+                    MarcarDeposito(dep);
+                }
+                else 
+                {
+                    DesMarcarDeposito(dep);
+                }
+            }
+            bs.CurrencyManager.Refresh();
+        }
 
     }
 

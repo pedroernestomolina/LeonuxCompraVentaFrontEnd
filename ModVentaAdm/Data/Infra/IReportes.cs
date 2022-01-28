@@ -20,6 +20,7 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.Lista<OOB.Reportes.Consolidado.Ficha> Reportes_Consolidado(OOB.Reportes.Consolidado.Filtro filtro);
         OOB.Resultado.Lista<OOB.Reportes.Utilidad.Venta.Ficha> Reportes_UtilidadVenta (OOB.Reportes.Utilidad.Filtro filtro);
         OOB.Resultado.Lista<OOB.Reportes.Utilidad.Producto.Ficha> Reportes_UtilidadProducto(OOB.Reportes.Utilidad.Filtro filtro);
+        OOB.Resultado.Lista<OOB.Reportes.LibroVenta.Ficha> ReportesAdm_LibroVenta(OOB.Reportes.LibroVenta.Filtro filtro);
 
     }
 

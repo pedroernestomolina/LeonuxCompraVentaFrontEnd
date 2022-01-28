@@ -23,6 +23,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.Resultado Configuracion_SetPreferenciaRegistroPrecio(OOB.LibInventario.Configuracion.PreferenciaPrecio.Editar.Ficha ficha);
         OOB.Resultado Configuracion_SetMetodoCalculoUtilidad(OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Ficha ficha);
         OOB.Resultado Configuracion_SetBusquedaPredeterminada(OOB.LibInventario.Configuracion.BusquedaPredeterminada.Editar.Ficha ficha);
+        OOB.Resultado Configuracion_SetDepositosPreDeterminado(OOB.LibInventario.Configuracion.DepositoPreDeterminado.Ficha ficha);
 
         OOB.ResultadoLista<OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha> Configuracion_MetodoCalculoUtilidad_CapturarData();
 

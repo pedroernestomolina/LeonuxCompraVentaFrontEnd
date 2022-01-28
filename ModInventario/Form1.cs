@@ -442,6 +442,16 @@ namespace ModInventario
             _controlador.Kardex_Resumen_Mov();
         }
 
+        private void TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS_Click(object sender, EventArgs e)
+        {
+            Conf_DepositosPreDeterminadosRegistrar();
+        }
+
+        private void Conf_DepositosPreDeterminadosRegistrar()
+        {
+            _controlador.Conf_DepositosPreDeterminadosRegistrar();
+        }
+
     }
 
 }

@@ -20,6 +20,17 @@ namespace PosOnLine.OOB.Cliente.Entidad
         public string Estatus { get; set; }
         public bool IsActivo { get { return Estatus.Trim().ToUpper() == "ACTIVO" ? true : false; } }
         public string Data { get { return CiRif.Trim() + Environment.NewLine + Nombre.Trim(); } }
+        public string Tarifa { get; set; }
+        public string TarifaPrecio 
+        { 
+            get 
+            { 
+                var xr="1";
+                if (Tarifa !="0")
+                    xr=Tarifa;
+                return xr;
+            } 
+        }
 
 
         public Ficha()
@@ -31,6 +42,7 @@ namespace PosOnLine.OOB.Cliente.Entidad
             DireccionFiscal = "";
             Telefono = "";
             Estatus = "";
+            Tarifa = "";
         }
 
     }

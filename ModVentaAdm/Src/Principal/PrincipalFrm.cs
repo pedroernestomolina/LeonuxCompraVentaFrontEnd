@@ -201,7 +201,7 @@ namespace ModVentaAdm.Src.Principal
 
         private void GenerarPresupuesto()
         {
-            _controlador.GenerarPresupuesto();
+            //_controlador.GenerarPresupuesto();
         }
 
         private void MENU_DOCUMENTOS_FACTURA_Click(object sender, EventArgs e)
@@ -221,7 +221,7 @@ namespace ModVentaAdm.Src.Principal
 
         private void GenerarPedido()
         {
-            _controlador.GenerarPedido();
+            //_controlador.GenerarPedido();
         }
 
         private void MENU_REPORTES_UTILIDAD_POR_VENTAS_Click(object sender, EventArgs e)
@@ -242,6 +242,26 @@ namespace ModVentaAdm.Src.Principal
         private void UtilidadPorProducto()
         {
             _controlador.UtilidadPorProducto();
+        }
+
+        private void MENU_REPORTES_LIBRO_VENTA_Click(object sender, EventArgs e)
+        {
+            Reporte_LibroVenta();
+        }
+
+        private void Reporte_LibroVenta()
+        {
+            _controlador.Reporte_LibroVenta();
+        }
+
+        private void MENU_CONFIGURACION_SISTEMA_Click(object sender, EventArgs e)
+        {
+            ConfiguracionSistema();
+        }
+
+        private void ConfiguracionSistema()
+        {
+            _controlador.ConfiguracionSistema();
         }
 
     }

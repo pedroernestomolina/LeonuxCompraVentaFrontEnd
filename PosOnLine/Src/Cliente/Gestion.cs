@@ -13,8 +13,10 @@ namespace PosOnLine.Src.Cliente
 
 
         private Buscar.Gestion _gestionBuscar;
+        private bool _isClienteOk;
 
 
+        public bool IsClienteOk { get { return _isClienteOk; } }
         public OOB.Cliente.Entidad.Ficha Cliente { get { return _gestionBuscar.Cliente; } }
         public string ClienteData { get { return _gestionBuscar.Cliente != null ? _gestionBuscar.Cliente.Data : ""; } }
 
@@ -28,6 +30,7 @@ namespace PosOnLine.Src.Cliente
         public void Inicia()
         {
             _gestionBuscar.Inicia();
+            _isClienteOk = _gestionBuscar.ClienteSeleccionadoIsOk;
             if (!_gestionBuscar.ClienteSeleccionadoIsOk)
                 _gestionBuscar.Limpiar();
         }
@@ -35,16 +38,19 @@ namespace PosOnLine.Src.Cliente
         public void Limpiar()
         {
             _gestionBuscar.Limpiar();
+            _isClienteOk = _gestionBuscar.ClienteSeleccionadoIsOk;
         }
 
         public void Inicializa()
         {
+            _isClienteOk = false;
             _gestionBuscar.Inicializar();
         }
 
         public void CargarCliente(string autoId)
         {
             _gestionBuscar.CargarCliente(autoId);
+            _isClienteOk = true;
         }
 
     }

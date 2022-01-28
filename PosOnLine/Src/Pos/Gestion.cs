@@ -325,6 +325,9 @@ namespace PosOnLine.Src.Pos
                 case OOB.Configuracion.Entidad.Enumerados.enumModoPrecio.PorPrecioFijo:
                     _precioManejar = Sistema.ConfiguracionActual.idPrecioManejar;
                     break;
+                case OOB.Configuracion.Entidad.Enumerados.enumModoPrecio.Libre:
+                    _precioManejar = "";
+                    break;
             }
 
 
@@ -380,13 +383,26 @@ namespace PosOnLine.Src.Pos
         public void BuscarProducto(string cadena)
         {
             if (cadena == "") { return; }
-
+            
             if (_modoFuncion != EnumModoFuncion.NotaCredito)
             {
+                var _tarifaPrecioManejar = _precioManejar;
+                if (_precioManejar == "") 
+                {
+                    if (_gestionCliente.IsClienteOk)
+                    {
+                        _tarifaPrecioManejar = _gestionCliente.Cliente.TarifaPrecio;
+                    }
+                    else 
+                    {
+                        _tarifaPrecioManejar = "1";
+                    }
+                }
+
                 _gestionBuscar.setHabilitarVentaMayor(Sistema.Sucursal.HabilitarVentaMayor);
                 _gestionBuscar.GestionListar.setCantidadVisible(true);
                 _gestionBuscar.GestionListar.setPrecioVisible(true);
-                _gestionBuscar.setTarifaPrecio(_precioManejar);
+                _gestionBuscar.setTarifaPrecio(_tarifaPrecioManejar);
                 _gestionBuscar.ActivarBusqueda(cadena, _permitirBusquedaPorDescripcion);
                 if (_gestionBuscar.BusquedaIsOk)
                 {

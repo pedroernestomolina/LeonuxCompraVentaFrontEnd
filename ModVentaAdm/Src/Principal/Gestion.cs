@@ -22,6 +22,7 @@ namespace ModVentaAdm.Src.Principal
         private Documentos.Generar.Presupuesto.Gestion _gestionPresup;
         private Documentos.Generar.Factura.Gestion _gestionFact;
         private Documentos.Generar.Pedido.Gestion _gestionPedido;
+        private Configuracion.Gestion _gConfiguracion;
 
 
         public string BD_Ruta { get { return Sistema.Instancia; } }
@@ -46,6 +47,7 @@ namespace ModVentaAdm.Src.Principal
             _gGenDoc.setGestionDatosDoc(new Documentos.Generar.DatosDocumento.Gestion());
             _gGenDoc.setGestionBuscarProducto(new Documentos.Generar.BuscarProducto.Gestion());
             _gGenDoc.setGestionItems(new Documentos.Generar.Items.Gestion());
+            _gConfiguracion = new Configuracion.Gestion();
         }
 
 
@@ -253,6 +255,27 @@ namespace ModVentaAdm.Src.Principal
         public void UtilidadPorProducto()
         {
             Reporte(new Reportes.Modo.Utilidad.Producto.Gestion());
+        }
+
+        public void Reporte_LibroVenta()
+        {
+            Reporte(new Reportes.Modo.LibroVenta.Gestion());
+        }
+
+        public void ConfiguracionSistema()
+        {
+            var r00 = Sistema.MyData.Permiso_Configuracion(Sistema.Usuario.idGrupo);
+            if (r00.Result == OOB.Resultado.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gConfiguracion.Inicializa();
+                _gConfiguracion.Inica();
+            }
         }
 
     }

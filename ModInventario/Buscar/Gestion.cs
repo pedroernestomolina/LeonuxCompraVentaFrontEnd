@@ -346,17 +346,22 @@ namespace ModInventario.Buscar
         {
             if (Item != null)
             {
-                var r00 = Sistema.MyData.Permiso_AsignarDepositos(Sistema.UsuarioP.autoGru);
-                if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-                {
-                    Helpers.Msg.Error(r00.Mensaje);
-                    return;
-                }
-                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
-                {
-                    _gestionDeposito.setFicha(Item.identidad.auto);
-                    _gestionDeposito.Inicia();
-                }
+                AsignarDepositosA(Item.identidad.auto);
+            }
+        }
+
+        private void AsignarDepositosA(string autoPrd)
+        {
+            var r00 = Sistema.MyData.Permiso_AsignarDepositos(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gestionDeposito.setFicha(autoPrd);
+                _gestionDeposito.Inicia();
             }
         }
 
@@ -420,6 +425,9 @@ namespace ModInventario.Buscar
                 _gestionAgregarFicha.Inicia();
                 if (_gestionAgregarFicha.IsAgregarEditarOk)
                 {
+                    AsignarDepositosA(_gestionAgregarFicha.AutoProductoAgregado);
+
+
                     var filtros = new OOB.LibInventario.Producto.Filtro();
                     var auto=_gestionAgregarFicha.AutoProductoAgregado;
                     filtros.autoProducto = _gestionAgregarFicha.AutoProductoAgregado;

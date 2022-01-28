@@ -30,7 +30,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad> Configuracion_MetodoCalculoUtilidad()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumMetodoCalculoUtilidad>();
@@ -48,7 +47,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<decimal> Configuracion_TasaCambioActual()
         {
             var rt = new OOB.ResultadoEntidad<decimal>();
@@ -74,7 +72,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta>();
@@ -92,7 +89,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio()
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio>();
@@ -110,7 +106,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<int> Configuracion_CostoEdadProducto()
         {
             var rt = new OOB.ResultadoEntidad<int>();
@@ -126,7 +121,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
 
         public OOB.Resultado Configuracion_SetCostoEdadProducto(OOB.LibInventario.Configuracion.CostoEdad.Editar.Ficha ficha)
         {
@@ -146,7 +140,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.Resultado Configuracion_SetRedondeoPrecioVenta(OOB.LibInventario.Configuracion.RedondeoPrecio.Editar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
@@ -165,7 +158,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.Resultado Configuracion_SetPreferenciaRegistroPrecio(OOB.LibInventario.Configuracion.PreferenciaPrecio.Editar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
@@ -184,7 +176,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.Resultado Configuracion_SetMetodoCalculoUtilidad(OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.Editar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
@@ -236,7 +227,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.Resultado Configuracion_SetBusquedaPredeterminada(OOB.LibInventario.Configuracion.BusquedaPredeterminada.Editar.Ficha ficha)
         {
             var rt = new OOB.Resultado();
@@ -255,7 +245,30 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+        public OOB.Resultado Configuracion_SetDepositosPreDeterminado(OOB.LibInventario.Configuracion.DepositoPreDeterminado.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
 
+            var fichaDTO = new DtoLibInventario.Configuracion.DepositoPredeterminado.Ficha();
+            fichaDTO.ListaPreDet = ficha.ListaPreDet.Select(s =>
+            {
+                var rg = new DtoLibInventario.Configuracion.DepositoPredeterminado.Item()
+                {
+                    AutoDeposito = s.AutoDeposito,
+                    Estatus = s.Estatus,
+                };
+                return rg;
+            }).ToList();
+            var r01 = MyData.Configuracion_SetDepositosPreDeterminado(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
 
         public OOB.ResultadoLista<OOB.LibInventario.Configuracion.MetodoCalculoUtilidad.CapturarData.Ficha> Configuracion_MetodoCalculoUtilidad_CapturarData()
         {
@@ -308,7 +321,6 @@ namespace DataProvInventario.Data
            
             return rt;
         }
-
 
         public OOB.ResultadoEntidad<bool> Configuracion_HabilitarPrecio_5_ParaVentaMayorPos()
         {

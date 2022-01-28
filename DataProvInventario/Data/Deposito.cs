@@ -36,6 +36,8 @@ namespace DataProvInventario.Data
                             auto = s.auto,
                             codigo = s.codigo,
                             nombre = s.nombre,
+                            estatusActivo = s.estatusActivo,
+                            estatusPredeterminado = s.estatusPreDeterminado,
                         };
                     }).ToList();
                 }

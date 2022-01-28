@@ -54,6 +54,8 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             L_MES_ANO_RELACION.Enabled = _controlador.ActivarMesAnoRelacion;
             TB_MES_RELACION.Enabled = _controlador.ActivarMesAnoRelacion;
             TB_ANO_RELACION.Enabled = _controlador.ActivarMesAnoRelacion;
+            TB_MES_RELACION.Value = _controlador.GetMesRelacion;
+            TB_ANO_RELACION.Value = _controlador.GetAnoRelacion;
 
             L_DESDE.Enabled = _controlador.ActivarDesdeHasta;
             L_HASTA.Enabled = _controlador.ActivarDesdeHasta;

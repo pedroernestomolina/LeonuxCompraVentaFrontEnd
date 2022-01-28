@@ -80,10 +80,15 @@ namespace ModInventario.Producto.Deposito.Asignar
             _controlador = ctr;
         }
 
+        private bool _modoInicializar = false;
         private void AsignarFrm_Load(object sender, EventArgs e)
         {
+            _modoInicializar=true;
+            CHB_MARCAR.Checked = false;
+            CHB_PRE_DETERMINADA.Checked = false;
             L_PRODUCTO.Text = _controlador.Producto;
             DGV.DataSource = _controlador.Source;
+            _modoInicializar = false;
         }
 
         private void BT_SALIR_Click(object sender, EventArgs e)
@@ -125,6 +130,18 @@ namespace ModInventario.Producto.Deposito.Asignar
                         _controlador.DesMarcar();
                 }
             }
+        }
+
+        private void CHB_MARCAR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_modoInicializar) { return; }
+            _controlador.SeleccionarTodas();
+        }
+
+        private void CHB_PRE_DETERMINADA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_modoInicializar) { return; }
+            _controlador.SeleccionarPreDeterminada();
         }
 
     }

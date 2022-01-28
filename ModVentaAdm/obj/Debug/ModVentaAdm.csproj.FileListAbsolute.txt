@@ -8,6 +8,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Gener
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorDepartamento.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorGrupo.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\GeneralPorProducto.rdlc
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\LibroVenta.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\ListaDoc.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\Resumen.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\bin\Debug\Src\Reportes\UtilidadProducto.rdlc
@@ -50,6 +51,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cl
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Estatus.EstatusFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Lista.ListaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Cliente.Visualizar.VisualizaFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Configuracion.ConfiguracionFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.AgregarEditarItem.AgregarEditarItemFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.BuscarCliente.BuscarClienteFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModVentaAdm\obj\Debug\ModVentaAdm.Src.Documentos.Generar.BuscarProducto.BuscarProductoFrm.resources

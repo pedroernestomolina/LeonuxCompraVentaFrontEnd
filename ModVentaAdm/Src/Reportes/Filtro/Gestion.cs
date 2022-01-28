@@ -57,6 +57,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         //
         public string GetEstatus { get { return _data.GetEstatus; } }
         public object GetIdEstatus { get { return _data.GetIdEstatus; } }
+        //
+        public int GetMesRelacion { get { return _data.GetMesRelacion; } }
+        public int GetAnoRelacion { get { return _data.GetAnoRelacion; } }
+
         
 
         public Gestion()

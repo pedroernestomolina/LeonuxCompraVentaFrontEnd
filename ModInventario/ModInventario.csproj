@@ -161,6 +161,14 @@
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\CostoEdad\Gestion.cs" />
+    <Compile Include="Configuracion\DepositoPreDeterminado\data.cs" />
+    <Compile Include="Configuracion\DepositoPreDeterminado\DepPreDeterminadoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\DepositoPreDeterminado\DepPreDeterminadoFrm.Designer.cs">
+      <DependentUpon>DepPreDeterminadoFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\DepositoPreDeterminado\Gestion.cs" />
     <Compile Include="Configuracion\MetodoCalculoUtilidad\CalculaPrecio.cs" />
     <Compile Include="Configuracion\MetodoCalculoUtilidad\ConfigurarFrm.cs">
       <SubType>Form</SubType>
@@ -721,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\CostoEdad\ConfigurarFrm.resx">
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\DepositoPreDeterminado\DepPreDeterminadoFrm.resx">
+      <DependentUpon>DepPreDeterminadoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\RedondeoPrecio\ConfigurarFrm.resx">
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>

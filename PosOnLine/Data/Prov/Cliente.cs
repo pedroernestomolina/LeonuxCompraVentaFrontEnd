@@ -74,6 +74,7 @@ namespace PosOnLine.Data.Prov
                 Estatus = ent.estatus,
                 DireccionFiscal = ent.dirFiscal,
                 Telefono = ent.telefono1,
+                Tarifa = ent.tarifa,
             };
 
             return result;
@@ -101,6 +102,7 @@ namespace PosOnLine.Data.Prov
                 Estatus = ent.estatus,
                 DireccionFiscal = ent.dirFiscal,
                 Telefono = ent.telefono1,
+                Tarifa= ent.tarifa,
             };
 
             return result;

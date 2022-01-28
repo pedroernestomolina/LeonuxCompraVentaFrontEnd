@@ -78,6 +78,10 @@ namespace PosOnLine.Src.PrecioMayor
                             var p5 = new precio("5", _ficha.empaque_5, _ficha.contenido_5, _ficha.pneto_5, _ficha.decimales_5);
                             _precios.Add(new data("5", "DETAL", p5));
                             break;
+                        default:
+                            var p11 = new precio("1", _ficha.empaque_1, _ficha.contenido_1, _ficha.pneto_1, _ficha.decimales_1);
+                            _precios.Add(new data("1", "DETAL", p11));
+                            break;
                     }
                     var pM1 = new precio("6", _ficha.empaqueMay_1, _ficha.contenidoMay_1, _ficha.pnetoMay_1, _ficha.decimalesMay_1);
                     if (pM1.Habilitado)

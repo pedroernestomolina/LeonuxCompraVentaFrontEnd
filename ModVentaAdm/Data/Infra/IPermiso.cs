@@ -15,6 +15,9 @@ namespace ModVentaAdm.Data.Infra
         OOB.Resultado.FichaEntidad<string> Permiso_PedirClaveAcceso_NivelMinimo();
         //
 
+        OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Configuracion(string autoGrupoUsuario);
+        //
+
         OOB.Resultado.FichaEntidad<OOB.Permiso.Entidad.Ficha> Permiso_Reportes(string autoGrupoUsuario);
         //
 

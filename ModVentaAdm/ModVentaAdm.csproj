@@ -199,6 +199,8 @@
     <Compile Include="OOB\Reportes\GeneralPorDepartamento\Filtro.cs" />
     <Compile Include="OOB\Reportes\GeneralPorGrupo\Ficha.cs" />
     <Compile Include="OOB\Reportes\GeneralPorGrupo\Filtro.cs" />
+    <Compile Include="OOB\Reportes\LibroVenta\Ficha.cs" />
+    <Compile Include="OOB\Reportes\LibroVenta\Filtro.cs" />
     <Compile Include="OOB\Reportes\Resumen\Ficha.cs" />
     <Compile Include="OOB\Reportes\Resumen\Filtro.cs" />
     <Compile Include="OOB\Reportes\Utilidad\Filtro.cs" />
@@ -357,6 +359,13 @@
     <Compile Include="Src\Cliente\Visualizar\VisualizaFrm.Designer.cs">
       <DependentUpon>VisualizaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Configuracion\ConfiguracionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Configuracion\ConfiguracionFrm.Designer.cs">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Configuracion\Gestion.cs" />
     <Compile Include="Src\Documentos\Generar\AgregarEditarItem\AgregarEditarItemFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -545,6 +554,9 @@
     <Compile Include="Src\Reportes\Modo\GeneralPorGrupo\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralPorProducto\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\GeneralPorProducto\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\LibroVenta\data.cs" />
+    <Compile Include="Src\Reportes\Modo\LibroVenta\Filtro.cs" />
+    <Compile Include="Src\Reportes\Modo\LibroVenta\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\ListaDocumento\Filtro.cs" />
     <Compile Include="Src\Reportes\Modo\ListaDocumento\Gestion.cs" />
     <Compile Include="Src\Reportes\Modo\Resumen\Filtro.cs" />
@@ -608,6 +620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Cliente\Visualizar\VisualizaFrm.resx">
       <DependentUpon>VisualizaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Configuracion\ConfiguracionFrm.resx">
+      <DependentUpon>ConfiguracionFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Documentos\Generar\AgregarEditarItem\AgregarEditarItemFrm.resx">
       <DependentUpon>AgregarEditarItemFrm.cs</DependentUpon>
@@ -680,6 +695,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\GeneralPorProducto.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Reportes\LibroVenta.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Src\Reportes\ListaDoc.rdlc">
@@ -765,9 +783,11 @@
     <None Include="Resources\bt_reposo.png" />
     <None Include="Resources\bt_bombillo.png" />
     <None Include="Resources\bt_recueracion.png" />
+    <None Include="Resources\bt_configuracion.png" />
     <Content Include="Src\Imagenes\bt_abrir_doc.png" />
     <Content Include="Src\Imagenes\bt_bombillo.png" />
     <Content Include="Src\Imagenes\bt_compra.png" />
+    <Content Include="Src\Imagenes\bt_configuracion.png" />
     <Content Include="Src\Imagenes\bt_doc_pend.png" />
     <Content Include="Src\Imagenes\bt_guardar_disco.png" />
     <Content Include="Src\Imagenes\bt_info.png" />

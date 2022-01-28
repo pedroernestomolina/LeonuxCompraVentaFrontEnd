@@ -177,7 +177,7 @@ namespace ModVentaAdm.Src.Cliente.Documentos
         public void setLista(List<OOB.Maestro.Cliente.Documento.Ficha> list)
         {
             _ldata.Clear();
-            foreach (var it in list.OrderByDescending(o=>o.id).ToList())
+            foreach (var it in list.OrderByDescending(o=>o.fecha).ThenBy(o=>o.codTipoDoc).ThenByDescending(o=>o.documento).ToList())
             {
                 var nr = new data(it);
                 _ldata.Add(nr);

@@ -101,7 +101,13 @@ namespace ModInventario.Helpers
                 if (ut==100.0m && cneto == 0.0m)
                     m = 0.0m;
                 else
-                    m = cneto / ((100 - ut) / 100);
+                    if (ut == 100)
+                    {
+                    }
+                    else
+                    {
+                        m = cneto / ((100 - ut) / 100);
+                    }
             }
             else 
             {

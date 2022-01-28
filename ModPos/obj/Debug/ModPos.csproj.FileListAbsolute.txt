@@ -1,4 +1,3 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\NcDetalle.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\Reportes\PagoDetalle.rdlc
@@ -31,6 +30,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\CSV.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\DataProvPosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\LibControles.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\OOB.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\EntityFramework.SqlServer.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\System.Data.SQLite.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModPos\bin\Debug\CsvHelper.xml

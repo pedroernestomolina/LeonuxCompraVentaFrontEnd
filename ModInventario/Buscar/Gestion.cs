@@ -11,7 +11,9 @@ namespace ModInventario.Buscar
     public class Gestion
     {
 
-        private Filtrar.Gestion _gestionFiltro;
+        public enum enumMetodoBusqueda { SinDefinir = -1, PorCodigo = 1, PorNombre, PorReferencia };
+
+
         private GestionLista _gestionLista;
         private Producto.Precio.Editar.Gestion _gestionEditarPrecio;
         private Producto.Deposito.Listar.Gestion _gestionPrdExistencia;
@@ -26,24 +28,25 @@ namespace ModInventario.Buscar
         private Producto.AgregarEditar.Gestion _gestionAgregarFicha;
         private Producto.Estatus.Gestion _gestionEstatus;
         private Kardex.Movimiento.Gestion _gestionKardex;
-        private OOB.LibInventario.Producto.Filtro _filtros;
         private Producto.Imagen.Gestion _gestionImagen;
         private Producto.Proveedor.Gestion _gestionProveedor;
         private Producto.VisualizarFicha.Gestion _gestionVisualizarFicha;
+        //
+        private FiltrosGen.IAdmProducto _gFiltrarProducto;
 
 
-        public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
-        public string Cadena { get; set; }
         public object Source { get { return _gestionLista.Source; } }
         public int Items { get { return _gestionLista.Items; } }
         public OOB.LibInventario.Producto.Data.Ficha Item { get { return _gestionLista.Item; } }
         public bool HayItemSeleccionado { get; set; }
+        public string CadenaBusqProducto { get { return _gFiltrarProducto.CadenaBusq; } }
+        public enumMetodoBusqueda MetodoBusqueda { get { return (enumMetodoBusqueda)_gFiltrarProducto.MetBusqueda; } }
 
 
-        public Gestion()
+        public Gestion(FiltrosGen.IAdmProducto ctrFiltrarProducto)
         {
-            _filtros = new OOB.LibInventario.Producto.Filtro();
-            _gestionFiltro = new Filtrar.Gestion();
+            _gFiltrarProducto = ctrFiltrarProducto;
+            //
             _gestionLista = new GestionLista();
             _gestionLista.CambioItemActual+=_gestionLista_CambioItemActual;
             _gestionPrdExistencia = new Producto.Deposito.Listar.Gestion();
@@ -62,7 +65,6 @@ namespace ModInventario.Buscar
             _gestionImagen = new Producto.Imagen.Gestion();
             _gestionProveedor = new Producto.Proveedor.Gestion();
             _gestionVisualizarFicha = new Producto.VisualizarFicha.Gestion();
-            LimpiarEntradas();
         }
 
         private void _gestionLista_CambioItemActual(object sender, EventArgs e)
@@ -70,16 +72,14 @@ namespace ModInventario.Buscar
             frm.ActualizarItem();
         }
 
-        private void LimpiarEntradas()
+        public void Inicializa() 
         {
-            Cadena = "";
-            MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
+            _gFiltrarProducto.Inicializa();
         }
 
         BusquedaFrm frm;
         public void Inicia() 
         {
-            LimpiarEntradas();
             if (CargarData()) 
             {
                 HayItemSeleccionado = false;
@@ -106,23 +106,121 @@ namespace ModInventario.Buscar
             switch (r01.Entidad) 
             {
                 case OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaBusqueda.PorCodigo:
-                    MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
+                    _gFiltrarProducto.setMetBusqByCodigo();
                     break;
                 case OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaBusqueda.PorNombre:
-                    MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
+                    _gFiltrarProducto.setMetBusqByNombre();
                     break;
                 case OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaBusqueda.PorReferencia:
-                    MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia;
+                    _gFiltrarProducto.setMetBusqByReferencia();
                     break;
             }
 
             return rt;
         }
 
-
-        public void RealizarBusqueda()
+        private void RealizarBusqueda(FiltrosGen.AdmProducto.data data)
         {
+            CargarFiltros(data);
+        }
 
+        public void FiltrarBusqueda()
+        {
+            _gFiltrarProducto.Inicia();
+        }
+
+        private void CargarFiltros(FiltrosGen.AdmProducto.data data)
+        {
+            var r00 = Sistema.MyData.Configuracion_VisualizarProductosInactivos();
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            var _activarProductosInactivos = r00.Entidad;
+
+            var _filtros = new OOB.LibInventario.Producto.Filtro();
+            _filtros.cadena = data.CadenaBusq;
+            _filtros.MetodoBusqueda = (OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda)data.MetBusqueda;
+            if (data.Proveedor != null) _filtros.autoProveedor = data.Proveedor.id;
+            if (data.Departamento != null) _filtros.autoDepartamento = data.Departamento.id;
+            if (data.Grupo != null) _filtros.autoGrupo = data.Grupo.id;
+            if (data.Marca != null) _filtros.autoMarca = data.Marca.id;
+            if (data.Deposito != null) _filtros.autoDeposito = data.Deposito.id;
+            if (data.Categoria != null)
+            {
+                _filtros.categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria)int.Parse(data.Categoria.id);
+            }
+            if (data.Origen != null)
+            {
+                _filtros.origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen)int.Parse(data.Origen.id);
+            }
+            if (data.TasaIva != null) _filtros.autoTasa = data.TasaIva.id;
+            if (data.Estatus != null)
+            {
+                _filtros.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)int.Parse(data.Estatus.id);
+            }
+            else
+            {
+                if (!_activarProductosInactivos)
+                {
+                    _filtros.estatus = OOB.LibInventario.Producto.Enumerados.EnumEstatus.Activo;
+                }
+            }
+            if (data.AdmDivisa != null)
+            {
+                _filtros.admPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)int.Parse(data.AdmDivisa.id);
+            }
+            if (data.Pesado != null)
+            {
+                _filtros.pesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado)int.Parse(data.Pesado.id);
+            }
+            if (data.Oferta != null)
+            {
+                _filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(data.Oferta.id);
+            }
+            if (data.Existencia != null)
+            {
+                var xd = OOB.LibInventario.Producto.Filtro.Existencia.SinDefinir;
+                switch (data.Existencia.id)
+                {
+                    case "1":
+                        xd = OOB.LibInventario.Producto.Filtro.Existencia.MayorQueCero;
+                        break;
+                    case "2":
+                        xd = OOB.LibInventario.Producto.Filtro.Existencia.IgualCero;
+                        break;
+                    case "3":
+                        xd = OOB.LibInventario.Producto.Filtro.Existencia.MenorQueCero;
+                        break;
+                }
+                _filtros.existencia = xd;
+            }
+            if (data.Catalogo != null)
+            {
+                var xd = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.SnDefinir;
+                switch (data.Catalogo.id)
+                {
+                    case "1":
+                        xd = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.No;
+                        break;
+                    case "2":
+                        xd = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.Si;
+                        break;
+                }
+                _filtros.catalogo = xd;
+            }
+            if (data.PrecioMayor != null)
+            {
+                if (data.PrecioMayor.id == "1")
+                    _filtros.precioMayorHabilitado = true;
+            }
+
+            RealizarBusqueda(_filtros);
+        }
+
+        private void RealizarBusqueda(OOB.LibInventario.Producto.Filtro _filtros)
+        {
             var r01 = Sistema.MyData.Producto_GetLista(_filtros);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
@@ -130,77 +228,7 @@ namespace ModInventario.Buscar
                 return;
             }
             _gestionLista.setLista(r01.Lista);
-            _filtros.Limpiar();
-            _gestionFiltro.Limpiar();
             frm.ActualizarItem();
-            Cadena = "";
-        }
-
-        public void FiltrarBusqueda()
-        {
-            _gestionFiltro.Inicia();
-        }
-
-        private void CargarFiltros()
-        {
-            _filtros.precioMayorHabilitado = _gestionFiltro.PrecioMayorHabilitado ? true :(bool?) null;
-            _filtros.autoProveedor = _gestionFiltro.AutoProveedor;
-            _filtros.autoDepartamento = _gestionFiltro.AutoDepartamento;
-            _filtros.autoGrupo = _gestionFiltro.AutoGrupo;
-            _filtros.autoTasa = _gestionFiltro.AutoTasa;
-            _filtros.autoMarca = _gestionFiltro.AutoMarca;
-            _filtros.autoDeposito = _gestionFiltro.AutoDeposito;
-            if (_gestionFiltro.IdOrigen != "")
-            {
-                _filtros.origen = (OOB.LibInventario.Producto.Enumerados.EnumOrigen)int.Parse(_gestionFiltro.IdOrigen);
-            }
-            if (_gestionFiltro.IdCategoria != "")
-            {
-                _filtros.categoria = (OOB.LibInventario.Producto.Enumerados.EnumCategoria)int.Parse(_gestionFiltro.IdCategoria);
-            }
-            if (_gestionFiltro.IdEstatus != "")
-            {
-                _filtros.estatus = (OOB.LibInventario.Producto.Enumerados.EnumEstatus)int.Parse(_gestionFiltro.IdEstatus);
-            }
-            if (_gestionFiltro.IdAdmDivisa != "")
-            {
-                _filtros.admPorDivisa = (OOB.LibInventario.Producto.Enumerados.EnumAdministradorPorDivisa)int.Parse(_gestionFiltro.IdAdmDivisa);
-            }
-            if (_gestionFiltro.IdPesado != "")
-            {
-                _filtros.pesado = (OOB.LibInventario.Producto.Enumerados.EnumPesado)int.Parse(_gestionFiltro.IdPesado);
-            }
-            if (_gestionFiltro.IdCatalogo != "")
-            {
-                _filtros.catalogo = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.No ;
-                if (_gestionFiltro.IdCatalogo=="Si")
-                    _filtros.catalogo = OOB.LibInventario.Producto.Enumerados.EnumCatalogo.Si;
-            }
-            if (_gestionFiltro.IdOferta != "")
-            {
-                _filtros.oferta = (OOB.LibInventario.Producto.Enumerados.EnumOferta)int.Parse(_gestionFiltro.IdOferta);
-            }
-            if (_gestionFiltro.IdExistencia != "")
-            {
-                switch (_gestionFiltro.IdExistencia) 
-                {
-                    case "0":
-                        _filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.MayorQueCero;
-                        break;
-                    case "1":
-                        _filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.IgualCero;
-                        break;
-                    case "2":
-                        _filtros.existencia = OOB.LibInventario.Producto.Filtro.Existencia.MenorQueCero;
-                        break;
-                }
-            }
-
-        }
-
-        public void SeleccionarItem()
-        {
-            HayItemSeleccionado = _gestionLista.SeleccionarItem() != null ? true : false;
         }
 
         public void VerExistencia()
@@ -223,6 +251,8 @@ namespace ModInventario.Buscar
 
         public void Limpiar()
         {
+            _gFiltrarProducto.LimpiarFiltros();
+            _gFiltrarProducto.setCadenaBusc("");
             _gestionLista.Limpiar();
             frm.ActualizarItem();
         }
@@ -490,21 +520,9 @@ namespace ModInventario.Buscar
 
         public void Buscar()
         {
-            if (_gestionFiltro.ActivarBusqueda)
+            if (_gFiltrarProducto.DataFiltrarIsOk())
             {
-                _filtros.cadena = this.Cadena;
-                _filtros.MetodoBusqueda = this.MetodoBusqueda;
-                CargarFiltros();
-                RealizarBusqueda();
-            }
-            else 
-            {
-                if (this.Cadena.Trim() != "")
-                {
-                    _filtros.cadena = this.Cadena;
-                    _filtros.MetodoBusqueda = this.MetodoBusqueda;
-                    RealizarBusqueda();
-                }
+                RealizarBusqueda(_gFiltrarProducto.dataFiltrar);
             }
         }
 
@@ -543,6 +561,28 @@ namespace ModInventario.Buscar
                 _gestionVisualizarFicha.setFicha(Item.identidad.auto);
                 _gestionVisualizarFicha.Inicia();
             }
+        }
+
+        public void setCadenaBusc(string cadena)
+        {
+            _gFiltrarProducto.setCadenaBusc(cadena);
+        }
+        public void setMetodoBusquedaByCodigo()
+        {
+            _gFiltrarProducto.setMetBusqByCodigo();
+        }
+        public void setMetodoBusquedaByNombre()
+        {
+            _gFiltrarProducto.setMetBusqByNombre();
+        }
+        public void setMetodoBusquedaByReferencia()
+        {
+            _gFiltrarProducto.setMetBusqByReferencia();
+        }
+
+        public void SeleccionarItem()
+        {
+            HayItemSeleccionado = _gestionLista.SeleccionarItem() != null ? true : false;
         }
 
     }

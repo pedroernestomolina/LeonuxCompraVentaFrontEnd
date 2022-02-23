@@ -136,16 +136,11 @@
     <Compile Include="Buscar\BusquedaFrm.Designer.cs">
       <DependentUpon>BusquedaFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Buscar\Filtrar\data.cs" />
-    <Compile Include="Buscar\Filtrar\FiltrosFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Buscar\Filtrar\FiltrosFrm.Designer.cs">
-      <DependentUpon>FiltrosFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Buscar\Filtrar\Gestion.cs" />
+    <Compile Include="Buscar\INotificarSeleccion.cs" />
+    <Compile Include="fichaSeleccion.cs" />
     <Compile Include="Buscar\Gestion.cs" />
     <Compile Include="Buscar\GestionLista.cs" />
+    <Compile Include="Buscar\IListaSeleccion.cs" />
     <Compile Include="Configuracion\BusquedaPredeterminada\ConfigurarFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,17 +192,35 @@
     </Compile>
     <Compile Include="Configuracion\RegistroPrecio\data.cs" />
     <Compile Include="Configuracion\RegistroPrecio\Gestion.cs" />
-    <Compile Include="Filtros\Administrador\Filtros.cs" />
-    <Compile Include="Filtros\data.cs" />
-    <Compile Include="Filtros\Estatus.cs" />
-    <Compile Include="Filtros\FiltroFrm.cs">
+    <Compile Include="ficha.cs" />
+    <Compile Include="FiltrosGen\AdmDoc\data.cs" />
+    <Compile Include="FiltrosGen\AdmDoc\FiltroFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Filtros\FiltroFrm.Designer.cs">
+    <Compile Include="FiltrosGen\AdmDoc\FiltroFrm.Designer.cs">
       <DependentUpon>FiltroFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Filtros\Gestion.cs" />
-    <Compile Include="Filtros\IFiltros.cs" />
+    <Compile Include="FiltrosGen\AdmDoc\Gestion.cs" />
+    <Compile Include="FiltrosGen\AdmProducto\data.cs" />
+    <Compile Include="FiltrosGen\AdmProducto\FiltrosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FiltrosGen\AdmProducto\FiltrosFrm.Designer.cs">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiltrosGen\AdmProducto\Gestion.cs" />
+    <Compile Include="FiltrosGen\AdmSelecciona\Gestion.cs" />
+    <Compile Include="FiltrosGen\BuscarProveedor\Gestion.cs" />
+    <Compile Include="FiltrosGen\Fecha\Gestion.cs" />
+    <Compile Include="FiltrosGen\IAdmSelecciona.cs" />
+    <Compile Include="FiltrosGen\IFecha.cs" />
+    <Compile Include="FiltrosGen\IAdmProducto.cs" />
+    <Compile Include="FiltrosGen\IOpcion.cs" />
+    <Compile Include="FiltrosGen\IAdmDoc.cs" />
+    <Compile Include="FiltrosGen\IFiltro.cs" />
+    <Compile Include="FiltrosGen\IBuscar.cs" />
+    <Compile Include="FiltrosGen\Opcion\Gestion.cs" />
+    <Compile Include="FiltrosGen\BuscarProducto\Gestion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,13 +476,12 @@
     <Compile Include="Producto\Imagen\ImgFrm.Designer.cs">
       <DependentUpon>ImgFrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Producto\Lista\data.cs" />
-    <Compile Include="Producto\Lista\Gestion.cs" />
-    <Compile Include="Producto\Lista\ListaFrm.cs">
+    <Compile Include="Producto\ListaSel\Gestion.cs" />
+    <Compile Include="Producto\ListaSel\ListaSelFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Producto\Lista\ListaFrm.Designer.cs">
-      <DependentUpon>ListaFrm.cs</DependentUpon>
+    <Compile Include="Producto\ListaSel\ListaSelFrm.Designer.cs">
+      <DependentUpon>ListaSelFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Producto\Plu\data.cs" />
     <Compile Include="Producto\Plu\Gestion.cs" />
@@ -538,6 +550,13 @@
     <Compile Include="Proveedor\Buscar\Gestion.cs" />
     <Compile Include="Proveedor\Buscar\Lista\data.cs" />
     <Compile Include="Proveedor\Buscar\Lista\Gestion.cs" />
+    <Compile Include="Proveedor\ListaSel\ListaSelFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedor\ListaSel\ListaSelFrm.Designer.cs">
+      <DependentUpon>ListaSelFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedor\ListaSel\Gestion.cs" />
     <Compile Include="Reportes\Documentos\data.cs" />
     <Compile Include="Reportes\Documentos\dataDetalle.cs" />
     <Compile Include="Reportes\Documentos\dsDocumento.Designer.cs">
@@ -580,7 +599,6 @@
     <Compile Include="Reportes\Filtros\NivelMInimo\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\Filtros.cs" />
     <Compile Include="Reportes\Filtros\RelacionCompraVenta\GestionRep.cs" />
-    <Compile Include="Reportes\Filtros\tipo.cs" />
     <Compile Include="Reportes\Filtros\Valorizacion\Filtros.cs" />
     <Compile Include="Reportes\Filtros\Valorizacion\GestionRep.cs" />
     <Compile Include="Reportes\Graficas\DS.Designer.cs">
@@ -721,9 +739,6 @@
     <EmbeddedResource Include="Buscar\BusquedaFrm.resx">
       <DependentUpon>BusquedaFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Buscar\Filtrar\FiltrosFrm.resx">
-      <DependentUpon>FiltrosFrm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\BusquedaPredeterminada\ConfigurarFrm.resx">
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -739,8 +754,11 @@
     <EmbeddedResource Include="Configuracion\RegistroPrecio\ConfigurarFrm.resx">
       <DependentUpon>ConfigurarFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Filtros\FiltroFrm.resx">
+    <EmbeddedResource Include="FiltrosGen\AdmDoc\FiltroFrm.resx">
       <DependentUpon>FiltroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FiltrosGen\AdmProducto\FiltrosFrm.resx">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -823,8 +841,8 @@
     <EmbeddedResource Include="Producto\Imagen\ImgFrm.resx">
       <DependentUpon>ImgFrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Producto\Lista\ListaFrm.resx">
-      <DependentUpon>ListaFrm.cs</DependentUpon>
+    <EmbeddedResource Include="Producto\ListaSel\ListaSelFrm.resx">
+      <DependentUpon>ListaSelFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Plu\PluFrm.resx">
       <DependentUpon>PluFrm.cs</DependentUpon>
@@ -859,6 +877,9 @@
     </Compile>
     <EmbeddedResource Include="Proveedor\Buscar\BuscarFrm.resx">
       <DependentUpon>BuscarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedor\ListaSel\ListaSelFrm.resx">
+      <DependentUpon>ListaSelFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Documentos\MovTraslado.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -32,38 +32,89 @@ namespace ModInventario
         private Configuracion.DepositoPreDeterminado.Gestion _gConfDepPredeterminado;
 
 
-        public string Version 
-        { 
-            get 
-            { 
-                return "Ver. " + Application.ProductVersion; 
-            } 
-        }
-        public string Host 
-        { 
-            get 
-            { 
-                return Sistema._Instancia + "/" + Sistema._BaseDatos; 
-            } 
-        }
+        //
+        private Buscar.IListaSeleccion _gListaSelProv;
+        private Buscar.INotificarSeleccion _gListaSelPrd;
+        private FiltrosGen.IOpcion _gfiltroMarca;
+        private FiltrosGen.IOpcion _gfiltroConcepto;
+        private FiltrosGen.IOpcion _gfiltroEstatus;
+        private FiltrosGen.IOpcion _gfiltroDepOrigen;
+        private FiltrosGen.IOpcion _gfiltroDepDestino;
+        private FiltrosGen.IBuscar _gFiltroBusPrd;
+        private FiltrosGen.IBuscar _gFiltroBusProv;
+        private FiltrosGen.IOpcion _gfiltroSucursal;
+        private FiltrosGen.IOpcion _gfiltroTipoDoc;
+        private FiltrosGen.IOpcion _gfiltroCategoria;
+        private FiltrosGen.IOpcion _gfiltroOrigen;
+        private FiltrosGen.IOpcion _gfiltroTasaIva;
+        private FiltrosGen.IOpcion _gfiltroDivisa;
+        private FiltrosGen.IOpcion _gfiltroPesado;
+        private FiltrosGen.IOpcion _gfiltroOferta;
+        private FiltrosGen.IOpcion _gfiltroExistencia;
+        private FiltrosGen.IOpcion _gfiltroCatalogo;
+        private FiltrosGen.IOpcion _gfiltroPrecioMay;
+        private FiltrosGen.IOpcion _gfiltroDepart;
+        private FiltrosGen.IOpcion _gfiltroGrupo;
+        private FiltrosGen.IFecha _gfiltroDesde;
+        private FiltrosGen.IFecha _gfiltroHasta;
+        private FiltrosGen.IAdmDoc _gFiltroAdmDoc;
+        private FiltrosGen.IAdmProducto _gFiltroAdmProducto;
+        private FiltrosGen.IAdmSelecciona _gAdmSelPrd;
+        private Administrador.IGestion _gAdmDoc;
+
+
+        public string Version { get { return "Ver. " + Application.ProductVersion; } }
+        public string Host { get { return Sistema._Instancia + "/" + Sistema._BaseDatos; } }
         public string Usuario
         {
-            get
-            {
-                var rt = "";
-                rt = Sistema.UsuarioP.codigoUsu +
-                    Environment.NewLine + Sistema.UsuarioP.nombreUsu +
-                    Environment.NewLine + Sistema.UsuarioP.NombreGru;
-                return rt;
+            get 
+            { 
+                var rt = ""; 
+                rt = Sistema.UsuarioP.codigoUsu + Environment.NewLine + Sistema.UsuarioP.nombreUsu + Environment.NewLine + Sistema.UsuarioP.NombreGru; 
+                return rt; 
             }
         }
 
 
         public GestionInv()
         {
+            _gListaSelProv = new Proveedor.ListaSel.Gestion();
+            _gListaSelPrd = new Producto.ListaSel.Gestion();
+            _gfiltroMarca= new FiltrosGen.Opcion.Gestion();
+            _gfiltroConcepto = new FiltrosGen.Opcion.Gestion();
+            _gfiltroEstatus = new FiltrosGen.Opcion.Gestion();
+            _gfiltroDepOrigen= new FiltrosGen.Opcion.Gestion();
+            _gfiltroDepDestino = new FiltrosGen.Opcion.Gestion();
+            _gFiltroBusPrd= new FiltrosGen.BuscarProducto.Gestion(_gListaSelPrd);
+            _gFiltroBusProv = new FiltrosGen.BuscarProveedor.Gestion(_gListaSelProv);
+            _gfiltroSucursal= new FiltrosGen.Opcion.Gestion();
+            _gfiltroTipoDoc= new FiltrosGen.Opcion.Gestion();
+            _gfiltroDesde = new FiltrosGen.Fecha.Gestion();
+            _gfiltroHasta= new FiltrosGen.Fecha.Gestion();
+            _gfiltroCategoria = new FiltrosGen.Opcion.Gestion();
+            _gfiltroOrigen = new FiltrosGen.Opcion.Gestion();
+            _gfiltroTasaIva= new FiltrosGen.Opcion.Gestion();
+            _gfiltroEstatus= new FiltrosGen.Opcion.Gestion();
+            _gfiltroDivisa= new FiltrosGen.Opcion.Gestion();
+            _gfiltroPesado= new FiltrosGen.Opcion.Gestion();
+            _gfiltroOferta= new FiltrosGen.Opcion.Gestion();
+            _gfiltroExistencia= new FiltrosGen.Opcion.Gestion();
+            _gfiltroCatalogo= new FiltrosGen.Opcion.Gestion();
+            _gfiltroPrecioMay = new FiltrosGen.Opcion.Gestion();
+            _gfiltroDepart= new FiltrosGen.Opcion.Gestion();
+            _gfiltroGrupo= new FiltrosGen.Opcion.Gestion();
+            _gFiltroAdmDoc = new FiltrosGen.AdmDoc.Gestion(_gfiltroConcepto, _gfiltroEstatus, _gfiltroDepOrigen,
+                            _gfiltroDepDestino, _gFiltroBusPrd, _gfiltroSucursal, _gfiltroTipoDoc, 
+                            _gfiltroDesde, _gfiltroHasta);
+            _gFiltroAdmProducto = new FiltrosGen.AdmProducto.Gestion(_gfiltroMarca, _gFiltroBusProv, _gfiltroDepOrigen,
+                            _gfiltroCategoria, _gfiltroOrigen, _gfiltroTasaIva, _gfiltroEstatus, _gfiltroDivisa, _gfiltroPesado,
+                            _gfiltroOferta, _gfiltroExistencia, _gfiltroCatalogo, _gfiltroPrecioMay, _gfiltroDepart, _gfiltroGrupo);
+            _gAdmDoc = new Administrador.Movimiento.Gestion(_gFiltroAdmDoc);
+            _gAdmSelPrd = new FiltrosGen.AdmSelecciona.Gestion(_gFiltroAdmProducto, _gListaSelPrd);
+            //
             _gestionMaestro = new Maestros.Gestion();
-            _gestionBusqueda = new Buscar.Gestion();
-            _gestionMov = new Movimiento.Gestion();
+            _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto);
+            _gestionMov = new Movimiento.Gestion(_gAdmSelPrd);
             _gestionVisorExistencia = new Visor.Existencia.Gestion();
             _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
             _gestionVisorTraslado = new Visor.Traslado.Gestion();
@@ -71,7 +122,7 @@ namespace ModInventario
             _gestionVisorCostoExistencia = new Visor.CostoExistencia.Gestion();
             _gestionVisorPrecio = new Visor.Precio.Gestion();
             _gestionAdmMov = new Administrador.Gestion();
-            _gestionReporteFiltros = new Reportes.Filtros.Gestion();
+            _gestionReporteFiltros = new Reportes.Filtros.Gestion(_gListaSelPrd);
             _gestionConfCostoEdad = new Configuracion.CostoEdad.Gestion();
             _gestionConfRedondeoPrecio = new Configuracion.RedondeoPrecio.Gestion();
             _gestionConfRegistroPrecio = new Configuracion.RegistroPrecio.Gestion();
@@ -135,6 +186,7 @@ namespace ModInventario
 
         public void BuscarProducto()
         {
+            _gestionBusqueda.Inicializa();
             _gestionBusqueda.Inicia();
             if (_gestionBusqueda.HayItemSeleccionado)
             {
@@ -159,9 +211,13 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(new Movimiento.Cargo.Gestion());
+                var ctr = new Movimiento.Cargo.Gestion(_gListaSelPrd);
+                ctr.Inicializa();
+
+                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
+                _gestionMov.Finaliza();
             }
         }
 
@@ -176,9 +232,13 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(new Movimiento.Descargo.Gestion());
+                var ctr = new Movimiento.Descargo.Gestion();
+                ctr.Inicializa();
+
+                _gestionMov.Inicializa();
+                _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
+                _gestionMov.Finaliza();
             }
         }
 
@@ -193,9 +253,13 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(new Movimiento.Traslado.Gestion());
+                var ctr = new Movimiento.Traslado.Gestion(_gListaSelPrd);
+                ctr.Inicializa();
+
+                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
+                _gestionMov.Finaliza();
             }
         }
 
@@ -210,10 +274,11 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(new Movimiento.TrasladoEntreSucursal.Gestion());
+                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.setGestion(new Movimiento.TrasladoEntreSucursal.Gestion(_gListaSelPrd));
                 _gestionMov.Inicializa();
                 _gestionMov.Inicia2();
+                _gestionMov.Finaliza();
             }
         }
 
@@ -252,9 +317,13 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(new Movimiento.Ajuste.Gestion());
+                var ctr = new Movimiento.Ajuste.Gestion(_gListaSelPrd);
+                ctr.Inicializa();
+
+                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
+                _gestionMov.Finaliza();
             }
         }
 
@@ -269,7 +338,8 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                _gestionAdmMov.setGestion(new Administrador.Movimiento.Gestion());
+                _gAdmDoc.Inicializa();
+                _gestionAdmMov.setGestion(_gAdmDoc);
                 _gestionAdmMov.setGestionAuditoria(_gestionAuditoria);
                 _gestionAdmMov.Inicia();
             }
@@ -490,13 +560,15 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                var _gestion = new Movimiento.TrasladoDevolucion.Gestion();
-                _gestion.setConcepto("0000000034");
+                var ctr= new Movimiento.TrasladoDevolucion.Gestion(_gListaSelPrd);
+                ctr.Inicializa();
+                ctr.setConcepto("0000000034");
 
-                _gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(_gestion);
+                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.setGestion(ctr);
                 _gestionMov.setHabilitarConcepto(false);
                 _gestionMov.Inicia();
+                _gestionMov.Finaliza();
             }
         }
 
@@ -512,7 +584,7 @@ namespace ModInventario
             _gestionReporteFiltros.Inicia();
             if (_gestionReporteFiltros.ActivarFiltros_IsOK)
             {
-                if (_gestionReporteFiltros.DataFiltros.AutoProducto=="")
+                if (!_gestionReporteFiltros.DataFiltros.ProductoIsOk) 
                 {
                     Helpers.Msg.Error("Parametro [ PRODUCTO ] Incorrectos, Verifique Por Favor");
                     return;

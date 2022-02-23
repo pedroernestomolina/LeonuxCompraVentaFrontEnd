@@ -46,6 +46,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
             var tot = Math.Round(_ds.encabezado.Total, 2, MidpointRounding.AwayFromZero);
             var stot = Math.Round(_ds.encabezado.SubTotalItemFull, 2, MidpointRounding.AwayFromZero);
             var sbtot = Math.Round(_ds.encabezado.SubTotalItemFull, 2, MidpointRounding.AwayFromZero);
+            var totDivisa = Math.Round(_ds.encabezado.TotalDivisa, 2, MidpointRounding.AwayFromZero);
 
             _tick.Documento.Limpiar();
             _tick.Documento.nombre = _ds.encabezado.DocumentoNombre;
@@ -56,6 +57,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
             _tick.Documento.subtotalNeto = "Bs " + sbtot.ToString("n2");
             _tick.Documento.subtotal = "Bs " + stot.ToString("n2");
             _tick.Documento.total = "Bs " + tot.ToString("n2");
+            _tick.Documento.totalDivisa = "$ "+ totDivisa.ToString("n2");
             _tick.Documento.cambio = "Bs " + _ds.encabezado.CambioDar.ToString("n2");
             _tick.Documento.descuentoMonto = "Bs " + _ds.encabezado.Descuento.ToString("n2");
             _tick.Documento.descuentoPorct = _ds.encabezado.DescuentoPorc.ToString("n2").Trim() + "%";

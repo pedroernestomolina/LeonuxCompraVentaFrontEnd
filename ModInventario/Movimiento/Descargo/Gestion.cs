@@ -11,9 +11,7 @@ namespace ModInventario.Movimiento.Descargo
     
     public class Gestion: IGestion
     {
-
-        private Producto.Busqueda.Gestion _gestionBusquedaPrd;
-        private Producto.Lista.Gestion _gestionListaPrd; 
+        
         private List<OOB.LibInventario.Concepto.Ficha> lConcepto;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
         private List<OOB.LibInventario.Deposito.Ficha> lDepOrigen;
@@ -26,6 +24,7 @@ namespace ModInventario.Movimiento.Descargo
         private GestionDetalle _gestionDetalle;
         private decimal tasaCambio;
         private bool isCerrarOk;
+        private bool _procesarDocIsOk;
 
 
         public bool IsCerrarOk { get { return isCerrarOk; } }
@@ -66,8 +65,6 @@ namespace ModInventario.Movimiento.Descargo
         public string AutorizadoPor { get { return miData.AutorizadoPor; } set { miData.AutorizadoPor = value; } }
         public string Motivo { get { return miData.Motivo; } set { miData.Motivo = value; } }
         public DateTime FechaMov { get { return miData.Fecha; } set { miData.Fecha = value; } }
-        public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return _gestionBusquedaPrd.Metodo; } set { _gestionBusquedaPrd.Metodo = value; } }
-        public string CadenaBusqueda { get { return _gestionBusquedaPrd.CadenaBusqueda; } set { _gestionBusquedaPrd.CadenaBusqueda = value; } }
         public ficha Sucursal { get { return miData.GetSucursal; } }
         public ficha DepositoOrigen { get { return miData.GetDepositoOrigen; } }
         public ficha Concepto { get { return miData.GetConcepto; } }
@@ -93,16 +90,13 @@ namespace ModInventario.Movimiento.Descargo
                 return id;
             }
         }
-        
+        public bool ProcesarDocIsOk { get { return _procesarDocIsOk; } }
+
 
         public Gestion()
         {
             _gestionDetalle = new GestionDetalle();
-            _gestionBusquedaPrd = new Producto.Busqueda.Gestion();
-            _gestionListaPrd = new Producto.Lista.Gestion();
-            _gestionListaPrd.ItemSeleccionadoOk+=_gestionListaPrd_ItemSeleccionadoOk;
             miData = new Movimiento.data();
-
             lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
             lSucursal = new List<OOB.LibInventario.Sucursal.Ficha>();
             lDepOrigen = new List<OOB.LibInventario.Deposito.Ficha>();
@@ -117,29 +111,8 @@ namespace ModInventario.Movimiento.Descargo
             bsDepDestino.DataSource = lDepDestino;
         }
 
-
-        private void _gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
-        {
-            if (_gestionListaPrd.ItemSeleccionado.Estatus == OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
-            {
-                Helpers.Msg.Error("PRODUCTO EN ESTADO INACTIVO");
-                return;
-            }
-            else 
-            {
-                if (DepositoOrigen == null)
-                {
-                    Helpers.Msg.Error("CAMPO [ DEPOSITO ORIGEN ] NO SELECCIONADO");
-                    return;
-                }
-                _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, DepositoOrigen.id);
-            }
-
-        }
-
         public void Inicia()
         {
-            _gestionBusquedaPrd.Inicia();
         }
 
         public bool CargarData()
@@ -180,6 +153,7 @@ namespace ModInventario.Movimiento.Descargo
 
         public void Limpiar()
         {
+            _procesarDocIsOk = false;
             isCerrarOk = false;
             miData.Limpiar();
             lDepOrigen.Clear();
@@ -201,12 +175,6 @@ namespace ModInventario.Movimiento.Descargo
 
         public void BuscarProducto()
         {
-            _gestionBusquedaPrd.Buscar();
-            if (_gestionBusquedaPrd.IsOk) 
-            {
-                _gestionListaPrd.setLista(_gestionBusquedaPrd.Resultado);
-                _gestionListaPrd.Inicia();
-            }
         }
 
         public void EliminarItem()
@@ -221,6 +189,7 @@ namespace ModInventario.Movimiento.Descargo
 
         public void Procesar()
         {
+            _procesarDocIsOk = false;
             miData.detalle = _gestionDetalle.Detalle;
             if (miData.Verificar())
             {
@@ -253,12 +222,13 @@ namespace ModInventario.Movimiento.Descargo
 
                 Helpers.Msg.AgregarOk();
                 isCerrarOk = true;
+                _procesarDocIsOk = true;
             }
         }
 
         private bool RegistrarDocumento()
         {
-            var ficha = new OOB.LibInventario.Movimiento.DesCargo.Insertar.Ficha()
+            var movOOB= new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaMov()
             {
                 autoConcepto = Concepto.id,
                 autoDepositoDestino = DepositoOrigen.id,
@@ -288,10 +258,9 @@ namespace ModInventario.Movimiento.Descargo
                 factorCambio=tasaCambio,
                 montoDivisa=Math.Round(MontoMovimiento/tasaCambio,2, MidpointRounding.AwayFromZero),
             };
-
-            var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            var detOOB = _gestionDetalle.Detalle.ListaItems.Select(s =>
             {
-                var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaDetalle()
+                var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaMovDetalle()
                 {
                     autoDepartamento = s.FichaPrd.identidad.autoDepartamento,
                     autoGrupo = s.FichaPrd.identidad.autoGrupo,
@@ -315,24 +284,24 @@ namespace ModInventario.Movimiento.Descargo
                 };
                 return rg;
             }).ToList();
-            ficha.detalles = detalles;
-
-            var lDep = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            var gr3 = _gestionDetalle.Detalle.ListaItems.GroupBy
+                (g => new {g.FichaPrd.AutoId, g.DescripcionPrd}).
+                Select(g2 => new { id = g2.Key.AutoId, desc =g2.Key.DescripcionPrd, cnt = g2.Sum(s => s.CantidadUnd * s.Signo) }).ToList();
+            var depOOB = gr3.Select(s =>
             {
-                var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaPrdDeposito()
+                var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaMovDeposito()
                 {
                     autoDeposito = DepositoOrigen.id,
-                    autoProducto = s.FichaPrd.AutoId,
-                    nombreProducto = s.DescripcionPrd,
-                    cantidadUnd = s.CantidadUnd,
+                    autoProducto = s.id,
+                    nombreProducto = s.desc,
+                    cantidadUnd = s.cnt,
+                    nombreDeposito = DepositoOrigen.descripcion,
                 };
                 return rg;
             }).ToList();
-            ficha.prdDeposito = lDep;
-
-            var lKardex = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            var KardexOOB = _gestionDetalle.Detalle.ListaItems.Select(s =>
             {
-                var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaKardex()
+                var rg = new OOB.LibInventario.Movimiento.DesCargo.Insertar.FichaMovKardex()
                 {
                     autoConcepto = Concepto.id,
                     autoDeposito = DepositoOrigen.id,
@@ -358,15 +327,20 @@ namespace ModInventario.Movimiento.Descargo
                 };
                 return rg;
             }).ToList();
-            ficha.movKardex = lKardex;
 
+            var ficha = new OOB.LibInventario.Movimiento.DesCargo.Insertar.Ficha()
+            {
+                mov = movOOB,
+                movDeposito = depOOB,
+                movDetalles = detOOB,
+                movKardex = KardexOOB,
+            };
             var r01 = Sistema.MyData.Producto_Movimiento_DesCargo_Insertar(ficha);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return false;
             }
-
             Helpers.VisualizarDocumento.CargarVisualizarDocumento(r01.Auto);
 
             return true;
@@ -381,11 +355,6 @@ namespace ModInventario.Movimiento.Descargo
         public enumerados.enumTipoMovimiento EnumTipoMovimiento
         {
             get { return  enumerados.enumTipoMovimiento.Descargo; }
-        }
-
-        public void setFiltros(Buscar.Filtrar.data data)
-        {
-            _gestionBusquedaPrd.setFiltros(data);
         }
 
         public void ActualizarConceptos()
@@ -408,10 +377,6 @@ namespace ModInventario.Movimiento.Descargo
         public bool HabilitarConcepto
         {
             get { return true; }
-        }
-
-        public void Inicializa()
-        {
         }
 
         public void setSucursal(string id)
@@ -472,6 +437,47 @@ namespace ModInventario.Movimiento.Descargo
         {
         }
 
+
+        public void Inicializa()
+        {
+            _procesarDocIsOk = false;
+        }
+
+        public void Finaliza()
+        {
+        }
+
+
+        public void BuscarProducto(string id)
+        {
+            var filtro = new OOB.LibInventario.Producto.Filtro() { autoProducto = id };
+            var r01 = Sistema.MyData.Producto_GetLista(filtro);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            var ficha = r01.Lista[0];
+            if ( ficha.IsInactivo)
+            {
+                Helpers.Msg.Error("ITEM NO PUEDE SER SELECCIONADO: VERIFIQUE ESTATUS");
+                return;
+            }
+            if (DepositoOrigen == null)
+            {
+                Helpers.Msg.Error("CAMPO [ DEPOSITO ORIGEN ] NO SELECCIONADO");
+                return;
+            }
+            _gestionDetalle.AgregarItem(ficha, DepositoOrigen.id);
+        }
+
+        //public void setFiltros(Buscar.Filtrar.data data)
+        //{
+        //}
+
+        public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
+        public string CadenaBusqueda { get; set; }
 
     }
 

@@ -22,6 +22,16 @@ namespace ModInventario.Administrador
         public AdministradorFrm()
         {
             InitializeComponent();
+            InicializarGrid_1();
+            InicializaCombos();
+        }
+
+        private void InicializaCombos()
+        {
+            CB_SUCURSAL.DisplayMember = "desc";
+            CB_SUCURSAL.ValueMember = "id";
+            CB_TIPO_DOC.DisplayMember = "desc";
+            CB_TIPO_DOC.ValueMember = "id";
         }
 
         private void InicializarGrid_1()
@@ -189,20 +199,19 @@ namespace ModInventario.Administrador
             }
         }
 
+        private bool _modoInicializar;
         private void AdministradorFrm_Load(object sender, EventArgs e)
         {
-            CB_SUCURSAL.DisplayMember = "Nombre";
-            CB_SUCURSAL.ValueMember = "Codigo";
+            _modoInicializar = true;
             CB_SUCURSAL.DataSource = _controlador.SucursalSource;
-            CB_SUCURSAL.SelectedIndex = -1;
+            CB_TIPO_DOC.DataSource = _controlador.TipoDocSource;
+            DTP_DESDE.Value = _controlador.FechaDesde;
+            DTP_HASTA.Value = _controlador.FechaHasta;
+            CB_SUCURSAL.SelectedValue = _controlador.SucursalID;
+            CB_TIPO_DOC.SelectedValue= _controlador.TipoDocID;
+            _modoInicializar = false;
 
             L_TITULO.Text = _controlador.Titulo;
-            switch (_controlador.TipoAdministrador)
-            {
-                case enumerados.EnumTipoAdministrador.AdmDocumentos:
-                    InicializarGrid_1();
-                    break;
-            }
             Actualizar();
             DGV.DataSource = _controlador.Source;
             DGV.Refresh();
@@ -251,43 +260,55 @@ namespace ModInventario.Administrador
 
         private void DTP_DESDE_ValueChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_Desde = DTP_DESDE.Value;
+            if (_modoInicializar)
+                return;
+
+            if (DTP_DESDE.Checked)
+            {
+                _controlador.setFechaDesde(DTP_DESDE.Value);
+            }
+            else 
+            {
+                _controlador.setFechaDesdeEstatusOff();
+            }
         }
 
         private void DTP_HASTA_ValueChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_Hasta = DTP_HASTA.Value;
+            if (_modoInicializar)
+                return;
+
+            if (DTP_HASTA.Checked)
+            {
+                _controlador.setFechaHasta(DTP_HASTA.Value);
+            }
+            else
+            {
+                _controlador.setFechaHastaEstatusOff();
+            }
         }
 
         private void CB_TIPO_DOC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_TipoDoc = "" ;
-            if (CB_TIPO_DOC.SelectedIndex != -1) 
+            if (_modoInicializar) 
+                return;
+
+            _controlador.setTipoDoc("");
+            if (CB_TIPO_DOC.SelectedIndex != -1)
             {
-                switch (CB_TIPO_DOC.SelectedIndex)
-                {
-                    case 0:
-                        _controlador.Filtro_TipoDoc = "01";
-                        break;
-                    case 1:
-                        _controlador.Filtro_TipoDoc = "02";
-                        break;
-                    case 2:
-                        _controlador.Filtro_TipoDoc = "03";
-                        break;
-                    case 3:
-                        _controlador.Filtro_TipoDoc = "04";
-                        break;
-                }
+                _controlador.setTipoDoc(CB_TIPO_DOC.SelectedValue.ToString());
             }
         }
 
         private void CB_SUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _controlador.Filtro_Sucursal = "";
+            if (_modoInicializar)
+                return;
+
+            _controlador.setSucursal("");
             if (CB_SUCURSAL.SelectedIndex != -1) 
             {
-                _controlador.Filtro_Sucursal = CB_SUCURSAL.SelectedValue.ToString();
+                _controlador.setSucursal(CB_SUCURSAL.SelectedValue.ToString());
             }
         }
 
@@ -309,11 +330,15 @@ namespace ModInventario.Administrador
         private void LimpiarFiltros()
         {
             _controlador.LimpiarFiltros();
-
-            DTP_DESDE.Value = DateTime.Now;
-            DTP_HASTA.Value = DateTime.Now;
-            CB_SUCURSAL.SelectedIndex = -1;
-            CB_TIPO_DOC.SelectedIndex = -1;
+            if (_controlador.LimpiarFiltrosIsOk) 
+            {
+                _modoInicializar = true;
+                CB_SUCURSAL.SelectedValue  = _controlador.SucursalID;
+                CB_TIPO_DOC.SelectedValue = _controlador.TipoDocID;
+                DTP_DESDE.Value = _controlador.FechaDesde;
+                DTP_HASTA.Value = _controlador.FechaHasta;
+                _modoInicializar = false;
+            }
         }
 
         private void BT_LIMPIAR_DATA_Click(object sender, EventArgs e)

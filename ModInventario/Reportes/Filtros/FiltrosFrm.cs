@@ -50,7 +50,7 @@ namespace ModInventario.Reportes.Filtros
 
         private void FiltrosFrm_Load(object sender, EventArgs e)
         {
-            TB_PRODUCTO.Text = "";
+            TB_PRODUCTO.Text = _controlador.ProductoAFiltrar;
             CB_DEPARTAMENTO.DataSource = _controlador.SourceDepart;
             CB_DEPOSITO.DataSource = _controlador.SourceDeposito;
             CB_ADMDIVISA.DataSource = _controlador.SourceAdmDivisa;
@@ -224,6 +224,7 @@ namespace ModInventario.Reportes.Filtros
             _controlador.LimpiarFiltros();
             if (_controlador.LimpiarFiltros_IsOK)
             {
+                P_BUSCAR_PRODUCTO.Enabled = true;
                 TB_PRODUCTO.Text = "";
                 CB_DEPARTAMENTO.SelectedIndex = -1;
                 CB_DEPOSITO.SelectedIndex = -1;
@@ -316,17 +317,14 @@ namespace ModInventario.Reportes.Filtros
             _controlador.BuscarProducto();
             if (_controlador.ProductoIsOk)
             {
-                TB_PRODUCTO.Text = _controlador.ProductoBuscar;
+                P_BUSCAR_PRODUCTO.Enabled = false;
             }
-            else
-            {
-                TB_PRODUCTO.Text = "";
-            }
+            TB_PRODUCTO.Text = _controlador.ProductoAFiltrar;
         }
 
         private void TB_PRODUCTO_Leave(object sender, EventArgs e)
         {
-            _controlador.ProductoBuscar = TB_PRODUCTO.Text.Trim().ToUpper();
+            _controlador.setProductoBuscar(TB_PRODUCTO.Text.Trim().ToUpper());
         }
 
         private void TB_KeyDown(object sender, KeyEventArgs e)
@@ -335,6 +333,13 @@ namespace ModInventario.Reportes.Filtros
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void L_PRODUCTO_Click(object sender, EventArgs e)
+        {
+            _controlador.LimpiarProducto();
+            P_BUSCAR_PRODUCTO.Enabled = true;
+            TB_PRODUCTO.Text = "";
         }
     
     }

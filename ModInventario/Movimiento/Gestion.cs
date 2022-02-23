@@ -13,9 +13,12 @@ namespace ModInventario.Movimiento
     {
 
 
+        public enum enumMetBusq { SinDefinir = -1, PorCodgo = 1, PorNombre, PorReferencia };
+
+
         private IGestion miGestion;
-        private Buscar.Filtrar.Gestion _gestionFiltroBusqueda;
         private Maestros.Gestion _gestionMaestro;
+        private FiltrosGen.IAdmSelecciona _gAdmSelPrd;
 
 
         public enumerados.enumTipoMovimiento EnumTipoMovimiento { get { return miGestion.EnumTipoMovimiento; } }
@@ -37,8 +40,6 @@ namespace ModInventario.Movimiento
         public string AutorizadoPor { get { return miGestion.AutorizadoPor; } set { miGestion.AutorizadoPor = value; }  }
         public string Motivo { get { return miGestion.Motivo ; } set { miGestion.Motivo = value; } }
         public DateTime FechaMov { get { return miGestion.FechaMov; } set { miGestion.FechaMov = value; } }
-        public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return miGestion.MetodoBusqueda; } set { miGestion.MetodoBusqueda = value; } }
-        public string CadenaBusqueda { get { return miGestion.CadenaBusqueda; } set { miGestion.CadenaBusqueda = value; } }
         public bool HabilitarConcepto { get { return miGestion.HabilitarConcepto; } }
         public bool HabilitarCambioSucursal { get { return miGestion.HabilitarCambioSucursal; } }
         public string GetIdSucursal { get { return miGestion.GetIdSucursal; } }
@@ -46,11 +47,13 @@ namespace ModInventario.Movimiento
         public string GetIdDepositoOrigen { get { return miGestion.GetIdDepositoOrigen; } }
         public bool HabilitarCambioDepositoDestino { get { return miGestion.HabilitarCambioDepositoDestino; } }
         public string GetIdDepositoDestino { get { return miGestion.GetIdDepositoDestino; } }
+        public enumMetBusq MetodoBusqueda { get { return (enumMetBusq)_gAdmSelPrd.MetBusqueda; } }
+        public string CadenaBusqueda { get { return _gAdmSelPrd.CadenaBusqueda; } }
 
 
-        public Gestion()
+        public Gestion(FiltrosGen.IAdmSelecciona admSelPrd)
         {
-            _gestionFiltroBusqueda = new Buscar.Filtrar.Gestion();
+            _gAdmSelPrd = admSelPrd;
             _gestionMaestro = new Maestros.Gestion();
         }
 
@@ -67,12 +70,12 @@ namespace ModInventario.Movimiento
             Limpiar();
             if (CargarData())
             {
-                if (frm == null) 
+                if (frm == null)
                 {
+                    frm = new MvFrm();
+                    frm.setControlador(this);
                 }
-                frm = new MvFrm();
-                frm.setControlador(this);
-                frm.Show();
+                frm.ShowDialog();
             }
         }
 
@@ -83,6 +86,25 @@ namespace ModInventario.Movimiento
 
         private bool CargarData()
         {
+            var r01 = Sistema.MyData.Configuracion_PreferenciaBusqueda();
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            switch (r01.Entidad)
+            {
+                case OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaBusqueda.PorCodigo:
+                    setMetBusqByCodigo();
+                    break;
+                case OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaBusqueda.PorNombre:
+                    setMetBusqByNombre();
+                    break;
+                case OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaBusqueda.PorReferencia:
+                    setMetBusqByReferencia();
+                    break;
+            }
+
             return miGestion.CargarData();
         }
 
@@ -98,7 +120,17 @@ namespace ModInventario.Movimiento
 
         public void BuscarProducto()
         {
-            miGestion.BuscarProducto();
+            _gAdmSelPrd.NotificarSeleccion +=_gAdmSelPrd_NotificarSeleccion;
+            _gAdmSelPrd.BuscarSeleccionar();
+            _gAdmSelPrd.NotificarSeleccion -= _gAdmSelPrd_NotificarSeleccion;
+        }
+
+        private void _gAdmSelPrd_NotificarSeleccion(object sender, EventArgs e)
+        {
+            if (_gAdmSelPrd.ItemSeleccionadoIsOk)
+            {
+                miGestion.BuscarProducto(_gAdmSelPrd.ItemSeleccionado.id);
+            }
         }
 
         public void EliminarItem()
@@ -114,6 +146,11 @@ namespace ModInventario.Movimiento
         public void Procesar()
         {
             miGestion.Procesar();
+            if (miGestion.ProcesarDocIsOk) 
+            {
+                _gAdmSelPrd.Inicializa();
+                miGestion.Inicializa();
+            }
         }
 
         public bool AbandonarDocumento()
@@ -123,11 +160,7 @@ namespace ModInventario.Movimiento
 
         public void Filtrar()
         {
-            _gestionFiltroBusqueda.Inicia(false);
-            if (_gestionFiltroBusqueda.IsFiltrarOk)
-            {
-                miGestion.setFiltros(_gestionFiltroBusqueda.FiltrosSeleccionados);
-            }
+            _gAdmSelPrd.Inicia();
         }
 
         public void MaestroConcepto()
@@ -144,27 +177,48 @@ namespace ModInventario.Movimiento
 
         public void Inicializa()
         {
-            miGestion.Inicializa();
+            _gAdmSelPrd.Inicializa();
         }
 
         public void setSucursal(string id)
         {
             miGestion.setSucursal(id);
         }
-
         public void setDepositoOrigen(string id)
         {
             miGestion.setDepositoOrigen(id);
         }
-
         public void setConcepto(string id)
         {
             miGestion.setConcepto(id);
         }
-
         public void setDepositoDestino(string id)
         {
             miGestion.setDepositoDestino(id);
+        }
+
+
+        public void Finaliza()
+        {
+            miGestion.Finaliza();
+        }
+
+
+        public void setMetBusqByCodigo()
+        {
+            _gAdmSelPrd.setMetBusqByCodigo();
+        }
+        public void setMetBusqByNombre()
+        {
+            _gAdmSelPrd.setMetBusqByNombre();
+        }
+        public void setMetBusqByReferencia()
+        {
+            _gAdmSelPrd.setMetBusqByReferencia();
+        }
+        public void setCadenaBuscar(string cadena)
+        {
+            _gAdmSelPrd.setCadenaBusq(cadena);
         }
 
     }

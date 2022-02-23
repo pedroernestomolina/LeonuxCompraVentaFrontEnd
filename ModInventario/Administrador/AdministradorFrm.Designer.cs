@@ -556,6 +556,7 @@
             this.DTP_HASTA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_HASTA.Location = new System.Drawing.Point(2, 2);
             this.DTP_HASTA.Name = "DTP_HASTA";
+            this.DTP_HASTA.ShowCheckBox = true;
             this.DTP_HASTA.Size = new System.Drawing.Size(109, 22);
             this.DTP_HASTA.TabIndex = 2;
             this.DTP_HASTA.ValueChanged += new System.EventHandler(this.DTP_HASTA_ValueChanged);
@@ -574,11 +575,11 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(2, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 26);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Hasta:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -600,6 +601,7 @@
             this.DTP_DESDE.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTP_DESDE.Location = new System.Drawing.Point(2, 2);
             this.DTP_DESDE.Name = "DTP_DESDE";
+            this.DTP_DESDE.ShowCheckBox = true;
             this.DTP_DESDE.Size = new System.Drawing.Size(109, 22);
             this.DTP_DESDE.TabIndex = 1;
             this.DTP_DESDE.ValueChanged += new System.EventHandler(this.DTP_DESDE_ValueChanged);
@@ -618,11 +620,11 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(2, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 25);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Desde:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -743,11 +745,6 @@
             this.CB_TIPO_DOC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_TIPO_DOC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_TIPO_DOC.FormattingEnabled = true;
-            this.CB_TIPO_DOC.Items.AddRange(new object[] {
-            "Cargo",
-            "DesCargo",
-            "Traslado",
-            "Ajuste"});
             this.CB_TIPO_DOC.Location = new System.Drawing.Point(2, 2);
             this.CB_TIPO_DOC.Name = "CB_TIPO_DOC";
             this.CB_TIPO_DOC.Size = new System.Drawing.Size(225, 24);
@@ -1138,11 +1135,9 @@
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.DateTimePicker DTP_HASTA;
         private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.DateTimePicker DTP_DESDE;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel27;
@@ -1155,5 +1150,7 @@
         private System.Windows.Forms.ComboBox CB_TIPO_DOC;
         private System.Windows.Forms.ComboBox CB_SUCURSAL;
         private System.Windows.Forms.Label L_SUCURSAL;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

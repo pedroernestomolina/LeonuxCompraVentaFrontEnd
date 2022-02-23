@@ -14,47 +14,54 @@ namespace ModInventario.Administrador.Movimiento
 
         private IGestionListaDetalle _gestionListaDetalle;
         private Anular.Gestion _gestionAnular;
-        private Filtros.Gestion _gestionFiltros;
-        private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
-        private BindingSource bsSucursal;
+        private FiltrosGen.IAdmDoc _gFiltro;
+        private bool _limpiarFiltrosIsOk;
 
 
         public enumerados.EnumTipoAdministrador TipoAdministrador { get { return enumerados.EnumTipoAdministrador.AdmDocumentos; } }
         public string Titulo { get { return "Administrador De Documentos de Inventario"; } }
         public BindingSource Source { get { return _gestionListaDetalle.Source; } }
         public string Items { get { return _gestionListaDetalle.Items; }}
-        public DateTime? Filtro_Desde { get; set; }
         public DateTime? Filtro_Hasta { get; set; }
-        public string Filtro_TipoDoc { get; set; }
-        public string Filtro_Sucursal { get; set; }
-        public BindingSource SucursalSource { get { return bsSucursal; } }
+        public BindingSource SucursalSource { get { return _gFiltro.Sucursal.Source; } }
+        public BindingSource TipoDocSource { get { return _gFiltro.TipoDoc.Source; } }
+        public string SucursalID { get { return _gFiltro.Sucursal.GetId; } }
+        public string TipoDocID{ get { return _gFiltro.TipoDoc.GetId; } }
+        public DateTime FechaDesde { get { return _gFiltro.FechaDesde.GetFecha; } }
+        public DateTime FechaHasta { get { return _gFiltro.FechaHasta.GetFecha; } }
+        public bool LimpiarFiltrosIsOk { get { return _limpiarFiltrosIsOk; } }
 
 
-        public Gestion()
+        public Gestion(FiltrosGen.IAdmDoc ctrFiltro)
         {
-            lSucursal = new List<OOB.LibInventario.Sucursal.Ficha>();
-            bsSucursal = new BindingSource();
-            bsSucursal.DataSource = lSucursal;
+            _limpiarFiltrosIsOk = false;
 
-            LimpiarFiltros();
-
+            _gFiltro = ctrFiltro;
             _gestionAnular = new Anular.Gestion();
             _gestionListaDetalle = new GestionListaDetalle();
             _gestionListaDetalle.setGestionAnular(_gestionAnular);
-            _gestionFiltros = new Filtros.Gestion();
-            _gestionFiltros.setGestion(new Filtros.Administrador.Filtros());
+            LimpiarFiltros();
         }
 
+
+        public void Inicializa() 
+        {
+            _gFiltro.Inicializa();
+            _gestionListaDetalle.Inicializa();
+            _limpiarFiltrosIsOk = false;
+        }
 
         AdministradorFrm frm;
         public void Inicia()
         {
-            Limpiar();
             if (CargarData())
             {
-                frm = new AdministradorFrm();
-                frm.setControlador(this);
-                frm.Show();
+                if (frm == null) 
+                {
+                    frm = new AdministradorFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
             }
         }
 
@@ -68,17 +75,21 @@ namespace ModInventario.Administrador.Movimiento
                 Helpers.Msg.Error(rt1.Mensaje);
                 return false;
             }
-            lSucursal.Clear();
-            lSucursal.AddRange(rt1.Lista.OrderBy(o=>o.nombre).ToList());
-            bsSucursal.CurrencyManager.Refresh();
+            var lst = new List<ficha>();
+            foreach (var rg in rt1.Lista.OrderBy(o => o.nombre).ToList())
+            {
+                lst.Add(new ficha(rg.auto, rg.codigo, rg.nombre));
+            }
+            _gFiltro.Sucursal.setData(lst);
+
+            var lst2 = new List<ficha>();
+            lst2.Add(new ficha("1", "01", "CARGO"));
+            lst2.Add(new ficha("2", "02", "DESCARGO"));
+            lst2.Add(new ficha("3", "03", "TRASLADO"));
+            lst2.Add(new ficha("4", "04", "AJUSTE"));
+            _gFiltro.TipoDoc.setData(lst2);
 
             return rt;
-        }
-
-        private void Limpiar()
-        {
-            Filtro_Desde = DateTime.Now;
-            Filtro_Hasta = DateTime.Now;
         }
 
         public void Buscar()
@@ -89,84 +100,87 @@ namespace ModInventario.Administrador.Movimiento
         private string xfiltros;
         private void GenerarBusqueda()
         {
-            xfiltros = "";
-            var filtro = new OOB.LibInventario.Movimiento.Lista.Filtro();
-            if (Filtro_Desde.HasValue) { filtro.Desde = Filtro_Desde.Value.Date; xfiltros += "Desde: " + Filtro_Desde.Value.ToShortDateString(); }
-            if (Filtro_Hasta.HasValue) { filtro.Hasta = Filtro_Hasta.Value.Date; xfiltros += ", Hasta: " + Filtro_Hasta.Value.ToShortDateString(); }
-
-            if (Filtro_Hasta.HasValue) 
-                if (Filtro_Desde.HasValue)
-                    if (Filtro_Desde.Value > Filtro_Hasta.Value) 
+            if (_gFiltro.DataFiltrarIsOk())
+            {
+                var data = _gFiltro.DataFiltrar;
+                xfiltros = "";
+                var filtro = new OOB.LibInventario.Movimiento.Lista.Filtro();
+                if (data.Desde.HasValue)
+                {
+                    filtro.Desde = data.Desde.Value.Date;
+                    xfiltros += "Desde: " + data.Desde.Value.ToShortDateString();
+                }
+                if (data.Hasta.HasValue)
+                {
+                    filtro.Hasta = data.Hasta.Value.Date;
+                    xfiltros += ", Hasta: " + data.Hasta.Value.ToShortDateString();
+                }
+                if (data.TipoDoc != null)
+                {
+                    switch (data.TipoDoc.codigo)
                     {
-                        Helpers.Msg.Error("Fechas Incorrectas, Verifique Por Favor");
-                        return;
+                        case "01":
+                            filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Cargo;
+                            xfiltros += ", Doc/Tipo: CARGO";
+                            break;
+                        case "02":
+                            filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Descargo;
+                            xfiltros += ", Doc/Tipo: DESCARGO";
+                            break;
+                        case "03":
+                            filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Traslado;
+                            xfiltros += ", Doc/Tipo: TRASLADO";
+                            break;
+                        case "04":
+                            filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Ajuste;
+                            xfiltros += ", Doc/Tipo: AJUSTE";
+                            break;
                     }
-
-            if (Filtro_TipoDoc != "") 
-            {
-                switch (Filtro_TipoDoc) 
-                {
-                    case "01":
-                        filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Cargo;
-                        xfiltros += ", Doc/Tipo: CARGO"; 
-                        break;
-                    case "02":
-                        filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Descargo;
-                        xfiltros += ", Doc/Tipo: DESCARGO"; 
-                        break;
-                    case "03":
-                        filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Traslado;
-                        xfiltros += ", Doc/Tipo: TRASLADO"; 
-                        break;
-                    case "04":
-                        filtro.TipoDocumento = OOB.LibInventario.Movimiento.enumerados.EnumTipoDocumento.Ajuste;
-                        xfiltros += ", Doc/Tipo: AJUSTE"; 
-                        break;
                 }
-            }
-            filtro.IdSucursal = Filtro_Sucursal;
-            if (Filtro_Sucursal!="")
-                xfiltros += ", Cod/Suc: "+Filtro_Sucursal; 
-
-            if (_gestionFiltros.FiltrosIsOk)
-            {
-                filtro.IdProducto = _gestionFiltros.DataFiltrar.AutoProducto;
-                if (_gestionFiltros.DataFiltrar.depDestino != null)
+                if (data.Sucursal != null)
                 {
-                    filtro.IdDepDestino = _gestionFiltros.DataFiltrar.depDestino.auto;
-                    xfiltros += ", Dep/Destino: " + _gestionFiltros.DataFiltrar.depDestino.nombre;
+                    filtro.IdSucursal = data.Sucursal.codigo;
+                    xfiltros += ", Sucursal: " + data.Sucursal.desc;
                 }
-                if (_gestionFiltros.DataFiltrar.depOrigen != null) 
+                if (data.Producto != null)
                 {
-                    filtro.IdDepOrigen = _gestionFiltros.DataFiltrar.depOrigen.auto;
-                    xfiltros += ", Dep/Origen: " + _gestionFiltros.DataFiltrar.depOrigen.nombre;
+                    filtro.IdProducto = data.Producto.id;
+                    xfiltros += ", Producto: " + data.Producto.desc;
                 }
-                if (_gestionFiltros.DataFiltrar.concepto != null)
+                if (data.DepOrigen != null)
                 {
-                    filtro.IdConcepto = _gestionFiltros.DataFiltrar.concepto.auto;
-                    xfiltros += ", Concepto: " + _gestionFiltros.DataFiltrar.concepto.nombre;
+                    filtro.IdDepOrigen = data.DepOrigen.id;
+                    xfiltros += ", Dep/Origen: " +data.DepOrigen.desc ;
                 }
-                if (_gestionFiltros.DataFiltrar.estatus != null)
+                if (data.DepDestino != null)
                 {
+                    filtro.IdDepDestino = data.DepDestino.id ;
+                    xfiltros += ", Dep/Destino: " + data.DepDestino.desc;
+                }
+                if (data.Concepto!= null)
+                {
+                    filtro.IdConcepto = data.Concepto.id ;
+                    xfiltros += ", Concepto: " + data.Concepto.desc;
+                }
+                if (data.Estatus != null)
+                {
+                    var xestatus = ", Estatus: ACTIVO";
                     filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo;
-                    if (_gestionFiltros.DataFiltrar.estatus.Id != "01")
+                    if (data.Estatus.id != "1")
+                    {
                         filtro.Estatus = OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Anulado;
-
-                    if (filtro.Estatus==OOB.LibInventario.Movimiento.enumerados.EnumEstatus.Activo)
-                        xfiltros += ", Estatus: ACTIVO" ;
-                    else
-                        xfiltros += ", Estatus: ANULADO";
+                        xestatus = ", Estatus: ANULADO";
+                    }
+                    xfiltros += xestatus ;
                 }
+                var rt1 = Sistema.MyData.Producto_Movimiento_GetLista(filtro);
+                if (rt1.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(rt1.Mensaje);
+                    return;
+                }
+                _gestionListaDetalle.setLista(rt1.Lista);
             }
-            var rt1 = Sistema.MyData.Producto_Movimiento_GetLista(filtro);
-            if (rt1.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(rt1.Mensaje);
-                return;
-            }
-
-            _gestionFiltros.LimpiarFiltros();
-            _gestionListaDetalle.setLista(rt1.Lista);
         }
 
         public void AnularItem()
@@ -176,10 +190,10 @@ namespace ModInventario.Administrador.Movimiento
 
         public void LimpiarFiltros()
         {
-            Filtro_Desde = DateTime.Now;
+            _gFiltro.LimpiarFiltros();
+            _limpiarFiltrosIsOk = true;
+
             Filtro_Hasta = DateTime.Now;
-            Filtro_TipoDoc = "";
-            Filtro_Sucursal = "";
         }
 
         public void LimpiarData()
@@ -199,7 +213,8 @@ namespace ModInventario.Administrador.Movimiento
 
         public void Filtros()
         {
-            _gestionFiltros.Inicia();
+            _gFiltro.Inicializa();
+            _gFiltro.Inicia();
         }
 
         public void VerAnulacion()
@@ -210,6 +225,32 @@ namespace ModInventario.Administrador.Movimiento
         public void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestionAuditoria)
         {
             _gestionListaDetalle.setGestionAuditoria(_gestionAuditoria);
+        }
+
+
+        public void setSucursal(string id)
+        {
+            _gFiltro.Sucursal.setFicha(id);
+        }
+        public void setTipoDoc(string id)
+        {
+            _gFiltro.TipoDoc.setFicha(id);
+        }
+        public void setFechaDesde(DateTime fecha)
+        {
+            _gFiltro.FechaDesde.setFecha(fecha);
+        }
+        public void setFechaDesdeEstatusOff()
+        {
+            _gFiltro.FechaDesde.setEstatusOff();
+        }
+        public void setFechaHasta(DateTime fecha)
+        {
+            _gFiltro.FechaHasta.setFecha(fecha);
+        }
+        public void setFechaHastaEstatusOff()
+        {
+            _gFiltro.FechaHasta.setEstatusOff();
         }
 
     }

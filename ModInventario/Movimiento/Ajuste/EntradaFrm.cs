@@ -30,7 +30,16 @@ namespace ModInventario.Movimiento.Ajuste
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
-            Salir();
+            AbandonarFicha();
+        }
+
+        private void AbandonarFicha()
+        {
+            _controlador.AbandonarFicha();
+            if (_controlador.abandonarIsOk) 
+            {
+                Salir();
+            }
         }
 
         private void Salir()
@@ -46,9 +55,9 @@ namespace ModInventario.Movimiento.Ajuste
         private void Procesar()
         {
             _controlador.Procesar();
-            if (_controlador.ProcesarOk)
+            if (_controlador.procesarIsOk)
             {
-                this.Close();
+                Salir();
             }
         }
 
@@ -129,6 +138,15 @@ namespace ModInventario.Movimiento.Ajuste
                     break;
             }
             ActualizarData();
+        }
+
+        private void EntradaFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            if (_controlador.abandonarIsOk || _controlador.procesarIsOk)
+            {
+                e.Cancel = false;
+            }
         }
 
     }

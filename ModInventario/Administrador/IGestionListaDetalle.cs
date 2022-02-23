@@ -24,6 +24,7 @@ namespace ModInventario.Administrador
         void Imprimir(string xfiltros);
         void VerAnulacion();
         void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestionAuditoria);
+        void Inicializa();
 
     }
 

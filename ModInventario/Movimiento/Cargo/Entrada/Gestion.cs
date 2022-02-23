@@ -18,13 +18,15 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         private decimal importe;
         private decimal importeMonedaLocal;
         private string idDeposito;
+        private bool _abandonarIsOk;
+        private bool _procesarIsOk;
 
 
-        public bool ProcesarOk { get; set; }
+        public bool abandonarIsOk { get { return _abandonarIsOk; } }
+        public bool procesarIsOk { get { return _procesarIsOk; } }
         public OOB.LibInventario.Producto.Data.Ficha Prd { get; set; }
         public decimal Cantidad { get; set; }
         public decimal Costo { get; set; }
-
         public string Producto { get { return Prd.Producto; } }
         public string ProductoEmpCompra { get { return Prd.Empaque; } }
         public string ProductoAdmDivisa { get { return Prd.Divisa; } }
@@ -71,19 +73,19 @@ namespace ModInventario.Movimiento.Cargo.Entrada
 
         public Gestion()
         {
-            ProcesarOk = false;
             Cantidad = 0.0m;
             Costo = 0.0m;
             contenido = 1;
             importe = 0.0m;
             tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra ;
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
         }
 
 
         EntradaFrm frm;
         public void Inicia()
         {
-            Limpiar();
             if (CargarData())
             {
                 contenido = Prd.identidad.contenidoCompra;
@@ -111,11 +113,12 @@ namespace ModInventario.Movimiento.Cargo.Entrada
 
         private void Limpiar()
         {
-            ProcesarOk = false;
             Cantidad = 0.0m;
             Costo = 0.0m;
             contenido = 1;
-            tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra ;
+            tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra;
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
         }
 
         public void Procesar()
@@ -128,7 +131,7 @@ namespace ModInventario.Movimiento.Cargo.Entrada
             var msg = MessageBox.Show("Guardar Cambios ?","*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2 );
             if (msg == DialogResult.Yes) 
             {
-                ProcesarOk = true;
+                _procesarIsOk = true;
             }
         }
 
@@ -167,7 +170,6 @@ namespace ModInventario.Movimiento.Cargo.Entrada
 
         public void Editar(item it)
         {
-            Limpiar();
             if (CargarData())
             {
                 Prd = it.FichaPrd;
@@ -188,6 +190,22 @@ namespace ModInventario.Movimiento.Cargo.Entrada
         public void setTasaCambio(decimal tasaCambio)
         {
             this.tasaCambio=tasaCambio;
+        }
+
+        public void AbandonarFicha()
+        {
+            _abandonarIsOk = false;
+            var xmsg = "Abandonar Cambios ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                _abandonarIsOk = true;
+            }
+        }
+
+        public void Inicializa()
+        {
+            Limpiar();
         }
 
     }

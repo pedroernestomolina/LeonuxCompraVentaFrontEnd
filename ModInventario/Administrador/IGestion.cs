@@ -16,13 +16,17 @@ namespace ModInventario.Administrador
         string Titulo { get; }
         BindingSource Source { get;  }
         string Items { get; }
-        DateTime? Filtro_Desde { get; set; }
         DateTime? Filtro_Hasta { get; set; }
-        string Filtro_TipoDoc { get; set; }
-        string Filtro_Sucursal { get; set; }
         BindingSource SucursalSource { get; }
+        BindingSource TipoDocSource { get; }
+        string SucursalID { get; }
+        string TipoDocID { get; }
+        DateTime FechaDesde { get; }
+        DateTime FechaHasta { get; }
+        bool LimpiarFiltrosIsOk { get; }
 
 
+        void Inicializa();
         void Inicia();
         void Buscar();
         void AnularItem();
@@ -33,6 +37,12 @@ namespace ModInventario.Administrador
         void Filtros();
         void VerAnulacion();
         void setGestionAuditoria(Auditoria.Visualizar.Gestion _gestion);
+        void setSucursal(string id);
+        void setTipoDoc(string id);
+        void setFechaDesde(DateTime fecha);
+        void setFechaDesdeEstatusOff();
+        void setFechaHasta(DateTime dateTime);
+        void setFechaHastaEstatusOff();
 
     }
 

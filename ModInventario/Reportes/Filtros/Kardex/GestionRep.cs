@@ -32,9 +32,12 @@ namespace ModInventario.Reportes.Filtros.Kardex
             if (dataFiltros != null)
             {
                 filtro.autoDeposito = dataFiltros.AutoDeposito;
-                filtro.autoProducto = dataFiltros.AutoProducto;
                 filtro.desde = dataFiltros.Desde;
                 filtro.hasta= dataFiltros.Hasta;
+                if (dataFiltros.ProductoIsOk)
+                {
+                    filtro.autoProducto = dataFiltros.Producto.id;
+                }
             }
             var r01 = Sistema.MyData.Reportes_Kardex (filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)

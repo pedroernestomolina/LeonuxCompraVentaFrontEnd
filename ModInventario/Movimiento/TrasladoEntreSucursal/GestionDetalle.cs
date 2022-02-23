@@ -86,9 +86,10 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 return;
             }
 
+            _gestionEntrada.Inicializa();
             _gestionEntrada.setFicha(ficha, idDepositoOrigen);
             _gestionEntrada.Inicia();
-            if (_gestionEntrada.ProcesarOk)
+            if (_gestionEntrada.procesarIsOk)
             {
                 detalle.Agregar(ficha, _gestionEntrada.Cantidad, _gestionEntrada.Costo,
                     _gestionEntrada.TipoEmpaqueSeleccionado, tasaCambio, _gestionEntrada.Importe,
@@ -115,8 +116,9 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 var idx= bs.IndexOf(it);
                 if (idx == 0)
                     idx = -1;
+                _gestionEntrada.Inicializa();
                 _gestionEntrada.Editar(it, idDeposito);
-                if (_gestionEntrada.ProcesarOk)
+                if (_gestionEntrada.procesarIsOk)
                 {
                     detalle.Remover(it);
                     detalle.Agregar(it.FichaPrd, _gestionEntrada.Cantidad, _gestionEntrada.Costo,

@@ -121,6 +121,21 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+        public OOB.ResultadoEntidad<bool> Configuracion_VisualizarProductosInactivos()
+        {
+            var rt = new OOB.ResultadoEntidad<bool>();
+
+            var r01 = MyData.Configuracion_VisualizarProductosInactivos();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad.Trim().ToUpper()=="SI"?true:false;
+
+            return rt;
+        }
 
         public OOB.Resultado Configuracion_SetCostoEdadProducto(OOB.LibInventario.Configuracion.CostoEdad.Editar.Ficha ficha)
         {
@@ -321,7 +336,6 @@ namespace DataProvInventario.Data
            
             return rt;
         }
-
         public OOB.ResultadoEntidad<bool> Configuracion_HabilitarPrecio_5_ParaVentaMayorPos()
         {
             var rt = new OOB.ResultadoEntidad<bool>();

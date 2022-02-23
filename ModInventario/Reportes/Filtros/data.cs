@@ -14,7 +14,7 @@ namespace ModInventario.Reportes.Filtros
         private bool _porFecha;
         private DateTime _desde;
         private DateTime _hasta;
-        private tipo _producto;
+        private ficha _producto;
 
 
         public string AutoGrupo { get; set; }
@@ -30,8 +30,10 @@ namespace ModInventario.Reportes.Filtros
         public string NombreDepartamento { get; set; }
         public string NombreDeposito { get; set; }
 
-        public string AutoProducto { get { return _producto.Id; } }
-        public string NombreProducto { get { return _producto.Descripcion; } }
+        public ficha Producto { get { return _producto; } }
+        public bool ProductoIsOk { get { return _producto == null ? false : true; } }
+        public string ProductoAFiltrar { get { return ProductoIsOk ? _producto.desc : ""; } }
+
         
         public DateTime Desde 
         {
@@ -48,7 +50,7 @@ namespace ModInventario.Reportes.Filtros
 
         public data()
         {
-            _producto = new tipo();
+            _producto = null;
             Limpiar();
         }
 
@@ -70,7 +72,7 @@ namespace ModInventario.Reportes.Filtros
             _desde= DateTime.Now.Date;
             _hasta = DateTime.Now.Date;
             _porFecha = false;
-            _producto.Limpiar();
+            _producto = null;
         }
 
         public string TextoFiltro()
@@ -83,14 +85,18 @@ namespace ModInventario.Reportes.Filtros
                 filt += ", DEPOSITO: " + NombreDeposito;
             if (AutoDepartamento  != "")
                 filt += ", DEPARTAMENTO: " + NombreDepartamento;
-            if (_producto.Id !="")
-                filt += ", PRODUCTO: "+ _producto.Filtro;
+            if (ProductoIsOk)
+                filt += ", PRODUCTO: "+ _producto;
             return filt;
         }
 
-        public void setProducto(Producto.Lista.data data)
+        public void setProducto(fichaSeleccion ficha)
         {
-            _producto = new tipo(data.Auto, data.Codigo, data.Producto);
+            _producto = new ficha(ficha.id, ficha.codigo, ficha.desc);
+        }
+        public void LimpiarProducto()
+        {
+            _producto = null;
         }
 
     }

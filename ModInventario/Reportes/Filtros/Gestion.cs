@@ -12,6 +12,7 @@ namespace ModInventario.Reportes.Filtros
     public class Gestion
     {
 
+        private string _productoBuscar; 
         private List<OOB.LibInventario.Departamento.Ficha> lDepart;
         private List<OOB.LibInventario.Deposito.Ficha> lDeposito;
         private List<OOB.LibInventario.Producto.AdmDivisa.Ficha> lAdmDivisa;
@@ -33,8 +34,9 @@ namespace ModInventario.Reportes.Filtros
         private BindingSource bsMarca;
         private BindingSource bsGrupo;
         private data dataFiltro;
+        //
         private Filtros.IFiltros filtros;
-        private Producto.Lista.Gestion gestionListaPrd;
+        private Buscar.IListaSeleccion _gListaSelPrd;
 
 
         public BindingSource SourceDepart { get { return bsDepart; } }
@@ -51,11 +53,8 @@ namespace ModInventario.Reportes.Filtros
         public data  DataFiltros { get { return dataFiltro; } }
 
 
-        public string ProductoBuscar { get; set; }
         public bool LimpiarFiltros_IsOK { get; set; }
         public bool ActivarFiltros_IsOK { get; set; }
-        public bool ProductoIsOk { get; set; }
-
 
         public string AutoGrupo { get { return dataFiltro.AutoGrupo; } set { dataFiltro.AutoGrupo= value; } } 
         public string AutoMarca { get { return dataFiltro.AutoMarca; } set { dataFiltro.AutoMarca= value; } } 
@@ -68,13 +67,17 @@ namespace ModInventario.Reportes.Filtros
         public string IdCategoria { get { return dataFiltro.IdCategoria; } set { dataFiltro.IdCategoria = value; } } 
         public string CodigoSucursal { get { return dataFiltro.CodigoSucursal; } set { dataFiltro.CodigoSucursal= value; } }
         public DateTime Desde { get { return dataFiltro.Desde; } set { dataFiltro.Desde= value; } } 
-        public DateTime Hasta { get { return dataFiltro.Hasta; } set { dataFiltro.Hasta= value; } } 
+        public DateTime Hasta { get { return dataFiltro.Hasta; } set { dataFiltro.Hasta= value; } }
+        //
+        public bool ProductoIsOk { get { return dataFiltro.ProductoIsOk; } }
+        public string ProductoAFiltrar { get { return dataFiltro.ProductoAFiltrar; } }
 
 
-        public Gestion()
+        public Gestion(Buscar.IListaSeleccion ctrListaSelPrd)
         {
-            gestionListaPrd = new Producto.Lista.Gestion();
-            //gestionListaPrd.ItemSeleccionadoOk +=gestionListaPrd_ItemSeleccionadoOk;
+            _productoBuscar = "";
+
+            _gListaSelPrd = ctrListaSelPrd;
             dataFiltro = new data();
 
             lDepart = new List<OOB.LibInventario.Departamento.Ficha>();
@@ -118,14 +121,11 @@ namespace ModInventario.Reportes.Filtros
             bsGrupo.DataSource = lGrupo;
         }
 
-        //private void gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
-        //{
-        //    ProductoIsOk = true;
-        //    ProductoBuscar = gestionListaPrd.ItemSeleccionado.Producto;
-        //    dataFiltro.AutoProducto = gestionListaPrd.ItemSeleccionado.FichaPrd.AutoId;
-        //    gestionListaPrd.Cerrar();
-        //}
-
+        public void Inicializa() 
+        {
+            _productoBuscar = "";
+            dataFiltro.Limpiar();
+        }
 
         public void Inicia()
         {
@@ -140,8 +140,7 @@ namespace ModInventario.Reportes.Filtros
 
         private void Limpiar()
         {
-            ProductoBuscar = "";
-            ProductoIsOk = false;
+            _productoBuscar = "";
             dataFiltro.Limpiar();
             ActivarFiltros_IsOK = false;
         }
@@ -275,28 +274,41 @@ namespace ModInventario.Reportes.Filtros
 
         public void BuscarProducto()
         {
-            ProductoIsOk = false;
-            if (ProductoBuscar.Trim() != "") 
+            if (_productoBuscar.Trim() != "") 
             {
-                var filtro= new OOB.LibInventario.Producto.Filtro();
-                filtro.cadena=ProductoBuscar;
-                filtro.MetodoBusqueda= OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
-                var r01 = Sistema.MyData.Producto_GetLista(filtro);
+                var r01 = Sistema.MyData.Configuracion_VisualizarProductosInactivos();
                 if (r01.Result == OOB.Enumerados.EnumResult.isError) 
                 {
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
+                var _visualizarPrdInactivos = r01.Entidad;
 
-                gestionListaPrd.Inicializa();
-                gestionListaPrd.setLista(r01.Lista);
-                gestionListaPrd.ActivarSeleccion(true);
-                gestionListaPrd.Inicia();
-                if (gestionListaPrd.ItemSeleccionadoIsOk) 
+                var filtro= new OOB.LibInventario.Producto.Filtro();
+                filtro.cadena=_productoBuscar;
+                filtro.MetodoBusqueda= OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
+                if (!_visualizarPrdInactivos) 
                 {
-                    ProductoIsOk = true;
-                    dataFiltro.setProducto(gestionListaPrd.ItemSeleccionado);
-                    ProductoBuscar = dataFiltro.NombreProducto;
+                    filtro.estatus = OOB.LibInventario.Producto.Enumerados.EnumEstatus.Activo;
+                } 
+                var r02 = Sistema.MyData.Producto_GetLista(filtro);
+                if (r02.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r02.Mensaje);
+                    return;
+                }
+                var lst = new List<fichaSeleccion>();
+                foreach (var rg in r02.Lista.OrderBy(o => o.DescripcionPrd).ToList())
+                {
+                    lst.Add(new fichaSeleccion(rg.AutoId, rg.CodigoPrd, rg.DescripcionPrd, rg.IsInactivo));
+                }
+
+                _gListaSelPrd.Inicializa();
+                _gListaSelPrd.setLista(lst);
+                _gListaSelPrd.Inicia();
+                if (_gListaSelPrd.ItemSeleccionadoIsOk)
+                {
+                    dataFiltro.setProducto(_gListaSelPrd.ItemSeleccionado);
                 }
             }
         }
@@ -327,6 +339,15 @@ namespace ModInventario.Reportes.Filtros
             lGrupo.Clear();
             lGrupo.AddRange(r01.Lista.OrderBy(o => o.nombre));
             bsGrupo.CurrencyManager.Refresh();
+        }
+
+        public void LimpiarProducto()
+        {
+            dataFiltro.LimpiarProducto();
+        }
+        public void setProductoBuscar(string p)
+        {
+            _productoBuscar = p;
         }
 
     }

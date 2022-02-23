@@ -13,7 +13,6 @@ namespace ModInventario.Movimiento.Cargo
     {
 
         private Producto.Busqueda.Gestion _gestionBusquedaPrd;
-        private Producto.Lista.Gestion _gestionListaPrd; 
         private List<OOB.LibInventario.Concepto.Ficha> lConcepto;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
         private List<OOB.LibInventario.Deposito.Ficha> lDepOrigen;
@@ -26,6 +25,8 @@ namespace ModInventario.Movimiento.Cargo
         private GestionDetalle _gestionDetalle;
         private decimal tasaCambio;
         private bool isCerrarOk;
+        //
+        private Buscar.INotificarSeleccion _glistaPrd;
 
 
         public bool IsCerrarOk { get { return isCerrarOk; } }
@@ -95,12 +96,13 @@ namespace ModInventario.Movimiento.Cargo
         }
         
 
-        public Gestion()
+        public Gestion(Buscar.INotificarSeleccion ctrNotificaSelPrd)
         {
+            _glistaPrd = ctrNotificaSelPrd;
+            //
             _gestionDetalle = new GestionDetalle();
             _gestionBusquedaPrd = new Producto.Busqueda.Gestion();
-            _gestionListaPrd = new Producto.Lista.Gestion();
-            _gestionListaPrd.ItemSeleccionadoOk+=_gestionListaPrd_ItemSeleccionadoOk;
+
             miData = new Movimiento.data();
 
             lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
@@ -117,24 +119,29 @@ namespace ModInventario.Movimiento.Cargo
             bsDepDestino.DataSource = lDepDestino;
         }
 
-
-        private void _gestionListaPrd_ItemSeleccionadoOk(object sender, EventArgs e)
+        private void _glistaPrd_NotificarSeleccion(object sender, EventArgs e)
         {
-            if (_gestionListaPrd.ItemSeleccionado.Estatus == OOB.LibInventario.Producto.Enumerados.EnumEstatus.Inactivo)
+            if (_glistaPrd.ItemSeleccionado.isAnulado)
             {
-                Helpers.Msg.Error("PRODUCTO EN ESTADO INACTIVO");
+                Helpers.Msg.Error("ITEM NO PUEDE SER SELECCIONADO: VERIFIQUE ESTATUS");
                 return;
             }
-            else 
+            else
             {
-                if (DepositoOrigen == null) 
+                if (DepositoOrigen == null)
                 {
                     Helpers.Msg.Error("CAMPO [ DEPOSITO ORIGEN ] NO SELECCIONADO");
                     return;
                 }
-                _gestionDetalle.AgregarItem(_gestionListaPrd.ItemSeleccionado.FichaPrd, DepositoOrigen.id);
+                var filtro = new OOB.LibInventario.Producto.Filtro() { autoProducto = _glistaPrd.ItemSeleccionado.id };
+                var r01 = Sistema.MyData.Producto_GetLista(filtro);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _gestionDetalle.AgregarItem(r01.Lista[0], DepositoOrigen.id);
             }
-
         }
 
         public void Inicia()
@@ -204,8 +211,17 @@ namespace ModInventario.Movimiento.Cargo
             _gestionBusquedaPrd.Buscar();
             if (_gestionBusquedaPrd.IsOk) 
             {
-                _gestionListaPrd.setLista(_gestionBusquedaPrd.Resultado);
-                _gestionListaPrd.Inicia();
+                var lst = new List<fichaSeleccion>();
+                foreach (var rg in _gestionBusquedaPrd.Resultado.OrderBy(o=>o.DescripcionPrd).ToList())
+                {
+                    lst.Add(new fichaSeleccion(rg.AutoId, rg.CodigoPrd, rg.DescripcionPrd, rg.IsInactivo));
+                }
+                _glistaPrd.Inicializa();
+                _glistaPrd.setActivarNotificacion(true);
+                _glistaPrd.setCerrarVentanaAlSeleccionarItem(false);
+                _glistaPrd.setPermitirSeleccionarInactivos(false);
+                _glistaPrd.setLista(lst);
+                _glistaPrd.Inicia();
             }
         }
 
@@ -258,7 +274,7 @@ namespace ModInventario.Movimiento.Cargo
 
         private bool RegistrarDocumento()
         {
-            var ficha = new OOB.LibInventario.Movimiento.Cargo.Insertar.Ficha()
+            var movOOB = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaMov()
             {
                 autoConcepto = Concepto.id,
                 autoDepositoDestino = DepositoOrigen.id ,
@@ -288,10 +304,9 @@ namespace ModInventario.Movimiento.Cargo
                 factorCambio=tasaCambio,
                 montoDivisa=Math.Round(MontoMovimiento/tasaCambio,2, MidpointRounding.AwayFromZero),
             };
-
-            var detalles = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            var detOOB = _gestionDetalle.Detalle.ListaItems.Select(s =>
             {
-                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaDetalle()
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaMovDetalle()
                 {
                     autoDepartamento = s.FichaPrd.identidad.autoDepartamento,
                     autoGrupo = s.FichaPrd.identidad.autoGrupo,
@@ -315,21 +330,21 @@ namespace ModInventario.Movimiento.Cargo
                 };
                 return rg;
             }).ToList();
-            ficha.detalles = detalles;
-
-            var lDep = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            var gr3 = _gestionDetalle.Detalle.ListaItems.GroupBy
+                (g => new { g.FichaPrd.AutoId, g.DescripcionPrd }).
+                Select(g2 => new { id = g2.Key.AutoId, desc = g2.Key.DescripcionPrd, cnt = g2.Sum(s => s.CantidadUnd * s.Signo) }).ToList();
+            var depOOB = gr3.Select(s =>
             {
-                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdDeposito()
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaMovDeposito()
                 {
                     autoDeposito = DepositoOrigen.id,
-                    nombreProducto = s.FichaPrd.DescripcionPrd,
-                    autoProducto = s.FichaPrd.AutoId,
-                    cantidadUnd = s.CantidadUnd,
+                    nombreProducto = s.desc,
+                    autoProducto = s.id,
+                    cantidadUnd = s.cnt,
+                    nombreDeposito = DepositoOrigen.descripcion,
                 };
                 return rg;
             }).ToList();
-            ficha.prdDeposito = lDep;
-
             var lCosto = _gestionDetalle.Detalle.ListaItems.Select(s =>
             {
                 var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdCosto()
@@ -342,8 +357,6 @@ namespace ModInventario.Movimiento.Cargo
                 };
                 return rg;
             }).ToList();
-            ficha.prdCosto = lCosto;
-
             var lCostoHistorico = _gestionDetalle.Detalle.ListaItems.Select(s =>
             {
                 var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdCostoHistorico()
@@ -357,11 +370,9 @@ namespace ModInventario.Movimiento.Cargo
                 };
                 return rg;
             }).ToList();
-            ficha.prdCostoHistorico = lCostoHistorico;
-
-            var lKardex = _gestionDetalle.Detalle.ListaItems.Select(s =>
+            var kardexOOB = _gestionDetalle.Detalle.ListaItems.Select(s =>
             {
-                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaKardex()
+                var rg = new OOB.LibInventario.Movimiento.Cargo.Insertar.FichaMovKardex()
                 {
                     autoConcepto = Concepto.id,
                     autoDeposito = DepositoOrigen.id,
@@ -387,7 +398,6 @@ namespace ModInventario.Movimiento.Cargo
                 };
                 return rg;
             }).ToList();
-            ficha.movKardex = lKardex;
 
             var rt1 = Sistema.MyData.Configuracion_MetodoCalculoUtilidad();
             if (rt1.Result == OOB.Enumerados.EnumResult.isError)
@@ -407,7 +417,6 @@ namespace ModInventario.Movimiento.Cargo
                 Helpers.Msg.Error(rt4.Mensaje);
                 return false;
             }
-
             var lMargen = new List<OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioMargen>();
             var LPrecio = new List<OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecio>();
             var lPrecioHistorico = new List<OOB.LibInventario.Movimiento.Cargo.Insertar.FichaPrdPrecioHistorico>();
@@ -533,11 +542,20 @@ namespace ModInventario.Movimiento.Cargo
                     lMargen.Add(rg);
                 }
             }
-            ficha.prdPrecioMargen = lMargen;
-            ficha.prdPrecio = LPrecio;
-            ficha.prdPrecioHistorico = lPrecioHistorico; 
 
-            var r01 = Sistema.MyData.Producto_Movimiento_Cargo_Insertar(ficha);
+            var fichaOOB = new OOB.LibInventario.Movimiento.Cargo.Insertar.Ficha()
+            {
+                mov = movOOB,
+                movDeposito = depOOB,
+                movDetalles = detOOB,
+                movKardex = kardexOOB,
+                prdCosto = lCosto,
+                prdCostoHistorico = lCostoHistorico,
+                prdPrecioMargen = lMargen,
+                prdPrecio = LPrecio,
+                prdPrecioHistorico = lPrecioHistorico,
+            };
+            var r01 = Sistema.MyData.Producto_Movimiento_Cargo_Insertar(fichaOOB);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -578,11 +596,6 @@ namespace ModInventario.Movimiento.Cargo
             get { return  enumerados.enumTipoMovimiento.Cargo; }
         }
 
-        public void setFiltros(Buscar.Filtrar.data data)
-        {
-            _gestionBusquedaPrd.setFiltros(data);
-        }
-
         public void ActualizarConceptos()
         {
             var rt1 = Sistema.MyData.Concepto_GetLista();
@@ -603,10 +616,6 @@ namespace ModInventario.Movimiento.Cargo
         public bool HabilitarConcepto
         {
             get { return true; }
-        }
-
-        public void Inicializa()
-        {
         }
 
         public void setSucursal(string id)
@@ -666,6 +675,32 @@ namespace ModInventario.Movimiento.Cargo
         public void setDepositoDestino(string id)
         {
         }
+
+
+        public void Inicializa()
+        {
+            _glistaPrd.NotificarSeleccion += _glistaPrd_NotificarSeleccion;
+        }
+
+        public void Finaliza()
+        {
+            _glistaPrd.NotificarSeleccion -= _glistaPrd_NotificarSeleccion;
+        }
+
+
+        public void BuscarProducto(string id)
+        {
+        }
+
+        public bool ProcesarDocIsOk
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        //public void setFiltros(Buscar.Filtrar.data data)
+        //{
+        //    _gestionBusquedaPrd.setFiltros(data);
+        //}
 
     }
 

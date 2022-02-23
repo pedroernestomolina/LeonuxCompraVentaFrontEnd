@@ -383,6 +383,14 @@ namespace PosOnLine.Src.Pos
         public void BuscarProducto(string cadena)
         {
             if (cadena == "") { return; }
+            if (_precioManejar == "") //MODO LIBRE, debe indicar un cliente, para mostrar precio
+            {
+                if (!_gestionCliente.IsClienteOk)
+                {
+                    Helpers.Msg.Alerta("DEBES INDICAR/SELECCIONAR UN CLIENTE POR FAVOR");
+                    return;
+                }
+            }
             
             if (_modoFuncion != EnumModoFuncion.NotaCredito)
             {

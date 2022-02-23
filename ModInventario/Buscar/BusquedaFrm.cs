@@ -146,13 +146,13 @@ namespace ModInventario.Buscar
             TB_CADENA.Focus();
             switch (_controlador.MetodoBusqueda) 
             {
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo:
+                case Gestion.enumMetodoBusqueda.PorCodigo:
                     RB_BUSCAR_POR_CODIGO.Checked = true;
                     break;
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre:
+                case Gestion.enumMetodoBusqueda.PorNombre:
                     RB_BUSCAR_POR_NOMBRE.Checked = true;
                     break;
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia:
+                case Gestion.enumMetodoBusqueda.PorReferencia:
                     RB_BUSCAR_POR_REF.Checked = true;
                     break;
             }
@@ -165,28 +165,19 @@ namespace ModInventario.Buscar
 
         private void RB_BUSCAR_POR_CODIGO_CheckedChanged(object sender, EventArgs e)
         {
-            if (RB_BUSCAR_POR_CODIGO.Checked)
-            {
-                _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
-            }
+            _controlador.setMetodoBusquedaByCodigo();
             TB_CADENA.Focus();
         }
 
         private void RB_BUSCAR_POR_NOMBRE_CheckedChanged(object sender, EventArgs e)
         {
-            if (RB_BUSCAR_POR_NOMBRE.Checked)
-            {
-                _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
-            }
+            _controlador.setMetodoBusquedaByNombre();
             TB_CADENA.Focus();
         }
 
         private void RB_BUSCAR_POR_REF_CheckedChanged(object sender, EventArgs e)
         {
-            if (RB_BUSCAR_POR_REF.Checked)
-            {
-                _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia;
-            }
+            _controlador.setMetodoBusquedaByReferencia();
             TB_CADENA.Focus();
         }
 
@@ -199,14 +190,8 @@ namespace ModInventario.Buscar
         {
             _controlador.Buscar();
             ActualizarBusqueda();
-            DGV.Focus();
+            TB_CADENA.Focus();
         }
-
-        private void TB_CADENA_TextChanged(object sender, EventArgs e)
-        {
-            _controlador.Cadena = TB_CADENA.Text;
-        }
-
 
         public void ActualizarItem()
         {
@@ -308,7 +293,7 @@ namespace ModInventario.Buscar
         private void ActualizarBusqueda()
         {
             L_ITEMS.Text = _controlador.Items.ToString("n0");
-            TB_CADENA.Text = _controlador.Cadena;
+            TB_CADENA.Text = _controlador.CadenaBusqProducto;
             TB_CADENA.Focus();
         }
 
@@ -373,8 +358,9 @@ namespace ModInventario.Buscar
         private void Limpiar()
         {
             _controlador.Limpiar();
-            L_ITEMS.Text = _controlador.Items.ToString("n0");
+            TB_CADENA.Text = _controlador.CadenaBusqProducto;
             TB_CADENA.Focus();
+            L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
 
         private void BT_PRECIO_EDITAR_Click(object sender, EventArgs e)
@@ -524,6 +510,11 @@ namespace ModInventario.Buscar
         private void Proveedores()
         {
             _controlador.Proveedores();
+        }
+
+        private void TB_CADENA_Leave(object sender, EventArgs e)
+        {
+            _controlador.setCadenaBusc(TB_CADENA.Text.Trim().ToUpper());
         }
       
     }

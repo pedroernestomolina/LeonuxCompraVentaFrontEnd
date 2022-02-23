@@ -18,9 +18,12 @@ namespace ModInventario.Movimiento.TrasladoDevolucion.Entrada
         private decimal importe;
         private decimal importeMonedaLocal;
         private string idDeposito;
+        private bool _abandonarIsOk;
+        private bool _procesarIsOk;
 
 
-        public bool ProcesarOk { get; set; }
+        public bool abandonarIsOk { get { return _abandonarIsOk; } }
+        public bool procesarIsOk { get { return _procesarIsOk; } }
         public OOB.LibInventario.Producto.Data.Ficha Prd { get; set; }
         public decimal Cantidad { get; set; }
         public decimal Costo { get; set; }
@@ -64,12 +67,13 @@ namespace ModInventario.Movimiento.TrasladoDevolucion.Entrada
         public Gestion()
         {
             idDeposito = "";
-            ProcesarOk = false;
             Cantidad = 0.0m;
             Costo = 0.0m;
             contenido = 1;
             importe = 0.0m;
             tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra;
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
         }
 
 
@@ -104,21 +108,21 @@ namespace ModInventario.Movimiento.TrasladoDevolucion.Entrada
 
         private void Limpiar()
         {
-            ProcesarOk = false;
             Cantidad = 0.0m;
             Costo = 0.0m;
             contenido = 1;
             tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra;
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
         }
 
         public void Procesar()
         {
-            if (TotalUnd > Prd.existencia.depositos.First(w => w.autoId == idDeposito).exFisica)
-            {
-                Helpers.Msg.Error("No Hay La Disponibilidad Para Este Producto" + Environment.NewLine + "Verifique Por Favor...");
-                return;
-            }
-
+            //if (TotalUnd > Prd.existencia.depositos.First(w => w.autoId == idDeposito).exFisica)
+            //{
+            //    Helpers.Msg.Error("No Hay La Disponibilidad Para Este Producto" + Environment.NewLine + "Verifique Por Favor...");
+            //    return;
+            //}
             if (importe == 0.0m)
             {
                 Helpers.Msg.Error("Monto Importe Movimiento Incorrecto, Verifique Por Favor");
@@ -127,7 +131,7 @@ namespace ModInventario.Movimiento.TrasladoDevolucion.Entrada
             var msg = MessageBox.Show("Guardar Cambios ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes)
             {
-                ProcesarOk = true;
+                _procesarIsOk = true;
             }
         }
 
@@ -187,6 +191,22 @@ namespace ModInventario.Movimiento.TrasladoDevolucion.Entrada
             this.tasaCambio = tasaCambio;
         }
 
+
+        public void AbandonarFicha()
+        {
+            _abandonarIsOk = false;
+            var xmsg = "Abandonar Cambios ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                _abandonarIsOk = true;
+            }
+        }
+
+        public void Inicializa()
+        {
+            Limpiar();
+        }
 
     }
 

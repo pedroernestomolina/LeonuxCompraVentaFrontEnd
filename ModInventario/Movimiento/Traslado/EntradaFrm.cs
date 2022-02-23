@@ -30,7 +30,16 @@ namespace ModInventario.Movimiento.Traslado
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
-            Salir();
+            Abandonar();
+        }
+
+        private void Abandonar()
+        {
+            _controlador.AbandonarFicha();
+            if (_controlador.abandonarIsOk)
+            {
+                Salir();
+            }
         }
 
         private void Salir()
@@ -46,9 +55,9 @@ namespace ModInventario.Movimiento.Traslado
         private void Procesar()
         {
             _controlador.Procesar();
-            if (_controlador.ProcesarOk)
+            if (_controlador.procesarIsOk)
             {
-                this.Close();
+                Salir();
             }
         }
 
@@ -107,6 +116,15 @@ namespace ModInventario.Movimiento.Traslado
             if (e.KeyCode == Keys.Enter)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void EntradaFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            if (_controlador.abandonarIsOk || _controlador.procesarIsOk)
+            {
+                e.Cancel = false;
             }
         }
 

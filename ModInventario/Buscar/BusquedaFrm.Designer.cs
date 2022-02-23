@@ -2038,8 +2038,8 @@
             this.TB_CADENA.Name = "TB_CADENA";
             this.TB_CADENA.Size = new System.Drawing.Size(275, 26);
             this.TB_CADENA.TabIndex = 0;
-            this.TB_CADENA.TextChanged += new System.EventHandler(this.TB_CADENA_TextChanged);
             this.TB_CADENA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TB_KeyDown);
+            this.TB_CADENA.Leave += new System.EventHandler(this.TB_CADENA_Leave);
             // 
             // panel14
             // 
@@ -2117,7 +2117,7 @@
             this.BT_LIMPIAR.Name = "BT_LIMPIAR";
             this.BT_LIMPIAR.Size = new System.Drawing.Size(32, 30);
             this.BT_LIMPIAR.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.BT_LIMPIAR, "Filtrar Busqueda");
+            this.toolTip1.SetToolTip(this.BT_LIMPIAR, "Limpiar Filtrar Busqueda");
             this.BT_LIMPIAR.UseVisualStyleBackColor = true;
             this.BT_LIMPIAR.Click += new System.EventHandler(this.BT_LIMPIAR_Click);
             // 

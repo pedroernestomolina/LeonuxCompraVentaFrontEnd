@@ -72,9 +72,11 @@ namespace ModInventario.Movimiento.Ajuste
             }
             ficha.identidad = rt4.Entidad;
 
+
+            _gestionEntrada.Inicializa();
             _gestionEntrada.setFicha(ficha,idDeposito);
             _gestionEntrada.Inicia();
-            if (_gestionEntrada.ProcesarOk) 
+            if (_gestionEntrada.procesarIsOk) 
             {
                 detalle.Agregar(ficha, _gestionEntrada.Cantidad, _gestionEntrada.Costo,
                     _gestionEntrada.TipoEmpaqueSeleccionado, tasaCambio, _gestionEntrada.Importe,
@@ -98,8 +100,9 @@ namespace ModInventario.Movimiento.Ajuste
             var it = (item)bs.Current;
             if (it != null)
             {
+                _gestionEntrada.Inicializa();
                 _gestionEntrada.Editar(it,idDeposito);
-                if (_gestionEntrada.ProcesarOk)
+                if (_gestionEntrada.procesarIsOk)
                 {
                     detalle.Remover(it);
                     detalle.Agregar(it.FichaPrd, _gestionEntrada.Cantidad, _gestionEntrada.Costo, 

@@ -40,6 +40,7 @@ namespace ModInventario.Movimiento
         string GetIdDepositoOrigen { get; }
         bool HabilitarCambioDepositoDestino { get; }
         string GetIdDepositoDestino { get; }
+        bool ProcesarDocIsOk { get; }
 
 
         void Inicia();
@@ -51,7 +52,6 @@ namespace ModInventario.Movimiento
         void EditarItem();
         void Procesar();
         bool AbandonarDocumento();
-        void setFiltros(Buscar.Filtrar.data data);
         void ActualizarConceptos();
         void setHabilitarConcepto(bool p);
         void Inicializa();
@@ -59,6 +59,8 @@ namespace ModInventario.Movimiento
         void setDepositoOrigen(string id);
         void setConcepto(string id);
         void setDepositoDestino(string id);
+        void Finaliza();
+        void BuscarProducto(string id);
 
     }
 

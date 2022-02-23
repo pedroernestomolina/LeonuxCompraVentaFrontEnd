@@ -31,7 +31,10 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
             var filtro = new OOB.LibInventario.Reportes.CompraVentaAlmacen.Filtro();
             if (dataFiltros != null)
             {
-                filtro.autoProducto = dataFiltros.AutoProducto;
+                if (dataFiltros.ProductoIsOk)
+                {
+                    filtro.autoProducto = dataFiltros.Producto.id;
+                }
             }
             var r01 = Sistema.MyData.Reportes_CompraVentaAlmacen(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)

@@ -242,6 +242,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
             public bool HayCargo { get; set; }
             public string total { get; set; }
             public string cambio { get; set; }
+            public string totalDivisa { get; set; }
             public List<Item> Items { get; set; }
             public List<MedioPago> MediosPago { get; set; }
 
@@ -277,6 +278,7 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
                 hora = "";
                 subtotal = "";
                 total = "";
+                totalDivisa = "";
                 cambio = "";
                 descuentoMonto = "";
                 descuentoPorct = "";
@@ -472,6 +474,9 @@ namespace PosOnLine.Helpers.Imprimir.Tickera58
 
             eg.Graphics.DrawString("TOTAL", fb, Brushes.Black, 0, l);
             eg.Graphics.DrawString(df.total, fr, Brushes.Black, dder2(df.total,fr), l);
+            l += 10;
+            eg.Graphics.DrawString("TOTAL US$", fb, Brushes.Black, 0, l);
+            eg.Graphics.DrawString(df.totalDivisa, fb, Brushes.Black, dder2(df.totalDivisa, fb), l);
             l += 15;
 
             foreach (var mp in df.MediosPago)

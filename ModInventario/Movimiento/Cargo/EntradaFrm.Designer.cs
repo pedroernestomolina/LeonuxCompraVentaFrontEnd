@@ -1015,6 +1015,8 @@
             this.KeyPreview = true;
             this.Name = "EntradaFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EntradaFrm_FormClosing);
             this.Load += new System.EventHandler(this.EntradaFrm_Load);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

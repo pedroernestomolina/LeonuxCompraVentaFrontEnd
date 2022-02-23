@@ -83,6 +83,7 @@ namespace OOB.LibInventario.Producto.Data
         public string Producto { get { return CodigoPrd + Environment.NewLine + DescripcionPrd; } }
         public decimal CostoUnd { get { return costo.costoUnd; } }
         public string Decimales { get { return identidad.Decimales; } }
+        public bool IsInactivo { get { return identidad.estatus == Enumerados.EnumEstatus.Inactivo ? true : false; } }
         public string Categoria 
         { 
             get 

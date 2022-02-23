@@ -30,7 +30,7 @@ namespace ModInventario.Movimiento.Descargo
 
         private void BT_SALIR_Click(object sender, EventArgs e)
         {
-            Salir();
+            AbandonarFicha();
         }
 
         private void Salir()
@@ -46,9 +46,9 @@ namespace ModInventario.Movimiento.Descargo
         private void Procesar()
         {
             _controlador.Procesar();
-            if (_controlador.ProcesarOk)
+            if (_controlador.procesarIsOk)
             {
-                this.Close();
+                Salir();
             }
         }
 
@@ -107,6 +107,24 @@ namespace ModInventario.Movimiento.Descargo
             if (e.KeyCode == Keys.Enter)
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+        }
+
+        private void AbandonarFicha()
+        {
+            _controlador.AbandonarFicha();
+            if (_controlador.abandonarIsOk)
+            {
+                Salir();
+            }
+        }
+
+        private void EntradaFrm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            if (_controlador.abandonarIsOk || _controlador.procesarIsOk)
+            {
+                e.Cancel = false;
             }
         }
 

@@ -284,7 +284,7 @@
             this.TB_CODIGO.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TB_CODIGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_CODIGO.Location = new System.Drawing.Point(2, 2);
-            this.TB_CODIGO.MaxLength = 15;
+            this.TB_CODIGO.MaxLength = 10;
             this.TB_CODIGO.Name = "TB_CODIGO";
             this.TB_CODIGO.Size = new System.Drawing.Size(238, 22);
             this.TB_CODIGO.TabIndex = 1;

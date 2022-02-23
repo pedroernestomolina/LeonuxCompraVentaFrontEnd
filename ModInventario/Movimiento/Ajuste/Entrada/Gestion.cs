@@ -19,13 +19,15 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
         private decimal importe;
         private decimal importeMonedaLocal;
         private string idDeposito;
+        private bool _abandonarIsOk;
+        private bool _procesarIsOk;
 
 
-        public bool ProcesarOk { get; set; }
+        public bool abandonarIsOk { get { return _abandonarIsOk; } }
+        public bool procesarIsOk { get { return _procesarIsOk; } }
         public OOB.LibInventario.Producto.Data.Ficha Prd { get; set; }
         public decimal Cantidad { get; set; }
         public decimal Costo { get; set; }
-
         public string Producto { get { return Prd.Producto; } }
         public string ProductoEmpCompra { get { return Prd.Empaque; } }
         public string ProductoAdmDivisa { get { return Prd.Divisa; } }
@@ -68,20 +70,25 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
         public Gestion()
         {
             idDeposito = "";
-            ProcesarOk = false;
             Cantidad = 0.0m;
             Costo = 0.0m;
             contenido = 1;
             importe = 0.0m;
             tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra ;
             tipoMovimiento = enumerados.enumTipoMovimientoAjuste.SinDefinir;
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
         }
 
+
+        public void Inicializa() 
+        {
+            Limpiar();
+        }
 
         EntradaFrm frm;
         public void Inicia()
         {
-            Limpiar();
             if (CargarData())
             {
                 contenido = Prd.identidad.contenidoCompra;
@@ -109,12 +116,13 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
 
         private void Limpiar()
         {
-            ProcesarOk = false;
             Cantidad = 0.0m;
             Costo = 0.0m;
             contenido = 1;
             tipoEmpaque = enumerados.enumTipoEmpaque.PorEmpaqueCompra ;
             tipoMovimiento = enumerados.enumTipoMovimientoAjuste.SinDefinir;
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
         }
 
         public void Procesar()
@@ -143,19 +151,19 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
                 Helpers.Msg.Error("Debes Indicar El Tipo De Ajuste A Realizar, Verifique Por Favor");
                 return;
             }
-            if (tipoMovimiento == enumerados.enumTipoMovimientoAjuste.PorSalida) 
-            {
-                if (TotalUnd > Prd.existencia.depositos.First(w => w.autoId == idDeposito).exFisica)
-                {
-                    Helpers.Msg.Error("No Hay La Disponibilidad Para Este Producto" + Environment.NewLine + "Verifique Por Favor...");
-                    return;
-                }
-            }
+            //if (tipoMovimiento == enumerados.enumTipoMovimientoAjuste.PorSalida) 
+            //{
+            //    if (TotalUnd > Prd.existencia.depositos.First(w => w.autoId == idDeposito).exFisica)
+            //    {
+            //        Helpers.Msg.Error("No Hay La Disponibilidad Para Este Producto" + Environment.NewLine + "Verifique Por Favor...");
+            //        return;
+            //    }
+            //}
 
             var msg = MessageBox.Show("Guardar Cambios ?","*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2 );
             if (msg == DialogResult.Yes) 
             {
-                ProcesarOk = true;
+                _procesarIsOk = true;
             }
         }
 
@@ -191,7 +199,6 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
 
         public void Editar(item it,string idDeposito)
         {
-            Limpiar();
             if (CargarData())
             {
                 this.idDeposito = idDeposito;
@@ -219,6 +226,17 @@ namespace ModInventario.Movimiento.Ajuste.Entrada
         public void setMovimiento(Movimiento.enumerados.enumTipoMovimientoAjuste tipoMov)
         {
             this.tipoMovimiento = tipoMov;
+        }
+
+        public void AbandonarFicha()
+        {
+            _abandonarIsOk = false;
+            var xmsg = "Abandonar Cambios ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes) 
+            {
+                _abandonarIsOk = true;
+            }
         }
 
     }

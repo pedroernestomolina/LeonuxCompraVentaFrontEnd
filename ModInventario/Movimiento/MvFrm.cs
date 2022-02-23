@@ -236,16 +236,16 @@ namespace ModInventario.Movimiento
             TB_MOTIVO.Text = "";
             TB_AUTORIZADO_POR.Text = "";
             DTP_FECHA.Value = DateTime.Now.Date;
-
+            TB_CADENA_BUSQ.Text = "";
             switch (_controlador.MetodoBusqueda)
             {
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo:
+                case Gestion.enumMetBusq.PorCodgo:
                     RB_BUSCAR_POR_CODIGO.Checked = true;
                     break;
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre:
+                case Gestion.enumMetBusq.PorNombre:
                     RB_BUSCAR_POR_NOMBRE.Checked = true;
                     break;
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia:
+                case Gestion.enumMetBusq.PorReferencia:
                     RB_BUSCAR_POR_REFERENCIA.Checked = true;
                     break;
             }
@@ -387,7 +387,7 @@ namespace ModInventario.Movimiento
         private void BuscarProducto()
         {
             _controlador.BuscarProducto();
-            TB_CADENA_BUSQ.Text = _controlador.CadenaBusqueda;
+            TB_CADENA_BUSQ.Text = "";
             TB_CADENA_BUSQ.Focus();
             ActualizarData();
             ActivarFocoBusqueda();
@@ -400,25 +400,29 @@ namespace ModInventario.Movimiento
 
         private void RB_BUSCAR_POR_CODIGO_CheckedChanged(object sender, EventArgs e)
         {
-            _controlador.MetodoBusqueda= OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
+            _controlador.setMetBusqByCodigo();
+            //_controlador.MetodoBusqueda= OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
             ActivarFocoBusqueda();
         }
 
         private void RB_BUSCAR_POR_NOMBRE_CheckedChanged(object sender, EventArgs e)
         {
-            _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
+            _controlador.setMetBusqByNombre();
+            //_controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
             ActivarFocoBusqueda();
         }
 
         private void RB_BUSCAR_POR_REFERENCIA_CheckedChanged(object sender, EventArgs e)
         {
-            _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia;
+            _controlador.setMetBusqByReferencia();
+            //_controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia;
             ActivarFocoBusqueda();
         }
 
         private void TB_CADENA_BUSQ_Leave(object sender, EventArgs e)
         {
-            _controlador.CadenaBusqueda = TB_CADENA_BUSQ.Text;
+            //_controlador.CadenaBusqueda = TB_CADENA_BUSQ.Text;
+            _controlador.setCadenaBuscar(TB_CADENA_BUSQ.Text.Trim().ToUpper());
         }
 
         private void BT_ELIMINAR_ITEM_Click(object sender, EventArgs e)

@@ -34,6 +34,14 @@ namespace ModInventario.Administrador.Movimiento
             bs.DataSource = bl;
         }
 
+
+        public void Inicializa()
+        {
+            Item = null;
+            bl.Clear();
+            bs.CurrencyManager.Refresh();
+        }
+
         private void bs_CurrentChanged(object sender, EventArgs e)
         {
             if (bs.Current != null)

@@ -13,6 +13,12 @@ namespace OOB.LibInventario.Movimiento.Cargo.Insertar
 
         public decimal utilidad { get; set; }
 
+
+        public FichaPrecioMargen() 
+        {
+            utilidad = 0m;
+        }
+
     }
 
 }

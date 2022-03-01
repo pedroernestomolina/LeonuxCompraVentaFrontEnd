@@ -64,6 +64,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuracion\Modulo\CnfModuloFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Modulo\CnfModuloFrm.Designer.cs">
+      <DependentUpon>CnfModuloFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Modulo\data.cs" />
+    <Compile Include="Configuracion\Modulo\Gestion.cs" />
     <Compile Include="ControlAcceso\Cliente\Gestion.cs" />
     <Compile Include="ControlAcceso\Cliente\item.cs" />
     <Compile Include="ControlAcceso\Compra\Gestion.cs" />
@@ -102,6 +110,9 @@
     <Compile Include="Deposito\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Filtros\ficha.cs" />
+    <Compile Include="Filtros\IOpcion.cs" />
+    <Compile Include="Filtros\Opcion\Gestion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +130,7 @@
     <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IGestion.cs" />
     <Compile Include="LibControl\NumeroDec.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -302,6 +314,9 @@
     <Compile Include="Usuario\MaestroFrm.Designer.cs">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Configuracion\Modulo\CnfModuloFrm.resx">
+      <DependentUpon>CnfModuloFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlAcceso\ControlAccesoFrm.resx">
       <DependentUpon>ControlAccesoFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -497,11 +512,13 @@
     <Content Include="Imagenes\Machine-learning-1024x682.jpg" />
     <Content Include="Imagenes\master.png" />
     <Content Include="Imagenes\mobile.ico" />
+    <Content Include="Imagenes\setup.png" />
     <Content Include="Imagenes\sinImagen.png" />
     <Content Include="Imagenes\sucursal.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\setup.png" />
     <None Include="Resources\sucursal.png" />
     <None Include="Resources\master.png" />
     <None Include="Resources\bt_usuario_bd.png" />

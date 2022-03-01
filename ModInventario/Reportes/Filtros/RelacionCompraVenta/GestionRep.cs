@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,12 +29,9 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.CompraVentaAlmacen.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Producto!=null)
             {
-                if (dataFiltros.ProductoIsOk)
-                {
-                    filtro.autoProducto = dataFiltros.Producto.id;
-                }
+                filtro.autoProducto = dataFiltros.Producto.id;
             }
             var r01 = Sistema.MyData.Reportes_CompraVentaAlmacen(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -42,11 +39,8 @@ namespace ModInventario.Reportes.Filtros.RelacionCompraVenta
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-
-            var filt = "";
-            Imprimir(r01.Entidad, filt);
+            Imprimir(r01.Entidad, dataFiltros.ToString());
         }
-
 
         public void Imprimir(OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha ficha, string filt)
         {

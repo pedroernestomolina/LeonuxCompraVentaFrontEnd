@@ -1564,10 +1564,14 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Parameters!FILTROS.Value</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>FILTROS</rd:DefaultName>
@@ -1580,6 +1584,7 @@
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>

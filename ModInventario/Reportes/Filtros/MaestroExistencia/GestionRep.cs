@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,11 +29,17 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.MaestroExistencia.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Depart != null) 
             {
-                filtro.autoDepartamento = dataFiltros.AutoDepartamento;
-                filtro.autoDeposito = dataFiltros.AutoDeposito;
-                filtro.autoGrupo = dataFiltros.AutoGrupo;
+                filtro.autoDepartamento = dataFiltros.Depart.id;
+            }
+            if (dataFiltros.Deposito != null)
+            {
+                filtro.autoDeposito= dataFiltros.Deposito.id;
+            }
+            if (dataFiltros.Grupo != null)
+            {
+                filtro.autoGrupo = dataFiltros.Grupo.id;
             }
             var r01 = Sistema.MyData.Reportes_MaestroExistencia(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -42,10 +48,10 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
                 return;
             }
 
-            Imprimir(r01.Lista);
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
-        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroExistencia.Ficha> lista)
+        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroExistencia.Ficha> lista, string filtro)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\MaestroExistencia.rdlc";
             var ds = new DS();
@@ -92,6 +98,7 @@ namespace ModInventario.Reportes.Filtros.MaestroExistencia
             var pmt = new List<ReportParameter>();
             pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
             pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("Filtro", filtro));
             Rds.Add(new ReportDataSource("MaestroExistencia", ds.Tables["MaestroExistencia"]));
 
             var frp = new ReporteFrm();

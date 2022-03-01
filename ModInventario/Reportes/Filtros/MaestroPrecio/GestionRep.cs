@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,27 +29,36 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.MaestroPrecio.Filtro();
-            if (dataFiltros!=null)
+            if (dataFiltros.Divisa!=null)
             {
-                if (dataFiltros.IdAdmDivisa != "") 
-                {
-                    var rt= OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.Si;
-                    if (dataFiltros.IdAdmDivisa=="No")
-                        rt= OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.No;
-                    filtro.admDivisa = rt; 
-                }
-                if (dataFiltros.IdOrigen != "")
-                {
-                    filtro.origen = (OOB.LibInventario.Reportes.enumerados.EnumOrigen)int.Parse(dataFiltros.IdOrigen);
-                }
-                if (dataFiltros.IdCategoria != "")
-                {
-                    filtro.categoria = (OOB.LibInventario.Reportes.enumerados.EnumCategoria)int.Parse(dataFiltros.IdCategoria);
-                }
-                filtro.autoDepartamento = dataFiltros.AutoDepartamento;
-                filtro.autoTasa = dataFiltros.AutoTasa;
-                filtro.autoGrupo = dataFiltros.AutoGrupo;
-                filtro.autoMarca = dataFiltros.AutoMarca;
+                var rt= OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.Si;
+                if (dataFiltros.Divisa.id=="2")
+                    rt= OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.No;
+                filtro.admDivisa = rt; 
+            }
+            if (dataFiltros.Origen != null)
+            {
+                filtro.origen = (OOB.LibInventario.Reportes.enumerados.EnumOrigen)int.Parse(dataFiltros.Origen.id);
+            }
+            if (dataFiltros.Categoria != null)
+            {
+                filtro.categoria = (OOB.LibInventario.Reportes.enumerados.EnumCategoria)int.Parse(dataFiltros.Categoria.id);
+            }
+            if (dataFiltros.Depart != null)
+            {
+                filtro.autoDepartamento= dataFiltros.Depart.id;
+            }
+            if (dataFiltros.Grupo != null)
+            {
+                filtro.autoGrupo= dataFiltros.Grupo.id;
+            }
+            if (dataFiltros.Marca != null)
+            {
+                filtro.autoMarca= dataFiltros.Marca.id;
+            }
+            if (dataFiltros.TasaIva != null)
+            {
+                filtro.autoTasa= dataFiltros.TasaIva.id;
             }
             var r01 = Sistema.MyData.Reportes_MaestroPrecio(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -57,12 +66,11 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-
-            Imprimir(r01.Lista);
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
 
-        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroPrecio.Ficha> lista)
+        public void Imprimir(List<OOB.LibInventario.Reportes.MaestroPrecio.Ficha> lista, string filtro)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\MaestroPrecio.rdlc";
             var ds = new DS();
@@ -88,6 +96,7 @@ namespace ModInventario.Reportes.Filtros.MaestroPrecio
             var pmt = new List<ReportParameter>();
             pmt.Add(new ReportParameter("EMPRESA_RIF", Sistema.Negocio.CiRif));
             pmt.Add(new ReportParameter("EMPRESA_NOMBRE", Sistema.Negocio.Nombre));
+            pmt.Add(new ReportParameter("Filtro", filtro));
             Rds.Add(new ReportDataSource("MaestroPrecio", ds.Tables["MaestroPrecio"]));
 
             var frp = new ReporteFrm();

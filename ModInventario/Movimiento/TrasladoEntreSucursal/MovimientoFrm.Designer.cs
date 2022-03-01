@@ -1293,6 +1293,7 @@
             this.BT_FILTRAR.TabIndex = 2;
             this.toolTip1.SetToolTip(this.BT_FILTRAR, "Filtrar Busqueda");
             this.BT_FILTRAR.UseVisualStyleBackColor = true;
+            this.BT_FILTRAR.Click += new System.EventHandler(this.BT_FILTRAR_Click);
             // 
             // panel39
             // 

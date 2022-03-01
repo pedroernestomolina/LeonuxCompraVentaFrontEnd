@@ -221,6 +221,14 @@
     <Compile Include="FiltrosGen\IBuscar.cs" />
     <Compile Include="FiltrosGen\Opcion\Gestion.cs" />
     <Compile Include="FiltrosGen\BuscarProducto\Gestion.cs" />
+    <Compile Include="FiltrosGen\Reportes\data.cs" />
+    <Compile Include="FiltrosGen\Reportes\FiltrosFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FiltrosGen\Reportes\FiltrosFrm.Designer.cs">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiltrosGen\Reportes\Gestion.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +255,8 @@
     <Compile Include="Identificacion\IdentificacionFrm.Designer.cs">
       <DependentUpon>IdentificacionFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IGestion.cs" />
+    <Compile Include="IGestionRep.cs" />
     <Compile Include="Kardex\Detalle\data.cs" />
     <Compile Include="Kardex\Detalle\DetalleFrm.cs">
       <SubType>Form</SubType>
@@ -404,7 +414,6 @@
     <Compile Include="Producto\AgregarEditar\Editar\precio.cs" />
     <Compile Include="Producto\AgregarEditar\Gestion.cs" />
     <Compile Include="Producto\AgregarEditar\IGestion.cs" />
-    <Compile Include="Producto\Busqueda\Gestion.cs" />
     <Compile Include="Producto\Costo\Editar\costo.cs" />
     <Compile Include="Producto\Costo\Editar\EditarFrm.cs">
       <SubType>Form</SubType>
@@ -565,7 +574,6 @@
       <DependentUpon>dsDocumento.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Documentos\Movimiento.cs" />
-    <Compile Include="Reportes\Filtros\data.cs" />
     <Compile Include="Reportes\Filtros\DepositoResumen\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\DS.cs">
       <DependentUpon>DS.xsd</DependentUpon>
@@ -576,13 +584,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Filtros\FiltrosFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\Filtros\FiltrosFrm.Designer.cs">
-      <DependentUpon>FiltrosFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Filtros\Gestion.cs" />
     <Compile Include="Reportes\Filtros\IFiltros.cs" />
     <Compile Include="Reportes\Filtros\KardexResumen\GestionRep.cs" />
     <Compile Include="Reportes\Filtros\Kardex\Filtros.cs" />
@@ -760,6 +761,9 @@
     <EmbeddedResource Include="FiltrosGen\AdmProducto\FiltrosFrm.resx">
       <DependentUpon>FiltrosFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FiltrosGen\Reportes\FiltrosFrm.resx">
+      <DependentUpon>FiltrosFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -886,9 +890,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\DepositoResumen.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Filtros\FiltrosFrm.resx">
-      <DependentUpon>FiltrosFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Filtros\Kardex.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

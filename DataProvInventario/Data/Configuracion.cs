@@ -136,6 +136,29 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+        public OOB.ResultadoEntidad<int> Configuracion_CantDocVisualizar()
+        {
+            var rt = new OOB.ResultadoEntidad<int>();
+
+            var r01 = MyData.Configuracion_CantDocVisualizar();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            var cnf = r01.Entidad;
+            var m1 = 0;
+            if (cnf.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                int.TryParse(cnf, style, culture, out m1);
+            }
+            rt.Entidad = m1;
+
+            return rt;
+        }
 
         public OOB.Resultado Configuracion_SetCostoEdadProducto(OOB.LibInventario.Configuracion.CostoEdad.Editar.Ficha ficha)
         {

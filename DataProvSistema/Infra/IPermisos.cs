@@ -62,6 +62,8 @@ namespace DataProvSistema.Infra
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_Editar(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ControlSerieFiscal_ActivarInactivar(string autoGrupoUsuario);
 
+        OOB.ResultadoEntidad<OOB.LibSistema.Permiso.Ficha> Permiso_ConfiguracionSistema(string autoGrupoUsuario);
+
     }
 
 }

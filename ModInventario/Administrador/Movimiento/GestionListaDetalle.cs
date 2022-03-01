@@ -51,7 +51,7 @@ namespace ModInventario.Administrador.Movimiento
         public void setLista(List<OOB.LibInventario.Movimiento.Lista.Ficha> list)
         {
             bl.Clear();
-            foreach (var rg in list.OrderByDescending(o=>o.fecha).ThenByDescending(o=>o.docNro).ToList())
+            foreach (var rg in list)
             {
                 bl.Add(new data(rg));
             }

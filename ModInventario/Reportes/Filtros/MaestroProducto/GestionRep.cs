@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ModInventario.Reportes.Filtros.MaestroProducto
 {
-    
+
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,52 +21,48 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
 
         public void Generar()
         {
-            var filt = "";
             var filtro = new OOB.LibInventario.Reportes.MaestroProducto.Filtro();
-            if (dataFiltros!=null)
+            if (dataFiltros.Divisa != null)
             {
-                if (dataFiltros.IdAdmDivisa != "") 
-                {
-                    var rt= OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.Si;
-                    if (dataFiltros.IdAdmDivisa=="No")
-                        rt= OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.No;
-                    filtro.admDivisa = rt; 
-                }
-                if (dataFiltros.IdOrigen != "")
-                {
-                    filtro.origen = (OOB.LibInventario.Reportes.enumerados.EnumOrigen)int.Parse(dataFiltros.IdOrigen);
-                }
-                if (dataFiltros.IdCategoria != "")
-                {
-                    filtro.categoria = (OOB.LibInventario.Reportes.enumerados.EnumCategoria)int.Parse(dataFiltros.IdCategoria);
-                }
-                if (dataFiltros.IdEstatus != "")
-                {
-                    filtro.estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus)int.Parse(dataFiltros.IdEstatus);
-                }
-                if (dataFiltros.AutoDepartamento != "") 
-                {
-                    filt += "DEPARTAMENTO: " + dataFiltros.NombreDepartamento;
-                    filtro.autoDepartamento = dataFiltros.AutoDepartamento;
-                }
-                if (dataFiltros.AutoGrupo != "")
-                {
-                    filt += "GRUPO: " + dataFiltros.NombreDepartamento;
-                    filtro.autoGrupo = dataFiltros.AutoGrupo;
-                }
-                if (dataFiltros.AutoDeposito != "")
-                {
-                    filt += "DEPOSITO: " + dataFiltros.NombreDeposito;
-                    filtro.autoDeposito = dataFiltros.AutoDeposito;
-                }
-                filtro.autoTasa = dataFiltros.AutoTasa;
+                var rt = OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.Si;
+                if (dataFiltros.Divisa.id == "2")
+                    rt = OOB.LibInventario.Reportes.enumerados.EnumAdministradorPorDivisa.No;
+                filtro.admDivisa = rt;
+            }
+            if (dataFiltros.Origen != null)
+            {
+                filtro.origen = (OOB.LibInventario.Reportes.enumerados.EnumOrigen)int.Parse(dataFiltros.Origen.id);
+            }
+            if (dataFiltros.Categoria != null)
+            {
+                filtro.categoria = (OOB.LibInventario.Reportes.enumerados.EnumCategoria)int.Parse(dataFiltros.Categoria.id);
+            }
+            if (dataFiltros.Estatus != null)
+            {
+                filtro.estatus = (OOB.LibInventario.Reportes.enumerados.EnumEstatus)int.Parse(dataFiltros.Estatus.id);
+            }
+            if (dataFiltros.Depart != null)
+            {
+                filtro.autoDepartamento = dataFiltros.Depart.id;
+            }
+            if (dataFiltros.Grupo != null)
+            {
+                filtro.autoGrupo = dataFiltros.Grupo.id;
+            }
+            if (dataFiltros.Deposito != null)
+            {
+                filtro.autoDeposito = dataFiltros.Deposito.id;
+            }
+            if (dataFiltros.TasaIva != null)
+            {
+                filtro.autoTasa = dataFiltros.TasaIva.id;
             }
             var r01 = Sistema.MyData.Reportes_MaestroProducto(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -75,7 +71,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
                 return;
             }
 
-            Imprimir(r01.Lista, filt);
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
 
@@ -83,7 +79,7 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\MaestroProductos.rdlc";
             var ds = new DS();
-            foreach (var it in lista.ToList().OrderBy(o=>o.departamento).ThenBy(o=>o.nombrePrd).ToList())
+            foreach (var it in lista.ToList().OrderBy(o => o.departamento).ThenBy(o => o.nombrePrd).ToList())
             {
                 DataRow rt = ds.Tables["MaestroProducto"].NewRow();
                 rt["codigo"] = it.codigoPrd;
@@ -91,8 +87,8 @@ namespace ModInventario.Reportes.Filtros.MaestroProducto
                 rt["modelo"] = it.modeloPrd;
                 rt["referencia"] = it.referenciaPrd;
                 rt["departamento"] = it.departamento;
-                rt["empaque"] = it.empaque.Trim()+" ("+it.contenidoPrd.ToString("n0")+")";
-                rt["tasa"] = it.tasaIva.ToString("n2")+"%";
+                rt["empaque"] = it.empaque.Trim() + " (" + it.contenidoPrd.ToString("n0") + ")";
+                rt["tasa"] = it.tasaIva.ToString("n2") + "%";
                 rt["admDivisa"] = it.admDivisa.ToString();
                 rt["origen"] = it.origen.ToString();
                 rt["categoria"] = it.categoria.ToString();

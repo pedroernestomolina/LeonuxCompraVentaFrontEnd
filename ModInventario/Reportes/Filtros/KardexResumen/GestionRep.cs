@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.KardexResumen
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.KardexResumen
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,15 +29,21 @@ namespace ModInventario.Reportes.Filtros.KardexResumen
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.Kardex.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Deposito != null)
             {
-                filtro.autoDeposito = dataFiltros.AutoDeposito;
-                filtro.desde = dataFiltros.Desde;
-                filtro.hasta= dataFiltros.Hasta;
-                if (dataFiltros.ProductoIsOk)
-                {
-                    filtro.autoProducto = dataFiltros.Producto.id;
-                }
+                filtro.autoDeposito = dataFiltros.Deposito.id;
+            }
+            if (dataFiltros.Desde.HasValue)
+            {
+                filtro.desde = dataFiltros.Desde.Value;
+            }
+            if (dataFiltros.Hasta.HasValue)
+            {
+                filtro.hasta = dataFiltros.Hasta.Value;
+            }
+            if (dataFiltros.Producto!=null)
+            {
+                filtro.autoProducto = dataFiltros.Producto.id;
             }
             var r01 = Sistema.MyData.Reportes_KardexResumen(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -45,14 +51,7 @@ namespace ModInventario.Reportes.Filtros.KardexResumen
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-
-            //var filt = "DESDE: "+dataFiltros.Desde.ToShortDateString()+", HASTA: "+dataFiltros.Hasta.ToShortDateString();
-            //if (dataFiltros.AutoDeposito!="")
-            //    filt += ", DEPOSITO: "+dataFiltros.NombreDeposito;
-            //filt += dataFiltros.TextoFiltro();
-
-            var filt = dataFiltros.TextoFiltro();
-            Imprimir(r01.Lista,filt);
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
         public void Imprimir(List<OOB.LibInventario.Reportes.KardexResumen.Ficha> lista, string filt)

@@ -22,7 +22,6 @@ namespace ModInventario
         private Visor.CostoExistencia.Gestion _gestionVisorCostoExistencia;
         private Visor.Precio.Gestion _gestionVisorPrecio;
         private Administrador.Gestion _gestionAdmMov;
-        private Reportes.Filtros.Gestion _gestionReporteFiltros;
         private Configuracion.CostoEdad.Gestion _gestionConfCostoEdad;
         private Configuracion.RedondeoPrecio.Gestion _gestionConfRedondeoPrecio;
         private Configuracion.RegistroPrecio.Gestion _gestionConfRegistroPrecio;
@@ -61,6 +60,7 @@ namespace ModInventario
         private FiltrosGen.IAdmProducto _gFiltroAdmProducto;
         private FiltrosGen.IAdmSelecciona _gAdmSelPrd;
         private Administrador.IGestion _gAdmDoc;
+        private IGestionRep _gestionReporteFiltros;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -111,6 +111,9 @@ namespace ModInventario
                             _gfiltroOferta, _gfiltroExistencia, _gfiltroCatalogo, _gfiltroPrecioMay, _gfiltroDepart, _gfiltroGrupo);
             _gAdmDoc = new Administrador.Movimiento.Gestion(_gFiltroAdmDoc);
             _gAdmSelPrd = new FiltrosGen.AdmSelecciona.Gestion(_gFiltroAdmProducto, _gListaSelPrd);
+            _gestionReporteFiltros = new FiltrosGen.Reportes.Gestion(_gFiltroBusPrd, _gfiltroDepOrigen, _gfiltroMarca,
+                _gfiltroSucursal, _gfiltroDepart, _gfiltroDivisa, _gfiltroCategoria, _gfiltroTasaIva, _gfiltroEstatus,
+                _gfiltroOrigen, _gfiltroGrupo, _gfiltroDesde, _gfiltroHasta);
             //
             _gestionMaestro = new Maestros.Gestion();
             _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto);
@@ -122,7 +125,8 @@ namespace ModInventario
             _gestionVisorCostoExistencia = new Visor.CostoExistencia.Gestion();
             _gestionVisorPrecio = new Visor.Precio.Gestion();
             _gestionAdmMov = new Administrador.Gestion();
-            _gestionReporteFiltros = new Reportes.Filtros.Gestion(_gListaSelPrd);
+
+
             _gestionConfCostoEdad = new Configuracion.CostoEdad.Gestion();
             _gestionConfRedondeoPrecio = new Configuracion.RedondeoPrecio.Gestion();
             _gestionConfRegistroPrecio = new Configuracion.RegistroPrecio.Gestion();
@@ -211,10 +215,10 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                var ctr = new Movimiento.Cargo.Gestion(_gListaSelPrd);
+                var ctr = new Movimiento.Cargo.Gestion();
                 ctr.Inicializa();
 
-                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.Inicializa();
                 _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
                 _gestionMov.Finaliza();
@@ -253,10 +257,10 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                var ctr = new Movimiento.Traslado.Gestion(_gListaSelPrd);
+                var ctr = new Movimiento.Traslado.Gestion();
                 ctr.Inicializa();
 
-                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.Inicializa();
                 _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
                 _gestionMov.Finaliza();
@@ -274,9 +278,11 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                //_gestionMov = new Movimiento.Gestion();
-                _gestionMov.setGestion(new Movimiento.TrasladoEntreSucursal.Gestion(_gListaSelPrd));
+                var ctr = new Movimiento.TrasladoEntreSucursal.Gestion(_gAdmSelPrd);
+                ctr.Inicializa();
+
                 _gestionMov.Inicializa();
+                _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia2();
                 _gestionMov.Finaliza();
             }
@@ -317,10 +323,10 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                var ctr = new Movimiento.Ajuste.Gestion(_gListaSelPrd);
+                var ctr = new Movimiento.Ajuste.Gestion();
                 ctr.Inicializa();
 
-                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.Inicializa();
                 _gestionMov.setGestion(ctr);
                 _gestionMov.Inicia();
                 _gestionMov.Finaliza();
@@ -353,24 +359,28 @@ namespace ModInventario
 
         public void ReporteMaestroProductos()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(false);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.MaestroProducto.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK) 
+            if (_gestionReporteFiltros.FiltrosIsOK) 
             {
                 var rp = new Reportes.Filtros.MaestroProducto.GestionRep();
-                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
                 rp.Generar();
             }
         }
 
         public void ReporteMaestroInventario()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(false);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.MaestroInventario.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
                 var rp = new Reportes.Filtros.MaestroInventario.GestionRep();
-                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
                 rp.Generar();
             }
         }
@@ -383,59 +393,62 @@ namespace ModInventario
 
         public void ReporteMaestroExistencia()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(false);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.MaestroExistencia.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
                 var rp = new Reportes.Filtros.MaestroExistencia.GestionRep();
-                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
                 rp.Generar();
             }
         }
 
         public void ReporteMaestroPrecio()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(false);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.MaestroPrecio.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
                 var rp = new Reportes.Filtros.MaestroPrecio.GestionRep();
-                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
                 rp.Generar();
             }
         }
 
         public void Kardex()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(true);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.Kardex.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
-                if (_gestionReporteFiltros.Hasta >= _gestionReporteFiltros.Desde)
-                {
-                    var rp = new Reportes.Filtros.Kardex.GestionRep();
-                    rp.setFiltros(_gestionReporteFiltros.DataFiltros);
-                    rp.Generar();
-                }
-                else
-                    Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+                var rp = new Reportes.Filtros.Kardex.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
+                rp.Generar();
             }
         }
 
         public void ReporteRelacionCompraVenta()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(false);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.RelacionCompraVenta.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
-                if (_gestionReporteFiltros.ProductoIsOk)
+                if (_gestionReporteFiltros.dataFiltrar.Producto ==null)
                 {
-                    var rp = new Reportes.Filtros.RelacionCompraVenta.GestionRep();
-                    rp.setFiltros(_gestionReporteFiltros.DataFiltros);
-                    rp.Generar();
-                }
-                else
                     Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+                    return;
+                }
+                var rp = new Reportes.Filtros.RelacionCompraVenta.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
+                rp.Generar();
             }
         }
 
@@ -447,12 +460,14 @@ namespace ModInventario
 
         public void MaestroNivelMinimo()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(false);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.NivelMInimo.Filtro());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
                 var rp = new Reportes.Filtros.NivelMInimo.GestionRep();
-                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
                 rp.Generar();
             }
         }
@@ -539,12 +554,20 @@ namespace ModInventario
 
         public void ReporteValorizacionInventario()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(true);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.Valorizacion.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
+                if (_gestionReporteFiltros.dataFiltrar.Deposito== null)
+                {
+                    Helpers.Msg.Error("Parametro [ DEPOSITO ] Incorrectos, Verifique Por Favor");
+                    return;
+                }
+
                 var rp = new Reportes.Filtros.Valorizacion.GestionRep();
-                rp.setFiltros(_gestionReporteFiltros.DataFiltros);
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
                 rp.Generar();
             }
         }
@@ -560,11 +583,11 @@ namespace ModInventario
 
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
-                var ctr= new Movimiento.TrasladoDevolucion.Gestion(_gListaSelPrd);
+                var ctr= new Movimiento.TrasladoDevolucion.Gestion();
                 ctr.Inicializa();
                 ctr.setConcepto("0000000034");
 
-                //_gestionMov = new Movimiento.Gestion();
+                _gestionMov.Inicializa();
                 _gestionMov.setGestion(ctr);
                 _gestionMov.setHabilitarConcepto(false);
                 _gestionMov.Inicia();
@@ -580,24 +603,20 @@ namespace ModInventario
 
         public void Kardex_Resumen_Mov()
         {
+            _gestionReporteFiltros.Inicializa();
+            _gestionReporteFiltros.setValidarData(true);
             _gestionReporteFiltros.setGestion(new Reportes.Filtros.Kardex.Filtros());
             _gestionReporteFiltros.Inicia();
-            if (_gestionReporteFiltros.ActivarFiltros_IsOK)
+            if (_gestionReporteFiltros.FiltrosIsOK)
             {
-                if (!_gestionReporteFiltros.DataFiltros.ProductoIsOk) 
+                if (_gestionReporteFiltros.dataFiltrar.Producto==null)
                 {
                     Helpers.Msg.Error("Parametro [ PRODUCTO ] Incorrectos, Verifique Por Favor");
                     return;
                 }
-
-                if (_gestionReporteFiltros.Hasta >= _gestionReporteFiltros.Desde)
-                {
-                    var rp = new Reportes.Filtros.KardexResumen.GestionRep();
-                    rp.setFiltros(_gestionReporteFiltros.DataFiltros);
-                    rp.Generar();
-                }
-                else
-                    Helpers.Msg.Error("Parametros Incorrectos, Verifique Por Favor");
+                var rp = new Reportes.Filtros.KardexResumen.GestionRep();
+                rp.setFiltros(_gestionReporteFiltros.dataFiltrar);
+                rp.Generar();
             }
         }
 

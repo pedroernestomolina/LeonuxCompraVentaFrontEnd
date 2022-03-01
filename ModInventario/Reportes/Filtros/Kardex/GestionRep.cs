@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.Kardex
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.Kardex
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,43 +29,47 @@ namespace ModInventario.Reportes.Filtros.Kardex
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.Kardex.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Deposito != null)
             {
-                filtro.autoDeposito = dataFiltros.AutoDeposito;
-                filtro.desde = dataFiltros.Desde;
-                filtro.hasta= dataFiltros.Hasta;
-                if (dataFiltros.ProductoIsOk)
-                {
-                    filtro.autoProducto = dataFiltros.Producto.id;
-                }
+                filtro.autoDeposito = dataFiltros.Deposito.id;
             }
-            var r01 = Sistema.MyData.Reportes_Kardex (filtro);
+            if (dataFiltros.Desde.HasValue )
+            {
+                filtro.desde = dataFiltros.Desde.Value;
+            }
+            if (dataFiltros.Hasta.HasValue)
+            {
+                filtro.hasta = dataFiltros.Hasta.Value;
+            }
+            if (dataFiltros.Producto !=null)
+            {
+                filtro.autoProducto = dataFiltros.Producto.id;
+            }
+            var r01 = Sistema.MyData.Reportes_Kardex(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-
-            var filt = "DESDE: "+dataFiltros.Desde.ToShortDateString()+", HASTA: "+dataFiltros.Hasta.ToShortDateString();
-            if (dataFiltros.AutoDeposito!="")
-                filt += ", DEPOSITO: "+dataFiltros.NombreDeposito;
-
-            Imprimir(r01.Lista,filt);
+            Imprimir(r01.Entidad, dataFiltros.ToString());
         }
 
 
-        public void Imprimir(List<OOB.LibInventario.Reportes.Kardex.Ficha> lista, string filt)
+        public void Imprimir(OOB.LibInventario.Reportes.Kardex.Ficha ficha, string filt)
         {
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\Filtros\Kardex.rdlc";
             var ds = new DS();
 
-            var grupos = lista.GroupBy(g => g.nombrePrd).OrderBy(o=>o.Key).ToList();
+            var grupos = ficha.movimientos.GroupBy(g => g.nombrePrd).OrderBy(o=>o.Key).ToList();
             foreach (var g in grupos)
             {
-                var saldo = 0.0m;
-                saldo = lista.FirstOrDefault(f => f.nombrePrd == g.Key).existenciaInicial;
+                var autoPrd = ficha.movimientos.FirstOrDefault(f => f.nombrePrd == g.Key).autoPrd;
+                var saldo = ficha.exInicial.FirstOrDefault(f => f.autoPrd == autoPrd).exInicial;
+
+                //var saldo = 0.0m;
+                //saldo = ficha.movimientos.FirstOrDefault(f => f.nombrePrd == g.Key).existenciaInicial;
                 //foreach (var it in lista.Where(w => w.nombrePrd == g.Key).OrderBy(o=>o.moduloMov).ThenBy(o=>o.fechaMov).ToList())
-                foreach (var it in lista.Where(w => w.nombrePrd == g.Key).OrderBy(o => o.fechaMov).ThenBy(o=>o.ordenPrioridad).ToList())
+                foreach (var it in ficha.movimientos.Where(w => w.nombrePrd == g.Key).OrderBy(o => o.fechaMov).ThenBy(o=>o.ordenPrioridad).ToList())
                 {
                     DataRow rt = ds.Tables["Kardex"].NewRow();
                     rt["nombre"] = it.nombrePrd.Trim()+Environment.NewLine+it.codigoPrd;

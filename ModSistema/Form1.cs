@@ -224,6 +224,15 @@ namespace ModSistema
             _controlador.DatosDelNegocio();
         }
 
+        private void TSM_CONF_MODULO_Click(object sender, EventArgs e)
+        {
+            ConfiguracionModulo();
+        }
+        private void ConfiguracionModulo()
+        {
+            _controlador.ConfiguracionModulo();
+        }
+
     }
 
 }

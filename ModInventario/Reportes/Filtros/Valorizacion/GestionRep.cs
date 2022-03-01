@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.Valorizacion
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.Valorizacion
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,23 +29,21 @@ namespace ModInventario.Reportes.Filtros.Valorizacion
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.Valorizacion.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Deposito != null)
             {
-                filtro.hasta  = dataFiltros.Hasta;
-                filtro.idDeposito = dataFiltros.AutoDeposito;
-            };
+                filtro.idDeposito = dataFiltros.Deposito.id;
+            }
+            if (dataFiltros.Hasta.HasValue)
+            {
+                filtro.hasta = dataFiltros.Hasta.Value;
+            }
             var r01 = Sistema.MyData.Reportes_Valorizacion(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-            var filt="AL: "+dataFiltros.Hasta.ToShortDateString();
-            if (dataFiltros.AutoDeposito != "") 
-            {
-                filt += ", DEPOSITO: " + dataFiltros.NombreDeposito;
-            };
-            Imprimir(r01.Lista, filt);
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
         public void Imprimir(List<OOB.LibInventario.Reportes.Valorizacion.Ficha> lista, string filtro)

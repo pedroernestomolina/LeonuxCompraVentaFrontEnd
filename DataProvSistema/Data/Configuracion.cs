@@ -38,7 +38,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<decimal> Configuracion_TasaRecepcionPos()
         {
             var rt = new OOB.ResultadoEntidad<decimal>();
@@ -83,7 +82,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha> Configuracion_Actualizar_TasaDivisa_CapturarData()
         {
             var rt = new OOB.ResultadoLista<OOB.LibSistema.Configuracion.ActualizarTasaDivisa.CapturarData.Ficha>();
@@ -134,43 +132,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
-        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta()
-        {
-            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta>();
-
-            var r01 = MyData.Configuracion_ForzarRedondeoPrecioVenta();
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
-            }
-
-            var s = r01.Entidad;
-            rt.Entidad = (OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta)s;
-
-            return rt;
-        }
-
-        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio()
-        {
-            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio>();
-
-            var r01 = MyData.Configuracion_PreferenciaRegistroPrecio();
-            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
-            {
-                rt.Mensaje = r01.Mensaje;
-                rt.Result = OOB.Enumerados.EnumResult.isError;
-                return rt;
-            }
-
-            var s = r01.Entidad;
-            rt.Entidad = (OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio)s;
-
-            return rt;
-        }
-
         public OOB.Resultado Configuracion_Actualizar_TasaDivisa_ActualizarData(OOB.LibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.Ficha ficha)
         {
             var rt = new OOB.Resultado();
@@ -185,7 +146,7 @@ namespace DataProvSistema.Data
             };
 
             var lstProdCostoSinDivisa = new List<DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoSinDivisa>();
-            foreach (var rg in ficha.productosCostoSinDivisa) 
+            foreach (var rg in ficha.productosCostoSinDivisa)
             {
                 var nr = new DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoSinDivisa()
                 {
@@ -196,15 +157,15 @@ namespace DataProvSistema.Data
                     precioMonedaEnDivisaFull_3 = rg.precioMonedaEnDivisaFull_3,
                     precioMonedaEnDivisaFull_4 = rg.precioMonedaEnDivisaFull_4,
                     precioMonedaEnDivisaFull_5 = rg.precioMonedaEnDivisaFull_5,
-                    precioMonedaEnDivisaFull_May_1= rg.precioMonedaEnDivisaFull_May_1,
-                    precioMonedaEnDivisaFull_May_2= rg.precioMonedaEnDivisaFull_May_2,
+                    precioMonedaEnDivisaFull_May_1 = rg.precioMonedaEnDivisaFull_May_1,
+                    precioMonedaEnDivisaFull_May_2 = rg.precioMonedaEnDivisaFull_May_2,
                 };
                 lstProdCostoSinDivisa.Add(nr);
             }
             fichaDTO.productosCostoSinDivisa = lstProdCostoSinDivisa;
 
             var lstProdDivisaCostoPrecio = new List<DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoPrecioDivisa>();
-            foreach (var rg in ficha.productosCostoPrecioDivisa) 
+            foreach (var rg in ficha.productosCostoPrecioDivisa)
             {
                 var nr = new DtoLibSistema.Configuracion.ActualizarTasaDivisa.ActualizarData.FichaProductoCostoPrecioDivisa()
                 {
@@ -248,6 +209,96 @@ namespace DataProvSistema.Data
             fichaDTO.productosPrecioHistorico = lstProdPrecioHistorico;
 
             var r01 = MyData.Configuracion_Actualizar_TasaDivisa_ActualizarData(fichaDTO);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta> Configuracion_ForzarRedondeoPrecioVenta()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta>();
+
+            var r01 = MyData.Configuracion_ForzarRedondeoPrecioVenta();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            rt.Entidad = (OOB.LibSistema.Configuracion.Enumerados.EnumForzarRedondeoPrecioVenta)s;
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio>();
+
+            var r01 = MyData.Configuracion_PreferenciaRegistroPrecio();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var s = r01.Entidad;
+            rt.Entidad = (OOB.LibSistema.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio)s;
+
+            return rt;
+        }
+
+        public OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha> Configuracion_Modulo_Capturar()
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha>(); 
+
+            var r01 = MyData.Configuracion_Modulo_Capturar();
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            var f= r01.Entidad;
+            var cnt = 1000;
+            if (f.cantDocVisualizar.Trim() != "")
+            {
+                var style = NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands;
+                var culture = CultureInfo.CreateSpecificCulture("es-ES");
+                //var culture = CultureInfo.CreateSpecificCulture("en-EN");
+                int.TryParse(f.cantDocVisualizar, style, culture, out cnt);
+            }
+
+            rt.Entidad = new OOB.LibSistema.Configuracion.Modulo.Capturar.Ficha()
+            {
+                claveNivMaximo = f.claveNivMaximo,
+                claveNivMedio = f.claveNivMedio,
+                claveNivMinimo = f.claveNivMinimo,
+                visualizarPrdInactivos = f.visualizarPrdInactivos.Trim().ToUpper() == "SI" ? true : false,
+                cantDocVisualizar = cnt,
+            };
+
+            return rt;
+        }
+        public OOB.Resultado Configuracion_Modulo_Actualizar(OOB.LibSistema.Configuracion.Modulo.Actualizar.Ficha ficha)
+        {
+            var rt = new OOB.Resultado();
+
+            var fichaDTO = new DtoLibSistema.Configuracion.Modulo.Actualizar.Ficha()
+            {
+                claveNivMaximo = ficha.claveNivMaximo,
+                claveNivMedio = ficha.claveNivMedio,
+                claveNivMinimo = ficha.claveNivMinimo,
+                visualizarPrdInactivos = ficha.visualizarPrdInactivos,
+                cantDocVisualizar = ficha.cantDocVisualizar,
+            };
+            var r01 = MyData.Configuracion_Modulo_Actualizar(fichaDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
             {
                 rt.Mensaje = r01.Mensaje;

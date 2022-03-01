@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data  dataFiltros;
 
 
         public GestionRep()
@@ -21,34 +21,34 @@ namespace ModInventario.Reportes.Filtros.MaestroInventario
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
 
         public void Generar()
         {
-            var sFiltro = "";
             var filtro = new OOB.LibInventario.Reportes.MaestroInventario.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Depart != null)
             {
-                filtro.autoDepartamento = dataFiltros.AutoDepartamento;
-                filtro.autoDeposito= dataFiltros.AutoDeposito;
-                filtro.autoGrupo = dataFiltros.AutoGrupo;
-
-                if (filtro.autoDeposito != "")
-                    sFiltro += "Por Deposito= "+dataFiltros.NombreDeposito+", ";
-                if (filtro.autoDepartamento != "")
-                    sFiltro += "Por Departamento= " + dataFiltros.NombreDepartamento + ", ";
+                filtro.autoDepartamento = dataFiltros.Depart.id;
             }
-            var r01 = Sistema.MyData.Reportes_MaestroInventario (filtro);
+            if (dataFiltros.Deposito!= null)
+            {
+                filtro.autoDeposito= dataFiltros.Deposito.id;
+            }
+            if (dataFiltros.Grupo != null)
+            {
+                filtro.autoGrupo= dataFiltros.Grupo.id;
+            }
+
+            var r01 = Sistema.MyData.Reportes_MaestroInventario(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
                 return;
             }
-
-            Imprimir(r01.Lista, sFiltro);
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
         public void Imprimir(List<OOB.LibInventario.Reportes.MaestroInventario.Ficha> lista, string sFiltro)

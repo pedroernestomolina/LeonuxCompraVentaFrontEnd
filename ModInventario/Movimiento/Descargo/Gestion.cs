@@ -97,6 +97,7 @@ namespace ModInventario.Movimiento.Descargo
         {
             _gestionDetalle = new GestionDetalle();
             miData = new Movimiento.data();
+
             lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
             lSucursal = new List<OOB.LibInventario.Sucursal.Ficha>();
             lDepOrigen = new List<OOB.LibInventario.Deposito.Ficha>();
@@ -111,9 +112,6 @@ namespace ModInventario.Movimiento.Descargo
             bsDepDestino.DataSource = lDepDestino;
         }
 
-        public void Inicia()
-        {
-        }
 
         public bool CargarData()
         {
@@ -171,10 +169,6 @@ namespace ModInventario.Movimiento.Descargo
             Limpiar();
 
             return rt;
-        }
-
-        public void BuscarProducto()
-        {
         }
 
         public void EliminarItem()
@@ -443,10 +437,13 @@ namespace ModInventario.Movimiento.Descargo
             _procesarDocIsOk = false;
         }
 
-        public void Finaliza()
+        public void Inicia()
         {
         }
 
+        public void Finaliza()
+        {
+        }
 
         public void BuscarProducto(string id)
         {
@@ -472,12 +469,11 @@ namespace ModInventario.Movimiento.Descargo
             _gestionDetalle.AgregarItem(ficha, DepositoOrigen.id);
         }
 
-        //public void setFiltros(Buscar.Filtrar.data data)
-        //{
-        //}
-
         public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
         public string CadenaBusqueda { get; set; }
+        public void BuscarProducto()
+        {
+        }
 
     }
 

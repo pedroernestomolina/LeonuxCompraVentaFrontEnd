@@ -315,7 +315,9 @@
     <Compile Include="LibInventario\Reportes\DepositoResumen\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\enumerados.cs" />
     <Compile Include="LibInventario\Reportes\KardexResumen\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\Kardex\Existencia.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Ficha.cs" />
+    <Compile Include="LibInventario\Reportes\Kardex\Mov.cs" />
     <Compile Include="LibInventario\Reportes\Kardex\Filtro.cs" />
     <Compile Include="LibInventario\Reportes\MaestroExistencia\Ficha.cs" />
     <Compile Include="LibInventario\Reportes\MaestroExistencia\Filtro.cs" />
@@ -368,6 +370,8 @@
     <Compile Include="LibSistema\Configuracion\ActualizarTasaRecepcionPos\Ficha.cs" />
     <Compile Include="LibSistema\Configuracion\Enumerados.cs" />
     <Compile Include="LibSistema\Configuracion\Inicializar\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Modulo\Actualizar\Ficha.cs" />
+    <Compile Include="LibSistema\Configuracion\Modulo\Capturar\Ficha.cs" />
     <Compile Include="LibSistema\ControlAcceso\Actualizar\Ficha.cs" />
     <Compile Include="LibSistema\ControlAcceso\Actualizar\ItemAcceso.cs" />
     <Compile Include="LibSistema\ControlAcceso\Data\Ficha.cs" />

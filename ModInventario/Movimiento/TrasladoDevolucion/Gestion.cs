@@ -12,7 +12,6 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
     public class Gestion: IGestion
     {
 
-        private Producto.Busqueda.Gestion _gestionBusquedaPrd;
         private List<OOB.LibInventario.Concepto.Ficha> lConcepto;
         private List<OOB.LibInventario.Sucursal.Ficha> lSucursal;
         private List<OOB.LibInventario.Deposito.Ficha> lDepOrigen;
@@ -26,10 +25,10 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
         private decimal tasaCambio;
         private bool isCerrarOk;
         private string _conceptoDefinido;
-        //
-        private Buscar.INotificarSeleccion _glistaPrd;
+        private bool _procesarDocIsOk;
 
 
+        public bool ProcesarDocIsOk { get { return _procesarDocIsOk; } }
         public bool IsCerrarOk { get { return isCerrarOk; } }
         public string TipoMovimiento { get { return "TRASL x DEVOLUCION"; } }
         public decimal MontoMovimiento { get { return _gestionDetalle.MontoMovimiento; } }
@@ -80,8 +79,6 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
         public string AutorizadoPor { get { return miData.AutorizadoPor; } set { miData.AutorizadoPor = value; } }
         public string Motivo { get { return miData.Motivo; } set { miData.Motivo = value; } }
         public DateTime FechaMov { get { return miData.Fecha; } set { miData.Fecha = value; } }
-        public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get { return _gestionBusquedaPrd.Metodo; } set { _gestionBusquedaPrd.Metodo = value; } }
-        public string CadenaBusqueda { get { return _gestionBusquedaPrd.CadenaBusqueda; } set { _gestionBusquedaPrd.CadenaBusqueda = value; } }
         public ficha Sucursal { get { return miData.GetSucursal; } }
         public ficha DepositoOrigen { get { return miData.GetDepositoOrigen; } }
         public ficha DepositoDestino { get { return miData.GetDepositoDestino; } }
@@ -121,12 +118,9 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
         }
 
 
-        public Gestion(Buscar.INotificarSeleccion ctrNotificaSelPrd)
+        public Gestion()
         {
-            _glistaPrd = ctrNotificaSelPrd;
-            //
             _gestionDetalle = new GestionDetalle();
-            _gestionBusquedaPrd = new Producto.Busqueda.Gestion();
             miData = new Movimiento.data();
 
             lConcepto = new List<OOB.LibInventario.Concepto.Ficha>();
@@ -143,40 +137,6 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
             bsDepDestino.DataSource = lDepDestino;
         }
 
-        private void _glistaPrd_NotificarSeleccion(object sender, EventArgs e)
-        {
-            if (_glistaPrd.ItemSeleccionado.isAnulado)
-            {
-                Helpers.Msg.Error("ITEM NO PUEDE SER SELECCIONADO: VERIFIQUE ESTATUS");
-                return;
-            }
-            else
-            {
-                if (DepositoOrigen == null)
-                {
-                    Helpers.Msg.Error("CAMPO [ DEPOSITO ORIGEN ] NO SELECCIONADO");
-                    return;
-                }
-                if (DepositoDestino == null)
-                {
-                    Helpers.Msg.Error("CAMPO [ DEPOSITO DESTINO ] NO SELECCIONADO");
-                    return;
-                }
-                var filtro = new OOB.LibInventario.Producto.Filtro() { autoProducto = _glistaPrd.ItemSeleccionado.id };
-                var r01 = Sistema.MyData.Producto_GetLista(filtro);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
-                {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
-                }
-                _gestionDetalle.AgregarItem(r01.Lista[0], DepositoOrigen.id, DepositoDestino.id);
-            }
-        }
-
-        public void Inicia()
-        {
-            _gestionBusquedaPrd.Inicia();
-        }
 
         public bool CargarData()
         {
@@ -216,6 +176,7 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
 
         public void Limpiar()
         {
+            _procesarDocIsOk = false;
             isCerrarOk = false;
             miData.Limpiar();
             lDepOrigen.Clear();
@@ -235,25 +196,6 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
             return rt;
         }
 
-        public void BuscarProducto()
-        {
-            _gestionBusquedaPrd.Buscar();
-            if (_gestionBusquedaPrd.IsOk)
-            {
-                var lst = new List<fichaSeleccion>();
-                foreach (var rg in _gestionBusquedaPrd.Resultado.OrderBy(o => o.DescripcionPrd).ToList())
-                {
-                    lst.Add(new fichaSeleccion(rg.AutoId, rg.CodigoPrd, rg.DescripcionPrd, rg.IsInactivo));
-                }
-                _glistaPrd.Inicializa();
-                _glistaPrd.setCerrarVentanaAlSeleccionarItem(false);
-                _glistaPrd.setActivarNotificacion(true);
-                _glistaPrd.setPermitirSeleccionarInactivos(false);
-                _glistaPrd.setLista(lst);
-                _glistaPrd.Inicia();
-            }
-        }
-
         public void EliminarItem()
         {
             _gestionDetalle.EliminarItem();
@@ -266,6 +208,7 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
 
         public void Procesar()
         {
+            _procesarDocIsOk = false;
             IdConcepto = _conceptoDefinido;
 
             var r01 = Sistema.MyData.Concepto_GetFicha(_conceptoDefinido);
@@ -315,6 +258,7 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
 
                 Helpers.Msg.AgregarOk();
                 isCerrarOk = true;
+                _procesarDocIsOk = true;
             }
         }
 
@@ -555,31 +499,53 @@ namespace ModInventario.Movimiento.TrasladoDevolucion
             }
         }
 
+        public void Inicia()
+        {
+        }
+
         public void Inicializa()
         {
-            _glistaPrd.NotificarSeleccion += _glistaPrd_NotificarSeleccion;
+            _procesarDocIsOk = false;
         }
 
         public void Finaliza()
         {
-            _glistaPrd.NotificarSeleccion -= _glistaPrd_NotificarSeleccion;
         }
-
 
         public void BuscarProducto(string id)
         {
+            var filtro = new OOB.LibInventario.Producto.Filtro() { autoProducto = id };
+            var r01 = Sistema.MyData.Producto_GetLista(filtro);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return;
+            }
+
+            var ficha = r01.Lista[0];
+            if (ficha.IsInactivo)
+            {
+                Helpers.Msg.Error("ITEM NO PUEDE SER SELECCIONADO: VERIFIQUE ESTATUS");
+                return;
+            }
+            if (DepositoOrigen == null)
+            {
+                Helpers.Msg.Error("CAMPO [ DEPOSITO ORIGEN ] NO SELECCIONADO");
+                return;
+            }
+            if (DepositoDestino == null)
+            {
+                Helpers.Msg.Error("CAMPO [ DEPOSITO DESTINO ] NO SELECCIONADO");
+                return;
+            }
+            _gestionDetalle.AgregarItem(ficha, DepositoOrigen.id, DepositoDestino.id);
         }
 
-        public bool ProcesarDocIsOk
+        public OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda MetodoBusqueda { get; set; }
+        public string CadenaBusqueda { get; set; }
+        public void BuscarProducto()
         {
-            get { throw new NotImplementedException(); }
         }
-
-        //public void setFiltros(Buscar.Filtrar.data data)
-        //{
-        //    _gestionBusquedaPrd.setFiltros(data);
-        //}
-
 
     }
 

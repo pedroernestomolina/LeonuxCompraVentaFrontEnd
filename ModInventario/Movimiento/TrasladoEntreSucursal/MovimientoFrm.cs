@@ -248,13 +248,13 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
             switch (_controlador.MetodoBusqueda)
             {
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo:
+                case Gestion.enumMetBusq.PorCodgo:
                     RB_BUSCAR_POR_CODIGO.Checked = true;
                     break;
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre:
+                case Gestion.enumMetBusq.PorNombre:
                     RB_BUSCAR_POR_NOMBRE.Checked = true;
                     break;
-                case OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia:
+                case Gestion.enumMetBusq.PorReferencia:
                     RB_BUSCAR_POR_REFERENCIA.Checked = true;
                     break;
             }
@@ -371,25 +371,25 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
 
         private void RB_BUSCAR_POR_CODIGO_CheckedChanged(object sender, EventArgs e)
         {
-            _controlador.MetodoBusqueda= OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Codigo;
+            _controlador.setMetBusqByCodigo();
             ActivarFocoBusqueda();
         }
 
         private void RB_BUSCAR_POR_NOMBRE_CheckedChanged(object sender, EventArgs e)
         {
-            _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Nombre;
+            _controlador.setMetBusqByNombre();
             ActivarFocoBusqueda();
         }
 
         private void RB_BUSCAR_POR_REFERENCIA_CheckedChanged(object sender, EventArgs e)
         {
-            _controlador.MetodoBusqueda = OOB.LibInventario.Producto.Enumerados.EnumMetodoBusqueda.Referencia;
+            _controlador.setMetBusqByReferencia();
             ActivarFocoBusqueda();
         }
 
         private void TB_CADENA_BUSQ_Leave(object sender, EventArgs e)
         {
-            _controlador.CadenaBusqueda = TB_CADENA_BUSQ.Text;
+            _controlador.setCadenaBuscar(TB_CADENA_BUSQ.Text.Trim());
         }
 
         private void BT_ELIMINAR_ITEM_Click(object sender, EventArgs e)
@@ -544,6 +544,11 @@ namespace ModInventario.Movimiento.TrasladoEntreSucursal
                 _controlador.setDepartamento(CB_DEPARTAMENTO.SelectedValue.ToString());
             }
 
+        }
+
+        private void BT_FILTRAR_Click(object sender, EventArgs e)
+        {
+            _controlador.Filtrar();
         }
     
     }

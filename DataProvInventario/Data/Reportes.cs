@@ -65,7 +65,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroInventario.Ficha> Reportes_MaestroInventario(OOB.LibInventario.Reportes.MaestroInventario.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroInventario.Ficha>();
@@ -121,7 +120,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.Top20.Ficha> Reportes_Top20(OOB.LibInventario.Reportes.Top20.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.Top20.Ficha>();
@@ -164,7 +162,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroExistencia.Ficha> Reportes_MaestroExistencia(OOB.LibInventario.Reportes.MaestroExistencia.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroExistencia.Ficha>();
@@ -221,7 +218,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroPrecio.Ficha> Reportes_MaestroPrecio(OOB.LibInventario.Reportes.MaestroPrecio.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.MaestroPrecio.Ficha>();
@@ -281,10 +277,9 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
-        public OOB.ResultadoLista<OOB.LibInventario.Reportes.Kardex.Ficha> Reportes_Kardex(OOB.LibInventario.Reportes.Kardex.Filtro filtro)
+        public OOB.ResultadoEntidad<OOB.LibInventario.Reportes.Kardex.Ficha> Reportes_Kardex(OOB.LibInventario.Reportes.Kardex.Filtro filtro)
         {
-            var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.Kardex.Ficha>();
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Reportes.Kardex.Ficha>();
 
             var filtroDto = new DtoLibInventario.Reportes.Kardex.Filtro()
             {
@@ -301,15 +296,19 @@ namespace DataProvInventario.Data
                 return rt;
             }
 
-            var list = new List<OOB.LibInventario.Reportes.Kardex.Ficha>();
-            if (r01.Lista != null)
+            var mov= new List<OOB.LibInventario.Reportes.Kardex.Mov>();
+            var ex = new List<OOB.LibInventario.Reportes.Kardex.Existencia>();
+
+            var xmov = r01.Entidad.movimientos;
+            if (xmov != null)
             {
-                if (r01.Lista.Count > 0)
+                if (xmov.Count > 0)
                 {
-                    list = r01.Lista.Select(s =>
+                    mov = xmov.Select(s =>
                     {
-                        return new OOB.LibInventario.Reportes.Kardex.Ficha()
+                        return new OOB.LibInventario.Reportes.Kardex.Mov()
                         {
+                            autoPrd = s.autoPrd,
                             codigoPrd = s.codigoPrd,
                             modeloPrd = s.modeloPrd,
                             nombrePrd = s.nombrePrd,
@@ -330,11 +329,28 @@ namespace DataProvInventario.Data
                     }).ToList();
                 }
             }
-            rt.Lista = list;
-
+            var xex = r01.Entidad.exInicial;
+            if (xex!= null)
+            {
+                if (xex.Count > 0)
+                {
+                    ex = xex.Select(s =>
+                    {
+                        return new OOB.LibInventario.Reportes.Kardex.Existencia()
+                        {
+                            exInicial = s.exInicial == null ? 0m : s.exInicial.Value,
+                            autoPrd = s.autoPrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Entidad = new OOB.LibInventario.Reportes.Kardex.Ficha()
+            {
+                exInicial = ex,
+                movimientos = mov,
+            };
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha> Reportes_CompraVentaAlmacen(OOB.LibInventario.Reportes.CompraVentaAlmacen.Filtro filtro)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Reportes.CompraVentaAlmacen.Ficha>();
@@ -433,7 +449,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.DepositoResumen.Ficha> Reportes_DepositoResumen()
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.DepositoResumen.Ficha>();
@@ -476,7 +491,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.NivelMinimo.Ficha> Reportes_NivelMinimo(OOB.LibInventario.Reportes.NivelMinimo.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.NivelMinimo.Ficha>();
@@ -521,7 +535,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.Valorizacion.Ficha> Reportes_Valorizacion(OOB.LibInventario.Reportes.Valorizacion.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.Valorizacion.Ficha>();
@@ -567,7 +580,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoLista<OOB.LibInventario.Reportes.KardexResumen.Ficha> Reportes_KardexResumen(OOB.LibInventario.Reportes.Kardex.Filtro filtro)
         {
             var rt = new OOB.ResultadoLista<OOB.LibInventario.Reportes.KardexResumen.Ficha>();

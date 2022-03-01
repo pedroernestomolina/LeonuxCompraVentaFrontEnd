@@ -18,6 +18,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Configuracion.Enumerados.EnumPreferenciaRegistroPrecio> Configuracion_PreferenciaRegistroPrecio();
         OOB.ResultadoEntidad<int> Configuracion_CostoEdadProducto();
         OOB.ResultadoEntidad<bool> Configuracion_VisualizarProductosInactivos();
+        OOB.ResultadoEntidad<int> Configuracion_CantDocVisualizar();
 
         OOB.Resultado Configuracion_SetCostoEdadProducto(OOB.LibInventario.Configuracion.CostoEdad.Editar.Ficha ficha);
         OOB.Resultado Configuracion_SetRedondeoPrecioVenta(OOB.LibInventario.Configuracion.RedondeoPrecio.Editar.Ficha ficha);

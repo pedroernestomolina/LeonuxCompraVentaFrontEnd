@@ -13,7 +13,7 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
     public class GestionRep
     {
 
-        private data dataFiltros;
+        private FiltrosGen.Reportes.data dataFiltros;
 
 
         public GestionRep()
@@ -21,7 +21,7 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
         }
 
 
-        public void setFiltros(data data)
+        public void setFiltros(FiltrosGen.Reportes.data data)
         {
             dataFiltros = data;
         }
@@ -29,11 +29,17 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
         public void Generar()
         {
             var filtro = new OOB.LibInventario.Reportes.NivelMinimo.Filtro();
-            if (dataFiltros != null)
+            if (dataFiltros.Depart != null)
             {
-                filtro.autoDepartamento = dataFiltros.AutoDepartamento;
-                filtro.autoGrupo = dataFiltros.AutoGrupo;
-                filtro.autoDeposito = dataFiltros.AutoDeposito;
+                filtro.autoDepartamento = dataFiltros.Depart.id;
+            }
+            if (dataFiltros.Grupo != null)
+            {
+                filtro.autoGrupo = dataFiltros.Grupo.id;
+            }
+            if (dataFiltros.Deposito != null)
+            {
+                filtro.autoDeposito = dataFiltros.Deposito.id;
             }
             var r01 = Sistema.MyData.Reportes_NivelMinimo(filtro);
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
@@ -42,7 +48,7 @@ namespace ModInventario.Reportes.Filtros.NivelMInimo
                 return;
             }
 
-            Imprimir(r01.Lista, dataFiltros.TextoFiltro());
+            Imprimir(r01.Lista, dataFiltros.ToString());
         }
 
         public void Imprimir(List<OOB.LibInventario.Reportes.NivelMinimo.Ficha> lista, string filtro)

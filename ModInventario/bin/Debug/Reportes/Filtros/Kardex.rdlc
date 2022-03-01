@@ -1032,7 +1032,7 @@
   <Width>10.52769in</Width>
   <Page>
     <PageHeader>
-      <Height>3.25438cm</Height>
+      <Height>3.14855cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1317,7 +1317,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Parameters!FILTROS.Value</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -1329,7 +1331,7 @@
           <Top>2.01055cm</Top>
           <Left>10.75576cm</Left>
           <Height>0.9616cm</Height>
-          <Width>10.84331cm</Width>
+          <Width>15.81291cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>

@@ -25,6 +25,7 @@ namespace ModSistema
         private Maestros.Gestion _gestionMaestro;
         private ReconversionMonetaria.Gestion _gestionRecMon;
         private DatosNegocio.Editar.Gestion _gestionDatosNegocio;
+        private IGestion _gConfModulo;
 
 
         public string Host 
@@ -70,6 +71,8 @@ namespace ModSistema
             _gestionMaestro = new Maestros.Gestion();
             _gestionRecMon = new ReconversionMonetaria.Gestion();
             _gestionDatosNegocio = new DatosNegocio.Editar.Gestion();
+            //
+            _gConfModulo = new Configuracion.Modulo.Gestion();
         }
 
 
@@ -340,6 +343,22 @@ namespace ModSistema
             {
                 _gestionDatosNegocio.Inicializa();
                 _gestionDatosNegocio.Inicia();
+            }
+        }
+
+        public void ConfiguracionModulo()
+        {
+            var r00 = Sistema.MyData.Permiso_ConfiguracionSistema(Sistema.UsuarioP.autoGrupo);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gConfModulo.Inicializa();
+                _gConfModulo.Inicia();
             }
         }
 

@@ -13,18 +13,11 @@ namespace ModInventario.Reportes.Filtros.DepositoResumen
     public class GestionRep
     {
 
-        private data dataFiltros;
-
 
         public GestionRep()
         {
         }
 
-
-        public void setFiltros(data data)
-        {
-            dataFiltros = data;
-        }
 
         public void Generar()
         {

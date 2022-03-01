@@ -173,13 +173,21 @@ namespace ModInventario.Administrador.Movimiento
                     }
                     xfiltros += xestatus ;
                 }
+                var rt0 = Sistema.MyData.Configuracion_CantDocVisualizar();
+                if (rt0.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(rt0.Mensaje);
+                    return;
+                }
                 var rt1 = Sistema.MyData.Producto_Movimiento_GetLista(filtro);
                 if (rt1.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(rt1.Mensaje);
                     return;
                 }
-                _gestionListaDetalle.setLista(rt1.Lista);
+                //_gestionListaDetalle.setLista(rt1.Lista.Take(rt0.Entidad).ToList());
+                var lst = rt1.Lista.OrderByDescending(o => o.fecha).ThenByDescending(o => o.docNro).Take(rt0.Entidad).ToList();
+                _gestionListaDetalle.setLista(lst);
             }
         }
 

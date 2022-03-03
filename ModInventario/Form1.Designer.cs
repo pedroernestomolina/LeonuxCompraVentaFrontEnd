@@ -106,6 +106,7 @@
             this.TSM_CONFIGURACION_REGISTRO_PRECIOS = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_CONFIGURACION_REDONDEO_PRECIOS = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_CONFIGURACION_COSTO_EDAD = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -121,7 +122,8 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_AJUSTE_CERO = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -186,11 +188,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(708, 1);
+            this.panel2.Location = new System.Drawing.Point(707, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(175, 52);
+            this.panel2.Size = new System.Drawing.Size(176, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -201,7 +203,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(171, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(172, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -216,7 +218,7 @@
             this.panel7.Margin = new System.Windows.Forms.Padding(1);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(2);
-            this.panel7.Size = new System.Drawing.Size(376, 52);
+            this.panel7.Size = new System.Drawing.Size(375, 52);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -235,7 +237,7 @@
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(372, 48);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(371, 48);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel13
@@ -269,7 +271,7 @@
             this.panel14.Margin = new System.Windows.Forms.Padding(1);
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(2);
-            this.panel14.Size = new System.Drawing.Size(282, 22);
+            this.panel14.Size = new System.Drawing.Size(281, 22);
             this.panel14.TabIndex = 3;
             // 
             // L_FECHA
@@ -279,7 +281,7 @@
             this.L_FECHA.ForeColor = System.Drawing.Color.Yellow;
             this.L_FECHA.Location = new System.Drawing.Point(2, 2);
             this.L_FECHA.Name = "L_FECHA";
-            this.L_FECHA.Size = new System.Drawing.Size(278, 18);
+            this.L_FECHA.Size = new System.Drawing.Size(277, 18);
             this.L_FECHA.TabIndex = 5;
             this.L_FECHA.Text = "Hoy";
             this.L_FECHA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -315,7 +317,7 @@
             this.panel16.Margin = new System.Windows.Forms.Padding(1);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(2);
-            this.panel16.Size = new System.Drawing.Size(282, 22);
+            this.panel16.Size = new System.Drawing.Size(281, 22);
             this.panel16.TabIndex = 4;
             // 
             // L_HOST
@@ -325,7 +327,7 @@
             this.L_HOST.ForeColor = System.Drawing.Color.Yellow;
             this.L_HOST.Location = new System.Drawing.Point(2, 2);
             this.L_HOST.Name = "L_HOST";
-            this.L_HOST.Size = new System.Drawing.Size(278, 18);
+            this.L_HOST.Size = new System.Drawing.Size(277, 18);
             this.L_HOST.TabIndex = 4;
             this.L_HOST.Text = "label2";
             this.L_HOST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,7 +336,7 @@
             // 
             this.panel17.Controls.Add(this.tableLayoutPanel7);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(379, 1);
+            this.panel17.Location = new System.Drawing.Point(378, 1);
             this.panel17.Margin = new System.Windows.Forms.Padding(1);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(200, 52);
@@ -406,7 +408,7 @@
             // 
             this.panel20.Controls.Add(this.tableLayoutPanel8);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(581, 1);
+            this.panel20.Location = new System.Drawing.Point(580, 1);
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
@@ -557,8 +559,10 @@
             // 
             this.ajustesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo,
+            this.cambioDePreciosToolStripMenuItem,
+            this.toolStripMenuItem4,
             this.TSM_AJUSTE_MOVIMIENTO,
-            this.cambioDePreciosToolStripMenuItem});
+            this.TSM_AJUSTE_CERO});
             this.ajustesToolStripMenuItem.Name = "ajustesToolStripMenuItem";
             this.ajustesToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.ajustesToolStripMenuItem.Text = "Ajustes";
@@ -910,6 +914,14 @@
             this.TSM_CONFIGURACION_COSTO_EDAD.Text = "Indicar Costo Edad Del Producto";
             this.TSM_CONFIGURACION_COSTO_EDAD.Click += new System.EventHandler(this.TSM_CONFIGURACION_COSTO_EDAD_Click);
             // 
+            // TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS
+            // 
+            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Image = global::ModInventario.Properties.Resources.bt_configuracion;
+            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Name = "TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS";
+            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Size = new System.Drawing.Size(323, 22);
+            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Text = "Indicar Depositos Pre Determinados a Registrar";
+            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Click += new System.EventHandler(this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Azure;
@@ -1104,13 +1116,17 @@
             this.panel10.Size = new System.Drawing.Size(246, 350);
             this.panel10.TabIndex = 0;
             // 
-            // TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS
+            // TSM_AJUSTE_CERO
             // 
-            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Image = global::ModInventario.Properties.Resources.bt_configuracion;
-            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Name = "TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS";
-            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Size = new System.Drawing.Size(323, 22);
-            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Text = "Indicar Depositos Pre Determinados a Registrar";
-            this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS.Click += new System.EventHandler(this.TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS_Click);
+            this.TSM_AJUSTE_CERO.Name = "TSM_AJUSTE_CERO";
+            this.TSM_AJUSTE_CERO.Size = new System.Drawing.Size(323, 22);
+            this.TSM_AJUSTE_CERO.Text = "Ajuste Inventario A Cero (0)";
+            this.TSM_AJUSTE_CERO.Click += new System.EventHandler(this.TSM_AJUSTE_CERO_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(320, 6);
             // 
             // Form1
             // 
@@ -1253,6 +1269,8 @@
         private System.Windows.Forms.ToolStripMenuItem TSM_VISOR_PRECIOS;
         private System.Windows.Forms.ToolStripMenuItem TSM_REPORTE_KARDEX_RESUMEN_MOV;
         private System.Windows.Forms.ToolStripMenuItem TSM_CONFIGURACION_DEPOSITOS_PRE_DETERMINADOS;
+        private System.Windows.Forms.ToolStripMenuItem TSM_AJUSTE_CERO;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
     }
 }
 

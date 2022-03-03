@@ -213,6 +213,9 @@
     <Compile Include="LibInventario\Marca\Agregar.cs" />
     <Compile Include="LibInventario\Marca\Editar.cs" />
     <Compile Include="LibInventario\Marca\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Capture\Data.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Capture\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Capture\Filtro.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaMov.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaMovDetalle.cs" />

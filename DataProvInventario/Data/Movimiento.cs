@@ -851,6 +851,54 @@ namespace DataProvInventario.Data
 
             return rt;
         }
+        public OOB.ResultadoEntidad<OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Ficha> Producto_Movimiento_AjusteInventarioCero_Capture(OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Filtro filtro)
+        {
+            var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Ficha>();
+
+            var filtroDto = new DtoLibInventario.Movimiento.AjusteInvCero.Capture.Filtro()
+            {
+                idDeposito = filtro.idDeposito,
+            };
+            var r01 = MyData.Producto_Movimiento_AjusteInventarioCero_Capture(filtroDto);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            var lst = new List<OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Data>();
+            if (r01.Entidad.data != null)
+            {
+                if (r01.Entidad.data.Count > 0)
+                {
+                    lst = r01.Entidad.data.Select(s =>
+                    {
+                        return new OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Data()
+                        {
+                            autoDepart = s.autoDepart,
+                            autoGrupo = s.autoGrupo,
+                            autoPrd = s.autoPrd,
+                            catPrd = s.catPrd,
+                            codigoPrd = s.codigoPrd,
+                            contEmp = s.contEmp,
+                            costo = s.costo,
+                            costoUnd = s.costoUnd,
+                            decimales = s.decimales,
+                            exFisica = s.exFisica,
+                            nombreEmp = s.nombreEmp,
+                            nombrePrd = s.nombrePrd,
+                        };
+                    }).ToList();
+                }
+            }
+            rt.Entidad = new OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Ficha()
+            {
+                data = lst,
+            };
+
+            return rt;
+        }
 
 
         //ANULAR

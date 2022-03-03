@@ -1,5 +1,5 @@
-D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\Conf.xml
+D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe.config
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\ModSistema.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModSistema\bin\Debug\DataProvSistema.dll

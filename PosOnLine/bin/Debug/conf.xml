@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuracion>
+  <Servidor>
+    <Instancia>localhost</Instancia>
+    <Catalogo>0001</Catalogo>
+  </Servidor>
+  <IdEquipo>2</IdEquipo>
+  <CodigoSucursalActiva>01</CodigoSucursalActiva>
+  <codigoDepositoActiva>01</codigoDepositoActiva>
+  <SerieFactura>1</SerieFactura>
+  <SerieNCredito>1D</SerieNCredito>
+  <SerieNEntrega>Nen</SerieNEntrega>
+  <ModoImpresionFactura>T58</ModoImpresionFactura>
+  <ModoImpresionNEntrega>T58</ModoImpresionNEntrega>
+  <ModoImpresionNCredito>T58</ModoImpresionNCredito>
+  <ModoImpresionCuadreCaja>T58</ModoImpresionCuadreCaja>
+  <ActivarModoSoloDocPendiente>No</ActivarModoSoloDocPendiente>
+  <HabilitarAbrirDocPendOtrosUsuarios>Si</HabilitarAbrirDocPendOtrosUsuarios>
+  <DatosNegocioTicket>
+    <Rif></Rif>
+    <Nombre></Nombre>
+    <Direccion></Direccion>
+  </DatosNegocioTicket>
+</Configuracion>

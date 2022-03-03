@@ -61,6 +61,9 @@ namespace ModInventario
         private FiltrosGen.IAdmSelecciona _gAdmSelPrd;
         private Administrador.IGestion _gAdmDoc;
         private IGestionRep _gestionReporteFiltros;
+        private MovimientoInv.IMov _gMovAjusteInvCero;
+        private MovimientoInv.AjusteInvCero.IItem _gItemAjusteInvCero; 
+        private MovimientoInv.IGestionMov _gestionMovInv; 
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -114,6 +117,10 @@ namespace ModInventario
             _gestionReporteFiltros = new FiltrosGen.Reportes.Gestion(_gFiltroBusPrd, _gfiltroDepOrigen, _gfiltroMarca,
                 _gfiltroSucursal, _gfiltroDepart, _gfiltroDivisa, _gfiltroCategoria, _gfiltroTasaIva, _gfiltroEstatus,
                 _gfiltroOrigen, _gfiltroGrupo, _gfiltroDesde, _gfiltroHasta);
+            //
+            _gItemAjusteInvCero = new MovimientoInv.AjusteInvCero.GestionItem();
+            _gMovAjusteInvCero = new MovimientoInv.AjusteInvCero.Gestion(_gfiltroSucursal, _gfiltroConcepto, _gfiltroDepOrigen, _gItemAjusteInvCero);
+            _gestionMovInv = new MovimientoInv.GestionMov();
             //
             _gestionMaestro = new Maestros.Gestion();
             _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto);
@@ -633,6 +640,25 @@ namespace ModInventario
             {
                 _gConfDepPredeterminado.Inicializa();
                 _gConfDepPredeterminado.Inicia();
+            }
+        }
+
+        public void AjusteInvCero()
+        {
+            var r00 = Sistema.MyData.Permiso_MovimientoAjusteInventario(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+
+            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            {
+                _gMovAjusteInvCero.Inicializa();
+                _gestionMovInv.Inicializa();
+                _gestionMovInv.setGestion(_gMovAjusteInvCero);
+                _gestionMovInv.Inicia();
+                _gestionMovInv.Finaliza();
             }
         }
 

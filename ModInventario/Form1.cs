@@ -452,6 +452,16 @@ namespace ModInventario
             _controlador.Conf_DepositosPreDeterminadosRegistrar();
         }
 
+        private void TSM_AJUSTE_CERO_Click(object sender, EventArgs e)
+        {
+            AjusteInvCero();
+        }
+
+        private void AjusteInvCero()
+        {
+            _controlador.AjusteInvCero();
+        }
+
     }
 
 }

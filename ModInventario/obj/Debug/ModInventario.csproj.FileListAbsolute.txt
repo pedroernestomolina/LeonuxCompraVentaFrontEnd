@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Documentos\MovTraslado.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\DepositoResumen.rdlc
@@ -19,7 +20,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.ex
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DataProvInventario.dll
-D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Gma.QrCodeNet.Encoding.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\LibControles.dll
@@ -70,6 +70,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Ma
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Departamento.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.EmpaqueMedida.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.MaestroFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.MovimientoInv.AjusteInvCero.MvFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Ajuste.EntradaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Cargo.EntradaFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Movimiento.Descargo.EntradaFrm.resources

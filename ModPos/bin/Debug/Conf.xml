@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuracion>
+  <Servidor>
+    <Instancia>localhost</Instancia>
+    <Catalogo>bodaraguita</Catalogo>
+  </Servidor>
+  <DataLocal>C:\Modulos Leonux\POS\Data\LeonuxPosOffLine.db</DataLocal>
+  <ImpresoraTicket>
+    <TamanoRollo>P</TamanoRollo>
+  </ImpresoraTicket>
+  <NuevoConoMonetario>1000000</NuevoConoMonetario>
+  <NuevoConoMonetarioFechaFinUso>02/10/2021</NuevoConoMonetarioFechaFinUso>
+  <DatosNegocioTicket>
+    <Rif></Rif>
+    <Nombre></Nombre>
+    <Direccion></Direccion>
+  </DatosNegocioTicket>
+</Configuracion>

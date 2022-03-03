@@ -325,6 +325,17 @@
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Maestros\Marca\Gestion.cs" />
+    <Compile Include="MovimientoInv\AjusteInvCero\item.cs" />
+    <Compile Include="MovimientoInv\AjusteInvCero\Gestion.cs" />
+    <Compile Include="MovimientoInv\AjusteInvCero\GestionItem.cs" />
+    <Compile Include="MovimientoInv\AjusteInvCero\MvFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovimientoInv\AjusteInvCero\MvFrm.Designer.cs">
+      <DependentUpon>MvFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientoInv\AjusteInvCero\IItem.cs" />
+    <Compile Include="MovimientoInv\IMov.cs" />
     <Compile Include="Movimiento\Ajuste\EntradaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,7 +368,9 @@
     <Compile Include="Movimiento\enumerados.cs" />
     <Compile Include="Movimiento\ficha.cs" />
     <Compile Include="Movimiento\Gestion.cs" />
+    <Compile Include="MovimientoInv\GestionMov.cs" />
     <Compile Include="Movimiento\IGestion.cs" />
+    <Compile Include="MovimientoInv\IGestionMov.cs" />
     <Compile Include="Movimiento\item.cs" />
     <Compile Include="Movimiento\MvFrm.cs">
       <SubType>Form</SubType>
@@ -790,6 +803,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovimientoInv\AjusteInvCero\MvFrm.resx">
+      <DependentUpon>MvFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Ajuste\EntradaFrm.resx">
       <DependentUpon>EntradaFrm.cs</DependentUpon>

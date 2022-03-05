@@ -31,11 +31,6 @@ namespace ModInventario.Seguridad
                             nivel = Seguridad.Enumerados.Nivel.Minimo;
                             break;
                     }
-                    //var nivel = Seguridad.Enumerados.Nivel.Maximo;
-                    //if (ficha.NivelSeguridad == OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad.Media)
-                    //    nivel = Seguridad.Enumerados.Nivel.Medio;
-                    //else
-                    //    nivel = Seguridad.Enumerados.Nivel.Minimo;
                     rt= PedirClave (nivel);
                 }
             }

@@ -14,12 +14,11 @@ namespace ModInventario.MovimientoInv
 
         private IMov _gestion;
         private bool _abandonarIsOk;
-        private bool _procesarIsOk;
         private bool _limpiarIsOk;
 
 
         public bool AbandonarIsOk { get { return _abandonarIsOk; } }
-        public bool ProcesarIsOk { get { return _procesarIsOk; } }
+        public bool ProcesarIsOk { get { return _gestion.ProcesarIsOk; } }
         public bool HabilitarCambio { get { return _gestion.HablitarCambio; } }
         public BindingSource SucursalSource { get { return _gestion.SucursalSource; } }
         public string SucursalGetID { get { return _gestion.SucursalGetID; } }
@@ -31,7 +30,7 @@ namespace ModInventario.MovimientoInv
         public string Motivo { get { return _gestion.Motivo; } }
         public DateTime FechaSistema { get { return _gestion.FechaSistema; } }
         public int CntItem { get { return _gestion.CntItem; } }
-        public decimal Monto { get { return 0m; } }
+        public decimal Monto { get { return _gestion.Monto; } }
         public bool LimpiarIsOk { get { return _limpiarIsOk; } }
         public BindingSource ItemsSource { get { return _gestion.ItemsSource; } }
 
@@ -115,7 +114,11 @@ namespace ModInventario.MovimientoInv
         {
             _limpiarIsOk = false;
             _abandonarIsOk = false;
-            _procesarIsOk = false;
+        }
+
+        public void Procesar()
+        {
+            _gestion.Procesar();
         }
 
     }

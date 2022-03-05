@@ -24,7 +24,9 @@ namespace ModInventario.MovimientoInv
         DateTime FechaSistema { get; }
         BindingSource ItemsSource { get;  }
         int CntItem { get; }
+        decimal Monto { get; }
         bool HablitarCambio { get; }
+        bool ProcesarIsOk { get; }
 
 
         void Inicializa();
@@ -36,6 +38,7 @@ namespace ModInventario.MovimientoInv
         void setMotivo(string p);
         void Limpiar();
         void CapturarAplicarAjuste();
+        void Procesar();
 
     }
 

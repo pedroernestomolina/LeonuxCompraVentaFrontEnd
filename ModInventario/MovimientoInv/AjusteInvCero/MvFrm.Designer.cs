@@ -1045,7 +1045,7 @@
             this.L_ITEMS.Name = "L_ITEMS";
             this.L_ITEMS.Size = new System.Drawing.Size(137, 36);
             this.L_ITEMS.TabIndex = 2;
-            this.L_ITEMS.Text = "Total Items \r\n99999";
+            this.L_ITEMS.Text = "Total Items: \r\n99999";
             this.L_ITEMS.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel37

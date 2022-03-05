@@ -21,6 +21,7 @@ namespace ModSistema.Deposito
 
         public BindingSource Source { get { return bsLista; } }
         public int Items { get { return blLista.Count; } }
+        public OOB.LibSistema.Deposito.Ficha ItemActual { get { return (OOB.LibSistema.Deposito.Ficha)bsLista.Current; } }
 
 
         public GestionLista()

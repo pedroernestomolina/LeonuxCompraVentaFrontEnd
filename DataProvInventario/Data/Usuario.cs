@@ -39,7 +39,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibInventario.Usuario.Ficha> Usuario_Cargar(OOB.LibInventario.Usuario.Buscar.Ficha ficha)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibInventario.Usuario.Ficha>();
@@ -72,7 +71,6 @@ namespace DataProvInventario.Data
 
             return rt;
         }
-
         public OOB.Resultado Usuario_ActualizarSesion(OOB.LibInventario.Usuario.ActualizarSesion.Ficha ficha)
         {
             var rt = new OOB.Resultado();
@@ -88,6 +86,21 @@ namespace DataProvInventario.Data
                 rt.Result = OOB.Enumerados.EnumResult.isError;
                 return rt;
             }
+
+            return rt;
+        }
+        public OOB.ResultadoEntidad<string> Usuario_GetClave_ById(string idUsuario)
+        {
+            var rt = new OOB.ResultadoEntidad<string>();
+
+            var r01 = MyData.Usuario_GetClave_ById(idUsuario);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+            rt.Entidad = r01.Entidad;
 
             return rt;
         }

@@ -23,6 +23,13 @@ namespace OOB.LibInventario.Movimiento.AjusteInvCero.Capture
         public string decimales { get; set; }
         public decimal costoUnd { get; set; }
         public decimal costo { get; set; }
+        public string estatusDivisa { get; set; }
+        public decimal costoDivisa { get; set; }
+        public string autoTasa { get; set; }
+        public string descTasa { get; set; }
+        public decimal valorTasa { get; set; }
+        public bool esAdmDivisa { get { return estatusDivisa.Trim() == "1" ? true : false; } }
+        public decimal costoDivisaUnd { get { return Math.Round(costoDivisa / contEmp, 2, MidpointRounding.AwayFromZero); } }
 
 
         public Data() 
@@ -39,6 +46,11 @@ namespace OOB.LibInventario.Movimiento.AjusteInvCero.Capture
             decimales = "";
             costoUnd = 0m;
             costo = 0m;
+            estatusDivisa = "";
+            costoDivisa = 0m;
+            autoTasa = "";
+            descTasa = "";
+            valorTasa = 0m;
         }
 
     }

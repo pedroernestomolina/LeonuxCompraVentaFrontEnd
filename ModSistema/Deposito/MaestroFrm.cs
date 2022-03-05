@@ -82,6 +82,14 @@ namespace ModSistema.Deposito
             c2.HeaderCell.Style.Font = f;
             c2.DefaultCellStyle.Font = f1;
 
+            var c2B = new DataGridViewCheckBoxColumn();
+            c2B.DataPropertyName = "IsActivo";
+            c2B.HeaderText = "Activo";
+            c2B.Visible = true;
+            c2B.Width = 60;
+            c2B.HeaderCell.Style.Font = f;
+            c2B.DefaultCellStyle.Font = f1;
+
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Sucursal";
             c3.HeaderText = "Asignado  A Sucursal";
@@ -93,6 +101,7 @@ namespace ModSistema.Deposito
 
             DGV.Columns.Add(c2);
             DGV.Columns.Add(c1);
+            DGV.Columns.Add(c2B);
             DGV.Columns.Add(c3);
         }
 
@@ -117,7 +126,18 @@ namespace ModSistema.Deposito
             _controlador.EditarItem();
             L_ITEMS.Text = _controlador.Items.ToString("n0");
         }
-  
+
+        private void BT_ACTIVAR_INACTIVAR_Click(object sender, EventArgs e)
+        {
+            ActivarInactivar();
+        }
+
+        private void ActivarInactivar()
+        {
+            _controlador.ActivarInactivar();
+            DGV.Refresh();
+        }
+ 
     }
 
 }

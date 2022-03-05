@@ -51,6 +51,7 @@ namespace DataProvInventario.InfraEstructura
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoTrasladoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_MovimientoAjusteInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoTrasladoPorDevolucion(string autoGrupoUsuario);
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_MovimientoAjusteInventarioCero(string autoGrupoUsuario);
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_AdministradorMovimientoInventario(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha>Permiso_AdmAnularMovimientoInventario(string autoGrupoUsuario);

@@ -216,6 +216,11 @@
     <Compile Include="LibInventario\Movimiento\AjusteInvCero\Capture\Data.cs" />
     <Compile Include="LibInventario\Movimiento\AjusteInvCero\Capture\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\AjusteInvCero\Capture\Filtro.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Insertar\Ficha.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Insertar\FichaMov.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Insertar\FichaMovDeposito.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Insertar\FichaMovDetalle.cs" />
+    <Compile Include="LibInventario\Movimiento\AjusteInvCero\Insertar\FichaMovKardex.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaMov.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\Ficha.cs" />
     <Compile Include="LibInventario\Movimiento\Ajuste\Insertar\FichaMovDetalle.cs" />

@@ -654,6 +654,18 @@
       <DependentUpon>DSVisor.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Visor\Existencia\GestionRep.cs" />
+    <Compile Include="SeguridadSist\Gestion.cs" />
+    <Compile Include="SeguridadSist\IModo.cs" />
+    <Compile Include="SeguridadSist\ISeguridad.cs" />
+    <Compile Include="SeguridadSist\SeguridadFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeguridadSist\SeguridadFrm.Designer.cs">
+      <DependentUpon>SeguridadFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeguridadSist\Usuario\enumerados.cs" />
+    <Compile Include="SeguridadSist\Usuario\Gestion.cs" />
+    <Compile Include="SeguridadSist\Usuario\IUsuario.cs" />
     <Compile Include="Seguridad\Enumerados.cs" />
     <Compile Include="Seguridad\Gestion.cs" />
     <Compile Include="Seguridad\SeguridadFrm.cs">
@@ -951,6 +963,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Visor\Existencia.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeguridadSist\SeguridadFrm.resx">
+      <DependentUpon>SeguridadFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\SeguridadFrm.resx">
       <DependentUpon>SeguridadFrm.cs</DependentUpon>

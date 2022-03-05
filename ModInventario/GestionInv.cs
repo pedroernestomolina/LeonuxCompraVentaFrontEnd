@@ -645,7 +645,7 @@ namespace ModInventario
 
         public void AjusteInvCero()
         {
-            var r00 = Sistema.MyData.Permiso_MovimientoAjusteInventario(Sistema.UsuarioP.autoGru);
+            var r00 = Sistema.MyData.Permiso_MovimientoAjusteInventarioCero(Sistema.UsuarioP.autoGru);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);

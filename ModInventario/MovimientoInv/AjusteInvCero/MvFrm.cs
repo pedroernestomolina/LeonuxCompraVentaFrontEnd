@@ -60,12 +60,21 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
 
             var c3 = new DataGridViewTextBoxColumn();
             c3.DataPropertyName = "Cantidad";
-            c3.HeaderText = "Cant";
+            c3.HeaderText = "Ex/Sist";
             c3.Visible = true;
             c3.Width = 80;
             c3.HeaderCell.Style.Font = f;
             c3.DefaultCellStyle.Font = f1;
             c3.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            var c3B = new DataGridViewTextBoxColumn();
+            c3B.DataPropertyName = "Ajuste";
+            c3B.HeaderText = "Ajuste";
+            c3B.Visible = true;
+            c3B.Width = 80;
+            c3B.HeaderCell.Style.Font = f;
+            c3B.DefaultCellStyle.Font = f1;
+            c3B.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             var c4 = new DataGridViewTextBoxColumn();
             c4.DataPropertyName = "Empaque";
@@ -97,7 +106,7 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
             c6.DefaultCellStyle.Format = "n2";
 
             var c7 = new DataGridViewCheckBoxColumn();
-            c7.DataPropertyName = "EsAdmDivisa";
+            c7.DataPropertyName = "EsDivisa";
             c7.HeaderText = "($)";
             c7.Visible = true;
             c7.Width = 30;
@@ -106,7 +115,7 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
             c7.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var c8 = new DataGridViewTextBoxColumn(); 
-            c8.DataPropertyName = "TipoMovimientoDescripcion";
+            c8.DataPropertyName = "TipoMovimiento";
             c8.Name = "TipoMov";
             c8.HeaderText = "Mov";
             c8.Visible = true;
@@ -127,6 +136,7 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
             DGV_DETALLE.Columns.Add(c1);
             DGV_DETALLE.Columns.Add(c2);
             DGV_DETALLE.Columns.Add(c3);
+            DGV_DETALLE.Columns.Add(c3B);
             DGV_DETALLE.Columns.Add(c4);
             DGV_DETALLE.Columns.Add(c5);
             DGV_DETALLE.Columns.Add(c6);
@@ -137,19 +147,19 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
 
         private void DGV_DETALLE_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if (DGV_DETALLE.Columns[e.ColumnIndex].Name == "TipoMov") 
-            //{
-            //    if (e.Value.ToString() == "DESCARGO")
-            //    {
-            //        e.CellStyle.BackColor = Color.Red;
-            //        e.CellStyle.ForeColor = Color.White;
-            //    }
-            //    else 
-            //    {
-            //        e.CellStyle.BackColor = Color.Green;
-            //        e.CellStyle.ForeColor = Color.White;
-            //    }
-            //}
+            if (DGV_DETALLE.Columns[e.ColumnIndex].Name == "TipoMov")
+            {
+                if (e.Value.ToString() == "DESCARGO")
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                    e.CellStyle.ForeColor = Color.White;
+                }
+                else
+                {
+                    e.CellStyle.BackColor = Color.Green;
+                    e.CellStyle.ForeColor = Color.White;
+                }
+            }
         }
 
         public void setControlador(GestionMov ctr)
@@ -185,26 +195,14 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
             CB_DEP_ORIGEN.DataSource = _controlador.DepOrigenSource;
             //
             DTP_FECHA.Value = _controlador.FechaSistema;
-            L_MONTO.Text = _controlador.Monto.ToString("n2");
-            L_ITEMS.Text = _controlador.CntItem.ToString();
             TB_AUTORIZADO_POR.Text = _controlador.AutorizadoPor;
             TB_MOTIVO.Text = _controlador.Motivo;
             CB_CONCEPTO.SelectedValue = _controlador.ConceptoGetID;
             CB_SUCURSAL.SelectedValue = _controlador.SucursalGetID;
             CB_DEP_ORIGEN.SelectedValue = _controlador.DepOrigenGetID;
             _modoInicio = false;
-
-            //DTP_FECHA.Focus();
-            //L_TIPO_MOVIMIENTO.Text = _controlador.TipoMovimiento;
-            //L_MONTO.Text = _controlador.MontoMovimiento.ToString("n2");
-            //L_ITEMS.Text = _controlador.ItemsMovimiento;
-
-            //DGV_DETALLE.Columns["TipoMov"].Visible = _controlador.VisualizarColumnaTipoMovimiento;
-            //DGV_DETALLE.DataSource = _controlador.DetalleSource;
-            //DGV_DETALLE.Refresh();
-
-            //CB_CONCEPTO.Enabled = _controlador.HabilitarConcepto;
-            //L_CONCEPTO.Enabled = _controlador.HabilitarConcepto;
+            ActualizarData();
+            TB_AUTORIZADO_POR.Focus();
         }
 
         private void Inicializar()
@@ -223,39 +221,13 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
         {
             _modoInicio = true;
             DTP_FECHA.Value = _controlador.FechaSistema;
-            L_MONTO.Text = _controlador.Monto.ToString("n2");
-            L_ITEMS.Text = _controlador.CntItem.ToString();
             TB_AUTORIZADO_POR.Text = _controlador.AutorizadoPor;
             TB_MOTIVO.Text = _controlador.Motivo;
             CB_CONCEPTO.SelectedValue = _controlador.ConceptoGetID;
             CB_SUCURSAL.SelectedValue = _controlador.SucursalGetID;
             CB_DEP_ORIGEN.SelectedValue = _controlador.DepOrigenGetID;
             _modoInicio = false;
-
-            //L_TIPO_MOVIMIENTO.Text = _controlador.TipoMovimiento;
-            //L_MONTO.Text = _controlador.MontoMovimiento.ToString("n2");
-            //L_ITEMS.Text = _controlador.ItemsMovimiento;
-
-            //CB_CONCEPTO.SelectedIndex =-1;
-            //CB_SUCURSAL.SelectedIndex=-1;
-            //CB_DEP_ORIGEN.SelectedIndex=-1;
-
-            //TB_MOTIVO.Text = "";
-            //TB_AUTORIZADO_POR.Text = "";
-            //DTP_FECHA.Value = DateTime.Now.Date;
-            //TB_CADENA_BUSQ.Text = "";
-            //switch (_controlador.MetodoBusqueda)
-            //{
-            //    case Gestion.enumMetBusq.PorCodgo:
-            //        RB_BUSCAR_POR_CODIGO.Checked = true;
-            //        break;
-            //    case Gestion.enumMetBusq.PorNombre:
-            //        RB_BUSCAR_POR_NOMBRE.Checked = true;
-            //        break;
-            //    case Gestion.enumMetBusq.PorReferencia:
-            //        RB_BUSCAR_POR_REFERENCIA.Checked = true;
-            //        break;
-            //}
+            ActualizarData();
         }
 
         private void BT_LIMPIAR_Click(object sender, EventArgs e)
@@ -342,7 +314,6 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
 
         private void DTP_FECHA_Leave(object sender, EventArgs e)
         {
-            //_controlador.FechaMov = DTP_FECHA.Value ;
         }
 
         private void Ctr_KeyDown(object sender, KeyEventArgs e)
@@ -356,29 +327,20 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
         private void ActualizarData()
         {
             L_MONTO.Text = _controlador.Monto.ToString("n2");
-            L_ITEMS.Text = _controlador.CntItem.ToString();
+            L_ITEMS.Text = "Total Items: " + Environment.NewLine +_controlador.CntItem.ToString();
         }
 
         private void BT_PROCESAR_Click(object sender, EventArgs e)
         {
             Procesar();
         }
-
         private void Procesar()
         {
-            //_controlador.Procesar();
-            //if (_controlador.IsCerrarOk) 
-            //{
-            //    _controlador.Limpiar();
-
-            //    DGV_DETALLE.DataSource = null;
-            //    DGV_DETALLE.Rows.Clear();
-            //    Limpiar();
-            //    DGV_DETALLE.DataSource = _controlador.DetalleSource;
-            //    TB_AUTORIZADO_POR.Focus();
-                
-            //    //Salir();
-            //}
+            _controlador.Procesar();
+            if (_controlador.ProcesarIsOk )
+            {
+                Salir();
+            }
         }
 
         private void MvFrm_FormClosing(object sender, FormClosingEventArgs e)

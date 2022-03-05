@@ -16,6 +16,8 @@ namespace DataProvSistema.Infra
         OOB.ResultadoAuto Deposito_Agregar(OOB.LibSistema.Deposito.Agregar ficha);
         OOB.Resultado Deposito_Editar(OOB.LibSistema.Deposito.Editar ficha);
         OOB.ResultadoEntidad<int> Deposito_GeneraCodigoAutomatico();
+        OOB.Resultado Deposito_Activar(string idDep);
+        OOB.Resultado Deposito_Inactivar(string idDep);
 
     }
 

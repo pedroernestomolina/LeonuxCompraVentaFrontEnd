@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ModSistema.Deposito
 {
-    
+
     public class Gestion
     {
 
@@ -17,6 +17,7 @@ namespace ModSistema.Deposito
 
         public BindingSource Source { get { return _gestionLista.Source; } }
         public int Items { get { return _gestionLista.Items; } }
+        public OOB.LibSistema.Deposito.Ficha ItemActual { get { return _gestionLista.ItemActual; } }
 
 
         public Gestion()
@@ -52,7 +53,7 @@ namespace ModSistema.Deposito
         public void AgregarItem()
         {
             var r00 = Sistema.MyData.Permiso_ControlDeposito_Agregar(Sistema.UsuarioP.autoGrupo);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
@@ -67,7 +68,7 @@ namespace ModSistema.Deposito
         public void EditarItem()
         {
             var r00 = Sistema.MyData.Permiso_ControlDeposito_Editar(Sistema.UsuarioP.autoGrupo);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
@@ -76,6 +77,61 @@ namespace ModSistema.Deposito
             if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
             {
                 _gestionLista.EditarItem();
+            }
+        }
+
+        public void ActivarInactivar()
+        {
+            if (ItemActual != null)
+            {
+                var r00 = Sistema.MyData.Permiso_ControlDeposito_Agregar(Sistema.UsuarioP.autoGrupo);
+                if (r00.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r00.Mensaje);
+                    return;
+                }
+
+                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                {
+                    if (ItemActual.isActivo)
+                        Inactivar();
+                    else
+                        Activar();
+                }
+            }
+        }
+
+        private void Activar()
+        {
+            var xmsg = "Estas Seguro de querer Activar este Depósito ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                var r01 = Sistema.MyData.Deposito_Activar(ItemActual.auto);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError) 
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                ItemActual.setEstatusActivo();
+                Helpers.Msg.OK("Proceso Realizado Con Exito !!!");
+            }
+        }
+
+        private void Inactivar()
+        {
+            var xmsg = "Estas Seguro de querer Inactivar este Depósito ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                var r01 = Sistema.MyData.Deposito_Inactivar(ItemActual.auto);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                ItemActual.setEstatusInactivo();
+                Helpers.Msg.OK("Proceso Realizado Con Exito !!!");
             }
         }
 

@@ -20,6 +20,8 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
 
         public BindingSource Source { get { return _bs; } }
         public int CntItem { get { return _bs.Count; } }
+        public List<item> Items { get { return _bl.ToList(); } }
+        public decimal TotalImporteMonedaLocal { get { return _bl.Sum(s => s.TotalImporteMonedaLocal); } }
 
 
         public GestionItem() 
@@ -46,6 +48,11 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
                 _bl.Add(new item(i, rg));
                 i++;
             }
+        }
+
+        public void Limpiar()
+        {
+            _bl.Clear();
         }
 
     }

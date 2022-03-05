@@ -14,10 +14,14 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
 
         BindingSource Source { get;  }
         int CntItem { get; }
+        List<item> Items { get; }
+        decimal TotalImporteMonedaLocal { get; }
 
 
         void Inicializa();
         void setData(List<OOB.LibInventario.Movimiento.AjusteInvCero.Capture.Data> list);
+        void Limpiar();
+
     }
 
 }

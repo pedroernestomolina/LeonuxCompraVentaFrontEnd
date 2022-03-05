@@ -36,6 +36,7 @@ namespace DataProvSistema.Data
                             auto = s.auto,
                             codigo = s.codigo,
                             nombre = s.nombre,
+                            estatus=s.estatusDep,
                             autoSucursal = "",
                             codigoSucursal = s.codigoSucursal,
                             sucursal = s.sucursal,
@@ -47,7 +48,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<OOB.LibSistema.Deposito.Ficha> Deposito_GetFicha(string auto)
         {
             var rt = new OOB.ResultadoEntidad<OOB.LibSistema.Deposito.Ficha>();
@@ -74,7 +74,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoAuto Deposito_Agregar(OOB.LibSistema.Deposito.Agregar ficha)
         {
             var rt = new OOB.ResultadoAuto();
@@ -98,7 +97,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.Resultado Deposito_Editar(OOB.LibSistema.Deposito.Editar ficha)
         {
             var rt = new OOB.Resultado();
@@ -121,7 +119,6 @@ namespace DataProvSistema.Data
 
             return rt;
         }
-
         public OOB.ResultadoEntidad<int> Deposito_GeneraCodigoAutomatico()
         {
             var rt = new OOB.ResultadoEntidad<int> ();
@@ -134,6 +131,34 @@ namespace DataProvSistema.Data
                 return rt;
             }
             rt.Entidad = r01.Entidad;
+
+            return rt;
+        }
+        public OOB.Resultado Deposito_Activar(string idDep)
+        {
+            var rt = new OOB.Resultado();
+            
+            var r01 = MyData.Deposito_Activar(idDep);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
+
+            return rt;
+        }
+        public OOB.Resultado Deposito_Inactivar(string idDep)
+        {
+            var rt = new OOB.Resultado();
+
+            var r01 = MyData.Deposito_Inactivar(idDep);
+            if (r01.Result == DtoLib.Enumerados.EnumResult.isError)
+            {
+                rt.Mensaje = r01.Mensaje;
+                rt.Result = OOB.Enumerados.EnumResult.isError;
+                return rt;
+            }
 
             return rt;
         }

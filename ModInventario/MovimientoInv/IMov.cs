@@ -39,6 +39,7 @@ namespace ModInventario.MovimientoInv
         void Limpiar();
         void CapturarAplicarAjuste();
         void Procesar();
+        void setModoSeguridad(SeguridadSist.IModo _gSecurityModo);
 
     }
 

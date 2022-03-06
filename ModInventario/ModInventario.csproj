@@ -657,6 +657,8 @@
     <Compile Include="SeguridadSist\Gestion.cs" />
     <Compile Include="SeguridadSist\IModo.cs" />
     <Compile Include="SeguridadSist\ISeguridad.cs" />
+    <Compile Include="SeguridadSist\NivelAcceso\Gestion.cs" />
+    <Compile Include="SeguridadSist\NivelAcceso\IModoNivelAcceso.cs" />
     <Compile Include="SeguridadSist\SeguridadFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -665,7 +667,7 @@
     </Compile>
     <Compile Include="SeguridadSist\Usuario\enumerados.cs" />
     <Compile Include="SeguridadSist\Usuario\Gestion.cs" />
-    <Compile Include="SeguridadSist\Usuario\IUsuario.cs" />
+    <Compile Include="SeguridadSist\Usuario\IModoUsuario.cs" />
     <Compile Include="Seguridad\Enumerados.cs" />
     <Compile Include="Seguridad\Gestion.cs" />
     <Compile Include="Seguridad\SeguridadFrm.cs">

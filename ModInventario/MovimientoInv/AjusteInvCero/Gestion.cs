@@ -23,7 +23,7 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
         private bool _procesarIsOk;
         private OOB.LibInventario.Sistema.TipoDocumento.Entidad.Ficha _tipoDoc;
         private SeguridadSist.ISeguridad _gSecurity;
-        private SeguridadSist.Usuario.IModoUsuario _gUsuarioSecurity;
+        private SeguridadSist.IModo _gModoSecurity;
 
 
         public BindingSource SucursalSource { get { return _gSucursal.Source; } }
@@ -42,11 +42,12 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
         public bool ProcesarIsOk { get { return _procesarIsOk; } }
 
 
-        public Gestion(FiltrosGen.IOpcion sucursal, FiltrosGen.IOpcion concepto, FiltrosGen.IOpcion depOrigen, IItem item) 
+        public Gestion(FiltrosGen.IOpcion sucursal, 
+            FiltrosGen.IOpcion concepto, 
+            FiltrosGen.IOpcion depOrigen,
+            IItem item,
+            SeguridadSist.ISeguridad seguridad) 
         {
-            _gUsuarioSecurity = new SeguridadSist.Usuario.Gestion();
-            _gSecurity = new SeguridadSist.Gestion();
-
             _tipoDoc = null;
             _procesarIsOk = false;
             _tasaDivisa = 0m;
@@ -56,6 +57,7 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
             _gConcepto = concepto;
             _gDepOrigen = depOrigen;
             _gItem = item;
+            _gSecurity = seguridad;
         }
 
 
@@ -260,10 +262,7 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
 
         private bool VerificarUsuario()
         {
-            _gUsuarioSecurity.setUsuarioValidar(SeguridadSist.Usuario.enumerados.enumTipo.Administrador);
-            _gUsuarioSecurity.Inicializa();
-
-            _gSecurity.setGestionTipo(_gUsuarioSecurity);
+            _gSecurity.setGestionTipo(_gModoSecurity);
             _gSecurity.Inicializa();
             _gSecurity.Inicia();
             return _gSecurity.IsOk;
@@ -396,6 +395,11 @@ namespace ModInventario.MovimientoInv.AjusteInvCero
             }
             Helpers.VisualizarDocumento.CargarVisualizarDocumento(r01.Auto);
             _procesarIsOk = true;
+        }
+
+        public void setModoSeguridad(SeguridadSist.IModo securityModo)
+        {
+            _gModoSecurity = securityModo;
         }
 
     }

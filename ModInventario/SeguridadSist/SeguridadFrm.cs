@@ -38,6 +38,7 @@ namespace ModInventario.SeguridadSist
         }
         private void Aceptar()
         {
+            TB_CLAVE.Focus();
             _controlador.Aceptar();
             if (_controlador.AceptarIsOk) 
             {
@@ -51,6 +52,7 @@ namespace ModInventario.SeguridadSist
         }
         private void Abandonar()
         {
+            TB_CLAVE.Focus();
             _controlador.Abandonar();
             if (_controlador.AbandonarIsOk)
             {

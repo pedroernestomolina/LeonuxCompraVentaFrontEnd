@@ -18,6 +18,10 @@ namespace ModInventario
         static public string _BaseDatos { get; set; }
         static public string _Usuario { get; set; }
 
+        //
+
+        static public string ID_USUARIO_ADMINISTRADOR { get { return "0000000001"; } }
+
     }
 
 }

@@ -63,7 +63,11 @@ namespace ModInventario
         private IGestionRep _gestionReporteFiltros;
         private MovimientoInv.IMov _gMovAjusteInvCero;
         private MovimientoInv.AjusteInvCero.IItem _gItemAjusteInvCero; 
-        private MovimientoInv.IGestionMov _gestionMovInv; 
+        private MovimientoInv.IGestionMov _gestionMovInv;
+        //
+        private SeguridadSist.ISeguridad _gSecurity;
+        private SeguridadSist.Usuario.IModoUsuario _gSecurityModoUsuario;
+        private SeguridadSist.NivelAcceso.IModoNivelAcceso _gSecurityNivelAcceso;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -81,6 +85,10 @@ namespace ModInventario
 
         public GestionInv()
         {
+            _gSecurity= new SeguridadSist.Gestion();
+            _gSecurityModoUsuario = new SeguridadSist.Usuario.Gestion();
+            _gSecurityNivelAcceso= new SeguridadSist.NivelAcceso.Gestion();
+            //
             _gListaSelProv = new Proveedor.ListaSel.Gestion();
             _gListaSelPrd = new Producto.ListaSel.Gestion();
             _gfiltroMarca= new FiltrosGen.Opcion.Gestion();
@@ -119,7 +127,12 @@ namespace ModInventario
                 _gfiltroOrigen, _gfiltroGrupo, _gfiltroDesde, _gfiltroHasta);
             //
             _gItemAjusteInvCero = new MovimientoInv.AjusteInvCero.GestionItem();
-            _gMovAjusteInvCero = new MovimientoInv.AjusteInvCero.Gestion(_gfiltroSucursal, _gfiltroConcepto, _gfiltroDepOrigen, _gItemAjusteInvCero);
+            _gMovAjusteInvCero = new MovimientoInv.AjusteInvCero.Gestion(
+                _gfiltroSucursal, 
+                _gfiltroConcepto, 
+                _gfiltroDepOrigen, 
+                _gItemAjusteInvCero,
+                _gSecurity);
             _gestionMovInv = new MovimientoInv.GestionMov();
             //
             _gestionMaestro = new Maestros.Gestion();
@@ -652,14 +665,43 @@ namespace ModInventario
                 return;
             }
 
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (Security(r00.Entidad))
             {
+                // POR USUARIO
+                _gSecurityModoUsuario.Inicializa();
+                _gSecurityModoUsuario.setUsuarioValidar(SeguridadSist.Usuario.enumerados.enumTipo.Administrador);
                 _gMovAjusteInvCero.Inicializa();
+                _gMovAjusteInvCero.setModoSeguridad(_gSecurityModoUsuario);
+
+                // POR NIVEL DE ACCESO
+                //_gSecurityNivelAcceso.Inicializa();
+                //_gSecurityNivelAcceso.setTipoAcceso(r00.Entidad);
+                //_gMovAjusteInvCero.Inicializa();
+                //_gMovAjusteInvCero.setModoSeguridad(_gSecurityNivelAcceso);
+
                 _gestionMovInv.Inicializa();
                 _gestionMovInv.setGestion(_gMovAjusteInvCero);
                 _gestionMovInv.Inicia();
                 _gestionMovInv.Finaliza();
             }
+        }
+
+        private bool Security(OOB.LibInventario.Permiso.Ficha ficha)
+        {
+            if (!ficha.IsHabilitado)
+            {
+                Helpers.Msg.Error("PERMISO DENEGADO...");
+                return false;
+            }
+            if (ficha.NivelSeguridad== OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad.Niguna)
+                return true;
+
+            _gSecurityNivelAcceso.Inicializa();
+            _gSecurityNivelAcceso.setTipoAcceso(ficha);
+            _gSecurity.setGestionTipo(_gSecurityNivelAcceso);
+            _gSecurity.Inicializa();
+            _gSecurity.Inicia();
+            return _gSecurity.IsOk;
         }
 
     }

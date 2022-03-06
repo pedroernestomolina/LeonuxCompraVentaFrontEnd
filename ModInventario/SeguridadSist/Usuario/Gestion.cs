@@ -56,7 +56,7 @@ namespace ModInventario.SeguridadSist.Usuario
             if (_usuarioValidar == enumerados.enumTipo.Actual) 
                 idUsuario = Sistema.UsuarioP.autoUsu;
             if (_usuarioValidar ==  enumerados.enumTipo.Administrador)
-                idUsuario = Sistema.UsuarioP.autoUsu;
+                idUsuario =  Sistema.ID_USUARIO_ADMINISTRADOR;
             var r01 = Sistema.MyData.Usuario_GetClave_ById(idUsuario);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {

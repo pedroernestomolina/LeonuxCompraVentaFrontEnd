@@ -12,6 +12,7 @@ namespace ModInventario
     public class GestionInv
     {
 
+        private Helpers.Seguridad _seguridad;
         private Maestros.Gestion _gestionMaestro;
         private Buscar.Gestion _gestionBusqueda;
         private Movimiento.Gestion _gestionMov;
@@ -135,6 +136,9 @@ namespace ModInventario
                 _gSecurity);
             _gestionMovInv = new MovimientoInv.GestionMov();
             //
+            _seguridad = new Helpers.Seguridad(_gSecurityNivelAcceso, _gSecurity);
+ 
+
             _gestionMaestro = new Maestros.Gestion();
             _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto);
             _gestionMov = new Movimiento.Gestion(_gAdmSelPrd);
@@ -176,8 +180,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var _ajusteNivel = new Tool.AjusteNivelMinimoMaximoProducto.Gestion();
                 _ajusteNivel.Inicia();
@@ -233,7 +236,7 @@ namespace ModInventario
                 return;
             }
 
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var ctr = new Movimiento.Cargo.Gestion();
                 ctr.Inicializa();
@@ -254,7 +257,7 @@ namespace ModInventario
                 return;
             }
 
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var ctr = new Movimiento.Descargo.Gestion();
                 ctr.Inicializa();
@@ -274,8 +277,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var ctr = new Movimiento.Traslado.Gestion();
                 ctr.Inicializa();
@@ -296,7 +298,7 @@ namespace ModInventario
                 return;
             }
 
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var ctr = new Movimiento.TrasladoEntreSucursal.Gestion(_gAdmSelPrd);
                 ctr.Inicializa();
@@ -340,8 +342,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var ctr = new Movimiento.Ajuste.Gestion();
                 ctr.Inicializa();
@@ -362,7 +363,7 @@ namespace ModInventario
                 return;
             }
 
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gAdmDoc.Inicializa();
                 _gestionAdmMov.setGestion(_gAdmDoc);
@@ -500,8 +501,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gestionConfCostoEdad.Inicializa();
                 _gestionConfCostoEdad.Inicia();
@@ -516,8 +516,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gestionConfRedondeoPrecio.Inicializa();
                 _gestionConfRedondeoPrecio.Inicia();
@@ -532,8 +531,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gestionConfRegistroPrecio.Inicializa();
                 _gestionConfRegistroPrecio.Inicia();
@@ -548,8 +546,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gestionConfBusquedaPred.Inicializa();
                 _gestionConfBusquedaPred.Inicia();
@@ -564,8 +561,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gestionConfMetodoCalUtilidad.Inicializa();
                 _gestionConfMetodoCalUtilidad.Inicia();
@@ -600,8 +596,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 var ctr= new Movimiento.TrasladoDevolucion.Gestion();
                 ctr.Inicializa();
@@ -648,8 +643,7 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 _gConfDepPredeterminado.Inicializa();
                 _gConfDepPredeterminado.Inicia();
@@ -665,43 +659,21 @@ namespace ModInventario
                 return;
             }
 
-            if (Security(r00.Entidad))
+            if (_seguridad.Verificar(r00.Entidad))
             {
                 // POR USUARIO
                 _gSecurityModoUsuario.Inicializa();
                 _gSecurityModoUsuario.setUsuarioValidar(SeguridadSist.Usuario.enumerados.enumTipo.Administrador);
+
+                //
                 _gMovAjusteInvCero.Inicializa();
                 _gMovAjusteInvCero.setModoSeguridad(_gSecurityModoUsuario);
-
-                // POR NIVEL DE ACCESO
-                //_gSecurityNivelAcceso.Inicializa();
-                //_gSecurityNivelAcceso.setTipoAcceso(r00.Entidad);
-                //_gMovAjusteInvCero.Inicializa();
-                //_gMovAjusteInvCero.setModoSeguridad(_gSecurityNivelAcceso);
 
                 _gestionMovInv.Inicializa();
                 _gestionMovInv.setGestion(_gMovAjusteInvCero);
                 _gestionMovInv.Inicia();
                 _gestionMovInv.Finaliza();
             }
-        }
-
-        private bool Security(OOB.LibInventario.Permiso.Ficha ficha)
-        {
-            if (!ficha.IsHabilitado)
-            {
-                Helpers.Msg.Error("PERMISO DENEGADO...");
-                return false;
-            }
-            if (ficha.NivelSeguridad== OOB.LibInventario.Permiso.Enumerados.EnumNivelSeguridad.Niguna)
-                return true;
-
-            _gSecurityNivelAcceso.Inicializa();
-            _gSecurityNivelAcceso.setTipoAcceso(ficha);
-            _gSecurity.setGestionTipo(_gSecurityNivelAcceso);
-            _gSecurity.Inicializa();
-            _gSecurity.Inicia();
-            return _gSecurity.IsOk;
         }
 
     }

@@ -246,6 +246,7 @@
     </Compile>
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
+    <Compile Include="Helpers\Seguridad.cs" />
     <Compile Include="Helpers\Utilitis.cs" />
     <Compile Include="Helpers\VisualizarDocumento.cs" />
     <Compile Include="Identificacion\Gestion.cs" />
@@ -336,6 +337,14 @@
     </Compile>
     <Compile Include="MovimientoInv\AjusteInvCero\IItem.cs" />
     <Compile Include="MovimientoInv\IMov.cs" />
+    <Compile Include="MovimientoInv\PorTipo\Descargo\Gestion.cs" />
+    <Compile Include="MovimientoInv\PorTipo\GestionMov.cs" />
+    <Compile Include="MovimientoInv\PorTipo\MvFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovimientoInv\PorTipo\MvFrm.Designer.cs">
+      <DependentUpon>MvFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Movimiento\Ajuste\EntradaFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -821,6 +830,9 @@
     <EmbeddedResource Include="MovimientoInv\AjusteInvCero\MvFrm.resx">
       <DependentUpon>MvFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MovimientoInv\PorTipo\MvFrm.resx">
+      <DependentUpon>MvFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movimiento\Ajuste\EntradaFrm.resx">
       <DependentUpon>EntradaFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1108,10 +1120,12 @@
     <Content Include="Imagenes\libro.png" />
     <Content Include="Imagenes\Machine-learning-1024x682.jpg" />
     <Content Include="Imagenes\mobile.ico" />
+    <Content Include="Imagenes\setup.png" />
     <Content Include="Imagenes\sinImagen.png" />
     <Content Include="Imagenes\TOOLS.ico" />
     <Content Include="Imagenes\transferencia.png" />
     <Content Include="Imagenes\warehouse.png" />
+    <None Include="Resources\setup.png" />
     <None Include="Reportes\Filtros\DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>

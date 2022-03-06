@@ -66,8 +66,10 @@
             this.TSM_MAESTROS_Conceptos = new System.Windows.Forms.ToolStripMenuItem();
             this.ajustesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSM_AJUSTE_MOVIMIENTO = new System.Windows.Forms.ToolStripMenuItem();
             this.cambioDePreciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSM_AJUSTE_MOVIMIENTO = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSM_AJUSTE_CERO = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlDeMovimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TSM_Movimiento_Control_Cargo = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,8 +124,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.TSM_AJUSTE_CERO = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -188,11 +188,11 @@
             // 
             this.panel2.Controls.Add(this.BT_SALIR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(707, 1);
+            this.panel2.Location = new System.Drawing.Point(706, 1);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(2);
-            this.panel2.Size = new System.Drawing.Size(176, 52);
+            this.panel2.Size = new System.Drawing.Size(177, 52);
             this.panel2.TabIndex = 0;
             // 
             // BT_SALIR
@@ -203,7 +203,7 @@
             this.BT_SALIR.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.BT_SALIR.Location = new System.Drawing.Point(2, 2);
             this.BT_SALIR.Name = "BT_SALIR";
-            this.BT_SALIR.Size = new System.Drawing.Size(172, 48);
+            this.BT_SALIR.Size = new System.Drawing.Size(173, 48);
             this.BT_SALIR.TabIndex = 0;
             this.BT_SALIR.Text = "Salir";
             this.BT_SALIR.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -412,7 +412,7 @@
             this.panel20.Margin = new System.Windows.Forms.Padding(1);
             this.panel20.Name = "panel20";
             this.panel20.Padding = new System.Windows.Forms.Padding(2);
-            this.panel20.Size = new System.Drawing.Size(125, 52);
+            this.panel20.Size = new System.Drawing.Size(124, 52);
             this.panel20.TabIndex = 3;
             // 
             // tableLayoutPanel8
@@ -428,7 +428,7 @@
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(121, 48);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(120, 48);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel21
@@ -569,19 +569,11 @@
             // 
             // TSM_AJUSTE_DefinirNivelMinimoMaximo
             // 
-            this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Image = global::ModInventario.Properties.Resources.icon_setup;
+            this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Image = global::ModInventario.Properties.Resources.setup;
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Name = "TSM_AJUSTE_DefinirNivelMinimoMaximo";
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Size = new System.Drawing.Size(323, 22);
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Text = "Definir Nivel Minimo/Maximo de los Productos";
             this.TSM_AJUSTE_DefinirNivelMinimoMaximo.Click += new System.EventHandler(this.TSM_AJUSTE_DefinirNivelMinimoMaximo_Click);
-            // 
-            // TSM_AJUSTE_MOVIMIENTO
-            // 
-            this.TSM_AJUSTE_MOVIMIENTO.Image = global::ModInventario.Properties.Resources.icon_setup;
-            this.TSM_AJUSTE_MOVIMIENTO.Name = "TSM_AJUSTE_MOVIMIENTO";
-            this.TSM_AJUSTE_MOVIMIENTO.Size = new System.Drawing.Size(323, 22);
-            this.TSM_AJUSTE_MOVIMIENTO.Text = "Ajuste Inventario";
-            this.TSM_AJUSTE_MOVIMIENTO.Click += new System.EventHandler(this.TSM_AJUSTE_MOVIMIENTO_Click);
             // 
             // cambioDePreciosToolStripMenuItem
             // 
@@ -589,6 +581,27 @@
             this.cambioDePreciosToolStripMenuItem.Size = new System.Drawing.Size(323, 22);
             this.cambioDePreciosToolStripMenuItem.Text = "Cambio De Precios";
             this.cambioDePreciosToolStripMenuItem.Visible = false;
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(320, 6);
+            // 
+            // TSM_AJUSTE_MOVIMIENTO
+            // 
+            this.TSM_AJUSTE_MOVIMIENTO.Image = global::ModInventario.Properties.Resources.setup;
+            this.TSM_AJUSTE_MOVIMIENTO.Name = "TSM_AJUSTE_MOVIMIENTO";
+            this.TSM_AJUSTE_MOVIMIENTO.Size = new System.Drawing.Size(323, 22);
+            this.TSM_AJUSTE_MOVIMIENTO.Text = "Ajuste Inventario";
+            this.TSM_AJUSTE_MOVIMIENTO.Click += new System.EventHandler(this.TSM_AJUSTE_MOVIMIENTO_Click);
+            // 
+            // TSM_AJUSTE_CERO
+            // 
+            this.TSM_AJUSTE_CERO.Image = global::ModInventario.Properties.Resources.setup;
+            this.TSM_AJUSTE_CERO.Name = "TSM_AJUSTE_CERO";
+            this.TSM_AJUSTE_CERO.Size = new System.Drawing.Size(323, 22);
+            this.TSM_AJUSTE_CERO.Text = "Ajuste Inventario A Cero (0)";
+            this.TSM_AJUSTE_CERO.Click += new System.EventHandler(this.TSM_AJUSTE_CERO_Click);
             // 
             // movimientosToolStripMenuItem
             // 
@@ -1115,18 +1128,6 @@
             this.tableLayoutPanel4.SetRowSpan(this.panel10, 2);
             this.panel10.Size = new System.Drawing.Size(246, 350);
             this.panel10.TabIndex = 0;
-            // 
-            // TSM_AJUSTE_CERO
-            // 
-            this.TSM_AJUSTE_CERO.Name = "TSM_AJUSTE_CERO";
-            this.TSM_AJUSTE_CERO.Size = new System.Drawing.Size(323, 22);
-            this.TSM_AJUSTE_CERO.Text = "Ajuste Inventario A Cero (0)";
-            this.TSM_AJUSTE_CERO.Click += new System.EventHandler(this.TSM_AJUSTE_CERO_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(320, 6);
             // 
             // Form1
             // 

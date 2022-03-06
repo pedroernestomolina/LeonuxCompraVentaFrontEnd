@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DataProvInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DataProvInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DtoLib.dll
@@ -6,7 +7,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\OOB.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\ServiceInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\ILibInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\ProvLibInventario.dll
-D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\LibEntityInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\OOB.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\DataProvInventario\bin\Debug\DtoLib.pdb

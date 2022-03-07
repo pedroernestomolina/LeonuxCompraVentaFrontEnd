@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ModInventario.Helpers
 {
     
-    public class Seguridad
+    public class Seguridad: ISeguridadAccesoSistema
     {
 
 

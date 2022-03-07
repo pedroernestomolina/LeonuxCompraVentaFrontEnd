@@ -111,7 +111,6 @@ namespace ModInventario
         {
             MaestroDepartamentos();
         }
-
         private void MaestroDepartamentos()
         {
             _controlador.MaestroDepartamentos();

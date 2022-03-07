@@ -33,6 +33,7 @@ namespace ModInventario.Buscar
         private Producto.VisualizarFicha.Gestion _gestionVisualizarFicha;
         //
         private FiltrosGen.IAdmProducto _gFiltrarProducto;
+        private ISeguridadAccesoSistema _gAccesoSistema;
 
 
         public object Source { get { return _gestionLista.Source; } }
@@ -43,8 +44,9 @@ namespace ModInventario.Buscar
         public enumMetodoBusqueda MetodoBusqueda { get { return (enumMetodoBusqueda)_gFiltrarProducto.MetBusqueda; } }
 
 
-        public Gestion(FiltrosGen.IAdmProducto ctrFiltrarProducto)
+        public Gestion(FiltrosGen.IAdmProducto ctrFiltrarProducto, ISeguridadAccesoSistema ctrSeguridad)
         {
+            _gAccesoSistema = ctrSeguridad;
             _gFiltrarProducto = ctrFiltrarProducto;
             //
             _gestionLista = new GestionLista();
@@ -270,7 +272,7 @@ namespace ModInventario.Buscar
                         Helpers.Msg.Error(r00.Mensaje);
                         return;
                     }
-                    if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                    if (_gAccesoSistema.Verificar(r00.Entidad))
                     {
                         _gestionEditarPrecio.setFicha(Item.identidad.auto);
                         _gestionEditarPrecio.Inicia();
@@ -328,7 +330,7 @@ namespace ModInventario.Buscar
                         Helpers.Msg.Error(r00.Mensaje);
                         return;
                     }
-                    if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                    if (_gAccesoSistema.Verificar(r00.Entidad))
                     {
                         _gestionEditarCosto.setFicha(Item.identidad.auto);
                         _gestionEditarCosto.Inicia();
@@ -388,7 +390,7 @@ namespace ModInventario.Buscar
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_gAccesoSistema.Verificar(r00.Entidad))
             {
                 _gestionDeposito.setFicha(autoPrd);
                 _gestionDeposito.Inicia();
@@ -420,7 +422,7 @@ namespace ModInventario.Buscar
                     Helpers.Msg.Error(r00.Mensaje);
                     return;
                 }
-                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                if (_gAccesoSistema.Verificar(r00.Entidad))
                 {
                     _gestionEditarFicha.setFicha(Item.identidad.auto);
                     _gestionEditarFicha.Inicia();
@@ -450,7 +452,7 @@ namespace ModInventario.Buscar
                 return;
             }
 
-            if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+            if (_gAccesoSistema.Verificar(r00.Entidad))
             {
                 _gestionAgregarFicha.Inicia();
                 if (_gestionAgregarFicha.IsAgregarEditarOk)
@@ -490,7 +492,7 @@ namespace ModInventario.Buscar
                     Helpers.Msg.Error(r00.Mensaje);
                     return;
                 }
-                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                if (_gAccesoSistema.Verificar(r00.Entidad))
                 {
                     _gestionEstatus.setFicha(Item.identidad.auto);
                     _gestionEstatus.Inicia();
@@ -536,7 +538,7 @@ namespace ModInventario.Buscar
                     Helpers.Msg.Error(r00.Mensaje);
                     return;
                 }
-                if (Seguridad.Gestion.SolicitarClave(r00.Entidad))
+                if (_gAccesoSistema.Verificar(r00.Entidad))
                 {
                     _gestionImagen.setFicha(Item.identidad.auto);
                     _gestionImagen.Inicia();

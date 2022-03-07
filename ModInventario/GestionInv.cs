@@ -12,7 +12,6 @@ namespace ModInventario
     public class GestionInv
     {
 
-        private Helpers.Seguridad _seguridad;
         private Maestros.Gestion _gestionMaestro;
         private Buscar.Gestion _gestionBusqueda;
         private Movimiento.Gestion _gestionMov;
@@ -30,7 +29,6 @@ namespace ModInventario
         private Configuracion.MetodoCalculoUtilidad.Gestion _gestionConfMetodoCalUtilidad;
         private Auditoria.Visualizar.Gestion _gestionAuditoria;
         private Configuracion.DepositoPreDeterminado.Gestion _gConfDepPredeterminado;
-
 
         //
         private Buscar.IListaSeleccion _gListaSelProv;
@@ -66,9 +64,16 @@ namespace ModInventario
         private MovimientoInv.AjusteInvCero.IItem _gItemAjusteInvCero; 
         private MovimientoInv.IGestionMov _gestionMovInv;
         //
+        private ISeguridadAccesoSistema _seguridad;
         private SeguridadSist.ISeguridad _gSecurity;
         private SeguridadSist.Usuario.IModoUsuario _gSecurityModoUsuario;
         private SeguridadSist.NivelAcceso.IModoNivelAcceso _gSecurityNivelAcceso;
+        //
+        private MaestrosInv.Departamento.IAgregarEditar _gAgregarDepart;
+        private MaestrosInv.Departamento.IAgregarEditar _gEditarDepart;
+        private MaestrosInv.IMaestroTipo _gMtDepart;
+        private MaestrosInv.ILista _gMtLista;
+        private MaestrosInv.IMaestro _gMaestro;
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -89,6 +94,7 @@ namespace ModInventario
             _gSecurity= new SeguridadSist.Gestion();
             _gSecurityModoUsuario = new SeguridadSist.Usuario.Gestion();
             _gSecurityNivelAcceso= new SeguridadSist.NivelAcceso.Gestion();
+            _seguridad = new Helpers.Seguridad(_gSecurityNivelAcceso, _gSecurity);
             //
             _gListaSelProv = new Proveedor.ListaSel.Gestion();
             _gListaSelPrd = new Producto.ListaSel.Gestion();
@@ -136,11 +142,15 @@ namespace ModInventario
                 _gSecurity);
             _gestionMovInv = new MovimientoInv.GestionMov();
             //
-            _seguridad = new Helpers.Seguridad(_gSecurityNivelAcceso, _gSecurity);
- 
+            _gAgregarDepart = new MaestrosInv.Departamento.Agregar.Gestion();
+            _gEditarDepart = new MaestrosInv.Departamento.Editar.Gestion();
+            _gMtDepart = new MaestrosInv.Departamento.Gestion(_seguridad, _gAgregarDepart, _gEditarDepart);
+            _gMtLista = new MaestrosInv.Lista();
+            _gMaestro = new MaestrosInv.Gestion(_gMtLista);
+            //
 
             _gestionMaestro = new Maestros.Gestion();
-            _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto);
+            _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto, _seguridad);
             _gestionMov = new Movimiento.Gestion(_gAdmSelPrd);
             _gestionVisorExistencia = new Visor.Existencia.Gestion();
             _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
@@ -189,9 +199,14 @@ namespace ModInventario
 
         public void MaestroDepartamentos()
         {
-            var ctr = new Maestros.Departamento.Gestion();
-            _gestionMaestro.setGestion(ctr);
-            _gestionMaestro.Inicia();
+            //var ctr = new Maestros.Departamento.Gestion();
+            //_gestionMaestro.setGestion(ctr);
+            //_gestionMaestro.Inicia();
+
+            _gMtDepart.Inicializa();
+            _gMaestro.setGestion(_gMtDepart);
+            _gMaestro.Inicializa();
+            _gMaestro.Inicia();
         }
 
         public void MaestroGrupo()

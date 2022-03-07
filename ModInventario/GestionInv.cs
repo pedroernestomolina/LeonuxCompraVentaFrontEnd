@@ -189,7 +189,8 @@ namespace ModInventario
 
         public void MaestroDepartamentos()
         {
-            _gestionMaestro.setGestion(new Maestros.Departamento.Gestion());
+            var ctr = new Maestros.Departamento.Gestion();
+            _gestionMaestro.setGestion(ctr);
             _gestionMaestro.Inicia();
         }
 

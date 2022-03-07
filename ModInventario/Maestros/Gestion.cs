@@ -33,12 +33,18 @@ namespace ModInventario.Maestros
             _gestion = gestion;
         }
 
+        MaestroFrm frm;
         public void Inicia()
         {
             if (_gestion.CargarData())
             {
-                var frm = new MaestroFrm();
+                frm = new MaestroFrm();
                 frm.setControlador(this);
+                if (frm == null)
+                {
+                    frm = new MaestroFrm();
+                    frm.setControlador(this);
+                }
                 frm.ShowDialog();
             }
         }

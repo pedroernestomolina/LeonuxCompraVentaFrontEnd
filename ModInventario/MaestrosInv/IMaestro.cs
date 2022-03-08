@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ModInventario.MaestrosInv
@@ -11,7 +12,15 @@ namespace ModInventario.MaestrosInv
     public interface IMaestro: IGestion
     {
 
-        void setGestion(IMaestroTipo _gMtDepart);
+        string Titulo { get; }
+        int CntItems { get; }
+        BindingSource Source { get; }
+
+
+        bool CargarData();
+        void AgregarItem();
+        void EditarItem();
+        void setGestion(IMaestroTipo ctr);
 
     }
 

@@ -280,6 +280,7 @@
     <Compile Include="MaestrosInv\Concepto\Editar\Gestion.cs" />
     <Compile Include="MaestrosInv\Concepto\Gestion.cs" />
     <Compile Include="MaestrosInv\Concepto\IAgregarEditar.cs" />
+    <Compile Include="MaestrosInv\data.cs" />
     <Compile Include="MaestrosInv\Departamento\Agregar\Gestion.cs" />
     <Compile Include="MaestrosInv\Departamento\Editar\Gestion.cs" />
     <Compile Include="MaestrosInv\Departamento\Gestion.cs" />

@@ -328,6 +328,16 @@
     <Compile Include="MaestrosInv\Marca\Editar\Gestion.cs" />
     <Compile Include="MaestrosInv\Marca\Gestion.cs" />
     <Compile Include="MaestrosInv\Marca\IAgregarEditar.cs" />
+    <Compile Include="MaestrosInv\UnidadEmpaque\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosInv\UnidadEmpaque\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaestrosInv\UnidadEmpaque\Agregar\Gestion.cs" />
+    <Compile Include="MaestrosInv\UnidadEmpaque\Editar\Gestion.cs" />
+    <Compile Include="MaestrosInv\UnidadEmpaque\Gestion.cs" />
+    <Compile Include="MaestrosInv\UnidadEmpaque\IAgregarEditar.cs" />
     <Compile Include="Maestros\Concepto\AgregarEditar.cs" />
     <Compile Include="Maestros\Concepto\AgregarEditarFrm.cs">
       <SubType>Form</SubType>
@@ -881,6 +891,9 @@
       <DependentUpon>MaestroFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosInv\Marca\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosInv\UnidadEmpaque\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\Concepto\AgregarEditarFrm.resx">

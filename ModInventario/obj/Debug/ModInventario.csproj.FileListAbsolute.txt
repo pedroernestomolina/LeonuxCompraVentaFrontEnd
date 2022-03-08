@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Documentos\MovTraslado.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Filtros\DepositoResumen.rdlc
@@ -16,7 +17,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Histori
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Movimientos\Movimientos.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\Reportes\Visor\Existencia.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe.config
-D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ModInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\DataProvInventario.dll
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\EntityFramework.dll
@@ -71,6 +71,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Ma
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.MaestrosInv.Grupo.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.MaestrosInv.MaestroFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.MaestrosInv.Marca.AgregarEditarFrm.resources
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.MaestrosInv.UnidadEmpaque.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Concepto.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.Departamento.AgregarEditarFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.Maestros.EmpaqueMedida.AgregarEditarFrm.resources

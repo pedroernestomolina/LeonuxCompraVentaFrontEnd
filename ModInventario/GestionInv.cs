@@ -85,6 +85,10 @@ namespace ModInventario
         private MaestrosInv.Marca.IAgregarEditar _gEditarMarca;
         private MaestrosInv.IMaestroTipo _gMtMarca;
         //
+        private MaestrosInv.UnidadEmpaque.IAgregarEditar _gAgregarUnidadEmpq;
+        private MaestrosInv.UnidadEmpaque.IAgregarEditar _gEditarUnidadEmpq;
+        private MaestrosInv.IMaestroTipo _gMtUnidadEmpq;
+        //
         private MaestrosInv.ILista _gMtLista;
         private MaestrosInv.IMaestro _gMaestro;
 
@@ -170,6 +174,10 @@ namespace ModInventario
             _gAgregarMarca = new MaestrosInv.Marca.Agregar.Gestion();
             _gEditarMarca = new MaestrosInv.Marca.Editar.Gestion();
             _gMtMarca = new MaestrosInv.Marca.Gestion(_seguridad, _gAgregarMarca, _gEditarMarca);
+            //
+            _gAgregarUnidadEmpq = new MaestrosInv.UnidadEmpaque.Agregar.Gestion();
+            _gEditarUnidadEmpq = new MaestrosInv.UnidadEmpaque.Editar.Gestion();
+            _gMtUnidadEmpq = new MaestrosInv.UnidadEmpaque.Gestion(_seguridad, _gAgregarUnidadEmpq, _gEditarUnidadEmpq);
             //
             _gMtLista = new MaestrosInv.Lista();
             _gMaestro = new MaestrosInv.Gestion(_gMtLista);
@@ -280,8 +288,19 @@ namespace ModInventario
 
         public void MaestroEmpaquesMedida()
         {
-            _gestionMaestro.setGestion(new Maestros.EmpaqueMedida.Gestion());
-            _gestionMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_UnidadEmpaque(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_seguridad.Verificar(r00.Entidad))
+            {
+                _gMtUnidadEmpq.Inicializa();
+                _gMaestro.setGestion(_gMtUnidadEmpq);
+                _gMaestro.Inicializa();
+                _gMaestro.Inicia();
+            }
         }
 
         public void BuscarProducto()

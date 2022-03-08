@@ -73,9 +73,9 @@ namespace ModInventario.MaestrosInv.Departamento
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
+            _gAgregar.Inicializa();
             if (_gAcceso.Verificar(r00.Entidad))
             {
-                _gAgregar.Inicializa();
                 _gAgregar.Inicia();
                 if (_gAgregar.IsOk)
                 {
@@ -98,10 +98,10 @@ namespace ModInventario.MaestrosInv.Departamento
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
+            _gEditar.Inicializa();
             if (_gAcceso.Verificar(r00.Entidad))
             {
                 var idItemEditar = id;
-                _gEditar.Inicializa();
                 _gEditar.setIdItemEditar(idItemEditar);
                 _gEditar.Inicia();
                 if (_gEditar.IsOk)

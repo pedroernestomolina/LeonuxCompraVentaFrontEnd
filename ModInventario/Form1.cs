@@ -129,7 +129,6 @@ namespace ModInventario
         {
             MaestroMarca();
         }
-
         private void MaestroMarca()
         {
             _controlador.MaestroMarca();

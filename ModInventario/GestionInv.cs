@@ -81,6 +81,10 @@ namespace ModInventario
         private MaestrosInv.Concepto.IAgregarEditar _gEditarConcepto;
         private MaestrosInv.IMaestroTipo _gMtConcepto;
         //
+        private MaestrosInv.Marca.IAgregarEditar _gAgregarMarca;
+        private MaestrosInv.Marca.IAgregarEditar _gEditarMarca;
+        private MaestrosInv.IMaestroTipo _gMtMarca;
+        //
         private MaestrosInv.ILista _gMtLista;
         private MaestrosInv.IMaestro _gMaestro;
 
@@ -163,6 +167,10 @@ namespace ModInventario
             _gEditarConcepto = new MaestrosInv.Concepto.Editar.Gestion();
             _gMtConcepto = new MaestrosInv.Concepto.Gestion(_seguridad, _gAgregarConcepto, _gEditarConcepto);
             //
+            _gAgregarMarca = new MaestrosInv.Marca.Agregar.Gestion();
+            _gEditarMarca = new MaestrosInv.Marca.Editar.Gestion();
+            _gMtMarca = new MaestrosInv.Marca.Gestion(_seguridad, _gAgregarMarca, _gEditarMarca);
+            //
             _gMtLista = new MaestrosInv.Lista();
             _gMaestro = new MaestrosInv.Gestion(_gMtLista);
             //
@@ -238,16 +246,36 @@ namespace ModInventario
 
         public void MaestroGrupo()
         {
-            _gMtGrupo.Inicializa();
-            _gMaestro.setGestion(_gMtGrupo);
-            _gMaestro.Inicializa();
-            _gMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_Grupo(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_seguridad.Verificar(r00.Entidad))
+            {
+                _gMtGrupo.Inicializa();
+                _gMaestro.setGestion(_gMtGrupo);
+                _gMaestro.Inicializa();
+                _gMaestro.Inicia();
+            }
         }
 
         public void MaestroMarca()
         {
-            _gestionMaestro.setGestion(new Maestros.Marca.Gestion());
-            _gestionMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_Marca(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_seguridad.Verificar(r00.Entidad))
+            {
+                _gMtMarca.Inicializa();
+                _gMaestro.setGestion(_gMtMarca);
+                _gMaestro.Inicializa();
+                _gMaestro.Inicia();
+            }
         }
 
         public void MaestroEmpaquesMedida()
@@ -268,10 +296,19 @@ namespace ModInventario
 
         public void MaestroConcepto()
         {
-            _gMtConcepto.Inicializa();
-            _gMaestro.setGestion(_gMtConcepto);
-            _gMaestro.Inicializa();
-            _gMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_ConceptoInventario(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_seguridad.Verificar(r00.Entidad))
+            {
+                _gMtConcepto.Inicializa();
+                _gMaestro.setGestion(_gMtConcepto);
+                _gMaestro.Inicializa();
+                _gMaestro.Inicia();
+            }
         }
 
         public void MovimientoCargo()

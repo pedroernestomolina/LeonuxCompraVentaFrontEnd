@@ -20,6 +20,37 @@ namespace ModInventario.MaestrosInv.Grupo
         {
         }
 
+
+        public string Titulo
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public bool AgregarIsOk
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public bool EditarIsOk
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public bool EliminarIsOK
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+
+        public List<data> ListaData
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public bool CargarData()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

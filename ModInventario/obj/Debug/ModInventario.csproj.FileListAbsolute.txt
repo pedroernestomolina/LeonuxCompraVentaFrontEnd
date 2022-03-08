@@ -117,3 +117,4 @@ D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\ProvLibInventari
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\bin\Debug\LibEntityInventario.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.exe
 D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\ModInventario\obj\Debug\ModInventario.MaestrosInv.MaestroFrm.resources

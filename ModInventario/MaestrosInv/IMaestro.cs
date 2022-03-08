@@ -15,11 +15,15 @@ namespace ModInventario.MaestrosInv
         string Titulo { get; }
         int CntItems { get; }
         BindingSource Source { get; }
+        bool AgregarIsOk { get; }
+        bool EditarIsOk { get; }
+        bool EliminarIsOK { get; }
 
 
         bool CargarData();
         void AgregarItem();
         void EditarItem();
+        void EliminarItem();
         void setGestion(IMaestroTipo ctr);
 
     }

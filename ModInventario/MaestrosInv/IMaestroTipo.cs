@@ -10,7 +10,17 @@ namespace ModInventario.MaestrosInv
     
     public interface IMaestroTipo
     {
+
+        string Titulo { get; }
+        bool AgregarIsOk { get; }
+        bool EditarIsOk { get; }
+        bool EliminarIsOK { get; }
+        List<data> ListaData { get; }
+
+
         void Inicializa();
+        bool CargarData();
+
     }
 
 }

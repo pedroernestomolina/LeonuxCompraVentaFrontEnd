@@ -2399,6 +2399,8 @@ namespace ModVentaAdm.Src.Reportes {
             
             private global::System.Data.DataColumn columnestacion;
             
+            private global::System.Data.DataColumn columncliente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GeneralDocumentoDetDataTable() {
@@ -2522,6 +2524,14 @@ namespace ModVentaAdm.Src.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn clienteColumn {
+                get {
+                    return this.columncliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2557,7 +2567,7 @@ namespace ModVentaAdm.Src.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GeneralDocumentoDetRow AddGeneralDocumentoDetRow(string fechaHora, string documentoNro, string documentoNombre, int renglones, decimal total, string nombrePrd, decimal cantidad, decimal precio, decimal totalRenglon, string sucursal, string estacion) {
+            public GeneralDocumentoDetRow AddGeneralDocumentoDetRow(string fechaHora, string documentoNro, string documentoNombre, int renglones, decimal total, string nombrePrd, decimal cantidad, decimal precio, decimal totalRenglon, string sucursal, string estacion, string cliente) {
                 GeneralDocumentoDetRow rowGeneralDocumentoDetRow = ((GeneralDocumentoDetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         fechaHora,
@@ -2570,7 +2580,8 @@ namespace ModVentaAdm.Src.Reportes {
                         precio,
                         totalRenglon,
                         sucursal,
-                        estacion};
+                        estacion,
+                        cliente};
                 rowGeneralDocumentoDetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGeneralDocumentoDetRow);
                 return rowGeneralDocumentoDetRow;
@@ -2604,6 +2615,7 @@ namespace ModVentaAdm.Src.Reportes {
                 this.columntotalRenglon = base.Columns["totalRenglon"];
                 this.columnsucursal = base.Columns["sucursal"];
                 this.columnestacion = base.Columns["estacion"];
+                this.columncliente = base.Columns["cliente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2631,6 +2643,8 @@ namespace ModVentaAdm.Src.Reportes {
                 base.Columns.Add(this.columnsucursal);
                 this.columnestacion = new global::System.Data.DataColumn("estacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnestacion);
+                this.columncliente = new global::System.Data.DataColumn("cliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncliente);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5783,6 +5797,22 @@ namespace ModVentaAdm.Src.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableGeneralDocumentoDet.clienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cliente\' in table \'GeneralDocumentoDet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGeneralDocumentoDet.clienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsfechaHoraNull() {
                 return this.IsNull(this.tableGeneralDocumentoDet.fechaHoraColumn);
             }
@@ -5911,6 +5941,18 @@ namespace ModVentaAdm.Src.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetestacionNull() {
                 this[this.tableGeneralDocumentoDet.estacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsclienteNull() {
+                return this.IsNull(this.tableGeneralDocumentoDet.clienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetclienteNull() {
+                this[this.tableGeneralDocumentoDet.clienteColumn] = global::System.Convert.DBNull;
             }
         }
         

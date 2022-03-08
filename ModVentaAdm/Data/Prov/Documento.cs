@@ -38,6 +38,7 @@ namespace ModVentaAdm.Data.Prov
                 codTipoDocumento = filtro.codTipoDocumento,
                 fecha = new DtoLibPos.Documento.Lista.Filtro.Fecha() { desde = filtro.desde, hasta = filtro.hasta },
                 estatus = xestatus,
+                palabraClave = filtro.palabraClave,
             };
             var r01 = MyData.Documento_Get_Lista(filtroDTO);
             if (r01.Result == DtoLib.Enumerados.EnumResult.isError)

@@ -75,6 +75,9 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             L_PRODUCTO.Enabled = _controlador.ActivarProducto;
             TB_PRODUCTO.Enabled = _controlador.ActivarProducto;
             BT_PRODUCTO_BUSCAR.Enabled = _controlador.ActivarProducto;
+
+            P_PALABRA_CLAVE.Enabled = _controlador.ActivarPalabraClave;
+            TB_PALABRA_CLAVE.Text = _controlador.PalabraClave;
             modoInicializar = false;
 
             DTP_DESDE.Value = _controlador.GetDesde;
@@ -100,6 +103,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             LimpiarTipoDocumento();
             LimpiarCliente();
             LimpiarProducto();
+            LimpiarPalabraClave();
             modoInicializar = false;
         }
 
@@ -331,7 +335,6 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         {
             LimpiarProducto();
         }
-
         private void LimpiarProducto()
         {
             _controlador.LimpiarProducto();
@@ -367,6 +370,19 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void L_PALABRA_CLAVE_Click(object sender, EventArgs e)
+        {
+            LimpiarPalabraClave();
+        }
+        private void LimpiarPalabraClave()
+        {
+            TB_PALABRA_CLAVE.Text="";
+        }
+        private void TB_PALABRA_CLAVE_Leave(object sender, EventArgs e)
+        {
+            _controlador.setPalabraClave(TB_PALABRA_CLAVE.Text.Trim());
         }
 
     }

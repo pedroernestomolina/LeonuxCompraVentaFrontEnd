@@ -264,7 +264,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 21);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Codigo:";
+            this.label3.Text = "Código:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel11
@@ -303,6 +303,7 @@
             this.KeyPreview = true;
             this.Name = "AgregarEditarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgregarEditarFrm_FormClosing);
             this.Load += new System.EventHandler(this.AgregarEditarFrm_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

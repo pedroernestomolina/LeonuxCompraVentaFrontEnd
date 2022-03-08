@@ -26,6 +26,7 @@ namespace DataProvInventario.InfraEstructura
 
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ToolInventario(string autoGrupoUsuario);
 
+        OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_Departamento(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_CrearDepartamento(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_ModificarDepartamento(string autoGrupoUsuario);
         OOB.ResultadoEntidad<OOB.LibInventario.Permiso.Ficha> Permiso_EliminarDepartamento(string autoGrupoUsuario);

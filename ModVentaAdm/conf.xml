@@ -2,7 +2,7 @@
 <Configuracion>
   <Servidor>
     <Instancia>localhost</Instancia>
-    <Catalogo>0001</Catalogo>
+    <Catalogo>pita</Catalogo>
   </Servidor>
   <IdEquipo>01</IdEquipo>
 </Configuracion>

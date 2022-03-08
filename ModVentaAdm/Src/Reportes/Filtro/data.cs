@@ -26,8 +26,10 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         private bool _tipoDocNtCredito;
         private bool _tipoDocNtEntrega;
         private bool _validarTipoDocumento;
+        private string _palabraClave;
 
 
+        public string PalabraClave { get { return _palabraClave; } }
         public general Cliente { get { return _cliente; } }
         public general Producto { get { return _producto; } }
         public DateTime GetDesde { get { return _desde; } }
@@ -152,6 +154,7 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             _tipoDocNtCredito = false;
             _tipoDocNtEntrega = false;
             _validarTipoDocumento = false;
+            _palabraClave = "";
         }
 
         public void setSucursal(general ficha)
@@ -289,6 +292,11 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         public void setTipoDoc(general ficha)
         {
             _tipoDoc = ficha;
+        }
+
+        public void setPalabraClave(string p)
+        {
+            _palabraClave = p;
         }
 
     }

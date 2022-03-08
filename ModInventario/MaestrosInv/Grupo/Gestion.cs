@@ -67,6 +67,11 @@ namespace ModInventario.MaestrosInv.Grupo
         {
             throw new NotImplementedException();
         }
+
+        public data ItemAgregarEditar
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 
 }

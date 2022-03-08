@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace ModInventario.MaestrosInv.Departamento.Editar
@@ -11,55 +12,128 @@ namespace ModInventario.MaestrosInv.Departamento.Editar
     public class Gestion: IAgregarEditar
     {
 
-        public bool ProcesarIsOk
+        private string _codigo;
+        private string _nombre;
+        private bool _procesarIsOk;
+        private bool _abandonarIsOk;
+        private string _idItemAgregado;
+        private string _idItemEditar;
+
+
+        public string Titulo { get { return "Editar Item: DEPARTAMENTO"; } }
+        public bool ProcesarIsOk { get { return _procesarIsOk; } }
+        public bool AbandonarIsOk { get { return _abandonarIsOk; } }
+        public bool IsOk { get { return _procesarIsOk; } }
+        public string Codigo { get { return _codigo; } }
+        public string Nombre { get { return _nombre; } }
+        public string IdItemAgregado { get { return _idItemAgregado; } }
+
+
+        public Gestion()
         {
-            get { throw new NotImplementedException(); }
+            _codigo = "";
+            _nombre = "";
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
+            _idItemAgregado = "";
+            _idItemEditar = "";
         }
 
-        public bool AbandonarIsOk
+
+        public void Inicializa()
         {
-            get { throw new NotImplementedException(); }
+            _codigo = "";
+            _nombre = "";
+            _procesarIsOk = false;
+            _abandonarIsOk = false;
+            _idItemAgregado = "";
+            _idItemEditar = "";
         }
 
-        public string Codigo
+        AgregarEditarFrm frm;
+        public void Inicia()
         {
-            get { throw new NotImplementedException(); }
+            if (CargarData())
+            {
+                if (frm == null)
+                {
+                    frm = new AgregarEditarFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
+            }
         }
 
-        public string Nombre
+        private bool CargarData()
         {
-            get { throw new NotImplementedException(); }
+            var r01 = Sistema.MyData.Departamento_GetFicha(_idItemEditar);
+            if (r01.Result == OOB.Enumerados.EnumResult.isError)
+            {
+                Helpers.Msg.Error(r01.Mensaje);
+                return false;
+            }
+            _codigo = r01.Entidad.codigo;
+            _nombre = r01.Entidad.nombre;
+            return true;
         }
+
 
         public void Procesar()
         {
-            throw new NotImplementedException();
+            if (_codigo.Trim() == "")
+            {
+                Helpers.Msg.Error("Campo [ CÓDIGO ] No Puede Estar Vacio");
+                return;
+            }
+            if (_nombre.Trim() == "")
+            {
+                Helpers.Msg.Error("Campo [ NOMBRE ] No Puede Estar Vacio");
+                return;
+            }
+
+            var xmsg = "Guardar Cambios Para La Ficha ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+            {
+                var xficha = new OOB.LibInventario.Departamento.Editar()
+                {
+                    auto = _idItemEditar,
+                    nombre = _nombre,
+                    codigo = _codigo,
+                };
+                var r01 = Sistema.MyData.Departamento_Editar(xficha);
+                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                {
+                    Helpers.Msg.Error(r01.Mensaje);
+                    return;
+                }
+                _procesarIsOk = true;
+                Helpers.Msg.EditarOk();
+            }
         }
 
         public void Abandonar()
         {
-            throw new NotImplementedException();
+            _abandonarIsOk = false;
+            var xmsg = "Abandonar Cambios ?";
+            var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (msg == DialogResult.Yes)
+                _abandonarIsOk = true; ;
         }
 
         public void setCodigo(string p)
         {
-            throw new NotImplementedException();
+            _codigo = p;
         }
-
         public void setNombre(string p)
         {
-            throw new NotImplementedException();
+            _nombre = p;
+        }
+        public void setIdItemEditar(string id)
+        {
+            _idItemEditar = id;
         }
 
-        public void Inicializa()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Inicia()
-        {
-            throw new NotImplementedException();
-        }
     }
 
 }

@@ -69,6 +69,10 @@ namespace ModInventario.MaestrosInv
         public void AgregarItem()
         {
             _gTipoMaestro.AgregarItem();
+            if (_gTipoMaestro.AgregarIsOk) 
+            {
+                _gLista.Agregar(_gTipoMaestro.ItemAgregarEditar);
+            }
         }
 
         public void EditarItem()
@@ -76,6 +80,10 @@ namespace ModInventario.MaestrosInv
             if (ItemActual != null)
             {
                 _gTipoMaestro.EditarItem(ItemActual.auto);
+                if (_gTipoMaestro.EditarIsOk)
+                {
+                    _gLista.Actualizar(_gTipoMaestro.ItemAgregarEditar);
+                }
             }
         }
 
@@ -84,6 +92,10 @@ namespace ModInventario.MaestrosInv
             if (ItemActual != null)
             {
                 _gTipoMaestro.EliminarItem(ItemActual.auto);
+                if (_gTipoMaestro.EliminarIsOK)
+                {
+                    _gLista.EliminarItemActual();
+                }
             }
         }
 

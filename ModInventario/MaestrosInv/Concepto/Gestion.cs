@@ -67,6 +67,12 @@ namespace ModInventario.MaestrosInv.Concepto
         {
             throw new NotImplementedException();
         }
+
+
+        public data ItemAgregarEditar
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 
 }

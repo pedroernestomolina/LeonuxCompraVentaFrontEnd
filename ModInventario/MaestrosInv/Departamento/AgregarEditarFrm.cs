@@ -27,9 +27,14 @@ namespace ModInventario.MaestrosInv.Departamento
 
         private void AgregarEditarFrm_Load(object sender, EventArgs e)
         {
-            L_TITULO.Text = "a";
+            L_TITULO.Text = _controlador.Titulo;
             TB_CODIGO.Text = _controlador.Codigo;
             TB_NOMBRE.Text = _controlador.Nombre;
+            IrFoco();
+        }
+
+        private void IrFoco()
+        {
             TB_CODIGO.Focus();
         }
 
@@ -39,6 +44,7 @@ namespace ModInventario.MaestrosInv.Departamento
         }
         private void Abandonar()
         {
+            IrFoco();
             _controlador.Abandonar();
             if (_controlador.AbandonarIsOk)
             {
@@ -52,6 +58,7 @@ namespace ModInventario.MaestrosInv.Departamento
         }
         private void Procesar()
         {
+            IrFoco();
             _controlador.Procesar();
             if (_controlador.ProcesarIsOk)
             {

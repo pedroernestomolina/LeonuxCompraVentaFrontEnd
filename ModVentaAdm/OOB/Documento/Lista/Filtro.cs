@@ -19,6 +19,7 @@ namespace ModVentaAdm.OOB.Documento.Lista
         public string codSucursal { get; set; }
         public string codTipoDocumento { get; set; }
         public string estatus { get; set; }
+        public string palabraClave { get; set; }
 
 
         public Filtro()
@@ -31,6 +32,7 @@ namespace ModVentaAdm.OOB.Documento.Lista
             codSucursal = "";
             codTipoDocumento = "";
             estatus = "";
+            palabraClave = "";
         }
 
     }

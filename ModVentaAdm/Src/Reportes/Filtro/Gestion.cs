@@ -26,6 +26,8 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         private Producto.Lista.Gestion _gProductoLista;
 
 
+        public bool ActivarPalabraClave { get { return _filtro.ActivarPalabreClave; } }
+        public string PalabraClave { get { return _data.PalabraClave; } }
         public BindingSource SourceSucursal { get { return _bsSucursal; } }
         public BindingSource SourceEstatus { get { return _bsEstatus; } }
         public BindingSource SourceTipoDoc { get { return _bsTipoDoc; } }
@@ -60,7 +62,6 @@ namespace ModVentaAdm.Src.Reportes.Filtro
         //
         public int GetMesRelacion { get { return _data.GetMesRelacion; } }
         public int GetAnoRelacion { get { return _data.GetAnoRelacion; } }
-
         
 
         public Gestion()
@@ -272,6 +273,11 @@ namespace ModVentaAdm.Src.Reportes.Filtro
             _cliente = "";
             _producto = "";
             _data.Inicializa();
+        }
+
+        public void setPalabraClave(string p)
+        {
+            _data.setPalabraClave(p);
         }
 
     }

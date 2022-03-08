@@ -71,6 +71,7 @@ namespace ModVentaAdm.Src.Administrador.Documentos
         {
             var filtro = new OOB.Documento.Lista.Filtro()
             {
+                palabraClave = _gFiltro.PalabraClave,
                 codSucursal = _gFiltro.GetCodigoSucursal,
                 codTipoDocumento = _gFiltro.GetCodigoTipoDoc,
                 desde = _gFiltro.GetDesde,

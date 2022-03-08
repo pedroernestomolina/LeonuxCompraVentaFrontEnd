@@ -221,10 +221,19 @@ namespace ModInventario
 
         public void MaestroDepartamentos()
         {
-            _gMtDepart.Inicializa();
-            _gMaestro.setGestion(_gMtDepart);
-            _gMaestro.Inicializa();
-            _gMaestro.Inicia();
+            var r00 = Sistema.MyData.Permiso_Departamento(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
+            {
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_seguridad.Verificar(r00.Entidad))
+            {
+                _gMtDepart.Inicializa();
+                _gMaestro.setGestion(_gMtDepart);
+                _gMaestro.Inicializa();
+                _gMaestro.Inicia();
+            }
         }
 
         public void MaestroGrupo()

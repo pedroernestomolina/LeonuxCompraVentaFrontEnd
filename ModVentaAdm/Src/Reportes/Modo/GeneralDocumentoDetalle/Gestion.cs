@@ -30,6 +30,7 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralDocumentoDetalle
         {
             var filtro = new OOB.Reportes.GeneralDocumentoDetalle.Filtro()
             {
+                palabraClave = data.PalabraClave,
                 codigoSucursal = data.GetCodigoSucursal,
                 desdeFecha = data.GetDesde,
                 hastaFecha = data.GetHasta,
@@ -52,11 +53,23 @@ namespace ModVentaAdm.Src.Reportes.Modo.GeneralDocumentoDetalle
             var pt = AppDomain.CurrentDomain.BaseDirectory + @"Reportes\GeneralDocumentoDet.rdlc";
             var ds = new DS();
 
+            var td = "";
             foreach (var it in list.ToList())
             {
+                if (td != it.documento)
+                {
+                    td = it.documento;
+                }
+                else 
+                {
+                    it.renglones = 0;
+                    it.total = 0;
+                }
+
                 DataRow rt = ds.Tables["GeneralDocumentoDet"].NewRow();
                 rt["fechaHora"] = it.fecha.ToShortDateString() + ", " + it.hora;
                 rt["documentoNro"] = it.documento;
+                rt["cliente"] = it.ciRif+Environment.NewLine+it.razonSocial;
                 rt["documentoNombre"] = it.documentoNombre;
                 //rt["usuarioEstacion"] = it.usuarioCodigo.Trim() + "(" + it.usuarioNombre.Trim() + "), " + Environment.NewLine + it.CajaEstacion;
                 rt["renglones"] = it.renglones.ToString("n0");

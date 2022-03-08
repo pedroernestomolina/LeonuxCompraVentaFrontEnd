@@ -252,6 +252,7 @@ namespace ModVentaAdm.Data.Prov
 
             var filtroDTO = new DtoLibPos.Reportes.VentaAdministrativa.GeneralDocumentoDetalle.Filtro()
             {
+                palabraClave=filtro.palabraClave,
                 codigoSucursal = filtro.codigoSucursal,
                 desdeFecha = filtro.desdeFecha,
                 hastaFecha = filtro.hastaFecha,
@@ -294,6 +295,8 @@ namespace ModVentaAdm.Data.Prov
                             estacion = s.estacion,
                             sucCodigo = s.sucCodigo,
                             sucNombre = s.sucNombre,
+                            ciRif = s.ciRif,
+                            razonSocial = s.razonSocial,
                         };
                         return nr;
                     }).ToList();

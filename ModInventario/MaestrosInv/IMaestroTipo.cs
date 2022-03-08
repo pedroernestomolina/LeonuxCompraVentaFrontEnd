@@ -16,6 +16,7 @@ namespace ModInventario.MaestrosInv
         bool EditarIsOk { get; }
         bool EliminarIsOK { get; }
         List<data> ListaData { get; }
+        data ItemAgregarEditar { get; }
 
 
         void Inicializa();

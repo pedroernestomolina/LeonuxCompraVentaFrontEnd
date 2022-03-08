@@ -28,6 +28,8 @@ namespace ModVentaAdm.OOB.Reportes.GeneralDocumentoDetalle
         public string sucCodigo { get; set; }
         public string sucNombre { get; set; }
         public string estacion { get; set; }
+        public string ciRif { get; set; }
+        public string razonSocial { get; set; }
 
 
         public Ficha()
@@ -49,6 +51,8 @@ namespace ModVentaAdm.OOB.Reportes.GeneralDocumentoDetalle
             sucCodigo = "";
             sucNombre = "";
             estacion = "";
+            ciRif = "";
+            razonSocial = "";
         }
 
     }

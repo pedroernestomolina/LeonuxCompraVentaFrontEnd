@@ -1,3 +1,4 @@
+D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\conf.xml
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Cuadre.rdlc
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\Helpers\Imprimir\Grafico\Documento.rdlc
@@ -8,7 +9,6 @@ D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.exe
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\PosOnLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\DtoLib.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\DtoLibPos.dll
-D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\EntityFramework.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\EntityFramework.SqlServer.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\LibControles.dll
 D:\Proyectos FoxSystem\CompraVentaFront\PosOnLine\bin\Debug\MySql.Data.Entity.EF6.dll

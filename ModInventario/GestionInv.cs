@@ -12,7 +12,6 @@ namespace ModInventario
     public class GestionInv
     {
 
-        private Maestros.Gestion _gestionMaestro;
         private Buscar.Gestion _gestionBusqueda;
         private Movimiento.Gestion _gestionMov;
         private Visor.Existencia.Gestion _gestionVisorExistencia;
@@ -227,7 +226,6 @@ namespace ModInventario
                 _seguridad);
             //
 
-            _gestionMaestro = new Maestros.Gestion();
             _gestionBusqueda = new Buscar.Gestion(
                 _gFiltroAdmProducto, 
                 _seguridad, 
@@ -748,11 +746,10 @@ namespace ModInventario
                 // POR USUARIO
                 _gSecurityModoUsuario.Inicializa();
                 _gSecurityModoUsuario.setUsuarioValidar(SeguridadSist.Usuario.enumerados.enumTipo.Administrador);
-
                 //
                 _gMovAjusteInvCero.Inicializa();
                 _gMovAjusteInvCero.setModoSeguridad(_gSecurityModoUsuario);
-
+                //
                 _gestionMovInv.Inicializa();
                 _gestionMovInv.setGestion(_gMovAjusteInvCero);
                 _gestionMovInv.Inicia();

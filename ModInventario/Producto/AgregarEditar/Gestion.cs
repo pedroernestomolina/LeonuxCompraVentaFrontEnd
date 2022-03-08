@@ -15,6 +15,10 @@ namespace ModInventario.Producto.AgregarEditar
 
         private IGestion miGestion;
         private Maestros.Gestion _gestionMaestro;
+        private ModInventario.MaestrosInv.IMaestro _gMaestro ;
+        private ModInventario.MaestrosInv.IMaestroTipo _gMtDepart;
+        private ModInventario.MaestrosInv.IMaestroTipo _gMtGrupo;
+
 
         public string Titulo { get { return miGestion.Titulo; } }
         public bool IsAgregarEditarOk { get { return miGestion.IsAgregarEditarOk; } }
@@ -57,9 +61,15 @@ namespace ModInventario.Producto.AgregarEditar
         public string CodigoAlterno { get { return miGestion.CodigoAlterno; } set { miGestion.CodigoAlterno = value; } }
 
 
-        public Gestion(IGestion gestion)
+        public Gestion(IGestion gestion, 
+            ModInventario.MaestrosInv.IMaestro ctrMaestro, 
+            ModInventario.MaestrosInv.IMaestroTipo ctrMtDepart, 
+            ModInventario.MaestrosInv.IMaestroTipo ctrGrupo)
         {
             miGestion = gestion;
+            _gMtDepart = ctrMtDepart;
+            _gMtGrupo = ctrGrupo;
+            _gMaestro = ctrMaestro;
             _gestionMaestro = new Maestros.Gestion();
         }
 
@@ -107,16 +117,23 @@ namespace ModInventario.Producto.AgregarEditar
 
         public void MaestroDepartamento()
         {
-            _gestionMaestro.setGestion(new Maestros.Departamento.Gestion());
-            _gestionMaestro.Inicia();
+            _gMtDepart.Inicializa();
+            //
+            _gMaestro.Inicializa();
+            _gMaestro.setGestion(_gMtDepart);
+            _gMaestro.Inicia();
+            //
             miGestion.CargaDepartamentos();
         }
 
         public void MaestroGrupo()
         {
-            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
-            _gestionMaestro.Inicia();
-            miGestion.CargaGrupos();
+            _gMtGrupo.Inicializa();
+            //
+            _gMaestro.Inicializa();
+            _gMaestro.setGestion(_gMtGrupo);
+            _gMaestro.Inicia();
+            //
         }
 
         public void MaestroMarca()

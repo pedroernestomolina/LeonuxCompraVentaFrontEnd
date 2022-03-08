@@ -60,35 +60,53 @@ namespace ModInventario.MaestrosInv.Departamento
 
         public void AgregarItem()
         {
-            _gAgregar.Inicializa();
-            _gAgregar.Inicia();
-            if (_gAgregar.IsOk) 
+            var r00 = Sistema.MyData.Permiso_CrearDepartamento(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
-                var r01 = Sistema.MyData.Departamento_GetFicha(_gAgregar.ItemAgregarId);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_gSeguridad.Verificar(r00.Entidad))
+            {
+                _gAgregar.Inicializa();
+                _gAgregar.Inicia();
+                if (_gAgregar.IsOk)
                 {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                    var r01 = Sistema.MyData.Departamento_GetFicha(_gAgregar.ItemAgregarId);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _itemAgregarEditar = new data(r01.Entidad.auto, r01.Entidad.codigo, r01.Entidad.nombre);
                 }
-                _itemAgregarEditar = new data(r01.Entidad.auto, r01.Entidad.codigo, r01.Entidad.nombre);
             }
         }
 
         public void EditarItem(data ItemActual)
         {
-            var idEditar = ItemActual.auto;
-            _gEditar.Inicializa();
-            _gEditar.setItemEditar(idEditar);
-            _gEditar.Inicia();
-            if (_gEditar.IsOk)
+            var r00 = Sistema.MyData.Permiso_ModificarDepartamento(Sistema.UsuarioP.autoGru);
+            if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
-                var r01 = Sistema.MyData.Departamento_GetFicha(idEditar);
-                if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                Helpers.Msg.Error(r00.Mensaje);
+                return;
+            }
+            if (_gSeguridad.Verificar(r00.Entidad))
+            {
+                var idEditar = ItemActual.auto;
+                _gEditar.Inicializa();
+                _gEditar.setItemEditar(idEditar);
+                _gEditar.Inicia();
+                if (_gEditar.IsOk)
                 {
-                    Helpers.Msg.Error(r01.Mensaje);
-                    return;
+                    var r01 = Sistema.MyData.Departamento_GetFicha(idEditar);
+                    if (r01.Result == OOB.Enumerados.EnumResult.isError)
+                    {
+                        Helpers.Msg.Error(r01.Mensaje);
+                        return;
+                    }
+                    _itemAgregarEditar = new data(r01.Entidad.auto, r01.Entidad.codigo, r01.Entidad.nombre);
                 }
-                _itemAgregarEditar = new data(r01.Entidad.auto, r01.Entidad.codigo, r01.Entidad.nombre);
             }
         }
 

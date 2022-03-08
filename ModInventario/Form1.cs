@@ -120,7 +120,6 @@ namespace ModInventario
         {
             MaestroGrupo();
         }
-
         private void MaestroGrupo()
         {
             _controlador.MaestroGrupo();
@@ -155,7 +154,6 @@ namespace ModInventario
         {
             MaestroConcepto();
         }
-
         private void MaestroConcepto()
         {
             _controlador.MaestroConcepto();

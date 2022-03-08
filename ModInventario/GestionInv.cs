@@ -72,6 +72,15 @@ namespace ModInventario
         private MaestrosInv.Departamento.IAgregarEditar _gAgregarDepart;
         private MaestrosInv.Departamento.IAgregarEditar _gEditarDepart;
         private MaestrosInv.IMaestroTipo _gMtDepart;
+        //
+        private MaestrosInv.Grupo.IAgregarEditar _gAgregarGrupo;
+        private MaestrosInv.Grupo.IAgregarEditar _gEditarGrupo;
+        private MaestrosInv.IMaestroTipo _gMtGrupo;
+        //
+        private MaestrosInv.Concepto.IAgregarEditar _gAgregarConcepto;
+        private MaestrosInv.Concepto.IAgregarEditar _gEditarConcepto;
+        private MaestrosInv.IMaestroTipo _gMtConcepto;
+        //
         private MaestrosInv.ILista _gMtLista;
         private MaestrosInv.IMaestro _gMaestro;
 
@@ -145,12 +154,25 @@ namespace ModInventario
             _gAgregarDepart = new MaestrosInv.Departamento.Agregar.Gestion();
             _gEditarDepart = new MaestrosInv.Departamento.Editar.Gestion();
             _gMtDepart = new MaestrosInv.Departamento.Gestion(_seguridad, _gAgregarDepart, _gEditarDepart);
+            //
+            _gAgregarGrupo= new MaestrosInv.Grupo.Agregar.Gestion();
+            _gEditarGrupo= new MaestrosInv.Grupo.Editar.Gestion();
+            _gMtGrupo = new MaestrosInv.Grupo.Gestion(_seguridad, _gAgregarGrupo, _gEditarGrupo);
+            //
+            _gAgregarConcepto = new MaestrosInv.Concepto.Agregar.Gestion();
+            _gEditarConcepto = new MaestrosInv.Concepto.Editar.Gestion();
+            _gMtConcepto = new MaestrosInv.Concepto.Gestion(_seguridad, _gAgregarConcepto, _gEditarConcepto);
+            //
             _gMtLista = new MaestrosInv.Lista();
             _gMaestro = new MaestrosInv.Gestion(_gMtLista);
             //
 
             _gestionMaestro = new Maestros.Gestion();
-            _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto, _seguridad);
+            _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto, 
+                _seguridad, 
+                _gMaestro, 
+                _gMtDepart,
+                _gMtGrupo);
             _gestionMov = new Movimiento.Gestion(_gAdmSelPrd);
             _gestionVisorExistencia = new Visor.Existencia.Gestion();
             _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
@@ -199,10 +221,6 @@ namespace ModInventario
 
         public void MaestroDepartamentos()
         {
-            //var ctr = new Maestros.Departamento.Gestion();
-            //_gestionMaestro.setGestion(ctr);
-            //_gestionMaestro.Inicia();
-
             _gMtDepart.Inicializa();
             _gMaestro.setGestion(_gMtDepart);
             _gMaestro.Inicializa();
@@ -211,8 +229,10 @@ namespace ModInventario
 
         public void MaestroGrupo()
         {
-            _gestionMaestro.setGestion(new Maestros.Grupo.Gestion());
-            _gestionMaestro.Inicia();
+            _gMtGrupo.Inicializa();
+            _gMaestro.setGestion(_gMtGrupo);
+            _gMaestro.Inicializa();
+            _gMaestro.Inicia();
         }
 
         public void MaestroMarca()
@@ -239,8 +259,10 @@ namespace ModInventario
 
         public void MaestroConcepto()
         {
-            _gestionMaestro.setGestion(new Maestros.Concepto.Gestion());
-            _gestionMaestro.Inicia();
+            _gMtConcepto.Inicializa();
+            _gMaestro.setGestion(_gMtConcepto);
+            _gMaestro.Inicializa();
+            _gMaestro.Inicia();
         }
 
         public void MovimientoCargo()

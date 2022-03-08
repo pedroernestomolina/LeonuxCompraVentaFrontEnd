@@ -44,7 +44,11 @@ namespace ModInventario.Buscar
         public enumMetodoBusqueda MetodoBusqueda { get { return (enumMetodoBusqueda)_gFiltrarProducto.MetBusqueda; } }
 
 
-        public Gestion(FiltrosGen.IAdmProducto ctrFiltrarProducto, ISeguridadAccesoSistema ctrSeguridad)
+        public Gestion(FiltrosGen.IAdmProducto ctrFiltrarProducto, 
+            ISeguridadAccesoSistema ctrSeguridad,
+            ModInventario.MaestrosInv.IMaestro ctrMaestro,
+            ModInventario.MaestrosInv.IMaestroTipo ctrMtDepart,
+            ModInventario.MaestrosInv.IMaestroTipo ctrMtGrupo)
         {
             _gAccesoSistema = ctrSeguridad;
             _gFiltrarProducto = ctrFiltrarProducto;
@@ -60,8 +64,16 @@ namespace ModInventario.Buscar
             _gestionEditarCosto = new Producto.Costo.Editar.Gestion();
             _gestionQR = new Producto.QR.Gestion();
             _gestionDeposito = new Producto.Deposito.Asignar.Gestion();
-            _gestionEditarFicha = new Producto.AgregarEditar.Gestion(new Producto.AgregarEditar.Editar.Gestion());
-            _gestionAgregarFicha = new Producto.AgregarEditar.Gestion(new Producto.AgregarEditar.Agregar.Gestion());
+            _gestionEditarFicha = new Producto.AgregarEditar.Gestion(
+                new Producto.AgregarEditar.Editar.Gestion(), 
+                ctrMaestro, 
+                ctrMtDepart, 
+                ctrMtGrupo);
+            _gestionAgregarFicha = new Producto.AgregarEditar.Gestion(
+                new Producto.AgregarEditar.Agregar.Gestion(), 
+                ctrMaestro, 
+                ctrMtDepart, 
+                ctrMtGrupo);
             _gestionEstatus = new Producto.Estatus.Gestion();
             _gestionKardex = new Kardex.Movimiento.Gestion();
             _gestionImagen = new Producto.Imagen.Gestion();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModInventario.MaestrosInv.Departamento
+namespace ModInventario.MaestrosInv.Grupo
 {
     
     public class Gestion: IMaestroTipo
@@ -20,7 +20,7 @@ namespace ModInventario.MaestrosInv.Departamento
         private data _itemAgregarEditar;
 
 
-        public string Titulo { get { return "MAESTRO: DEPARTAMENTOS"; } }
+        public string Titulo { get { return "MAESTRO: GRUPOS"; } }
         public bool AgregarIsOk { get { return _gAgregar.IsOk; } }
         public bool EditarIsOk { get { return _gEditar.IsOk; } }
         public bool EliminarIsOk { get { return _eliminarIsOk; } }
@@ -42,7 +42,7 @@ namespace ModInventario.MaestrosInv.Departamento
 
         public bool CargarData()
         {
-            var r01 = Sistema.MyData.Departamento_GetLista();
+            var r01 = Sistema.MyData.Grupo_GetLista();
             if (r01.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -60,7 +60,7 @@ namespace ModInventario.MaestrosInv.Departamento
 
         public void AgregarItem()
         {
-            var r00 = Sistema.MyData.Permiso_CrearDepartamento(Sistema.UsuarioP.autoGru);
+            var r00 = Sistema.MyData.Permiso_CrearGrupo(Sistema.UsuarioP.autoGru);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -72,7 +72,7 @@ namespace ModInventario.MaestrosInv.Departamento
                 _gAgregar.Inicia();
                 if (_gAgregar.IsOk)
                 {
-                    var r01 = Sistema.MyData.Departamento_GetFicha(_gAgregar.ItemAgregarId);
+                    var r01 = Sistema.MyData.Grupo_GetFicha(_gAgregar.ItemAgregarId);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);
@@ -85,7 +85,7 @@ namespace ModInventario.MaestrosInv.Departamento
 
         public void EditarItem(data ItemActual)
         {
-            var r00 = Sistema.MyData.Permiso_ModificarDepartamento(Sistema.UsuarioP.autoGru);
+            var r00 = Sistema.MyData.Permiso_ModificarGrupo(Sistema.UsuarioP.autoGru);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -99,7 +99,7 @@ namespace ModInventario.MaestrosInv.Departamento
                 _gEditar.Inicia();
                 if (_gEditar.IsOk)
                 {
-                    var r01 = Sistema.MyData.Departamento_GetFicha(idEditar);
+                    var r01 = Sistema.MyData.Grupo_GetFicha(idEditar);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);
@@ -113,7 +113,7 @@ namespace ModInventario.MaestrosInv.Departamento
         public void EliminarItem(data ItemActual)
         {
             _eliminarIsOk = false;
-            var r00 = Sistema.MyData.Permiso_EliminarDepartamento(Sistema.UsuarioP.autoGru);
+            var r00 = Sistema.MyData.Permiso_EliminarGrupo(Sistema.UsuarioP.autoGru);
             if (r00.Result == OOB.Enumerados.EnumResult.isError)
             {
                 Helpers.Msg.Error(r00.Mensaje);
@@ -124,7 +124,7 @@ namespace ModInventario.MaestrosInv.Departamento
                 var msg = MessageBox.Show("Eliminar Item Actual ?", "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
                 if (msg == DialogResult.Yes)
                 {
-                    var r01 = Sistema.MyData.Departamento_Eliminar(ItemActual.auto);
+                    var r01 = Sistema.MyData.Grupo_Eliminar(ItemActual.auto);
                     if (r01.Result == OOB.Enumerados.EnumResult.isError)
                     {
                         Helpers.Msg.Error(r01.Mensaje);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModInventario.MaestrosInv.Concepto.Editar
+namespace ModInventario.MaestrosInv.Grupo.Editar
 {
 
     public class Gestion : IAgregarEditar
@@ -27,7 +27,7 @@ namespace ModInventario.MaestrosInv.Concepto.Editar
         public bool ProcesarIsOk { get { return _procesarIsOk; } }
         public bool AbandonarIsOk { get { return _abandonarIsOK; } }
         public string ItemAgregarId { get { return _itemAgregarId; } }
-        public string Titulo { get { return "Editar Item: CONCEPTO INVENTARIO"; } }
+        public string Titulo { get { return "Editar Item: GRUPO"; } }
 
 
         public Gestion()
@@ -78,7 +78,7 @@ namespace ModInventario.MaestrosInv.Concepto.Editar
 
         private bool CargarData()
         {
-            var r01 = Sistema.MyData.Concepto_GetFicha(_idEditar);
+            var r01 = Sistema.MyData.Grupo_GetFicha(_idEditar);
             if (r01.Result == OOB.Enumerados.EnumResult.isError) 
             {
                 Helpers.Msg.Error(r01.Mensaje);
@@ -122,13 +122,13 @@ namespace ModInventario.MaestrosInv.Concepto.Editar
             var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes)
             {
-                var xficha = new OOB.LibInventario.Concepto.Editar()
+                var xficha = new OOB.LibInventario.Grupo.Editar()
                 {
                     auto = _idEditar,
                     nombre = _nombre,
                     codigo = _codigo,
                 };
-                var r01 = Sistema.MyData.Concepto_Editar(xficha);
+                var r01 = Sistema.MyData.Grupo_Editar(xficha);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r01.Mensaje);

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ModInventario.MaestrosInv.Concepto
+namespace ModInventario.MaestrosInv.Grupo
 {
     
     public interface IAgregarEditar

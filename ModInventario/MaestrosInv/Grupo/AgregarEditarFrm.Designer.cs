@@ -1,4 +1,4 @@
-﻿namespace ModInventario.MaestrosInv.Departamento
+﻿namespace ModInventario.MaestrosInv.Grupo
 {
     partial class AgregarEditarFrm
     {

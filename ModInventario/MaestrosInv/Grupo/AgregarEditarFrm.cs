@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModInventario.MaestrosInv.Concepto
+namespace ModInventario.MaestrosInv.Grupo
 {
 
     public partial class AgregarEditarFrm : Form

@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace ModInventario.MaestrosInv.Departamento.Editar
+namespace ModInventario.MaestrosInv.Grupo.Agregar
 {
 
     public class Gestion : IAgregarEditar
     {
 
 
-        private string _idEditar;
         private string _codigo;
         private string _nombre;
         private bool _procesarIsOk;
@@ -27,12 +26,11 @@ namespace ModInventario.MaestrosInv.Departamento.Editar
         public bool ProcesarIsOk { get { return _procesarIsOk; } }
         public bool AbandonarIsOk { get { return _abandonarIsOK; } }
         public string ItemAgregarId { get { return _itemAgregarId; } }
-        public string Titulo { get { return "Editar Item: DEPARTAMENTO"; } }
+        public string Titulo { get { return "Agregar Item: GRUPO"; } }
 
 
         public Gestion()
         {
-            _idEditar="";
             _codigo = "";
             _nombre = "";
             _procesarIsOk = false;
@@ -54,7 +52,6 @@ namespace ModInventario.MaestrosInv.Departamento.Editar
 
         public void Inicializa()
         {
-            _idEditar = "";
             _itemAgregarId = "";
             _codigo = "";
             _nombre = "";
@@ -78,15 +75,6 @@ namespace ModInventario.MaestrosInv.Departamento.Editar
 
         private bool CargarData()
         {
-            var r01 = Sistema.MyData.Departamento_GetFicha(_idEditar);
-            if (r01.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r01.Mensaje);
-                return false;
-            }
-
-            _codigo = r01.Entidad.codigo;
-            _nombre = r01.Entidad.nombre;
             return true;
         }
 
@@ -102,11 +90,6 @@ namespace ModInventario.MaestrosInv.Departamento.Editar
         public void Procesar()
         {
             _procesarIsOk = false;
-            if (_idEditar.Trim() == "")
-            {
-                Helpers.Msg.Error("Campo [ AUTO ] No Puede Estar Vacio");
-                return;
-            }
             if (_codigo.Trim() == "")
             {
                 Helpers.Msg.Error("Campo [ CODIGO ] No Puede Estar Vacio");
@@ -122,26 +105,26 @@ namespace ModInventario.MaestrosInv.Departamento.Editar
             var msg = MessageBox.Show(xmsg, "*** ALERTA ***", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (msg == DialogResult.Yes)
             {
-                var xficha = new OOB.LibInventario.Departamento.Editar()
+                var xficha = new OOB.LibInventario.Grupo.Agregar()
                 {
-                    auto = _idEditar,
                     nombre = _nombre,
                     codigo = _codigo,
                 };
-                var r01 = Sistema.MyData.Departamento_Editar(xficha);
+                var r01 = Sistema.MyData.Grupo_Agregar(xficha);
                 if (r01.Result == OOB.Enumerados.EnumResult.isError)
                 {
                     Helpers.Msg.Error(r01.Mensaje);
                     return;
                 }
                 _procesarIsOk = true;
-                Helpers.Msg.EditarOk();
+                _itemAgregarId = r01.Auto;
+                Helpers.Msg.AgregarOk();
             }
+
         }
 
         public void setItemEditar(string id)
         {
-            _idEditar = id;
         }
 
     }

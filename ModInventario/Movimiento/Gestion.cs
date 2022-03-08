@@ -17,8 +17,8 @@ namespace ModInventario.Movimiento
 
 
         private IGestion miGestion;
-        private Maestros.Gestion _gestionMaestro;
         private FiltrosGen.IAdmSelecciona _gAdmSelPrd;
+        private Helpers.ICallMaestros _callMaestros;
 
 
         public enumerados.enumTipoMovimiento EnumTipoMovimiento { get { return miGestion.EnumTipoMovimiento; } }
@@ -51,10 +51,12 @@ namespace ModInventario.Movimiento
         public string CadenaBusqueda { get { return _gAdmSelPrd.CadenaBusqueda; } }
 
 
-        public Gestion(FiltrosGen.IAdmSelecciona admSelPrd)
+        public Gestion(
+            FiltrosGen.IAdmSelecciona admSelPrd,
+            Helpers.ICallMaestros ctrMaestros)
         {
             _gAdmSelPrd = admSelPrd;
-            _gestionMaestro = new Maestros.Gestion();
+            _callMaestros = ctrMaestros;
         }
 
 
@@ -165,8 +167,7 @@ namespace ModInventario.Movimiento
 
         public void MaestroConcepto()
         {
-            _gestionMaestro.setGestion(new Maestros.Concepto.Gestion());
-            _gestionMaestro.Inicia();
+            _callMaestros.MtConcepto();
             miGestion.ActualizarConceptos();
         }
 

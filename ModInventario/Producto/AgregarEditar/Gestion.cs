@@ -14,10 +14,7 @@ namespace ModInventario.Producto.AgregarEditar
     {
 
         private IGestion miGestion;
-        private Maestros.Gestion _gestionMaestro;
-        private ModInventario.MaestrosInv.IMaestro _gMaestro ;
-        private ModInventario.MaestrosInv.IMaestroTipo _gMtDepart;
-        private ModInventario.MaestrosInv.IMaestroTipo _gMtGrupo;
+        private Helpers.ICallMaestros _callMaestros;
 
 
         public string Titulo { get { return miGestion.Titulo; } }
@@ -61,16 +58,12 @@ namespace ModInventario.Producto.AgregarEditar
         public string CodigoAlterno { get { return miGestion.CodigoAlterno; } set { miGestion.CodigoAlterno = value; } }
 
 
-        public Gestion(IGestion gestion, 
-            ModInventario.MaestrosInv.IMaestro ctrMaestro, 
-            ModInventario.MaestrosInv.IMaestroTipo ctrMtDepart, 
-            ModInventario.MaestrosInv.IMaestroTipo ctrGrupo)
+        public Gestion(
+            IGestion gestion, 
+            Helpers.ICallMaestros ctrMaestros)
         {
             miGestion = gestion;
-            _gMtDepart = ctrMtDepart;
-            _gMtGrupo = ctrGrupo;
-            _gMaestro = ctrMaestro;
-            _gestionMaestro = new Maestros.Gestion();
+            _callMaestros = ctrMaestros;
         }
 
 
@@ -117,29 +110,19 @@ namespace ModInventario.Producto.AgregarEditar
 
         public void MaestroDepartamento()
         {
-            _gMtDepart.Inicializa();
-            //
-            _gMaestro.Inicializa();
-            _gMaestro.setGestion(_gMtDepart);
-            _gMaestro.Inicia();
-            //
+            _callMaestros.MtDepartamento();
             miGestion.CargaDepartamentos();
         }
 
         public void MaestroGrupo()
         {
-            _gMtGrupo.Inicializa();
-            //
-            _gMaestro.Inicializa();
-            _gMaestro.setGestion(_gMtGrupo);
-            _gMaestro.Inicia();
-            //
+            _callMaestros.MtGrupo();
+            miGestion.CargaGrupos();
         }
 
         public void MaestroMarca()
         {
-            _gestionMaestro.setGestion(new Maestros.Marca.Gestion());
-            _gestionMaestro.Inicia();
+            _callMaestros.MtMarca();
             miGestion.CargaMarcas();
         }
 

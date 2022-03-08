@@ -46,9 +46,7 @@ namespace ModInventario.Buscar
 
         public Gestion(FiltrosGen.IAdmProducto ctrFiltrarProducto, 
             ISeguridadAccesoSistema ctrSeguridad,
-            ModInventario.MaestrosInv.IMaestro ctrMaestro,
-            ModInventario.MaestrosInv.IMaestroTipo ctrMtDepart,
-            ModInventario.MaestrosInv.IMaestroTipo ctrMtGrupo)
+            Helpers.ICallMaestros ctrMaestros)
         {
             _gAccesoSistema = ctrSeguridad;
             _gFiltrarProducto = ctrFiltrarProducto;
@@ -66,14 +64,10 @@ namespace ModInventario.Buscar
             _gestionDeposito = new Producto.Deposito.Asignar.Gestion();
             _gestionEditarFicha = new Producto.AgregarEditar.Gestion(
                 new Producto.AgregarEditar.Editar.Gestion(), 
-                ctrMaestro, 
-                ctrMtDepart, 
-                ctrMtGrupo);
+                ctrMaestros);
             _gestionAgregarFicha = new Producto.AgregarEditar.Gestion(
                 new Producto.AgregarEditar.Agregar.Gestion(), 
-                ctrMaestro, 
-                ctrMtDepart, 
-                ctrMtGrupo);
+                ctrMaestros);
             _gestionEstatus = new Producto.Estatus.Gestion();
             _gestionKardex = new Kardex.Movimiento.Gestion();
             _gestionImagen = new Producto.Imagen.Gestion();

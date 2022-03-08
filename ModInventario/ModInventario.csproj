@@ -244,6 +244,8 @@
     <Compile Include="Graficas\GraficaFrm.Designer.cs">
       <DependentUpon>GraficaFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ICallMaestros.cs" />
+    <Compile Include="Helpers\Maestros.cs" />
     <Compile Include="Helpers\MetodosExtension.cs" />
     <Compile Include="Helpers\Msg.cs" />
     <Compile Include="Helpers\Seguridad.cs" />

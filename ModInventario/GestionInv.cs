@@ -91,6 +91,8 @@ namespace ModInventario
         //
         private MaestrosInv.ILista _gMtLista;
         private MaestrosInv.IMaestro _gMaestro;
+        private Helpers.ICallMaestros _callMaestro;
+        //
 
 
         public string Version { get { return "Ver. " + Application.ProductVersion; } }
@@ -138,17 +140,51 @@ namespace ModInventario
             _gfiltroPrecioMay = new FiltrosGen.Opcion.Gestion();
             _gfiltroDepart= new FiltrosGen.Opcion.Gestion();
             _gfiltroGrupo= new FiltrosGen.Opcion.Gestion();
-            _gFiltroAdmDoc = new FiltrosGen.AdmDoc.Gestion(_gfiltroConcepto, _gfiltroEstatus, _gfiltroDepOrigen,
-                            _gfiltroDepDestino, _gFiltroBusPrd, _gfiltroSucursal, _gfiltroTipoDoc, 
-                            _gfiltroDesde, _gfiltroHasta);
-            _gFiltroAdmProducto = new FiltrosGen.AdmProducto.Gestion(_gfiltroMarca, _gFiltroBusProv, _gfiltroDepOrigen,
-                            _gfiltroCategoria, _gfiltroOrigen, _gfiltroTasaIva, _gfiltroEstatus, _gfiltroDivisa, _gfiltroPesado,
-                            _gfiltroOferta, _gfiltroExistencia, _gfiltroCatalogo, _gfiltroPrecioMay, _gfiltroDepart, _gfiltroGrupo);
+            //
+            _gFiltroAdmDoc = new FiltrosGen.AdmDoc.Gestion(
+                _gfiltroConcepto, 
+                _gfiltroEstatus, 
+                _gfiltroDepOrigen,
+                _gfiltroDepDestino, 
+                _gFiltroBusPrd, 
+                _gfiltroSucursal, 
+                _gfiltroTipoDoc, 
+                _gfiltroDesde, 
+                _gfiltroHasta);
+            _gFiltroAdmProducto = new FiltrosGen.AdmProducto.Gestion(
+                _gfiltroMarca, 
+                _gFiltroBusProv, 
+                _gfiltroDepOrigen,
+                _gfiltroCategoria, 
+                _gfiltroOrigen, 
+                _gfiltroTasaIva, 
+                _gfiltroEstatus, 
+                _gfiltroDivisa, 
+                _gfiltroPesado,
+                _gfiltroOferta, 
+                _gfiltroExistencia, 
+                _gfiltroCatalogo, 
+                _gfiltroPrecioMay, 
+                _gfiltroDepart, 
+                _gfiltroGrupo);
+            _gestionReporteFiltros = new FiltrosGen.Reportes.Gestion(
+                _gFiltroBusPrd, 
+                _gfiltroDepOrigen, 
+                _gfiltroMarca,
+                _gfiltroSucursal, 
+                _gfiltroDepart, 
+                _gfiltroDivisa, 
+                _gfiltroCategoria, 
+                _gfiltroTasaIva, 
+                _gfiltroEstatus,
+                _gfiltroOrigen, 
+                _gfiltroGrupo, 
+                _gfiltroDesde, 
+                _gfiltroHasta);
             _gAdmDoc = new Administrador.Movimiento.Gestion(_gFiltroAdmDoc);
-            _gAdmSelPrd = new FiltrosGen.AdmSelecciona.Gestion(_gFiltroAdmProducto, _gListaSelPrd);
-            _gestionReporteFiltros = new FiltrosGen.Reportes.Gestion(_gFiltroBusPrd, _gfiltroDepOrigen, _gfiltroMarca,
-                _gfiltroSucursal, _gfiltroDepart, _gfiltroDivisa, _gfiltroCategoria, _gfiltroTasaIva, _gfiltroEstatus,
-                _gfiltroOrigen, _gfiltroGrupo, _gfiltroDesde, _gfiltroHasta);
+            _gAdmSelPrd = new FiltrosGen.AdmSelecciona.Gestion(
+                _gFiltroAdmProducto, 
+                _gListaSelPrd);
             //
             _gItemAjusteInvCero = new MovimientoInv.AjusteInvCero.GestionItem();
             _gMovAjusteInvCero = new MovimientoInv.AjusteInvCero.Gestion(
@@ -182,14 +218,23 @@ namespace ModInventario
             _gMtLista = new MaestrosInv.Lista();
             _gMaestro = new MaestrosInv.Gestion(_gMtLista);
             //
+            _callMaestro = new Helpers.Maestros(_gMaestro,
+                _gMtDepart,
+                _gMtGrupo,
+                _gMtConcepto,
+                _gMtMarca,
+                _gMtUnidadEmpq,
+                _seguridad);
+            //
 
             _gestionMaestro = new Maestros.Gestion();
-            _gestionBusqueda = new Buscar.Gestion(_gFiltroAdmProducto, 
+            _gestionBusqueda = new Buscar.Gestion(
+                _gFiltroAdmProducto, 
                 _seguridad, 
-                _gMaestro, 
-                _gMtDepart,
-                _gMtGrupo);
-            _gestionMov = new Movimiento.Gestion(_gAdmSelPrd);
+                _callMaestro);
+            _gestionMov = new Movimiento.Gestion(
+                _gAdmSelPrd,
+                _callMaestro);
             _gestionVisorExistencia = new Visor.Existencia.Gestion();
             _gestionVisorCostoEdad = new Visor.CostoEdad.Gestion();
             _gestionVisorTraslado = new Visor.Traslado.Gestion();
@@ -237,71 +282,25 @@ namespace ModInventario
 
         public void MaestroDepartamentos()
         {
-            var r00 = Sistema.MyData.Permiso_Departamento(Sistema.UsuarioP.autoGru);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-            if (_seguridad.Verificar(r00.Entidad))
-            {
-                _gMtDepart.Inicializa();
-                _gMaestro.setGestion(_gMtDepart);
-                _gMaestro.Inicializa();
-                _gMaestro.Inicia();
-            }
+            _callMaestro.MtDepartamento();
         }
-
         public void MaestroGrupo()
         {
-            var r00 = Sistema.MyData.Permiso_Grupo(Sistema.UsuarioP.autoGru);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-            if (_seguridad.Verificar(r00.Entidad))
-            {
-                _gMtGrupo.Inicializa();
-                _gMaestro.setGestion(_gMtGrupo);
-                _gMaestro.Inicializa();
-                _gMaestro.Inicia();
-            }
+            _callMaestro.MtGrupo();
         }
-
         public void MaestroMarca()
         {
-            var r00 = Sistema.MyData.Permiso_Marca(Sistema.UsuarioP.autoGru);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-            if (_seguridad.Verificar(r00.Entidad))
-            {
-                _gMtMarca.Inicializa();
-                _gMaestro.setGestion(_gMtMarca);
-                _gMaestro.Inicializa();
-                _gMaestro.Inicia();
-            }
+            _callMaestro.MtMarca();
         }
-
         public void MaestroEmpaquesMedida()
         {
-            var r00 = Sistema.MyData.Permiso_UnidadEmpaque(Sistema.UsuarioP.autoGru);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError)
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-            if (_seguridad.Verificar(r00.Entidad))
-            {
-                _gMtUnidadEmpq.Inicializa();
-                _gMaestro.setGestion(_gMtUnidadEmpq);
-                _gMaestro.Inicializa();
-                _gMaestro.Inicia();
-            }
+            _callMaestro.MtUnidadEmpaque();
         }
+        public void MaestroConcepto()
+        {
+            _callMaestro.MtConcepto();
+        }
+
 
         public void BuscarProducto()
         {
@@ -310,23 +309,6 @@ namespace ModInventario
             if (_gestionBusqueda.HayItemSeleccionado)
             {
                 MessageBox.Show(_gestionBusqueda.Item.Producto);
-            }
-        }
-
-        public void MaestroConcepto()
-        {
-            var r00 = Sistema.MyData.Permiso_ConceptoInventario(Sistema.UsuarioP.autoGru);
-            if (r00.Result == OOB.Enumerados.EnumResult.isError) 
-            {
-                Helpers.Msg.Error(r00.Mensaje);
-                return;
-            }
-            if (_seguridad.Verificar(r00.Entidad))
-            {
-                _gMtConcepto.Inicializa();
-                _gMaestro.setGestion(_gMtConcepto);
-                _gMaestro.Inicializa();
-                _gMaestro.Inicia();
             }
         }
 
@@ -761,7 +743,6 @@ namespace ModInventario
                 Helpers.Msg.Error(r00.Mensaje);
                 return;
             }
-
             if (_seguridad.Verificar(r00.Entidad))
             {
                 // POR USUARIO

@@ -22,6 +22,7 @@ namespace ModInventario.MaestrosInv
         public bool AgregarIsOk { get { return _gTipoMaestro.AgregarIsOk; } }
         public bool EditarIsOk { get { return _gTipoMaestro.EditarIsOk; } }
         public bool EliminarIsOK { get { return _gTipoMaestro.EliminarIsOK; } }
+        public data ItemActual { get { return _gLista.ItemActual; } }
 
 
         public Gestion(ILista ctrLista) 
@@ -67,14 +68,23 @@ namespace ModInventario.MaestrosInv
 
         public void AgregarItem()
         {
+            _gTipoMaestro.AgregarItem();
         }
 
         public void EditarItem()
         {
+            if (ItemActual != null)
+            {
+                _gTipoMaestro.EditarItem(ItemActual.auto);
+            }
         }
 
         public void EliminarItem()
         {
+            if (ItemActual != null)
+            {
+                _gTipoMaestro.EliminarItem(ItemActual.auto);
+            }
         }
 
     }

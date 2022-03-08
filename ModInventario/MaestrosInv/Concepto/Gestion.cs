@@ -51,6 +51,22 @@ namespace ModInventario.MaestrosInv.Concepto
         {
             throw new NotImplementedException();
         }
+
+
+        public void AgregarItem()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditarItem(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EliminarItem(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

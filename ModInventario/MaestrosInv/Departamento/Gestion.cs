@@ -13,6 +13,8 @@ namespace ModInventario.MaestrosInv.Departamento
 
         private data _itemAgregarEditar;
         private List<data> _lst;
+        private IAgregarEditar _gAgregar;
+        private IAgregarEditar _gEditar;
 
 
         public string Titulo { get { return "Maestro: DEPARTAMENTOS"; } }
@@ -26,6 +28,8 @@ namespace ModInventario.MaestrosInv.Departamento
             IAgregarEditar agregar, 
             IAgregarEditar editar) 
         {
+            _gAgregar = agregar;
+            _gEditar= editar;
             _itemAgregarEditar = null;
             _lst = new List<data>();
         }
@@ -51,6 +55,20 @@ namespace ModInventario.MaestrosInv.Departamento
                 _lst.Add(new data(rg.auto, rg.codigo, rg.nombre));
             }
             return true;
+        }
+
+        public void AgregarItem()
+        {
+            _gAgregar.Inicializa();
+            _gAgregar.Inicia();
+        }
+
+        public void EditarItem(string id)
+        {
+        }
+
+        public void EliminarItem(string id)
+        {
         }
 
     }

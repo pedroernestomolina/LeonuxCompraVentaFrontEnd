@@ -20,6 +20,9 @@ namespace ModInventario.MaestrosInv
 
         void Inicializa();
         bool CargarData();
+        void AgregarItem();
+        void EditarItem(string id);
+        void EliminarItem(string id);
 
     }
 

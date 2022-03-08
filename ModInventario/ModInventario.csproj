@@ -281,6 +281,12 @@
     <Compile Include="MaestrosInv\Concepto\Gestion.cs" />
     <Compile Include="MaestrosInv\Concepto\IAgregarEditar.cs" />
     <Compile Include="MaestrosInv\data.cs" />
+    <Compile Include="MaestrosInv\Departamento\AgregarEditarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaestrosInv\Departamento\AgregarEditarFrm.Designer.cs">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaestrosInv\Departamento\Agregar\Gestion.cs" />
     <Compile Include="MaestrosInv\Departamento\Editar\Gestion.cs" />
     <Compile Include="MaestrosInv\Departamento\Gestion.cs" />
@@ -839,6 +845,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kardex\Movimiento\KardexFrm.resx">
       <DependentUpon>KardexFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaestrosInv\Departamento\AgregarEditarFrm.resx">
+      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaestrosInv\MaestroFrm.resx">
       <DependentUpon>MaestroFrm.cs</DependentUpon>

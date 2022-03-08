@@ -21,6 +21,7 @@ D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\bin\Debug\IPosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\bin\Debug\ProvSqLitePosOffLine.pdb
 D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\bin\Debug\System.Data.SQLite.xml
 D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\bin\Debug\LibEntitySqLitePosOffLine.pdb
+D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\obj\Debug\MonitorPos.csprojResolveAssemblyReference.cache
 D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\obj\Debug\MonitorPos.Properties.Resources.resources
 D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\obj\Debug\MonitorPos.Src.Principal.PrincipalFrm.resources
 D:\Proyectos FoxSystem\CompraVentaFront\MonitorPos\obj\Debug\MonitorPos.csproj.GenerateResource.Cache

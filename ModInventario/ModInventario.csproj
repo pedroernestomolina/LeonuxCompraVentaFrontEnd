@@ -258,7 +258,6 @@
     </Compile>
     <Compile Include="IGestion.cs" />
     <Compile Include="IGestionRep.cs" />
-    <Compile Include="ISeguridadAccesoSistema.cs" />
     <Compile Include="Kardex\Detalle\data.cs" />
     <Compile Include="Kardex\Detalle\DetalleFrm.cs">
       <SubType>Form</SubType>
@@ -275,48 +274,6 @@
     </Compile>
     <Compile Include="Kardex\Movimiento\KardexFrm.Designer.cs">
       <DependentUpon>KardexFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MaestrosInv\Concepto\AgregarEditarFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaestrosInv\Concepto\AgregarEditarFrm.Designer.cs">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MaestrosInv\Concepto\Agregar\Gestion.cs" />
-    <Compile Include="MaestrosInv\Concepto\Editar\Gestion.cs" />
-    <Compile Include="MaestrosInv\Concepto\Gestion.cs" />
-    <Compile Include="MaestrosInv\Concepto\IAgregarEditar.cs" />
-    <Compile Include="MaestrosInv\data.cs" />
-    <Compile Include="MaestrosInv\Departamento\AgregarEditarFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaestrosInv\Departamento\AgregarEditarFrm.Designer.cs">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MaestrosInv\Departamento\Agregar\Gestion.cs" />
-    <Compile Include="MaestrosInv\Departamento\Editar\Gestion.cs" />
-    <Compile Include="MaestrosInv\Departamento\Gestion.cs" />
-    <Compile Include="MaestrosInv\Departamento\IAgregarEditar.cs" />
-    <Compile Include="MaestrosInv\Gestion.cs" />
-    <Compile Include="MaestrosInv\Grupo\AgregarEditarFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaestrosInv\Grupo\AgregarEditarFrm.Designer.cs">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MaestrosInv\Grupo\Agregar\Gestion.cs" />
-    <Compile Include="MaestrosInv\Grupo\Editar\Gestion.cs" />
-    <Compile Include="MaestrosInv\Grupo\Gestion.cs" />
-    <Compile Include="MaestrosInv\Grupo\IAgregarEditar.cs" />
-    <Compile Include="MaestrosInv\ILista.cs" />
-    <Compile Include="MaestrosInv\IMaestro.cs" />
-    <Compile Include="MaestrosInv\IMaestroTipo.cs" />
-    <Compile Include="MaestrosInv\Lista.cs" />
-    <Compile Include="MaestrosInv\MaestroInvFrm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MaestrosInv\MaestroInvFrm.Designer.cs">
-      <DependentUpon>MaestroInvFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Maestros\Concepto\AgregarEditar.cs" />
     <Compile Include="Maestros\Concepto\AgregarEditarFrm.cs">
@@ -857,18 +814,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Kardex\Movimiento\KardexFrm.resx">
       <DependentUpon>KardexFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosInv\Concepto\AgregarEditarFrm.resx">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosInv\Departamento\AgregarEditarFrm.resx">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosInv\Grupo\AgregarEditarFrm.resx">
-      <DependentUpon>AgregarEditarFrm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MaestrosInv\MaestroInvFrm.resx">
-      <DependentUpon>MaestroInvFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\Concepto\AgregarEditarFrm.resx">
       <DependentUpon>AgregarEditarFrm.cs</DependentUpon>

@@ -13,8 +13,8 @@ namespace ModInventario.MaestrosInv.Departamento.Agregar
 
         public bool ProcesarIsOk { get { throw new NotImplementedException(); } }
         public bool AbandonarIsOk { get { throw new NotImplementedException(); } }
-        public string Codigo { get { throw new NotImplementedException(); } }
-        public string Nombre { get { throw new NotImplementedException(); } }
+        public string Codigo { get { return ""; } }
+        public string Nombre { get { return ""; } }
 
 
         public Gestion() 
@@ -26,8 +26,23 @@ namespace ModInventario.MaestrosInv.Departamento.Agregar
         {
         }
 
+        AgregarEditarFrm frm;
         public void Inicia()
         {
+            if (CargarData()) 
+            {
+                if (frm == null) 
+                {
+                    frm = new AgregarEditarFrm();
+                    frm.setControlador(this);
+                }
+                frm.ShowDialog();
+            }
+        }
+
+        private bool CargarData()
+        {
+            return true;
         }
 
 
